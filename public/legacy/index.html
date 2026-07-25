@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1">
+<meta name="theme-color" content="#0a0d12">
+<title>ElectricExam - villanyszerelő vizsgaszimulátor</title>
+<meta name="description" content="Interaktív szerelőtábla a komplex szakmai vizsga A/B/C/D gyakorlati feladataihoz. Kábelezd be, kapcsold be, nézd meg, hogy működik.">
+<link rel="stylesheet" href="css/app.css?v=7">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23151b24'/><path d='M18 4 9 18h6l-1 10 9-14h-6z' fill='%23ffbe4d'/></svg>">
+</head>
+<body>
+<div id="app">
+
+  <header>
+    <div class="brand">ElectricExam <span>1008 · gyakorlat</span></div>
+    <div class="tabs" id="tabs" role="tablist" aria-label="Feladat"></div>
+    <div class="task-name"><b id="tTitle"></b><i id="tSub"></i></div>
+    <div class="status" id="status"><span class="led"></span><span class="txt">feszültségmentes</span></div>
+    <button class="icon" id="bFull" title="Teljes képernyő" aria-label="Teljes képernyő">⛶</button>
+  </header>
+
+  <div class="stage" id="stage">
+    <div class="viewport" id="viewport">
+      <div class="board" id="board">
+        <div class="layer l-plate"><div class="plate-mark" id="plateMark">A</div></div>
+        <svg class="layer l-main" id="svg" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="gFace" x1="0" y1="0" x2="0.4" y2="1">
+              <stop offset="0" stop-color="#f3f1ec"/><stop offset="1" stop-color="#d6d3ca"/>
+            </linearGradient>
+            <linearGradient id="gDark" x1="0" y1="0" x2="0.4" y2="1">
+              <stop offset="0" stop-color="#333b46"/><stop offset="1" stop-color="#1d232b"/>
+            </linearGradient>
+            <linearGradient id="gKey" x1="0" y1="0" x2="0.3" y2="1">
+              <stop offset="0" stop-color="#e9e7e1"/><stop offset="1" stop-color="#cfccc3"/>
+            </linearGradient>
+            <radialGradient id="gMotor">
+              <stop offset="0" stop-color="#eceae4"/><stop offset="1" stop-color="#c4c1b8"/>
+            </radialGradient>
+            <radialGradient id="gGlow">
+              <stop offset="0" stop-color="#ffd77a" stop-opacity="0.85"/>
+              <stop offset="1" stop-color="#ffb43c" stop-opacity="0"/>
+            </radialGradient>
+            <radialGradient id="gGlowR">
+              <stop offset="0" stop-color="#ff6a5a" stop-opacity="0.8"/>
+              <stop offset="1" stop-color="#ff4433" stop-opacity="0"/>
+            </radialGradient>
+            <radialGradient id="gGlowG">
+              <stop offset="0" stop-color="#6ff0a4" stop-opacity="0.8"/>
+              <stop offset="1" stop-color="#22c55e" stop-opacity="0"/>
+            </radialGradient>
+            <filter id="fGlow" x="-120%" y="-120%" width="340%" height="340%">
+              <feGaussianBlur stdDeviation="3.2" result="b"/>
+              <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+            <filter id="fSel" x="-60%" y="-60%" width="220%" height="220%">
+              <feDropShadow dx="0" dy="0" stdDeviation="5" flood-color="#ffffff" flood-opacity="0.8"/>
+            </filter>
+            <filter id="fSoft" x="-40%" y="-40%" width="180%" height="180%">
+              <feGaussianBlur stdDeviation="7"/>
+            </filter>
+          </defs>
+          <g id="gCableShadow"></g>
+          <g id="gParts"></g>
+          <g id="gCables"></g>
+          <g id="gTerms"></g>
+          <g id="gGhost"></g>
+        </svg>
+        <div class="layer l-gloss"></div>
+      </div>
+    </div>
+
+    <div class="hint" id="hint"></div>
+    <div class="zoomers">
+      <button id="zIn" title="Nagyítás" aria-label="Nagyítás">+</button>
+      <button id="zOut" title="Kicsinyítés" aria-label="Kicsinyítés">−</button>
+      <button id="zFit" title="Teljes tábla" aria-label="Teljes tábla">⤢</button>
+    </div>
+
+    <div class="sheet" id="sheet" hidden>
+      <button class="close" id="sheetClose" aria-label="Bezár">×</button>
+      <div id="sheetBody"></div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+  </div>
+
+  <div class="dock">
+    <div class="dock-row">
+      <div class="modes" role="group" aria-label="Üzemmód">
+        <button id="mWire" aria-pressed="true">Szerelés</button>
+        <button id="mRun" aria-pressed="false">Üzem</button>
+      </div>
+      <button class="btn primary" id="bPower">Feszültség be <span class="k">P</span></button>
+      <span class="spacer"></span>
+    </div>
+    <div class="dock-row">
+      <div class="swatches" id="swatches"></div>
+      <button class="btn" id="bTask">Feladat</button>
+      <button class="btn" id="bSheet">Rajz</button>
+      <button class="btn" id="bParts">Alkatrész</button>
+      <button class="btn" id="bCheck">Ellenőrzés</button>
+      <button class="btn" id="bSolve">Megoldás</button>
+      <button class="btn danger" id="bReset">Újra</button>
+    </div>
+  </div>
+
+</div>
+
+<script src="js/engine.js?v=7"></script>
+<script src="js/parts.js?v=7"></script>
+<script src="js/tasks.js?v=7"></script>
+<script src="js/app.js?v=7"></script>
+</body>
+</html>

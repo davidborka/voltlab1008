@@ -1,0 +1,355 @@
+/* A szerelőtábla SVG stílusai. A tábla fizikai tárgy: mindkét témában sötét
+   grafit lap marad, meleg törtfehér bakelit készülékekkel - világos témában úgy
+   hat, mintha a tábla fényképe lenne a lapon. */
+
+.board-scope {
+  --face-side: #9a978e;
+  --dark-side: #12161c;
+  --engrave: #454b55;
+  --brass: #c9a54a;
+  --brass-dim: #6d5c2c;
+  --w-br: #a86a3d;
+  --w-bl: #3f82db;
+  --w-gy: #5fb356;
+  --w-gy2: #e0cf46;
+  --w-bk: #545c68;
+  --w-gr: #9aa5b2;
+  --live: #ffbe4d;
+  --fault: #ff5468;
+  --ok: #47d18b;
+  --mono: ui-monospace, 'SFMono-Regular', 'Cascadia Mono', Consolas, monospace;
+  --ui: 'Inter var', ui-sans-serif, system-ui, sans-serif;
+  --ink-faint: #5b6878;
+}
+
+.board-scope /* ---------- alkatrészek ---------- */
+.part { cursor: grab; }
+.board-scope .part.dragging { cursor: grabbing; }
+.board-scope .side { fill: var(--face-side); }
+.board-scope .side.side-dark { fill: var(--dark-side); }
+.board-scope .shadow { fill: rgba(0, 0, 0, 0.5); filter: url(#fSoft); }
+.board-scope .face { fill: url(#gFace); }
+.board-scope .face-dark { fill: url(#gDark); }
+.board-scope .face-rail { fill: url(#gDark); }
+.board-scope .bevel {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.55);
+  stroke-width: 1.2;
+}
+.board-scope .face-dark + .bevel,
+.board-scope .face-rail + .bevel { stroke: rgba(255, 255, 255, 0.12); }
+.board-scope .din { fill: #b9b6ad; opacity: 0.5; }
+.board-scope text { user-select: none; }
+.board-scope .ptitle {
+  font-family: var(--mono);
+  font-size: 19px;
+  font-weight: 700;
+  fill: var(--engrave);
+  letter-spacing: 0.02em;
+}
+.board-scope .ptitle.sm { font-size: 15px; text-anchor: middle; }
+.board-scope .face-dark ~ .ptitle,
+.board-scope .face-rail ~ .ptitle { fill: #cbd6e4; }
+.board-scope .pmeta {
+  font-family: var(--mono);
+  font-size: 11px;
+  fill: #8b8f97;
+  letter-spacing: 0.03em;
+}
+.board-scope .pmeta.sm { font-size: 10px; text-anchor: middle; }
+.board-scope .face-dark ~ .pmeta { fill: #7e8b9c; }
+.board-scope .ptag {
+  font-family: var(--mono);
+  font-size: 15px;
+  font-weight: 700;
+  fill: var(--engrave);
+  text-anchor: middle;
+}
+.board-scope .ptag.sm { font-size: 12px; }
+.board-scope .pname {
+  font-family: var(--ui);
+  font-size: 13px;
+  fill: var(--ink-faint);
+  text-anchor: middle;
+  letter-spacing: 0.01em;
+}
+.board-scope .klabel {
+  font-family: var(--mono);
+  font-size: 12px;
+  fill: #8e8b83;
+  text-anchor: middle;
+}
+.board-scope .wavy { fill: none; stroke: #6f7d8f; stroke-width: 3; stroke-linecap: round; }
+.board-scope .lever { fill: #cfcdc6; stroke: #8d8a82; stroke-width: 1; }
+.board-scope .lever.lv-on { fill: #d94f3d; }
+.board-scope .lever.lv-off { fill: #c9c6be; }
+.board-scope .lvtxt {
+  font-family: var(--mono);
+  font-size: 15px;
+  font-weight: 700;
+  fill: #fff;
+  text-anchor: middle;
+}
+.board-scope .trip { fill: var(--fault); }
+.board-scope .triptxt {
+  font-family: var(--mono);
+  font-size: 15px;
+  font-weight: 800;
+  fill: #fff;
+  text-anchor: middle;
+}
+.board-scope .keystone { fill: url(#gKey); stroke: rgba(0, 0, 0, 0.14); stroke-width: 1; }
+.board-scope .keystone.dark { fill: #171d25; stroke: #0d1116; }
+.board-scope .rocker { fill: #f4f3ef; stroke: #a5a29a; stroke-width: 1.2; }
+.board-scope .rocker.rk-on { fill: #f7f6f2; }
+.board-scope .rkline { stroke: #b6b3ab; stroke-width: 3; stroke-linecap: round; }
+.board-scope .pivot { fill: none; stroke: var(--engrave); stroke-width: 2.4; stroke-linecap: round; }
+.board-scope .btnring { fill: #cbc8c0; }
+.board-scope .btncap { stroke: rgba(0, 0, 0, 0.25); stroke-width: 1.2; transition: none; }
+.board-scope .bc-red { fill: #d8402f; }
+.board-scope .bc-green { fill: #2f9e52; }
+.board-scope .btncap.pressed { filter: brightness(0.78); }
+.board-scope .lampbase { fill: #cbc8c0; }
+.board-scope .lampbulb { fill: #e9e6dd; stroke: #b0ada4; stroke-width: 1.5; }
+.board-scope .lampbulb.lit { fill: #ffdf8e; stroke: #ffbe4d; }
+.board-scope .lampx { stroke: var(--engrave); stroke-width: 2.2; stroke-linecap: round; }
+.board-scope .lampglow { fill: url(#gGlow); transition: opacity 0.18s; }
+.board-scope .pilotcap { fill: #7b8790; stroke: rgba(0, 0, 0, 0.3); }
+.board-scope .pc-red.lit { fill: #ff5a49; }
+.board-scope .pc-green.lit { fill: #4ade80; }
+.board-scope .pilotglow { transition: opacity 0.18s; }
+.board-scope .pg-red { fill: url(#gGlowR); }
+.board-scope .pg-green { fill: url(#gGlowG); }
+.board-scope .sockbody { fill: #e3e0d8; stroke: #b3b0a7; stroke-width: 1.5; }
+.board-scope .sockhole { fill: #3d4148; }
+.board-scope .sockpe { fill: #b6b3aa; }
+.board-scope .plug { fill: #3a4049; stroke: #22262c; }
+.board-scope .plug.lit { fill: #4b525c; }
+.board-scope .plugcord { stroke: #3a4049; stroke-width: 7; stroke-linecap: round; }
+.board-scope .klemma { fill: #d8d5cc; stroke: #b0ada4; stroke-width: 1; }
+.board-scope .railstrip { fill: #39424f; stroke: #232a33; }
+.board-scope .railstrip.rail-N,
+.board-scope .face-rail.rail-N { fill: #2a3d55; }
+.board-scope .auxtag { fill: #c3c0b8; stroke: #a09d95; stroke-width: 1; }
+.board-scope .auxtag.aux-no { fill: #bcd6c2; }
+.board-scope .auxtag.aux-nc { fill: #e3c9c6; }
+.board-scope .auxtxt {
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 700;
+  fill: #3a4048;
+  text-anchor: middle;
+}
+.board-scope .auxsym { stroke: #6f7681; stroke-width: 2.6; stroke-linecap: round; fill: none; }
+.board-scope .auxsym.closed { stroke: var(--engrave); }
+.board-scope .armature { fill: #cfcdc6; stroke: #9c998f; }
+.board-scope .armature.pulled { fill: #b9b6ae; }
+.board-scope .coil { fill: none; stroke: var(--engrave); stroke-width: 2.6; }
+.board-scope .coilled { fill: var(--live); filter: url(#fGlow); }
+.board-scope .knobbg { fill: #d5d2ca; stroke: #aeaba2; }
+.board-scope .knob { fill: #2f343b; }
+.board-scope .knob.knob-red { fill: #d0402f; }
+.board-scope .meterwin { fill: #22262c; stroke: #14181d; stroke-width: 2; }
+.board-scope .meterdigits {
+  font-family: var(--mono);
+  font-size: 30px;
+  font-weight: 700;
+  fill: #e6e2d6;
+  text-anchor: middle;
+  letter-spacing: 0.06em;
+}
+.board-scope .phled { fill: #6c757f; stroke: rgba(0, 0, 0, 0.3); }
+.board-scope .phled.lit { fill: var(--live); filter: url(#fGlow); }
+.board-scope .phled.nled.lit { fill: var(--w-bl); }
+.board-scope .vfdslash { stroke: #6a7a8d; stroke-width: 2.5; }
+.board-scope .vfdtxt {
+  font-family: var(--mono);
+  font-size: 26px;
+  font-weight: 700;
+  fill: #b7c6d8;
+  text-anchor: middle;
+}
+.board-scope .motorbody { fill: url(#gMotor); stroke: #a9a69d; stroke-width: 2; }
+.board-scope .rotorring { fill: none; stroke: #b6b3aa; stroke-width: 2; }
+.board-scope .rotorbar { stroke: #b6b3aa; stroke-width: 2; }
+.board-scope .motortxt {
+  font-family: var(--mono);
+  font-size: 20px;
+  font-weight: 700;
+  fill: var(--engrave);
+  text-anchor: middle;
+}
+.board-scope .spin-fwd { animation: spin 1.1s linear infinite; }
+.board-scope .spin-rev { animation: spin 1.1s linear infinite reverse; }
+@keyframes spin { to { transform: rotate(360deg); }
+}
+.board-scope .dialbg { fill: none; stroke: #c6c3bb; stroke-width: 6; }
+.board-scope .dial {
+  fill: none;
+  stroke: var(--live);
+  stroke-width: 6;
+  stroke-linecap: round;
+  transform: rotate(-90deg);
+  transform-origin: 80px 106px;
+}
+.board-scope .dial.dial-held { stroke: var(--live); stroke-dasharray: none; opacity: 0.85; }
+.board-scope .dialtxt {
+  font-family: var(--mono);
+  font-size: 15px;
+  font-weight: 700;
+  fill: var(--engrave);
+  text-anchor: middle;
+}
+.board-scope /* ---------- sorkapcsok ---------- */
+.tscrew { fill: #2c3037; stroke: var(--brass-dim); stroke-width: 2; }
+.board-scope .tslot { stroke: var(--brass); stroke-width: 1.6; stroke-linecap: round; }
+.board-scope .tlabel {
+  font-family: var(--mono);
+  font-size: 10px;
+  fill: #7d8794;
+  text-anchor: middle;
+}
+.board-scope .term.hot .tscrew { stroke: var(--live); filter: url(#fGlow); }
+.board-scope .term.neutral .tscrew { stroke: var(--w-bl); }
+.board-scope .term.armed .tscrew { stroke: #fff; stroke-width: 3; }
+.board-scope .term.snap .tscrew { stroke: var(--ok); stroke-width: 4; filter: url(#fGlow); }
+.board-scope /* mágneses tapadás húzás közben */
+.snapring {
+  fill: none;
+  stroke: var(--ok);
+  stroke-width: 3;
+  stroke-dasharray: 5 6;
+  animation: snapspin 2.4s linear infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+@keyframes snapspin { to { transform: rotate(360deg); }
+}
+.board-scope .snaplabelbg { fill: rgba(10, 14, 20, 0.92); stroke: var(--ok); stroke-width: 1.5; }
+.board-scope .snaplabel {
+  font-family: var(--mono);
+  font-size: 15px;
+  font-weight: 700;
+  fill: var(--ok);
+  text-anchor: middle;
+}
+.board-scope .cable.ghost.locked { stroke-dasharray: none; opacity: 1; }
+.board-scope .term.short .tscrew { stroke: var(--fault); filter: url(#fGlow); }
+.board-scope .hit { fill: transparent; cursor: crosshair; }
+.board-scope .term:hover .tscrew { stroke-width: 3.2; }
+.board-scope /* ---------- kábelek ---------- */
+.cable {
+  fill: none;
+  stroke-width: 5.4;
+  stroke-linecap: round;
+  cursor: pointer;
+}
+.board-scope .cshadow {
+  fill: none;
+  stroke: rgba(0, 0, 0, 0.55);
+  stroke-width: 7;
+  stroke-linecap: round;
+  pointer-events: none;
+}
+.board-scope .c-br { stroke: var(--w-br); }
+.board-scope .c-bl { stroke: var(--w-bl); }
+.board-scope .c-gy { stroke: var(--w-gy); }
+.board-scope .c-bk { stroke: var(--w-bk); }
+.board-scope .c-gr { stroke: var(--w-gr); }
+.board-scope .cstripe { fill: none; stroke: var(--w-gy2); stroke-width: 2.4; stroke-dasharray: 8 10; pointer-events: none; }
+.board-scope .chi { fill: none; stroke: rgba(255, 255, 255, 0.3); stroke-width: 1.5; stroke-linecap: round; pointer-events: none; }
+.board-scope .cflow {
+  fill: none;
+  stroke: var(--live);
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-dasharray: 10 22;
+  pointer-events: none;
+  filter: url(#fGlow);
+  animation: flow 0.9s linear infinite;
+}
+@keyframes flow { to { stroke-dashoffset: -32; }
+}
+.board-scope .cfault { stroke: var(--fault) !important; animation: blink 0.35s steps(2) infinite; }
+@keyframes blink { 50% { opacity: 0.25; }
+}
+.board-scope .cable.sel { stroke-width: 7.5; filter: url(#fSel); }
+.board-scope .ghost { stroke-dasharray: 12 10; opacity: 0.85; }
+.board-scope .chandle { fill: rgba(255, 255, 255, 0.85); stroke: #0d1116; stroke-width: 1.5; cursor: move; }
+.board-scope .cdel { cursor: pointer; pointer-events: auto; }
+.board-scope .cdelbg { fill: var(--fault); stroke: #2a0d12; stroke-width: 2; }
+.board-scope .cdelx { stroke: #fff; stroke-width: 3.4; stroke-linecap: round; pointer-events: none; }
+.board-scope .cdel:hover .cdelbg { fill: #ff7686; }
+/* ---------------------------------------------------- tábla rétegei */
+.ee-stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  touch-action: none;
+  cursor: grab;
+  background: radial-gradient(120% 90% at 50% 0%, #1a2130 0%, #0a0d12 70%);
+  border-radius: var(--r-lg);
+}
+.ee-stage[data-mode='run'] { cursor: pointer; }
+.ee-viewport { position: absolute; top: 0; left: 0; transform-origin: 0 0; will-change: transform; }
+.ee-board {
+  position: relative;
+  transform-origin: 50% 50%;
+  transform-style: preserve-3d;
+  transition: transform var(--motion-slow) var(--ease);
+}
+.ee-board.free { transition: none; }
+.ee-layer { position: absolute; inset: 0; pointer-events: none; }
+
+.ee-plate {
+  transform: translateZ(-34px);
+  border-radius: 22px;
+  background:
+    radial-gradient(circle at 1px 1px, #0c1017 1.6px, transparent 1.8px) 0 0 / 26px 26px,
+    linear-gradient(150deg, #1d2531, #151b24 55%, #10151d);
+  box-shadow:
+    0 60px 120px rgba(0, 0, 0, 0.65),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    inset 0 0 0 1px rgba(120, 150, 190, 0.09);
+}
+.ee-plate::after {
+  content: '';
+  position: absolute;
+  inset: 14px;
+  border-radius: 14px;
+  border: 1px dashed rgba(140, 170, 205, 0.13);
+}
+.ee-plate::before {
+  content: attr(data-mark);
+  position: absolute;
+  right: 3%;
+  bottom: 1%;
+  font-family: var(--mono);
+  font-weight: 800;
+  font-size: 320px;
+  line-height: 0.8;
+  color: rgba(160, 195, 235, 0.045);
+}
+.ee-gloss {
+  transform: translateZ(80px);
+  border-radius: 22px;
+  background: radial-gradient(60% 45% at 22% 6%, rgba(190, 220, 255, 0.1), transparent 70%);
+  mix-blend-mode: screen;
+}
+svg.ee-main { transform: translateZ(0); pointer-events: none; overflow: visible; }
+svg.ee-main .hit,
+svg.ee-main .ee-part,
+svg.ee-main .cable,
+svg.ee-main .cdel,
+svg.ee-main .chandle { pointer-events: auto; }
+
+.ee-part { cursor: grab; }
+.ee-part.dragging { cursor: grabbing; }
+.ee-stage[data-mode='run'] .ee-part { cursor: pointer; }
+
+/* kiemelés vezetett módban */
+.ee-part.is-highlight .face,
+.ee-part.is-highlight .face-dark { filter: url(#fSel); }
+.term.is-highlight .tscrew { stroke: rgb(45 212 231); stroke-width: 4; filter: url(#fGlow); }
+.ee-stage.dimmed .ee-part:not(.is-highlight) { opacity: 0.38; transition: opacity var(--motion) var(--ease); }
