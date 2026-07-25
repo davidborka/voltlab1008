@@ -87,6 +87,9 @@ export interface PartDef {
   protect?: { poles: string[] };
   /** Nyomva tartható (nyomógomb). */
   hold?: boolean;
+  /** Minden kapcsa tartósan egy csomópont (sorkapocs sín). Az ellenőrzés így
+   *  nem várja el, hogy pont ugyanarra a csavarra köss, mint a referencia. */
+  equipotential?: boolean;
   init?(): PartState;
   links?(st: PartState, p: PartInstance, ctx: SolveCtx): Array<[string, string]>;
   sources?(st: PartState, p: PartInstance, ctx: SolveCtx): Array<[string, Rail]>;

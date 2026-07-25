@@ -446,6 +446,35 @@ describe('bekötés-ellenőrzés', () => {
     expect(r.findings.some((f) => f.messageHu.includes('védővezetőt'))).toBe(true);
   });
 
+  it('a sorkapocs sín bármelyik csavarját elfogadja', () => {
+    const t = TASKS.A;
+    /* ugyanaz a bekötés, csak más csavarokon a nulla- és a PE-sínen */
+    const swap = (k: string) =>
+      k === 'NB.b1' ? 'NB.b6' : k === 'NB.b2' ? 'NB.b5' : k === 'PB.b1' ? 'PB.b4' : k;
+    const w = t.solution.map((s, i) => ({ id: 'w' + i, a: swap(s[0]), b: swap(s[1]), color: s[2] })) as Wire[];
+    const r = checkWiring(t, w);
+    expect({ missing: r.missing.length, extra: r.extra.length }).toEqual({ missing: 0, extra: 0 });
+    expect(r.ok).toBe(true);
+  });
+
+  it('a sínen belüli áthidalás nem hiba', () => {
+    const t = TASKS.A;
+    const w = t.solution.map((s, i) => ({ id: 'w' + i, a: s[0], b: s[1], color: s[2] })) as Wire[];
+    w.push({ id: 'br', a: 'NB.b5', b: 'NB.b6', color: 'bl' });
+    const r = checkWiring(t, w);
+    expect(r.extra.length).toBe(0);
+  });
+
+  it('a sín cseréje viszont továbbra is hiba', () => {
+    const t = TASKS.A;
+    /* nulla helyett a PE-sínre kötött lámpa nem lehet elfogadható */
+    const w = t.solution
+      .map((s, i) => ({ id: 'w' + i, a: s[0], b: s[1], color: s[2] }))
+      .map((x) => (x.a === 'NB.b2' ? { ...x, a: 'PB.b3' } : x)) as Wire[];
+    const r = checkWiring(t, w);
+    expect(r.ok).toBe(false);
+  });
+
   it('a felfedés a következő hiányzó kötést adja', () => {
     const t = TASKS.A;
     expect(revealOne(t, [])).toEqual(t.solution[0]);

@@ -48,7 +48,11 @@ export function OverviewPanel({
         )}
       </Panel>
 
-      <Panel eyebrow="Energia és vezérlés útja" title="Bekötési sorrend">
+      <Panel eyebrow="Energia és vezérlés útja" title="Javasolt bekötési sorrend">
+        <p className="mb-3 rounded-[10px] border border-line bg-surface/60 px-3 py-2 text-[12.5px] leading-relaxed text-ink-faint">
+          Ez javaslat, nem előírás. Bármilyen sorrendben köthetsz - az ellenőrzés csak a
+          végeredményt nézi, és villamosan hasonlít, nem kábelenként.
+        </p>
         <ol className="space-y-2">
           {task.stepsHu.map((s, i) => (
             <li key={i} className="flex gap-2.5 text-[13px] leading-relaxed">

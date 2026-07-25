@@ -469,6 +469,7 @@ const PARTS = RAW as unknown as Record<string, PartDef>;
   /* --- sorkapocs sin ---------------------------------------------------- */
   RAW.busbar = {
     name: 'Sorkapocs sín',
+    equipotential: true,
     w: 360,
     h: 76,
     terms: function (p: PartInstance): Terminal[] {

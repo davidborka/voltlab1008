@@ -40,6 +40,21 @@ export function checkWiring(task: TaskDef, wires: Wire[]): CheckResult {
   const got = new DSU();
   const known = new Set<string>();
 
+  /* Egy sorkapocs sín minden csavarja ugyanaz a csomópont. Ha ezt nem vesszük
+     figyelembe, a validátor azt kéri, hogy pont ugyanarra a csavarra köss, mint
+     a referencia - ami villamosan értelmetlen elvárás. Ugyanezért a sín összes
+     kapcsa ismertnek számít, nem csak az, amelyik a megoldásban szerepel. */
+  for (const p of task.parts) {
+    if (!PARTS[p.type]?.equipotential) continue;
+    const terms = termsOf({ ...p, st: {} } as PartInstance);
+    for (const t of terms) {
+      const key = `${p.id}.${t.id}`;
+      known.add(key);
+      want.union(`${p.id}.${terms[0].id}`, key);
+      got.union(`${p.id}.${terms[0].id}`, key);
+    }
+  }
+
   for (const [a, b] of task.solution) {
     want.union(a, b);
     known.add(a);

@@ -202,8 +202,9 @@ export function WiringPanel({
       </Panel>
 
       <div className={cx('rounded-[10px] border border-line px-3 py-2.5 text-[11.5px] leading-relaxed text-ink-faint')}>
-        Az ellenőrzés villamosan hasonlít: nem kábelenként, hanem csomópontonként. Ha más útvonalon
-        vezetted, de ugyanabba a csomópontba, akkor is jó.
+        Az ellenőrzés villamosan hasonlít: nem kábelenként, hanem csomópontonként. A bekötés
+        sorrendje nem számít, és a sorkapocs sínen mindegy, melyik csavart használod. Ha más
+        útvonalon vezetted, de ugyanabba a csomópontba, akkor is jó.
       </div>
     </div>
   );
