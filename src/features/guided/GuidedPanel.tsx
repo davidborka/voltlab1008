@@ -64,6 +64,12 @@ export function GuidedPanel({
         }
       >
         <p className="text-[13.5px] leading-relaxed text-ink-dim">{step.goalHu}</p>
+        {i === 0 && (
+          <p className="mt-2 rounded-[10px] border border-line bg-surface/60 px-3 py-2 text-[12px] leading-relaxed text-ink-faint">
+            A lépések sorrendje javaslat. Ugorhatsz közöttük, és a táblán bármilyen sorrendben
+            köthetsz - az ellenőrzés csak a végeredményt nézi.
+          </p>
+        )}
 
         <div className="mt-3 flex flex-wrap gap-1.5">
           <Button size="sm" icon={Crosshair} onClick={() => onFocus(step.focus, true)}>

@@ -127,10 +127,28 @@ export function WiringPanel({
           right={<Tag tone={result.ok ? 'good' : result.score > 60 ? 'amber' : 'bad'}>{result.score}%</Tag>}
         >
           {result.ok ? (
-            <p className="text-[13px] leading-relaxed text-good">
-              Minden csomópont a helyén van. A tábla működésre kész - válts Áttekintés módba, kapcsold
-              be a feszültséget, és próbáld ki.
-            </p>
+            <>
+              <p className="text-[13px] leading-relaxed text-good">
+                Minden csomópont a helyén van. A tábla működésre kész - válts Áttekintés módba,
+                kapcsold be a feszültséget, és próbáld ki.
+              </p>
+              {result.findings.some((f) => f.severity === 'info') && (
+                <ul className="mt-3 space-y-2">
+                  {result.findings
+                    .filter((f) => f.severity === 'info')
+                    .slice(0, 6)
+                    .map((f, i) => (
+                      <li key={i} className="rounded-[10px] border border-line bg-surface/60 p-2.5">
+                        <div className="mb-1 flex flex-wrap items-center gap-2">
+                          <SeverityMark severity="info" />
+                          <span className="text-[12.5px] font-semibold">{f.messageHu}</span>
+                        </div>
+                        <p className="text-[12.5px] leading-relaxed text-ink-dim">{f.explanationHu}</p>
+                      </li>
+                    ))}
+                </ul>
+              )}
+            </>
           ) : (
             <ul className="space-y-2">
               {result.findings.slice(0, 12).map((f, i) => (

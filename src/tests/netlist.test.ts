@@ -475,6 +475,64 @@ describe('bekötés-ellenőrzés', () => {
     expect(r.ok).toBe(false);
   });
 
+  /* A bekötés sorrendje javaslat, nem előírás. Ezt nem elég állítani: minden
+     feladatra összekeverjük a huzalokat és átkötjük a síneken, és elvárjuk,
+     hogy az ellenőrzés hibátlannak lássa. */
+  it('a bekötés sorrendje sosem befolyásolja az eredményt', () => {
+    let seed = 20260725;
+    const rnd = () => ((seed = (seed * 1103515245 + 12345) & 0x7fffffff) / 0x7fffffff);
+    for (const id of TASK_ORDER) {
+      const t = TASKS[id];
+      for (let round = 0; round < 20; round++) {
+        const shuffled = [...t.solution];
+        for (let i = shuffled.length - 1; i > 0; i--) {
+          const j = Math.floor(rnd() * (i + 1));
+          [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+        }
+        const w = shuffled.map((s, i) => ({
+          /* a kapocspár sorrendje is felcserélhető */
+          id: 'w' + i,
+          a: rnd() < 0.5 ? s[0] : s[1],
+          b: rnd() < 0.5 ? s[1] : s[0],
+          color: s[2],
+        })) as Wire[];
+        /* ha a csere miatt a két vég azonos lett, állítsuk vissza */
+        w.forEach((x, i) => {
+          if (x.a === x.b) {
+            x.a = shuffled[i][0];
+            x.b = shuffled[i][1];
+          }
+        });
+        const r = checkWiring(t, w);
+        expect({ id, round, ok: r.ok }).toEqual({ id, round, ok: true });
+      }
+    }
+  });
+
+  it('a sorkapocs síneken tetszőleges csavarra köthetsz', () => {
+    let seed = 7;
+    const rnd = () => ((seed = (seed * 1103515245 + 12345) & 0x7fffffff) / 0x7fffffff);
+    for (const id of TASK_ORDER) {
+      const t = TASKS[id];
+      const bars = t.parts.filter((p) => p.type === 'busbar').map((p) => p.id);
+      if (!bars.length) continue;
+      const reroute = (k: string) => {
+        const bar = bars.find((b) => k.startsWith(b + '.'));
+        return bar ? `${bar}.b${Math.floor(rnd() * 7)}` : k;
+      };
+      for (let round = 0; round < 10; round++) {
+        const w = t.solution.map((s, i) => ({
+          id: 'w' + i,
+          a: reroute(s[0]),
+          b: reroute(s[1]),
+          color: s[2],
+        })) as Wire[];
+        const r = checkWiring(t, w);
+        expect({ id, round, ok: r.ok }).toEqual({ id, round, ok: true });
+      }
+    }
+  });
+
   it('a felfedés a következő hiányzó kötést adja', () => {
     const t = TASKS.A;
     expect(revealOne(t, [])).toEqual(t.solution[0]);

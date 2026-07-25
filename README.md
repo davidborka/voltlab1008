@@ -54,8 +54,16 @@ Az E, F és G kiegészítés, nem azokból származik - lásd [`docs/source-anal
 
 ## Bekötés-ellenőrzés
 
-Az ellenőrző **villamosan** hasonlít: nem kábelenként, hanem csomópontonként. Ha más útvonalon
-vezetted, de ugyanabba a csomópontba, akkor is elfogadja. A visszajelzés magyarázó, például:
+Az ellenőrző **villamosan** hasonlít: nem kábelenként, hanem csomópontonként.
+
+- A **bekötés sorrendje sosem számít** - ezt nem csak állítjuk, tesztek bizonyítják: minden
+  feladatra 20 összekevert sorrendet és 10 véletlen sín-átkötést ellenőrzünk.
+- A **sorkapocs sínen mindegy, melyik csavart** használod: a sín minden kapcsa egy csomópont.
+- Ha más útvonalon vezetted, de ugyanabba a csomópontba, elfogadja, és külön kiírja, hogy
+  eltérés van, de helyes.
+
+Hiba marad viszont, ami villamosan tényleg más: N-sín helyett PE-sín, védővezető
+kapcsolóérintkezőn át, N és PE összekötése, hiányzó öntartás vagy retesz. A visszajelzés magyarázó, például:
 
 - „A K-1 öntartó ága hiányzik.”
 - „A K-1 és K-2 közötti villamos reteszelés hiányzik.”
