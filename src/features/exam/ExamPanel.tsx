@@ -1,24 +1,41 @@
 /** Vizsgamód: nincs látható megoldás, opcionális időzítő, kategóriánkénti pontozás.
  *  A részletes áttekintés csak beadás után nyílik meg. */
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState, type ReactNode } from 'react';
 import { Flag, Play, RotateCcw, Timer } from 'lucide-react';
 import { Button, Meter, Panel, SeverityMark, Tag, cx } from '../../components/ui';
-import { SCORE_LABELS, type ScoreCategory, type TaskDef } from '../../domain/electrical-types';
+import { SCORE_LABELS, type ScoreCategory, type TaskDef, type Wire } from '../../domain/electrical-types';
+import { checkWiring } from '../../domain/netlist-validation';
+import type { ProtocolScore } from '../measure/MeasurePanel';
 
-export function ExamPanel({ task, onFinish }: { task: TaskDef; onFinish(): void }) {
+export function ExamPanel({
+  task,
+  wires,
+  measure,
+  onFinish,
+}: {
+  task: TaskDef;
+  /** a vizsga egy képernyőn: a táblán kötsz, a jegyzőkönyv itt van */
+  wires: Wire[];
+  measure(locked: boolean, onScore: (s: ProtocolScore) => void): ReactNode;
+  onFinish(): void;
+}) {
   const qs = task.exam || [];
+  const [protocol, setProtocol] = useState<ProtocolScore | null>(null);
+  const [attempt, setAttempt] = useState(0);
   const [started, setStarted] = useState(false);
   const [useTimer, setUseTimer] = useState(true);
   const [left, setLeft] = useState(0);
   const [answers, setAnswers] = useState<Record<string, number>>({});
   const [submitted, setSubmitted] = useState(false);
 
-  const budget = qs.length * 60;
+  /* bekötés + mérés + kérdések: a gyakorlati vizsga ideje */
+  const budget = qs.length * 60 + 30 * 60;
 
   useEffect(() => {
     setStarted(false);
     setAnswers({});
     setSubmitted(false);
+    setProtocol(null);
   }, [task.id]);
 
   useEffect(() => {
@@ -46,6 +63,13 @@ export function ExamPanel({ task, onFinish }: { task: TaskDef; onFinish(): void 
     return { good, all: qs.length, byCat: [...byCat.entries()] };
   }, [answers, qs]);
 
+  const wiring = useMemo(() => (submitted ? checkWiring(task, wires) : null), [submitted, task, wires]);
+  const total = useMemo(() => {
+    const w = wiring ? Math.round(wiring.score / 10) : 0;
+    const p = protocol || { good: 0, all: 16 };
+    return { good: score.good + w + p.good, all: score.all + 10 + p.all };
+  }, [score, wiring, protocol]);
+
   if (!qs.length) {
     return (
       <Panel eyebrow="Vizsgamód" title="Készül">
@@ -58,9 +82,13 @@ export function ExamPanel({ task, onFinish }: { task: TaskDef; onFinish(): void 
     return (
       <Panel eyebrow="Vizsgamód" title="Segítség nélkül">
         <p className="text-[13.5px] leading-relaxed text-ink-dim">
-          {qs.length} kérdés, nincs tipp és nincs látható megoldás. A részletes áttekintés csak
-          beadás után nyílik meg. A tábla közben végig használható: nézd meg rajta, amit
-          ellenőriznél.
+          Egy képernyőn, mint a vizsgán: <strong className="text-ink">1.</strong> kösd be a
+          táblát a rajz szerint, <strong className="text-ink">2.</strong> feszültségmentesen
+          mérd a PE-folytonosságot és a szigetelést, <strong className="text-ink">3.</strong>{' '}
+          helyezd feszültség alá, próbáld ki a kapcsolókat, mérd a hurokimpedanciát és a
+          Fi-relét, <strong className="text-ink">4.</strong> töltsd ki a jegyzőkönyvet,{' '}
+          <strong className="text-ink">5.</strong> válaszolj a {qs.length} kérdésre. Nincs tipp,
+          az értékelés a beadás után nyílik meg.
         </p>
         <label className="mt-4 flex items-center gap-2 text-[13px]">
           <input
@@ -100,8 +128,8 @@ export function ExamPanel({ task, onFinish }: { task: TaskDef; onFinish(): void 
               {String(left % 60).padStart(2, '0')}
             </Tag>
           ) : submitted ? (
-            <Tag tone={score.good / score.all >= 0.7 ? 'good' : 'bad'}>
-              {score.good}/{score.all}
+            <Tag tone={total.good / total.all >= 0.7 ? 'good' : 'bad'}>
+              {Math.round((total.good / total.all) * 100)}%
             </Tag>
           ) : null
         }
@@ -109,6 +137,33 @@ export function ExamPanel({ task, onFinish }: { task: TaskDef; onFinish(): void 
         {!submitted && <Meter value={(answeredCount / qs.length) * 100} />}
         {submitted && (
           <div className="space-y-2">
+            {wiring && (
+              <div>
+                <div className="mb-1 flex items-baseline justify-between text-[12.5px]">
+                  <span className="font-semibold">Bekötés a táblán</span>
+                  <span className="mono text-ink-faint">{wiring.score}%</span>
+                </div>
+                <Meter value={wiring.score} />
+                {!wiring.ok &&
+                  wiring.findings
+                    .filter((f) => f.severity === 'error')
+                    .slice(0, 4)
+                    .map((f, i) => (
+                      <p key={i} className="mt-1 text-[11.5px] text-bad">
+                        {f.messageHu}
+                      </p>
+                    ))}
+              </div>
+            )}
+            <div>
+              <div className="mb-1 flex items-baseline justify-between text-[12.5px]">
+                <span className="font-semibold">Mérés és jegyzőkönyv</span>
+                <span className="mono text-ink-faint">
+                  {protocol ? `${protocol.good}/${protocol.all}` : '-'}
+                </span>
+              </div>
+              <Meter value={protocol ? (protocol.good / protocol.all) * 100 : 0} />
+            </div>
             {score.byCat.map(([cat, v]) => (
               <div key={cat}>
                 <div className="mb-1 flex items-baseline justify-between text-[12.5px]">
@@ -123,6 +178,8 @@ export function ExamPanel({ task, onFinish }: { task: TaskDef; onFinish(): void 
           </div>
         )}
       </Panel>
+
+      <div key={attempt}>{measure(submitted, setProtocol)}</div>
 
       <ol className="space-y-3">
         {qs.map((q, qi) => {
@@ -189,6 +246,8 @@ export function ExamPanel({ task, onFinish }: { task: TaskDef; onFinish(): void 
             setAnswers({});
             setSubmitted(false);
             setStarted(false);
+            setProtocol(null);
+            setAttempt((a) => a + 1);
           }}
         >
           Újra

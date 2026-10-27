@@ -880,6 +880,110 @@ const PARTS = RAW as unknown as Record<string, PartDef>;
   };
 
 
+  /* --- idorele (meghuzaskesleltetett) ----------------------------------- */
+  /** A csillag-delta indítás átkapcsolási ideje. */
+  export const TIMER_MS = 5000;
+  RAW.timer = {
+    name: 'Időrelé (meghúzáskésleltetett)',
+    w: 170,
+    h: 200,
+    terms: [
+      { id: 'A1', x: 40, y: 0, dir: 'n', role: 'L', t: 'A1' },
+      { id: '15', x: 130, y: 0, dir: 'n', t: '15' },
+      { id: 'A2', x: 40, y: 200, dir: 's', role: 'N', t: 'A2' },
+      { id: '16', x: 100, y: 200, dir: 's', t: '16' },
+      { id: '18', x: 145, y: 200, dir: 's', t: '18' }
+    ],
+    init: function () {
+      return { since: 0 };
+    },
+    loads: function () {
+      return [{ key: 'coil', a: 'A1', b: 'A2' }];
+    },
+    /* A tekercs feszültséget kap -> indul az idő; lejártakor a 15 a 16-ról
+       (késleltetve bontó) átvált a 18-ra (késleltetve záró). */
+    update: function (st: PartState, p: PartInstance, ctx: SolveCtx) {
+      if (!ctx.live(p.id + '.coil')) st.since = 0;
+      else if (!st.since) st.since = ctx.now;
+    },
+    links: function (st: PartState, _p: PartInstance, ctx: SolveCtx) {
+      const done = !!st.since && ctx.now - st.since >= TIMER_MS;
+      return [done ? ['15', '18'] : ['15', '16']];
+    },
+    draw: function (p: PartInstance, st: PartState, ctx: SolveCtx) {
+      const left = st.since ? Math.max(0, TIMER_MS - (ctx.now - st.since)) : TIMER_MS;
+      const done = !!st.since && left === 0;
+      const r = 26,
+        c = 2 * Math.PI * r;
+      return (
+        shell(170, 200) +
+        din(170, 200) +
+        '<text class="ptitle" x="14" y="30">' + (p.label || 'KT') + '</text>' +
+        '<text class="pmeta" x="14" y="48">időrelé · ' + TIMER_MS / 1000 + ' s</text>' +
+        '<circle class="dialbg" cx="85" cy="118" r="' + r + '"/>' +
+        (st.since && !done
+          ? '<circle class="dial" cx="85" cy="118" r="' + r + '" stroke-dasharray="' + c + '" stroke-dashoffset="' + c * (left / TIMER_MS) + '"/>'
+          : '') +
+        (done ? '<circle class="dial dial-held" cx="85" cy="118" r="' + r + '"/>' : '') +
+        '<text class="dialtxt" x="85" y="125">' + (done ? '15-18' : st.since ? Math.ceil(left / 1000) + 's' : '15-16') + '</text>' +
+        label(170, 200, done ? 'lejárt - 15-18 zárt' : st.since ? 'számol' : 'elengedett')
+      );
+    }
+  };
+
+  /* --- motor 6 kivezetessel (csillag-delta) ----------------------------- */
+  /** Csillag: U2-V2-W2 egy csomópont, feszültség nélkül. Delta: U1-W2, V1-U2,
+   *  W1-V2 azonos fázison. Minden más tekercskötés hibás. */
+  export function motor6State(p: PartInstance, ctx: SolveCtx): { dir: number; mode: 'star' | 'delta' | 'none' | 'bad' } {
+    void p;
+    const ph = ['U1', 'V1', 'W1'].map((t) => phaseOf(ctx.rails(t)));
+    if (ph.every((x) => x === null)) return { dir: 0, mode: 'none' };
+    if (ph.some((x) => x === null)) return { dir: 0, mode: 'bad' };
+    const [p1, p2, p3] = ph as string[];
+    if (p1 === p2 || p2 === p3 || p1 === p3) return { dir: 0, mode: 'bad' };
+    const even = (ORDER[p2] - ORDER[p1] + 3) % 3 === 1 && (ORDER[p3] - ORDER[p2] + 3) % 3 === 1;
+    const dir = even ? 1 : -1;
+    const end = ['U2', 'V2', 'W2'].map((t) => phaseOf(ctx.rails(t)));
+    if (end.every((x) => x === null) && ctx.same('U2', 'V2') && ctx.same('V2', 'W2')) return { dir, mode: 'star' };
+    if (end[2] === p1 && end[0] === p2 && end[1] === p3) return { dir, mode: 'delta' };
+    return { dir: 0, mode: 'bad' };
+  }
+
+  RAW.motor6 = {
+    name: 'Motor 3~ (6 kivezetés)',
+    w: 280,
+    h: 200,
+    terms: [
+      { id: 'U1', x: 30, y: 0, dir: 'n', role: 'L', t: 'U1' },
+      { id: 'V1', x: 74, y: 0, dir: 'n', role: 'L', t: 'V1' },
+      { id: 'W1', x: 118, y: 0, dir: 'n', role: 'L', t: 'W1' },
+      { id: 'U2', x: 162, y: 0, dir: 'n', role: 'L', t: 'U2' },
+      { id: 'V2', x: 206, y: 0, dir: 'n', role: 'L', t: 'V2' },
+      { id: 'W2', x: 250, y: 0, dir: 'n', role: 'L', t: 'W2' },
+      { id: 'PE', x: 280, y: 120, dir: 'e', role: 'PE', t: 'PE' }
+    ],
+    run: function (p: PartInstance, ctx: SolveCtx) {
+      return motor6State(p, ctx).dir;
+    },
+    draw: function (p: PartInstance, _st: PartState, ctx: SolveCtx) {
+      const s = motor6State(p, ctx);
+      const spin = s.mode === 'delta' ? (s.dir === 1 ? 'spin-fwd' : 'spin-rev') : s.mode === 'star' ? (s.dir === 1 ? 'spin-slow' : 'spin-slow-rev') : '';
+      return (
+        shell(280, 200) +
+        '<circle class="motorbody" cx="140" cy="110" r="62"/>' +
+        '<g class="rotor ' + spin + '" style="transform-origin:140px 110px">' +
+        '<circle class="rotorring" cx="140" cy="110" r="44"/>' +
+        '<path class="rotorbar" d="M140,70 v80 M100,110 h80"/></g>' +
+        '<text class="motortxt" x="140" y="105">3 ~</text>' +
+        '<text class="motortxt" x="140" y="131">' + (s.mode === 'star' ? 'Y' : s.mode === 'delta' ? 'Δ' : 'M') + '</text>' +
+        label(280, 200,
+          s.mode === 'star' ? 'csillagban indul (1/3 áram)' :
+          s.mode === 'delta' ? 'deltában üzemel' :
+          s.mode === 'bad' ? 'hibás tekercskötés - áll' : 'áll')
+      );
+    }
+  };
+
 /** Sorkapcsok lekérdezése - fix tömb vagy a beállítástól függő függvény. */
 export function termsOf(p: PartInstance): Terminal[] {
   const d = PARTS[p.type];

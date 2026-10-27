@@ -98,6 +98,7 @@ export function solve(board: Board, now: number): SolveResult {
       live: (k: string) => !!live[k],
       shorted: () => false,
       earth: () => false,
+      same: (a: string, b: string) => d.find(full(a)) === d.find(full(b)),
     } as SolveCtx;
 
     let grew = true;
@@ -186,6 +187,7 @@ export function solve(board: Board, now: number): SolveResult {
       live: (k) => !!live[k],
       shorted: (t) => shorts.has(dsu.find(full(t))),
       earth: () => earthFault,
+      same: (a, b) => dsu.find(full(a)) === dsu.find(full(b)),
     };
     for (const p of parts) {
       const def = PARTS[p.type];
@@ -255,6 +257,7 @@ export function solve(board: Board, now: number): SolveResult {
         live: (k) => !!fLive[k],
         shorted: (t) => fShorts.has(fDsu.find(f(t))),
         earth: () => fEarth,
+        same: (a, b) => fDsu.find(f(a)) === fDsu.find(f(b)),
       };
     },
   };

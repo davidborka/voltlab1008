@@ -181,6 +181,8 @@
 }
 .board-scope .spin-fwd { animation: spin 1.1s linear infinite; }
 .board-scope .spin-rev { animation: spin 1.1s linear infinite reverse; }
+.board-scope .spin-slow { animation: spin 3.2s linear infinite; }
+.board-scope .spin-slow-rev { animation: spin 3.2s linear infinite reverse; }
 @keyframes spin { to { transform: rotate(360deg); }
 }
 .board-scope .dialbg { fill: none; stroke: #c6c3bb; stroke-width: 6; }

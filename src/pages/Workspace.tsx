@@ -4,6 +4,7 @@ import {
   ArrowLeft,
   BookOpenCheck,
   Cable,
+  Gauge,
   GraduationCap,
   Image as ImageIcon,
   Layers,
@@ -18,16 +19,18 @@ import { GuidedPanel } from '../features/guided/GuidedPanel';
 import { WiringPanel } from '../features/wiring/WiringPanel';
 import { ExamPanel } from '../features/exam/ExamPanel';
 import { PrintSheet } from '../features/exam/PrintSheet';
+import { MeasurePanel } from '../features/measure/MeasurePanel';
 import { TASKS, TASK_ORDER } from '../data/tasks';
 import type { Board, SolveResult, Wire } from '../domain/electrical-types';
 
-export type Mode = 'attekintes' | 'vezetett' | 'bekotes' | 'vizsga';
+export type Mode = 'attekintes' | 'vezetett' | 'bekotes' | 'meres' | 'vizsga';
 
 const MODES: Array<{ id: Mode; label: string; icon: typeof Layers; hint: string }> = [
   { id: 'attekintes', label: 'Áttekintés', icon: Layers, hint: 'mit csinál a kapcsolás' },
   { id: 'vezetett', label: 'Vezetett megoldás', icon: GraduationCap, hint: 'lépésről lépésre' },
-  { id: 'bekotes', label: 'Bekötési gyakorlat', icon: Cable, hint: 'kösd be te' },
-  { id: 'vizsga', label: 'Vizsgamód', icon: BookOpenCheck, hint: 'segítség nélkül' },
+  { id: 'bekotes', label: 'Gyakorlás', icon: Cable, hint: 'köss be, és kapcsolgasd élőben' },
+  { id: 'meres', label: 'Mérés · jegyzőkönyv', icon: Gauge, hint: 'hurokimpedancia, Fi, szigetelés' },
+  { id: 'vizsga', label: 'Vizsgamód', icon: BookOpenCheck, hint: 'egy képernyőn, segítség nélkül' },
 ];
 
 /* ------------------------------------------------ huzalok visszavonással */
@@ -86,7 +89,9 @@ export function Workspace({
   const boardRef = useRef<BoardHandle>(null);
   const { toast, node: toastNode } = useToast();
 
-  const boardMode = mode === 'bekotes' ? 'wire' : 'run';
+  /* Gyakorlásban, mérésnél és vizsgán a tábla köthető ÉS élő: a kapcsolók
+     és nyomógombok bekötés közben is működnek. */
+  const boardMode = mode === 'attekintes' || mode === 'vezetett' ? 'run' : 'wire';
 
   /* feladatváltáskor tiszta lap */
   useEffect(() => {
@@ -144,7 +149,6 @@ export function Workspace({
               /* A bekötés önmagában halottnak látszik: adjunk rá feszültséget és
                  váltsunk üzemeltethető módba, hogy azonnal ki lehessen próbálni. */
               eng()?.applySolution();
-              setMode('attekintes');
               setMobileTab('rajz');
               toast('Referenciamegoldás bekötve. A tábla feszültség alatt - működtesd a kapcsolókat.');
             }}
@@ -153,10 +157,40 @@ export function Workspace({
             toast={toast}
           />
         );
+      case 'meres':
+        return (
+          <MeasurePanel
+            task={task}
+            getBoard={() => eng()?.board || null}
+            sim={sim}
+            powered={powered}
+            refresh={() => eng()?.paint()}
+            toast={toast}
+          />
+        );
       case 'vizsga':
-        return <ExamPanel task={task} onFinish={() => onComplete(task.id)} />;
+        return (
+          <ExamPanel
+            task={task}
+            wires={wires.now}
+            onFinish={() => onComplete(task.id)}
+            measure={(locked, onScore) => (
+              <MeasurePanel
+                task={task}
+                getBoard={() => eng()?.board || null}
+                sim={sim}
+                powered={powered}
+                refresh={() => eng()?.paint()}
+                exam
+                locked={locked}
+                onScore={onScore}
+                toast={toast}
+              />
+            )}
+          />
+        );
     }
-  }, [mode, task, sim, wires, focusOn, onComplete, toast]);
+  }, [mode, task, sim, powered, wires, focusOn, onComplete, toast]);
 
   const idx = TASK_ORDER.indexOf(taskId as (typeof TASK_ORDER)[number]);
 

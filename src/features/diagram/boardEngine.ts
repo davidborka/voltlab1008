@@ -16,7 +16,7 @@ import type {
   WireColor,
 } from '../../domain/electrical-types';
 import { hasPhase, solve } from '../../domain/netlist';
-import { PARTS, termsOf, widthOf } from '../../data/parts';
+import { PARTS, TIMER_MS, termsOf, widthOf } from '../../data/parts';
 
 export type BoardMode = 'wire' | 'run';
 
@@ -506,8 +506,17 @@ export class BoardEngine {
       }
       if (pEl) {
         const pp = this.byId(pEl.dataset.part!)!;
+        /* Gyakorlás közben is élő a tábla: a nyomógombot nyomva tartod, a
+           kapcsolót koppintással váltod (húzással továbbra is áthelyezhető). */
+        if (PARTS[pp.type].hold) {
+          pp.st.p = true;
+          this.paint();
+          this.drag = { kind: 'hold', part: pp };
+          capture(e);
+          return;
+        }
         const w0 = this.toWorld(e.clientX, e.clientY);
-        this.drag = { kind: 'part', part: pp, dx: w0.x - pp.x, dy: w0.y - pp.y, moved: false, el: pEl };
+        this.drag = { kind: 'part', part: pp, dx: w0.x - pp.x, dy: w0.y - pp.y, moved: false, el: pEl, sx: e.clientX, sy: e.clientY };
         pEl.classList.add('dragging');
         capture(e);
         return;
@@ -558,6 +567,8 @@ export class BoardEngine {
           this.applyView();
         }
       } else if (drag.kind === 'part') {
+        /* apró remegés még koppintás, nem áthelyezés */
+        if (!drag.moved && Math.abs(e.clientX - drag.sx!) + Math.abs(e.clientY - drag.sy!) < 6) return;
         const w1 = this.toWorld(e.clientX, e.clientY);
         drag.part!.x = Math.round((w1.x - drag.dx!) / 10) * 10;
         drag.part!.y = Math.round((w1.y - drag.dy!) / 10) * 10;
@@ -582,7 +593,14 @@ export class BoardEngine {
         drag.part!.st.p = false;
         this.paint();
       }
-      if (drag.kind === 'part') drag.el!.classList.remove('dragging');
+      if (drag.kind === 'part') {
+        drag.el!.classList.remove('dragging');
+        const tap = PARTS[drag.part!.type].tap;
+        if (!drag.moved && tap) {
+          tap(drag.part!.st);
+          this.paint();
+        }
+      }
       if (drag.kind === 'wire') {
         const to = this.snap;
         this.snap = null;
@@ -636,7 +654,12 @@ export class BoardEngine {
 
     this.applyTilt();
     this.tick = window.setInterval(() => {
-      const running = this.board.parts.some((p) => p.type === 'stair' && (p.st.until || 0) > Date.now());
+      const now = Date.now();
+      const running = this.board.parts.some(
+        (p) =>
+          (p.type === 'stair' && (p.st.until || 0) > now) ||
+          (p.type === 'timer' && !!p.st.since && now - p.st.since < TIMER_MS + 400)
+      );
       if (running || this.stairWasRunning) this.paint();
       this.stairWasRunning = running;
     }, 200);

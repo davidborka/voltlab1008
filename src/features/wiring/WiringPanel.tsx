@@ -66,14 +66,15 @@ export function WiringPanel({
   return (
     <div className="space-y-3">
       <Panel
-        eyebrow="Bekötési gyakorlat"
+        eyebrow="Gyakorlás · élő tábla"
         title="Húzd össze a kapcsokat"
         right={<Tag tone={result.ok ? 'good' : 'neutral'}>{connected}/{total} csomópont</Tag>}
       >
         <p className="text-[12.5px] leading-relaxed text-ink-dim">
           Húzd a kábelt az egyik sorkapocsról a másikra. Húzás közben a legközelebbi kapocs
           mágnesesen magához rántja a véget, zöld gyűrű mutatja, hova fog kötni. Kábelre koppintva
-          jön a törlés és a rendező fogantyú. Billentyűzettel: Tabbal a kapcsok között, Enterrel
+          jön a törlés és a rendező fogantyú. A tábla élő: feszültség alatt a kapcsolóra
+          koppintva vált, a nyomógombot nyomva tartod - köss és próbálj egyszerre. Billentyűzettel: Tabbal a kapcsok között, Enterrel
           kijelölés és összekötés.
         </p>
         <div className="mt-3">
@@ -129,8 +130,8 @@ export function WiringPanel({
           {result.ok ? (
             <>
               <p className="text-[13px] leading-relaxed text-good">
-                Minden csomópont a helyén van. A tábla működésre kész - válts Áttekintés módba,
-                kapcsold be a feszültséget, és próbáld ki.
+                Minden csomópont a helyén van. Kapcsold be a feszültséget, és próbáld ki itt
+                helyben: a kapcsolók és nyomógombok bekötés közben is működnek.
               </p>
               {result.findings.some((f) => f.severity === 'info') && (
                 <ul className="mt-3 space-y-2">

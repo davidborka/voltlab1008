@@ -41,6 +41,8 @@ export interface SolveCtx {
   live(loadKey: string): boolean;
   shorted(term: string): boolean;
   earth(): boolean;
+  /** Ugyanabban a csomópontban van-e a két kapocs (pl. a csillagpont). */
+  same(a: string, b: string): boolean;
 }
 
 export interface PartInstance {
@@ -72,6 +74,8 @@ export interface PartState {
   p?: boolean;
   plug?: boolean;
   until?: number;
+  /** Időrelé: mikor kapott feszültséget a tekercse (0 = nincs behúzva). */
+  since?: number;
 }
 
 export interface PartDef {

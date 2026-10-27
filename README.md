@@ -21,21 +21,30 @@ ellenőrzési lista - szerver, adatbázis és regisztráció nélkül.
 | **E** | Egyfázisú motorindítás | Motorvezérlés | Mágneskapcsoló, öntartás, egypólusú motorvédő, egyfázisú motor |
 | **F** | Háromfázisú mérőhely | Mérőhely | Főbiztosító, fogyasztásmérő, főkapcsoló, 4 pólusú Fi-relé, fázisonként egy kör |
 | **G** | Egyfázisú mérőhely | Mérőhely | Fogyasztásmérő (1-3 / 4-6), főkismegszakító, Fi-relé, dugalj és lámpa |
+| **H** | Csillag-delta indítás | Motorvezérlés | K1 fő, K2 csillag, K3 delta, KT időrelé, 6 kivezetésű motor, kölcsönös reteszelés |
 
 Az A-D feladat a vizsga gyakorlati feladatlapjainak rajzaiból készült.
-Az E, F és G kiegészítés, nem azokból származik - lásd [`docs/source-analysis.md`](docs/source-analysis.md).
+Az E, F, G és H kiegészítés, nem azokból származik - lásd [`docs/source-analysis.md`](docs/source-analysis.md).
 
-## Négy tanulási mód feladatonként
+## Öt tanulási mód feladatonként
 
 - **Áttekintés** - mit csinál a kapcsolás, miből áll, hogyan folyik benne az energia és a vezérlés,
   mi a tipikus vizsgahiba, és mi az, ami a rajzból önmagában nem határozható meg.
 - **Vezetett megoldás** - kis lépések, mindegyik végén egy ellenőrző kérdés. A magyarázat csak
   válasz után jelenik meg, és minden lépés kiemelhető a rajzon.
-- **Bekötési gyakorlat** - kábelt húzol a sorkapcsok közé. Visszavonás, újra, egy kötés felfedése,
+- **Gyakorlás** - kábelt húzol a sorkapcsok közé, és a tábla közben élő: feszültség alatt a
+  kapcsolók, nyomógombok bekötés közben is működnek. Visszavonás, újra, egy kötés felfedése,
   teljes megoldás, huzallista és magyarázó hibaüzenetek.
-- **Vizsgamód** - nincs tipp és nincs látható megoldás, opcionális időzítővel. A kiértékelés hat
-  kategóriában pontoz: rajzolvasás, készülékismeret, bekötési pontosság, működés megértése,
-  biztonsági szemlélet, ellenőrzési sorrend.
+- **Mérés · jegyzőkönyv** - műszerek a táblán: PE-folytonosság, szigetelés (500 V DC), hurokimpedancia
+  (Zs ≤ U0/Ia), Fi-relé (IΔn, 5×IΔn), L-N feszültség, forgásirány, működési próba. Minden
+  „vizsgahelyzet” véletlen hálózati értékeket ad, így jó bekötés mellett is lehet nem megfelelő
+  eredmény. A jegyzőkönyvbe átírod a mért értéket és értékelsz; az ellenőrzés a sorrendet
+  (PE → szigetelés feszültségmentesen → feszültség alatti mérések) és a tiltott, feszültség
+  alatti szigetelésmérést is pontozza.
+- **Vizsgamód** - egy képernyőn: bekötés a táblán, mérés, jegyzőkönyv és kérdések, opcionális
+  időzítővel. Beadáskor a bekötés, a jegyzőkönyv és a hat kérdéskategória (rajzolvasás,
+  készülékismeret, bekötési pontosság, működés megértése, biztonsági szemlélet, ellenőrzési
+  sorrend) együtt adja az eredményt.
 
 ## Mit tud a szimuláció
 

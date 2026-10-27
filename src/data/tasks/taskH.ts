@@ -1,0 +1,95 @@
+import type { TaskDef } from '../../domain/electrical-types';
+import { part } from './helpers';
+import { contentH } from './contentH';
+
+export const taskH: TaskDef = {
+    id: 'H',
+    title: 'Csillag-delta indítás időrelével',
+    subtitle: 'K1 fő · K2 csillag · K3 delta · KT időrelé · reteszelés',
+    category: 'motorvezerles',
+    complexity: 5,
+    briefHu:
+      'A motor csillagban indul (1/3 indítóáram), majd a KT időrelé lejártakor ' +
+      'deltára vált. K1 a fő mágneskapcsoló, K2 köti össze a csillagpontot ' +
+      '(U2-V2-W2), K3 a delta kötést (U1-W2, V1-U2, W1-V2). K2 és K3 kölcsönösen ' +
+      'reteszelt: egyszerre soha nem húzhatnak meg.',
+    stepsHu: [
+      'Betáplálás: L1, L2, L3 az F-1 kismegszakítóra, N és PE a sínekre.',
+      'F-1 kimenete a HK-1 motorvédőre, onnan a K-1 főérintkezőire.',
+      'K-1 kimenete a motor U1, V1, W1 kapcsára, és ugyanonnan a K-3 bemenetére.',
+      'K-3 kimenete a delta kötés: 2 → W2, 4 → U2, 6 → V2.',
+      'K-2 bemenete U2, V2, W2; a kimenetét (2-4-6) áthidalod - ez a csillagpont.',
+      'Vezérlés: L1 → F-2 → HK-1 13/14 → S0 (bontó) → S1 (záró) ∥ K-1 13/14 → K-1 tekercs és KT tekercs.',
+      'Csillag ág: KT 15-16 (késleltetve bontó) → K-3 21/22 → K-2 tekercs.',
+      'Delta ág: KT 15-18 (késleltetve záró) → K-2 21/22 → K-3 tekercs. Minden A2 a nullára, a motor teste a PE-re.'
+    ],
+    world: [1660, 1520],
+    parts: [
+      part('SUP', 'feed3', 40, 40, 'Betáplálás'),
+      part('F1', 'mcb3', 330, 40, 'F-1'),
+      part('HK', 'mprot', 330, 300, 'HK-1'),
+      part('K1', 'contactor', 40, 620, 'K-1', { aux: [['13', '14', 'no']] }),
+      part('K3', 'contactor', 420, 620, 'K-3 (Δ)', { aux: [['21', '22', 'nc']] }),
+      part('K2', 'contactor', 800, 620, 'K-2 (Y)', { aux: [['21', '22', 'nc']] }),
+      part('M', 'motor6', 300, 1180, 'M1'),
+
+      part('F2', 'mcb', 1160, 40, 'F-2'),
+      part('S0', 'btnNC', 1160, 240, 'S0'),
+      part('S1', 'btn', 1340, 240, 'S1'),
+      part('KT', 'timer', 1220, 420, 'KT'),
+      part('NB', 'busbar', 1180, 1180, 'N-sín', { role: 'N' }),
+      part('PB', 'busbar', 1180, 1340, 'PE-sín', { role: 'PE' })
+    ],
+    solution: [
+      ['SUP.L1', 'F1.1a', 'br'],
+      ['SUP.L2', 'F1.1b', 'bk'],
+      ['SUP.L3', 'F1.1c', 'gr'],
+      ['SUP.N', 'NB.b0', 'bl'],
+      ['SUP.PE', 'PB.b0', 'gy'],
+
+      ['F1.2a', 'HK.L1', 'br'],
+      ['F1.2b', 'HK.L2', 'bk'],
+      ['F1.2c', 'HK.L3', 'gr'],
+      ['HK.T1', 'K1.1', 'br'],
+      ['HK.T2', 'K1.3', 'bk'],
+      ['HK.T3', 'K1.5', 'gr'],
+      ['K1.2', 'M.U1', 'br'],
+      ['K1.4', 'M.V1', 'bk'],
+      ['K1.6', 'M.W1', 'gr'],
+      ['K1.2', 'K3.1', 'br'],
+      ['K1.4', 'K3.3', 'bk'],
+      ['K1.6', 'K3.5', 'gr'],
+      ['K3.2', 'M.W2', 'br'],
+      ['K3.4', 'M.U2', 'bk'],
+      ['K3.6', 'M.V2', 'gr'],
+      ['M.U2', 'K2.1', 'bk'],
+      ['M.V2', 'K2.3', 'gr'],
+      ['M.W2', 'K2.5', 'br'],
+      ['K2.2', 'K2.4', 'bk'],
+      ['K2.4', 'K2.6', 'bk'],
+      ['PB.b1', 'M.PE', 'gy'],
+
+      ['SUP.L1', 'F2.1', 'br'],
+      ['F2.2', 'HK.13', 'br'],
+      ['HK.14', 'S0.1', 'br'],
+      ['S0.2', 'S1.3', 'br'],
+      ['S0.2', 'K1.13', 'br'],
+      ['S1.4', 'K1.A1', 'br'],
+      ['K1.14', 'K1.A1', 'br'],
+      ['K1.A1', 'KT.A1', 'br'],
+      ['K1.A1', 'KT.15', 'br'],
+      ['KT.16', 'K3.21', 'br'],
+      ['K3.22', 'K2.A1', 'br'],
+      ['KT.18', 'K2.21', 'br'],
+      ['K2.22', 'K3.A1', 'br'],
+      ['K1.A2', 'NB.b1', 'bl'],
+      ['KT.A2', 'NB.b2', 'bl'],
+      ['K2.A2', 'NB.b3', 'bl'],
+      ['K3.A2', 'NB.b4', 'bl']
+    ],
+  objectivesHu: contentH.objectivesHu,
+  commonMistakesHu: contentH.commonMistakesHu,
+  guided: contentH.guided,
+  exam: contentH.exam,
+  unresolved: contentH.unresolved,
+};
