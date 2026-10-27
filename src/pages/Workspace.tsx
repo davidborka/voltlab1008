@@ -24,6 +24,7 @@ import { ExamPanel } from '../features/exam/ExamPanel';
 import { PrintSheet } from '../features/exam/PrintSheet';
 import { MeasurePanel } from '../features/measure/MeasurePanel';
 import { TASKS, TASK_ORDER } from '../data/tasks';
+import { PARTS } from '../data/parts';
 import type { Board, SolveResult, Wire } from '../domain/electrical-types';
 
 export type Mode = 'attekintes' | 'vezetett' | 'bekotes' | 'meres' | 'vizsga';
@@ -72,15 +73,18 @@ function wireReducer(s: WireState, a: WireAction): WireState {
 
 export function Workspace({
   taskId,
+  startExam = false,
   onComplete,
   completed,
 }: {
   taskId: string;
+  /** húzott vizsgafeladat: rögtön vizsgamódban nyílik */
+  startExam?: boolean;
   onComplete(id: string): void;
   completed: boolean;
 }) {
   const task = TASKS[taskId];
-  const [mode, setMode] = useState<Mode>('attekintes');
+  const [mode, setMode] = useState<Mode>(startExam ? 'vizsga' : 'attekintes');
   const [mobileTab, setMobileTab] = useState<'rajz' | 'segedlet'>('segedlet');
   const [highlight, setHighlight] = useState<string[]>([]);
   const [dim, setDim] = useState(false);
@@ -101,14 +105,14 @@ export function Workspace({
   useEffect(() => {
     dispatch({ type: 'set', wires: [] });
     setHighlight([]);
-    setMode('attekintes');
+    setMode(startExam ? 'vizsga' : 'attekintes');
     setPowered(false);
-  }, [taskId]);
+  }, [taskId, startExam]);
 
   /* a tábla állapotváltozásai vissza a Reactbe */
   const onBoardChange = useCallback((b: Board, s: SolveResult) => {
     setSim(s);
-    setPowered(b.parts.some((p) => p.st.on && (p.type === 'feed' || p.type === 'feed3')));
+    setPowered(b.parts.some((p) => p.st.on && PARTS[p.type].supply));
     dispatch({ type: 'commit', wires: b.wires.map((w) => ({ ...w })) });
   }, []);
 

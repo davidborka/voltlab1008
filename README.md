@@ -22,9 +22,10 @@ ellenőrzési lista - szerver, adatbázis és regisztráció nélkül.
 | **F** | Háromfázisú mérőhely | Mérőhely | Főbiztosító, fogyasztásmérő, főkapcsoló, 4 pólusú Fi-relé, fázisonként egy kör |
 | **G** | Egyfázisú mérőhely | Mérőhely | Fogyasztásmérő (1-3 / 4-6), főkismegszakító, Fi-relé, dugalj és lámpa |
 | **H** | Csillag-delta indítás | Motorvezérlés | F2 motorvédő, Q11 fő, Q13 csillag, Q15 delta, K1 időrelé, P1-P3 állapotjelzés, 6 kivezetésű motor |
+| **I** | Elosztó PEN-szétválasztással | Épületvillamosság | TN-C-S: mérő, PEN → PE-sín → híd → N-sín, földelő, Fi-relé, lámpa kapcsolóval, dugalj; szigeteléshez bontható híd |
 
 Az A-D és a H feladat a vizsga gyakorlati feladatlapjainak rajzaiból készült (H: „Csillag-delta.pdf”).
-Az E, F és G kiegészítés, nem azokból származik - lásd [`docs/source-analysis.md`](docs/source-analysis.md).
+Az E, F és G kiegészítés, az I egy vizsgabeszámoló alapján készült (PEN-szétválasztás, földelési rendszerek), nem azokból származik - lásd [`docs/source-analysis.md`](docs/source-analysis.md).
 
 ## Öt tanulási mód feladatonként
 

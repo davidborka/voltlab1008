@@ -12,7 +12,7 @@ import { DSU, hasPhase, phaseOf } from './netlist';
 import { PARTS, termsOf } from '../data/parts';
 import { checkWiring } from './netlist-validation';
 
-export type MeasureId = 'pe' | 'riso' | 'zs' | 'rcd' | 'u' | 'forg' | 'funkcio';
+export type MeasureId = 'pe' | 'ra' | 'riso' | 'zs' | 'rcd' | 'u' | 'forg' | 'funkcio';
 
 export interface MeasureDef {
   id: MeasureId;
@@ -33,6 +33,14 @@ export const MEASURES: MeasureDef[] = [
     power: 'off',
     stage: 1,
     limitHu: '< 1 Ω',
+  },
+  {
+    id: 'ra',
+    titleHu: 'Földelési ellenállás (RA)',
+    instrumentHu: 'földelési ellenállásmérő, 3 vezetékes',
+    power: 'off',
+    stage: 1,
+    limitHu: 'TT: RA ≤ 50 V / IΔn → 30 mA-nél ≤ 1666 Ω',
   },
   {
     id: 'riso',
@@ -84,6 +92,12 @@ export const MEASURES: MeasureDef[] = [
   },
 ];
 
+/** A feladatban értelmes mérések: földelési ellenállás csak földelővel. */
+export function measuresFor(task: TaskDef): MeasureDef[] {
+  const rod = task.parts.some((p) => p.type === 'earthrod');
+  return MEASURES.filter((m) => m.id !== 'ra' || rod);
+}
+
 /** A vizsgahelyzet: ezek az értékek nem a bekötésből jönnek. */
 export interface Scenario {
   ze: number;
@@ -91,19 +105,21 @@ export interface Scenario {
   rcdT: number;
   rcdT5: number;
   u: number;
+  ra: number;
   /** ennél a készüléknél laza a PE-csavar (nagy R PE) - vagy null */
   loosePe: string | null;
 }
 
 export function newScenario(task: TaskDef, rnd: () => number = Math.random): Scenario {
   const pick = <T,>(a: T[]): T => a[Math.floor(rnd() * a.length)];
-  const peParts = task.parts.filter((p) => peTerm({ ...p, st: {} }) && !PARTS[p.type].supply && !PARTS[p.type].equipotential);
+  const peParts = task.parts.filter((p) => peTerm({ ...p, st: {} }) && !PARTS[p.type].supply && !PARTS[p.type].equipotential && !PARTS[p.type].groups);
   return {
     ze: pick([0.38, 0.52, 0.74, 1.1, 1.6, 2.3, 4.9]),
     riso: pick([999, 999, 999, 186, 0.62]),
     rcdT: pick([18, 22, 27, 34, 41, 312]),
     rcdT5: pick([9, 12, 16, 21, 28, 47]),
     u: pick([229.4, 231.8, 226.2, 236.5, 254.6, 203.9]),
+    ra: pick([3.8, 7.5, 12.4, 26, 88, 1900]),
     loosePe: peParts.length && rnd() < 0.25 ? pick(peParts).id : null,
   };
 }
@@ -134,6 +150,11 @@ function peTerm(p: PartInstance): string | null {
 }
 
 const supplyOf = (b: Board) => b.parts.find((p) => PARTS[p.type].supply) || null;
+/** A betáplálás védővezetője - TN-C-nél a PEN. */
+const supplyPe = (sup: PartInstance) => {
+  const t = termsOf(sup).find((x) => x.role === 'PE' || x.t === 'PEN');
+  return t ? `${sup.id}.${t.id}` : null;
+};
 
 /** A végpont, ahol a feszültség alatti méréseket végezzük. */
 const POINT_ORDER = ['socket', 'motor1', 'motor', 'motor6', 'vfd'];
@@ -152,14 +173,18 @@ export function pointName(p: PartInstance) {
   return `${p.label || p.id} (${PARTS[p.type].name})`;
 }
 
-/** Csak a kábelek és a sínek: a védővezető sosem mehet kapcsolón át. */
+/** Kábelek, sínek és a fix átvezetések (pl. a mérő 4-6 kapcsa, amin a PEN
+ *  átmegy). Kapcsoló, védelem, mágneskapcsoló nem számít: a védővezető sosem
+ *  mehet kapcsolón át. */
 function staticNets(b: Board) {
   const d = new DSU();
   for (const w of b.wires) d.union(w.a, w.b);
   for (const p of b.parts) {
-    if (!PARTS[p.type].equipotential) continue;
-    const ts = termsOf(p);
-    for (const t of ts) d.union(`${p.id}.${ts[0].id}`, `${p.id}.${t.id}`);
+    const def = PARTS[p.type];
+    const fixed = def.links && !def.tap && !def.hold && !def.protect && !def.update && !def.supply;
+    if (fixed) for (const [x, y] of def.links!(p.st, p, { now: 0 } as never)) d.union(`${p.id}.${x}`, `${p.id}.${y}`);
+    const groups = def.equipotential ? [termsOf(p).map((t) => t.id)] : def.groups || [];
+    for (const g of groups) for (const id of g) d.union(`${p.id}.${g[0]}`, `${p.id}.${id}`);
   }
   return d;
 }
@@ -183,7 +208,9 @@ function insulationFault(b: Board): string | null {
   };
   for (const p of b.parts) {
     const def = PARTS[p.type];
-    if (def.supply) for (const t of termsOf(p)) if (t.t) add(`${p.id}.${t.id}`, t.t as Rail);
+    /* a PEN a mérés szempontjából védővezető; a PEN-szétválasztó N-sínje nulla */
+    if (def.supply) for (const t of termsOf(p)) if (t.t) add(`${p.id}.${t.id}`, (t.t === 'PEN' ? 'PE' : t.t) as Rail);
+    if (p.type === 'penbar') add(`${p.id}.n0`, 'N');
     if (p.type === 'busbar' && p.opt?.rail) add(`${p.id}.b0`, p.opt.rail);
   }
   for (const s of rails.values()) {
@@ -191,7 +218,11 @@ function insulationFault(b: Board): string | null {
     if (ph && s.has('PE')) return 'fázis és védővezető között (testzárlat)';
     if (ph > 1) return 'két fázis között';
     if (ph && s.has('N')) return 'fázis és nulla között';
-    if (s.has('N') && s.has('PE')) return 'nulla és védővezető összekötve';
+    if (s.has('N') && s.has('PE')) {
+      return b.parts.some((p) => p.type === 'penbar' && p.st.on)
+        ? 'nulla és védővezető között - a PEN-híd zárva van, a mérés idejére bontsd'
+        : 'nulla és védővezető összekötve';
+    }
   }
   return null;
 }
@@ -220,11 +251,11 @@ export function measure(
   }
 
   const sup = supplyOf(b);
-  const supPe = sup && peTerm(sup);
+  const supPe = sup && supplyPe(sup);
   const nets = staticNets(b);
 
   if (id === 'pe') {
-    const parts = b.parts.filter((p) => peTerm(p) && !PARTS[p.type].supply && !PARTS[p.type].equipotential);
+    const parts = b.parts.filter((p) => peTerm(p) && !PARTS[p.type].supply && !PARTS[p.type].equipotential && !PARTS[p.type].groups);
     if (!parts.length || !supPe) return { id, valueHu: 'nincs védővezetős készülék', pass: null };
     const rows = parts.map((p, i) => {
       const ok = nets.find(peTerm(p)!) === nets.find(supPe);
@@ -242,6 +273,21 @@ export function measure(
         ? `Nem megfelelő: ${bad.map((x) => x.p.label || x.p.id).join(', ')} - ` +
           (bad.some((x) => x.r === null) ? 'a PE nincs bekötve.' : 'laza a PE-kötés, húzd meg a csavart.')
         : undefined,
+    };
+  }
+
+  if (id === 'ra') {
+    const rod = b.parts.find((p) => p.type === 'earthrod');
+    if (!rod) return { id, valueHu: 'nincs földelő', pass: null };
+    if (!supPe || nets.find(`${rod.id}.E`) !== nets.find(supPe)) {
+      return { id, valueHu: 'OL (nincs bekötve)', pass: false, noteHu: 'A földelő nincs a PE-sínre kötve.' };
+    }
+    return {
+      id,
+      num: sc.ra,
+      valueHu: `${hu(sc.ra, 1)} Ω`,
+      pass: sc.ra <= 1666,
+      noteHu: sc.ra > 1666 ? 'Túl nagy földelési ellenállás: hosszabb vagy több szonda kell.' : undefined,
     };
   }
 

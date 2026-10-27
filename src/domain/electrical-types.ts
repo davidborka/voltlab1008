@@ -94,6 +94,9 @@ export interface PartDef {
   /** Minden kapcsa tartósan egy csomópont (sorkapocs sín). Az ellenőrzés így
    *  nem várja el, hogy pont ugyanarra a csavarra köss, mint a referencia. */
   equipotential?: boolean;
+  /** Több, egymástól független sín egy készülékben (pl. PE- és N-sín a
+   *  PEN-szétválasztásnál): csoportonként egy csomópont. */
+  groups?: string[][];
   init?(): PartState;
   links?(st: PartState, p: PartInstance, ctx: SolveCtx): Array<[string, string]>;
   sources?(st: PartState, p: PartInstance, ctx: SolveCtx): Array<[string, Rail]>;

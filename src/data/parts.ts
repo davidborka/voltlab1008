@@ -880,6 +880,103 @@ const PARTS = RAW as unknown as Record<string, PartDef>;
   };
 
 
+  /* --- TN-C betaplalas (L + PEN) --------------------------------------- */
+  /* A PEN egyszerre nulla es vedovezeto, ezert nincs szerepe (role): se N-,
+     se PE-szabaly nem vonatkozik ra, amig szet nem valasztjuk. */
+  RAW.feedpen = {
+    name: 'Betáplálás TN-C (L + PEN)',
+    supply: true,
+    w: 150,
+    h: 170,
+    terms: [
+      { id: 'L1', x: 150, y: 55, dir: 'e', role: 'L', t: 'L1' },
+      { id: 'PEN', x: 150, y: 115, dir: 'e', t: 'PEN' }
+    ],
+    init: function () {
+      return { on: false };
+    },
+    sources: function (st: PartState) {
+      return st.on ? [['L1', 'L1'], ['PEN', 'N'], ['PEN', 'PE']] : [];
+    },
+    tap: function (st: PartState) {
+      st.on = !st.on;
+    },
+    draw: function (_p: PartInstance, st: PartState) {
+      return (
+        shell(150, 170, 'face-dark') +
+        '<text class="ptitle" x="16" y="32">HÁLÓZAT</text>' +
+        '<text class="pmeta" x="16" y="52">TN-C · L + PEN</text>' +
+        '<path class="wavy" d="M18,112 q14,-22 28,0 t28,0 t28,0"/>' +
+        (st.on ? '<circle class="coilled" cx="120" cy="112" r="9"/>' : '<circle class="pilotcap" cx="120" cy="112" r="9"/>') +
+        label(150, 170, st.on ? 'feszültség alatt' : 'feszültségmentes')
+      );
+    }
+  };
+
+  /* --- PEN-szetvalasztas: PE- es N-sin oldhato hiddal --------------------- */
+  /* A PEN eloszor a PE-sinre (p0) erkezik, onnan a hid viszi at az N-sinre.
+     Koppintas: hid bontasa / zarasa - szigetelesmereshez bontani kell. */
+  const PEN_P = ['p0', 'p1', 'p2', 'p3', 'p4'];
+  const PEN_N = ['n0', 'n1', 'n2', 'n3', 'n4'];
+  RAW.penbar = {
+    name: 'PEN-szétválasztó (PE- és N-sín hiddal)',
+    w: 460,
+    h: 110,
+    groups: [PEN_P, PEN_N],
+    terms: PEN_P.map(function (id, i): Terminal {
+      return i === 0
+        ? { id: id, x: 30, y: 110, dir: 's', t: 'PEN' }
+        : { id: id, x: 30 + i * 40, y: 110, dir: 's', role: 'PE', t: '' };
+    }).concat(PEN_N.map(function (id, i): Terminal {
+      return { id: id, x: 270 + i * 40, y: 110, dir: 's', role: 'N', t: '' };
+    })),
+    init: function () {
+      return { on: true };
+    },
+    links: function (st: PartState) {
+      const l: Array<[string, string]> = [];
+      for (let i = 1; i < 5; i++) {
+        l.push([PEN_P[0], PEN_P[i]]);
+        l.push([PEN_N[0], PEN_N[i]]);
+      }
+      if (st.on) l.push(['p0', 'n0']);
+      return l;
+    },
+    tap: function (st: PartState) {
+      st.on = !st.on;
+    },
+    draw: function (p: PartInstance, st: PartState) {
+      return (
+        shell(460, 110, 'face-rail') +
+        '<rect class="railstrip rail-PE" x="14" y="34" width="196" height="26" rx="5"/>' +
+        '<rect class="railstrip rail-N" x="250" y="34" width="196" height="26" rx="5"/>' +
+        '<text class="ptitle" x="16" y="24">' + (p.label || 'PEN') + ' · PE</text>' +
+        '<text class="ptitle" x="252" y="24">N</text>' +
+        (st.on
+          ? '<rect class="armature pulled" x="196" y="40" width="68" height="14" rx="4"/>'
+          : '<rect class="armature" x="200" y="18" width="60" height="12" rx="4" transform="rotate(-18 230 24)"/>') +
+        '<text class="pmeta sm" x="230" y="84">' + (st.on ? 'híd zárva' : 'híd bontva') + '</text>' +
+        label(460, 110, st.on ? 'koppints: híd bontása (szigetelésméréshez)' : 'HÍD BONTVA - nincs nulla! koppints: zárás')
+      );
+    }
+  };
+
+  /* --- foldelo ------------------------------------------------------------ */
+  RAW.earthrod = {
+    name: 'Földelő (földelőszonda)',
+    w: 120,
+    h: 170,
+    terms: [{ id: 'E', x: 60, y: 0, dir: 'n', role: 'PE', t: 'E' }],
+    draw: function (p: PartInstance) {
+      return (
+        shell(120, 170) +
+        '<text class="ptitle sm" x="60" y="34">' + (p.label || 'RE') + '</text>' +
+        '<path class="auxsym closed" d="M60,44 v70 M30,114 h60 M40,126 h40 M50,138 h20"/>' +
+        label(120, 170, 'földelő')
+      );
+    }
+  };
+
   /* --- hokioldo rele ---------------------------------------------------- */
   /* A foerintkezok mindig atvezetnek; tulterheleskor csak a segederintkezok
      valtanak: a 95-96 bont (leejti a vezerlest), a 97-98 zar (hibajelzes).

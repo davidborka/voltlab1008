@@ -3,7 +3,8 @@ import { describe, expect, it } from 'vitest';
 import { solve } from '../domain/netlist';
 import { PARTS, TIMER_MS, motor6State } from '../data/parts';
 import { TASKS } from '../data/tasks';
-import { measure, newScenario, orderErrors, type Scenario } from '../domain/measurement';
+import { measure, measuresFor, newScenario, orderErrors, type Scenario } from '../domain/measurement';
+import { checkWiring } from '../domain/netlist-validation';
 import type { Board, PartInstance, Wire } from '../domain/electrical-types';
 
 function build(id: string, drop: string[][] = []): Board {
@@ -16,7 +17,7 @@ function build(id: string, drop: string[][] = []): Board {
   };
 }
 const get = (b: Board, id: string) => b.parts.find((p) => p.id === id)!;
-const SC: Scenario = { ze: 0.52, riso: 999, rcdT: 22, rcdT5: 12, u: 229.4, loosePe: null };
+const SC: Scenario = { ze: 0.52, riso: 999, rcdT: 22, rcdT5: 12, u: 229.4, ra: 7.5, loosePe: null };
 
 function start(b: Board, t0: number) {
   get(b, 'SUP').st.on = true;
@@ -158,5 +159,74 @@ describe('mérések', () => {
     let seed = 1;
     const rnd = () => ((seed = (seed * 1103515245 + 12345) & 0x7fffffff) / 0x7fffffff);
     expect(newScenario(TASKS.H, rnd).ze).toBeGreaterThan(0);
+  });
+});
+
+describe('PEN-szétválasztás (I)', () => {
+  const on = (b: Board) => {
+    get(b, 'SUP').st.on = true;
+    get(b, 'S1').st.on = true;
+    get(b, 'X1').st.plug = true;
+    return solve(b, Date.now());
+  };
+
+  it('a helyes bekötésen világít a lámpa és jár a dugaljba dugott fogyasztó', () => {
+    const b = build('I');
+    const s = on(b);
+    expect(s.shorts.size).toBe(0);
+    expect(s.live['X1.on']).toBe(true);
+  });
+
+  it('a lámpa a kapcsolóval kapcsolható', () => {
+    const b = build('I');
+    const s = on(b);
+    const lampOn = Object.keys(s.live).some((k) => k.startsWith('E1.'));
+    get(b, 'S1').st.on = false;
+    const s2 = solve(b, Date.now());
+    const lampOff = Object.keys(s2.live).some((k) => k.startsWith('E1.'));
+    expect(lampOn).not.toBe(lampOff);
+  });
+
+  it('bontott PEN-híd mellett nincs nulla, a fogyasztó nem jár', () => {
+    const b = build('I');
+    get(b, 'PEN').st.on = false;
+    const s = on(b);
+    expect(s.live['X1.on']).toBeFalsy();
+  });
+
+  it('szigetelésmérés: zárt hídnál N-PE zárlat, bontott hídnál megfelel', () => {
+    const b = build('I');
+    const closed = measure('riso', TASKS.I, b, null, SC, false);
+    expect('pass' in closed && closed.pass).toBe(false);
+    expect('noteHu' in closed && closed.noteHu).toContain('PEN-híd');
+    get(b, 'PEN').st.on = false;
+    const open = measure('riso', TASKS.I, b, null, SC, false);
+    expect('pass' in open && open.pass).toBe(true);
+  });
+
+  it('a PE-folytonosság és a földelő mérhető, a földelés-mérés csak itt jelenik meg', () => {
+    const b = build('I');
+    const pe = measure('pe', TASKS.I, b, null, SC, false);
+    const ra = measure('ra', TASKS.I, b, null, SC, false);
+    expect('pass' in pe && pe.pass).toBe(true);
+    expect('pass' in ra && ra.pass).toBe(true);
+    expect(measuresFor(TASKS.I).some((m) => m.id === 'ra')).toBe(true);
+    expect(measuresFor(TASKS.A).some((m) => m.id === 'ra')).toBe(false);
+  });
+
+  it('testzárlatra a Fi-relé kiold', () => {
+    const b = build('I');
+    b.wires.push({ id: 'hiba', a: 'F2.2', b: 'PEN.p3', color: 'br' });
+    on(b);
+    const fi = get(b, 'FI').st;
+    const f2 = get(b, 'F2').st;
+    expect(fi.tripped || f2.tripped).toBe(true);
+  });
+
+  it('ha a PEN először az N-sínre megy, az ellenőrzés hibát jelez', () => {
+    const t = TASKS.I;
+    const w = t.solution
+      .map((s, i) => ({ id: 'w' + i, a: s[0], b: s[1] === 'PEN.p0' ? 'PEN.n2' : s[1], color: s[2] })) as Wire[];
+    expect(checkWiring(t, w).ok).toBe(false);
   });
 });

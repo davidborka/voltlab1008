@@ -45,13 +45,17 @@ export function checkWiring(task: TaskDef, wires: Wire[]): CheckResult {
      a referencia - ami villamosan értelmetlen elvárás. Ugyanezért a sín összes
      kapcsa ismertnek számít, nem csak az, amelyik a megoldásban szerepel. */
   for (const p of task.parts) {
-    if (!PARTS[p.type]?.equipotential) continue;
-    const terms = termsOf({ ...p, st: {} } as PartInstance);
-    for (const t of terms) {
-      const key = `${p.id}.${t.id}`;
-      known.add(key);
-      want.union(`${p.id}.${terms[0].id}`, key);
-      got.union(`${p.id}.${terms[0].id}`, key);
+    const def = PARTS[p.type];
+    const groups = def?.equipotential
+      ? [termsOf({ ...p, st: {} } as PartInstance).map((t) => t.id)]
+      : def?.groups || [];
+    for (const g of groups) {
+      for (const id of g) {
+        const key = `${p.id}.${id}`;
+        known.add(key);
+        want.union(`${p.id}.${g[0]}`, key);
+        got.union(`${p.id}.${g[0]}`, key);
+      }
     }
   }
 

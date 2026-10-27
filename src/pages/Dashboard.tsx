@@ -1,5 +1,5 @@
-/** Nyitóképernyő: a hét feladat, mindegyik saját vektoros előnézettel. */
-import { ArrowRight, CheckCircle2, ShieldAlert } from 'lucide-react';
+/** Nyitóképernyő: a feladatok, mindegyik saját vektoros előnézettel. */
+import { ArrowRight, CheckCircle2, Dices, ShieldAlert } from 'lucide-react';
 import { go } from '../app/App';
 import { Button, Tag, cx } from '../components/ui';
 import { CATEGORY_LABELS, TASKS, TASK_ORDER } from '../data/tasks';
@@ -30,6 +30,16 @@ export function Dashboard({ done, last }: { done: string[]; last: string | null 
               </Button>
             )}
             <Button onClick={() => go({ name: 'task', id: 'A' })}>Kezdés az A feladattal</Button>
+            <Button
+              icon={Dices}
+              onClick={() => {
+                /* mint a vizsgán: feladatot húzol, és rögtön segítség nélkül csinálod */
+                const id = TASK_ORDER[Math.floor(Math.random() * TASK_ORDER.length)];
+                go({ name: 'task', id, exam: true });
+              }}
+            >
+              Vizsgafeladat húzása
+            </Button>
           </div>
         </div>
 

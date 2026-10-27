@@ -130,6 +130,7 @@
 .board-scope .railstrip { fill: #39424f; stroke: #232a33; }
 .board-scope .railstrip.rail-N,
 .board-scope .face-rail.rail-N { fill: #2a3d55; }
+.board-scope .railstrip.rail-PE { fill: #3a5233; }
 .board-scope .auxtag { fill: #c3c0b8; stroke: #a09d95; stroke-width: 1; }
 .board-scope .auxtag.aux-no { fill: #bcd6c2; }
 .board-scope .auxtag.aux-nc { fill: #e3c9c6; }

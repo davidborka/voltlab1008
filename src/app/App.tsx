@@ -11,7 +11,7 @@ import { About } from '../pages/About';
 
 export type Route =
   | { name: 'dashboard' }
-  | { name: 'task'; id: string }
+  | { name: 'task'; id: string; exam?: boolean }
   | { name: 'library' }
   | { name: 'inspection' }
   | { name: 'about' };
@@ -19,8 +19,9 @@ export type Route =
 function parseHash(): Route {
   const h = location.hash.replace(/^#\/?/, '');
   if (h.startsWith('feladat/')) {
-    const id = h.slice(8).toUpperCase();
-    if (TASKS[id]) return { name: 'task', id };
+    const [raw, sub] = h.slice(8).split('/');
+    const id = raw.toUpperCase();
+    if (TASKS[id]) return { name: 'task', id, exam: sub === 'vizsga' };
   }
   if (h === 'keszulekek') return { name: 'library' };
   if (h === 'ellenorzes') return { name: 'inspection' };
@@ -36,7 +37,7 @@ export function go(route: Route) {
     inspection: 'ellenorzes',
     about: 'rolunk',
   };
-  location.hash = route.name === 'task' ? `/feladat/${route.id}` : `/${map[route.name]}`;
+  location.hash = route.name === 'task' ? `/feladat/${route.id}${route.exam ? '/vizsga' : ''}` : `/${map[route.name]}`;
 }
 
 export function App() {
@@ -138,7 +139,7 @@ export function App() {
 
       <main className="flex min-h-0 flex-1 flex-col overflow-hidden">
         {route.name === 'dashboard' && <Dashboard done={done} last={last} />}
-        {route.name === 'task' && <Workspace taskId={route.id} onComplete={markDone} completed={done.includes(route.id)} />}
+        {route.name === 'task' && <Workspace taskId={route.id} startExam={!!route.exam} onComplete={markDone} completed={done.includes(route.id)} />}
         {route.name === 'library' && <Library />}
         {route.name === 'inspection' && <Inspection />}
         {route.name === 'about' && <About />}

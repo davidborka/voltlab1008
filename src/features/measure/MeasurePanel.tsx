@@ -4,8 +4,8 @@ import { useEffect, useMemo, useState } from 'react';
 import { ClipboardCheck, Gauge, RotateCcw, ShieldAlert, Zap, ZapOff } from 'lucide-react';
 import { Button, Panel, SeverityMark, Tag, cx } from '../../components/ui';
 import {
-  MEASURES,
   measure,
+  measuresFor,
   measurePoint,
   newScenario,
   orderErrors,
@@ -30,7 +30,8 @@ const firstNum = (s: string) => {
   const m = s.replace(',', '.').match(/-?\d+(\.\d+)?/);
   return m ? parseFloat(m[0]) : null;
 };
-const EMPTY_ROWS = () => Object.fromEntries(MEASURES.map((m) => [m.id, { value: '', ev: '' as Eval }])) as Record<MeasureId, Row>;
+const EMPTY_ROWS = (list: { id: MeasureId }[]) =>
+  Object.fromEntries(list.map((m) => [m.id, { value: '', ev: '' as Eval }])) as Record<MeasureId, Row>;
 
 export function MeasurePanel({
   task,
@@ -55,12 +56,13 @@ export function MeasurePanel({
   onScore?(s: ProtocolScore): void;
   toast(text: string, bad?: boolean): void;
 }) {
+  const MEASURES = useMemo(() => measuresFor(task), [task]);
   const [sc, setSc] = useState(() => newScenario(task));
   const [readings, setReadings] = useState<Partial<Record<MeasureId, Reading>>>({});
   const [order, setOrder] = useState<MeasureId[]>([]);
   const [safety, setSafety] = useState<string[]>([]);
   const [last, setLast] = useState<{ title: string; text: string; bad?: boolean } | null>(null);
-  const [rows, setRows] = useState(EMPTY_ROWS);
+  const [rows, setRows] = useState(() => EMPTY_ROWS(MEASURES));
   const [head, setHead] = useState({ name: '', date: new Date().toISOString().slice(0, 10) });
   const [checked, setChecked] = useState(false);
 
@@ -70,7 +72,7 @@ export function MeasurePanel({
     setOrder([]);
     setSafety([]);
     setLast(null);
-    setRows(EMPTY_ROWS());
+    setRows(EMPTY_ROWS(MEASURES));
     setChecked(false);
   };
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -118,7 +120,7 @@ export function MeasurePanel({
       (oe.length ? 0 : 1) +
       (safety.length ? 0 : 1);
     return { perRow, oe, good, all };
-  }, [readings, rows, order, safety]);
+  }, [readings, rows, order, safety, MEASURES]);
 
   const check = () => {
     setChecked(true);
