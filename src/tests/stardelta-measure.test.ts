@@ -20,6 +20,7 @@ const SC: Scenario = { ze: 0.52, riso: 999, rcdT: 22, rcdT5: 12, u: 229.4, loose
 
 function start(b: Board, t0: number) {
   get(b, 'SUP').st.on = true;
+  get(b, 'HK').st.on = true;
   solve(b, t0);
   get(b, 'S1').st.p = true;
   solve(b, t0);
@@ -61,6 +62,15 @@ describe('csillag-delta indítás', () => {
     const s = solve(b, t0 + 50);
     expect(get(b, 'K1').st.on).toBe(false);
     expect(motor6State(get(b, 'M'), s.ctxFor(get(b, 'M'))).mode).toBe('none');
+  });
+
+  it('a motorvédő lekapcsolása leállítja a motort', () => {
+    const b = build('H');
+    const t0 = 6_000_000;
+    start(b, t0);
+    PARTS.mprot.tap!(get(b, 'HK').st);
+    solve(b, t0 + 50);
+    expect(get(b, 'K1').st.on).toBe(false);
   });
 
   it('K2 és K3 soha nem húz meg egyszerre', () => {

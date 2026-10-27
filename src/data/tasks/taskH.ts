@@ -5,7 +5,7 @@ import { contentH } from './contentH';
 export const taskH: TaskDef = {
     id: 'H',
     title: 'Csillag-delta indítás időrelével',
-    subtitle: 'K1 fő · K2 csillag · K3 delta · KT időrelé · hőkioldó · reteszelés',
+    subtitle: 'K1 fő · K2 csillag · K3 delta · KT időrelé · motorvédő · hőkioldó',
     category: 'motorvezerles',
     complexity: 5,
     briefHu:
@@ -15,11 +15,11 @@ export const taskH: TaskDef = {
       'reteszelt: egyszerre soha nem húzhatnak meg.',
     stepsHu: [
       'Betáplálás: L1, L2, L3 az F-1 kismegszakítóra, N és PE a sínekre.',
-      'F-1 kimenete a K-1 főérintkezőire.',
+      'F-1 kimenete a HK-1 motorvédő kapcsolóra (zárlatvédelem, főkapcsoló), onnan a K-1 főérintkezőire.',
       'K-1 kimenete az F-3 hőkioldóra, onnan a motor U1, V1, W1 kapcsára. A K-3 bemenete a K-1 kimenetéről (a hőkioldó elől) ágazik le, így a hőkioldó a tekercs (fázis)áramát méri: beállítása In/√3 ≈ 0,58·In.',
       'K-3 kimenete a delta kötés: 2 → W2, 4 → U2, 6 → V2.',
       'K-2 bemenete U2, V2, W2; a kimenetét (2-4-6) áthidalod - ez a csillagpont.',
-      'Vezérlés: L1 → F-2 → F-3 95/96 (hőkioldó bontó) → S0 (bontó) → S1 (záró) ∥ K-1 13/14 → K-1 tekercs és KT tekercs.',
+      'Vezérlés: L1 → F-2 → HK-1 13/14 → F-3 95/96 (hőkioldó bontó) → S0 (bontó) → S1 (záró) ∥ K-1 13/14 → K-1 tekercs és KT tekercs.',
       'Csillag ág: KT 15-16 (késleltetve bontó) → K-3 21/22 → K-2 tekercs.',
       'Delta ág: KT 15-18 (késleltetve záró) → K-2 21/22 → K-3 tekercs. Minden A2 a nullára, a motor teste a PE-re.'
     ],
@@ -27,6 +27,7 @@ export const taskH: TaskDef = {
     parts: [
       part('SUP', 'feed3', 40, 40, 'Betáplálás'),
       part('F1', 'mcb3', 330, 40, 'F-1'),
+      part('HK', 'mprot', 330, 300, 'HK-1'),
       part('F3', 'olr', 40, 960, 'F-3'),
       part('K1', 'contactor', 40, 620, 'K-1', { aux: [['13', '14', 'no']] }),
       part('K3', 'contactor', 420, 620, 'K-3 (Δ)', { aux: [['21', '22', 'nc']] }),
@@ -47,9 +48,12 @@ export const taskH: TaskDef = {
       ['SUP.N', 'NB.b0', 'bl'],
       ['SUP.PE', 'PB.b0', 'gy'],
 
-      ['F1.2a', 'K1.1', 'br'],
-      ['F1.2b', 'K1.3', 'bk'],
-      ['F1.2c', 'K1.5', 'gr'],
+      ['F1.2a', 'HK.L1', 'br'],
+      ['F1.2b', 'HK.L2', 'bk'],
+      ['F1.2c', 'HK.L3', 'gr'],
+      ['HK.T1', 'K1.1', 'br'],
+      ['HK.T2', 'K1.3', 'bk'],
+      ['HK.T3', 'K1.5', 'gr'],
       ['K1.2', 'F3.1', 'br'],
       ['K1.4', 'F3.3', 'bk'],
       ['K1.6', 'F3.5', 'gr'],
@@ -70,7 +74,8 @@ export const taskH: TaskDef = {
       ['PB.b1', 'M.PE', 'gy'],
 
       ['SUP.L1', 'F2.1', 'br'],
-      ['F2.2', 'F3.95', 'br'],
+      ['F2.2', 'HK.13', 'br'],
+      ['HK.14', 'F3.95', 'br'],
       ['F3.96', 'S0.1', 'br'],
       ['S0.2', 'S1.3', 'br'],
       ['S0.2', 'K1.13', 'br'],

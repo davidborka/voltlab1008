@@ -4,6 +4,7 @@ export const contentH: TaskContent = {
   objectivesHu: [
     'A vizsgázó be tudja kötni a csillag-delta indítás főáramkörét: K1 fő, K2 csillag, K3 delta mágneskapcsolóval, 6 kivezetésű motorral.',
     'Meg tudja mutatni a delta kötést a kapocstáblán: U1-W2, V1-U2, W1-V2.',
+    'Be tudja kötni a HK-1 motorvédő kapcsolót a K1 elé, és a 13/14 segédérintkezőjét a vezérlés elejére.',
     'Be tudja kötni a hőkioldó relét: a főérintkezők a K1 után az U1-V1-W1 vezetékekbe, a 95-96 bontó a vezérlésbe, beállítás In/√3.',
     'Be tudja kötni a meghúzáskésleltetett időrelét: a 15-16 késleltetve bontó a csillag, a 15-18 késleltetve záró a delta ágba kerül.',
     'Helyesen valósítja meg a K2 és K3 kölcsönös villamos reteszelését a 21-22 bontó segédérintkezőkkel.',
@@ -19,6 +20,7 @@ export const contentH: TaskContent = {
     'Δ/Y 230/400 V-os motort kötnek csillag-delta indításra 400 V-os hálózaton - deltában a tekercs 400 V-ot kapna.',
     'A KT tekercsét a K1 elé, közvetlenül a fázisra kötik, így a STOP nem ejti el az időrelét.',
     'A hőkioldót a vonali áram helyett a fázisáramra kellene állítani (In/√3), de In-re állítják - így túlterhelésnél nem old ki.',
+    'A HK-1 motorvédő 13/14 segédérintkezője kimarad a vezérlésből: kioldott motorvédő mellett is meghúzhat a K1.',
     'A hőkioldó 97-98 záró érintkezőjét kötik a vezérlésbe a 95-96 bontó helyett: a motor csak hiba esetén indulna.',
   ],
   guided: [
@@ -39,10 +41,10 @@ export const contentH: TaskContent = {
     {
       id: 'h2',
       titleHu: 'Főáramkör: K1 és a motor',
-      goalHu: 'F-1 → K-1 → F-3 hőkioldó → U1, V1, W1.',
-      focus: ['F1', 'K1', 'F3', 'M'],
+      goalHu: 'F-1 → HK-1 motorvédő → K-1 → F-3 hőkioldó → U1, V1, W1.',
+      focus: ['F1', 'HK', 'K1', 'F3', 'M'],
       reasoningHu:
-        'A K1 a hálózatot adja a tekercsek egyik végére (U1, V1, W1). Az F-3 hőkioldó a K1 után, csak az U1-V1-W1 vezetékekben van, így a tekercsáramot (fázisáramot) méri - ezért In/√3 ≈ 0,58·In-re állítjuk. Túlterheléskor a 95-96 bontója leejti a vezérlést.',
+        'A HK-1 motorvédő kapcsoló a K1 előtt zárlatvédelem és főkapcsoló; 13/14 segédérintkezője a vezérlést is bontja, ha lekapcsol vagy kiold. A K1 a hálózatot adja a tekercsek egyik végére (U1, V1, W1). Az F-3 hőkioldó a K1 után, csak az U1-V1-W1 vezetékekben van, így a tekercsáramot (fázisáramot) méri - ezért In/√3 ≈ 0,58·In-re állítjuk. Túlterheléskor a 95-96 bontója leejti a vezérlést.',
       questionHu: 'Mit kapcsol a K1?',
       options: [
         'A tekercsvégeket köti össze csillagba.',
