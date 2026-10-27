@@ -20,7 +20,6 @@ const SC: Scenario = { ze: 0.52, riso: 999, rcdT: 22, rcdT5: 12, u: 229.4, loose
 
 function start(b: Board, t0: number) {
   get(b, 'SUP').st.on = true;
-  get(b, 'HK').st.on = true;
   solve(b, t0);
   get(b, 'S1').st.p = true;
   solve(b, t0);
@@ -51,6 +50,17 @@ describe('csillag-delta indítás', () => {
     s = solve(b, t0 + TIMER_MS + 150);
     expect(get(b, 'K1').st.on).toBe(false);
     expect(motor6State(m, s.ctxFor(m)).mode).toBe('none');
+  });
+
+  it('a hőkioldó túlterheléskor leejti a vezérlést', () => {
+    const b = build('H');
+    const t0 = 5_000_000;
+    start(b, t0);
+    expect(get(b, 'K1').st.on).toBe(true);
+    PARTS.olr.tap!(get(b, 'F3').st);
+    const s = solve(b, t0 + 50);
+    expect(get(b, 'K1').st.on).toBe(false);
+    expect(motor6State(get(b, 'M'), s.ctxFor(get(b, 'M'))).mode).toBe('none');
   });
 
   it('K2 és K3 soha nem húz meg egyszerre', () => {

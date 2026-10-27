@@ -880,6 +880,54 @@ const PARTS = RAW as unknown as Record<string, PartDef>;
   };
 
 
+  /* --- hokioldo rele ---------------------------------------------------- */
+  /* A foerintkezok mindig atvezetnek; tulterheleskor csak a segederintkezok
+     valtanak: a 95-96 bont (leejti a vezerlest), a 97-98 zar (hibajelzes).
+     Koppintas: tulterheles szimulalasa / RESET. */
+  RAW.olr = {
+    name: 'Hőkioldó relé',
+    w: 200,
+    h: 170,
+    terms: [
+      { id: '1', x: 44, y: 0, dir: 'n', role: 'L', t: '1' },
+      { id: '3', x: 100, y: 0, dir: 'n', role: 'L', t: '3' },
+      { id: '5', x: 156, y: 0, dir: 'n', role: 'L', t: '5' },
+      { id: '2', x: 44, y: 170, dir: 's', role: 'L', t: '2' },
+      { id: '4', x: 100, y: 170, dir: 's', role: 'L', t: '4' },
+      { id: '6', x: 156, y: 170, dir: 's', role: 'L', t: '6' },
+      { id: '95', x: 200, y: 36, dir: 'e', t: '95' },
+      { id: '96', x: 200, y: 62, dir: 'e', t: '96' },
+      { id: '97', x: 200, y: 106, dir: 'e', t: '97' },
+      { id: '98', x: 200, y: 132, dir: 'e', t: '98' }
+    ],
+    init: function () {
+      return { tripped: false };
+    },
+    links: function (st: PartState) {
+      const l: Array<[string, string]> = [['1', '2'], ['3', '4'], ['5', '6']];
+      l.push(st.tripped ? ['97', '98'] : ['95', '96']);
+      return l;
+    },
+    tap: function (st: PartState) {
+      st.tripped = !st.tripped;
+    },
+    draw: function (p: PartInstance, st: PartState) {
+      return (
+        shell(200, 170) +
+        '<text class="ptitle" x="16" y="30">' + (p.label || 'F3') + '</text>' +
+        '<text class="pmeta" x="16" y="48">hőkioldó · 0,58·In</text>' +
+        '<rect class="keystone" x="16" y="62" width="120" height="70" rx="8"/>' +
+        '<path class="coil" d="M28,100 h12 v-14 h14 v14 h14 v-14 h14 v14 h14 v-14 h14 v14 h8"/>' +
+        '<rect class="auxtag aux-nc" x="142" y="30" width="48" height="20" rx="5"/>' +
+        '<text class="auxtxt" x="166" y="44">95-96</text>' +
+        '<rect class="auxtag aux-no" x="142" y="100" width="48" height="20" rx="5"/>' +
+        '<text class="auxtxt" x="166" y="114">97-98</text>' +
+        (st.tripped ? '<circle class="trip" cx="76" cy="150" r="11"/><text class="triptxt" x="76" y="155">!</text>' : '') +
+        label(200, 170, st.tripped ? 'túlterhelés - koppints: RESET' : 'koppints: túlterhelés próba')
+      );
+    }
+  };
+
   /* --- idorele (meghuzaskesleltetett) ----------------------------------- */
   /** A csillag-delta indítás átkapcsolási ideje. */
   export const TIMER_MS = 5000;
