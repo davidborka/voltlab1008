@@ -196,6 +196,33 @@ export function solve(board: Board, now: number): SolveResult {
       def.update(p.st, p, uctx);
     }
 
+    /* Fi-relé különbözeti árama a nulla miatt: ha egy működő fogyasztó a Fi-n át
+       kapja a fázist, de a nullája a Fi mellett megy vissza (Fi előtti N-sín),
+       vagy fordítva, a Fi-n átfolyó áram nem egyenlő - a Fi kiold. Ugyanez, ha
+       a Fi utáni N-sín a Fi-n kívül össze van kötve a Fi előttivel. */
+    if (Object.keys(live).length) {
+      for (const p of parts) {
+        if (p.type !== 'rcd' || !isClosed(p)) continue;
+        const d2 = buildDsu(p.id);
+        const outs = (p.opt?.poles === 4 ? ['T1', 'T2', 'T3'] : ['L2']).map((t) => d2.find(`${p.id}.${t}`));
+        const n2 = d2.find(`${p.id}.N2`);
+        let imbalance = false;
+        for (const q of parts) {
+          const def = PARTS[q.type];
+          if (!def?.loads) continue;
+          cur = q;
+          for (const ld of def.loads(q.st, q, { now } as SolveCtx)) {
+            if (!live[`${q.id}.${ld.key}`]) continue;
+            const ends = [d2.find(`${q.id}.${ld.a}`), d2.find(`${q.id}.${ld.b}`)];
+            const downL = ends.some((r) => outs.includes(r));
+            const downN = ends.includes(n2);
+            if (downL !== downN || (downL && d2.find(`${p.id}.N1`) === n2)) imbalance = true;
+          }
+        }
+        if (imbalance) p.st.tripped = true;
+      }
+    }
+
     /* szelektív kioldás */
     if (shorts.size) {
       let best: { p: PartInstance; keep: number } | null = null;

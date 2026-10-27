@@ -140,6 +140,24 @@ export function checkWiring(task: TaskDef, wires: Wire[]): CheckResult {
     }
   }
 
+  /* --- Fi utáni nulla a Fi előtti sínen ------------------------------- */
+  for (const fi of task.parts.filter((p) => p.type === 'rcd')) {
+    const n1 = want.find(`${fi.id}.N1`);
+    const n2 = want.find(`${fi.id}.N2`);
+    const w = wires.find(
+      (x) => (want.find(x.a) === n1 && want.find(x.b) === n2) || (want.find(x.a) === n2 && want.find(x.b) === n1)
+    );
+    if (w) {
+      findings.push({
+        severity: 'error',
+        messageHu: `A Fi utáni nulla a Fi előtti N-re van kötve (${termName(task, w.a)} - ${termName(task, w.b)}).`,
+        explanationHu:
+          'A Fi-relé a kimenő fázisáram és a visszatérő nullaáram különbségét méri. Ha a Fi mögötti fogyasztó nullája a Fi előtti sínre megy, az áram a Fi mellett tér vissza, a Fi különbözeti áramot lát és kiold, amint bármi bekapcsol. Ezért a Fi utáni nullának külön sín kell.',
+        highlightIds: [w.a, w.b, `${fi.id}.N1`, `${fi.id}.N2`],
+      });
+    }
+  }
+
   /* --- mágneskapcsoló öntartása és reteszelése ------------------------ */
   const contactors = task.parts.filter((p) => p.type === 'contactor');
   for (const k of contactors) {

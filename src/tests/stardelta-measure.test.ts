@@ -223,6 +223,21 @@ describe('PEN-szétválasztás (I)', () => {
     expect(fi.tripped || f2.tripped).toBe(true);
   });
 
+  it('ha a lámpa nullája a Fi előtti N-sínre megy, a Fi bekapcsoláskor kiold', () => {
+    const b = build('I');
+    b.wires = b.wires.map((w) => (w.a === 'NB.b1' && w.b === 'E1.2' ? { ...w, a: 'PEN.n2' } : w));
+    on(b);
+    expect(get(b, 'FI').st.tripped).toBe(true);
+    const r = checkWiring(TASKS.I, b.wires);
+    expect(r.findings.some((f) => f.messageHu.startsWith('A Fi utáni nulla'))).toBe(true);
+  });
+
+  it('a helyes, külön Fi utáni N-sínnel a Fi nem old ki', () => {
+    const b = build('I');
+    on(b);
+    expect(get(b, 'FI').st.tripped).toBe(false);
+  });
+
   it('ha a PEN először az N-sínre megy, az ellenőrzés hibát jelez', () => {
     const t = TASKS.I;
     const w = t.solution
