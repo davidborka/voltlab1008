@@ -749,3 +749,16 @@ A frekvenciaváltó paraméterezése, rámpái és hibakódjai nincsenek modelle
 A készülékrajzokon látható áram- és érzékenységi feliratok grafikai illusztrációk, nem a feladatok megoldásai.
 A mérés, a szemrevételezés és a feszültségmentesítés lépéseit a tananyag szövege tárgyalja, a szimuláció nem helyettesíti őket.
 A tábla végig feszültségmentes állapotban szerelendő; a feszültség alá helyezés csak a kész, ellenőrzött bekötés után, a szimulációban egy gombnyomással történik.
+
+## H - Csillag-delta indítás időrelével
+
+**Forrás:** „Csillag-delta.pdf”, 2 oldal (1. oldal vezérlés, 2. oldal főáramkör), az eredeti rajz a `public/source-previews/H.png`.
+
+**Ami a rajzon van:**
+- Főáramkör: X1 1-3 (L1-L3) → F2 háromfázisú motorvédő kapcsoló → Q11 1-3-5; az F2 kimenete a Q15 1-3-5 bemenetére is megy. Q11 2-4-6 → X1 6-8; Q15 2-4-6 → X1 9-11 és a Q13 2-4-6; a Q13 1-3-5 áthidalva. X1 12: PE. Külön háromfázisú kismegszakító és hőkioldó nincs.
+- Vezérlés: X1-1 (L1) → F1 → S1 (bontó) → S2 (záró) ∥ Q11 53-54 → Q11 13-14 ∥ Q13 53-54 → Q11 és K1 (időrelé) tekercs. A S2 utáni pontról K1 15-16 → Q15 21-22 → Q13 tekercs, illetve K1 15-18 → Q13 21-22 → Q15 tekercs. Az F2 segédérintkezője nincs a vezérlésben.
+- Jelzés: F1 után Q11 61-62 → P1, Q13 83-84 → P2, Q15 83-84 → P3; A2 és X2 az X1-4 (N) pontra.
+
+**Amit következtettünk:** a motor kapocstábláját a rajz nem mutatja; a delta helyes fázissorrendje miatt X1 9 = W2, X1 10 = U2, X1 11 = V2. A P1 a Q11 bontóján át az álló állapotot jelzi.
+
+**Amit a szimuláció miatt egyszerűsítettünk:** az X1 sorkapocs elmarad, a vezetékek közvetlenül a motor kapcsaira mennek; az időrelé késleltetése 5 s; az N-sín csavarszáma miatt a P3 nullája a P2-n át csatlakozik (azonos csomópont).

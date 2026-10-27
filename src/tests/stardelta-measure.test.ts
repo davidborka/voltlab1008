@@ -20,72 +20,85 @@ const SC: Scenario = { ze: 0.52, riso: 999, rcdT: 22, rcdT5: 12, u: 229.4, loose
 
 function start(b: Board, t0: number) {
   get(b, 'SUP').st.on = true;
-  get(b, 'HK').st.on = true;
+  get(b, 'F2').st.on = true;
   solve(b, t0);
-  get(b, 'S1').st.p = true;
+  get(b, 'S2').st.p = true;
   solve(b, t0);
-  get(b, 'S1').st.p = false;
+  get(b, 'S2').st.p = false;
   return solve(b, t0 + 10);
 }
+const lit = (s: ReturnType<typeof solve>, id: string) => !!s.live[`${id}.on`];
 
-describe('csillag-delta indítás', () => {
-  it('csillagban indul, az idő lejártakor deltára vált, a STOP leállítja', () => {
+describe('csillag-delta indítás (Csillag-delta.pdf)', () => {
+  it('álló állapotban csak a P1 világít', () => {
+    const b = build('H');
+    get(b, 'SUP').st.on = true;
+    get(b, 'F2').st.on = true;
+    const s = solve(b, 1);
+    expect([lit(s, 'P1'), lit(s, 'P2'), lit(s, 'P3')]).toEqual([true, false, false]);
+  });
+
+  it('START-ra csillagban indul, az idő lejártakor deltára vált, a STOP leállítja', () => {
     const b = build('H');
     const t0 = 1_000_000;
     let s = start(b, t0);
     const m = get(b, 'M');
-    expect(get(b, 'K1').st.on).toBe(true);
-    expect(get(b, 'K2').st.on).toBe(true);
-    expect(get(b, 'K3').st.on).toBe(false);
+    expect(get(b, 'Q11').st.on).toBe(true);
+    expect(get(b, 'Q13').st.on).toBe(true);
+    expect(get(b, 'Q15').st.on).toBe(false);
     expect(motor6State(m, s.ctxFor(m))).toEqual({ dir: 1, mode: 'star' });
+    expect([lit(s, 'P1'), lit(s, 'P2'), lit(s, 'P3')]).toEqual([false, true, false]);
 
     s = solve(b, t0 + TIMER_MS + 50);
-    expect(get(b, 'K2').st.on).toBe(false);
-    expect(get(b, 'K3').st.on).toBe(true);
+    expect(get(b, 'Q11').st.on).toBe(true);
+    expect(get(b, 'Q13').st.on).toBe(false);
+    expect(get(b, 'Q15').st.on).toBe(true);
     expect(s.shorts.size).toBe(0);
     expect(motor6State(m, s.ctxFor(m))).toEqual({ dir: 1, mode: 'delta' });
+    expect([lit(s, 'P1'), lit(s, 'P2'), lit(s, 'P3')]).toEqual([false, false, true]);
 
-    get(b, 'S0').st.p = true;
-    s = solve(b, t0 + TIMER_MS + 100);
-    get(b, 'S0').st.p = false;
+    get(b, 'S1').st.p = true;
+    solve(b, t0 + TIMER_MS + 100);
+    get(b, 'S1').st.p = false;
     s = solve(b, t0 + TIMER_MS + 150);
-    expect(get(b, 'K1').st.on).toBe(false);
+    expect(get(b, 'Q11').st.on).toBe(false);
     expect(motor6State(m, s.ctxFor(m)).mode).toBe('none');
   });
 
-  it('a hőkioldó túlterheléskor leejti a vezérlést', () => {
-    const b = build('H');
-    const t0 = 5_000_000;
-    start(b, t0);
-    expect(get(b, 'K1').st.on).toBe(true);
-    PARTS.olr.tap!(get(b, 'F3').st);
-    const s = solve(b, t0 + 50);
-    expect(get(b, 'K1').st.on).toBe(false);
-    expect(motor6State(get(b, 'M'), s.ctxFor(get(b, 'M'))).mode).toBe('none');
+  it('a Q13 53-54 nélkül a Q11 nem húz meg', () => {
+    const b = build('H', [['S2.4', 'Q13.53']]);
+    get(b, 'SUP').st.on = true;
+    get(b, 'F2').st.on = true;
+    get(b, 'S2').st.p = true;
+    solve(b, 7_000_000);
+    expect(get(b, 'Q13').st.on).toBe(true);
+    expect(get(b, 'Q11').st.on).toBe(false);
   });
 
-  it('a motorvédő lekapcsolása leállítja a motort', () => {
+  it('a motorvédő lekapcsolásakor a motor megáll', () => {
     const b = build('H');
     const t0 = 6_000_000;
     start(b, t0);
-    PARTS.mprot.tap!(get(b, 'HK').st);
-    solve(b, t0 + 50);
-    expect(get(b, 'K1').st.on).toBe(false);
+    PARTS.mprot.tap!(get(b, 'F2').st);
+    const s = solve(b, t0 + 50);
+    expect(motor6State(get(b, 'M'), s.ctxFor(get(b, 'M'))).mode).toBe('none');
   });
 
-  it('K2 és K3 soha nem húz meg egyszerre', () => {
+  it('Q13 és Q15 soha nem húz meg egyszerre', () => {
     const b = build('H');
     const t0 = 2_000_000;
     start(b, t0);
     for (let t = 0; t < TIMER_MS + 1000; t += 97) {
       solve(b, t0 + t);
-      expect(get(b, 'K2').st.on && get(b, 'K3').st.on).toBe(false);
+      expect(get(b, 'Q13').st.on && get(b, 'Q15').st.on).toBe(false);
     }
   });
 
   it('a rossz deltakötést hibásnak látja', () => {
     const b = build('H');
-    b.wires = b.wires.map((w) => (w.a === 'K3.2' ? { ...w, b: 'M.U2' } : w.a === 'K3.4' ? { ...w, b: 'M.W2' } : w));
+    b.wires = b.wires.map((w) =>
+      w.a === 'Q15.2' && w.b === 'M.W2' ? { ...w, b: 'M.U2' } : w.a === 'Q15.4' && w.b === 'M.U2' ? { ...w, b: 'M.W2' } : w
+    );
     const t0 = 3_000_000;
     start(b, t0);
     const s = solve(b, t0 + TIMER_MS + 50);

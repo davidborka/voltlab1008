@@ -21,10 +21,10 @@ ellenőrzési lista - szerver, adatbázis és regisztráció nélkül.
 | **E** | Egyfázisú motorindítás | Motorvezérlés | Mágneskapcsoló, öntartás, egypólusú motorvédő, egyfázisú motor |
 | **F** | Háromfázisú mérőhely | Mérőhely | Főbiztosító, fogyasztásmérő, főkapcsoló, 4 pólusú Fi-relé, fázisonként egy kör |
 | **G** | Egyfázisú mérőhely | Mérőhely | Fogyasztásmérő (1-3 / 4-6), főkismegszakító, Fi-relé, dugalj és lámpa |
-| **H** | Csillag-delta indítás | Motorvezérlés | HK-1 motorvédő, K1 fő, K2 csillag, K3 delta, KT időrelé, F-3 hőkioldó, 6 kivezetésű motor, kölcsönös reteszelés |
+| **H** | Csillag-delta indítás | Motorvezérlés | F2 motorvédő, Q11 fő, Q13 csillag, Q15 delta, K1 időrelé, P1-P3 állapotjelzés, 6 kivezetésű motor |
 
-Az A-D feladat a vizsga gyakorlati feladatlapjainak rajzaiból készült.
-Az E, F, G és H kiegészítés, nem azokból származik - lásd [`docs/source-analysis.md`](docs/source-analysis.md).
+Az A-D és a H feladat a vizsga gyakorlati feladatlapjainak rajzaiból készült (H: „Csillag-delta.pdf”).
+Az E, F és G kiegészítés, nem azokból származik - lásd [`docs/source-analysis.md`](docs/source-analysis.md).
 
 ## Öt tanulási mód feladatonként
 
