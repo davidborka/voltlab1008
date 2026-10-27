@@ -34,7 +34,9 @@ const ROLE_COLOR: Record<string, WireColor> = { L: 'br', N: 'bl', PE: 'gy' };
 const BASE_TILT = { x: 6, y: -4 };
 
 interface DragState {
-  kind: 'pan' | 'part' | 'handle' | 'wire' | 'hold';
+  kind: 'pan' | 'part' | 'handle' | 'wire' | 'hold' | 'end';
+  /** kábelvég áthelyezésekor: melyik vég mozog */
+  end?: 'a' | 'b';
   sx?: number;
   sy?: number;
   vx?: number;
@@ -82,6 +84,7 @@ export class BoardEngine {
   private gParts: SVGGElement;
   private gCables: SVGGElement;
   private gTerms: SVGGElement;
+  private gSel: SVGGElement;
   private gGhost: SVGGElement;
 
   constructor(host: HTMLElement, opts: BoardOptions) {
@@ -102,6 +105,9 @@ export class BoardEngine {
     this.gParts = mkG(this.svg);
     this.gCables = mkG(this.svg);
     this.gTerms = mkG(this.svg);
+    /* a kijelölt kábel fogantyúi a sorkapcsok FÖLÖTT, különben a kapcsok
+       fogási köre eltakarja őket */
+    this.gSel = mkG(this.svg);
     this.gGhost = mkG(this.svg);
 
     this.boardEl.append(this.plate, this.svg, gloss);
@@ -196,8 +202,15 @@ export class BoardEngine {
 
   removeWire(id: string) {
     this.board.wires = this.board.wires.filter((w) => w.id !== id);
-    if (this.selected === id) this.selected = null;
+    if (this.selected === id) this.select(null);
     this.paint();
+  }
+
+  select(id: string | null) {
+    if (this.selected === id) return;
+    this.selected = id;
+    this.opts.onSelect?.(id);
+    this.paintCables();
   }
 
   clearWires() {
@@ -305,6 +318,8 @@ export class BoardEngine {
     const sim = this.sim;
     const cs: string[] = [];
     const sh: string[] = [];
+    const sel: string[] = [];
+    const hitW = Math.max(16, Math.round(18 / this.view.z));
     for (const w of this.board.wires) {
       const a = this.termPos(w.a);
       const b = this.termPos(w.b);
@@ -313,6 +328,8 @@ export class BoardEngine {
       const hot = sim && hasPhase(sim.railsAt(w.a) as ReadonlySet<Rail>);
       const bad = sim && sim.shortedAt(w.a);
       sh.push(`<path class="cshadow" d="${d}" transform="translate(6,11)"/>`);
+      /* széles, láthatatlan fogási sáv: a vékony kábel kicsinyítve is eltalálható */
+      cs.push(`<path class="chit" data-wire="${w.id}" d="${d}" stroke-width="${hitW}"/>`);
       cs.push(
         `<path class="cable c-${w.color}${this.selected === w.id ? ' sel' : ''}" data-wire="${w.id}" d="${d}"/>`
       );
@@ -321,24 +338,34 @@ export class BoardEngine {
       if (hot || bad) cs.push(`<path class="cflow${bad ? ' cfault' : ''}" d="${d}"/>`);
       if (this.selected === w.id) {
         const m = this.cableMid(w)!;
-        cs.push(
-          `<circle class="chandle" data-handle="${w.id}" cx="${m.x}" cy="${m.y}" r="13"><title>Húzd, hogy elrendezd</title></circle>`
+        /* a két vég: húzd másik kapocsra az áthelyezéshez */
+        for (const [end, pos] of [['a', a], ['b', b]] as const) {
+          sel.push(
+            `<circle class="cend" data-end="${w.id}:${end}" cx="${pos.x}" cy="${pos.y}" r="${Math.max(13, Math.round(13 / this.view.z))}"><title>Húzd másik kapocsra</title></circle>`
+          );
+        }
+        /* kicsinyítve is legalább ujjnyi méret */
+        const k = Math.max(1, 1.1 / this.view.z);
+        const cx = m.x + 44 * k, cy = m.y - 30 * k, x = 8 * k;
+        sel.push(
+          `<circle class="chandle" data-handle="${w.id}" cx="${m.x}" cy="${m.y}" r="${13 * k}"><title>Húzd, hogy elrendezd</title></circle>`
         );
-        cs.push(
+        sel.push(
           `<g class="cdel" data-del="${w.id}" role="button" tabindex="0" aria-label="Kábel törlése">` +
-            `<circle class="cdelbg" cx="${m.x + 44}" cy="${m.y - 30}" r="19"/>` +
-            `<path class="cdelx" d="M${m.x + 36},${m.y - 38} l16,16 M${m.x + 52},${m.y - 38} l-16,16"/></g>`
+            `<circle class="cdelbg" cx="${cx}" cy="${cy}" r="${19 * k}"/>` +
+            `<path class="cdelx" d="M${cx - x},${cy - x} l${2 * x},${2 * x} M${cx + x},${cy - x} l${-2 * x},${2 * x}"/></g>`
         );
       }
     }
     this.gShadow.innerHTML = sh.join('');
     this.gCables.innerHTML = cs.join('');
+    this.gSel.innerHTML = sel.join('');
   }
 
   /* -------------------------------------------------------------- geometria */
 
   private hitR() {
-    return Math.max(20, Math.round(22 / this.view.z));
+    return Math.max(12, Math.round(14 / this.view.z));
   }
 
   termPos(key: string) {
@@ -477,6 +504,17 @@ export class BoardEngine {
         this.removeWire(dEl.dataset.del!);
         return;
       }
+      const eEl = t.closest?.('[data-end]') as HTMLElement | null;
+      if (eEl) {
+        const [wid, end] = eEl.dataset.end!.split(':');
+        const w = this.board.wires.find((q) => q.id === wid);
+        if (w) {
+          this.snap = null;
+          this.drag = { kind: 'end', w, end: end as 'a' | 'b', from: end === 'a' ? w.b : w.a };
+          capture(e);
+          return;
+        }
+      }
       if (hEl) {
         this.drag = { kind: 'handle', w: this.board.wires.find((q) => q.id === hEl.dataset.handle) };
         capture(e);
@@ -499,9 +537,7 @@ export class BoardEngine {
         return;
       }
       if (wEl) {
-        this.selected = this.selected === wEl.dataset.wire ? null : wEl.dataset.wire!;
-        this.opts.onSelect?.(this.selected);
-        this.paintCables();
+        this.select(this.selected === wEl.dataset.wire ? null : wEl.dataset.wire!);
         return;
       }
       if (pEl) {
@@ -544,6 +580,16 @@ export class BoardEngine {
         return;
       }
       const drag = this.drag;
+      if (drag?.kind === 'end') {
+        const wp = this.toWorld(e.clientX, e.clientY);
+        const sn = this.nearestTerm(wp, drag.from!);
+        if (sn !== this.snap) {
+          this.snap = sn;
+          this.markSnap();
+        }
+        this.drawGhost(drag.from!, wp);
+        return;
+      }
       if (drag?.kind === 'wire') {
         if (Math.abs(e.clientX - drag.sx!) + Math.abs(e.clientY - drag.sy!) > 6) drag.moved = true;
         const wp = this.toWorld(e.clientX, e.clientY);
@@ -601,6 +647,13 @@ export class BoardEngine {
           this.paint();
         }
       }
+      if (drag.kind === 'end') {
+        const to = this.snap;
+        this.snap = null;
+        this.gGhost.innerHTML = '';
+        if (to && to !== drag.from) drag.w![drag.end!] = to;
+        this.paint();
+      }
       if (drag.kind === 'wire') {
         const to = this.snap;
         this.snap = null;
@@ -635,6 +688,13 @@ export class BoardEngine {
 
     /* billentyűzetes bekötés: a sorkapocs fókuszálható, Enter köti össze */
     this.stage.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        this.armed = null;
+        this.snap = null;
+        this.gGhost.innerHTML = '';
+        this.select(null);
+        this.paint();
+      }
       const tEl = (e.target as Element).closest?.('[data-term]') as HTMLElement | null;
       if (tEl && (e.key === 'Enter' || e.key === ' ')) {
         e.preventDefault();

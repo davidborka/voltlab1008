@@ -17,17 +17,20 @@ interface Props {
   dimOthers?: boolean;
   flat?: boolean;
   onChange?(board: Board, sim: SolveResult): void;
+  onSelect?(wireId: string | null): void;
   className?: string;
 }
 
 export const BoardView = forwardRef<BoardHandle, Props>(function BoardView(
-  { task, mode, wires, highlight, dimOthers, flat, onChange, className },
+  { task, mode, wires, highlight, dimOthers, flat, onChange, onSelect, className },
   ref
 ) {
   const hostRef = useRef<HTMLDivElement>(null);
   const engRef = useRef<BoardEngine | null>(null);
   const cbRef = useRef(onChange);
   cbRef.current = onChange;
+  const selRef = useRef(onSelect);
+  selRef.current = onSelect;
 
   useImperativeHandle(ref, () => ({ engine: () => engRef.current }), []);
 
@@ -37,6 +40,7 @@ export const BoardView = forwardRef<BoardHandle, Props>(function BoardView(
       task,
       mode,
       onChange: (b, s) => cbRef.current?.(b, s),
+      onSelect: (id) => selRef.current?.(id),
     });
     engRef.current = eng;
     const ro = new ResizeObserver(() => eng.fit());

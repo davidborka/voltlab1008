@@ -279,6 +279,10 @@
 .board-scope .ghost { stroke-dasharray: 12 10; opacity: 0.85; }
 .board-scope .chandle { fill: rgba(255, 255, 255, 0.85); stroke: #0d1116; stroke-width: 1.5; cursor: move; }
 .board-scope .cdel { cursor: pointer; pointer-events: auto; }
+.board-scope .chit { fill: none; stroke: transparent; stroke-linecap: round; cursor: pointer; }
+.board-scope .chit:hover + .cable { stroke-width: 7.5; }
+.board-scope .cend { fill: rgba(255, 255, 255, 0.18); stroke: #fff; stroke-width: 2.5; stroke-dasharray: 4 3; cursor: grab; }
+.board-scope .cend:hover { fill: rgba(95, 179, 86, 0.35); }
 .board-scope .cdelbg { fill: var(--fault); stroke: #2a0d12; stroke-width: 2; }
 .board-scope .cdelx { stroke: #fff; stroke-width: 3.4; stroke-linecap: round; pointer-events: none; }
 .board-scope .cdel:hover .cdelbg { fill: #ff7686; }
@@ -344,7 +348,9 @@ svg.ee-main .hit,
 svg.ee-main .ee-part,
 svg.ee-main .cable,
 svg.ee-main .cdel,
+svg.ee-main .cend,
 svg.ee-main .chandle { pointer-events: auto; }
+svg.ee-main .chit { pointer-events: stroke; }
 
 .ee-part { cursor: grab; }
 .ee-part.dragging { cursor: grabbing; }

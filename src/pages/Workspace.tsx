@@ -10,6 +10,9 @@ import {
   Layers,
   Power,
   Printer,
+  Redo2,
+  Trash2,
+  Undo2,
 } from 'lucide-react';
 import { go } from '../app/App';
 import { Button, Tag, cx, useToast } from '../components/ui';
@@ -85,6 +88,7 @@ export function Workspace({
   const [showSource, setShowSource] = useState(false);
   const [sim, setSim] = useState<SolveResult | null>(null);
   const [powered, setPowered] = useState(false);
+  const [selWire, setSelWire] = useState<string | null>(null);
   const [wires, dispatch] = useReducer(wireReducer, { past: [], now: [], future: [] });
   const boardRef = useRef<BoardHandle>(null);
   const { toast, node: toastNode } = useToast();
@@ -120,6 +124,30 @@ export function Workspace({
     if (JSON.stringify(e.board.wires) !== JSON.stringify(wires.now)) e.setWires(wires.now);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [wires.now]);
+
+  /* Billentyűk bekötés közben: Ctrl+Z / Ctrl+Y, Delete a kijelölt kábelre.
+     Beviteli mezőben (jegyzőkönyv) nem nyúlunk hozzá. */
+  useEffect(() => {
+    if (boardMode !== 'wire') return;
+    const onKey = (e: KeyboardEvent) => {
+      const t = e.target as HTMLElement;
+      if (t.closest('input, textarea, select, [contenteditable]')) return;
+      const k = e.key.toLowerCase();
+      if ((e.ctrlKey || e.metaKey) && k === 'z') {
+        e.preventDefault();
+        dispatch({ type: e.shiftKey ? 'redo' : 'undo' });
+      } else if ((e.ctrlKey || e.metaKey) && k === 'y') {
+        e.preventDefault();
+        dispatch({ type: 'redo' });
+      } else if ((k === 'delete' || k === 'backspace') && eng()?.selected) {
+        e.preventDefault();
+        eng()!.removeWire(eng()!.selected!);
+      }
+    };
+    addEventListener('keydown', onKey);
+    return () => removeEventListener('keydown', onKey);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [boardMode]);
 
   const focusOn = useCallback((ids: string[], dimOthers = true) => {
     setHighlight(ids);
@@ -304,8 +332,29 @@ export function Workspace({
             dimOthers={dim}
             flat={flat}
             onChange={onBoardChange}
+            onSelect={setSelWire}
             className="h-full w-full"
           />
+          {boardMode === 'wire' && (
+            <div className="absolute left-5 top-5 z-10 flex gap-1.5 rounded-[12px] border border-line bg-surface/90 p-1 shadow-lg backdrop-blur no-print">
+              <Button size="sm" icon={Undo2} disabled={!wires.past.length} onClick={() => dispatch({ type: 'undo' })} title="Vissza (Ctrl+Z)">
+                <span className="hidden sm:inline">Vissza</span>
+              </Button>
+              <Button size="sm" icon={Redo2} disabled={!wires.future.length} onClick={() => dispatch({ type: 'redo' })} title="Újra (Ctrl+Y)">
+                <span className="hidden sm:inline">Újra</span>
+              </Button>
+              <Button
+                size="sm"
+                tone="danger"
+                icon={Trash2}
+                disabled={!selWire}
+                onClick={() => selWire && eng()?.removeWire(selWire)}
+                title="Kijelölt kábel törlése (Delete)"
+              >
+                <span className="hidden sm:inline">Kábel törlése</span>
+              </Button>
+            </div>
+          )}
           {showSource && task.sourcePreview && (
             <div className="absolute inset-3 z-20 overflow-auto rounded-[14px] border border-line bg-surface-2 p-3 no-print">
               <div className="mb-2 flex items-center justify-between">
