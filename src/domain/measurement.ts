@@ -68,11 +68,11 @@ export const MEASURES: MeasureDef[] = [
   },
   {
     id: 'u',
-    titleHu: 'Fázisfeszültség (L - N)',
+    titleHu: 'Hálózati feszültség (L-N, L-PE, N-PE)',
     instrumentHu: 'multiméter, AC V',
     power: 'on',
     stage: 3,
-    limitHu: '230 V ± 10 % → 207-253 V',
+    limitHu: 'L-N és L-PE: 230 V ± 10 % → 207-253 V · N-PE: néhány V alatt',
   },
   {
     id: 'forg',
@@ -348,11 +348,30 @@ export function measure(
   }
 
   if (id === 'u') {
+    /* Három érték egy mérésben: L-N, L-PE, N-PE. A jegyzőkönyvbe az L-N kerül
+       számként, a másik kettő a kijelzett szövegben látszik. */
     const nT = POINT_N[pt!.type];
-    if (nT && !sim!.railsAt(`${pt!.id}.${nT}`).has('N')) {
-      return { id, num: 0, valueHu: '0 V', pass: false, noteHu: 'A mérési pont nullája szakadt.' };
-    }
-    return { id, num: sc.u, valueHu: `${hu(sc.u, 1)} V`, pass: sc.u >= 207 && sc.u <= 253 };
+    const nOk = !nT || sim!.railsAt(`${pt!.id}.${nT}`).has('N');
+    const ln = nOk ? sc.u : 0;
+    const lpe = ptPe ? (peOk ? sc.u + 0.3 : 0) : null;
+    const npe = ptPe && nOk ? (peOk ? 0.4 : null) : null;
+    const parts = [
+      `L-N ${hu(ln, 1)} V`,
+      lpe === null ? 'L-PE: nincs PE kapocs' : `L-PE ${hu(lpe, 1)} V`,
+      npe === null ? (ptPe ? 'N-PE: OL' : '') : `N-PE ${hu(npe, 1)} V`,
+    ].filter(Boolean);
+    const ok = nOk && sc.u >= 207 && sc.u <= 253 && (!ptPe || peOk);
+    return {
+      id,
+      num: ln,
+      valueHu: parts.join(' · '),
+      pass: ok,
+      noteHu: !nOk
+        ? 'A mérési pont nullája szakadt.'
+        : ptPe && !peOk
+          ? 'L-PE ≈ 0 V: a védővezető nem jut el a mérési pontig - szakadt vagy bekötetlen PE.'
+          : undefined,
+    };
   }
 
   if (id === 'forg') {

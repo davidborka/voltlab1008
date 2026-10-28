@@ -45,10 +45,10 @@ export const contentD: TaskContent = {
     {
       id: 'd2',
       titleHu: 'Fázisvédelem: az F1 kismegszakító',
-      goalHu: 'A Q1 T1, T2, T3 kimenete az F1 3x1P kismegszakító 1a, 1b, 1c kapcsaira megy, a kimeneti 2a, 2b, 2c kapcsok szolgálnak a két mágneskapcsoló táplálására.',
+      goalHu: 'A Q1 T1, T2, T3 kimenete az F1 3P kismegszakító (Schneider Easy9 C16) 1, 3, 5 kapcsaira megy, a kimeneti 2, 4, 6 kapcsok szolgálnak a két mágneskapcsoló táplálására.',
       focus: ['Q1', 'F1'],
       reasoningHu:
-        'A frekvenciaváltó háromfázisú kimenete a T1, T2, T3. Az F1 három egypólusú kismegszakítója fázisonként véd, bemenete fent (1a, 1b, 1c), kimenete lent (2a, 2b, 2c). Az F1 kimenete közös csomópont: innen ágazik el a K1 és a K2 főérintkezőire menő két ág.',
+        'A frekvenciaváltó háromfázisú kimenete a T1, T2, T3. Az F1 háromsarkú kismegszakító (Easy9 3P) fázisonként véd, bemenete fent (1, 3, 5), kimenete lent (2, 4, 6). Az F1 kimenete közös csomópont: innen ágazik el a K1 és a K2 főérintkezőire menő két ág.',
       questionHu: 'Miért ágazik el az F1 kimenete két irányba?',
       options: [
         'Mert a K1 és a K2 ugyanarról a három fázisról kapja a főáramkörét, csak más kiosztásban.',
@@ -64,10 +64,10 @@ export const contentD: TaskContent = {
     {
       id: 'd3',
       titleHu: 'Az egyik irány főáramköre: K1',
-      goalHu: 'Az F1 2a, 2b, 2c kapcsai rendre a K1 főérintkezőinek 1, 3, 5 kapcsaira kerülnek, a K1 2, 4, 6 kimenete a HK motorvédő bemenetére megy.',
+      goalHu: 'Az F1 2, 4, 6 kapcsai rendre a K1 főérintkezőinek 1, 3, 5 kapcsaira kerülnek, a K1 2, 4, 6 kimenete a HK motorvédő bemenetére megy.',
       focus: ['F1', 'K1', 'HK'],
       reasoningHu:
-        'A K1 adja az alapirányt, itt a fázissorrend változatlan: L1 az 1-es, L2 a 3-as, L3 az 5-ös kapocsra. A főérintkezőknél a páratlan szám a bemenet, a páros a kimenet. A K1 kimenete a HK motorvédő L1, L2, L3 kapcsaira fut.',
+        'A K1 adja az alapirányt, itt a fázissorrend változatlan: L1 az 1-es, L2 a 3-as, L3 az 5-ös kapocsra. A főérintkezőknél a páratlan szám a bemenet, a páros a kimenet. A K1 2T1, 4T2, 6T3 kimenete a HK motorvédő 1L1, 3L2, 5L3 kapcsaira fut.',
       questionHu: 'Melyik kapocs a mágneskapcsoló főérintkezőjének bemenete?',
       options: ['A 2, 4, 6.', 'Az 1, 3, 5.', 'Az A1 és A2.', 'A 13 és 14.'],
       correct: 1,
@@ -97,10 +97,10 @@ export const contentD: TaskContent = {
     {
       id: 'd5',
       titleHu: 'Motorvédő és motor',
-      goalHu: 'A HK L1, L2, L3 bemenete a két mágneskapcsoló közös kimenetéről kap táplálást, a HK T1, T2, T3 kimenete a motor U1, V1, W1 kapcsaira megy, a motor PE kapcsa a PB sínre.',
+      goalHu: 'A HK 1L1, 3L2, 5L3 bemenete a két mágneskapcsoló közös kimenetéről kap táplálást, a HK 2T1, 4T2, 6T3 kimenete a motor U1, V1, W1 kapcsaira megy, a motor PE kapcsa a PB sínre.',
       focus: ['K1', 'K2', 'HK', 'M', 'PB'],
       reasoningHu:
-        'A motorvédő kapcsoló mindkét irányban ugyanazt a motort védi, ezért közös, a két mágneskapcsoló után van a sorban. Bemenete az L1, L2, L3, kimenete a T1, T2, T3. A motor védővezetőjét mindig a PE-sínre kötjük, soha nem a nullára.',
+        'A motorvédő kapcsoló mindkét irányban ugyanazt a motort védi, ezért közös, a két mágneskapcsoló után van a sorban. Bemenete az 1L1, 3L2, 5L3, kimenete a 2T1, 4T2, 6T3. A motor védővezetőjét mindig a PE-sínre kötjük, soha nem a nullára.',
       questionHu: 'Miért elég egyetlen motorvédő kapcsoló a két irányhoz?',
       options: [
         'Mert a motorvédő csak az egyik irányt figyeli.',
@@ -207,7 +207,7 @@ export const contentD: TaskContent = {
         'A K1 saját 81-82 bontóját.',
         'A K2 81-82 bontóját.',
         'A K2 13-14 záróját.',
-        'A HK T1 kapcsát.',
+        'A HK 2T1 kapcsát.',
       ],
       correct: 1,
       category: 'bekotesi-pontossag',

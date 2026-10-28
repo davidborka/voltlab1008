@@ -150,6 +150,9 @@
 .board-scope .knobbg { fill: #d5d2ca; stroke: #aeaba2; }
 .board-scope .knob { fill: #2f343b; }
 .board-scope .knob.knob-red { fill: #d0402f; }
+.board-scope .spdcart { fill: #e4692e; stroke: rgba(0, 0, 0, 0.25); stroke-width: 1; }
+.board-scope .spdcart.spdcart-g { fill: #63b84a; }
+.board-scope .spdwin { fill: #9be07c; stroke: #2e5a22; stroke-width: 1.2; }
 .board-scope .meterwin { fill: #22262c; stroke: #14181d; stroke-width: 2; }
 .board-scope .meterdigits {
   font-family: var(--mono);

@@ -1,8 +1,9 @@
 /** Munkafelület: bal oldalon a tábla, jobb oldalon a tanulási panel. */
-import { useCallback, useEffect, useMemo, useReducer, useRef, useState } from 'react';
+import { Suspense, lazy, useCallback, useEffect, useMemo, useReducer, useRef, useState } from 'react';
 import {
   ArrowLeft,
   BookOpenCheck,
+  Box,
   Cable,
   Gauge,
   GraduationCap,
@@ -23,11 +24,15 @@ import { WiringPanel } from '../features/wiring/WiringPanel';
 import { ExamPanel } from '../features/exam/ExamPanel';
 import { PrintSheet } from '../features/exam/PrintSheet';
 import { MeasurePanel } from '../features/measure/MeasurePanel';
+import { Board3DPanel } from '../features/board3d/Board3DPanel';
 import { TASKS, TASK_ORDER } from '../data/tasks';
 import { PARTS } from '../data/parts';
 import type { Board, SolveResult, Wire } from '../domain/electrical-types';
 
-export type Mode = 'attekintes' | 'vezetett' | 'bekotes' | 'meres' | 'vizsga';
+export type Mode = 'attekintes' | 'vezetett' | 'bekotes' | 'meres' | 'vizsga' | '3d';
+
+/* A three.js csak a 3D nézet megnyitásakor töltődik le (külön darab). */
+const Board3D = lazy(() => import('../features/board3d/Board3D'));
 
 const MODES: Array<{ id: Mode; label: string; icon: typeof Layers; hint: string }> = [
   { id: 'attekintes', label: 'Áttekintés', icon: Layers, hint: 'mit csinál a kapcsolás' },
@@ -35,6 +40,7 @@ const MODES: Array<{ id: Mode; label: string; icon: typeof Layers; hint: string 
   { id: 'bekotes', label: 'Gyakorlás', icon: Cable, hint: 'köss be, és kapcsolgasd élőben' },
   { id: 'meres', label: 'Mérés · jegyzőkönyv', icon: Gauge, hint: 'hurokimpedancia, Fi, szigetelés' },
   { id: 'vizsga', label: 'Vizsgamód', icon: BookOpenCheck, hint: 'egy képernyőn, segítség nélkül' },
+  { id: '3d', label: '3D bekötés', icon: Box, hint: 'valós készülékek, valós kapcsok' },
 ];
 
 /* ------------------------------------------------ huzalok visszavonással */
@@ -93,6 +99,7 @@ export function Workspace({
   const [sim, setSim] = useState<SolveResult | null>(null);
   const [powered, setPowered] = useState(false);
   const [selWire, setSelWire] = useState<string | null>(null);
+  const [step3d, setStep3d] = useState(-1);
   const [wires, dispatch] = useReducer(wireReducer, { past: [], now: [], future: [] });
   const boardRef = useRef<BoardHandle>(null);
   const { toast, node: toastNode } = useToast();
@@ -107,6 +114,7 @@ export function Workspace({
     setHighlight([]);
     setMode(startExam ? 'vizsga' : 'attekintes');
     setPowered(false);
+    setStep3d(-1);
   }, [taskId, startExam]);
 
   /* a tábla állapotváltozásai vissza a Reactbe */
@@ -200,6 +208,8 @@ export function Workspace({
             toast={toast}
           />
         );
+      case '3d':
+        return <Board3DPanel task={task} step={step3d} onStep={setStep3d} />;
       case 'vizsga':
         return (
           <ExamPanel
@@ -222,7 +232,7 @@ export function Workspace({
           />
         );
     }
-  }, [mode, task, sim, powered, wires, focusOn, onComplete, toast]);
+  }, [mode, task, sim, powered, wires, focusOn, onComplete, toast, step3d]);
 
   const idx = TASK_ORDER.indexOf(taskId as (typeof TASK_ORDER)[number]);
 
@@ -285,7 +295,7 @@ export function Workspace({
               setMode(m.id);
               setHighlight([]);
               setDim(false);
-              setMobileTab(m.id === 'attekintes' ? 'segedlet' : 'segedlet');
+              setMobileTab(m.id === '3d' ? 'rajz' : 'segedlet');
             }}
             aria-pressed={mode === m.id}
             className={cx(
@@ -324,7 +334,10 @@ export function Workspace({
       <div className="grid min-h-0 flex-1 overflow-hidden lg:grid-cols-[minmax(0,1fr)_min(460px,38%)]">
         <div
           className={cx(
-            'relative min-h-[52vh] overflow-hidden border-line p-3 lg:min-h-0 lg:border-r',
+            'relative overflow-hidden border-line p-3 lg:min-h-0 lg:border-r',
+            /* 3D-ben a rendelkezésre álló magasságot tölti ki, hogy az alsó
+               vezérlősáv telefonon se lógjon ki */
+            mode === '3d' ? 'h-full min-h-[320px]' : 'min-h-[52vh]',
             mobileTab === 'rajz' ? 'block' : 'hidden lg:block'
           )}
         >
@@ -339,6 +352,19 @@ export function Workspace({
             onSelect={setSelWire}
             className="h-full w-full"
           />
+          {mode === '3d' && (
+            <div className="absolute inset-3 z-30 no-print">
+              <Suspense
+                fallback={
+                  <div className="grid h-full place-items-center rounded-[14px] border border-line bg-surface text-[13px] text-ink-faint">
+                    3D nézet betöltése…
+                  </div>
+                }
+              >
+                <Board3D task={task} step={step3d} onStep={setStep3d} />
+              </Suspense>
+            </div>
+          )}
           {boardMode === 'wire' && (
             <div className="absolute left-5 top-5 z-10 flex gap-1.5 rounded-[12px] border border-line bg-surface/90 p-1 shadow-lg backdrop-blur no-print">
               <Button size="sm" icon={Undo2} disabled={!wires.past.length} onClick={() => dispatch({ type: 'undo' })} title="Vissza (Ctrl+Z)">

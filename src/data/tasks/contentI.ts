@@ -17,6 +17,8 @@ export const contentI: TaskContent = {
     'A PEN vezetőt kapcsolóval vagy kismegszakítóval bontják - a PEN-t (és a PE-t) tilos kapcsolni.',
     'Szigetelésmérésnél zárva hagyják a PEN-hidat: a műszer N-PE között zárlatot mér.',
     'Mérés után elfelejtik visszazárni a hidat: nincs nulla, semmi nem működik.',
+    'SPD a Fi után / PE nélkül: a túlfeszültség-védőt a Fi-relé mögé kötik (a levezetett impulzus kioldja a Fi-t), vagy az SPD ⏚ kapcsa nincs a PE-sínre kötve (így hatástalan).',
+    'A Qoltec mérőn a régi 1-3 / 4-6 számozást keresik: a készülékre nyomtatott rajz szerint a fázis 1 → 2, a nulla (itt PEN) 3 → 4.',
   ],
   guided: [
     {
@@ -40,7 +42,7 @@ export const contentI: TaskContent = {
     {
       id: 'i2',
       titleHu: 'PEN-szétválasztás: először a PE-sínre',
-      goalHu: 'A mérő 6-os kapcsa (PEN) → PE-sín PEN kapocs → híd → N-sín.',
+      goalHu: 'A Qoltec mérő 4-es kapcsa (PEN ki) → PE-sín PEN kapocs → híd → N-sín. (A PEN a 3-as kapcson lép be a mérőbe.)',
       focus: ['KWH', 'PEN'],
       reasoningHu:
         'A PEN-vezető elsődleges szerepe a védelem, ezért mindig a PE-sínre érkezik, és onnan visz át a híd az N-sínre. Ha a híd vagy az N felé eső rész megszakad, a PE akkor is megmarad. Fordítva - PEN az N-sínre, onnan a PE-re - egy laza N-csavar a védővezetőt is elvinné, és a testek feszültség alá kerülhetnének.',
@@ -103,6 +105,25 @@ export const contentI: TaskContent = {
       correct: 2,
       hintHu: 'Különbözeti áramot mér, nem nagy áramot.',
       explanationHu: 'A Fi-relé a fázis és a nulla áramának különbségét érzékeli, vagyis azt az áramot, ami nem a nullán folyik vissza, hanem a földbe - például egy emberen keresztül. Túlterhelés és zárlat ellen a kismegszakító véd.',
+    },
+    {
+      id: 'i-spd',
+      titleHu: 'Túlfeszültség-védelem a szétválasztás után',
+      goalHu: 'SP1 L/N kapcsát a mérő 2-es kapcsára (L-PE), SP2 L/N kapcsát az N-sínre (N-PE), mindkét ⏚ kapcsot a PE-sínre kötni - a Fi-relé ELŐTT.',
+      focus: ['KWH', 'PEN', 'SP1', 'SP2', 'FI'],
+      reasoningHu:
+        'Az SPD a mérő (és a főbiztosító) UTÁN, a Fi-relé ELŐTT kerül a táblára, hogy a levezetett impulzus ne folyjon át a Fi-n. A PEN-szétválasztás után már külön N és PE van, ezért két 1 pólusú T2 modul kell: L-PE és N-PE. Normál üzemben a varisztor nem vezet, tehát az SPD nem köti össze az N-t és a PE-t. Szigetelésmérés előtt - a híd bontása mellett - az SPD-betéteket is ki kell húzni.',
+      questionHu: 'Mi történik, ha az SPD ⏚ kapcsa nincs a PE-sínre kötve?',
+      options: [
+        'Semmi, az SPD a nullán át is levezet',
+        'Az SPD hatástalan: a túlfeszültségnek nincs útja a föld felé',
+        'A Fi-relé azonnal kiold',
+        'A mérő fordítva mér',
+      ],
+      correct: 1,
+      hintHu: 'Hová vezeti le az SPD a túlfeszültség-impulzust?',
+      explanationHu:
+        'Az SPD a túlfeszültséget a PE (föld) felé vezeti le; PE nélkül nincs levezetési út, a védelem hatástalan. Az SPD pontos helyét és a TN-C-S bekötést egyeztesd a vizsgáztatóval.',
     },
   ],
   exam: [
@@ -197,6 +218,18 @@ export const contentI: TaskContent = {
       correct: 1,
       category: 'biztonsagi-szemlelet',
       explanationHu: 'A földelés a testeket a föld potenciálján tartja, hiba esetén utat ad a hibaáramnak, így a védelem (kismegszakító, Fi) lekapcsol, és az érintési feszültség nem lesz veszélyes.',
+    },
+  ],
+  unresolved: [
+    {
+      id: 'i-spd',
+      labelHu: 'Az SPD pontos helye és a TN-C-S bekötés - az SPD pontos helyét és a TN-C-S bekötést egyeztesd a vizsgáztatóval.',
+      missingHu: [
+        'A szolgáltatói előírás és a vizsgaközpont gyakorlata',
+        'Hol válik szét a PEN (mérőszekrény vagy elosztó)',
+        'A villámvédelmi besorolás (T1 vagy T2 kell-e)',
+      ],
+      typicalExampleHu: 'Oktatási példa, nem a megoldás: a modell a szétválasztás után, a Fi előtt köt be két 1 pólusú T2 SPD-t (L-PE, N-PE).',
     },
   ],
 };

@@ -50,24 +50,24 @@ export const contentC: TaskContent = {
       reasoningHu:
         'A J-1000 típusú frekvenciaváltó bemenete egyfázisú: PE, L1 és N. A kimenete háromfázisú: T1, T2, T3. A bemenetre a betáplálás fázisa és nullája kerül, a nullát az NB sínről vezetjük, hogy a többi nullapontnak is legyen közös gyűjtője.',
       questionHu: 'Melyik kapocscsoport a Q1 frekvenciaváltó bemenete?',
-      options: ['T1, T2, T3', 'L1, N és PE', '1a, 1b, 1c', 'A1 és A2'],
+      options: ['T1, T2, T3', 'L1, N és PE', '1, 3, 5', 'A1 és A2'],
       correct: 1,
       hintHu: 'A frekvenciaváltó egyfázisról kap táplálást, és háromfázisú feszültséget állít elő a motornak.',
       explanationHu:
-        'A bemenet a PE, L1 és N hármas, ide jön a hálózati betáplálás. A T1, T2, T3 a motor felé menő kimenet. Az 1a, 1b, 1c az F1 kismegszakító bemeneti kapcsai, az A1-A2 pedig a K1 mágneskapcsoló tekercse.',
+        'A bemenet a PE, L1 és N hármas, ide jön a hálózati betáplálás. A T1, T2, T3 a motor felé menő kimenet. Az 1, 3, 5 az F1 kismegszakító bemeneti kapcsai, az A1-A2 pedig a K1 mágneskapcsoló tekercse.',
     },
     {
       id: 'c3',
       titleHu: 'A főáramkör első szakasza: kimenet, kismegszakító, mágneskapcsoló',
-      goalHu: 'A Q1 T1, T2, T3 kimenete az F1 3x1P kismegszakító 1a, 1b, 1c kapcsaira, az F1 2a, 2b, 2c kapcsa a K1 főérintkezőinek 1, 3, 5 kapcsaira megy.',
+      goalHu: 'A Q1 T1, T2, T3 kimenete az F1 3P kismegszakító (Schneider Easy9 C16) 1, 3, 5 kapcsaira, az F1 2, 4, 6 kapcsa a K1 főérintkezőinek 1, 3, 5 kapcsaira megy.',
       focus: ['Q1', 'F1', 'K1'],
       reasoningHu:
-        'A háromfázisú ág a frekvenciaváltó kimenetén kezdődik. Az F1 három egypólusú kismegszakítója a három fázist védi, bemenete fent (1a, 1b, 1c), kimenete lent (2a, 2b, 2c). A kismegszakító után következik a K1 mágneskapcsoló főérintkezőinek bemeneti oldala: 1, 3, 5.',
-      questionHu: 'Hová kötjük az F1 kismegszakító 2a, 2b, 2c kimeneti kapcsait?',
+        'A háromfázisú ág a frekvenciaváltó kimenetén kezdődik. Az F1 háromsarkú kismegszakító (Easy9 3P) a három fázist védi, bemenete fent (1, 3, 5), kimenete lent (2, 4, 6). A kismegszakító után következik a K1 mágneskapcsoló főérintkezőinek bemeneti oldala: 1, 3, 5.',
+      questionHu: 'Hová kötjük az F1 kismegszakító 2, 4, 6 kimeneti kapcsait?',
       options: [
         'Közvetlenül a motor U1, V1, W1 kapcsaira.',
         'A K1 mágneskapcsoló 1, 3, 5 főérintkező-kapcsaira.',
-        'A HK motorvédő kapcsoló T1, T2, T3 kapcsaira.',
+        'A HK motorvédő kapcsoló 2T1, 4T2, 6T3 kapcsaira.',
         'Vissza a Q1 frekvenciaváltó L1 és N kapcsaira.',
       ],
       correct: 1,
@@ -78,21 +78,21 @@ export const contentC: TaskContent = {
     {
       id: 'c4',
       titleHu: 'A főáramkör második szakasza: motorvédő és motor',
-      goalHu: 'A K1 2, 4, 6 kapcsai a HK motorvédő kapcsoló L1, L2, L3 kapcsaira, a HK T1, T2, T3 kapcsai a motor U1, V1, W1 kapcsaira kerülnek.',
+      goalHu: 'A K1 2, 4, 6 kapcsai a HK motorvédő kapcsoló 1L1, 3L2, 5L3 kapcsaira, a HK 2T1, 4T2, 6T3 kapcsai a motor U1, V1, W1 kapcsaira kerülnek.',
       focus: ['K1', 'HK', 'M', 'PB'],
       reasoningHu:
-        'A motorvédő kapcsoló a motor közvetlen közelében, a mágneskapcsoló után van a sorban, mert a motor tényleges áramát kell figyelnie. A HK bemenete az L1, L2, L3, kimenete a T1, T2, T3. Innen már csak a motor jön, aminek a PE kapcsa a PB sínre megy.',
+        'A motorvédő kapcsoló a motor közvetlen közelében, a mágneskapcsoló után van a sorban, mert a motor tényleges áramát kell figyelnie. A HK (ELMARK TM2-E08) bemenete az 1L1, 3L2, 5L3, kimenete a 2T1, 4T2, 6T3. Innen már csak a motor jön, aminek a PE kapcsa a PB sínre megy.',
       questionHu: 'Mi a helyes haladási irány a K1 főérintkezői után?',
       options: [
-        'K1 2, 4, 6 - HK L1, L2, L3 - HK T1, T2, T3 - M U1, V1, W1',
-        'K1 2, 4, 6 - M U1, V1, W1 - HK L1, L2, L3',
-        'K1 1, 3, 5 - HK T1, T2, T3 - M U1, V1, W1',
-        'K1 2, 4, 6 - F1 1a, 1b, 1c - M U1, V1, W1',
+        'K1 2, 4, 6 - HK 1L1, 3L2, 5L3 - HK 2T1, 4T2, 6T3 - M U1, V1, W1',
+        'K1 2, 4, 6 - M U1, V1, W1 - HK 1L1, 3L2, 5L3',
+        'K1 1, 3, 5 - HK 2T1, 4T2, 6T3 - M U1, V1, W1',
+        'K1 2, 4, 6 - F1 1, 3, 5 - M U1, V1, W1',
       ],
       correct: 0,
       hintHu: 'A motorvédő kapcsolónak a motor áramát kell mérnie, tehát közvetlenül a motor elé kerül.',
       explanationHu:
-        'A főáramkör iránya: frekvenciaváltó kimenet, F1, K1 főérintkezők, HK motorvédő, motor. A motorvédőn az L1, L2, L3 a bemenet és a T1, T2, T3 a kimenet, ezt felcserélni tipikus hiba. A motor PE kapcsa mindig a PE-sínre megy.',
+        'A főáramkör iránya: frekvenciaváltó kimenet, F1, K1 főérintkezők, HK motorvédő, motor. A motorvédőn az 1L1, 3L2, 5L3 a bemenet és a 2T1, 4T2, 6T3 a kimenet, ezt felcserélni tipikus hiba. A motor PE kapcsa mindig a PE-sínre megy.',
     },
     {
       id: 'c5',
@@ -203,7 +203,7 @@ export const contentC: TaskContent = {
     {
       id: 'cq3',
       promptHu: 'Hová kell kötni a K1 tekercs A2 kapcsát?',
-      options: ['Az NB nulla-sínre.', 'A PB védőföld-sínre.', 'Az F1 kismegszakító 2a kapcsára.', 'A motor W1 kapcsára.'],
+      options: ['Az NB nulla-sínre.', 'A PB védőföld-sínre.', 'Az F1 kismegszakító 2-es kapcsára.', 'A motor W1 kapcsára.'],
       correct: 0,
       category: 'bekotesi-pontossag',
       explanationHu:

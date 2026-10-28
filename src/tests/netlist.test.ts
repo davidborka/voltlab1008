@@ -374,7 +374,7 @@ describe('F és G mérőhely', () => {
   it('G: a mérő nullája nélkül nincs fogyasztói nulla', () => {
     const t = TASKS.G;
     const wires = t.solution
-      .filter(([a, b]) => !(a === 'NB0.b1' && b === 'KWH.4'))
+      .filter(([a, b]) => !(a === 'NB0.b1' && b === 'KWH.3'))
       .map((s, i) => ({ id: 'w' + i, a: s[0], b: s[1], color: s[2] })) as Wire[];
     const b: Board = {
       parts: t.parts.map((p) => ({ ...p, st: PARTS[p.type].init ? PARTS[p.type].init!() : {} }) as PartInstance),

@@ -3,7 +3,8 @@ import type { TaskContent } from '../../domain/electrical-types';
 export const contentG: TaskContent = {
   objectivesHu: [
     'Az egyfázisú mérőhely energiaútjának felépítése: hálózat, főbiztosító, fogyasztásmérő, főkismegszakító, Fi-relé, fogyasztói áramkörök.',
-    'A közvetlen mérésű egyfázisú fogyasztásmérő kapcsainak helyes értelmezése: a fázis és a nulla is átmegy a mérőn.',
+    'A Qoltec 50888 fogyasztásmérő kapcsainak helyes értelmezése a készülékre nyomtatott rajz szerint: a fázis 1 → 2, a nulla 3 → 4 megy át a mérőn.',
+    'A két ELMARK SPD-C10 túlfeszültség-védő helye (az FM után, a Fi-relé ELŐTT) és bekötése (L-PE, N-PE).',
     'A mérő előtti (NB0) és a Fi utáni (NB) N-sín tudatos szétválasztása.',
     'A 2 pólusú Fi-relé bekötése úgy, hogy a fázis és a nulla is a védelmen keresztül jusson a fogyasztókhoz.',
     'A dugalj és a lámpa áramkörének külön kismegszakítós kialakítása.',
@@ -13,7 +14,8 @@ export const contentG: TaskContent = {
   commonMistakesHu: [
     'A fogyasztói nullát a mérő előtti NB0 sínről viszik el, ezért a Fi-relé kiold vagy nem véd.',
     'A nullát nem vezetik át a fogyasztásmérőn, hanem a betáplálásról közvetlenül a Fi-relére vagy a fogyasztói sínre kötik.',
-    'A mérő be- és kimeneti kapcsait felcserélik: a hálózati fázist a 3-as kapocsra kötik az 1-es helyett.',
+    'A mérő be- és kimeneti kapcsait felcserélik: a hálózati fázist a 2-es kapocsra kötik az 1-es helyett, vagy a régi 1-3 / 4-6 számozást keresik a Qoltec mérőn, amelyen 1 → 2 a fázis és 3 → 4 a nulla.',
+    'SPD a Fi után / PE nélkül: a túlfeszültség-védőt a Fi-relé mögé kötik (a levezetett impulzus kioldja a Fi-t), vagy az SPD ⏚ kapcsa nincs a PE-sínre kötve (így hatástalan).',
     'A nullát a FM főkismegszakítón próbálják átvezetni, pedig az egypólusú, tehát csak a fázist kapcsolja.',
     'A védőföldet átvezetik a mérőn vagy a Fi-relén, pedig a PE sehol nincs kapcsolva és nem megy át a mérőn.',
     'Az N-sínt és a PE-sínt összekötik a fogyasztói oldalon, ami a Fi-relé működését tönkreteszi.',
@@ -43,25 +45,25 @@ export const contentG: TaskContent = {
     {
       id: 'g-s2',
       titleHu: 'A fogyasztásmérő fázisága',
-      goalHu: 'Az F0 kimenetét a KWH 1-es kapcsára, a KWH 3-as kimenetét pedig az FM főkismegszakító bemenetére kötni.',
+      goalHu: 'Az F0 kimenetét a KWH 1-es kapcsára, a KWH 2-es kimenetét pedig az FM főkismegszakító bemenetére kötni.',
       focus: ['F0', 'KWH', 'FM'],
       reasoningHu:
-        'A közvetlen mérésű egyfázisú fogyasztásmérőnél a fázis az 1-3 kapocspáron megy át: az 1-es a hálózat felőli bemenet, a 3-as a fogyasztó felé menő kimenet. A mért fázis innen a főkismegszakítóra megy, amely a fogyasztói hálózat kézi lekapcsolására és túláramvédelmére szolgál. A be- és kimenet felcserélése azt jelentené, hogy a mérőn fordítva folyik át az áram.',
+        'A vizsgatábla Qoltec 50888 mérőjén a készülékre nyomtatott rajz szerint a fázis az 1-2 kapocspáron megy át: az 1-es a hálózat felőli bemenet, a 2-es a fogyasztó felé menő kimenet. A mért fázis innen a főkismegszakítóra megy, amely a fogyasztói hálózat kézi lekapcsolására és túláramvédelmére szolgál. A be- és kimenet felcserélése azt jelentené, hogy a mérőn fordítva folyik át az áram. Más gyártmányú mérőn más lehet a számozás - mindig a készülékre nyomtatott rajzot kövesd.',
       questionHu: 'Melyik a fogyasztásmérő fázis bemeneti kapcsa?',
-      options: ['A 3-as kapocs', 'Az 1-es kapocs', 'A 4-es kapocs', 'A 6-os kapocs'],
+      options: ['A 2-es kapocs', 'Az 1-es kapocs', 'A 3-as kapocs', 'A 4-es kapocs'],
       correct: 1,
-      hintHu: 'A fázis az 1-3 pároshoz tartozik, a pár első tagja a hálózat felőli oldal.',
+      hintHu: 'A fázis az 1-2 pároshoz tartozik, a pár első tagja a hálózat felőli oldal.',
       explanationHu:
-        'A fázis bemenete az 1-es, kimenete a 3-as kapocs. A 4-6 páros a nulla be- és kimenete, azt nem szabad a fázissal összekeverni.',
+        'A fázis bemenete az 1-es, kimenete a 2-es kapocs. A 3-4 páros a nulla be- és kimenete, azt nem szabad a fázissal összekeverni.',
     },
     {
       id: 'g-s3',
       titleHu: 'A nulla átvezetése a mérőn',
-      goalHu: 'Az NB0 sínről a KWH 4-es kapcsára menni, a 6-os kimenetet pedig a FI Fi-relé N1 bemenetére vinni.',
+      goalHu: 'Az NB0 sínről a KWH 3-as kapcsára menni, a 4-es kimenetet pedig a FI Fi-relé N bemenetére vinni.',
       focus: ['NB0', 'KWH', 'FI'],
       reasoningHu:
-        'A mérő a fázisáram mellett a fázis-nulla feszültséget is méri, ezért a nullát is át kell vezetni rajta. Az NB0 sínről a 4-es bemeneti kapocsra megy a kék vezető, a 6-os kimenetről pedig tovább a Fi-relé N1 bemeneti nulla kapcsára. A nulla nem megy át az FM főkismegszakítón, mert az egypólusú, tehát csak a fázist kapcsolja.',
-      questionHu: 'Hova megy a fogyasztásmérő 6-os kapcsáról induló nullavezető?',
+        'A mérő a fázisáram mellett a fázis-nulla feszültséget is méri, ezért a nullát is át kell vezetni rajta. Az NB0 sínről a 3-as bemeneti kapocsra megy a kék vezető, a 4-es kimenetről pedig tovább a Fi-relé N bemeneti nulla kapcsára. A nulla nem megy át az FM főkismegszakítón, mert az egypólusú, tehát csak a fázist kapcsolja.',
+      questionHu: 'Hova megy a fogyasztásmérő 4-es kapcsáról induló nullavezető?',
       options: [
         'Az FM főkismegszakító bemenetére',
         'A FI Fi-relé N1 bemeneti nulla kapcsára',
@@ -93,6 +95,25 @@ export const contentG: TaskContent = {
         'A Fi-relé kizárólag hibaáramot érzékel, túláramot és zárlatot nem. Ezért a névleges áramát meg nem haladó túláramvédelmet mindig elé kell tenni, itt ezt az F0 és az FM látja el.',
     },
     {
+      id: 'g-spd',
+      titleHu: 'Túlfeszültség-védelem: két ELMARK SPD-C10',
+      goalHu: 'SP1 L/N kapcsát az FM kimenetére (L-PE), SP2 L/N kapcsát a mérő 4-es kapcsára (N-PE) kötni, mindkét alsó ⏚ kapcsot rövid úton a PB PE-sínre.',
+      focus: ['FM', 'KWH', 'SP1', 'SP2', 'PB', 'FI'],
+      reasoningHu:
+        'Az SPD a mérő és a főkismegszakító UTÁN, a Fi-relé ELŐTT van: így a levezetett túlfeszültség-impulzus nem folyik át a Fi összegző áramváltóján, és nem okoz hamis kioldást. Egyfázisú táblán két 1 pólusú T2 modul kell: SP1 a fázis és a PE, SP2 a nulla és a PE között. Normál üzemben a varisztor nem vezet, ezért az SPD bekötése nem zárlat. PE nélkül az SPD hatástalan, a csatlakozó vezetékeket röviden kell tartani. Szigetelésmérés előtt a betéteket ki kell húzni, mert az 500 V DC a varisztort is igénybe veszi.',
+      questionHu: 'Miért NEM a Fi-relé mögé kerül az SPD?',
+      options: [
+        'Mert a Fi-relé mögött nincs fázis',
+        'Mert a levezetett impulzusáram a PE felé menne, ezt a Fi hibaáramnak látná és kioldana',
+        'Mert az SPD csak a mérő előtt működik',
+        'Mert a Fi-relé maga is túlfeszültség-védő',
+      ],
+      correct: 1,
+      hintHu: 'Merre folyik a levezetett áram, és mit mér a Fi-relé?',
+      explanationHu:
+        'A Fi a fázis- és a nullaáram különbségét méri. A Fi mögötti SPD az impulzust a PE-re vezeti, ezt a Fi hibaáramnak látja. Ezért az SPD a Fi előtt van; a pontos helyet és a TN-C-S bekötést egyeztesd a vizsgáztatóval.',
+    },
+    {
       id: 'g-s5',
       titleHu: 'A Fi-relé kimenete és a fogyasztói nulla',
       goalHu: 'A FI L2 kimenetét az F1 és F2 kismegszakítók bemenetére, az N2 kimenetet pedig az NB fogyasztói N-sínre kötni.',
@@ -102,7 +123,7 @@ export const contentG: TaskContent = {
       questionHu: 'Melyik sínről kapja a nulláját az X1 dugalj és az E1 lámpa?',
       options: [
         'Az NB0 sínről, mert az van közelebb a betápláláshoz',
-        'A KWH 6-os kapcsáról közvetlenül',
+        'A KWH 4-es kapcsáról közvetlenül',
         'Az NB sínről, amelyet a Fi-relé N2 kimenete táplál',
         'A PB PE-sínről',
       ],
@@ -168,18 +189,18 @@ export const contentG: TaskContent = {
     {
       id: 'g-q2',
       promptHu: 'A közvetlen mérésű egyfázisú fogyasztásmérőnél melyik kapocspáron megy át a nullavezető?',
-      options: ['Az 1-3 páron', 'A 4-6 páron', 'A 3-6 páron', 'A nulla nem megy át a mérőn'],
+      options: ['Az 1-2 páron', 'A 3-4 páron', 'A 2-4 páron', 'A nulla nem megy át a mérőn'],
       correct: 1,
       category: 'keszulekismeret',
       explanationHu:
-        'A fázis az 1-3, a nulla a 4-6 kapocspáron halad át. A nullát is át kell vezetni a mérőn, mert a készülék a fázis-nulla feszültséget is méri.',
+        'A Qoltec 50888-on a fázis az 1-2, a nulla a 3-4 kapocspáron halad át (a készülékre nyomtatott rajz szerint). A nullát is át kell vezetni a mérőn, mert a készülék a fázis-nulla feszültséget is méri.',
     },
     {
       id: 'g-q3',
       promptHu: 'Honnan kell elvinni a dugalj és a lámpa nullavezetőjét?',
       options: [
         'Az NB0 mérő előtti sínről',
-        'A KWH 6-os kapcsáról közvetlenül',
+        'A KWH 4-es kapcsáról közvetlenül',
         'Az NB sínről, amelyet a Fi-relé N2 kimenete táplál',
         'A PB PE-sínről',
       ],
@@ -249,17 +270,27 @@ export const contentG: TaskContent = {
       promptHu: 'A rajzon az FM főkismegszakító egypólusú. Mi következik ebből a nullavezetőre nézve?',
       options: [
         'A nullát is át kell vezetni rajta, csak nem kapcsolja',
-        'A nulla nem megy át az FM-en, hanem a mérő 6-os kapcsáról közvetlenül a Fi-relé N1 bemenetére megy',
+        'A nulla nem megy át az FM-en, hanem a mérő 4-es kapcsáról közvetlenül a Fi-relé N bemenetére megy',
         'A nulla az FM-et megkerülve közvetlenül a fogyasztói NB sínre megy',
         'A nulla a PE-sínen keresztül folytatódik',
       ],
       correct: 1,
       category: 'rajzolvasas',
       explanationHu:
-        'Az egypólusú főkismegszakító csak a fázist kapcsolja, ezért a nulla a mérő 6-os kimenetéről a Fi-relé N1 bemenetére megy. A fogyasztói NB sínre csak a Fi N2 kimenete felől kerülhet nulla.',
+        'Az egypólusú főkismegszakító csak a fázist kapcsolja, ezért a nulla a mérő 4-es kimenetéről a Fi-relé N bemenetére megy. A fogyasztói NB sínre csak a Fi N2 kimenete felől kerülhet nulla.',
     },
   ],
   unresolved: [
+    {
+      id: 'g-spd',
+      labelHu: 'Az SPD pontos helye és bekötése - az SPD pontos helyét és a TN-C-S bekötést egyeztesd a vizsgáztatóval.',
+      missingHu: [
+        'A szolgáltatói előírás és a vizsgaközpont gyakorlata (mérőszekrény vagy főelosztó)',
+        'A hálózat földelési rendszere (TN-C-S esetén hol válik szét a PEN)',
+        'A villámvédelmi besorolás (T1 vagy T2 kell-e)',
+      ],
+      typicalExampleHu: 'Oktatási példa, nem a megoldás: a modell az FM és a Fi közé két 1 pólusú T2 SPD-t köt (L-PE, N-PE).',
+    },
     {
       id: 'g-u1',
       labelHu: 'Az F0 főbiztosító, az FM főkismegszakító és az F1, F2 kismegszakítók névleges árama és jelleggörbéje - a rajzból nem következik, a hiányzó paramétereket lásd a missingHu listában.',
