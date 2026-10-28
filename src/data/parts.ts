@@ -10,6 +10,7 @@
  */
 import type { PartDef, PartInstance, PartState, SolveCtx, Terminal } from '../domain/electrical-types';
 import { hasPhase, phaseOf } from '../domain/netlist';
+import { shortOf } from './realDevices';
 
   /* --- kozos rajzelemek ------------------------------------------------ */
   const LIFT = 11; /* az extrudalt oldallap magassaga - ettol all ki a tabla sikjabol */
@@ -76,7 +77,8 @@ const PARTS = RAW as unknown as Record<string, PartDef>;
     w: 150,
     wOf: function (p: PartInstance) { return p.opt && p.opt.poles === 4 ? 240 : 150; },
     h: 160,
-    /* ket polus (1P+N) az alapertelmezett; opt.poles = 4 eseten haromfazisu */
+    /* ket polus (1P+N) az alapertelmezett; opt.poles = 4 eseten haromfazisu.
+       Az azonositok egyediek (ket N kapocs van), a t a keszulekre nyomtatott jeloles. */
     terms: function (p: PartInstance): Terminal[] {
       if (!p.opt || p.opt.poles !== 4) {
         return [
@@ -87,14 +89,15 @@ const PARTS = RAW as unknown as Record<string, PartDef>;
         ];
       }
       return [
-        { id: 'L1', x: 40, y: 0, dir: 'n', role: 'L', t: 'L1' },
-        { id: 'L2', x: 92, y: 0, dir: 'n', role: 'L', t: 'L2' },
-        { id: 'L3', x: 144, y: 0, dir: 'n', role: 'L', t: 'L3' },
-        { id: 'N1', x: 200, y: 0, dir: 'n', role: 'N', t: 'N' },
-        { id: 'T1', x: 40, y: 160, dir: 's', role: 'L', t: 'T1' },
-        { id: 'T2', x: 92, y: 160, dir: 's', role: 'L', t: 'T2' },
-        { id: 'T3', x: 144, y: 160, dir: 's', role: 'L', t: 'T3' },
-        { id: 'N2', x: 200, y: 160, dir: 's', role: 'N', t: 'N' }
+        /* Schneider Easy9 4P: a nulla a BAL szelen van (N 1 3 5 / N 2 4 6) */
+        { id: 'N1', x: 40, y: 0, dir: 'n', role: 'N', t: 'N' },
+        { id: 'L1', x: 92, y: 0, dir: 'n', role: 'L', t: '1' },
+        { id: 'L2', x: 144, y: 0, dir: 'n', role: 'L', t: '3' },
+        { id: 'L3', x: 200, y: 0, dir: 'n', role: 'L', t: '5' },
+        { id: 'N2', x: 40, y: 160, dir: 's', role: 'N', t: 'N' },
+        { id: 'T1', x: 92, y: 160, dir: 's', role: 'L', t: '2' },
+        { id: 'T2', x: 144, y: 160, dir: 's', role: 'L', t: '4' },
+        { id: 'T3', x: 200, y: 160, dir: 's', role: 'L', t: '6' }
       ];
     },
     protect: { poles: ['L2', 'T1', 'T2', 'T3'] },
@@ -123,7 +126,7 @@ const PARTS = RAW as unknown as Record<string, PartDef>;
         shell(w, 160) +
         din(w, 160) +
         '<text class="ptitle" x="14" y="30">' + (p.label || 'Fi-1') + '</text>' +
-        '<text class="pmeta" x="14" y="48">30 mA / 40 A</text>' +
+        '<text class="pmeta" x="14" y="48">' + (shortOf(p) || '30 mA') + '</text>' +
         '<rect class="lever ' + (up ? 'lv-on' : 'lv-off') + '" x="' + (w - 50) + '" y="' + (up ? 92 : 114) + '" width="34" height="26" rx="5"/>' +
         '<text class="lvtxt" x="' + (w - 33) + '" y="' + (up ? 110 : 132) + '">' + (up ? 'I' : '0') + '</text>' +
         (st.tripped ? '<circle class="trip" cx="30" cy="118" r="11"/><text class="triptxt" x="30" y="123">!</text>' : '') +
@@ -161,7 +164,7 @@ const PARTS = RAW as unknown as Record<string, PartDef>;
         shell(78, 150) +
         din(78, 150) +
         '<text class="ptitle sm" x="39" y="26">' + (p.label || 'F') + '</text>' +
-        '<text class="pmeta sm" x="39" y="44">B10</text>' +
+        '<text class="pmeta sm" x="39" y="44">' + (shortOf(p) || '1P') + '</text>' +
         '<rect class="lever ' + (up ? 'lv-on' : 'lv-off') + '" x="22" y="' + (up ? 86 : 108) + '" width="34" height="26" rx="5"/>' +
         '<text class="lvtxt" x="39" y="' + (up ? 104 : 126) + '">' + (up ? 'I' : '0') + '</text>' +
         label(78, 150, st.tripped ? 'lekapcsolt' : '')
@@ -171,23 +174,24 @@ const PARTS = RAW as unknown as Record<string, PartDef>;
 
   /* --- kismegszakito 3x1P ---------------------------------------------- */
   RAW.mcb3 = {
-    name: 'Kismegszakító 3×1P',
+    name: 'Kismegszakító 3P',
     w: 200,
     h: 150,
+    /* Schneider Easy9 3P: felul 1-3-5, alul 2-4-6 */
     terms: [
-      { id: '1a', x: 40, y: 0, dir: 'n', role: 'L', t: '1' },
-      { id: '1b', x: 100, y: 0, dir: 'n', role: 'L', t: '1' },
-      { id: '1c', x: 160, y: 0, dir: 'n', role: 'L', t: '1' },
-      { id: '2a', x: 40, y: 150, dir: 's', role: 'L', t: '2' },
-      { id: '2b', x: 100, y: 150, dir: 's', role: 'L', t: '2' },
-      { id: '2c', x: 160, y: 150, dir: 's', role: 'L', t: '2' }
+      { id: '1', x: 40, y: 0, dir: 'n', role: 'L', t: '1' },
+      { id: '3', x: 100, y: 0, dir: 'n', role: 'L', t: '3' },
+      { id: '5', x: 160, y: 0, dir: 'n', role: 'L', t: '5' },
+      { id: '2', x: 40, y: 150, dir: 's', role: 'L', t: '2' },
+      { id: '4', x: 100, y: 150, dir: 's', role: 'L', t: '4' },
+      { id: '6', x: 160, y: 150, dir: 's', role: 'L', t: '6' }
     ],
-    protect: { poles: ['2a', '2b', '2c'] },
+    protect: { poles: ['2', '4', '6'] },
     init: function () {
       return { on: true, tripped: false };
     },
     links: function (st: PartState) {
-      return st.on && !st.tripped ? [['1a', '2a'], ['1b', '2b'], ['1c', '2c']] : [];
+      return st.on && !st.tripped ? [['1', '2'], ['3', '4'], ['5', '6']] : [];
     },
     tap: function (st: PartState) {
       if (st.tripped) {
@@ -199,7 +203,7 @@ const PARTS = RAW as unknown as Record<string, PartDef>;
       const up = st.on && !st.tripped;
       let s = shell(200, 150) + din(200, 150) +
         '<text class="ptitle" x="14" y="28">' + (p.label || 'F-1') + '</text>' +
-        '<text class="pmeta" x="14" y="46">B10 A · 3×1P</text>';
+        '<text class="pmeta" x="14" y="46">' + (shortOf(p) || '3P') + '</text>';
       for (let i = 0; i < 3; i++) {
         s += '<rect class="lever ' + (up ? 'lv-on' : 'lv-off') + '" x="' + (23 + i * 60) + '" y="' + (up ? 86 : 108) + '" width="34" height="26" rx="5"/>';
       }
@@ -242,7 +246,7 @@ const PARTS = RAW as unknown as Record<string, PartDef>;
         shell(160, 160) +
         din(160, 160) +
         '<text class="ptitle" x="14" y="28">' + (p.label || 'LA-1') + '</text>' +
-        '<text class="pmeta" x="14" y="46">lépcsőházi automata</text>' +
+        '<text class="pmeta" x="14" y="46">' + (shortOf(p) || 'lépcsőházi automata') + '</text>' +
         '<circle class="dialbg" cx="80" cy="106" r="' + r + '"/>' +
         (left > 0 && !held
           ? '<circle class="dial" cx="80" cy="106" r="' + r + '" stroke-dasharray="' + c + '" stroke-dashoffset="' + c * (1 - frac) + '"/>'
@@ -265,19 +269,21 @@ const PARTS = RAW as unknown as Record<string, PartDef>;
     );
   }
 
+  /* Legrand Niloe valtokapcsolo egysarkukent hasznalva: L a betap, 1 a
+     kapcsolt ag; a 2-es kapocs szabadon marad. */
   RAW.sw1 = {
     name: 'Egysarkú kapcsoló',
     w: 112,
     h: 112,
     terms: [
-      { id: '1', x: 0, y: 56, dir: 'w', role: 'L', t: '1' },
-      { id: '2', x: 112, y: 56, dir: 'e', role: 'L', t: '2' }
+      { id: 'L', x: 0, y: 56, dir: 'w', role: 'L', t: 'L' },
+      { id: '1', x: 112, y: 56, dir: 'e', role: 'L', t: '1' }
     ],
     init: function () {
       return { on: false };
     },
     links: function (st: PartState) {
-      return st.on ? [['1', '2']] : [];
+      return st.on ? [['L', '1']] : [];
     },
     tap: function (st: PartState) {
       st.on = !st.on;
@@ -294,8 +300,9 @@ const PARTS = RAW as unknown as Record<string, PartDef>;
     name: 'Váltókapcsoló',
     w: 112,
     h: 112,
+    /* Legrand Niloe: L a kozos kapocs, 1 es 2 a valtovezetekek */
     terms: [
-      { id: 'P', x: 0, y: 56, dir: 'w', role: 'L', t: 'P' },
+      { id: 'L', x: 0, y: 56, dir: 'w', role: 'L', t: 'L' },
       { id: '1', x: 112, y: 38, dir: 'e', role: 'L', t: '1' },
       { id: '2', x: 112, y: 74, dir: 'e', role: 'L', t: '2' }
     ],
@@ -303,7 +310,7 @@ const PARTS = RAW as unknown as Record<string, PartDef>;
       return { pos: 0 };
     },
     links: function (st: PartState) {
-      return st.pos === 0 ? [['P', '1']] : [['P', '2']];
+      return st.pos === 0 ? [['L', '1']] : [['L', '2']];
     },
     tap: function (st: PartState) {
       st.pos = st.pos ? 0 : 1;
@@ -320,9 +327,10 @@ const PARTS = RAW as unknown as Record<string, PartDef>;
     name: 'Keresztkapcsoló',
     w: 112,
     h: 112,
+    /* Legrand Niloe 7 645 04: piros L1 L2 (bemeno par), szurke 3 4 (kimeno par) */
     terms: [
-      { id: '1', x: 0, y: 38, dir: 'w', role: 'L', t: '1' },
-      { id: '2', x: 0, y: 74, dir: 'w', role: 'L', t: '2' },
+      { id: 'L1', x: 0, y: 38, dir: 'w', role: 'L', t: 'L1' },
+      { id: 'L2', x: 0, y: 74, dir: 'w', role: 'L', t: 'L2' },
       { id: '3', x: 112, y: 38, dir: 'e', role: 'L', t: '3' },
       { id: '4', x: 112, y: 74, dir: 'e', role: 'L', t: '4' }
     ],
@@ -330,7 +338,7 @@ const PARTS = RAW as unknown as Record<string, PartDef>;
       return { pos: 0 };
     },
     links: function (st: PartState) {
-      return st.pos === 0 ? [['1', '3'], ['2', '4']] : [['1', '4'], ['2', '3']];
+      return st.pos === 0 ? [['L1', '3'], ['L2', '4']] : [['L1', '4'], ['L2', '3']];
     },
     tap: function (st: PartState) {
       st.pos = st.pos ? 0 : 1;
@@ -378,6 +386,31 @@ const PARTS = RAW as unknown as Record<string, PartDef>;
   }
   RAW.btn = buttonPart(false);
   RAW.btnNC = buttonPart(true);
+
+  /* Szerelvenyes nyomo (Schneider, csengo jellel) a lepcsohazi automatahoz:
+     a hatlapra nyomtatott jeloles L es 1, zaro erintkezo. */
+  RAW.push = {
+    name: 'Nyomó (szerelvény, L-1)',
+    w: 112,
+    h: 112,
+    hold: true,
+    terms: [
+      { id: 'L', x: 0, y: 56, dir: 'w', role: 'L', t: 'L' },
+      { id: '1', x: 112, y: 56, dir: 'e', role: 'L', t: '1' }
+    ],
+    init: function () {
+      return { p: false };
+    },
+    links: function (st: PartState) {
+      return st.p ? [['L', '1']] : [];
+    },
+    draw: function (p: PartInstance, st: PartState) {
+      var sym =
+        '<rect class="rocker' + (st.p ? ' rk-on' : '') + '" x="30" y="' + (st.p ? 34 : 30) + '" width="52" height="44" rx="6"/>' +
+        '<path class="rkline" d="M50,62 q6,-22 12,0 z M48,62 h16 M56,66 v3"/>';
+      return switchShell(112, 112, p.label || 'S', sym) + label(112, 112, 'nyomó');
+    }
+  };
 
   /* --- fogyasztok ------------------------------------------------------- */
   RAW.lamp = {
@@ -508,13 +541,14 @@ const PARTS = RAW as unknown as Record<string, PartDef>;
     w: 280,
     h: 260,
     terms: function (p: PartInstance): Terminal[] {
+      /* Schneider TeSys LC1D18: a fokapcsok jelolese 1L1 3L2 5L3 / 2T1 4T2 6T3 */
       const t: Terminal[] = [
-        { id: '1', x: 56, y: 0, dir: 'n', role: 'L', t: '1' },
-        { id: '3', x: 140, y: 0, dir: 'n', role: 'L', t: '3' },
-        { id: '5', x: 224, y: 0, dir: 'n', role: 'L', t: '5' },
-        { id: '2', x: 56, y: 260, dir: 's', role: 'L', t: '2' },
-        { id: '4', x: 140, y: 260, dir: 's', role: 'L', t: '4' },
-        { id: '6', x: 224, y: 260, dir: 's', role: 'L', t: '6' },
+        { id: '1L1', x: 56, y: 0, dir: 'n', role: 'L', t: '1L1' },
+        { id: '3L2', x: 140, y: 0, dir: 'n', role: 'L', t: '3L2' },
+        { id: '5L3', x: 224, y: 0, dir: 'n', role: 'L', t: '5L3' },
+        { id: '2T1', x: 56, y: 260, dir: 's', role: 'L', t: '2T1' },
+        { id: '4T2', x: 140, y: 260, dir: 's', role: 'L', t: '4T2' },
+        { id: '6T3', x: 224, y: 260, dir: 's', role: 'L', t: '6T3' },
         { id: 'A1', x: 280, y: 206, dir: 'e', role: 'L', t: 'A1' },
         { id: 'A2', x: 280, y: 238, dir: 'e', role: 'N', t: 'A2' }
       ];
@@ -537,7 +571,7 @@ const PARTS = RAW as unknown as Record<string, PartDef>;
       st.on = ctx.live(p.id + '.coil');
     },
     links: function (st: PartState, p: PartInstance) {
-      const l: Array<[string, string]> = st.on ? [['1', '2'], ['3', '4'], ['5', '6']] : [];
+      const l: Array<[string, string]> = st.on ? [['1L1', '2T1'], ['3L2', '4T2'], ['5L3', '6T3']] : [];
       ((p.opt && p.opt.aux) || []).forEach(function (a: [string, string, string]) {
         if (a[2] === 'no' ? st.on : !st.on) l.push([a[0], a[1]]);
       });
@@ -549,7 +583,7 @@ const PARTS = RAW as unknown as Record<string, PartDef>;
         shell(280, 260) +
         '<rect class="keystone" x="14" y="66" width="150" height="130" rx="8"/>' +
         '<text class="ptitle" x="16" y="34">' + (p.label || 'K') + '</text>' +
-        '<text class="pmeta" x="16" y="52">AC3 20 A · főáramköri</text>' +
+        '<text class="pmeta" x="16" y="52">' + (shortOf(p) || 'AC-3') + '</text>' +
         '<rect class="armature ' + (on ? 'pulled' : '') + '" x="30" y="' + (on ? 112 : 90) + '" width="118" height="26" rx="5"/>' +
         '<path class="coil" d="M36,168 q10,-16 20,0 t20,0 t20,0 t20,0 t20,0"/>' +
         '<text class="pmeta sm" x="89" y="192">' + (on ? 'meghúzva' : 'elengedve') + '</text>' +
@@ -571,24 +605,26 @@ const PARTS = RAW as unknown as Record<string, PartDef>;
   /* --- motorvedo kapcsolo ----------------------------------------------- */
   RAW.mprot = {
     name: 'Motorvédő kapcsoló',
-    protect: { poles: ['T1', 'T2', 'T3'] },
+    protect: { poles: ['2T1', '4T2', '6T3'] },
     onePole: true,
     w: 200,
     h: 210,
     terms: function (p: PartInstance): Terminal[] {
       const one = p.opt && p.opt.poles === 1;
+      /* ELMARK TM2-E08: 1L1 3L2 5L3 / 2T1 4T2 6T3; a 13-14 oldalra szerelheto
+         segederintkezo-blokk */
       const t: Terminal[] = one
         ? [
-            { id: 'L1', x: 100, y: 0, dir: 'n', role: 'L', t: 'L1' },
-            { id: 'T1', x: 100, y: 210, dir: 's', role: 'L', t: 'T1' }
+            { id: '1L1', x: 100, y: 0, dir: 'n', role: 'L', t: '1L1' },
+            { id: '2T1', x: 100, y: 210, dir: 's', role: 'L', t: '2T1' }
           ]
         : [
-            { id: 'L1', x: 44, y: 0, dir: 'n', role: 'L', t: 'L1' },
-            { id: 'L2', x: 100, y: 0, dir: 'n', role: 'L', t: 'L2' },
-            { id: 'L3', x: 156, y: 0, dir: 'n', role: 'L', t: 'L3' },
-            { id: 'T1', x: 44, y: 210, dir: 's', role: 'L', t: 'T1' },
-            { id: 'T2', x: 100, y: 210, dir: 's', role: 'L', t: 'T2' },
-            { id: 'T3', x: 156, y: 210, dir: 's', role: 'L', t: 'T3' }
+            { id: '1L1', x: 44, y: 0, dir: 'n', role: 'L', t: '1L1' },
+            { id: '3L2', x: 100, y: 0, dir: 'n', role: 'L', t: '3L2' },
+            { id: '5L3', x: 156, y: 0, dir: 'n', role: 'L', t: '5L3' },
+            { id: '2T1', x: 44, y: 210, dir: 's', role: 'L', t: '2T1' },
+            { id: '4T2', x: 100, y: 210, dir: 's', role: 'L', t: '4T2' },
+            { id: '6T3', x: 156, y: 210, dir: 's', role: 'L', t: '6T3' }
           ];
       return t.concat([
         { id: '13', x: 200, y: 76, dir: 'e', t: '13' },
@@ -601,8 +637,8 @@ const PARTS = RAW as unknown as Record<string, PartDef>;
     links: function (st: PartState, p: PartInstance) {
       if (!st.on || st.tripped) return [];
       return p.opt && p.opt.poles === 1
-        ? [['L1', 'T1'], ['13', '14']]
-        : [['L1', 'T1'], ['L2', 'T2'], ['L3', 'T3'], ['13', '14']];
+        ? [['1L1', '2T1'], ['13', '14']]
+        : [['1L1', '2T1'], ['3L2', '4T2'], ['5L3', '6T3'], ['13', '14']];
     },
 
     tap: function (st: PartState) {
@@ -616,7 +652,7 @@ const PARTS = RAW as unknown as Record<string, PartDef>;
       return (
         shell(200, 210) +
         '<text class="ptitle" x="16" y="32">' + (p.label || 'HK-1') + '</text>' +
-        '<text class="pmeta" x="16" y="50">0,8-1,2 A</text>' +
+        '<text class="pmeta" x="16" y="50">' + (shortOf(p) || 'motorvédő') + '</text>' +
         '<circle class="knobbg" cx="100" cy="120" r="42"/>' +
         '<g transform="rotate(' + (up ? 45 : -45) + ' 100 120)"><rect class="knob" x="92" y="84" width="16" height="72" rx="8"/></g>' +
         '<text class="pmeta sm" x="52" y="' + 182 + '">0</text>' +
@@ -785,22 +821,28 @@ const PARTS = RAW as unknown as Record<string, PartDef>;
     name: 'Fogyasztásmérő 1~',
     w: 240,
     h: 220,
+    /* Qoltec 50888 (falra/lapra szerelheto doboz, nem DIN): a keszulekre
+       nyomtatott rajz szerint 1 = L be, 2 = L ki, 3 = N be, 4 = N ki - mind a
+       negy alul, balrol jobbra. Az 5(+) 6(-) az impulzuskimenet (S0), alul
+       bal oldalt, a vizsgan nincs bekotve. */
     terms: [
-      { id: '1', x: 60, y: 0, dir: 'n', role: 'L', t: '1' },
-      { id: '4', x: 180, y: 0, dir: 'n', role: 'N', t: '4' },
-      { id: '3', x: 60, y: 220, dir: 's', role: 'L', t: '3' },
-      { id: '6', x: 180, y: 220, dir: 's', role: 'N', t: '6' }
+      { id: '5', x: 22, y: 220, dir: 's', t: '5' },
+      { id: '6', x: 44, y: 220, dir: 's', t: '6' },
+      { id: '1', x: 80, y: 220, dir: 's', role: 'L', t: '1' },
+      { id: '2', x: 120, y: 220, dir: 's', role: 'L', t: '2' },
+      { id: '3', x: 160, y: 220, dir: 's', role: 'N', t: '3' },
+      { id: '4', x: 200, y: 220, dir: 's', role: 'N', t: '4' }
     ],
-    /* A fazis az 1-3, a nulla a 4-6 kapcson megy at a meron. */
+    /* A fazis az 1-2, a nulla a 3-4 kapcson megy at a meron. */
     links: function () {
-      return [['1', '3'], ['4', '6']];
+      return [['1', '2'], ['3', '4']];
     },
     draw: function (p: PartInstance, _st: PartState, ctx: SolveCtx) {
-      const l = hasPhase(ctx.rails('3')), n = ctx.rails('6').has('N');
+      const l = hasPhase(ctx.rails('2')), n = ctx.rails('4').has('N');
       return (
         shell(240, 220) +
         '<text class="ptitle" x="16" y="34">' + (p.label || 'kWh') + '</text>' +
-        '<text class="pmeta" x="16" y="54">közvetlen mérésű · 1×63 A</text>' +
+        '<text class="pmeta" x="16" y="54">' + (shortOf(p) || 'közvetlen mérésű') + '</text>' +
         '<rect class="meterwin" x="16" y="70" width="208" height="60" rx="7"/>' +
         '<text class="meterdigits" x="120" y="113">' + (l && n ? '0 0 0 0 , 0' : '- - - - , -') + '</text>' +
         '<text class="pmeta sm" x="120" y="148">kWh</text>' +
@@ -809,6 +851,56 @@ const PARTS = RAW as unknown as Record<string, PartDef>;
         '<circle class="phled nled ' + (n ? 'lit' : '') + '" cx="154" cy="176" r="11"/>' +
         '<text class="pmeta sm" x="154" y="202">N</text>' +
         label(240, 220, !n ? 'nincs nulla - nem mér' : l ? 'fázis és nulla a helyén' : 'nincs fázis')
+      );
+    }
+  };
+
+  /* --- tulfeszultseg-vedo (SPD) ------------------------------------------ */
+  /* Normal uzemben a varisztor nem vezet: az SPD-nek nincs belso kotese es
+     nincs fogyasztoja, ezert a halozatban soha nem okoz zarlatot. A helye a
+     mero es a fokapcsolo/fokismegszakito utan, a Fi-rele elott van, hogy a
+     levezetett tulfeszultseg-impulzus ne oldja ki a Fi-t. */
+  function spdCart(x: number, w: number, cls: string): string {
+    return (
+      '<rect class="' + cls + '" x="' + x + '" y="34" width="' + w + '" height="92" rx="5"/>' +
+      '<rect class="spdwin" x="' + (x + w / 2 - 12) + '" y="44" width="24" height="14" rx="3"/>'
+    );
+  }
+  RAW.spd4 = {
+    name: 'Túlfeszültség-védő 4P (T1+T2)',
+    w: 210,
+    h: 170,
+    terms: [
+      { id: 'L1', x: 30, y: 0, dir: 'n', role: 'L', t: 'L1' },
+      { id: 'L2', x: 80, y: 0, dir: 'n', role: 'L', t: 'L2' },
+      { id: 'L3', x: 130, y: 0, dir: 'n', role: 'L', t: 'L3' },
+      { id: 'N', x: 180, y: 0, dir: 'n', role: 'N', t: 'N' },
+      /* a foton a PE csavar a 3. modul alatt van */
+      { id: 'PE', x: 130, y: 170, dir: 's', role: 'PE', t: 'PE' }
+    ],
+    draw: function (p: PartInstance) {
+      let s = shell(210, 170) + din(210, 170) +
+        '<text class="ptitle" x="14" y="26">' + (p.label || 'SPD') + '</text>';
+      for (let i = 0; i < 4; i++) s += spdCart(10 + i * 50, 42, 'spdcart');
+      return s + '<text class="pmeta sm" x="105" y="146">' + (shortOf(p) || 'T1+T2') + '</text>' +
+        label(210, 170, 'zöld ablak: rendben');
+    }
+  };
+  RAW.spd1 = {
+    name: 'Túlfeszültség-védő 1P (T2)',
+    w: 78,
+    h: 160,
+    terms: [
+      { id: 'L/N', x: 39, y: 0, dir: 'n', t: 'L/N' },
+      { id: 'PE', x: 39, y: 160, dir: 's', role: 'PE', t: 'PE' }
+    ],
+    draw: function (p: PartInstance) {
+      return (
+        shell(78, 160) + din(78, 160) +
+        spdCart(10, 58, 'spdcart spdcart-g') +
+        '<text class="ptitle sm" x="39" y="24">' + (p.label || 'SPD') + '</text>' +
+        '<text class="pmeta sm" x="39" y="146">' + (shortOf(p) || 'T2') + '</text>' +
+        label(78, 160, '')
       );
     }
   };
@@ -977,6 +1069,25 @@ const PARTS = RAW as unknown as Record<string, PartDef>;
     }
   };
 
+  /* --- EPH bekotesi pont ------------------------------------------------- */
+  /* Az egyenpotencialu osszekotesbe (EPH) kotendo idegen vezetokepes resz,
+     pl. viz-, gaz-, futes-fovezetek femcsove. Egy PE szerepu kapcsa van. */
+  RAW.bond = {
+    name: 'EPH bekötési pont',
+    w: 120,
+    h: 110,
+    terms: [{ id: 'E', x: 60, y: 0, dir: 'n', role: 'PE', t: 'EPH' }],
+    draw: function (p: PartInstance) {
+      return (
+        shell(120, 110) +
+        '<rect class="keystone" x="14" y="40" width="92" height="20" rx="9"/>' +
+        '<rect class="lever" x="52" y="30" width="16" height="40" rx="3"/>' +
+        '<text class="ptitle sm" x="60" y="92">' + (p.label || 'EPH') + '</text>' +
+        label(120, 110, 'EPH')
+      );
+    }
+  };
+
   /* --- hokioldo rele ---------------------------------------------------- */
   /* A foerintkezok mindig atvezetnek; tulterheleskor csak a segederintkezok
      valtanak: a 95-96 bont (leejti a vezerlest), a 97-98 zar (hibajelzes).
@@ -1032,12 +1143,15 @@ const PARTS = RAW as unknown as Record<string, PartDef>;
     name: 'Időrelé (meghúzáskésleltetett)',
     w: 170,
     h: 200,
+    /* Finder 82.01: felul A1 B1 15, alul 16 18 A2. A B1 vezerlobemenet a
+       meghuzaskesleltetett funkcional nincs bekotve. */
     terms: [
-      { id: 'A1', x: 40, y: 0, dir: 'n', role: 'L', t: 'A1' },
-      { id: '15', x: 130, y: 0, dir: 'n', t: '15' },
-      { id: 'A2', x: 40, y: 200, dir: 's', role: 'N', t: 'A2' },
-      { id: '16', x: 100, y: 200, dir: 's', t: '16' },
-      { id: '18', x: 145, y: 200, dir: 's', t: '18' }
+      { id: 'A1', x: 35, y: 0, dir: 'n', role: 'L', t: 'A1' },
+      { id: 'B1', x: 85, y: 0, dir: 'n', t: 'B1' },
+      { id: '15', x: 135, y: 0, dir: 'n', t: '15' },
+      { id: '16', x: 35, y: 200, dir: 's', t: '16' },
+      { id: '18', x: 85, y: 200, dir: 's', t: '18' },
+      { id: 'A2', x: 135, y: 200, dir: 's', role: 'N', t: 'A2' }
     ],
     init: function () {
       return { since: 0 };
@@ -1064,7 +1178,7 @@ const PARTS = RAW as unknown as Record<string, PartDef>;
         shell(170, 200) +
         din(170, 200) +
         '<text class="ptitle" x="14" y="30">' + (p.label || 'KT') + '</text>' +
-        '<text class="pmeta" x="14" y="48">időrelé · ' + TIMER_MS / 1000 + ' s</text>' +
+        '<text class="pmeta" x="14" y="48">' + (shortOf(p) || 'időrelé') + ' · ' + TIMER_MS / 1000 + ' s</text>' +
         '<circle class="dialbg" cx="85" cy="118" r="' + r + '"/>' +
         (st.since && !done
           ? '<circle class="dial" cx="85" cy="118" r="' + r + '" stroke-dasharray="' + c + '" stroke-dashoffset="' + c * (left / TIMER_MS) + '"/>'

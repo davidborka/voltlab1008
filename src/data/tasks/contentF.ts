@@ -19,6 +19,8 @@ export const contentF: TaskContent = {
     'A PE-sínt és az N-sínt összekötik a fogyasztói oldalon, ami a Fi-relé működését teljesen tönkreteszi.',
     'A három egyfázisú áramkört mind egy fázisra kötik, így a terhelés nem oszlik el a fázisok között.',
     'A Fi-relé N1 bemeneti és N2 kimeneti kapcsát felcserélik, vagy a fogyasztói nullát a bemeneti oldalra kötik.',
+    'SPD a Fi után / PE nélkül: a Schelinger túlfeszültség-védőt a Fi-relé mögé kötik (a levezetett impulzus kioldja a Fi-t), vagy az alsó ⏚ kapcsa nincs a PE-sínre kötve (így hatástalan).',
+    'Az Easy9 4P Fi-relén a nullát a jobb szélre keresik - ezen a típuson az N a BAL szélen van (N 1 3 5 / N 2 4 6).',
   ],
   guided: [
     {
@@ -27,7 +29,7 @@ export const contentF: TaskContent = {
       goalHu: 'A SUP három fázisát az F0 főbiztosító bemeneteire, a nullát az NB0 mérő előtti N-sínre, a védőföldet a PB PE-sínre kötni.',
       focus: ['SUP', 'F0', 'NB0', 'PB'],
       reasoningHu:
-        'A mérőhely a hálózati betáplálással kezdődik. Az L1, L2, L3 a 3x1P F0 főbiztosító bemeneteire megy, mert a mérő elé túláramvédelem kell. A nulla nem kap túláramvédelmet, ezért a SUP N közvetlenül az NB0 sínre kerül: ez a mérő előtti nulla gyűjtőpont. A védőföld a PB PE-sínre megy, és onnan sehova nem lép be a mérési vagy kapcsolási útvonalba.',
+        'A mérőhely a hálózati betáplálással kezdődik. Az L1, L2, L3 a háromsarkú F0 főbiztosító (Schneider Easy9 3P C16) 1, 3, 5 bemeneteire megy, mert a mérő elé túláramvédelem kell. A nulla nem kap túláramvédelmet, ezért a SUP N közvetlenül az NB0 sínre kerül: ez a mérő előtti nulla gyűjtőpont. A védőföld a PB PE-sínre megy, és onnan sehova nem lép be a mérési vagy kapcsolási útvonalba.',
       questionHu: 'Hova köti a betáplálás védőföld vezetőjét, és hol halad tovább?',
       options: [
         'A PB PE-sínre, ahonnan csak a fogyasztók PE kapcsaihoz megy, kapcsolókészülék nélkül',
@@ -91,6 +93,25 @@ export const contentF: TaskContent = {
       hintHu: 'A védőföld soha nem kapcsolt; melyik marad, amit a negyedik pólus kapcsolhat?',
       explanationHu:
         'A negyedik pólus a nullát kapcsolja, így a fogyasztói hálózat minden üzemi vezetője leválasztható. A védőföldet soha nem szabad kapcsolni, ezért az a főkapcsolón nem megy át.',
+    },
+    {
+      id: 'f-spd',
+      titleHu: 'Túlfeszültség-védelem: Schelinger SPD01-4P-B+C',
+      goalHu: 'A főkapcsoló kimenetéről L1, L2, L3, N a Schelinger SPD felső kapcsaira, az alsó ⏚ (PE) kapcsot rövid úton a PB PE-sínre kötni - a Fi-relé ELŐTT.',
+      focus: ['FK', 'SPD', 'PB', 'FI'],
+      reasoningHu:
+        'A 4 pólusú T1+T2 SPD a mérő és a főkapcsoló UTÁN, a Fi-relé ELŐTT van: a levezetett túlfeszültség-impulzus így nem folyik át a Fi összegző áramváltóján, és nem okoz hamis kioldást. Felül a három fázis és a nulla csatlakozik (L1 L2 L3 N), alul egyetlen ⏚ kapocs (a 3. modul alatt) megy a PE-sínre. A narancs betétek ablaka zöld = rendben, piros = csere. Normál üzemben az SPD nem vezet, ezért nem zárlat. Az előtét-biztosító a készüléken 160 A gG (a gyártói kézikönyv 125 A-t ír) - itt az F-0 ennél jóval kisebb, tehát megfelel. Szigetelésmérés előtt a betéteket ki kell húzni.',
+      questionHu: 'Hová kerül a 4 pólusú SPD a mérőhelyen?',
+      options: [
+        'A mérő elé, a méretlen oldalra, PE nélkül',
+        'A főkapcsoló után, a Fi-relé ELŐTT; a ⏚ kapocs a PE-sínre',
+        'A Fi-relé után, a kismegszakítók mellé',
+        'A dugalj mellé, csak az L1 fázisra',
+      ],
+      correct: 1,
+      hintHu: 'A Fi-relé ne lássa hibaáramnak a levezetett impulzust.',
+      explanationHu:
+        'Az SPD a Fi előtt van, és PE nélkül hatástalan. Az SPD pontos helyét és a TN-C-S bekötést egyeztesd a vizsgáztatóval.',
     },
     {
       id: 'f-s5',
@@ -284,6 +305,16 @@ export const contentF: TaskContent = {
     },
   ],
   unresolved: [
+    {
+      id: 'f-spd',
+      labelHu: 'Az SPD pontos helye és bekötése - az SPD pontos helyét és a TN-C-S bekötést egyeztesd a vizsgáztatóval.',
+      missingHu: [
+        'A szolgáltatói előírás és a vizsgaközpont gyakorlata',
+        'A hálózat földelési rendszere (TN-C-S esetén hol válik szét a PEN)',
+        'Az előtét-biztosító értéke: a készüléken 160 A gG, a gyártói kézikönyvben 125 A gL/gG',
+      ],
+      typicalExampleHu: 'Oktatási példa, nem a megoldás: a modell a főkapcsoló és a 4P Fi-relé közé köti a Schelinger SPD01-4P-B+C-t.',
+    },
     {
       id: 'f-u1',
       labelHu: 'Az F0 főbiztosító és az F1, F2, F3 kismegszakítók névleges árama és jelleggörbéje - a rajzból nem következik, a hiányzó paramétereket lásd a missingHu listában.',

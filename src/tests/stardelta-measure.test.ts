@@ -98,7 +98,7 @@ describe('csillag-delta indítás (Csillag-delta.pdf)', () => {
   it('a rossz deltakötést hibásnak látja', () => {
     const b = build('H');
     b.wires = b.wires.map((w) =>
-      w.a === 'Q15.2' && w.b === 'M.W2' ? { ...w, b: 'M.U2' } : w.a === 'Q15.4' && w.b === 'M.U2' ? { ...w, b: 'M.W2' } : w
+      w.a === 'Q15.2T1' && w.b === 'M.W2' ? { ...w, b: 'M.U2' } : w.a === 'Q15.4T2' && w.b === 'M.U2' ? { ...w, b: 'M.W2' } : w
     );
     const t0 = 3_000_000;
     start(b, t0);

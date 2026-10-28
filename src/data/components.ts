@@ -43,12 +43,13 @@ export const LIBRARY: LibraryEntry[] = [
       'Az érintésvédelem kiegészítő védelme, nem zárlatvédelem.',
     terminalsHu:
       'Egyfázisú (1P+N) kivitelben a felső 1 és N a betáplálás, az alsó 2 és N a fogyasztói ' +
-      'oldal. Négypólusú kivitelben felül L1, L2, L3, N, alul T1, T2, T3, N. A TEST gomb ' +
+      'oldal (IDEAL KRD10, Legrand RX³). Négypólusú kivitelben (Schneider Easy9 4P) felül N 1 3 5, ' +
+      'alul N 2 4 6 - a nulla a BAL szélen. A TEST gomb ' +
       'a beépített ellenállással mesterséges hibaáramot hoz létre.',
     behaviourHu:
       'Bekapcsolt állapotban minden pólusa átvezet, kioldás után minden pólusa - a nulla is - ' +
       'bontott. A nullát tehát nem szabad a Fi-relé mellett elvezetni.',
-    appearsIn: ['A', 'B', 'F', 'G'],
+    appearsIn: ['A', 'B', 'F', 'G', 'I', 'J'],
     mistakeHu:
       'A Fi-relé utáni nullát a mérő előtti (Fi előtti) N-sínről veszik. Ilyenkor a visszatérő ' +
       'áram kikerüli az összegző átalakítót, és a Fi azonnal kiold, vagy éppen nem véd.',
@@ -80,7 +81,7 @@ export const LIBRARY: LibraryEntry[] = [
     behaviourHu:
       'Bekapcsolva átvezet, kioldás után a karja középállásba ugrik. Csak a fázist bontja, ' +
       'a nullát nem, ezért a bontott kismegszakító után is lehet nulla a vezetéken.',
-    appearsIn: ['A', 'B', 'C', 'D', 'E', 'F', 'G'],
+    appearsIn: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'],
     mistakeHu:
       'A betáplálást alulról, a 2-es kapocsra kötik. Működni működik, de a bekötés nem ' +
       'szabványos, és a bontott készülék felső kapcsa így feszültség alatt marad.',
@@ -128,7 +129,8 @@ export const LIBRARY: LibraryEntry[] = [
       'állítható be, a gyorskioldója zárlatra bont. Fáziskiesésre is érzékeny, ezért a motor ' +
       'kétfázisú járását megakadályozza.',
     terminalsHu:
-      'Főáramkör: L1, L2, L3 a betáplálás, T1, T2, T3 a motor felé (egyfázisú kivitelnél L1-T1). ' +
+      'Főáramkör: 1L1, 3L2, 5L3 a betáplálás, 2T1, 4T2, 6T3 a motor felé (ELMARK TM2-E08). Egyfázisú ' +
+      'motornál a fázist sorosan mindhárom pólusán átvezetjük. ' +
       'Segédérintkező: 13-14 záró, sok típuson 95-96 bontó riasztásra.',
     behaviourHu:
       'Kioldás után a kart kézzel vissza kell állítani. A 13-14 záró segédérintkező csak ' +
@@ -162,7 +164,7 @@ export const LIBRARY: LibraryEntry[] = [
       'vezérlőáramkörről nagy teljesítményű főáramkör kapcsolható. Feszültségkimaradáskor ' +
       'magától elenged, ezért a motor nem indul újra magától.',
     terminalsHu:
-      'Főérintkezők: 1-2, 3-4, 5-6 (egyes típusokon L1-T1, L2-T2, L3-T3). Tekercs: A1 és A2. ' +
+      'Főérintkezők: 1L1-2T1, 3L2-4T2, 5L3-6T3 (Schneider TeSys LC1D18; régebbi rajzokon 1-2, 3-4, 5-6). Tekercs: A1 és A2. ' +
       'A segédérintkezők kétjegyű számot kapnak: az első számjegy a sorszám, a második a funkció ' +
       '(1-2 bontó, 3-4 záró), például 13-14 záró, 21-22 bontó.',
     behaviourHu:
@@ -261,7 +263,8 @@ export const LIBRARY: LibraryEntry[] = [
       'Visszatérő működésű, alaphelyzetben nyitott (záró) nyomógomb. Megnyomva rövid időre ' +
       'feszültséget ad a mágneskapcsoló tekercsére, az öntartás pedig utána tartja a kört.',
     terminalsHu:
-      'A záró érintkező kapcsai 3 és 4. Több indítóhely esetén a gombok egymással ' +
+      'Vezérlő nyomógombon a záró érintkező kapcsai 3 és 4. A lépcsőházi szerelvény-nyomón (Schneider, ' +
+      'csengő jellel) L és 1. Több indítóhely esetén a gombok egymással ' +
       'párhuzamosan kerülnek a körbe, mert bármelyikkel indítani kell tudni.',
     behaviourHu:
       'Csak addig zár, amíg nyomva tartod, elengedve visszaugrik. Ezért kell mellé öntartás, ' +
@@ -372,7 +375,8 @@ export const LIBRARY: LibraryEntry[] = [
       'Egy helyről kapcsolt világítási áramkör kapcsolója. Egyetlen érintkezője van, ' +
       'amely a fázist szakítja meg.',
     terminalsHu:
-      'Az 1-es kapocs a betáplálás felőli állandó fázis, a 2-es a lámpa felé menő kapcsolt fázis.',
+      'A vizsgatáblán a Legrand Niloé váltókapcsolót használjuk egysarkúként: az L a betáplálás felőli ' +
+      'állandó fázis, az 1-es a lámpa felé menő kapcsolt fázis, a 2-es szabadon marad.',
     behaviourHu:
       'Két stabil állása van: bekapcsolva vezet, kikapcsolva bont. Nyomógombbal ellentétben ' +
       'nem tér vissza magától alaphelyzetbe.',
@@ -391,7 +395,7 @@ export const LIBRARY: LibraryEntry[] = [
       'Két helyről kapcsolt világításhoz. Egy közös kapcsát két kimenet között váltogatja, ' +
       'így két váltókapcsolóval bármelyik helyről fel- és lekapcsolható a lámpa.',
     terminalsHu:
-      'A közös kapocs jele P (egyes rajzokon 1 vagy L), a két váltott érintkező 1 és 2. ' +
+      'A közös kapocs jele a Legrand Niloé-n L (régebbi rajzokon P), a két váltott érintkező 1 és 2. ' +
       'A két váltókapcsoló 1-1 és 2-2 kapcsait két érrel, az úgynevezett váltóvezetékekkel kötjük össze.',
     behaviourHu:
       'A közös kapocs mindig pontosan az egyik érintkezővel áll kapcsolatban, szakadás nincs. ' +
@@ -413,8 +417,8 @@ export const LIBRARY: LibraryEntry[] = [
       'Három vagy több helyről kapcsolt világításhoz. Mindig két váltókapcsoló közé kerül, ' +
       'és a két váltóvezetéket cseréli fel egymással.',
     terminalsHu:
-      'Négy kapcsa van: 1 és 2 a bemenet, 3 és 4 a kimenet. Egyik állásában 1-3 és 2-4, ' +
-      'a másikban 1-4 és 2-3 kapcsolódik össze.',
+      'Négy kapcsa van (Legrand Niloé 7 645 04): a piros L1 és L2 a bemenet, a szürke 3 és 4 a ' +
+      'kimenet. Egyik állásában L1-3 és L2-4, a másikban L1-4 és L2-3 kapcsolódik össze.',
     behaviourHu:
       'Soha nem szakít áramkört, csak keresztezi az ereket. Ezért a lámpa állapota minden ' +
       'kapcsolóhelyről megfordítható.',
@@ -439,7 +443,8 @@ export const LIBRARY: LibraryEntry[] = [
       'bekapcsolva tartja a világítást, majd magától lekapcsol. Tetszőleges számú nyomógombról indítható.',
     terminalsHu:
       'Az L és N kapocs a készülék saját tápellátása, a 3-as kapocs az indítójel a nyomógombokról, ' +
-      'a 4-es kapocs a kapcsolt fázis a lámpák felé. Régebbi rajzokon 1, 2, 3, 4 a számozás.',
+      'a 4-es kapocs a kapcsolt fázis a lámpák felé. A Schneider MIN 15363-on mind a négy kapocs ' +
+      'alul van: felső lépcső L és 3, alsó sor N és 4.',
     behaviourHu:
       'Az indítójel minden megnyomásra újraindítja az időzítést. Ha a 3-as kapcson tartósan ' +
       'feszültség marad (például bent felejtett kapcsoló miatt), az automata folyamatosan újraindul és nem jár le.',
@@ -528,12 +533,14 @@ export const LIBRARY: LibraryEntry[] = [
       'A szolgáltató elszámolási mérője: a fogyasztott villamos energiát méri. Közvetlen ' +
       'mérésű kivitelben a teljes fogyasztói áram átfolyik rajta, áramváltó nélkül.',
     terminalsHu:
-      'Egyfázisú mérőnél a fázis az 1-3, a nulla a 4-6 kapcson megy át. Háromfázisúnál a ' +
+      'A vizsgatábla Qoltec 50888 egyfázisú mérőjén (a készülékre nyomtatott rajz szerint) a fázis ' +
+      '1 → 2, a nulla 3 → 4 megy át, az 5-6 az impulzuskimenet. Más gyártmányon más lehet - mindig a ' +
+      'készülék rajzát kövesd. Háromfázisúnál a ' +
       'fázisok 1-3, 4-6, 7-9, a nulla 10-11. Minden kapocspár első tagja a betáplálás, a második a fogyasztói oldal.',
     behaviourHu:
       'A mérő nem védelem: nem kapcsol és nem old ki. Nulla nélkül nem mér helyesen, ezért ' +
       'a nulla átvezetése kötelező.',
-    appearsIn: ['F', 'G'],
+    appearsIn: ['F', 'G', 'I', 'J'],
     mistakeHu:
       'A be- és kimenő oldalt felcserélik, vagy a nullát megkerülve viszik a fogyasztóhoz. ' +
       'A mérő ilyenkor hibásan vagy egyáltalán nem mér, a mérőhely pedig nem plombálható.',
@@ -586,7 +593,7 @@ export const LIBRARY: LibraryEntry[] = [
     terminalsHu:
       'A sín minden kapcsa villamosan ugyanaz a pont, tehát mindegy, melyik szabad kapocsra kötsz. ' +
       'Egy kapocsba egy eret teszünk, hogy a kötés bontható és ellenőrizhető maradjon.',
-    appearsIn: ['A', 'B', 'C', 'D', 'E', 'F', 'G'],
+    appearsIn: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'],
     mistakeHu:
       'Az N-sínt és a PE-sínt összekötik a fogyasztói oldalon. TN-S rendszerben ez tilos, ' +
       'és a Fi-relé védelmét is kiiktatja.',
@@ -617,7 +624,7 @@ export const LIBRARY: LibraryEntry[] = [
     behaviourHu:
       'Üzemi áramot nem visz, kapcsolóelemet nem tartalmazhat: sem kapcsoló, sem biztosító, ' +
       'sem kismegszakító nem szakíthatja meg.',
-    appearsIn: ['A', 'B', 'C', 'D', 'E', 'F', 'G'],
+    appearsIn: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'],
     mistakeHu:
       'A PE-t a nullával helyettesítik vagy összekötik a fogyasztónál. Nullaszakadás esetén ' +
       'így a készülékház feszültség alá kerül.',
@@ -639,7 +646,7 @@ export const LIBRARY: LibraryEntry[] = [
     behaviourHu:
       'Üzemi áramot visz, ezért nem tekinthető feszültségmentesnek. Csak olyan készülék ' +
       'kapcsolhatja, amely a fázissal együtt, egyszerre bontja (például Fi-relé vagy 3P+N főkapcsoló).',
-    appearsIn: ['A', 'B', 'C', 'D', 'E', 'F', 'G'],
+    appearsIn: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'],
     mistakeHu:
       'A nullát a legközelebbi elérhető sínről veszik, nem abból az áramkörből, amelyikbe tartozik. ' +
       'A Fi-relé utáni fogyasztó nullája csak a Fi utáni N-sínről jöhet.',
@@ -659,11 +666,60 @@ export const LIBRARY: LibraryEntry[] = [
     behaviourHu:
       'Minden kapcsoló-, védelmi és bontóelem a fázisba kerül, soha nem a nullába. ' +
       'A vizsgatáblán a fázis akkor is veszélyes lehet, ha a lámpa nem világít, ezért csak feszültségmentes táblán szerelünk.',
-    appearsIn: ['A', 'B', 'C', 'D', 'E', 'F', 'G'],
+    appearsIn: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'],
     mistakeHu:
       'Háromfázisú elosztásnál a három áramkört ugyanarról a fázisról kötik, ahelyett hogy ' +
       'fázisonként osztanák el a terhelést.',
     symbol: `<path d="M32 18 L 32 46 L 54 46"/>
 <line x1="6" y1="64" x2="74" y2="64"/>`,
+  },
+  {
+    id: 'tulfeszultseg-vedo',
+    nameHu: 'Túlfeszültség-védő (SPD)',
+    designation: 'F (SPD)',
+    purposeHu:
+      'A hálózatról érkező túlfeszültség-impulzust (villám, kapcsolási tranziens) a védővezető felé ' +
+      'vezeti le. T1: közvetlen villámáram (10/350 µs), T2: indukált túlfeszültség (8/20 µs).',
+    terminalsHu:
+      'Schelinger SPD01-4P-B+C: felül L1 L2 L3 N, alul egyetlen ⏚ (PE) a 3. modul alatt. ' +
+      'ELMARK SPD-C10: felül L/N, alul ⏚. Egyfázisú táblán két modul kell: L-PE és N-PE.',
+    behaviourHu:
+      'Normál üzemben nem vezet, ezért nem zárlat. Az ablak zöld = rendben, piros = a betétet cserélni kell. ' +
+      'Szigetelésmérés előtt a betéteket ki kell húzni.',
+    appearsIn: ['F', 'G', 'I', 'J'],
+    mistakeHu:
+      'SPD a Fi után / PE nélkül: a Fi mögé kötve a levezetett impulzus kioldja a Fi-t, PE nélkül pedig hatástalan. ' +
+      'A helye a mérő és a főkapcsoló/főkismegszakító után, a Fi-relé előtt van.',
+    symbol: `<line x1="40" y1="6" x2="40" y2="22"/>
+<rect x="28" y="22" width="24" height="36"/>
+<path d="M22 50 L 34 40 L 46 40 L 58 30"/>
+<line x1="40" y1="58" x2="40" y2="66"/>
+<line x1="28" y1="66" x2="52" y2="66"/>
+<line x1="32" y1="71" x2="48" y2="71"/>
+<line x1="36" y1="76" x2="44" y2="76"/>`,
+  },
+  {
+    id: 'eph',
+    nameHu: 'Egyenpotenciálú összekötés (EPH)',
+    designation: 'EPH',
+    purposeHu:
+      'Az épületbe belépő idegen vezetőképes részeket (víz-, gáz-, fűtési fővezeték, hozzáférhető ' +
+      'fém szerkezet) a fő földelősínre kötjük, hogy közöttük és a védővezető között ne léphessen fel ' +
+      'veszélyes érintési feszültség (MSZ HD 60364-4-41, 411.3.1.2).',
+    terminalsHu:
+      'Minden elem külön zöld-sárga vezetővel a fő földelősínre (fő földelőkapocs) megy. A fő ' +
+      'földelősínhez csatlakozó EPH-vezető legalább 6 mm² réz (MSZ HD 60364-5-54).',
+    behaviourHu:
+      'Az EPH-vezetőt megszakítani vagy kapcsolni tilos. Fém víz- vagy gázcső nem használható védővezetőként.',
+    appearsIn: ['J'],
+    mistakeHu:
+      'Az EPH-vezetőt láncszerűen fűzik csőről csőre, vagy kihagyják a gáz- és fűtési fővezetéket.',
+    symbol: `<line x1="40" y1="8" x2="40" y2="40"/>
+<line x1="12" y1="40" x2="68" y2="40"/>
+<line x1="12" y1="40" x2="12" y2="62"/>
+<line x1="40" y1="40" x2="40" y2="62"/>
+<line x1="68" y1="40" x2="68" y2="62"/>
+<line x1="28" y1="70" x2="52" y2="70"/>
+<line x1="33" y1="75" x2="47" y2="75"/>`,
   },
 ];

@@ -12,9 +12,9 @@ export const contentB: TaskContent = {
     'A rajzon üresen hagyott adatokat (kismegszakító névleges áram, Fi-relé adatai) nem pótolja találgatással, hanem hiányzó paraméterként kezeli.',
   ],
   commonMistakesHu: [
-    'A keresztkapcsoló bemeneti (1, 2) és kimeneti (3, 4) kapocspárját összekeverik, ezért a kapcsolás csak részben vagy egyáltalán nem működik, és zárlat is keletkezhet.',
+    'A keresztkapcsoló bemeneti (piros L1, L2) és kimeneti (szürke 3, 4) kapocspárját összekeverik, ezért a kapcsolás csak részben vagy egyáltalán nem működik, és zárlat is keletkezhet.',
     'A keresztkapcsolót a hálózat fázisa és a lámpa közé, végponti helyzetbe teszik, holott annak a két váltókapcsoló közé, a váltóvezetékek útjába kell kerülnie.',
-    'A K1 vagy K3 váltókapcsoló közös (P) kapcsát felcserélik az 1-es vagy 2-es váltókapoccsal.',
+    'A K1 vagy K3 váltókapcsoló közös (L) kapcsát felcserélik az 1-es vagy 2-es váltókapoccsal.',
     'A K1 és K2, illetve a K2 és K3 közötti szakaszra kevesebb eret húznak be, mint amennyi kell, ezért utólag újra kell kábelezni.',
     'A lámpa nulláját a kapcsoló felől próbálják megoldani ahelyett, hogy közvetlenül az N-sínről vinnék.',
     'Az S1 és S2 nyomógombot sorba kötik párhuzamos helyett, így csak egyszerre nyomva indul a lépcsőházi automata.',
@@ -83,8 +83,8 @@ export const contentB: TaskContent = {
       goalHu: 'Az S1 és S2 nyomógomb záró (NO) érintkezőjének párhuzamos bekötése az LA 3-as kapcsára.',
       focus: ['S1', 'S2', 'LA', 'F1'],
       reasoningHu:
-        'Az F1 kör fázisát el kell vinni mindkét nyomógomb 3-as kapcsára, a nyomógombok 4-es kapcsa pedig összekötve megy az automata 3-as kapcsára. Ez párhuzamos kötés: bármelyik gomb megnyomása önmagában elegendő az indításhoz. A vezérlő áramkör kis áramot visz, de ugyanúgy fázisos, tehát ugyanolyan gondossággal kell szerelni, mint a főáramkört. Ha a két gombot sorba kötnénk, csak egyidejű nyomásra indulna a világítás.',
-      questionHu: 'Az S1 és S2 nyomógomb 4-es kapcsai hova kerülnek?',
+        'Az F1 kör fázisát el kell vinni mindkét nyomó (Schneider, csengő jellel) L kapcsára, a nyomók 1-es kapcsa pedig összekötve megy az automata 3-as kapcsára. Ez párhuzamos kötés: bármelyik gomb megnyomása önmagában elegendő az indításhoz. A vezérlő áramkör kis áramot visz, de ugyanúgy fázisos, tehát ugyanolyan gondossággal kell szerelni, mint a főáramkört. Ha a két gombot sorba kötnénk, csak egyidejű nyomásra indulna a világítás.',
+      questionHu: 'Az S1 és S2 nyomó 1-es kapcsai hova kerülnek?',
       options: [
         'Külön-külön az automata 3-as és 4-es kapcsára',
         'Összekötve az automata 3-as kapcsára',
@@ -94,7 +94,7 @@ export const contentB: TaskContent = {
       correct: 1,
       hintHu: 'Az indítás vagylagos: elég az egyik gomb.',
       explanationHu:
-        'Mindkét nyomógomb kimenete, a 4-es kapocs, közösen az automata 3-as vezérlő kapcsára megy. Ez a párhuzamos kötés teszi lehetővé, hogy bármelyik helyről el lehessen indítani a világítást. A 4-es kapocs az automata kimenete, oda vezérlőjelet vinni hibás bekötés.',
+        'Mindkét nyomó kimenete, az 1-es kapocs, közösen az automata 3-as vezérlő kapcsára megy. Ez a párhuzamos kötés teszi lehetővé, hogy bármelyik helyről el lehessen indítani a világítást. A 4-es kapocs az automata kimenete, oda vezérlőjelet vinni hibás bekötés.',
     },
     {
       id: 'b-5',
@@ -107,7 +107,7 @@ export const contentB: TaskContent = {
       options: [
         'Az automata N kapcsáról leágazva',
         'Közvetlenül az N-sínről (NB)',
-        'Az S1 nyomógomb 3-as kapcsáról',
+        'Az S1 nyomó L kapcsáról',
         'A PE-sínről',
       ],
       correct: 1,
@@ -118,10 +118,10 @@ export const contentB: TaskContent = {
     {
       id: 'b-6',
       titleHu: 'A keresztkapcsolás első szakasza: K1 váltó és a keresztkapcsoló bemenete',
-      goalHu: 'Az F2 fázisának bekötése a K1 váltókapcsoló P kapcsára, majd a két váltóvezeték továbbvitele a K2 keresztkapcsoló 1-es és 2-es kapcsára.',
+      goalHu: 'Az F2 fázisának bekötése a K1 váltókapcsoló L kapcsára, majd a két váltóvezeték továbbvitele a K2 keresztkapcsoló piros L1 és L2 kapcsára.',
       focus: ['F2', 'K1', 'K2'],
       reasoningHu:
-        'A keresztkapcsolás mindig váltó - kereszt - váltó sorrendben épül fel. Az F2 kismegszakító 2-es kapcsáról a fázis a K1 váltókapcsoló P (közös) kapcsára megy. A K1 1-es és 2-es kapcsáról két váltóvezeték indul a K2 keresztkapcsoló bemeneti oldalára, az 1-es és 2-es kapocsra. Erre a szakaszra tehát két eret kell behúzni, plusz a szerelési mód szerint szükséges védővezetőt. A kötéspontok a készülékdobozokban vannak, a szakaszokat érdemes már behúzáskor megjelölni, hogy a két váltóvezeték ne cserélődjön össze a P vezetékkel.',
+        'A keresztkapcsolás mindig váltó - kereszt - váltó sorrendben épül fel. Az F2 kismegszakító 2-es kapcsáról a fázis a K1 váltókapcsoló L (közös) kapcsára megy. A K1 1-es és 2-es kapcsáról két váltóvezeték indul a K2 keresztkapcsoló (Legrand Niloé 7 645 04) bemeneti oldalára, a piros L1 és L2 kapocsra. Erre a szakaszra tehát két eret kell behúzni, plusz a szerelési mód szerint szükséges védővezetőt. A kötéspontok a készülékdobozokban vannak, a szakaszokat érdemes már behúzáskor megjelölni, hogy a két váltóvezeték ne cserélődjön össze az L vezetékkel.',
       questionHu: 'Hány eret kell behúzni a K1 és a K2 közötti szakaszra a kapcsolás működéséhez?',
       options: [
         'Egyet, a kapcsolt fázist',
@@ -132,15 +132,15 @@ export const contentB: TaskContent = {
       correct: 1,
       hintHu: 'A keresztkapcsoló négy kapcsa két bemeneti és két kimeneti kapocsra oszlik.',
       explanationHu:
-        'A K1 és K2 közötti szakaszon két váltóvezeték fut: a K1 1-es kapcsáról a K2 1-es kapcsára, és a K1 2-es kapcsáról a K2 2-es kapcsára. A keresztkapcsoló négy kapcsából kettő a bemeneti, kettő a kimeneti oldal, ezért a szakaszonként szükséges vezetékszám kettő. A védővezetőt a szerelési mód és a készülékek igénye szerint kell külön vinni.',
+        'A K1 és K2 közötti szakaszon két váltóvezeték fut: a K1 1-es kapcsáról a K2 L1 kapcsára, és a K1 2-es kapcsáról a K2 L2 kapcsára. A keresztkapcsoló négy kapcsából kettő a bemeneti, kettő a kimeneti oldal, ezért a szakaszonként szükséges vezetékszám kettő. A védővezetőt a szerelési mód és a készülékek igénye szerint kell külön vinni.',
     },
     {
       id: 'b-7',
       titleHu: 'A keresztkapcsolás második szakasza: K2 kimenete, K3 váltó és az E2 lámpa',
-      goalHu: 'A K2 keresztkapcsoló 3-as és 4-es kapcsának bekötése a K3 váltókapcsoló 1-es és 2-es kapcsára, majd a K3 P kapcsáról a lámpa megtáplálása.',
+      goalHu: 'A K2 keresztkapcsoló 3-as és 4-es kapcsának bekötése a K3 váltókapcsoló 1-es és 2-es kapcsára, majd a K3 L kapcsáról a lámpa megtáplálása.',
       focus: ['K2', 'K3', 'E2', 'NB'],
       reasoningHu:
-        'A K2 keresztkapcsoló 3-as és 4-es kapcsáról ismét két váltóvezeték indul, ezek a K3 váltókapcsoló 1-es és 2-es kapcsára mennek. A K3 P (közös) kapcsáról egyetlen kapcsolt fázisvezeték megy az E2 lámpa 1-es kapcsára, a lámpa 2-es kapcsa pedig az N-sínre. A keresztkapcsoló működése az, hogy átbillentve felcseréli a két váltóvezeték útját, ezért a középső helyről is át lehet kapcsolni a lámpa állapotát. Ha a bemeneti és kimeneti kapocspárt összekeverjük, a kapcsolás vagy nem működik, vagy a két váltóvezeték összezárásával zárlatot okozunk.',
+        'A K2 keresztkapcsoló 3-as és 4-es kapcsáról ismét két váltóvezeték indul, ezek a K3 váltókapcsoló 1-es és 2-es kapcsára mennek. A K3 L (közös) kapcsáról egyetlen kapcsolt fázisvezeték megy az E2 lámpa 1-es kapcsára, a lámpa 2-es kapcsa pedig az N-sínre. A keresztkapcsoló működése az, hogy átbillentve felcseréli a két váltóvezeték útját, ezért a középső helyről is át lehet kapcsolni a lámpa állapotát. Ha a bemeneti és kimeneti kapocspárt összekeverjük, a kapcsolás vagy nem működik, vagy a két váltóvezeték összezárásával zárlatot okozunk.',
       questionHu: 'Mit csinál a K2 keresztkapcsoló átbillentéskor?',
       options: [
         'Megszakítja a lámpa áramkörét, mint egy egysarkú kapcsoló',
@@ -170,7 +170,7 @@ export const contentB: TaskContent = {
       correct: 1,
       hintHu: 'A folytonosságmérés feszültségmentes állapotban is megmutatja, hol zár és hol nyit egy útvonal.',
       explanationHu:
-        'A keresztkapcsolás feszültségmentesen is teljesen ellenőrizhető: a rajz alapján végigkövetjük az útvonalat, majd folytonosságméréssel megnézzük, hogy a kapcsolók különböző állásaiban a K1 P kapcsa és az E2 felőli pont között megfelelően záródik és nyílik-e az áramkör. Bekapcsolásra ehhez nincs szükség, és a vizsgatáblán a szerelés végig feszültségmentes marad.',
+        'A keresztkapcsolás feszültségmentesen is teljesen ellenőrizhető: a rajz alapján végigkövetjük az útvonalat, majd folytonosságméréssel megnézzük, hogy a kapcsolók különböző állásaiban a K1 L kapcsa és az E2 felőli pont között megfelelően záródik és nyílik-e az áramkör. Bekapcsolásra ehhez nincs szükség, és a vizsgatáblán a szerelés végig feszültségmentes marad.',
     },
   ],
   exam: [
@@ -191,11 +191,11 @@ export const contentB: TaskContent = {
     {
       id: 'b-e2',
       promptHu: 'Melyik kapocspár a keresztkapcsoló bemeneti oldala ebben a kapcsolásban?',
-      options: ['Az 1 és 2', 'A 3 és 4', 'Az 1 és 3', 'A P és az 1'],
+      options: ['Az L1 és L2 (piros)', 'A 3 és 4 (szürke)', 'Az L1 és 3', 'Az L és az 1'],
       correct: 0,
       category: 'keszulekismeret',
       explanationHu:
-        'A K2 keresztkapcsoló 1-es és 2-es kapcsa fogadja a K1 váltókapcsoló felől érkező két váltóvezetéket, a 3-as és 4-es kapocs pedig a K3 váltókapcsoló felé adja tovább. A keresztkapcsolónak nincs közös (P) kapcsa, az csak a váltókapcsolókon van.',
+        'A K2 keresztkapcsoló (Niloé 7 645 04) piros L1 és L2 kapcsa fogadja a K1 váltókapcsoló felől érkező két váltóvezetéket, a szürke 3-as és 4-es kapocs pedig a K3 váltókapcsoló felé adja tovább. A keresztkapcsolónak nincs közös (L) kapcsa, az csak a váltókapcsolókon van.',
     },
     {
       id: 'b-e3',
@@ -227,7 +227,7 @@ export const contentB: TaskContent = {
     },
     {
       id: 'b-e5',
-      promptHu: 'Mi történik, ha a K2 keresztkapcsolón a 2-es és a 3-as kapcsot használjuk bemenetnek?',
+      promptHu: 'Mi történik, ha a K2 keresztkapcsolón az L2 és a 3-as kapcsot használjuk bemenetnek?',
       options: [
         'Semmi, a keresztkapcsoló szimmetrikus',
         'A kapcsolás csak az egyik helyről fog működni, vagy a két váltóvezeték összezárásakor zárlat keletkezik',
@@ -237,7 +237,7 @@ export const contentB: TaskContent = {
       correct: 1,
       category: 'mukodes-megertese',
       explanationHu:
-        'A keresztkapcsolónál a kapocspárok kötöttek: az 1 és 2 a bemenet, a 3 és 4 a kimenet. Ha egy bemeneti és egy kimeneti kapcsot használunk azonos oldalon, a készülék nem tudja felcserélni a két útvonalat, a kapcsolás hibásan működik, és a két váltóvezeték összezárásával zárlat is létrejöhet.',
+        'A keresztkapcsolónál a kapocspárok kötöttek: a piros L1 és L2 a bemenet, a szürke 3 és 4 a kimenet. Ha egy bemeneti és egy kimeneti kapcsot használunk azonos oldalon, a készülék nem tudja felcserélni a két útvonalat, a kapcsolás hibásan működik, és a két váltóvezeték összezárásával zárlat is létrejöhet.',
     },
     {
       id: 'b-e6',
@@ -260,7 +260,7 @@ export const contentB: TaskContent = {
       correct: 1,
       category: 'rajzolvasas',
       explanationHu:
-        'A két nyomógomb 4-es kapcsa párhuzamosan az automata 3-as vezérlő kapcsára megy. A 4-es kapocs az automata kimenete, onnan indul a kapcsolt fázis az E1 lámpára, az L és N pedig a készülék saját táplálása.',
+        'A két nyomó 1-es kapcsa párhuzamosan az automata 3-as vezérlő kapcsára megy. A 4-es kapocs az automata kimenete, onnan indul a kapcsolt fázis az E1 lámpára, az L és N pedig a készülék saját táplálása.',
     },
     {
       id: 'b-e8',

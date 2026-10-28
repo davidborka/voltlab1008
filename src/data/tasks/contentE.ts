@@ -4,7 +4,7 @@ export const contentE: TaskContent = {
   objectivesHu: [
     'Egyfázisú motor mágneskapcsolós indítása: a főáramkör és a vezérlőáramkör tudatos szétválasztása.',
     'Az öntartás felépítése a K1 mágneskapcsoló 13-14 záró segédérintkezőjével.',
-    'Az egypólusú motorvédő kapcsoló helye a főáramkörben, és a 13-14 segédérintkezőjének szerepe a vezérlésben.',
+    'A háromsarkú TM2-E08 motorvédő kapcsoló helye a főáramkörben (egyfázisú motornál a fázis sorosan mindhárom pólusán át), és a 13-14 segédérintkezőjének szerepe a vezérlésben.',
     'A nullavezető helyes kezelése: a motor U2 kapcsa és a vezérlés visszatérő ága közvetlenül az N-sínre megy.',
     'Üzemállapot-visszajelzés kialakítása zöld és piros lámpával.',
     'A feszültségmentes ellenőrzés sorrendjének begyakorlása a bekötés befejezése után.',
@@ -61,10 +61,10 @@ export const contentE: TaskContent = {
     {
       id: 'e-s3',
       titleHu: 'Főáramkör: mágneskapcsolótól a motorvédőn át a motorig',
-      goalHu: 'A K1 2-es kapcsát a HK motorvédő L1 bemenetére, a HK T1 kimenetét a motor U1 kapcsára kötni.',
+      goalHu: 'A K1 2T1 kapcsát a HK motorvédő 1L1 bemenetére kötni, a fázist sorosan végigvinni a HK három pólusán (2T1→3L2, 4T2→5L3), a 6T3 kimenetet pedig a motor U1 kapcsára kötni.',
       focus: ['K1', 'HK', 'M'],
       reasoningHu:
-        'A motorvédő kapcsoló a motor túlterhelését figyeli, ezért a motorral sorba, közvetlenül elé kerül. Itt egypólusú motorvédőről van szó, tehát csak az L1-T1 pólusa van a főáramkörben. A K1 2-es kapcsáról a fázis a HK L1 bemenetére megy, a HK T1 kimenete pedig a motor U1 kapcsára. Így a motor akkor kap fázist, ha a kismegszakító be van kapcsolva, a mágneskapcsoló húz, és a motorvédő sem oldott ki.',
+        'A motorvédő kapcsoló a motor túlterhelését figyeli, ezért a motorral sorba, közvetlenül elé kerül. A vizsgatábla ELMARK TM2-E08 motorvédője háromsarkú; egyfázisú motornál a gyártói ajánlás szerint a fázist sorosan mindhárom pólusán átvezetjük (1L1-2T1, majd áthidalással 3L2-4T2 és 5L3-6T3), így mindhárom hőkioldó egyformán terhelt, és a készülék nem érzékel hamis fáziskiesést. A K1 2T1 kapcsáról a fázis a HK 1L1 bemenetére megy, a 6T3 kimenet pedig a motor U1 kapcsára. Így a motor akkor kap fázist, ha a kismegszakító be van kapcsolva, a mágneskapcsoló húz, és a motorvédő sem oldott ki.',
       questionHu: 'Mi a HK motorvédő kapcsoló feladata a főáramkörben?',
       options: [
         'A motor tartós túlterhelésének érzékelése és a főáram megszakítása',
@@ -87,7 +87,7 @@ export const contentE: TaskContent = {
       questionHu: 'Hova kell kötni az egyfázisú motor U2 kapcsát?',
       options: [
         'A K1 mágneskapcsoló szabadon maradt főérintkezőjére',
-        'A HK motorvédő T1 kimenetére',
+        'A HK motorvédő 6T3 kimenetére',
         'Közvetlenül az NB N-sínre',
         'A PB PE-sínre, mert a motor háza is oda megy',
       ],

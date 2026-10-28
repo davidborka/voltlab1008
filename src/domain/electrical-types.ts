@@ -52,6 +52,9 @@ export interface PartInstance {
   y: number;
   label?: string;
   opt?: PartOptions | null;
+  /** A vizsgatábla valós készüléke (src/data/realDevices.ts azonosító). Ha
+   *  nincs, a típus általános, nem a fotókon szereplő eszköz. */
+  dev?: string;
   st: PartState;
 }
 
@@ -211,6 +214,8 @@ export interface TaskDef {
   commonMistakesHu: string[];
   parts: Array<Omit<PartInstance, 'st'>>;
   solution: Array<[string, string, WireColor]>;
+  /** A solution[i] huzal melyik stepsHu lépéshez tartozik (3D lépésenként). */
+  wireStep?: number[];
   nets?: Net[];
   guided?: GuidedStep[];
   exam?: ExamQuestion[];
