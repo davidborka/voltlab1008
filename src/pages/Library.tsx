@@ -1,20 +1,41 @@
 /** Készülékkönyvtár: kereshető, szimbólummal, kapcsokkal, tipikus hibával. */
 import { useMemo, useState } from 'react';
-import { Search } from 'lucide-react';
+import { ExternalLink, Search } from 'lucide-react';
 import { Panel, Tag, cx } from '../components/ui';
 import { LIBRARY } from '../data/components';
 import { GLOSSARY } from '../data/glossary';
+import { GENERIC_PARTS, REAL_DEVICES } from '../data/realDevices';
+import { TASKS, TASK_ORDER } from '../data/tasks';
 import { go } from '../app/App';
+
+const REAL = Object.values(REAL_DEVICES);
+
+/** Mely feladatokban szerepel a valós készülék. */
+function tasksUsing(devId: string): string[] {
+  return TASK_ORDER.filter((id) => TASKS[id].parts.some((p) => p.dev === devId));
+}
 
 export function Library() {
   const [q, setQ] = useState('');
-  const [tab, setTab] = useState<'keszulekek' | 'fogalmak'>('keszulekek');
+  const [tab, setTab] = useState<'tabla' | 'keszulekek' | 'fogalmak'>('tabla');
 
   const items = useMemo(() => {
     const s = q.trim().toLowerCase();
     if (!s) return LIBRARY;
     return LIBRARY.filter((e) =>
       [e.nameHu, e.designation, e.purposeHu, e.terminalsHu, e.behaviourHu, e.mistakeHu]
+        .filter(Boolean)
+        .join(' ')
+        .toLowerCase()
+        .includes(s)
+    );
+  }, [q]);
+
+  const real = useMemo(() => {
+    const s = q.trim().toLowerCase();
+    if (!s) return REAL;
+    return REAL.filter((d) =>
+      [d.brand, d.model, d.orderCode, d.kindHu, d.terminals.map((t) => t.label + ' ' + t.meaningHu).join(' '), d.ratingsHu.join(' ')]
         .filter(Boolean)
         .join(' ')
         .toLowerCase()
@@ -50,7 +71,7 @@ export function Library() {
             />
           </div>
           <div className="flex gap-1 rounded-[11px] border border-line bg-surface-2 p-1">
-            {(['keszulekek', 'fogalmak'] as const).map((t) => (
+            {(['tabla', 'keszulekek', 'fogalmak'] as const).map((t) => (
               <button
                 key={t}
                 onClick={() => setTab(t)}
@@ -60,13 +81,109 @@ export function Library() {
                   tab === t ? 'bg-surface-3 text-ink' : 'text-ink-faint hover:text-ink'
                 )}
               >
-                {t === 'keszulekek' ? `Készülékek (${LIBRARY.length})` : `Fogalmak (${GLOSSARY.length})`}
+                {t === 'tabla'
+                  ? `A vizsgatábla (${REAL.length})`
+                  : t === 'keszulekek'
+                    ? `Készülékek (${LIBRARY.length})`
+                    : `Fogalmak (${GLOSSARY.length})`}
               </button>
             ))}
           </div>
         </div>
 
-        {tab === 'keszulekek' ? (
+        {tab === 'tabla' ? (
+          <div className="mt-5 space-y-3">
+            <p className="max-w-3xl text-[12.5px] leading-relaxed text-ink-dim">
+              Pontosan ezek a készülékek vannak a vizsgatáblán. A jelölések a fotókról (a fotók nem
+              publikusak), a méretek a gyártói adatlapokból. Ahol a kettő eltér, a fotó nyer - ezt és a nem
+              olvasható jelöléseket az „Eltérések” sor mutatja. A 3D bekötés ezekből a méretekből épül.
+            </p>
+            <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+              {real.map((d) => (
+                <Panel key={d.id} className="h-full">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <h3 className="text-[14px] font-bold leading-tight">
+                      {d.brand} {d.model}
+                    </h3>
+                    {d.orderCode && <Tag tone="arc">{d.orderCode}</Tag>}
+                  </div>
+                  <p className="mt-1 text-[12.5px] text-ink-dim">{d.kindHu}</p>
+                  <dl className="mt-3 space-y-2 text-[12.5px]">
+                    <div>
+                      <dt className="eyebrow">Méret</dt>
+                      <dd className="mono mt-0.5 text-ink-dim">
+                        {d.dimsMm.w} × {d.dimsMm.h} × {d.dimsMm.d} mm
+                        {d.modules ? ` · ${d.modules} modul` : d.dimsMm.d ? ' · nem DIN-sínes' : ''}
+                      </dd>
+                    </div>
+                    {!!d.terminals.length && (
+                      <div>
+                        <dt className="eyebrow">Kapcsok · {d.terminalTypeHu}</dt>
+                        <dd className="mt-1 space-y-0.5">
+                          {d.terminals.map((t) => (
+                            <div key={t.label + t.posHu} className="flex gap-2 text-ink-dim">
+                              <span className="mono w-[86px] flex-none font-bold text-arc">{t.label}</span>
+                              <span>
+                                {t.meaningHu} <span className="text-ink-faint">({t.posHu})</span>
+                              </span>
+                            </div>
+                          ))}
+                        </dd>
+                      </div>
+                    )}
+                    <div>
+                      <dt className="eyebrow">Adatok</dt>
+                      <dd className="mt-0.5 text-ink-dim">{d.ratingsHu.join(' · ')}</dd>
+                    </div>
+                    {!!d.notesHu.length && (
+                      <div>
+                        <dt className="eyebrow">Eltérések, bizonytalanságok</dt>
+                        <dd className="mt-0.5 space-y-1 rounded-md border border-amber/30 bg-amber/[0.07] px-2 py-1.5 text-ink-dim">
+                          {d.notesHu.map((n) => (
+                            <p key={n}>{n}</p>
+                          ))}
+                        </dd>
+                      </div>
+                    )}
+                  </dl>
+                  <div className="mt-3 flex flex-wrap items-center gap-1.5 text-[11px]">
+                    {tasksUsing(d.id).map((t) => (
+                      <button
+                        key={t}
+                        onClick={() => go({ name: 'task', id: t })}
+                        className="mono rounded-md border border-line px-1.5 py-0.5 font-bold text-ink-dim hover:border-arc/50 hover:text-arc"
+                      >
+                        {t}
+                      </button>
+                    ))}
+                    <span className="text-ink-faint">fotó: {d.photos.join(', ')}</span>
+                    {d.sourceUrls.map((u) => (
+                      <a
+                        key={u}
+                        href={u}
+                        target="_blank"
+                        rel="noreferrer noopener"
+                        className="inline-flex items-center gap-1 text-arc hover:underline"
+                      >
+                        adatlap <ExternalLink size={11} />
+                      </a>
+                    ))}
+                    {!d.sourceUrls.length && <span className="text-amber">nincs megerősített forrás</span>}
+                  </div>
+                </Panel>
+              ))}
+            </div>
+            <Panel eyebrow="Általános modellek" title="Nem a fotókon szereplő eszközök">
+              <ul className="grid gap-1 text-[12.5px] text-ink-dim sm:grid-cols-2">
+                {Object.entries(GENERIC_PARTS).map(([type, why]) => (
+                  <li key={type}>
+                    <span className="mono text-ink-faint">{type}</span> - {why.replace('nem a fotókon szereplő eszköz: ', '')}
+                  </li>
+                ))}
+              </ul>
+            </Panel>
+          </div>
+        ) : tab === 'keszulekek' ? (
           <div className="mt-5 grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
             {items.map((e) => (
               <Panel key={e.id} className="h-full">

@@ -566,5 +566,5 @@ export function shortOf(p: { dev?: string }): string | null {
 export function modelLabel(p: { id: string; label?: string; dev?: string }): string {
   const d = deviceOf(p);
   const name = p.label || p.id;
-  return d ? `${name} · ${d.brand} ${d.orderCode && !d.model.includes(d.orderCode) ? d.model + ' (' + d.orderCode + ')' : d.model}` : name;
+  return d ? `${name} · ${d.brand} ${d.model}` : name;
 }

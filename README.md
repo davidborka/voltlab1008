@@ -18,16 +18,44 @@ ellenőrzési lista - szerver, adatbázis és regisztráció nélkül.
 | **B** | Épületvillamossági szerelés | Épületvillamosság | Lépcsőházi automata két nyomógombról, keresztkapcsolás három helyről, dugalj |
 | **C** | Motorindítás frekvenciaváltóval | Motorvezérlés | Öntartás, két leállító és két indító nyomógomb, üzemállapot-visszajelzés |
 | **D** | Irányváltós motorvezérlés | Motorvezérlés | Két mágneskapcsoló, fáziscsere, kölcsönös villamos reteszelés |
-| **E** | Egyfázisú motorindítás | Motorvezérlés | Mágneskapcsoló, öntartás, egypólusú motorvédő, egyfázisú motor |
-| **F** | Háromfázisú mérőhely | Mérőhely | Főbiztosító, fogyasztásmérő, főkapcsoló, 4 pólusú Fi-relé, fázisonként egy kör |
-| **G** | Egyfázisú mérőhely | Mérőhely | Fogyasztásmérő (1-3 / 4-6), főkismegszakító, Fi-relé, dugalj és lámpa |
+| **E** | Egyfázisú motorindítás | Motorvezérlés | Mágneskapcsoló, öntartás, háromsarkú TM2-E08 motorvédő (a fázis sorosan mindhárom pólusán), egyfázisú motor |
+| **F** | Háromfázisú mérőhely | Mérőhely | Főbiztosító, fogyasztásmérő, főkapcsoló, 4P túlfeszültség-védő (Schelinger), 4 pólusú Fi-relé, fázisonként egy kör |
+| **G** | Egyfázisú mérőhely | Mérőhely | Qoltec mérő (L 1 → 2, N 3 → 4), főkismegszakító, 2× ELMARK SPD (L-PE, N-PE), Fi-relé, dugalj és lámpa |
 | **H** | Csillag-delta indítás | Motorvezérlés | F2 motorvédő, Q11 fő, Q13 csillag, Q15 delta, K1 időrelé, P1-P3 állapotjelzés, 6 kivezetésű motor |
-| **I** | Elosztó PEN-szétválasztással | Épületvillamosság | TN-C-S: mérő, PEN → PE-sín → híd → N-sín, földelő, Fi-relé, lámpa kapcsolóval, dugalj; szigeteléshez bontható híd |
+| **I** | Elosztó PEN-szétválasztással | Épületvillamosság | TN-C-S: mérő, PEN → PE-sín → híd → N-sín, földelő, 2× SPD, Fi-relé, lámpa kapcsolóval, dugalj; szigeteléshez bontható híd |
+| **J** | 3-as vizsgafeladat: lakossági 1 fázisú mérőhely + főelosztó | Mérőhely | Mérőszekrény (főbiztosító, Qoltec mérő, PEN-szétválasztás, fő földelősín, EPH, 2× SPD) és lakás főelosztó (FM, IDEAL Fi-relé, B16 dugaljkör, B10 világítás); L-N, L-PE, N-PE mérés, PE-folytonosság |
 
 Az A-D és a H feladat a vizsga gyakorlati feladatlapjainak rajzaiból készült (H: „Csillag-delta.pdf”).
 Az E, F és G kiegészítés, az I egy vizsgabeszámoló alapján készült (PEN-szétválasztás, földelési rendszerek), nem azokból származik - lásd [`docs/source-analysis.md`](docs/source-analysis.md).
+A J a „3”-as szerelési vizsgafeladat lapja alapján készült (Villanyszerelő, Épületvillamosság); az EPH-kérdések
+válaszai nyilvános, hivatkozott forrásokra épülnek, a bizonytalan részek a feladat Áttekintésében jelölve vannak.
 
-## Öt tanulási mód feladatonként
+## A vizsgatábla valós készülékei
+
+Minden feladat pontosan azokból a készülékekből épül, amelyek a vizsgatáblán vannak - a kapcsok
+azonosítója a készülékre nyomtatott jelölés:
+
+| Készülék | Kapcsok | Hol |
+|---|---|---|
+| Qoltec 50888 fogyasztásmérő (nem DIN, lapra csavarozható) | 1 L be → 2 L ki, 3 N be → 4 N ki, 5-6 impulzus | G, I, J |
+| Schelinger SPD01-4P-B+C (T1+T2) | L1 L2 L3 N fent, ⏚ lent | F |
+| ELMARK SPD-C10 (T2), kettő: L-PE és N-PE | L/N fent, ⏚ lent | G, I, J |
+| Schneider TeSys LC1D18 | 1L1 3L2 5L3 / 2T1 4T2 6T3, 13-14 NO, 21-22 NC, A1/A2 | C, D, E, H |
+| ELMARK TM2-E08 motorvédő | 1L1 3L2 5L3 / 2T1 4T2 6T3 (+13-14 oldalblokk) | C, D, E, H |
+| Finder 82.01 időrelé | A1 B1 15 / 16 18 A2 | H |
+| Schneider MIN 15363 lépcsőházi automata | L, N, 3, 4 (mind alul) | A, B |
+| Legrand RX³ 1P (B6/B10/B16), Schneider Easy9 3P C16 | 1 / 2, illetve 1-3-5 / 2-4-6 | minden feladat |
+| IDEAL KRD10, Legrand RX³ 2P, Schneider Easy9 4P Fi-relé | 1 N / 2 N, illetve N 1 3 5 / N 2 4 6 | A, B, F, G, I, J |
+| Legrand Niloé váltó és keresztkapcsoló 7 645 04, Schneider nyomó | L 1 2; L1 L2 / 3 4; L 1 | A, B, I, J |
+
+A teljes katalógus - méretek, források, eltérések és a nem olvasható jelölések - a
+[`docs/real-devices/README.md`](docs/real-devices/README.md)-ben és az alkalmazás **Készülékek →
+A vizsgatábla** lapján van. Ami nem szerepel a fotókon (motor, lámpa, dugalj, sínek, frekvenciaváltó),
+az általános modell, és így is van jelölve. A túlfeszültség-védő mindig a mérő és a
+főkapcsoló/főkismegszakító után, a Fi-relé előtt van, és normál üzemben nem vezet - a hálózatszámításban
+soha nem okoz zárlatot.
+
+## Hat tanulási mód feladatonként
 
 - **Áttekintés** - mit csinál a kapcsolás, miből áll, hogyan folyik benne az energia és a vezérlés,
   mi a tipikus vizsgahiba, és mi az, ami a rajzból önmagában nem határozható meg.
@@ -37,7 +65,7 @@ Az E, F és G kiegészítés, az I egy vizsgabeszámoló alapján készült (PEN
   kapcsolók, nyomógombok bekötés közben is működnek. Visszavonás, újra, egy kötés felfedése,
   teljes megoldás, huzallista és magyarázó hibaüzenetek.
 - **Mérés · jegyzőkönyv** - műszerek a táblán: PE-folytonosság, szigetelés (500 V DC), hurokimpedancia
-  (Zs ≤ U0/Ia), Fi-relé (IΔn, 5×IΔn), L-N feszültség, forgásirány, működési próba. Minden
+  (Zs ≤ U0/Ia), Fi-relé (IΔn, 5×IΔn), hálózati feszültség (L-N, L-PE, N-PE), forgásirány, működési próba. Minden
   „vizsgahelyzet” véletlen hálózati értékeket ad, így jó bekötés mellett is lehet nem megfelelő
   eredmény. A jegyzőkönyvbe átírod a mért értéket és értékelsz; az ellenőrzés a sorrendet
   (PE → szigetelés feszültségmentesen → feszültség alatti mérések) és a tiltott, feszültség
@@ -46,6 +74,14 @@ Az E, F és G kiegészítés, az I egy vizsgabeszámoló alapján készült (PEN
   időzítővel. Beadáskor a bekötés, a jegyzőkönyv és a hat kérdéskategória (rajzolvasás,
   készülékismeret, bekötési pontosság, működés megértése, biztonsági szemlélet, ellenőrzési
   sorrend) együtt adja az eredményt.
+- **3D bekötés** - a feladat referenciamegoldása a vizsgatábla valós készülékein, valós méretben
+  (mm): szerelőlap, DIN-sínek, kábelcsatornák, N- és PE-sínek. Minden huzal színes cső, amely a
+  csatornában rendezetten fut, és pontosan a fizikai kapocsba - a csavaros kapocs nyílásába,
+  illetve a Niloé push-in nyílásába - lép be. Forgatás és nagyítás (egér, két ujj), **lépésenként**
+  a feladat lépései szerint kiemelt huzalok, **összes** nézet; egy kapocsra állva vagy koppintva
+  megjelenik a készülék és a nyomtatott jelölés. A J feladatban két szekrény (mérőszekrény és
+  lakás főelosztó) és köztük a mért fővezeték védőcsöve látszik. A three.js csak a 3D nézet
+  megnyitásakor töltődik le (külön darab), a fő csomag nem nő tőle.
 
 ## Mit tud a szimuláció
 
@@ -111,13 +147,16 @@ src/
     netlist-validation.ts   bekötés-ellenőrzés magyarázó megállapításokkal
   data/
     parts.ts                készülékkönyvtár: méret, sorkapcsok, belső kötések, SVG rajz
-    tasks/task[A-G].ts      a hét tábla és referenciamegoldása
-    tasks/content[A-G].ts   a hozzájuk tartozó magyar tananyag
+    realDevices.ts          a vizsgatábla valós készülékei: jelölés, méret, forrás, eltérések
+    tasks/task[A-J].ts      a tíz tábla és lépésenként csoportosított referenciamegoldása
+    tasks/content[A-J].ts   a hozzájuk tartozó magyar tananyag
     components.ts           készülékkönyvtár-oldal tartalma
     inspection.ts           kilenc szakaszos ellenőrzési lista
     glossary.ts             fogalomtár
   features/
     diagram/                a tábla vezérlője és React-burka, kártya-előnézet
+    board3d/                3D bekötés: layout.ts (elrendezés, huzalvezetés, three.js nélkül),
+                            models.ts (eljárással épített készülékmodellek), Board3D.tsx (lusta)
     guided/ wiring/ exam/ simulation/    a négy tanulási mód panelje
   pages/                    dashboard, munkafelület, könyvtár, ellenőrzés, névjegy
   styles/                   design tokenek, tábla-stílusok, nyomtatás
@@ -130,9 +169,10 @@ az állapotot.
 
 ## Új feladat felvétele
 
-1. Hozz létre egy `src/data/tasks/taskH.ts` fájlt: cím, kategória, `world` méret, `parts`
-   lista és `solution` huzallista (`[kapocs, kapocs, szín]`).
-2. Írd meg a `contentH.ts`-t: célok, tipikus hibák, vezetett lépések, vizsgakérdések, és ha
+1. Hozz létre egy `src/data/tasks/taskK.ts` fájlt: cím, kategória, `world` méret, `parts`
+   lista (a valós készülékhez `dev` azonosítóval) és a lépésenként csoportosított huzallista
+   (`...bySteps([[ [kapocs, kapocs, szín], … ], …])` - csoportonként egy `stepsHu` lépés).
+2. Írd meg a `contentK.ts`-t: célok, tipikus hibák, vezetett lépések, vizsgakérdések, és ha
    van a rajzból nem eldönthető érték, az `unresolved` tömb.
 3. Vedd fel a `src/data/tasks/index.ts`-ben a `TASKS` és `TASK_ORDER` listába.
 4. Futtasd a teszteket: az adatépségi tesztek automatikusan ellenőrzik az új feladatot is

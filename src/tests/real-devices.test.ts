@@ -241,3 +241,52 @@ describe('J: 3-as vizsgafeladat (mérőhely + főelosztó)', () => {
     expect(get(b, 'FI').st.tripped).toBe(true);
   });
 });
+
+describe('3D elrendezés (layout, three.js nélkül)', async () => {
+  const { buildLayout, pathLength } = await import('../features/board3d/layout');
+
+  it('minden alkalmazás-kapocsnak van fizikai helye, és minden huzal a saját kapcsába fut', () => {
+    for (const id of TASK_ORDER) {
+      const t = TASKS[id];
+      const L = buildLayout(t);
+      for (const p of t.parts) {
+        for (const term of termsOf({ ...p, st: {} })) {
+          expect(L.terms.has(`${p.id}.${term.id}`), `${id}: ${p.id}.${term.id}`).toBe(true);
+        }
+      }
+      expect(L.wires.length, id).toBe(t.solution.length);
+      for (const w of L.wires) {
+        const ha = L.terms.get(w.a)!.hole;
+        const hb = L.terms.get(w.b)!.hole;
+        expect(w.pts[0], `${id} ${w.a}`).toEqual(ha);
+        expect(w.pts[w.pts.length - 1], `${id} ${w.b}`).toEqual(hb);
+        expect(w.pts.flat().every(Number.isFinite), `${id} ${w.a}-${w.b}`).toBe(true);
+        expect(pathLength(w.pts), `${id} ${w.a}-${w.b}`).toBeGreaterThan(10);
+      }
+    }
+  });
+
+  it('a J feladatban két szekrény van, a mért fővezeték védőcsövön megy át', () => {
+    const L = buildLayout(TASKS.J);
+    expect(L.enclosures.map((e) => e.titleHu)).toEqual(['Mérőszekrény', 'Lakás főelosztó']);
+    expect(L.conduits.length).toBeGreaterThan(0);
+  });
+
+  it('a készülékek nem lógnak egymásba és a szerelőlapon belül vannak', () => {
+    for (const id of TASK_ORDER) {
+      const L = buildLayout(TASKS[id]);
+      const boxes = L.parts.map((q) => ({ id: q.part.id, x0: q.x - q.w / 2, x1: q.x + q.w / 2, y0: q.y - q.h / 2, y1: q.y + q.h / 2 }));
+      for (const b of boxes) {
+        expect(b.x0 >= L.plate.x0 && b.x1 <= L.plate.x1, `${id} ${b.id} vízszintesen`).toBe(true);
+      }
+      for (let i = 0; i < boxes.length; i++) {
+        for (let j = i + 1; j < boxes.length; j++) {
+          const a = boxes[i];
+          const b = boxes[j];
+          const overlap = a.x0 < b.x1 - 0.5 && b.x0 < a.x1 - 0.5 && a.y0 < b.y1 - 0.5 && b.y0 < a.y1 - 0.5;
+          expect(overlap, `${id}: ${a.id} és ${b.id} átfed`).toBe(false);
+        }
+      }
+    }
+  });
+});

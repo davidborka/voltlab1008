@@ -1,5 +1,14 @@
 # Forráselemzés
 
+> **Frissítés - valós készülékek (2026. október).** A kapocsazonosítók azóta a vizsgatábla
+> valós készülékeire nyomtatott jelöléseket követik (lásd [`real-devices/README.md`](real-devices/README.md)):
+> mágneskapcsoló `1`→`1L1`, `3`→`3L2`, `5`→`5L3`, `2`→`2T1`, `4`→`4T2`, `6`→`6T3`;
+> motorvédő `L1`→`1L1` … `T3`→`6T3`; 3P kismegszakító `1a/1b/1c`→`1/3/5`, `2a/2b/2c`→`2/4/6`;
+> egyfázisú mérő (Qoltec 50888) `1`→`1`, `3`→`2`, `4`→`3`, `6`→`4`; váltókapcsoló `P`→`L`;
+> keresztkapcsoló `1/2`→`L1/L2`; egysarkú kapcsoló `1/2`→`L/1`; a lépcsőházi nyomó `3/4`→`L/1`.
+> Az alábbi táblázatok a G feladat kivételével a régi azonosítókat mutatják. Az E feladatban a
+> háromsarkú TM2-E08 pólusain sorosan megy át a fázis; az F, G, I feladatba túlfeszültség-védő került.
+
 ## Bevezető
 
 Ez a dokumentum azt írja le, hogy a vizsgafelkészítő alkalmazás hét feladata (A-G) honnan származik, és hogy a forrásrajzokból pontosan mit olvastunk ki.
@@ -665,7 +674,7 @@ Az oktatói kérés: az F feladat logikája egyfázisú mérőhelyen, közvetlen
 ### Hogyan értelmeztük a kérést
 
 A sorrend: hálózat, F-0 főbiztosító, fogyasztásmérő, FM főkismegszakító, Fi-relé, fogyasztói kismegszakítók.
-A mérőn a fázis és a nulla is átmegy: a fázis az 1-3, a nulla a 4-6 kapcson.
+A mérőn a fázis és a nulla is átmegy: a vizsgatábla Qoltec 50888 mérőjén (a készülékre nyomtatott rajz szerint) a fázis 1 → 2, a nulla 3 → 4.
 A főkismegszakító csak a fázist kapcsolja, ezért a mérő nullája közvetlenül a Fi-relé N bemenetére megy.
 A fogyasztói nulla a Fi-relé utáni sínről jön, hogy a visszatérő áram is a Fi-relén keresztül folyjon.
 A védőföld sehol nincs kapcsolva, és nem megy át sem a mérőn, sem a Fi-relén.
@@ -677,7 +686,7 @@ A két fogyasztói kör: F-1 a dugaljra, F-2 a lámpára; mindkettő ugyanarról
 | --- | --- | --- | --- |
 | `SUP` | Betáplálás | `L1`, `N`, `PE` | Hálózati csatlakozás |
 | `F0` | Kismegszakító 1P | `1`, `2` | Főbiztosító a mérő előtt |
-| `KWH` | Fogyasztásmérő 1~ | be: `1` (fázis), `4` (nulla); ki: `3` (fázis), `6` (nulla) | Közvetlen mérésű |
+| `KWH` | Fogyasztásmérő 1~ (Qoltec 50888) | be: `1` (fázis), `3` (nulla); ki: `2` (fázis), `4` (nulla); `5`-`6` impulzus | Közvetlen mérésű |
 | `FM` | Kismegszakító 1P | `1`, `2` | Főkismegszakító |
 | `FI` | Fi-relé, 2 pólusú | be: `L1`, `N1`; ki: `L2`, `N2` | |
 | `NB0` | N-sín (mérő előtt) | `b0`-`b6` | A mérő előtti nulla |
@@ -695,10 +704,10 @@ A két fogyasztói kör: F-1 a dugaljra, F-2 a lámpára; mindkettő ugyanarról
 | halozat-n | `SUP.N`, `NB0.b0` | Hálózati nulla a mérő előtti N-sínre | nulla |
 | halozat-pe | `SUP.PE`, `PB.b0` | Védőföld a PE-sínre | PE |
 | mero-be-l | `F0.2`, `KWH.1` | Főbiztosító után a mérő 1-es kapcsára | főáramkör |
-| mero-be-n | `NB0.b1`, `KWH.4` | A mérő előtti nulla a mérő 4-es kapcsára | nulla |
-| mero-ki-l | `KWH.3`, `FM.1` | A mért fázis a főkismegszakítóra | főáramkör |
+| mero-be-n | `NB0.b1`, `KWH.3` | A mérő előtti nulla a mérő 3-as kapcsára | nulla |
+| mero-ki-l | `KWH.2`, `FM.1` | A mért fázis a főkismegszakítóra | főáramkör |
 | fm-fi | `FM.2`, `FI.L1` | A főkismegszakító után a Fi-relére | főáramkör |
-| mero-ki-n | `KWH.6`, `FI.N1` | A mért nulla közvetlenül a Fi-relé N bemenetére | nulla |
+| mero-ki-n | `KWH.4`, `FI.N1`, `SP2.L/N` | A mért nulla közvetlenül a Fi-relé N bemenetére (és az N-PE SPD-re) | nulla |
 | fi-ki-l | `FI.L2`, `F1.1`, `F2.1` | Fi utáni fázis a két fogyasztói kismegszakítóra | főáramkör |
 | fi-ki-n | `FI.N2`, `NB.b0` | Fi utáni nulla a fogyasztói N-sínre | nulla |
 | x1-fazis | `F1.2`, `X1.L` | Dugalj fázisa | főáramkör |
@@ -728,8 +737,8 @@ A plombálandó mérő előtti mező határa a feladatban nincs külön jelölve
 ### Az interaktív modellben használt feltételezések
 
 A fogyasztásmérő kWh-számlálója nullán áll, mert a szimuláció energiát nem mér.
-A mérő fázis- és nulla-visszajelzése valós információ: ebből látszik, hogy az átmenő kötés (1-3 és 4-6) helyes-e.
-A mérőn látható "1x63 A" felirat grafikai illusztráció, nem a feladat megoldása.
+A mérő fázis- és nulla-visszajelzése valós információ: ebből látszik, hogy az átmenő kötés (1 → 2 és 3 → 4) helyes-e.
+A mérőn a Qoltec 50888 adatai (230 V 5(60) A) szerepelnek - ez a vizsgatábla készüléke, nem a feladatlapból következő érték.
 A Fi-relé akkor old ki, ha fázis és PE ugyanabba a csomópontba kerül.
 A dugalj és a lámpa ideális fogyasztó, áramfelvételük nem befolyásolja a hálózatot.
 A mérő előtti és a Fi utáni N-sín két külön alkatrész, hogy a tanuló ne tudja véletlenül összekötni a kettőt; a valóságban ez a hiba a Fi-relé folyamatos kioldását okozná.
