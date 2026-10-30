@@ -9,7 +9,7 @@
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest",
-    "interaktiv": "node content/interaktiv/validate.mjs"
+    "interaktiv": "node content/interaktiv/validate.mjs && node content/interaktiv/validate-explainers.mjs"
   },
   "dependencies": {
     "lucide-react": "^0.468.0",

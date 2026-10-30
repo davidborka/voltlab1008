@@ -1,0 +1,139 @@
+{
+  "topic": "alapszereles",
+  "title": "Alapszerelési technológiák, szerelési zónák, különleges helyiségek",
+  "summary": "Falba süllyesztett védőcsöves, falon kívüli csatornás, üreges falas és álmennyezeti szerelés munkafázisai és szabályai; szerelési zónák a falban; szerelvénymagasságok; kötések helye; lakás áramköri kiosztása és a 30 mA-es ÁVK-kötelezettség; különleges helyiségek: fürdőszoba zónái, úszómedence, szauna, és az IP-kód. A vizsga sorrendet, zónaméreteket, rajzos zónaazonosítást és megfelel/nem felel meg döntéseket kér.",
+  "sections": [
+    {
+      "h": "Szerelési technológiák",
+      "bullets": [
+        "<b>Falba süllyesztett, vékonyfalú védőcsöves</b> sorrend: nyomvonal és dobozhelyek kijelölése → hornyok, fészkek vésése/marása → dobozok beépítése, csövek fektetése, rögzítése → hornyok elvakolása → vezetékek leszabása, behúzása → azonosítás, kötések, szerelvények bekötése → szerelői ellenőrzés, feszültség alá helyezés, működési próba. Előny: a vezeték a vakolás UTÁN kerül be, nem sérül, később cserélhető.",
+        "<b>Falon kívüli</b>: vezetékcsatorna a falra csavarozva, köpenyes vezeték bilincsekkel, ipari csarnokban vastagfalú merev cső tartóbilincsben. Nincs vésés (falhoronymaró nem kell); kijelölés kicsapózsinórral/lézerrel, csatorna gérvágóval, rögzítés fúrógép + dübel; érvéghüvely; végén szigetelés- és folytonosságmérés.",
+        "<b>Üreges fal, álmennyezet</b>: szorítókarmos üreges fali doboz a gipszkartonban; álmennyezet felett a vezeték a födémhez vagy saját tartóhoz (tálca, bilincs) rögzítve – nem a lapokra fektetve és nem a függesztőhuzalokra kötözve; kötés zárt, hozzáférhető dobozban.",
+        "Vékonyfalú cső csak ott, ahol más védelem is van (vakolat, burkolat, álmennyezet); falon kívül, kézzel elérhető helyen, ipari csarnokban és a csatlakozó vezeték falon kívüli csövéhez vastagfalú (pl. MÜ I) vagy fém cső."
+      ]
+    },
+    {
+      "h": "Nyomvonal, zónák, dobozok",
+      "body": "Védőcső falban <b>csak vízszintesen és függőlegesen</b>, a legrövidebb úton; hosszú vízszintes szakaszok a dobozok felé kb. <b>2 cm</b> eséssel (a lecsapódó víz ne álljon meg). Födémet csak tervi előírás és statikusi hozzájárulás alapján szabad vésni. Hőforrás (kémény, kandalló) közelét kerülni kell.",
+      "bullets": [
+        "Szerelési zónák (DIN 18015-3 szerinti gyakorlat): felső vízszintes a mennyezet alatt 15–45 cm, alsó vízszintes a padló felett 15–45 cm (középvonal 30 cm), munkalapos falon 90–120 cm; függőleges nyílászárók és falsarkok mellett 10–30 cm széles sávban.",
+        "Kapcsolók, szerelvénydobozok jellemzően 1,4–1,5 m-en; dugaszolóaljzat lakószobában, irodában 0,4 m-en; kötődobozok a mennyezet alatt kb. 0,3 m-rel, egy magasságban.",
+        "Kötés csak hozzáférhető kötő- vagy szerelvénydobozban (vagy készülékben), szabványos kötőelemmel – csőben, vakolat alatt, szigetelőszalaggal soha. Kevesebb kötés = kevesebb hibahely.",
+        "Minden áramkör L és N vezetője együtt halad; két áramkör nullavezetője NEM közösíthető (kikapcsolt körben is feszültség alatt maradhat, ÁVK-s rendszerben kiold)."
+      ]
+    },
+    {
+      "h": "Lakás áramköri kiosztása és ÁVK",
+      "bullets": [
+        "Önálló áramkör: villanytűzhely/főzőlap, mosógép, mosogatógép, klíma, vízmelegítő. Kis fogyasztó (éjjeli lámpa, óra) az aljzatkörről.",
+        "Világítást és aljzatokat is több körre bontjuk, hogy egy kioldás ne sötétítse el az egész lakást.",
+        "MSZ HD 60364-4-41:2018: legfeljebb 30 mA-es ÁVK kiegészítő védelem a képzetlen személyek által használt ≤ 32 A-es általános dugaszolóaljzat-körökre, a szabadtéri ≤ 32 A-es mobil készülékekre és (újdonság) az egyedi háztartások világítási végáramköreire is. Az ÁVK a túláramvédelmet és a védővezetős hibavédelmet nem helyettesíti."
+      ]
+    },
+    {
+      "h": "Fürdőszoba (MSZ HD 60364-7-701:2007)",
+      "body": "<b>0. zóna</b>: a kád vagy zuhanytálca belseje. <b>1. zóna</b>: a kád fölött, a kád függőleges síkjáig, a padlótól <b>2,25 m</b>-ig (vagy a magasabban lévő fix zuhanyfejig); tálca nélküli zuhanynál a vízkifolyó körüli <b>1,20 m</b> sugarú tér (ott nincs 2. zóna). <b>2. zóna</b>: az 1. zóna körül vízszintesen <b>0,60 m</b> széles sáv, 2,25 m-ig. A régi MSZ 2364-701 <b>3. zónája</b> (további 2,4 m) megszűnt.",
+      "bullets": [
+        "IP: 0. zóna IPX7; 1. és 2. zóna IPX4; ahol vízsugaras takarítás várható (közfürdő), IPX5.",
+        "1. zónában: csak rögzített, oda alkalmas fogyasztó (pl. vízmelegítő, zuhanyszivattyú), és legfeljebb 12 V AC / 30 V DC SELV/PELV kapcsoló – a tápforrás a 0–2. zónán kívül.",
+        "2. zónában: borotva-csatlakozó (elválasztó transzformátoros) egység megengedett; 230 V-os dugalj a 0–2. zónában TILOS, akármilyen IP-jű; elosztó, kapcsolókészülék sem (SELV kivétellel).",
+        "A helyiség minden áramköre ≤ 30 mA-es ÁVK-val védett."
+      ]
+    },
+    {
+      "h": "Uszoda, szauna, IP-kód",
+      "bullets": [
+        "Úszómedence 0. és 1. zóna: CSAK SELV, legfeljebb 12 V AC vagy 30 V DC, tápforrás a 0–2. zónán kívül. 1. zóna: a peremtől 2 m-ig, 2,5 m magasságig. 0. zóna IPX8; 1. zóna IPX5 (kis beltéri medencénél, sugaras tisztítás nélkül IPX4). ÁVK-s önműködő lekapcsolás csak a 2. zónában jöhet szóba.",
+        "Szauna: legalább IP24 (a kövekre öntött víz fröccsen), hőálló szerkezetek és vezetékek; a kabinba csak a kályhához tartozó szerkezet.",
+        "IP-kód: első jegy szilárd test/por (2 ujj ≥ 12,5 mm, 4 ≥ 1 mm, 5 porvédett, 6 portömör), második víz (4 fröccsenő, 5 vízsugár, 6 erős vízsugár, 7 ideiglenes, 8 tartós bemerítés). X = arra nincs megadva érték.",
+        "IP20 csak ujjvédett – szabadtérbe legalább IPX4; poros (asztalos)műhelybe IP5X vagy IP6X."
+      ]
+    }
+  ],
+  "keyFacts": [
+    {
+      "k": "Védőcső iránya falban",
+      "v": "csak vízszintes és függőleges"
+    },
+    {
+      "k": "Vízszintes csőszakasz esése a doboz felé",
+      "v": "kb. 2 cm"
+    },
+    {
+      "k": "Vízszintes szerelési zónák",
+      "v": "mennyezet alatt és padló felett 15–45 cm; munkalapnál 90–120 cm"
+    },
+    {
+      "k": "Függőleges szerelési zóna",
+      "v": "nyílászáró, falsarok mellett 10–30 cm"
+    },
+    {
+      "k": "Kapcsoló / dugalj magassága",
+      "v": "1,4–1,5 m / 0,4 m"
+    },
+    {
+      "k": "Kötődoboz helye",
+      "v": "mennyezet alatt kb. 0,3 m, egy magasságban"
+    },
+    {
+      "k": "Fürdő 1. zóna magassága",
+      "v": "2,25 m"
+    },
+    {
+      "k": "Fürdő 2. zóna szélessége",
+      "v": "0,60 m"
+    },
+    {
+      "k": "Tálca nélküli zuhany 1. zóna",
+      "v": "1,20 m sugár"
+    },
+    {
+      "k": "Fürdő IP 0. / 1–2. zóna",
+      "v": "IPX7 / IPX4 (sugaras takarításnál IPX5)"
+    },
+    {
+      "k": "SELV határ fürdő 1. zónában és medence 0–1. zónában",
+      "v": "12 V AC / 30 V DC"
+    },
+    {
+      "k": "Szauna",
+      "v": "legalább IP24"
+    },
+    {
+      "k": "Kötelező 30 mA ÁVK (2018)",
+      "v": "≤ 32 A dugaljkörök + lakás világítási végáramkörei"
+    },
+    {
+      "k": "Medence 1. zóna",
+      "v": "peremtől 2 m, 2,5 m magasságig"
+    }
+  ],
+  "mistakes": [
+    "Fürdőszobában „3. zónát” megjelölni – a hatályos szabványban nincs.",
+    "230 V-os IP44-es fedeles dugaljat a 2. zónába tenni – a 0–2. zónában tilos (csak borotva-csatlakozó, SELV).",
+    "Medence 0–1. zónájában 30 mA-es ÁVK-t elfogadni – ott csak SELV.",
+    "Kötést védőcsőben vagy vakolat alatt, szigetelőszalaggal készíteni.",
+    "Két áramkör nullavezetőjét egy kötésben összekötni.",
+    "Ferdén, átlósan vésni a hornyot, vagy engedély nélkül födémet vésni.",
+    "Álmennyezet felett a vezetéket a lapokra fektetni vagy a függesztőkre kötözni.",
+    "A védőcsöves szerelésnél a vezetéket a vakolás előtt behúzni."
+  ],
+  "hooks": [
+    "Fürdő: „0 a kádban, 1 fölötte 2,25-ig, 2 még 60 centi” – 3. zóna nincs.",
+    "Csőben nincs kötés, kötés csak dobozban.",
+    "Cső: vízszintes vagy függőleges – soha ferde.",
+    "IP: először por, aztán víz.",
+    "Vízben (medence, kád) csak törpe: 12 V AC / 30 V DC."
+  ],
+  "svg": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 306'><text x='12' y='18' font-family='sans-serif' font-size='13' fill='black' font-weight='bold'>Fürdőkádas helyiség zónái, metszet (MSZ HD 60364-7-701)</text><line x1='40' y1='40' x2='40' y2='260' stroke='black' stroke-width='1.5'/><line x1='40' y1='260' x2='520' y2='260' stroke='black' stroke-width='1.5'/><text x='44' y='276' font-family='sans-serif' font-size='12' fill='black'>padló</text><text x='44' y='36' font-family='sans-serif' font-size='12' fill='black'>fal</text><rect x='40' y='215' width='150' height='45' stroke='black' stroke-width='1.5' fill='none'/><text x='46' y='228' font-family='sans-serif' font-size='12' fill='black'>kád</text><line x1='190' y1='75' x2='190' y2='215' stroke='black' stroke-width='1.5' stroke-dasharray='4 3'/><line x1='40' y1='75' x2='260' y2='75' stroke='black' stroke-width='1.5' stroke-dasharray='4 3'/><line x1='260' y1='75' x2='260' y2='260' stroke='black' stroke-width='1.5' stroke-dasharray='4 3'/><text x='80' y='236' font-family='sans-serif' font-size='12' fill='black' font-weight='bold'>0. zóna (kád belseje)</text><text x='80' y='252' font-family='sans-serif' font-size='12' fill='black'>IPX7</text><text x='70' y='150' font-family='sans-serif' font-size='12' fill='black' font-weight='bold'>1. zóna</text><text x='60' y='166' font-family='sans-serif' font-size='12' fill='black'>IPX4</text><text x='196' y='150' font-family='sans-serif' font-size='12' fill='black' font-weight='bold'>2.</text><text x='194' y='166' font-family='sans-serif' font-size='12' fill='black'>zóna</text><text x='196' y='182' font-family='sans-serif' font-size='12' fill='black'>IPX4</text><text x='340' y='140' font-family='sans-serif' font-size='12' fill='black' font-weight='bold'>zónán kívül</text><text x='320' y='156' font-family='sans-serif' font-size='12' fill='black'>(itt lehet 230 V-os dugalj,</text><text x='320' y='172' font-family='sans-serif' font-size='12' fill='black'>kapcsoló, elosztó)</text><line x1='190' y1='58' x2='260' y2='58' stroke='black' stroke-width='1.5'/><line x1='190' y1='52' x2='190' y2='64' stroke='black' stroke-width='1.5'/><line x1='260' y1='52' x2='260' y2='64' stroke='black' stroke-width='1.5'/><text x='198' y='50' font-family='sans-serif' font-size='12' fill='black'>0,60 m</text><line x1='290' y1='75' x2='290' y2='260' stroke='black' stroke-width='1.5'/><line x1='284' y1='75' x2='296' y2='75' stroke='black' stroke-width='1.5'/><line x1='284' y1='260' x2='296' y2='260' stroke='black' stroke-width='1.5'/><text x='296' y='110' font-family='sans-serif' font-size='12' fill='black'>2,25 m</text><text x='40' y='298' font-family='sans-serif' font-size='12' fill='black'>Tálca nélküli zuhany: 1. zóna = 1,20 m sugár a fix vízkifolyó körül, ott 2. zóna nincs. 3. zóna ma nincs.</text></svg>",
+  "sources": [
+    "MSZ HD 60364-7-701:2007 (fürdőszoba)",
+    "MSZ 2364-702 / MSZ HD 60364-7-702 (úszómedence), MSZ 2364-703 (szauna)",
+    "MSZ HD 60364-4-41:2018 411.3.3 (mee-vet-2019-msz447.pdf)",
+    "MSZ EN 60529 (IP-kód)",
+    "DIN 18015-3 (szerelési zónák)",
+    "villanyszerelo-jegyzet.pdf (szerelvénymagasságok, védőcsöves szerelés)",
+    "villanyszerelés ÚJ gyak könyv/Kisfeszültségű hálózatok.pdf",
+    "Villanyszerelo 2021/2022 Megoldás 7. és 9. feladat"
+  ]
+}

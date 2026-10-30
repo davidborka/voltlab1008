@@ -1,0 +1,142 @@
+{
+  "topic": "jelolesek-szinek",
+  "title": "Érszínek, jelölések, keresztmetszetek",
+  "summary": "Az érszínek (HD 308: barna–fekete–szürke fázis, világoskék nulla, zöld-sárga PE), a PEN jelölése, a G/X és -J/-O jelölés, a szabványos keresztmetszet-sor, a legkisebb keresztmetszetek és a védővezető-méretezés egyszerűsített táblázata. A vizsga párosítást, kiegészítést és „melyik szabványos?” típusú kérdést ad belőle.",
+  "sections": [
+    {
+      "h": "Érszínek új szerelésben (HD 308 S2, MSZ HD 60364-5-51)",
+      "body": "Ötérű kábel színsora: <b>zöld-sárga – barna – fekete – szürke – világoskék</b>. L1 barna, L2 fekete, L3 szürke, N világoskék, PE zöld-sárga. A fázisszínek sorrendje ajánlás; a lényeg, hogy egy berendezésen belül egységes legyen.",
+      "bullets": [
+        "Zöld-sárga: KIZÁRÓLAG védővezető (PE) vagy PEN – semmilyen más célra, utólagos jelöléssel sem.",
+        "Védővezetőt csak gyárilag zöld-sárga érből szabad kialakítani; fekete vagy kék eret átjelölni PE-nek tilos.",
+        "Világoskék: elsősorban nullavezető; ha az áramkörben nincs N, végein megjelölve más célra (pl. fázisnak) felhasználható – de PE-nek soha.",
+        "PEN: zöld-sárga, végein világoskék jelöléssel, VAGY világoskék, végein zöld-sárga jelöléssel."
+      ]
+    },
+    {
+      "h": "Régi berendezések",
+      "body": "Felújításnál régi színekre kell számítani: a védővezető lehetett <b>piros</b>, a fázisok gyakran mind feketék, 2007 előtti ötérű NYM-J színsora zöld-sárga – 2×fekete – kék – barna volt. Ezért meglévő hálózaton a színre mérés nélkül nem szabad hagyatkozni: feszültségvizsgálóval, méréssel kell azonosítani a vezetőket."
+    },
+    {
+      "h": "Típusjel olvasása: érszám × keresztmetszet",
+      "bullets": [
+        "NYM-J 3×2,5: 3 ér, MINDEGYIK 2,5 mm² (a keresztmetszet erenként értendő), egyik zöld-sárga → L–N–PE egyfázisú dugaljkörre jó.",
+        "-J / -O (VDE): van / nincs zöld-sárga ér. NYM-O 3×2,5 dugaljkörre nem jó (nincs szabályos PE) → NYM-J kell.",
+        "G / X (harmonizált, érszám után): 3G1,5 = van zöld-sárga; 3X1,5 = nincs. I. érintésvédelmi osztályú készülékhez G jelű kell.",
+        "Vezetőalak: R kör, S szektor; E egyhuzalos (tömör), M többhuzalos. NAYY-J 4×50 SE = alumínium, 4 ér 50 mm², szektor alakú tömör, egy zöld-sárga."
+      ]
+    },
+    {
+      "h": "Szabványos keresztmetszetek és minimumok",
+      "body": "Szabványos sor (mm²): 0,5 – 0,75 – 1 – 1,5 – 2,5 – 4 – 6 – 10 – 16 – 25 – 35 – 50 – 70 – 95 – 120 – 150 – 185 – 240. Számításnál mindig a kiszámítottnál nagyobb, legközelebbi szabványos értéket választjuk. 2, 3, 5, 8, 20, 30 mm² NEM létezik.",
+      "bullets": [
+        "Rögzített telepítésű erősáramú és világítási kör, réz: legalább 1,5 mm² (MSZ HD 60364-5-52).",
+        "Jelző- és vezérlőkör: legalább 0,5 mm²; 0,75 mm² hajlékony zsinórban, kis terhelésnél.",
+        "Lakás szokásos kiosztása: világítás 1,5 mm² + B10 A; dugalj 2,5 mm² + B16 A (I<sub>B</sub> ≤ I<sub>n</sub> ≤ I<sub>Z</sub>).",
+        "Lakásban B karakterisztika elég; D jelű nagy bekapcsolási áramú berendezéshez.",
+        "PEN fix szerelésben legalább 10 mm² réz (16 mm² alumínium)."
+      ]
+    },
+    {
+      "h": "Védővezető legkisebb keresztmetszete (MSZ HD 60364-5-54, egyszerűsített táblázat)",
+      "body": "Azonos anyagú fázis- és védővezetőnél (S = fázis keresztmetszete):",
+      "bullets": [
+        "S ≤ 16 mm² → PE = S (pl. 4 → 4, 10 → 10).",
+        "16 < S ≤ 35 mm² → PE = 16 mm² (25 → 16, 35 → 16).",
+        "S > 35 mm² → PE = S/2, szabványos értékre felkerekítve (50 → 25, 70 → 35, 95 → 50).",
+        "A 35 mm² még a középső sávba tartozik (16 mm²), az S/2 csak 35 fölött érvényes."
+      ]
+    }
+  ],
+  "keyFacts": [
+    {
+      "k": "L1 / L2 / L3",
+      "v": "barna / fekete / szürke"
+    },
+    {
+      "k": "N",
+      "v": "világoskék"
+    },
+    {
+      "k": "PE",
+      "v": "zöld-sárga (kizárólagos)"
+    },
+    {
+      "k": "PEN",
+      "v": "zöld-sárga + kék végjelölés, vagy kék + zöld-sárga végjelölés"
+    },
+    {
+      "k": "Régi védővezető színe",
+      "v": "piros is lehetett"
+    },
+    {
+      "k": "3G1,5 / 3X1,5",
+      "v": "van / nincs zöld-sárga ér"
+    },
+    {
+      "k": "„3×2,5” jelentése",
+      "v": "3 ér, erenként 2,5 mm²"
+    },
+    {
+      "k": "Min. keresztmetszet rögzített erősáramú körben (Cu)",
+      "v": "1,5 mm²"
+    },
+    {
+      "k": "Min. keresztmetszet jelző-/vezérlőkörben",
+      "v": "0,5 mm²"
+    },
+    {
+      "k": "Világítási kör szokásosan",
+      "v": "1,5 mm² + B10 A"
+    },
+    {
+      "k": "Dugaljkör szokásosan",
+      "v": "2,5 mm² + B16 A"
+    },
+    {
+      "k": "PE, ha S ≤ 16 mm²",
+      "v": "PE = S"
+    },
+    {
+      "k": "PE, ha 16 < S ≤ 35 mm²",
+      "v": "16 mm²"
+    },
+    {
+      "k": "PE, ha S > 35 mm²",
+      "v": "S/2 (95 → 50 mm²)"
+    },
+    {
+      "k": "PEN legkisebb keresztmetszete",
+      "v": "10 mm² Cu / 16 mm² Al"
+    }
+  ],
+  "formulas": [
+    {
+      "f": "I<sub>B</sub> ≤ I<sub>n</sub> ≤ I<sub>Z</sub>",
+      "note": "üzemi áram ≤ kismegszakító névleges árama ≤ vezeték terhelhetősége"
+    }
+  ],
+  "mistakes": [
+    "Kék eret zöld-sárga szalaggal PE-nek jelölni – védővezető csak gyári zöld-sárga ér lehet.",
+    "Zöld-sárga eret kapcsolt fázisnak használni „mert kevés az ér” – tilos.",
+    "„3×2,5” keresztmetszetét szétosztani az erek között – minden ér 2,5 mm².",
+    "Nem szabványos értéket (2, 3, 5, 20, 30 mm²) választani számítás után – mindig a következő szabványos értékre kerekítünk felfelé.",
+    "PE-nél minden esetben a fázis felét venni – 16 mm²-ig PE = S, 16–35 között 16 mm².",
+    "A 35 mm²-es fázishoz 17,5 vagy 25 mm² PE-t írni – a legkisebb 16 mm².",
+    "Régi hálózaton a színre hagyatkozni mérés nélkül – piros PE, csupa fekete fázis is előfordul."
+  ],
+  "hooks": [
+    "Fázissor: „Barna–Fekete–Szürke” – sötétedő, majd szürkülő sorrend L1→L3.",
+    "Zöld-sárga = élet: soha nem visz üzemi áramot (kivéve a PEN kettős szerepet).",
+    "PE-táblázat: „16-ig ugyanaz, 35-ig 16, fölötte fele”.",
+    "G = „green-yellow van”, X = „kihúzva, nincs”."
+  ],
+  "sources": [
+    "MSZ HD 60364-5-51 (514.3), HD 308 S2 érszínek",
+    "MSZ HD 60364-5-52 (legkisebb keresztmetszetek)",
+    "MSZ HD 60364-5-54 (védővezető keresztmetszete)",
+    "szakmai_ism_9_villszerel_kidolgozott.pdf (színjelölés, névleges keresztmetszetek)",
+    "01__Kabel.pdf (NYM érszínek, rendelési példák)",
+    "Vezetekjellemzok.pdf (G/X jelölés)"
+  ]
+}

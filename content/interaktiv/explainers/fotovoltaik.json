@@ -1,0 +1,159 @@
+{
+  "topic": "fotovoltaik",
+  "title": "Fotovoltaikus (napelemes) rendszerek",
+  "summary": "A napelemes rendszer DC oldalból (modulok, stringek, DC védelem és leválasztás) és AC oldalból (inverter után: leválasztó, kismegszakító, ÁVK, SPD, kétirányú mérő) áll. A vizsga kérdezi a felépítést és az eszközöket rajz alapján, a soros-párhuzamos kapcsolás és a hőmérséklet hatásának számítását, a HMKE szabályait, a DC oldal veszélyeit és a tűzeseti lekapcsolást.",
+  "sections": [
+    {
+      "h": "Felépítés és rendszertípusok",
+      "body": "<b>Cella</b> (kb. 0,5–0,6 V) → <b>modul</b> (panel) → <b>string</b> (sorba kötött modulok) → <b>napelemcsoport, napelemmező</b> (párhuzamos stringek). Sorba kötéskor a feszültség, párhuzamosan az áram adódik össze; párhuzamosan csak azonos feszültségű stringek köthetők.",
+      "bullets": [
+        "<b>Hálózatra visszatápláló (on-grid)</b>: saját tároló nincs, a többletet kétirányú mérőn át a hálózatba táplálja; hálózatkimaradáskor az inverter leállítja a kitáplálást.",
+        "<b>Szigetüzemű (off-grid)</b>: csak akkumulátorból lát el, nincs hálózati kapcsolat (tanya, távközlési átjátszó).",
+        "<b>Hibrid</b>: akkumulátor és hálózati kapcsolat is van, elsőként a saját tárolót tölti, áramszünetben tartalék ellátást adhat.",
+        "<b>HMKE</b> (háztartási méretű kiserőmű): kisfeszültségre csatlakozó, legfeljebb <b>50 kVA</b> csatlakozási teljesítményű. A felhasználói hálózat <b>mért</b> (mérő utáni) oldalára csatlakozik; a csatlakozási ponton kétirányú (ad-vesz) elektronikus mérő méri a vételezést és a visszatáplálást (az inverter kijelzője nem hiteles, egyirányú mérő nem jó). A mérőhelyet az elosztói engedélyes előírása szabja meg, a csatlakozási dokumentációt villamos tervezői jogosultsággal rendelkező személy készíti, az inverter az elosztó engedélyezett típuslistájáról kell legyen."
+      ]
+    },
+    {
+      "h": "Modul adatok, kapcsolás, hőmérséklet, tájolás",
+      "bullets": [
+        "Adatlap: <b>U<sub>oc</sub></b> üresjárási feszültség, <b>I<sub>sc</sub></b> rövidzárási áram, <b>U<sub>mpp</sub>, I<sub>mpp</sub></b> a legnagyobb teljesítményű munkapont (MPP) feszültsége és árama, <b>P<sub>max</sub></b> [Wp] = U<sub>mpp</sub>·I<sub>mpp</sub>, mindig kisebb U<sub>oc</sub>·I<sub>sc</sub>-nél. Az U–I görbén I<sub>sc</sub> az áramtengely, U<sub>oc</sub> a feszültségtengely metszéspontja (ott a teljesítmény nulla), az MPP a „térdpont”.",
+        "<b>STC</b> (névleges teljesítmény feltételei): 1000 W/m² besugárzás, 25 °C cellahőmérséklet, AM 1,5 spektrum. A valós tetőn a modul melegebb, ezért általában kevesebbet ad.",
+        "Hőmérséklet: a kristályos cella feszültsége hidegben <b>nő</b>, melegben csökken (negatív együttható, %/°C). A string legnagyobb feszültségét a legkisebb várható hőmérsékletre kell ellenőrizni az inverter határához. Példa: U<sub>oc</sub> = 49,6 V, −0,27 %/°C, −15 °C → 54,96 V; 1000 V-os inverterre legfeljebb 18 modul (lefelé kerekítve).",
+        "Éves termelés: kWp × fajlagos termelés (pl. 10,92 kWp × 1150 kWh/kWp = 12 558 kWh). A kWp nem azonos az inverter AC kVA-jával.",
+        "Tájolás: az azimut 0° = dél; hazánkban déli tájolásnál kb. 35° körüli dőlés az optimum (a jegyzetek 30–45°-ot adnak). Akkor termel legtöbbet, ha a sugárzás merőlegesen éri. Déli tető híján délkelet, délnyugat vagy kettős kelet-nyugati telepítés.",
+        "Árnyék: a string árama a leggyengébb modulhoz igazodik, egy árnyékolt modul az egész stringet visszaveti; az árnyékolt cella fogyasztóként melegszik (<b>hot spot</b>). A kötődobozban lévő <b>by-pass diódák</b> (jellemzően 3) áthidalják az árnyékolt cellacsoportot. Tervezéskor a téli, alacsony napállás hosszabb árnyékaival is számolni kell."
+      ]
+    },
+    {
+      "h": "A DC oldal eszközei és veszélyei",
+      "bullets": [
+        "A modulok fényben mindig feszültséget adnak: a modulok és a DC leválasztó közötti szakasz napsütésben <b>mindig feszültség alatt</b> van, string esetén több száz volt DC. Az AC oldal vagy a ház főkapcsolójának lekapcsolása ezt nem szünteti meg.",
+        "DC ívnél nincs nullátmenet, a terhelés alatt bontott csatlakozóban tartós ív marad, ami tüzet okozhat. Bontani csak árammentesen, a DC szakaszoló nyitása után szabad.",
+        "<b>Szolárkábel</b>: H1Z2Z2-K (MSZ EN 50618) egyeres, kettős szigetelésű, halogénmentes, UV- és időjárásálló, 1,5 kV DC. (NYM-J beltéri, H07RN-F gumi tömlővezeték, NYY-J földkábel: egyik sem PV-re minősített.)",
+        "<b>Csatlakozók</b> (MC4): csak azonos gyártó és típus párosítható, a vegyes „kompatibilis” párosítás melegedéses tüzek gyakori oka.",
+        "<b>String-biztosító</b>: csak gPV jelleggörbéjű (DC-re, PV-re minősített) biztosító vagy DC kismegszakító; jellemzően akkor kell, ha 3 vagy több string párhuzamos, és egy hibás stringbe a többiek visszaárama meghaladná a modul megengedett visszáramát.",
+        "<b>DC szakaszoló</b> (tűzeseti DC leválasztó) és <b>DC SPD</b> (PV-re minősített, U<sub>CPV</sub> ≥ hideg U<sub>oc</sub>)."
+      ]
+    },
+    {
+      "h": "Inverter és AC oldal",
+      "bullets": [
+        "Az <b>inverter</b> feladatai: DC → hálózati frekvenciájú AC átalakítás; munkapontkövetés (<b>MPPT</b>); a hálózat feszültségének és frekvenciájának figyelése, szinkronizálás; <b>nem kívánt szigetüzem elleni védelem</b> (anti-islanding). Nem feladata az árnyékolt cellák áthidalása (by-pass dióda) és az elszámolás (kétirányú mérő).",
+        "Szigetüzem elleni védelem azért kell, hogy hálózatkimaradáskor ne helyezze feszültség alá a lekapcsolt, feszültségmentesnek hitt hálózatot, ahol szerelők dolgozhatnak. A hálózat visszatérése után csak az előírt várakozási idő leteltével indul újra; működési próbán ellenőrizni kell.",
+        "AC oldal: leválasztó, kismegszakító, szükség szerint ÁVK, AC SPD, majd a ház elosztója és a kétirányú mérő.",
+        "ÁVK típusa: ha az inverter transzformátor nélküli (nincs legalább egyszerű elválasztás DC és AC között) és a gyártó nem nyilatkozik, hogy DC hibaáramot nem juttat az AC oldalra, <b>B típusú</b> ÁVK kell (MSZ HD 60364-7-712). Ilyen nyilatkozat esetén a gyártó által megadott (gyakran A) típus is elfogadható."
+      ]
+    },
+    {
+      "h": "Tűzbiztonság, villámvédelem, karbantartás, vizsgálat",
+      "bullets": [
+        "<b>Tűzeseti lekapcsolás</b> (OTSZ, TvMI 7.4): a napelemes rendszer lekapcsolását a tűzeseti lekapcsolás helyére kell vinni és jelölni, mert a tűzoltóknak a DC oldalt is le kell tudni választani. Az inverterbe épített DC leválasztás akkor fogadható el, ha a DC kábel épületbe lépésétől a belső DC nyomvonal legfeljebb <b>5 m</b>, és nem halad át egynél több szinten, idegen tulajdonon, bérleményen, tűzszakaszon; különben a DC kábel épületbe lépésénél külön (tűzeseti DC) leválasztó kell. Kézi kapcsolókészülék kezelőszerve 1–1,5 m magasan.",
+        "<b>Villámvédelem</b>: ha van LPS, a modulokat a felfogó védett terébe kell helyezni, az s biztonsági távolság betartásával; ekkor a tartószerkezetet nem kötjük közvetlenül az LPS-hez. Ha az s nem tartható, villámáram-bíró összekötés kell, és DC oldalon 1. típusú SPD. A DC kábelezésnél kerülni kell a nagy területet átfogó hurkokat (nagy indukált feszültség).",
+        "A fém tartószerkezetet és a modulkereteket <b>EPH-ba</b> kell kötni: szigetelési hibánál ne legyen veszélyes érintési feszültség, és csökkenjenek a villám okozta potenciálkülönbségek. Szándékosan földeletlenül hagyni hiba. Az EPH nem üzemi áramvezető.",
+        "Karbantartás előtti leválasztás: AC megszakító ki (az inverter leáll, megszűnik a DC terhelőáram) → DC szakaszoló ki → várakozás a kondenzátorok kisüléséig (gyártói idő) → feszültségmentesség ellenőrzése AC és DC oldalon → DC csatlakozók bontása árammentesen. A modulok felőli DC oldal ezután is feszültség alatt marad.",
+        "DC oldali vizsgálatok (MSZ EN 62446-1): védővezető (EPH) folytonosság, polaritás, string üresjárási feszültség, string rövidzárási áram, működési próba, szigetelési ellenállás. Hurokimpedancia és ÁVK kioldási idő AC oldali mérés, a DC stringen értelmezhetetlen."
+      ]
+    }
+  ],
+  "keyFacts": [
+    {
+      "k": "Felépítés",
+      "v": "cella → modul → string → napelemcsoport / mező"
+    },
+    {
+      "k": "Soros / párhuzamos",
+      "v": "sorosan a feszültség, párhuzamosan az áram adódik össze"
+    },
+    {
+      "k": "STC",
+      "v": "1000 W/m², 25 °C cellahőmérséklet, AM 1,5"
+    },
+    {
+      "k": "Hőmérséklet hatása",
+      "v": "hidegben U<sub>oc</sub> nő → stringhossz a leghidegebb állapotra"
+    },
+    {
+      "k": "HMKE",
+      "v": "≤ 50 kVA, a mért oldalra, kétirányú mérővel"
+    },
+    {
+      "k": "Optimális tájolás",
+      "v": "dél (azimut 0°), kb. 35° dőlés"
+    },
+    {
+      "k": "Szolárkábel",
+      "v": "H1Z2Z2-K, 1,5 kV DC, UV-álló"
+    },
+    {
+      "k": "DC biztosító",
+      "v": "gPV; jellemzően ≥ 3 párhuzamos stringnél"
+    },
+    {
+      "k": "ÁVK trafó nélküli inverterhez",
+      "v": "B típus (hacsak a gyártó másként nem nyilatkozik)"
+    },
+    {
+      "k": "Inverter feladatai",
+      "v": "DC/AC, MPPT, hálózatfigyelés, szigetüzem elleni védelem"
+    },
+    {
+      "k": "Inverterbe épített DC leválasztás elég, ha",
+      "v": "belső DC nyomvonal ≤ 5 m és ≤ 1 szint / tűzszakasz"
+    },
+    {
+      "k": "Kapcsoló kezelőszervének magassága (TvMI)",
+      "v": "1–1,5 m"
+    },
+    {
+      "k": "AC lekapcsolás után",
+      "v": "a modulok és a DC kábel a leválasztóig feszültség alatt marad"
+    },
+    {
+      "k": "DC vizsgálatok (MSZ EN 62446-1)",
+      "v": "folytonosság, polaritás, U<sub>oc</sub>, I<sub>sc</sub>, szigetelés, működés"
+    }
+  ],
+  "formulas": [
+    {
+      "f": "U<sub>string</sub> = n · U<sub>modul</sub>;  I<sub>csoport</sub> = m · I<sub>string</sub>",
+      "note": "n soros modul, m párhuzamos string"
+    },
+    {
+      "f": "U<sub>oc</sub>(T) = U<sub>oc,STC</sub> · (1 + β · (T − 25 °C))",
+      "note": "β negatív, pl. −0,0027 1/°C; T = legkisebb cellahőmérséklet"
+    },
+    {
+      "f": "n<sub>max</sub> = U<sub>inv,max</sub> / U<sub>oc</sub>(T<sub>min</sub>), lefelé kerekítve",
+      "note": "1000 V / 54,96 V = 18,2 → 18 modul"
+    },
+    {
+      "f": "P = U<sub>mpp</sub> · I<sub>mpp</sub>;  E = P<sub>kWp</sub> · e<sub>fajl</sub>",
+      "note": "e<sub>fajl</sub> kWh/kWp-ben"
+    }
+  ],
+  "mistakes": [
+    "Soros stringnél az áramot is megszorozni a modulszámmal: sorosan csak a feszültség nő.",
+    "A stringhosszt 25 °C-os U<sub>oc</sub>-vel számolni: télen a feszültség nő, és tönkreteheti az invertert; a modulszámot lefelé kell kerekíteni.",
+    "Azt hinni, hogy az AC kismegszakító vagy a főkapcsoló lekapcsolása után a DC kábel feszültségmentes.",
+    "MC4 csatlakozót terhelés alatt bontani, vagy különböző gyártók „kompatibilis” csatlakozóit összedugni.",
+    "gG vagy AC kismegszakítót használni a DC oldalon gPV helyett.",
+    "Transzformátor nélküli inverterhez gyártói nyilatkozat nélkül A vagy AC típusú ÁVK-t választani.",
+    "A tartószerkezetet szándékosan földeletlenül hagyni „hogy ne vonzza a villámot”, vagy nagy hurkokkal kábelezni.",
+    "Az U<sub>oc</sub>-t üzemi feszültségnek gondolni: az üzemi munkapont az MPP (U<sub>mpp</sub>)."
+  ],
+  "hooks": [
+    "Sorba: volt nő; párhuzam: amper nő.",
+    "Hideg reggel, magas feszültség: a stringet télre méretezd.",
+    "Ha süt a nap, a DC él.",
+    "Inverter: alakít, követ, figyel, és áramszünetben elhallgat."
+  ],
+  "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 640 296\" width=\"640\" font-family=\"sans-serif\" font-size=\"12\" stroke-linecap=\"round\"><defs><marker id=\"pvarr\" viewBox=\"0 0 8 8\" refX=\"8\" refY=\"4\" markerWidth=\"8\" markerHeight=\"8\" orient=\"auto-start-reverse\"><path d=\"M0,0 L8,4 L0,8 z\" fill=\"black\"/></marker></defs><line x1=\"20\" y1=\"30\" x2=\"398\" y2=\"30\" stroke=\"black\" stroke-width=\"1.2\"/><line x1=\"20\" y1=\"26\" x2=\"20\" y2=\"34\" stroke=\"black\" stroke-width=\"1.2\"/><line x1=\"400\" y1=\"22\" x2=\"400\" y2=\"38\" stroke=\"black\" stroke-width=\"1.6\"/><line x1=\"402\" y1=\"30\" x2=\"620\" y2=\"30\" stroke=\"black\" stroke-width=\"1.2\"/><line x1=\"620\" y1=\"26\" x2=\"620\" y2=\"34\" stroke=\"black\" stroke-width=\"1.2\"/><text x=\"24\" y=\"22\" font-size=\"11\" text-anchor=\"start\" fill=\"black\" font-weight=\"bold\">DC oldal – fényben mindig feszültség alatt</text><text x=\"410\" y=\"22\" font-size=\"11\" text-anchor=\"start\" fill=\"black\" font-weight=\"bold\">AC oldal (230/400 V)</text><rect x=\"20\" y=\"40\" width=\"110\" height=\"60\" fill=\"none\" stroke=\"black\" stroke-width=\"1.6\"/><text x=\"75\" y=\"58\" font-size=\"11\" text-anchor=\"middle\" fill=\"black\" font-weight=\"bold\">1 Modulok</text><text x=\"75\" y=\"73\" font-size=\"10\" text-anchor=\"middle\" fill=\"black\">string(ek), keret,</text><text x=\"75\" y=\"88\" font-size=\"10\" text-anchor=\"middle\" fill=\"black\">by-pass diódák</text><rect x=\"165\" y=\"40\" width=\"140\" height=\"60\" fill=\"none\" stroke=\"black\" stroke-width=\"1.6\"/><text x=\"235\" y=\"58\" font-size=\"11\" text-anchor=\"middle\" fill=\"black\" font-weight=\"bold\">2 DC oldal</text><text x=\"235\" y=\"73\" font-size=\"10\" text-anchor=\"middle\" fill=\"black\">gPV biztosító, DC SPD,</text><text x=\"235\" y=\"88\" font-size=\"10\" text-anchor=\"middle\" fill=\"black\">DC (tűzeseti) szakaszoló</text><rect x=\"340\" y=\"40\" width=\"120\" height=\"60\" fill=\"none\" stroke=\"black\" stroke-width=\"1.6\"/><text x=\"400\" y=\"58\" font-size=\"11\" text-anchor=\"middle\" fill=\"black\" font-weight=\"bold\">3 Inverter</text><text x=\"400\" y=\"73\" font-size=\"10\" text-anchor=\"middle\" fill=\"black\">DC/AC, MPPT,</text><text x=\"400\" y=\"88\" font-size=\"10\" text-anchor=\"middle\" fill=\"black\">szigetüzem-védelem</text><rect x=\"495\" y=\"40\" width=\"125\" height=\"60\" fill=\"none\" stroke=\"black\" stroke-width=\"1.6\"/><text x=\"557.5\" y=\"58\" font-size=\"11\" text-anchor=\"middle\" fill=\"black\" font-weight=\"bold\">4 AC védelem</text><text x=\"557.5\" y=\"73\" font-size=\"10\" text-anchor=\"middle\" fill=\"black\">leválasztó, kismeg-</text><text x=\"557.5\" y=\"88\" font-size=\"10\" text-anchor=\"middle\" fill=\"black\">szakító, ÁVK, AC SPD</text><rect x=\"495\" y=\"170\" width=\"125\" height=\"60\" fill=\"none\" stroke=\"black\" stroke-width=\"1.6\"/><text x=\"557.5\" y=\"188\" font-size=\"11\" text-anchor=\"middle\" fill=\"black\" font-weight=\"bold\">Lakáselosztó</text><text x=\"557.5\" y=\"203\" font-size=\"10\" text-anchor=\"middle\" fill=\"black\">a ház fogyasztói</text><text x=\"557.5\" y=\"218\" font-size=\"10\" text-anchor=\"middle\" fill=\"black\"></text><rect x=\"340\" y=\"170\" width=\"120\" height=\"60\" fill=\"none\" stroke=\"black\" stroke-width=\"1.6\"/><text x=\"400\" y=\"188\" font-size=\"11\" text-anchor=\"middle\" fill=\"black\" font-weight=\"bold\">5 Kétirányú mérő</text><text x=\"400\" y=\"203\" font-size=\"10\" text-anchor=\"middle\" fill=\"black\">vételezés és</text><text x=\"400\" y=\"218\" font-size=\"10\" text-anchor=\"middle\" fill=\"black\">visszatáplálás</text><rect x=\"165\" y=\"170\" width=\"140\" height=\"60\" fill=\"none\" stroke=\"black\" stroke-width=\"1.6\"/><text x=\"235\" y=\"188\" font-size=\"11\" text-anchor=\"middle\" fill=\"black\" font-weight=\"bold\">6 Közcélú hálózat</text><text x=\"235\" y=\"203\" font-size=\"10\" text-anchor=\"middle\" fill=\"black\">kisfeszültség</text><text x=\"235\" y=\"218\" font-size=\"10\" text-anchor=\"middle\" fill=\"black\"></text><line x1=\"130\" y1=\"70\" x2=\"163\" y2=\"70\" stroke=\"black\" stroke-width=\"1.6\" marker-end=\"url(#pvarr)\"/><line x1=\"305\" y1=\"70\" x2=\"338\" y2=\"70\" stroke=\"black\" stroke-width=\"1.6\" marker-end=\"url(#pvarr)\"/><line x1=\"460\" y1=\"70\" x2=\"493\" y2=\"70\" stroke=\"black\" stroke-width=\"1.6\" marker-end=\"url(#pvarr)\"/><line x1=\"557\" y1=\"100\" x2=\"557\" y2=\"168\" stroke=\"black\" stroke-width=\"1.6\" marker-end=\"url(#pvarr)\"/><line x1=\"495\" y1=\"200\" x2=\"462\" y2=\"200\" stroke=\"black\" stroke-width=\"1.6\" marker-start=\"url(#pvarr)\" marker-end=\"url(#pvarr)\"/><line x1=\"340\" y1=\"200\" x2=\"307\" y2=\"200\" stroke=\"black\" stroke-width=\"1.6\" marker-start=\"url(#pvarr)\" marker-end=\"url(#pvarr)\"/><text x=\"165\" y=\"118\" font-size=\"10\" text-anchor=\"start\" fill=\"black\">Inverterbe épített DC leválasztás elég, ha a belső</text><text x=\"165\" y=\"131\" font-size=\"10\" text-anchor=\"start\" fill=\"black\">DC nyomvonal ≤ 5 m és ≤ 1 szint / tűzszakasz</text><text x=\"165\" y=\"150\" font-size=\"10\" text-anchor=\"start\" fill=\"black\" font-weight=\"bold\">AC lekapcsolás ≠ DC lekapcsolás!</text><line x1=\"75\" y1=\"100\" x2=\"75\" y2=\"262\" stroke=\"black\" stroke-width=\"1.6\"/><rect x=\"55\" y=\"262\" width=\"40\" height=\"8\" fill=\"black\" stroke=\"black\"/><line x1=\"75\" y1=\"270\" x2=\"75\" y2=\"278\" stroke=\"black\" stroke-width=\"1.6\"/><line x1=\"65\" y1=\"278\" x2=\"85\" y2=\"278\" stroke=\"black\" stroke-width=\"1.6\"/><line x1=\"69\" y1=\"282\" x2=\"81\" y2=\"282\" stroke=\"black\" stroke-width=\"1.6\"/><line x1=\"73\" y1=\"286\" x2=\"77\" y2=\"286\" stroke=\"black\" stroke-width=\"1.6\"/><text x=\"105\" y=\"266\" font-size=\"10\" text-anchor=\"start\" fill=\"black\">EPH: tartószerkezet, modulkeretek → fő földelősín</text><text x=\"340\" y=\"248\" font-size=\"10\" text-anchor=\"start\" fill=\"black\">HMKE: ≤ 50 kVA, a mért oldalra csatlakozik</text></svg>",
+  "sources": [
+    "villanyszerelo-jegyzet.pdf 9. fejezet (PV), 9.3.3 és TvMI 7.4 idézet",
+    "MSZ HD 60364-7-712",
+    "MSZ EN 62446-1",
+    "MSZ EN 50618",
+    "MEE-VET-Műszaki alapok.pdf",
+    "mee-vet-2019-msz447.pdf"
+  ]
+}

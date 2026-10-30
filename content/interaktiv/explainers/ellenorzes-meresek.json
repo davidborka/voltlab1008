@@ -1,0 +1,150 @@
+{
+  "topic": "ellenorzes-meresek",
+  "title": "Szerelői és első ellenőrzés, biztonsági mérések",
+  "summary": "Az MSZ HD 60364-6:2017 szerint minden új vagy bővített berendezést használatba vétel előtt ellenőrizni kell: előbb szemrevételezés, majd a műszeres vizsgálatok kötött, logikus sorrendben. A vizsga a sorrendet, a szigetelési határértékeket, a hurokimpedancia és az RCD megfelelőségi feltételeit, a műszereket és a dokumentációt kérdezi, számolással is.",
+  "sections": [
+    {
+      "h": "Első ellenőrzés: mikor, ki, milyen logikával",
+      "body": "Minden berendezést a szerelés alatt és befejezése után, az <b>üzemszerű használatba vétel előtt</b> ellenőrizni kell. Csak arra feljogosított, szakképzett személy végezheti, és az ellenőrzés még hibás áramkör esetén sem veszélyeztethet személyt vagy vagyont. A <b>szemrevételezés megelőzi</b> a műszeres vizsgálatot, és általában feszültség alá helyezés előtt történik. Előbb feszültségmentesen bizonyítjuk, hogy a PE ép és nincs szigetelési hiba, csak utána mérünk feszültség alatt.",
+      "bullets": [
+        "Lakás befejező lépései: szemrevételezés → folytonosság → szigetelési ellenállás → feszültség alá helyezés → működési próba.",
+        "Ha egy vizsgálat nem felel meg: a javítás után azt és minden olyan korábbit, amelyet a hiba befolyásolhatott, meg kell ismételni (nem kell mindent elölről, és nem elég csak beírni).",
+        "Bővítésnél azt is ellenőrizni kell, hogy az új rész nem rontja a meglévő biztonságát, és a régi sem az újét.",
+        "<b>Szerelői ellenőrzés</b>: a szerelő a saját munkáján elvégzi, az alapvető hibákat (szakadt, felcserélt PE) szűri ki. <b>Szabványossági felülvizsgálat</b>: részletes, számszerű értékelés, külön szakképesítésű felülvizsgáló végzi, minősítő iratot ad."
+      ]
+    },
+    {
+      "h": "Szemrevételezés",
+      "body": "Érzékszervi ellenőrzés, nincs mért szám. Ide tartozik: az áramütés elleni védelmi mód, a vezetők kiválasztása terhelhetőségre és feszültségesésre, a védőeszközök és SPD-k kiválasztása, a leválasztók és kapcsolók megléte, a tűzgátlás, a külső hatásoknak megfelelő kivitel, a kék N és zöld/sárga PE jelölés, az áramkörök és védőeszközök feliratozása, a kapcsolási rajzok, a kötések, a földelés és a védővezetők, a hozzáférhetőség.",
+      "bullets": [
+        "Ami számot ad (szigetelési ellenállás, hurokimpedancia, RCD kioldási idő), az már <b>műszeres vizsgálat</b>.",
+        "Ami működtetés (kapcsolók, reteszelés, vész-ki, RCD próbagomb), az <b>működési próba</b>."
+      ]
+    },
+    {
+      "h": "A műszeres vizsgálatok ajánlott sorrendje",
+      "bullets": [
+        "<b>1. Folytonosság</b> (MSZ EN 61557-4, ≥ 200 mA mérőáram, feszültségmentesen): védővezetők, fő és kiegészítő EPH-vezetők, a testek bekötése, gyűrűs áramköröknél az aktív vezetők is. A hurokimpedancia mérése előtt kötelező.",
+        "<b>2. Szigetelési ellenállás</b> egyenfeszültséggel: az aktív vezetők egymás között és az aktív vezetők és a PE között (zavaró eszközöknél az aktív vezetők összeköthetők). Az N-t a fő földelőkapocsról le kell választani, a fogyasztókészülékeket le kell választani. Az SPD-t leválasztjuk; ha nem lehet, 250 V-tal mérünk, de ekkor is ≥ 1 MΩ kell. TN-C-ben a PEN és az aktív vezetők között mérünk. Célszerű a szerelvények, fogyasztók bekötése előtt mérni.",
+        "<b>3. SELV, PELV, villamos elválasztás</b> igazolása szigetelésméréssel: SELV-nél más áramkörök aktív részeitől <i>és a földtől</i>, PELV-nél csak más áramkörök aktív részeitől.",
+        "Szükség esetén padló- és falellenállás.",
+        "<b>4. Polaritás</b>: egypólusú kapcsoló, biztosító csak a fázisban; Edison-foglalatnál (E27) a fázis a középérintkezőre, a nulla a menetes részre; az aljzatok helyes bekötése.",
+        "<b>5. Önműködő lekapcsolás</b>: TN-ben a földzárlati hurokimpedancia (Z<sub>s</sub>) mérése és a védőeszköz ellenőrzése; TT-ben a testek földelőjének R<sub>A</sub> mérése (vagy ha nem lehet, külső hurokimpedancia) és az RCD vizsgálata.",
+        "<b>6. Kiegészítő védelem</b>: az RCD vizsgálata MSZ EN 61557-6 szerinti műszerrel, az RCD utáni pontról a PE felé.",
+        "<b>7. Fázissorrend</b> többfázisú köröknél (a háromfázisú motor forgásiránya függ tőle).",
+        "<b>8. Működési próbák</b>: kapcsolók, vezérlések, reteszelések, vész-ki, szigetelésfigyelő, RCD próbagomb.",
+        "<b>9. Feszültségesés</b> igazolása méréssel vagy számítással."
+      ]
+    },
+    {
+      "h": "Hurokimpedancia és RCD: a megfelelőség feltételei",
+      "body": "TN-ben a hibaáram (U<sub>0</sub>/Z<sub>s</sub>) legyen legalább akkora, mint az az I<sub>a</sub> áram, amelynél a védőeszköz az előírt időn belül (230 V-os végáramkörön 0,4 s) lekapcsol. Kismegszakítónál ez a gyors (mágneses) kioldás határa: <b>B: 5·I<sub>n</sub>, C: 10·I<sub>n</sub></b>. Ezért C karakterisztikánál azonos I<sub>n</sub> mellett csak feleakkora Z<sub>s</sub> engedhető meg. Ha egyik sem felel meg: nagyobb keresztmetszet, rövidebb kör vagy RCD.",
+      "bullets": [
+        "Példa: Z<sub>s</sub> = 2,1 Ω → B20 (2,3 Ω) megfelel; C16 (1,44 Ω), C20 (1,15 Ω), B25 (1,84 Ω) nem.",
+        "Az RCD megfelel, ha a kioldást előidéző hibaáram ≤ I<sub>Δn</sub>. A kioldási idő mérése ajánlott (meglévő RCD bővítésnél kötelező).",
+        "A <b>„T” próbagomb</b> ellenállással a fogyasztó oldali fázist a hálózat oldali nullával köti össze, megkerülve az összegző áramváltót: ez szándékos különbségi áram. Csak a készülék működőképességét mutatja, a PE épségét és a hálózati hibavédelem hatásosságát nem, ezért műszeres mérést nem helyettesít.",
+        "TT-ben: R<sub>A</sub>·I<sub>Δn</sub> ≤ 50 V, vagyis 30 mA-nél R<sub>A</sub> ≤ 1667 Ω, 300 mA-nél ≤ 166,7 Ω."
+      ]
+    },
+    {
+      "h": "Dokumentáció és időszakos felülvizsgálat",
+      "bullets": [
+        "A jegyzőkönyv tartalma: a berendezés vagy berendezésrész megnevezése és terjedelme, a szemrevételezés eredményei, a mérési eredmények áramkörönként (a megfelelők is), a műszerek azonosítója, a dátum és az ellenőrző aláírása, a feltárt hibák. Ez a későbbi felülvizsgálatok összehasonlítási alapja.",
+        "OTSZ szerinti időszakos tűzvédelmi felülvizsgálat: legalább 3 évente, ha 300 kg-nál (300 l-nél) több robbanásveszélyes osztályú anyag van; egyébként legalább 6 évente.",
+        "Lakóépületekben a fázisonként ≤ 32 A túláramvédelem utáni áramkörökre ez a felülvizsgálat nem terjed ki.",
+        "A felülvizsgálat azt nézi, hogy a berendezés legalább a létesítéskori állapotában van-e, és a megfelelőséget általában a létesítéskor érvényes előírások szerint kell megítélni."
+      ]
+    }
+  ],
+  "keyFacts": [
+    {
+      "k": "Sorrend",
+      "v": "szemrevételezés → 1 folytonosság → 2 szigetelés → 3 SELV/PELV/elválasztás → 4 polaritás → 5 önműködő lekapcsolás → 6 RCD → 7 fázissorrend → 8 működési próba → 9 feszültségesés"
+    },
+    {
+      "k": "1. Folytonosság",
+      "v": "≥ 200 mA mérőáram, feszültségmentesen, a hurokimpedancia előtt"
+    },
+    {
+      "k": "2. Szigetelés, ≤ 500 V (230/400 V)",
+      "v": "500 V DC → ≥ 1 MΩ"
+    },
+    {
+      "k": "2. Szigetelés, > 500 V",
+      "v": "1000 V DC → ≥ 1 MΩ"
+    },
+    {
+      "k": "2./3. Szigetelés, SELV/PELV",
+      "v": "250 V DC → ≥ 0,5 MΩ"
+    },
+    {
+      "k": "SPD nem választható le",
+      "v": "250 V DC, de ≥ 1 MΩ"
+    },
+    {
+      "k": "Régi (2007-es) határértékek",
+      "v": "0,25 / 0,5 MΩ – ma már nem érvényes"
+    },
+    {
+      "k": "5. TN-rendszer",
+      "v": "Z<sub>s</sub> ≤ U<sub>0</sub>/I<sub>a</sub>; B16: ≤ 2,875 Ω, C16: ≤ 1,44 Ω"
+    },
+    {
+      "k": "5. TT-rendszer",
+      "v": "R<sub>A</sub>·I<sub>Δn</sub> ≤ 50 V; 30 mA → R<sub>A</sub> ≤ 1667 Ω"
+    },
+    {
+      "k": "6. RCD (nem késleltetett) kioldási idők",
+      "v": "I<sub>Δn</sub>: ≤ 300 ms; 2·I<sub>Δn</sub>: ≤ 150 ms; 5·I<sub>Δn</sub>: ≤ 40 ms; 0,5·I<sub>Δn</sub>: nem oldhat ki"
+    },
+    {
+      "k": "Lekapcsolási idő, 230 V-os végáramkör",
+      "v": "TN: 0,4 s; TT: 0,2 s"
+    },
+    {
+      "k": "9. Feszültségesés közcélú hálózatról",
+      "v": "világítás 3 %, egyéb 5 % (saját transzformátorról 6 % / 8 %)"
+    },
+    {
+      "k": "OTSZ időszakos tűzvédelmi felülvizsgálat",
+      "v": "3 évente (> 300 kg/l robbanásveszélyes anyag), egyébként 6 évente"
+    }
+  ],
+  "formulas": [
+    {
+      "f": "Z<sub>s</sub> · I<sub>a</sub> ≤ U<sub>0</sub> → Z<sub>s,max</sub> = U<sub>0</sub> / I<sub>a</sub>",
+      "note": "B: I<sub>a</sub> = 5·I<sub>n</sub>, C: I<sub>a</sub> = 10·I<sub>n</sub>; B16: 230/80 = 2,875 Ω"
+    },
+    {
+      "f": "I<sub>z</sub> = U<sub>0</sub> / Z<sub>s</sub>",
+      "note": "várható testzárlati áram; 230 V / 1,15 Ω = 200 A"
+    },
+    {
+      "f": "R<sub>A</sub> ≤ 50 V / I<sub>Δn</sub>",
+      "note": "TT; az I<sub>Δn</sub> amperben (30 mA = 0,03 A)"
+    }
+  ],
+  "mistakes": [
+    "Z<sub>s,max</sub> számításánál I<sub>n</sub>-nel osztani (230/16 = 14,4 Ω): a kismegszakító csak I<sub>a</sub> = 5·I<sub>n</sub> (B) vagy 10·I<sub>n</sub> (C) áramnál old ki gyorsan.",
+    "A régi 0,5 MΩ-os határt alkalmazni: ma 230/400 V-on 1 MΩ kell, így a 0,8 MΩ nem felel meg.",
+    "Szigetelésmérés a nullavezető bontása nélkül: N–PE között ilyenkor rövidzárat mérnénk.",
+    "Hurokimpedancia mérése folytonosságvizsgálat nélkül: szakadt PE-nél a mérés közben a testek veszélyes feszültségre kerülhetnek.",
+    "Az RCD próbagombját műszeres vizsgálatnak tekinteni: az működési próba, a PE-t és a hálózati hibavédelmet nem ellenőrzi.",
+    "Bekötött fogyasztókkal szigetelést mérni: a fogyasztó kis ellenállása hibát mutat, az elektronika (dimmer, LED-táp, SPD) károsodhat.",
+    "E27 foglalatnál a fázist a menetes részre kötni: izzócserekor ez könnyen megérinthető.",
+    "mA–A átváltási hiba TT-nél: 50/30 = 1,67 Ω helyett helyesen 50/0,03 = 1667 Ω."
+  ],
+  "hooks": [
+    "Előbb holtan, aztán élve: feszültségmentes mérések (folytonosság, szigetelés) a feszültség alattiak (Z<sub>s</sub>, RCD) előtt.",
+    "Szigetelés: „250 – 0,5, 500 – 1, 1000 – 1”.",
+    "RCD: „300 – 150 – 40”, a felénél nem old ki.",
+    "B ötször, C tízszer: ennyiszeres áram kell a gyors kioldáshoz."
+  ],
+  "sources": [
+    "MSZ HD 60364-6:2017 6.4.2–6.4.4., 6.1. táblázat",
+    "Ép_vil_mérés_Gy/Biztonságtechnikai mérések.pdf",
+    "14-es felülvizsgáló szakvizsga segédlet (2024)",
+    "MSZ HD 60364-4-41 41.1. táblázat",
+    "OTSZ 54/2014. BM rendelet"
+  ]
+}

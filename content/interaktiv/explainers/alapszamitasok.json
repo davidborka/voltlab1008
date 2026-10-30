@@ -1,0 +1,146 @@
+{
+ "topic": "alapszamitasok",
+ "title": "Ohm-törvény, ellenállás, fajlagos ellenállás",
+ "summary": "Az alapszámítások három dologra épülnek: az Ohm-törvényre (U = I·R), az ellenállások soros/párhuzamos összevonására és a vezeték ellenállására (R = ρ·l/A). A vizsga tipikusan vezetékellenállást (egy ér vagy oda-vissza hurok), eredő ellenállást, hőmérsékletfüggést, áramsűrűséget és vezetékveszteséget kérdez. A legtöbb pont a mértékegységeken és a 2-es szorzón múlik.",
+ "sections": [
+  {
+   "h": "Ohm-törvény és ellenállás-kapcsolások",
+   "body": "U = I·R, ebből I = U/R és R = U/I. <b>Soros</b> kapcsolásban közös az áram, az ellenállások és a feszültségek összeadódnak; a nagyobb ellenálláson nagyobb feszültség esik. <b>Párhuzamos</b> kapcsolásban közös a feszültség, az áramok adódnak össze, a reciprokok összeadódnak, és az eredő mindig kisebb a legkisebb ágnál. Vegyes kapcsolást belülről kifelé vonj össze: előbb a párhuzamos csoportot, aztán a sorosan hozzá kapcsoltat.<br><b>Kidolgozott példa:</b> R1 = 10 Ω sorosan kötve az R2 = 40 Ω és R3 = 60 Ω párhuzamos csoportjával, U = 68 V.<br>1. R23 = 40·60/(40+60) = 24 Ω<br>2. R<sub>e</sub> = 10 + 24 = 34 Ω<br>3. I = 68/34 = 2 A<br>4. A párhuzamos csoporton: U<sub>23</sub> = 2·24 = 48 V (ellenőrzés: R1-en 20 V, 20 + 48 = 68 V).",
+   "bullets": [
+    "Két ellenállás párhuzamosan: R1·R2/(R1+R2) („szorzat per összeg”).",
+    "n darab egyforma R párhuzamosan: R/n; sorosan: n·R.",
+    "Feszültségosztó (terheletlen): U2 = U·R2/(R1+R2) – a keresett ellenállás kerül a számlálóba.",
+    "Párhuzamos földelők eredője: 1/R<sub>e</sub> = Σ 1/R<sub>i</sub> (kölcsönhatás nélkül)."
+   ]
+  },
+  {
+   "h": "A vezeték ellenállása",
+   "body": "R = ρ·l/A = l/(γ·A), ahol ρ mm²-es egységben Ω·mm²/m, l méterben, A mm²-ben – így közvetlenül Ω jön ki. Réz: ρ = 0,0175 Ω·mm²/m (γ ≈ 57, számításban többnyire 56 m/(Ω·mm²)); alumínium: ρ ≈ 0,028–0,0286 (γ ≈ 35). Ha a feladat <i>egy ér</i> ellenállását kérdezi (dobon mért ér, vezető hossza), nincs szorzó. Ha egyfázisú <i>áramkör</i> (oda-vissza, L + N) ellenállását, akkor 2·l kell; a PE ér nem számít, mert üzemszerűen nem vezet áramot. Kör keresztmetszetű huzalnál A = d²·π/4.<br><b>Kidolgozott példa:</b> 25 m hosszú, 2,5 mm²-es rézvezeték.<br>1. Egy ér: R = 0,0175·25/2,5 = 0,175 Ω<br>2. Egyfázisú hurok (L + N): R = 2·0,0175·25/2,5 = 0,35 Ω<br>3. Visszafelé: ha egy ér 0,35 Ω, akkor l = R·A/ρ = 0,35·2,5/0,0175 = 50 m.",
+   "bullets": [
+    "Átrendezés: l = R·A/ρ, A = ρ·l/R – az A a számlálóba kerül, ha l-t keresed.",
+    "Cu → Al csere azonos ellenállásra: A<sub>Al</sub> = A<sub>Cu</sub>·ρ<sub>Al</sub>/ρ<sub>Cu</sub> ≈ 1,6·A<sub>Cu</sub>, majd felkerekítés (6 mm² Cu → 9,6 → 10 mm² Al; 10 mm² Cu → 16 mm² Al).",
+    "d = 1,13 mm → A ≈ 1,0 mm²; d = 1,38 mm → A ≈ 1,5 mm²."
+   ]
+  },
+  {
+   "h": "Hőmérsékletfüggés",
+   "body": "R<sub>t</sub> = R<sub>20</sub>·(1 + α·Δt), Δt = t − 20 °C, réznél α = 0,0039 1/K. Fémeknél α pozitív: melegen nő az ellenállás. Ha a hőmérsékletet keresed: Δt = (R<sub>t</sub>/R<sub>20</sub> − 1)/α, és a végén <b>add hozzá a 20 °C-ot</b>.<br><b>Kidolgozott példa:</b> R<sub>20</sub> = 8,0 Ω-os réztekercs.<br>1. 60 °C-on: R = 8,0·(1 + 0,0039·40) = 8,0·1,156 = 9,248 Ω<br>2. Fordítva: ha melegen 9,6 Ω-ot mérünk, Δt = (9,6/8,0 − 1)/0,0039 = 51,3 K, t = 20 + 51,3 = 71,3 °C."
+  },
+  {
+   "h": "Áramsűrűség és vezetékveszteség",
+   "body": "Áramsűrűség: J = I/A (A/mm²); adott J-hez A<sub>min</sub> = I/J, amit a szabványos sorra <b>felfelé</b> kerekítünk (1,5 – 2,5 – 4 – 6 – 10 – 16 – 25 – 35 mm²…). A vezetékben hővé alakuló teljesítmény P<sub>v</sub> = I²·R, ahol R az áramot vivő vezetők együttes ellenállása (egyfázisúnál a 2·l-es hurok, szimmetrikus háromfázisúnál 3·I²·R<sub>ér</sub>).<br><b>Kidolgozott példa:</b> 30 m, 2,5 mm²-es réz, egyfázisú kör, 10 A.<br>1. R = 2·30·0,0175/2,5 = 0,42 Ω<br>2. P<sub>v</sub> = 10²·0,42 = 42 W<br>3. Áramsűrűség-feladat: 32 A, J<sub>meg</sub> = 6 A/mm² → A<sub>min</sub> = 5,33 mm² → 6 mm².",
+   "bullets": [
+    "Kétszeres áram négyszeres veszteség (I²).",
+    "Az ellenállást csökkenti: nagyobb A, rövidebb l, réz az alumínium helyett, hidegebb vezető. Az áram nagysága nem csökkenti."
+   ]
+  },
+  {
+   "h": "Mértékegységek, kerekítés",
+   "bullets": [
+    "ρ: Ω·mm²/m; γ = 1/ρ: m/(Ω·mm²); J: A/mm²; α: 1/K.",
+    "1 kΩ = 1000 Ω; 1 mA = 0,001 A; 1 kV = 1000 V.",
+    "Párhuzamos eredő ellenőrzése: kisebb a legkisebb ágnál – ha nagyobb jött ki, összeadtad őket.",
+    "A részeredményeket több tizedessel vidd tovább, csak a végén kerekíts a feladat által kért tizedesre."
+   ]
+  }
+ ],
+ "keyFacts": [
+  {
+   "k": "Réz fajlagos ellenállása",
+   "v": "ρ = 0,0175 Ω·mm²/m"
+  },
+  {
+   "k": "Réz vezetőképessége",
+   "v": "γ ≈ 57 (számításban 56) m/(Ω·mm²)"
+  },
+  {
+   "k": "Alumínium fajlagos ellenállása",
+   "v": "ρ ≈ 0,028–0,0286 Ω·mm²/m (γ ≈ 35)"
+  },
+  {
+   "k": "Réz hőfoktényezője",
+   "v": "α = 0,0039 1/K"
+  },
+  {
+   "k": "Vezeték ellenállása",
+   "v": "R = ρ·l/A = l/(γ·A)"
+  },
+  {
+   "k": "Egyfázisú hurok (L + N)",
+   "v": "2·l – a PE nem számít"
+  },
+  {
+   "k": "Kör keresztmetszet",
+   "v": "A = d²·π/4"
+  },
+  {
+   "k": "Al helyett Cu azonos R-re",
+   "v": "Al ≈ 1,6-szoros keresztmetszet (egy lépcső)"
+  },
+  {
+   "k": "Szabványos keresztmetszetek",
+   "v": "1,5 – 2,5 – 4 – 6 – 10 – 16 – 25 – 35 – 50 – 70 – 95 mm²"
+  },
+  {
+   "k": "Fémek hőfoktényezője",
+   "v": "pozitív: melegen nő az ellenállás"
+  }
+ ],
+ "formulas": [
+  {
+   "f": "U = I·R",
+   "note": "Ohm-törvény; I = U/R, R = U/I"
+  },
+  {
+   "f": "R<sub>e</sub> = R1 + R2 + …",
+   "note": "soros"
+  },
+  {
+   "f": "1/R<sub>e</sub> = 1/R1 + 1/R2 + …",
+   "note": "párhuzamos; két ágnál R1·R2/(R1+R2)"
+  },
+  {
+   "f": "U2 = U·R2/(R1+R2)",
+   "note": "terheletlen feszültségosztó"
+  },
+  {
+   "f": "R = ρ·l/A",
+   "note": "egy vezető; egyfázisú hurokra R = 2·ρ·l/A"
+  },
+  {
+   "f": "R<sub>t</sub> = R<sub>20</sub>·(1 + α·(t − 20))",
+   "note": "hőmérsékletfüggés"
+  },
+  {
+   "f": "J = I/A",
+   "note": "áramsűrűség, A/mm²"
+  },
+  {
+   "f": "P<sub>v</sub> = I²·R",
+   "note": "vezetékveszteség"
+  }
+ ],
+ "mistakes": [
+  "A 2-es szorzó rossz kezelése: egyfázisú áramkör (oda-vissza) ellenállásánál kell 2·l, egyetlen ér (pl. dobon mért ér) ellenállásánál nem.",
+  "A PE eret is beleszámolni (3·l): üzemszerűen nem folyik rajta áram.",
+  "Párhuzamos ellenállásokat egyszerűen összeadni – a párhuzamos eredő mindig kisebb a legkisebb ágnál.",
+  "Kör keresztmetszetnél d²·π-vel számolni a /4 nélkül, vagy r helyett d-t írni r²·π-be.",
+  "A hőmérsékletes feladatban Δt-t megadni végeredményként – a 20 °C-ot még hozzá kell adni.",
+  "Hosszra rendezésnél l = R·ρ/A-t írni; helyesen l = R·A/ρ.",
+  "A számított keresztmetszetet lefelé kerekíteni vagy nem szabványos értéket (pl. 15,75 vagy 8 mm²) megadni.",
+  "Tizedesvessző-hiba a mm² és m kezelésénél (tízszeres eredmény) – becsüld meg a nagyságrendet."
+ ],
+ "hooks": [
+  "Áramkör = oda + vissza = 2·l; egy ér = 1·l.",
+  "Párhuzamosan mindig kisebb, mint a legkisebb.",
+  "ρ a számlálóban, γ a nevezőben – a kettő egymás reciproka.",
+  "Alumíniumból egy lépcsővel vastagabb kell."
+ ],
+ "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 480 170\" width=\"480\" font-family=\"sans-serif\" font-size=\"13\" stroke=\"black\" fill=\"none\" stroke-width=\"2\"><text x=\"10\" y=\"20\" fill=\"black\" stroke=\"none\">Egyfázisú áramkör: az áram két vezetőn halad (2·l)</text><circle cx=\"30\" cy=\"55\" r=\"4\"/><text x=\"18\" y=\"60\" fill=\"black\" stroke=\"none\" text-anchor=\"end\">L</text><line x1=\"34\" y1=\"55\" x2=\"380\" y2=\"55\"/><circle cx=\"30\" cy=\"115\" r=\"4\"/><text x=\"18\" y=\"120\" fill=\"black\" stroke=\"none\" text-anchor=\"end\">N</text><line x1=\"34\" y1=\"115\" x2=\"380\" y2=\"115\"/><rect x=\"380\" y=\"45\" width=\"70\" height=\"80\"/><text x=\"415\" y=\"90\" fill=\"black\" stroke=\"none\" text-anchor=\"middle\">fogyasztó</text><polyline points=\"190,47 205,55 190,63\"/><polyline points=\"220,107 205,115 220,123\"/><text x=\"200\" y=\"42\" fill=\"black\" stroke=\"none\" text-anchor=\"middle\">I oda, l</text><text x=\"200\" y=\"143\" fill=\"black\" stroke=\"none\" text-anchor=\"middle\">I vissza, l</text><text x=\"10\" y=\"163\" fill=\"black\" stroke=\"none\">R<tspan font-size=\"10\" dy=\"3\">hurok</tspan><tspan dy=\"-3\"> = 2·ρ·l/A   (a PE ér nem vesz részt)</tspan></text></svg>",
+ "sources": [
+  "kkk/fva_megoldo.txt (IKK ágazati alapvizsga feladatgyűjtemény)",
+  "Délvil_tch/Elektrotech_osszefoglalo.pdf",
+  "10_4/nszfi Elektrotechnikai alapismeretek",
+  "Délvil_tch/Vezetekjellemzok.pdf"
+ ]
+}

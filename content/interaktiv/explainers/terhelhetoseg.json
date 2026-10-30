@@ -1,0 +1,155 @@
+{
+ "topic": "terhelhetoseg",
+ "title": "Terhelhetőség, korrekciós tényezők, keresztmetszet-választás",
+ "summary": "A vezeték keresztmetszetét melegedésre (terhelhetőség) és feszültségesésre is méretezni kell, és a kettő közül a nagyobb dönt. A vizsga a táblázati terhelhetőség korrigálását (k<sub>1</sub> hőmérséklet, k<sub>2</sub> csoportosítás), az I<sub>B</sub> ≤ I<sub>n</sub> ≤ I<sub>z</sub> és I<sub>2</sub> ≤ 1,45·I<sub>z</sub> feltételt, a szerelési módokat és a szabványos keresztmetszetsorra való felkerekítést kérdezi. A táblázati értékeket és a tényezőket a feladat mindig megadja – a módszert kell tudni.",
+ "sections": [
+  {
+   "h": "A három áram: I<sub>B</sub> ≤ I<sub>n</sub> ≤ I<sub>z</sub>",
+   "body": "I<sub>B</sub> az áramkör üzemi (méretezési) árama, I<sub>n</sub> a túláramvédelem névleges árama, I<sub>z</sub> a vezeték megengedett tartós árama a szerelési mód és a korrekciók figyelembevételével. A védelem a kettő közé esik. Második feltétel: I<sub>2</sub> ≤ 1,45·I<sub>z</sub>, ahol I<sub>2</sub> a védelem egyezményes (biztos) működési árama (MSZ HD 60364-4-43, régen MSZ 2364-430). Kismegszakítónál I<sub>2</sub> = 1,45·I<sub>n</sub>, így ha I<sub>n</sub> ≤ I<sub>z</sub>, ez automatikusan teljesül. gG olvadóbiztosítónál I<sub>2</sub> = 1,6·I<sub>n</sub>, ezért I<sub>z</sub> ≥ 1,6·I<sub>n</sub>/1,45 ≈ 1,1·I<sub>n</sub> kell.<br><b>Kidolgozott példa:</b> I<sub>B</sub> = 14 A, I<sub>z</sub> = 19,5 A. A sorból (6, 10, 13, 16, 20, 25 A…) csak a 16 A fér bele: 13 A &lt; I<sub>B</sub>, 20 A &gt; I<sub>z</sub>. Ellenőrzés: I<sub>2</sub> = 1,45·16 = 23,2 A ≤ 1,45·19,5 = 28,3 A.<br>25 A-es gG biztosítónál: I<sub>2</sub> = 40 A → I<sub>z</sub> ≥ 40/1,45 = 27,59 A.",
+   "bullets": [
+    "Az I<sub>n</sub> ≤ I<sub>z</sub> akkor is kötelező, ha az üzemi áram kicsi – a túlterhelést a felhasználó okozhatja.",
+    "A vezetéket a védelem névleges áramára (I<sub>n</sub>) méretezzük, nem az üzemi áramra.",
+    "Szabványos névleges áramok: 6 – 10 – 13 – 16 – 20 – 25 – 32 – 40 – 50 – 63 A."
+   ]
+  },
+  {
+   "h": "Szerelési módok és terhelt erek",
+   "body": "A táblázati terhelhetőség (MSZ HD 60364-5-52) a hűtési körülménytől függ. A betű a környezet: <b>A</b> hőszigetelt falban (legrosszabb hűtés), <b>B</b> védőcsőben/csatornában fal mentén, <b>C</b> közvetlenül a falon (cső nélkül), <b>D</b> földben, <b>E/F/G</b> szabad levegőben (legjobb). Az index: 1 = köpeny nélküli vezeték (pl. H07V-U), 2 = többerű kábel/köpenyes vezeték. Tehát A1 &lt; B1 &lt; C &lt; E. Terhelt ér: egyfázisú körben 2 (L, N), szimmetrikus háromfázisúban 3 (a nulla és a PE nem számít, a nulla csak jelentős felharmonikus esetén). Három terhelt érre kisebb a táblázati érték.",
+   "bullets": [
+    "B1, 2 terhelt ér, PVC, Cu, 30 °C: 1,5: 17,5 A · 2,5: 24 A · 4: 32 A · 6: 41 A · 10: 57 A · 16: 76 A.",
+    "B1, 3 terhelt ér: 1,5: 15,5 A · 2,5: 21 A · 4: 28 A · 6: 36 A · 10: 50 A · 16: 68 A.",
+    "C, 3 terhelt ér: 1,5: 17,5 A · 2,5: 24 A · 4: 32 A · 6: 41 A · 10: 57 A.",
+    "A1, 3 terhelt ér: 1,5: 13,5 A · 2,5: 18 A · 4: 24 A · 6: 31 A · 10: 42 A · 16: 56 A · 25: 73 A.",
+    "Megengedett vezetőhőmérséklet: PVC 70 °C, XLPE/EPR 90 °C."
+   ]
+  },
+  {
+   "h": "Korrekciós tényezők: k<sub>1</sub> és k<sub>2</sub>",
+   "body": "A táblázat 30 °C-os levegőre és egyedül fektetett áramkörre szól. <b>I<sub>z</sub> = I<sub>t</sub>·k<sub>1</sub>·k<sub>2</sub></b> – a tényezők szorzódnak, és 30 °C felett, illetve több áramkörnél 1-nél kisebbek. Visszafelé, amikor keresztmetszetet keresel: <b>I<sub>t</sub> ≥ I<sub>n</sub>/(k<sub>1</sub>·k<sub>2</sub>)</b> – itt osztani kell. Ezen kívül csökkentő tényező kell földben a talaj hőellenállására és a nullát terhelő felharmonikusokra; a hossz, a feszültségesés és a cosφ nem terhelhetőségi tényező.<br><b>Kidolgozott példa:</b> 6 egyfázisú kör egy gégecsőben (k<sub>2</sub> = 0,57), 2,5 mm², I<sub>t</sub> = 24 A, 30 °C → I<sub>z</sub> = 24·0,57 = 13,68 A – 16 A-es kismegszakítóhoz kevés.",
+   "bullets": [
+    "k<sub>1</sub> (PVC): 25 °C: 1,06 · 30 °C: 1,00 · 35 °C: 0,94 · 40 °C: 0,87 · 45 °C: 0,79 · 50 °C: 0,71.",
+    "k<sub>2</sub> (kötegelve / csőben): 1 kör: 1,00 · 2: 0,80 · 3: 0,70 · 4: 0,65 · 5: 0,60 · 6: 0,57.",
+    "Példák: 24·0,87 = 20,88 A; 21·0,94·0,70 = 13,82 A; 32·0,79·0,80 = 20,22 A → max. 20 A-es védelem."
+   ]
+  },
+  {
+   "h": "Keresztmetszet-választás lépésről lépésre",
+   "body": "1) I<sub>B</sub> a terhelésből (motor: P<sub>n</sub>/(η·√3·U·cosφ)) → 2) I<sub>n</sub> ≥ I<sub>B</sub> a szabványos sorból → 3) szerelési mód, terhelt erek, k<sub>1</sub>, k<sub>2</sub> → 4) I<sub>t</sub> ≥ I<sub>n</sub>/(k<sub>1</sub>·k<sub>2</sub>), a táblázat első ennél nem kisebb értéke adja a keresztmetszetet → 5) feszültségesés ellenőrzése (I<sub>B</sub>-vel); ha nem felel meg, nagyobb keresztmetszet → 6) a kettő közül a <b>nagyobb</b> → 7) végül az önműködő lekapcsolás (hibavédelem) ellenőrzése.<br><b>Kidolgozott példa:</b> 3f ohmos terhelés, I<sub>B</sub> = 24 A, 25 A-es kismegszakító, B1, 3 terhelt ér, 40 °C (k<sub>1</sub> = 0,87), 2 kör egy csőben (k<sub>2</sub> = 0,80), l = 100 m, ε<sub>meg</sub> = 3 %, réz, γ = 56.<br>1. I<sub>t</sub> ≥ 25/(0,87·0,80) = 25/0,696 = 35,92 A → 6 mm² (36 A); ellenőrzés: 36·0,696 = 25,06 A ≥ 25 A<br>2. Feszültségesés: ΔU<sub>meg</sub> = 3 %·400 = 12 V; A ≥ 1,732·24·100/(56·12) = 6,19 mm² → 10 mm²<br>3. Döntés: max(6; 10) = <b>10 mm²</b>; ellenőrzés: ε = 1,86 % (6 mm²-en 3,09 % lett volna).",
+   "bullets": [
+    "Hosszú csatlakozó- és fővezetéknél sokszor a feszültségesés a döntő (pl. 1×32 A, 15 m, 1 %: terhelhetőségre 4 mm², esésre 7,45 → 10 mm²)."
+   ]
+  },
+  {
+   "h": "Felkerekítés a szabványos sorra",
+   "body": "Szabványos rézvezető-keresztmetszetek (MSZ EN 60228): 0,5 – 0,75 – 1 – 1,5 – 2,5 – 4 – 6 – 10 – 16 – 25 – 35 – 50 – 70 – 95 – 120 mm². Mindig a számított értéknél <b>nagyobb vagy egyenlő legkisebb</b> elemet választjuk – még akkor is, ha a számított érték csak hajszállal nagyobb (21,35 A-hez a 21 A-es 2,5 mm² nem jó, 4 mm² kell). Nem létezik 3, 8, 12, 20 mm².",
+   "bullets": [
+    "7,45 mm² → 10 mm²; 4,33 mm² → 6 mm²; 15,75 mm² → 16 mm².",
+    "Táblázatból a legkisebb megfelelőt kell megadni: a nagyobb is jó lenne, de a kérdés a legkisebbet kéri."
+   ]
+  }
+ ],
+ "keyFacts": [
+  {
+   "k": "Túlterhelés elleni védelem 1. feltétel",
+   "v": "I<sub>B</sub> ≤ I<sub>n</sub> ≤ I<sub>z</sub>"
+  },
+  {
+   "k": "Túlterhelés elleni védelem 2. feltétel",
+   "v": "I<sub>2</sub> ≤ 1,45·I<sub>z</sub>"
+  },
+  {
+   "k": "Kismegszakító egyezményes kioldóárama",
+   "v": "I<sub>2</sub> = 1,45·I<sub>n</sub>"
+  },
+  {
+   "k": "gG olvadóbiztosító egyezményes kiolvadási árama",
+   "v": "I<sub>2</sub> = 1,6·I<sub>n</sub> → I<sub>z</sub> ≥ ≈1,1·I<sub>n</sub>"
+  },
+  {
+   "k": "Korrigált terhelhetőség",
+   "v": "I<sub>z</sub> = I<sub>t</sub>·k<sub>1</sub>·k<sub>2</sub>"
+  },
+  {
+   "k": "Szükséges táblázati érték",
+   "v": "I<sub>t</sub> ≥ I<sub>n</sub>/(k<sub>1</sub>·k<sub>2</sub>)"
+  },
+  {
+   "k": "k<sub>1</sub> PVC, 35 / 40 / 45 °C",
+   "v": "0,94 / 0,87 / 0,79"
+  },
+  {
+   "k": "k<sub>2</sub>, 2 / 3 / 6 áramkör egy csőben",
+   "v": "0,80 / 0,70 / 0,57"
+  },
+  {
+   "k": "Terhelt erek",
+   "v": "1f: 2 · szimmetrikus 3f: 3 · PE soha"
+  },
+  {
+   "k": "Szerelési módok hűtés szerint",
+   "v": "A1 (hőszigetelt fal) &lt; B1 (csőben falon) &lt; C (falon) &lt; E (levegőben)"
+  },
+  {
+   "k": "Megengedett vezetőhőmérséklet",
+   "v": "PVC 70 °C · XLPE 90 °C"
+  },
+  {
+   "k": "Kismegszakító névleges áramai",
+   "v": "6 – 10 – 13 – 16 – 20 – 25 – 32 – 40 – 50 – 63 A"
+  },
+  {
+   "k": "Szabványos keresztmetszetek",
+   "v": "1,5 – 2,5 – 4 – 6 – 10 – 16 – 25 – 35 – 50 – 70 – 95 mm²"
+  },
+  {
+   "k": "Méretezési döntés",
+   "v": "terhelhetőség és feszültségesés közül a nagyobb keresztmetszet"
+  }
+ ],
+ "formulas": [
+  {
+   "f": "I<sub>z</sub> = I<sub>t</sub>·k<sub>1</sub>·k<sub>2</sub>",
+   "note": "kész vezeték megengedett árama"
+  },
+  {
+   "f": "I<sub>t</sub> ≥ I<sub>n</sub>/(k<sub>1</sub>·k<sub>2</sub>)",
+   "note": "keresztmetszet kereséséhez a táblázatban"
+  },
+  {
+   "f": "I<sub>B</sub> ≤ I<sub>n</sub> ≤ I<sub>z</sub>",
+   "note": "védelem kiválasztása"
+  },
+  {
+   "f": "I<sub>2</sub> ≤ 1,45·I<sub>z</sub>",
+   "note": "gG-nél I<sub>z</sub> ≥ 1,6·I<sub>n</sub>/1,45"
+  },
+  {
+   "f": "I<sub>B</sub> = P<sub>n</sub>/(η·√3·U·cosφ)",
+   "note": "háromfázisú motor üzemi árama"
+  }
+ ],
+ "mistakes": [
+  "A korrekciós tényezővel osztani, amikor I<sub>z</sub>-t számolod (melegben nőne a terhelhetőség) – vagy szorozni, amikor a szükséges táblázati értéket keresed.",
+  "Elfelejteni a korrekciót, és a 30 °C-os, egyedül fektetett táblázati értéket használni.",
+  "Rossz k<sub>2</sub>-t olvasni le (pl. 3 kör tényezőjét 6 körre), vagy a tényezőt még az erek számával is osztani.",
+  "Olyan védelmet választani, amely nagyobb I<sub>z</sub>-nél (pl. 20 A 19,5 A-es vezetékre), vagy kisebb I<sub>B</sub>-nél (üzemszerűen leold).",
+  "A vezetéket az üzemi áramra méretezni a védelem névleges árama helyett.",
+  "Csak a terhelhetőséget nézni: hosszú vezetéknél a feszültségesés nagyobb keresztmetszetet követel, és a nagyobb dönt.",
+  "Lefelé vagy nem szabványos értékre (8, 12 mm²) kerekíteni, illetve a táblázati határt „majdnem elég” alapon elfogadni.",
+  "A PE-t terhelt érnek számolni, vagy 3 terhelt eres áramkörhöz a 2 eres oszlopot használni."
+ ],
+ "hooks": [
+  "Terhelés ≤ védelem ≤ vezeték.",
+  "Kész vezetéknél szorzok, keresésnél osztok.",
+  "Meleg és zsúfolt cső = kisebb terhelhetőség.",
+  "Két méretezés, a nagyobb nyer, és mindig felfelé kerekítek."
+ ],
+ "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 600 170\" width=\"600\" font-family=\"sans-serif\" font-size=\"13\" stroke=\"black\" fill=\"none\" stroke-width=\"2\"><text x=\"10\" y=\"20\" fill=\"black\" stroke=\"none\" font-weight=\"bold\">Az áramok sorrendje egy helyes áramkörben (példa: 16 A-es kismegszakító)</text><line x1=\"30\" y1=\"90\" x2=\"570\" y2=\"90\"/><polyline points=\"560,84 570,90 560,96\"/><text x=\"575\" y=\"110\" fill=\"black\" stroke=\"none\" text-anchor=\"end\">I [A]</text><line x1=\"130\" y1=\"80\" x2=\"130\" y2=\"100\"/><text x=\"130\" y=\"70\" fill=\"black\" stroke=\"none\" text-anchor=\"middle\">I<tspan font-size=\"10\" dy=\"3\">B</tspan></text><text x=\"130\" y=\"120\" fill=\"black\" stroke=\"none\" text-anchor=\"middle\">14 A</text><text x=\"130\" y=\"138\" fill=\"black\" stroke=\"none\" text-anchor=\"middle\" font-size=\"11\">üzemi áram</text><line x1=\"250\" y1=\"80\" x2=\"250\" y2=\"100\"/><text x=\"250\" y=\"70\" fill=\"black\" stroke=\"none\" text-anchor=\"middle\">I<tspan font-size=\"10\" dy=\"3\">n</tspan></text><text x=\"250\" y=\"120\" fill=\"black\" stroke=\"none\" text-anchor=\"middle\">16 A</text><text x=\"250\" y=\"138\" fill=\"black\" stroke=\"none\" text-anchor=\"middle\" font-size=\"11\">védelem</text><line x1=\"360\" y1=\"80\" x2=\"360\" y2=\"100\"/><text x=\"360\" y=\"70\" fill=\"black\" stroke=\"none\" text-anchor=\"middle\">I<tspan font-size=\"10\" dy=\"3\">z</tspan></text><text x=\"360\" y=\"120\" fill=\"black\" stroke=\"none\" text-anchor=\"middle\">19,5 A</text><text x=\"360\" y=\"138\" fill=\"black\" stroke=\"none\" text-anchor=\"middle\" font-size=\"11\">vezeték (k1·k2-vel)</text><line x1=\"480\" y1=\"80\" x2=\"480\" y2=\"100\"/><text x=\"480\" y=\"70\" fill=\"black\" stroke=\"none\" text-anchor=\"middle\">1,45·I<tspan font-size=\"10\" dy=\"3\">z</tspan></text><text x=\"480\" y=\"120\" fill=\"black\" stroke=\"none\" text-anchor=\"middle\">28,3 A</text><text x=\"480\" y=\"138\" fill=\"black\" stroke=\"none\" text-anchor=\"middle\" font-size=\"11\">≥ I<tspan font-size=\"9\" dy=\"3\">2</tspan><tspan dy=\"-3\"> = 23,2 A</tspan></text><text x=\"300\" y=\"162\" fill=\"black\" stroke=\"none\" text-anchor=\"middle\">I<tspan font-size=\"10\" dy=\"3\">B</tspan><tspan dy=\"-3\"> ≤ I</tspan><tspan font-size=\"10\" dy=\"3\">n</tspan><tspan dy=\"-3\"> ≤ I</tspan><tspan font-size=\"10\" dy=\"3\">z</tspan><tspan dy=\"-3\">   és   I</tspan><tspan font-size=\"10\" dy=\"3\">2</tspan><tspan dy=\"-3\"> ≤ 1,45·I</tspan><tspan font-size=\"10\" dy=\"3\">z</tspan></text></svg>",
+ "sources": [
+  "MSZ HD 60364-5-52 (terhelhetőségi táblázatok, régen MSZ 2364-523)",
+  "MSZ HD 60364-4-43 (régen MSZ 2364-430)",
+  "Szabványok/Msz2364/msz-2364-430.pdf, msz-2364-523.pdf",
+  "Délvil_tch/mee-vet-2019-meret.pdf",
+  "ocr/VeI-Vezetékméretezés1.txt"
+ ]
+}

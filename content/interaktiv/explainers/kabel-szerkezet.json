@@ -1,0 +1,138 @@
+{
+  "topic": "kabel-szerkezet",
+  "title": "Kábel- és vezetékszerkezetek, típusjelek",
+  "summary": "A vizsga azt kéri, hogy a típusjelből (NYM-J, NYY-J, NAYY, NYCWY, H07V-U, H05VV-F, H07RN-F, NHXH E90) felismerd a vezető anyagát, a szigetelést, a feszültségszintet és azt, hová szabad szerelni. Másik visszatérő feladat a kábel rétegeinek sorrendje és szerepe (érszigetelés, belső köpeny, koncentrikus vezető, páncél, külső köpeny).",
+  "sections": [
+    {
+      "h": "A kábel rétegei belülről kifelé",
+      "body": "Minden erősáramú kábel ugyanazt a logikát követi: legbelül a <b>vezető</b> (áramvezetés kis ellenállással), körülötte az <b>érszigetelés</b> (erek egymástól és a környezettől való elválasztása), majd a <b>töltőanyag / belső köpeny (övszigetelés)</b>, amely kör keresztmetszetűre fogja össze az ereket és alapot ad a további rétegeknek. Ezután jöhet <b>árnyékolás vagy koncentrikus vezető</b>, <b>páncélzat</b>, és mindig legkívül a <b>külső köpeny</b> (nedvesség, korrózió, környezeti hatás ellen).",
+      "bullets": [
+        "Páncél (acélszalag / acélhuzal): mechanikai védelem ütés, nyomás ellen; acélhuzal húzóerőt is felvesz. Nem áramvezető, nem érintésvédelmi elem; a kábelvégeken földelni szokás.",
+        "Koncentrikus vezető (NYCWY): csupasz rézhuzalok rézszalaggal összefogva, áramot vezet, PE/PEN feladatú; keresztmetszete a „/” után áll: 4×95/50.",
+        "Árnyékolás: a villamos és elektromágneses tér kordában tartása (pl. YSLCY rézszövete)."
+      ]
+    },
+    {
+      "h": "VDE (német) típusjelek: NYM, NYY, NAYY, NYCWY",
+      "body": "<b>N</b> = VDE-szabványos típus, <b>Y</b> = PVC, <b>A</b> = alumínium vezető (ha nincs A, réz), <b>M</b> = köpenyes szerelési vezeték, <b>C</b> = koncentrikus rézvezető, <b>W</b> = annak hullámos (meanderes) fektetése, <b>H</b> = halogénmentes, <b>X</b> = térhálósított szigetelés. A végződés: <b>-J</b> = van zöld-sárga ér, <b>-O</b> = nincs.",
+      "bullets": [
+        "NYM-J (régen MBCu): 300/500 V-os PVC kiskábel, max. 70 °C, beltéri rögzített szerelésre száraz és nedves helyen; 6 mm²-ig tömör, 10 mm²-től sodrott ér. Földbe, vízbe, közvetlenül betonba NEM.",
+        "NYY-J: 0,6/1 kV-os PVC szigetelésű és köpenyű rézkábel; földbe, vízbe, szabadba is fektethető, ha mechanikai sérülésnek nincs kitéve.",
+        "NAYY-J: ugyanez alumínium vezetővel (bekötéskor oxidréteg eltávolítása + kontaktpaszta).",
+        "CYKY (cseh jel): C = réz, Y = PVC szigetelés, K = kábel, Y = PVC köpeny – az NYY megfelelője; alumíniumos párja AYKY.",
+        "Vezetőalak nagy keresztmetszetnél: R = kör, S = szektor; E = egyhuzalos (tömör), M = többhuzalos (sodrott). Pl. NYY-J 4×95 SM = szektor alakú, sodrott erek.",
+        "YSLY-JZ / -OZ: hajlékony PVC vezérlőkábel; JZ = egy zöld-sárga, a többi fekete számozott ér; OZ = mind fekete számozott; árnyékolt változat YSLCY."
+      ]
+    },
+    {
+      "h": "Harmonizált (HD 361) típusjel: H07RN-F, H05VV-F, H07V-U",
+      "body": "Felépítés: <b>H</b> (harmonizált; A = elfogadott nemzeti típus) + <b>feszültségkód</b> (03 = 300/300 V, 05 = 300/500 V, 07 = 450/750 V) + <b>szigetelés és köpeny anyaga</b> (V = PVC, R = gumi, S = szilikongumi, X = térhálósított PE, N = polikloroprén) + kötőjel + <b>vezetőszerkezet</b> (-U tömör, -R sodrott merev, -K hajlékony rögzített szereléshez, -F hajlékony zsinórhoz). Az érszám után <b>G</b> = van zöld-sárga ér (3G1,5), <b>X</b> = nincs (3X1,5).",
+      "bullets": [
+        "Az R betű jelentése a helyétől függ: kötőjel ELŐTT gumi (H07<b>R</b>N-F), UTÁNA sodrott vezető (H07V-<b>R</b>).",
+        "H07V-U (régen MCu): köpeny nélküli, egyerű, tömör vezeték, 450/750 V – csak védőcsőben, csatornában, készülékben; vakolatba közvetlenül nem.",
+        "H07V-K (régen MKH): egyerű, finomhuzalos hajlékony vezeték, pl. elosztók huzalozására; csavaros kapocsba érvéghüvellyel.",
+        "H05VV-F (régen MT): 300/500 V PVC tömlővezeték háztartási gépekhez; szabadban, ipari üzemben nem.",
+        "H03VV-F: könnyű, 300/300 V-os tömlő (pl. asztali lámpa).",
+        "H07RN-F (régen GT): gumi szigetelés + polikloroprén köpeny, kültéri, építési területi, erősen igénybe vett hosszabbítóhoz."
+      ]
+    },
+    {
+      "h": "Halogénmentes és tűzálló (funkciómegtartó) kábelek",
+      "body": "A PVC égésekor sósavat (HCl) képző gáz és sűrű fekete füst keletkezik. A <b>halogénmentes</b> kábel (H betű a típusjelben, pl. NHXMH, NHXH; LSZH/HF) ezt elkerüli, ezért menekülési utakon, sok embert befogadó épületekben előnyös. A halogénmentesség önmagában még NEM tűzállóság.",
+      "bullets": [
+        "FE180: a kábel szigetelésének épsége 180 percig tűzben.",
+        "E30 / E90: a teljes kábelrendszer (kábel + bevizsgált bilincs, tálca) 30 / 90 perces funkciómegtartása – csak a bevizsgált rögzítéssel együtt érvényes.",
+        "Funkciómegtartó kábel kell (OTSZ): biztonsági világítás, tűzjelző, hő- és füstelvezetés, tűzoltó felvonó, oltószivattyú. Általános dugaljas és világítási körhöz nem."
+      ]
+    },
+    {
+      "h": "Melyiket hová? (kiválasztási logika)",
+      "bullets": [
+        "Földbe, szabadba: NYY-J, NAYY-J, NYCWY, CYKY-J.",
+        "Beltéri rögzített: NYM-J; védőcsőben/csatornában H07V-U, H07V-K.",
+        "Vakolatba közvetlenül: lapos falba helyezhető vezeték (YMSteg, NYIF, régen MMFal), kb. 6 mm²-ig; utólag nem cserélhető.",
+        "Mozgatható készülék: H03VV-F (könnyű) → H05VV-F (háztartási) → H07RN-F (kültéri, építkezés).",
+        "Védővezetős áramkörhöz (dugalj, I. osztályú lámpa) mindig -J vagy „G” jelű vezeték kell."
+      ]
+    }
+  ],
+  "keyFacts": [
+    {
+      "k": "-J / -O végződés",
+      "v": "-J: van zöld-sárga ér; -O: nincs"
+    },
+    {
+      "k": "G / X az érszám után",
+      "v": "3G1,5: van zöld-sárga; 3X1,5: nincs"
+    },
+    {
+      "k": "Feszültségkód 03 / 05 / 07",
+      "v": "300/300 V / 300/500 V / 450/750 V"
+    },
+    {
+      "k": "NYM-J névleges feszültsége",
+      "v": "300/500 V, max. 70 °C"
+    },
+    {
+      "k": "NYY, NAYY, NYCWY, CYKY",
+      "v": "0,6/1 kV, földbe is fektethető"
+    },
+    {
+      "k": "A betű (NAYY)",
+      "v": "alumínium vezető"
+    },
+    {
+      "k": "C és W (NYCWY)",
+      "v": "koncentrikus rézvezető, hullámos fektetéssel"
+    },
+    {
+      "k": "NYCWY 4×95/50",
+      "v": "4 ér 95 mm², koncentrikus vezető 50 mm²"
+    },
+    {
+      "k": "SM / RE",
+      "v": "szektor sodrott / kör tömör vezető"
+    },
+    {
+      "k": "-U / -R / -K / -F",
+      "v": "tömör / sodrott / hajlékony rögzítettbe / hajlékony zsinórba"
+    },
+    {
+      "k": "Régi hazai nevek",
+      "v": "MCu = H07V-U, MKH = H07V-K, MBCu = NYM-J, MT = H05VV-F, GT = H07RN-F, MMFal = falba helyezhető"
+    },
+    {
+      "k": "FE180 / E90",
+      "v": "szigetelés épsége 180 perc / rendszer funkciómegtartása 90 perc"
+    },
+    {
+      "k": "H betű VDE-jelben (NHXH)",
+      "v": "halogénmentes"
+    }
+  ],
+  "mistakes": [
+    "NYM-J-t földbe fektetni „mert két PVC rétege van” – az NYM beltéri kiskábel, földbe NYY vagy NYCWY kell.",
+    "Az R betűt mindig gumiként olvasni: H07V-R-ben a kötőjel utáni R sodrott vezetőt jelent.",
+    "A koncentrikus vezetőt páncélnak hinni – áramot vezet (PE/PEN), ezért van keresztmetszete; a páncél acélszalag/acélhuzal.",
+    "Azt hinni, hogy a halogénmentes kábel tűzálló is – tűzállóságot csak az FE180 / E30 / E90 jelölés garantál.",
+    "Az E90-et hőmérsékletnek (90 °C) olvasni – percben megadott működési idő tűzben.",
+    "H07V-U-t vakolatba ágyazni – köpeny nélküli, csak védőcsőben, csatornában szerelhető.",
+    "NYM-et vagy H05VV-F-et építkezési hosszabbítónak választani – oda H07RN-F gumitömlő kell.",
+    "Dugaljas körhöz -O jelű kábelt rendelni – nincs benne zöld-sárga ér, nem lehet védővezető."
+  ],
+  "hooks": [
+    "J = „jó, van benne védőér”; O = „0 védőér”.",
+    "Kötőjel előtt ANYAG, kötőjel után SZERKEZET.",
+    "NAYY: az „A” az alumínium; ha nincs A, réz.",
+    "Koncentrikus vezető: ha ásó éri, előbb a földelt réteget vágja → zárlat, lekapcsolás, nincs feszültség az ásón.",
+    "Külső köpeny mindig a legkülső réteg – a sorrend többi része „ér, szigetelés, töltés, fém, köpeny”."
+  ],
+  "svg": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 300'><circle cx='150' cy='150' r='78' stroke='black' stroke-width='1.5' fill='none'/><circle cx='150' cy='150' r='67' stroke='black' stroke-width='1.5' fill='none'/><circle cx='150' cy='150' r='56' stroke='black' stroke-width='1.5' fill='none'/><circle cx='211.5' cy='150.0' r='3.5' stroke='black' stroke-width='1.5' fill='none'/><circle cx='209.7' cy='164.7' r='3.5' stroke='black' stroke-width='1.5' fill='none'/><circle cx='204.5' cy='178.6' r='3.5' stroke='black' stroke-width='1.5' fill='none'/><circle cx='196.0' cy='190.8' r='3.5' stroke='black' stroke-width='1.5' fill='none'/><circle cx='184.9' cy='200.6' r='3.5' stroke='black' stroke-width='1.5' fill='none'/><circle cx='171.8' cy='207.5' r='3.5' stroke='black' stroke-width='1.5' fill='none'/><circle cx='157.4' cy='211.1' r='3.5' stroke='black' stroke-width='1.5' fill='none'/><circle cx='142.6' cy='211.1' r='3.5' stroke='black' stroke-width='1.5' fill='none'/><circle cx='128.2' cy='207.5' r='3.5' stroke='black' stroke-width='1.5' fill='none'/><circle cx='115.1' cy='200.6' r='3.5' stroke='black' stroke-width='1.5' fill='none'/><circle cx='104.0' cy='190.8' r='3.5' stroke='black' stroke-width='1.5' fill='none'/><circle cx='95.5' cy='178.6' r='3.5' stroke='black' stroke-width='1.5' fill='none'/><circle cx='90.3' cy='164.7' r='3.5' stroke='black' stroke-width='1.5' fill='none'/><circle cx='88.5' cy='150.0' r='3.5' stroke='black' stroke-width='1.5' fill='none'/><circle cx='90.3' cy='135.3' r='3.5' stroke='black' stroke-width='1.5' fill='none'/><circle cx='95.5' cy='121.4' r='3.5' stroke='black' stroke-width='1.5' fill='none'/><circle cx='104.0' cy='109.2' r='3.5' stroke='black' stroke-width='1.5' fill='none'/><circle cx='115.1' cy='99.4' r='3.5' stroke='black' stroke-width='1.5' fill='none'/><circle cx='128.2' cy='92.5' r='3.5' stroke='black' stroke-width='1.5' fill='none'/><circle cx='142.6' cy='88.9' r='3.5' stroke='black' stroke-width='1.5' fill='none'/><circle cx='157.4' cy='88.9' r='3.5' stroke='black' stroke-width='1.5' fill='none'/><circle cx='171.8' cy='92.5' r='3.5' stroke='black' stroke-width='1.5' fill='none'/><circle cx='184.9' cy='99.4' r='3.5' stroke='black' stroke-width='1.5' fill='none'/><circle cx='196.0' cy='109.2' r='3.5' stroke='black' stroke-width='1.5' fill='none'/><circle cx='204.5' cy='121.4' r='3.5' stroke='black' stroke-width='1.5' fill='none'/><circle cx='209.7' cy='135.3' r='3.5' stroke='black' stroke-width='1.5' fill='none'/><circle cx='150' cy='122' r='21' stroke='black' stroke-width='1.5' fill='none'/><circle cx='150' cy='122' r='11' stroke='black' stroke-width='1.5' fill='#bbb'/><circle cx='174.2' cy='164' r='21' stroke='black' stroke-width='1.5' fill='none'/><circle cx='174.2' cy='164' r='11' stroke='black' stroke-width='1.5' fill='#bbb'/><circle cx='125.8' cy='164' r='21' stroke='black' stroke-width='1.5' fill='none'/><circle cx='125.8' cy='164' r='11' stroke='black' stroke-width='1.5' fill='#bbb'/><circle cx='150' cy='122' r='2.5' fill='black'/><line x1='150' y1='122' x2='250' y2='40' stroke='black' stroke-width='1.5'/><line x1='250' y1='40' x2='262' y2='40' stroke='black' stroke-width='1.5'/><text x='266' y='44' font-family='sans-serif' font-size='13' fill='black'>1 rézvezető (ér)</text><circle cx='166' cy='110' r='2.5' fill='black'/><line x1='166' y1='110' x2='250' y2='75' stroke='black' stroke-width='1.5'/><line x1='250' y1='75' x2='262' y2='75' stroke='black' stroke-width='1.5'/><text x='266' y='79' font-family='sans-serif' font-size='13' fill='black'>2 érszigetelés (PVC)</text><circle cx='162' cy='194' r='2.5' fill='black'/><line x1='162' y1='194' x2='250' y2='110' stroke='black' stroke-width='1.5'/><line x1='250' y1='110' x2='262' y2='110' stroke='black' stroke-width='1.5'/><text x='266' y='114' font-family='sans-serif' font-size='13' fill='black'>3 belső köpeny / töltőanyag</text><circle cx='210' cy='165' r='2.5' fill='black'/><line x1='210' y1='165' x2='250' y2='150' stroke='black' stroke-width='1.5'/><line x1='250' y1='150' x2='262' y2='150' stroke='black' stroke-width='1.5'/><text x='266' y='154' font-family='sans-serif' font-size='13' fill='black'>4 koncentrikus rézhuzalok + rézszalag (PE/PEN)</text><circle cx='223' cy='178' r='2.5' fill='black'/><line x1='223' y1='178' x2='250' y2='190' stroke='black' stroke-width='1.5'/><line x1='250' y1='190' x2='262' y2='190' stroke='black' stroke-width='1.5'/><text x='266' y='194' font-family='sans-serif' font-size='13' fill='black'>5 külső PVC köpeny (fekete)</text><text x='266' y='240' font-family='sans-serif' font-size='12' fill='black'>Belülről kifelé: ér → érszigetelés → belső köpeny</text><text x='266' y='258' font-family='sans-serif' font-size='12' fill='black'>→ koncentrikus vezető → külső köpeny</text><text x='20' y='22' font-family='sans-serif' font-size='13' fill='black' font-weight='bold'>NYCWY 0,6/1 kV keresztmetszet</text></svg>",
+  "sources": [
+    "01__Kabel.pdf (Elektro Profi kábelkatalógus: NYM, NYY, NYCWY, H05VV-F, YSLY)",
+    "Vezetekjellemzok.pdf (HD 361 jelölési táblázat)",
+    "10_4/Vezetékek.pdf",
+    "OTSZ 54/2014 BM rendelet (funkciómegtartás)",
+    "szakmai_ism_9_villszerel_kidolgozott.pdf 14.1.2"
+  ]
+}

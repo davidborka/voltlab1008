@@ -11,4 +11,9 @@ describe('interaktív vizsga kérdésbank', () => {
     const out = execFileSync('node', [join(dir, 'validate.mjs'), ...files], { encoding: 'utf8' });
     expect(out).toMatch(/, 0 errors/);
   });
+
+  it('a tananyag-magyarázók érvényesek', () => {
+    const out = execFileSync('node', [join(__dirname, '../../content/interaktiv/validate-explainers.mjs'), '--no-write'], { encoding: 'utf8' });
+    expect(out).toMatch(/, 0 errors/);
+  });
 });

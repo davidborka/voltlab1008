@@ -1,0 +1,147 @@
+{
+  "topic": "merohely-elosztok",
+  "title": "Csatlakozó berendezés, mérőhely, lakáselosztó",
+  "summary": "Az MSZ 447:2019 fogalmai és szabályai: az energia útja a leágazási ponttól a lakáselosztóig, a méretlen és mért hálózatrész, a PEN szétválasztása és földelése, fővezeték-keresztmetszetek, feszültségesés, méretezési teljesítmény és egyidejűség, valamint a lakáselosztó felépítése (főkapcsoló, ÁVK, kismegszakítók, PE- és N-sín). A vizsga sorrendet, fogalompárosítást, számpéldát és rajzos azonosítást kér.",
+  "sections": [
+    {
+      "h": "Az energia útja és a fogalmak",
+      "body": "Sorrend: <b>leágazási pont</b> a közcélú hálózaton → <b>csatlakozóvezeték</b> (a hálózati engedélyes tulajdona) → <b>csatlakozási pont</b> (tulajdoni határ) → <b>első túláramvédelmi készülék</b> → (méretlen fővezetékek) → <b>fogyasztásmérő</b> → <b>mért fővezeték</b> → <b>felhasználói mért főelosztó</b> (lakáselosztó).",
+      "bullets": [
+        "Betápláló fővezeték: a csatlakozó főelosztót és a méretlen főelosztót köti össze.",
+        "Felszálló fővezeték: több felhasználót lát el, a méretlen főelosztótól a leágazó fővezetékekig.",
+        "Leágazó fővezeték: egyetlen felhasználási helyet lát el, a felszállótól a mérőhelyig.",
+        "Mért fővezeték: a mérőtől a felhasználói mért főelosztóig. (Egy hőtárolós vízmelegítőt közvetlenül tápláló vezeték nem mért fővezeték.)",
+        "A méretlen részek (betápláló, felszálló, leágazó fővezeték, első túláramvédelem bekötése, szintdoboz kötései) zárópecsételt térben vannak, hogy a mérés megkerülhetetlen legyen."
+      ]
+    },
+    {
+      "h": "PEN szétválasztás, földelés, zárópecsét",
+      "body": "A PEN szétválasztása elsősorban a <b>csatlakozó főelosztóban, a csatlakozási pontnál</b> történik; ha ez nem lehetséges, utána, pl. a méretlen főelosztóban. A PEN-t <b>először a PE-sínre</b> (fő földelősín) kötjük, onnan híd viszi a nullát az N-sínre – mert a védő funkció az elsődleges. Szétválasztás után N és PE sehol nem köthető újra össze, N nem földelhető. Ide csatlakozik a földelővezető és az EPH fővezeték is.",
+      "bullets": [
+        "Új létesítésnél, felújításnál a felszálló fővezeték ötvezetős TN-S, PEN nélkül.",
+        "ÁVK csak a mért hálózatban; TN-C (PEN-es) körben ÁVK nem alkalmazható.",
+        "Több mérő esetén mérőnként külön N és PE – közös nulla tilos.",
+        "NEM kerülhet zárópecsét alá: ÁVK, kismegszakítók, PE-toldások, földelővezető bontható kötése, védőösszekötő sínek – hogy pecsétbontás nélkül mérhetők, kezelhetők legyenek.",
+        "Földelővezető bontható kötése: a pecsételt téren kívül, IP44-es, legalább 100×100 mm-es vizsgáló dobozban; innen a főelosztóig legalább 10 mm² réz (falon kívül UV-álló vastagfalú csőben).",
+        "Önállóan is számottevő földelés: méréssel igazoltan ≤ 10 Ω (jegyzőkönyvvel); méretben a 0,7 m alatti hatásos rész vízszintesen ≥ 8 m, függőlegesen ≥ 4 m. Elsősorban betonalap- vagy keretföldelő."
+      ]
+    },
+    {
+      "h": "Méretezés: keresztmetszet, feszültségesés, teljesítmény",
+      "bullets": [
+        "Méretlen fővezeték (és csatlakozóvezeték): Cu ≥ 10 mm², Al ≥ 16 mm²; egyetlen fogyasztót ellátó (pl. vezérelt, „B” tarifás) mérésnél ≥ 6 mm². Mérőbekötés réz, a nulla keresztmetszete a fáziséval azonos.",
+        "Feszültségesés: csatlakozóvezeték + méretlen fővezetékek együtt ≤ 2 % (ebből csatlakozó ≤ 1 %, fővezetékek ≤ 1 %). Ne keverd a szolgáltatott feszültség +8 / −7,5 %-os tűrésével.",
+        "Felszálló védőcsöve belül ≥ 36 mm (cserélhetőség); leágazó tokozatok zárópecsételhetők, ≥ 150×150 mm.",
+        "Lakás méretezési teljesítménye: háromfázisú 3×20 A = 13,8 kW, egyfázisú 1×32 A = 7,36 kW.",
+        "Eredő méretezési teljesítmény = n · P · e; ebből méretezzük a közös fővezetékeket és a tűzeseti főkapcsoló névleges áramát. A csatlakozási teljesítményből (egyidejűséggel) az első túláramvédelem értéke adódik."
+      ]
+    },
+    {
+      "h": "Lakáselosztó felépítése",
+      "body": "Betáplálás után: <b>főkapcsoló</b> (leválasztás) → <b>ÁVK (≤ 30 mA)</b> → <b>áramköri kismegszakítók</b>; mellette <b>PE-sín</b> és <b>N-sín</b>. A PE nem megy át az ÁVK-n: az ÁVK előtti pontról, közvetlenül a PE-sínre.",
+      "bullets": [
+        "Minden ÁVK-nak saját N-sínje (N-csoportja) van; két ÁVK alatti áramkör nullája nem közösíthető (téves vagy elmaradó kioldás).",
+        "Az áramköröket több ÁVK-ra osztjuk, világítás és aljzat szétválasztva – egy hiba ne sötétítse el a lakást.",
+        "Az ÁVK nem helyettesíti a kismegszakítót (vagy RCBO kell).",
+        "Az elosztóban áramköri jegyzék (feliratozás)."
+      ]
+    }
+  ],
+  "keyFacts": [
+    {
+      "k": "Tulajdoni határ",
+      "v": "csatlakozási pont"
+    },
+    {
+      "k": "PEN szétválasztás helye",
+      "v": "csatlakozó főelosztó (ha nem lehet: méretlen főelosztó)"
+    },
+    {
+      "k": "PEN először",
+      "v": "a PE-sínre, onnan híd az N-sínre"
+    },
+    {
+      "k": "ÁVK helye",
+      "v": "csak mért hálózatban, TN-C-ben nem"
+    },
+    {
+      "k": "Méretlen fővezeték Cu / Al",
+      "v": "≥ 10 mm² / ≥ 16 mm²"
+    },
+    {
+      "k": "Egyetlen fogyasztós mérés fővezetéke",
+      "v": "≥ 6 mm²"
+    },
+    {
+      "k": "Feszültségesés csatlakozó + méretlen",
+      "v": "≤ 2 % (1 % + 1 %)"
+    },
+    {
+      "k": "Felszálló",
+      "v": "TN-S ötvezetős, cső belső Ø ≥ 36 mm"
+    },
+    {
+      "k": "Leágazó tokozat",
+      "v": "≥ 150×150 mm, zárópecsételhető"
+    },
+    {
+      "k": "Földelés vizsgáló doboza",
+      "v": "≥ 100×100 mm, IP44, pecséten kívül; ≥ 10 mm² Cu"
+    },
+    {
+      "k": "Önállóan számottevő földelés",
+      "v": "≤ 10 Ω, méréssel igazolva"
+    },
+    {
+      "k": "Lakás méretezési teljesítménye",
+      "v": "3×20 A = 13,8 kW; 1×32 A = 7,36 kW"
+    },
+    {
+      "k": "Egyidejűségi tényező",
+      "v": "e = c + (1 − c)/n, c = 0,2"
+    },
+    {
+      "k": "Tűzeseti főkapcsoló árama",
+      "v": "az eredő méretezési teljesítményből"
+    }
+  ],
+  "formulas": [
+    {
+      "f": "e = c + (1 − c) / n",
+      "note": "c = 0,2; 10 lakás: e = 0,2 + 0,8/10 = 0,28"
+    },
+    {
+      "f": "P<sub>eredő</sub> = n · P · e",
+      "note": "10 · 13,8 kW · 0,28 = 38,64 kW"
+    },
+    {
+      "f": "P = 3 · 230 V · 20 A = 13,8 kW ;  P = 230 V · 32 A = 7,36 kW",
+      "note": "lakás méretezési teljesítménye"
+    }
+  ],
+  "mistakes": [
+    "A PEN-t az N-sínre kötni és onnan hidalni a PE-sínre – fordítva kell.",
+    "A PEN-t a lakáselosztóig vinni új létesítésnél – a felszálló ötvezetős, a szétválasztás a csatlakozási pontnál.",
+    "ÁVK-t a méretlen részbe vagy TN-C körbe tervezni.",
+    "Több mérő után közös nullát kiépíteni, vagy két ÁVK nulláját közös N-sínre kötni.",
+    "A földelővezető bontható kötését vagy a PE-toldásokat zárópecsét alá tenni.",
+    "A 2 %-os feszültségesés helyett 5 %-ot vagy a +8/−7,5 % feszültségtűrést megadni.",
+    "Az eredő teljesítményt egyidejűség nélkül, egyszerű összegzéssel számolni.",
+    "A 100×100 mm-t (vizsgáló doboz) és a 150×150 mm-t (leágazó tokozat) összekeverni."
+  ],
+  "hooks": [
+    "PEN: „előbb véd, aztán nulláz” – PE-sín, majd híd az N-re.",
+    "Méretlen = pecsét alatt; amit kezelni vagy mérni kell, az nem kerül pecsét alá.",
+    "Fővezeték: „réz 10, alu 16, egy fogyasztó 6”.",
+    "Lakás: 3×20 vagy 1×32.",
+    "Esés a méretlenen: 1 + 1 = 2 %."
+  ],
+  "svg": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 355'><text x='12' y='18' font-family='sans-serif' font-size='13' fill='black' font-weight='bold'>Az energia útja és a PEN szétválasztása (MSZ 447:2019)</text><rect x='12' y='40' width='110' height='44' stroke='black' stroke-width='1.5' fill='none'/><text x='18' y='58' font-family='sans-serif' font-size='12' fill='black'>közcélú hálózat</text><text x='18' y='74' font-family='sans-serif' font-size='12' fill='black'>leágazási pont</text><line x1='122' y1='62' x2='150' y2='62' stroke='black' stroke-width='1.5'/><line x1='150' y1='62' x2='143' y2='58' stroke='black' stroke-width='1.5'/><line x1='150' y1='62' x2='143' y2='66' stroke='black' stroke-width='1.5'/><text x='126' y='54' font-family='sans-serif' font-size='12' fill='black'></text><rect x='150' y='40' width='130' height='44' stroke='black' stroke-width='1.5' fill='none'/><text x='156' y='58' font-family='sans-serif' font-size='12' fill='black'>csatlakozóvezeték</text><text x='156' y='74' font-family='sans-serif' font-size='12' fill='black'>(engedélyesi)</text><line x1='280' y1='62' x2='308' y2='62' stroke='black' stroke-width='1.5'/><line x1='308' y1='62' x2='301' y2='58' stroke='black' stroke-width='1.5'/><line x1='308' y1='62' x2='301' y2='66' stroke='black' stroke-width='1.5'/><rect x='308' y='40' width='150' height='44' stroke='black' stroke-width='1.5' fill='none'/><text x='314' y='58' font-family='sans-serif' font-size='12' fill='black'>csatlakozási pont</text><text x='314' y='74' font-family='sans-serif' font-size='12' fill='black'>= tulajdoni határ</text><line x1='458' y1='62' x2='486' y2='62' stroke='black' stroke-width='1.5'/><line x1='486' y1='62' x2='479' y2='58' stroke='black' stroke-width='1.5'/><line x1='486' y1='62' x2='479' y2='66' stroke='black' stroke-width='1.5'/><rect x='486' y='40' width='142' height='44' stroke='black' stroke-width='1.5' fill='none'/><text x='492' y='58' font-family='sans-serif' font-size='12' fill='black'>első túláram-</text><text x='492' y='74' font-family='sans-serif' font-size='12' fill='black'>védelmi készülék</text><line x1='557' y1='84' x2='557' y2='110' stroke='black' stroke-width='1.5'/><line x1='557' y1='110' x2='60' y2='110' stroke='black' stroke-width='1.5'/><line x1='60' y1='110' x2='60' y2='130' stroke='black' stroke-width='1.5'/><line x1='60' y1='130' x2='53' y2='123' stroke='black' stroke-width='1.5'/><line x1='60' y1='130' x2='67' y2='123' stroke='black' stroke-width='1.5'/><rect x='12' y='130' width='110' height='44' stroke='black' stroke-width='1.5' fill='none'/><text x='18' y='148' font-family='sans-serif' font-size='12' fill='black'>fogyasztásmérő</text><text x='18' y='164' font-family='sans-serif' font-size='12' fill='black'>(mérőhely)</text><line x1='122' y1='152' x2='160' y2='152' stroke='black' stroke-width='1.5'/><line x1='160' y1='152' x2='153' y2='148' stroke='black' stroke-width='1.5'/><line x1='160' y1='152' x2='153' y2='156' stroke='black' stroke-width='1.5'/><rect x='160' y='130' width='130' height='44' stroke='black' stroke-width='1.5' fill='none'/><text x='166' y='148' font-family='sans-serif' font-size='12' fill='black'>mért fővezeték</text><text x='166' y='164' font-family='sans-serif' font-size='12' fill='black'>(L, N, PE külön)</text><line x1='290' y1='152' x2='318' y2='152' stroke='black' stroke-width='1.5'/><line x1='318' y1='152' x2='311' y2='148' stroke='black' stroke-width='1.5'/><line x1='318' y1='152' x2='311' y2='156' stroke='black' stroke-width='1.5'/><rect x='318' y='130' width='170' height='44' stroke='black' stroke-width='1.5' fill='none'/><text x='324' y='148' font-family='sans-serif' font-size='12' fill='black'>lakáselosztó: főkapcsoló</text><text x='324' y='164' font-family='sans-serif' font-size='12' fill='black'>→ ÁVK → kismegszakítók</text><rect x='6' y='32' width='622' height='150' stroke='black' stroke-width='1.5' fill='none' stroke-dasharray='2 4'/><text x='12' y='198' font-family='sans-serif' font-size='12' fill='black'>Mérő előtt: méretlen rész, zárópecsét alatt. Mérő után: mért rész (ÁVK, kismegszakítók).</text><text x='12' y='216' font-family='sans-serif' font-size='12' fill='black' font-weight='bold'>Csatlakozó főelosztóban:</text><line x1='40' y1='240' x2='140' y2='240' stroke='black' stroke-width='1.5'/><text x='60' y='232' font-family='sans-serif' font-size='12' fill='black'>PEN</text><rect x='140' y='226' width='170' height='28' stroke='black' stroke-width='1.5' fill='none'/><text x='150' y='245' font-family='sans-serif' font-size='12' fill='black'>PE-sín = fő földelősín</text><line x1='310' y1='240' x2='360' y2='240' stroke='black' stroke-width='1.5'/><text x='318' y='232' font-family='sans-serif' font-size='12' fill='black'>híd</text><rect x='360' y='226' width='110' height='28' stroke='black' stroke-width='1.5' fill='none'/><text x='372' y='245' font-family='sans-serif' font-size='12' fill='black'>N-sín</text><line x1='225' y1='254' x2='225' y2='290' stroke='black' stroke-width='1.5'/><rect x='195' y='290' width='60' height='22' stroke='black' stroke-width='1.5' fill='none'/><text x='262' y='305' font-family='sans-serif' font-size='12' fill='black'>vizsgáló doboz ≥100×100 mm, IP44, pecséten kívül</text><line x1='225' y1='312' x2='225' y2='330' stroke='black' stroke-width='1.5'/><text x='150' y='345' font-family='sans-serif' font-size='12' fill='black'>földelő (≤ 10 Ω = önállóan számottevő)</text><text x='480' y='245' font-family='sans-serif' font-size='12' fill='black'>N és PE után soha</text><text x='480' y='261' font-family='sans-serif' font-size='12' fill='black'>nem köthető össze</text></svg>",
+  "sources": [
+    "MSZ 447:2019 (mee-vet-2019-msz447.pdf: fogalmak, PEN szétválasztás, fővezetékek, méretezési teljesítmény, potenciálrögzítő földelés, ÁVK)",
+    "msz-447.pdf",
+    "MSZ HD 60364-5-54",
+    "Villanyszerelo_Megoldas_2022 1.1 (ÁVK bekötése)",
+    "Démász/Kisfogyasztói csatlakozó berendezések létesítése.pdf"
+  ]
+}

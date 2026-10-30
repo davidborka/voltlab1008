@@ -1,0 +1,156 @@
+{
+ "topic": "feszultsegeses",
+ "title": "Feszültségesés számítása",
+ "summary": "A vizsga feszültségesést (V és %), feszültségesésből szükséges keresztmetszetet vagy legnagyobb hosszt, több fogyasztós vezeték esését és az MSZ 447 szerinti határokat kérdezi. A döntő kérdés mindig: egyfázisú kör (2-es szorzó, 230 V) vagy szimmetrikus háromfázisú (√3, 400 V)? A számított keresztmetszetet mindig felfelé kerekítjük a szabványos sorra.",
+ "sections": [
+  {
+   "h": "Melyik képlet? 1f, 3f, cosφ",
+   "body": "Egyfázisú (vagy egyenáramú) körben az áram a fázisvezetőn oda, a nullán vissza folyik: <b>ΔU = 2·I·l·cosφ/(γ·A)</b>, és a %-ot a 230 V-hoz viszonyítjuk. Szimmetrikus háromfázisú terhelésnél a nullán nem folyik áram: a vonali esés <b>ΔU = √3·I·l·cosφ/(γ·A)</b>, ezt a 400 V-hoz viszonyítjuk. A fázisonkénti esés I·l·cosφ/(γ·A), ezt a 230 V-hoz – mindkét út ugyanazt a %-ot adja. Ohmos terhelésnél cosφ = 1. Szigetelt vezetéknél és kábelnél a reaktancia elhanyagolható, de az I·cosφ hatásos áramösszetevő számít. ρ-val is számolhatsz: 1/γ helyett ρ (ΔU = 2·ρ·l·I/A).<br><b>Kidolgozott példa:</b> egyfázisú motor, I = 8 A, cosφ = 0,8, l = 35 m, 2,5 mm² réz, γ = 56.<br>1. ΔU = 2·8·35·0,8/(56·2,5) = 448/140 = 3,20 V<br>2. ε = 3,20/230·100 = 1,39 %.",
+   "bullets": [
+    "Az l mindig az egyszeres nyomvonalhossz; a 2-es szorzó adja a visszavezetést.",
+    "Szimmetrikus 3f körben a vezetőnkénti áram ugyanakkora teljesítménynél harmadakkora, és nincs visszavezetési esés – ezért sokkal kisebb a %-os esés.",
+    "Lakóépületek méretezésénél (MSZ 447) a terhelőáramot cosφ = 1-gyel kell venni."
+   ]
+  },
+  {
+   "h": "% ↔ V átváltás és a határértékek",
+   "body": "ΔU = ε·U/100 és ε = ΔU/U·100. Egyfázisúnál U = 230 V (1 % = 2,3 V; 3 % = 6,9 V), háromfázisú vonali esésnél U = 400 V (1 % = 4 V; 3 % = 12 V; 4 % = 16 V). A volt és a százalék nem cserélhető fel: 5,52 V egyfázisúan 2,4 %, nem 5,52 %.<br><b>MSZ 447</b> (az elosztóval kötött eltérő megállapodás hiányában), az eredő méretezési teljesítménnyel terhelve, a hálózat névleges feszültségére: csatlakozóvezeték legfeljebb <b>1 %</b>, a méretlen fővezetékek együtt legfeljebb <b>1 %</b>, a kettő együtt legfeljebb <b>2 %</b>. A mért (mérő utáni) fővezeték már a felhasználói berendezés része; a belső körökre a feladat adja meg a határt (gyakran 3 %).",
+   "bullets": [
+    "Fogyasztóra jutó feszültség: U<sub>fogy</sub> = U − ΔU (pl. 230 − 8,36 = 221,64 V)."
+   ]
+  },
+  {
+   "h": "Keresztmetszet vagy hossz feszültségesésből",
+   "body": "Rendezd át a képletet: egyfázisú A ≥ 2·I·l·cosφ/(γ·ΔU<sub>meg</sub>), háromfázisú A ≥ √3·I·l·cosφ/(γ·ΔU<sub>meg</sub>), ahol ΔU<sub>meg</sub> voltban van (a 3f-nél a 400 V-ból számolva). Legnagyobb hossz: l = ΔU<sub>meg</sub>·γ·A/(2·I·cosφ), illetve /(√3·I·cosφ).<br><b>Lépések:</b> 1) terhelő áram (P, U, cosφ, η alapján) → 2) ΔU<sub>meg</sub> %-ból voltba → 3) A<sub>min</sub> a képletből → 4) felkerekítés a szabványos sorra → 5) visszaellenőrzés a választott keresztmetszettel.<br><b>Kidolgozott példa:</b> szimmetrikus 3f ohmos terhelés, I = 30 A, l = 80 m, réz, ε<sub>meg</sub> = 3 %.<br>1. ΔU<sub>meg</sub> = 3 %·400 = 12 V<br>2. A ≥ 1,732·30·80/(56·12) = 6,19 mm²<br>3. Felkerekítve: 10 mm² (6 mm² kevés!)<br>4. Ellenőrzés: ΔU = 1,732·30·80/(56·10) = 7,42 V → 1,86 % ≤ 3 %.",
+   "bullets": [
+    "Maximális hossz egyfázisú 16 A-es, 2,5 mm²-es körre 3 %-nál: l = 6,9·56·2,5/(2·16) ≈ 30,2 m.",
+    "Ha a 4,04 mm² jön ki, akkor is 6 mm² kell – lefelé kerekíteni tilos."
+   ]
+  },
+  {
+   "h": "Több fogyasztó egy vezetéken (nyomatékmódszer)",
+   "body": "Azonos keresztmetszetű, egy oldalról táplált vezetéknél a fogyasztók áramát a <b>táponttól mért</b> távolsággal szorozzuk, és összeadjuk: ΔU = 2·Σ(I<sub>k</sub>·l<sub>k</sub>)/(γ·A) egyfázisúan. Egyenértékű út: szakaszonként a rajta átfolyó (összegzett) árammal számolni.<br><b>Kidolgozott példa:</b> 230 V, 2,5 mm² réz; 1. fogyasztó 10 A 20 m-re, 2. fogyasztó 6 A 35 m-re.<br>1. Σ I·l = 10·20 + 6·35 = 410 A·m<br>2. (Szakaszonként: 16 A·20 m + 6 A·15 m = 410 A·m – ugyanaz.)<br>3. ΔU = 2·410/(56·2,5) = 5,86 V → ε = 2,55 %."
+  },
+  {
+   "h": "MEE-VET „mértékadó feszültségesés” (é)",
+   "body": "Az MSZ 447-hez kiadott MEE-VET méretezési segédlet egy vezetőre jutó megengedett esést számol: háromfázisú négyvezetékes csatlakozásnál <b>é = 0,75·ε·U<sub>f</sub>/100</b> (a maradék 25 % tartalék a nullavezető esésére aszimmetrikus terhelésnél), egyfázisú kétvezetékesnél é = ε·U<sub>f</sub>/(2·100). ε = 1 %-nál: 3f+N → é = 1,725 V, 1f → é = 1,15 V. A keresztmetszet: A ≥ ρ·I·l/é.<br><b>Kidolgozott példa:</b> alumínium csatlakozóvezeték, ρ = 0,0285 Ω·mm²/m, I = 30 A fázisonként, l = 25 m, 3f+N, ε = 1 %.<br>1. é = 0,75·1·230/100 = 1,725 V<br>2. A ≥ 0,0285·30·25/1,725 = 12,39 mm² → 16 mm²<br>3. Ellenőrzés: 0,0285·30·25/16 = 1,34 V ≤ 1,725 V (a keret 77 %-a)."
+  },
+  {
+   "h": "Vezetékveszteség és ami csökkenti az esést",
+   "body": "A vezetékben hővé alakuló teljesítmény egyfázisúan I²·R<sub>hurok</sub>, szimmetrikus háromfázisúan 3·I²·R<sub>ér</sub> (R<sub>ér</sub> = ρ·l/A). Példa: 50 m, 6 mm², 20 A fázisonként: R<sub>ér</sub> = 0,1458 Ω, P<sub>v</sub> = 3·400·0,1458 = 175 W.",
+   "bullets": [
+    "Csökkenti a feszültségesést: nagyobb A, rövidebb nyomvonal, réz az alumínium helyett, háromfázisú táplálás egyfázisú helyett.",
+    "Nem csökkenti: kisebb kismegszakító (az áram nem változik); rosszabb cosφ pedig növeli (nagyobb áram).",
+    "Alumíniumból ugyanakkora eséshez kb. 1,6-szoros keresztmetszet kell (γ<sub>Al</sub> = 35 &lt; γ<sub>Cu</sub> = 56)."
+   ]
+  }
+ ],
+ "keyFacts": [
+  {
+   "k": "Megengedett esés a csatlakozóvezetéken (MSZ 447)",
+   "v": "1 %"
+  },
+  {
+   "k": "Valamennyi méretlen fővezeték együtt (MSZ 447)",
+   "v": "1 %"
+  },
+  {
+   "k": "Csatlakozó + méretlen fővezetékek együtt (MSZ 447)",
+   "v": "2 %, az eredő méretezési teljesítménnyel terhelve"
+  },
+  {
+   "k": "1 % voltban",
+   "v": "2,3 V (230 V) · 4 V (400 V)"
+  },
+  {
+   "k": "3 % voltban",
+   "v": "6,9 V (230 V) · 12 V (400 V)"
+  },
+  {
+   "k": "Szorzó egyfázisú körben",
+   "v": "2 (oda-vissza), viszonyítás 230 V"
+  },
+  {
+   "k": "Szorzó szimmetrikus 3f terhelésnél",
+   "v": "√3 ≈ 1,732, viszonyítás 400 V"
+  },
+  {
+   "k": "γ réz / alumínium",
+   "v": "56 / 35 m/(Ω·mm²)"
+  },
+  {
+   "k": "ρ réz / alumínium",
+   "v": "0,0175 / 0,0285 Ω·mm²/m"
+  },
+  {
+   "k": "Mértékadó esés é, 3f+N, ε = 1 %",
+   "v": "0,75·2,3 V = 1,725 V"
+  },
+  {
+   "k": "Mértékadó esés é, 1f, ε = 1 %",
+   "v": "2,3 V/2 = 1,15 V"
+  },
+  {
+   "k": "Szabványos keresztmetszetek",
+   "v": "1,5 – 2,5 – 4 – 6 – 10 – 16 – 25 – 35 – 50 – 70 – 95 mm²"
+  }
+ ],
+ "formulas": [
+  {
+   "f": "ΔU = 2·I·l·cosφ/(γ·A)",
+   "note": "egyfázisú (oda-vissza); ohmosnál cosφ = 1"
+  },
+  {
+   "f": "ΔU = √3·I·l·cosφ/(γ·A)",
+   "note": "szimmetrikus háromfázisú, vonali esés → 400 V-hoz"
+  },
+  {
+   "f": "ΔU<sub>f</sub> = I·l·cosφ/(γ·A)",
+   "note": "egy vezetőn, fázisonként → 230 V-hoz"
+  },
+  {
+   "f": "ε = ΔU/U·100 ; ΔU = ε·U/100",
+   "note": "% ↔ V"
+  },
+  {
+   "f": "A ≥ 2·I·l·cosφ/(γ·ΔU<sub>meg</sub>)",
+   "note": "egyfázisú; 3f-nél 2 helyett √3"
+  },
+  {
+   "f": "l<sub>max</sub> = ΔU<sub>meg</sub>·γ·A/(2·I·cosφ)",
+   "note": "egyfázisú; 3f-nél 2 helyett √3"
+  },
+  {
+   "f": "ΔU = 2·Σ(I<sub>k</sub>·l<sub>k</sub>)/(γ·A)",
+   "note": "több fogyasztó, l<sub>k</sub> a táponttól"
+  },
+  {
+   "f": "é = 0,75·ε·U<sub>f</sub>/100 ; A ≥ ρ·I·l/é",
+   "note": "MEE-VET, 3f+N csatlakozóvezeték"
+  }
+ ],
+ "mistakes": [
+  "Egyfázisú körnél elhagyni a 2-es szorzót – a felét kapod (a nullavezetőn is ugyanakkora áram folyik vissza).",
+  "Szimmetrikus háromfázisú terhelésnél 2-vel számolni √3 helyett, vagy egyfázisú körbe √3-at írni.",
+  "A √3-as vonali esést a 230 V-hoz viszonyítani (vagy a fázisonkénti esést a 400 V-hoz) – hamis %-ot ad.",
+  "Voltot és százalékot összekeverni: a %-os határt voltba kell váltani, mielőtt a képletbe írod.",
+  "Induktív terhelésnél elhagyni a cosφ-t, vagy motoráramot η nélkül, a P<sub>n</sub>-ből számolni.",
+  "γ-t a számlálóba, ρ-t a nevezőbe tenni; alumíniumnál a réz γ-jával (56) számolni.",
+  "A számított keresztmetszetet lefelé kerekíteni (4,04 → 4 mm²) – mindig a következő szabványos érték kell.",
+  "Több fogyasztónál a szakaszhosszat a táponttól mért távolság helyett, vagy az áramot összegzés nélkül használni."
+ ],
+ "hooks": [
+  "Egy fázis = kettő (2·l), három fázis = gyök három.",
+  "√3 a 400 V-tal, fázisonként a 230 V-tal.",
+  "Előbb voltba váltom a %-ot, aztán számolok.",
+  "Keresztmetszet: mindig felfelé, a következő szabványosra."
+ ],
+ "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 600 250\" width=\"600\" font-family=\"sans-serif\" font-size=\"13\" stroke=\"black\" fill=\"none\" stroke-width=\"2\"><text x=\"10\" y=\"20\" fill=\"black\" stroke=\"none\" font-weight=\"bold\">Egyfázisú: 2·I·l</text><text x=\"20\" y=\"54\" fill=\"black\" stroke=\"none\">L</text><line x1=\"35\" y1=\"50\" x2=\"230\" y2=\"50\"/><text x=\"20\" y=\"94\" fill=\"black\" stroke=\"none\">N</text><line x1=\"35\" y1=\"90\" x2=\"230\" y2=\"90\"/><rect x=\"230\" y=\"40\" width=\"50\" height=\"60\"/><text x=\"255\" y=\"75\" fill=\"black\" stroke=\"none\" text-anchor=\"middle\">Z</text><polyline points=\"120,43 132,50 120,57\"/><polyline points=\"144,83 132,90 144,97\"/><text x=\"132\" y=\"122\" fill=\"black\" stroke=\"none\" text-anchor=\"middle\">N-en is I folyik vissza</text><text x=\"132\" y=\"140\" fill=\"black\" stroke=\"none\" text-anchor=\"middle\">ε = ΔU / 230 V</text><text x=\"320\" y=\"20\" fill=\"black\" stroke=\"none\" font-weight=\"bold\">Szimmetrikus 3f: √3·I·l·cosφ</text><text x=\"320\" y=\"49\" fill=\"black\" stroke=\"none\">L1</text><line x1=\"345\" y1=\"45\" x2=\"520\" y2=\"45\"/><text x=\"320\" y=\"79\" fill=\"black\" stroke=\"none\">L2</text><line x1=\"345\" y1=\"75\" x2=\"520\" y2=\"75\"/><text x=\"320\" y=\"109\" fill=\"black\" stroke=\"none\">L3</text><line x1=\"345\" y1=\"105\" x2=\"520\" y2=\"105\"/><text x=\"320\" y=\"139\" fill=\"black\" stroke=\"none\">N</text><line x1=\"345\" y1=\"135\" x2=\"520\" y2=\"135\" stroke-dasharray=\"6 4\"/><rect x=\"520\" y=\"35\" width=\"60\" height=\"110\"/><text x=\"550\" y=\"95\" fill=\"black\" stroke=\"none\" text-anchor=\"middle\">3f</text><text x=\"432\" y=\"160\" fill=\"black\" stroke=\"none\" text-anchor=\"middle\">N-en nincs áram (I<tspan font-size=\"10\" dy=\"3\">N</tspan><tspan dy=\"-3\"> = 0)</tspan></text><text x=\"432\" y=\"178\" fill=\"black\" stroke=\"none\" text-anchor=\"middle\">ε = ΔU<tspan font-size=\"10\" dy=\"3\">vonali</tspan><tspan dy=\"-3\"> / 400 V</tspan></text><line x1=\"10\" y1=\"200\" x2=\"590\" y2=\"200\" stroke-width=\"1\"/><text x=\"10\" y=\"222\" fill=\"black\" stroke=\"none\">Fázisonként (egy vezetőn): I·l·cosφ/(γ·A), ezt 230 V-hoz viszonyítjuk – ugyanazt a %-ot adja.</text><text x=\"10\" y=\"242\" fill=\"black\" stroke=\"none\">γ<tspan font-size=\"10\" dy=\"3\">Cu</tspan><tspan dy=\"-3\"> = 56, γ</tspan><tspan font-size=\"10\" dy=\"3\">Al</tspan><tspan dy=\"-3\"> = 35 m/(Ω·mm²); l = egyszeres nyomvonalhossz</tspan></text></svg>",
+ "sources": [
+  "MSZ 447:2019 2.2.2",
+  "Délvil_tch/mee-vet-2019-meret.pdf (MEE-VET méretezési példák)",
+  "Délvil_tch/mee-vet-2019-msz447.pdf",
+  "ocr/VeI-Vezetékméretezés1.txt",
+  "kkk/fva_megoldo.txt"
+ ]
+}

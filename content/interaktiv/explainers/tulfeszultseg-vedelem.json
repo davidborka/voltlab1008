@@ -1,0 +1,151 @@
+{
+  "topic": "tulfeszultseg-vedelem",
+  "title": "Túlfeszültség-védelem (SPD)",
+  "summary": "A túlfeszültség-védelem lépcsőzött: a betáplálásnál durva (1. típus), az elosztóban közepes (2. típus), a készüléknél finom (3. típus) fokozat. A vizsga rajz alapján kéri a fokozatok helyét és típusát, a régi B/C/D jelöléseket, a vizsgálati hullámokat, az U<sub>p</sub> és U<sub>c</sub> jelentését, a bekötési szabályokat (vezetékhossz, V és T bekötés, 3+1 kapcsolás) és az ÁVK, MSZ 447, PV DC különleges eseteit.",
+  "sections": [
+    {
+      "h": "A túlfeszültség eredete és mikor kell SPD",
+      "bullets": [
+        "<b>Légköri</b> eredet: közvetlen csapás az épület villámvédelmébe, közeli csapás által indukált feszültség, távoli csapás a betápláló szabadvezetékbe. <b>Belső (kapcsolási)</b>: induktív terhelés (motor, mágneskapcsoló) lekapcsolása, biztosító kiolvadása, kondenzátortelep kapcsolása. <b>Elektrosztatikus</b> (ESD): ez ellen csuklópánt, antisztatikus ruházat, földelés véd, nem SPD.",
+        "Az MSZ HD 60364-4-443 mai változata a <b>következmény</b> alapján írja elő a védelmet: emberi életet érint (kórház, biztonsági berendezés), közszolgáltatás kiesése vagy kulturális örökség károsodása, kereskedelmi és ipari tevékenység, sok ember egy helyen. Minden más esetben kockázatértékelés dönt; ha ez elmarad, a védelmet ki kell építeni. Régen (MSZ 2364-443) a betáplálás módja és az N<sub>g</sub> > 2,24 villámsűrűség döntött, ez ma nem érvényes.",
+        "Az SPD csak impulzusszerű (µs-os) túlfeszültséget vezet le a PE/föld felé. Tartós, hálózati frekvenciájú túlfeszültség (pl. nullavezető-szakadás) ellen nem véd, az az SPD-t is tönkreteheti.",
+        "Lökőfeszültség-állósági kategóriák 230/400 V-on: <b>IV</b> a berendezés kezdőpontja (mérő) 6 kV; <b>III</b> rögzített berendezés (elosztó, kapcsoló, kábel) 4 kV; <b>II</b> háztartási készülék, hordozható szerszám 2,5 kV; <b>I</b> érzékeny elektronika 1,5 kV. Ezért az 1. és 2. típusú SPD U<sub>p</sub>-je legfeljebb 2,5 kV lehet; a régi, 4 kV védelmi szintű szikraközös levezetők ma nem építhetők be."
+      ]
+    },
+    {
+      "h": "SPD típusok és lépcsőzés",
+      "body": "Mai jelölés az MSZ EN 61643-11 szerint 1., 2., 3. típus (T1, T2, T3; IEC: I., II., III. osztály), régen B, C, D fokozat. Az „A fokozat” a szabadvezetéki levezető volt, épületvillamosságban nem használjuk.",
+      "bullets": [
+        "<b>1. típus</b> (B, durvavédelem, villámáram-levezető): a betáplálásnál, LPZ 0A–1 határon. Vizsgálat 10/350 µs-os villámárammal, jele I<sub>imp</sub>. Kell, ha az épületen külső villámvédelem van, vagy a betáplálást közvetlen csapás érheti: ilyenkor a villámáram egy része (pesszimista becslés: 50 %) a becsatlakozó vezetékeken folyik el, és a hosszú hullámhát miatt töltése, energiája sokszorosa a 8/20 µs-osnak.",
+        "<b>2. típus</b> (C, közepes védelem): fő- vagy alelosztóban (LPZ 1–2 határ). Vizsgálat 8/20 µs-os lökőárammal, jele I<sub>n</sub> (névleges) és I<sub>max</sub>. Ha nincs LPS és csak távoli csapásból vagy kapcsolásból eredő túlfeszültség várható, a 2. és 3. típus elég.",
+        "<b>3. típus</b> (D, finomvédelem): közvetlenül a védendő készülék előtt (védett aljzat, elosztósáv, készülékbe építve). Kombinált hullámmal (1,2/50 µs feszültség, 8/20 µs áram) vizsgálják, jele U<sub>oc</sub>. Csak kb. 5 m vezetékhosszt véd, és csak egy 2. típusú fokozat mögött működik helyesen. Ha az érzékeny készülék a 2. típustól 10 m-nél messzebb van, 3. típus is kell.",
+        "A fokozatok közé soros impedancia (vezetékhossz vagy leválasztó induktivitás) kell. Ha szikraközös 1. típus mögé közvetlenül, koordinálatlanul varisztoros 2. típus kerül, a gyorsabb varisztor szólal meg előbb, a szikraköz nem gyújt be, és a teljes villámáram a varisztort teszi tönkre.",
+        "<b>Kombinált (1+2, 1+2+3)</b> levezető: egy készülékben teljesíti a típusok követelményeit, gyárilag koordinált (nem kell leválasztó induktivitás), U<sub>p</sub> ≤ 2,5 kV; a betáplálásnál, a fő földelősín közelében a helye. Az 1+2+3 csak a kb. 5 m-en belüli készüléket védi finoman. Előtte is kell túláramvédelem.",
+        "Méretezési példa: LPS II → 150 kA; 50 % = 75 kA a betápláláson; 4 vezetőre (L1, L2, L3, PEN) → 18,75 kA pólusonként. LPS I: 25 kA, LPS III–IV: 12,5 kA pólusonként."
+      ]
+    },
+    {
+      "h": "Alkatrészek: durvától a finomig",
+      "bullets": [
+        "<b>Szikraköz</b>: átütésekor rövidre zár, nagy (akár 100 kA-es 10/350 µs-os) levezetőképesség, lassabb, <b>szivárgóáram-mentes</b>; utána ki kell oltania az utánfolyó áramot. Ezért ez kerül a méretlen szakaszra és N–PE közé.",
+        "<b>Varisztor</b> (fém-oxid, MOV): feszültségfüggő ellenállás, a határfeszültség felett ellenállása erősen lecsökken; gyorsabb, közepes energia, öregszik.",
+        "<b>Szuppresszordióda</b>: a leggyorsabb (ns), alacsony határfeszültség, kis energia, a lánc utolsó tagja.",
+        "<b>Nemesgáztöltésű levezető</b>: hermetikusan zárt gázkisülési térben ellenőrzött ív, gyakran távközlési vonalakon."
+      ]
+    },
+    {
+      "h": "Bekötés és szerelés",
+      "bullets": [
+        "A bekötővezetékek (fázisoldal + földoldal) együttes hossza <b>lehetőleg ≤ 0,5 m, legfeljebb 1 m</b>, hurok nélkül. Lökőáramnál kb. 1 kV/m induktív esés adódik az U<sub>p</sub>-hez: U<sub>p</sub> = 1,3 kV és 1,2 m vezeték → 2,5 kV a védett oldalon (nincs tartalék); 0,3 m → 1,6 kV.",
+        "<b>V bekötés</b>: a vezető az SPD egyik kapcsára be, a másikról ki; a bekötővezeték esése nem adódik hozzá. Hátránya, hogy a teljes üzemi áram a kapcson folyik át, ezért nagy (kb. 100 A feletti) áramnál párhuzamos (<b>T</b>) bekötés kell, rövid vezetékkel.",
+        "A földoldali kapcsot a legrövidebb úton, <b>zöld-sárga</b> vezetővel kell az ugyanabban a szekrényben lévő PE/EPH sínre kötni.",
+        "Az SPD elé méretezett <b>túláramvédelmet</b> (előtét-biztosító vagy kismegszakító, értékét a gyártó adja) kell tenni: meghibásodott, zárlatos SPD-t ez választja le, és nem a fő biztosító old ki. A PE-be soha nem kerül biztosító vagy kapcsoló.",
+        "Ha 1. vagy 2. típusú SPD az ÁVK <b>terhelés felőli</b> oldalára kerül, az ÁVK legyen időkésleltetéses (<b>S típusú</b>), legalább 3 kA 8/20 µs lökőáram-állósággal. Jobb az SPD-t az ÁVK elé tenni.",
+        "Kapcsolások: <b>TN-C</b> 3 pólus (L1, L2, L3 – PEN); <b>TN-S</b> 4 pólus (L1–L3, N – PE) vagy 3+1; <b>TT</b> (az ÁVK előtt) <b>3+1</b>: három varisztor L–N, egy összegző szikraköz N–PE. TT-ben az L–PE varisztor szivárgása vagy zárlata a testeket feszültségre emelné, a nagy földelési ellenállás miatt pedig a túláramvédelem nem kapcsolna biztosan; 3+1-nél a varisztor hibája L–N zárlat, ami biztosan lekapcsol.",
+        "<b>MSZ 447</b>: a méretlen fővezetékbe (a mérő elé) csak szikraköz alapú, szivárgóáram-mentes, zárópecsételhető tokozatú, az elosztói engedélyes által elfogadott 1. típusú levezető kerülhet (a szivárgóáram mérés nélküli fogyasztás lenne). Bekötővezeték legfeljebb 1 m, legalább 16 mm²."
+      ]
+    },
+    {
+      "h": "Katalógusadatok és napelemes DC oldal",
+      "bullets": [
+        "<b>U<sub>c</sub></b>: legnagyobb tartós üzemi feszültség, amelyen az SPD még nem vezet. <b>U<sub>p</sub></b>: védelmi feszültségszint, a levezetés közben a kapcsokon megjelenő legnagyobb feszültség; kisebb legyen a védett szerkezet lökőfeszültség-állóságánál. <b>I<sub>imp</sub></b> (T1) vagy <b>I<sub>n</sub></b> (T2): levezetőképesség. Plusz a megengedett legnagyobb előtét-túláramvédelem. (Az I<sub>Δn</sub> ÁVK-, a B/C/D jelleggörbe kismegszakító-adat.)",
+        "Sok SPD cserélhető betétjén állapotjelző ablak mutatja a tönkremenetelt.",
+        "PV DC oldalon csak PV/DC-re minősített SPD használható (az egyenáramnak nincs nullátmenete), amelynek U<sub>CPV</sub>-je legalább a string hideg időben mért legnagyobb üresjárási feszültsége. Ha van LPS és az s biztonsági távolság nem tartható, DC oldalon is 1. típusú SPD kell."
+      ]
+    }
+  ],
+  "keyFacts": [
+    {
+      "k": "1. típus (régen B)",
+      "v": "10/350 µs, I<sub>imp</sub>; betáplálás, LPZ 0A–1; kell, ha van LPS"
+    },
+    {
+      "k": "2. típus (régen C)",
+      "v": "8/20 µs, I<sub>n</sub> / I<sub>max</sub>; fő- vagy alelosztó"
+    },
+    {
+      "k": "3. típus (régen D)",
+      "v": "kombinált hullám, U<sub>oc</sub>; a készülék előtt, kb. 5 m-en belül"
+    },
+    {
+      "k": "U<sub>p</sub> 230/400 V-on (T1, T2)",
+      "v": "≤ 2,5 kV"
+    },
+    {
+      "k": "Lökőfeszültség-kategóriák",
+      "v": "IV 6 kV; III 4 kV; II 2,5 kV; I 1,5 kV"
+    },
+    {
+      "k": "Bekötővezeték együttes hossza",
+      "v": "lehetőleg ≤ 0,5 m, legfeljebb 1 m (kb. 1 kV/m esés)"
+    },
+    {
+      "k": "Földoldali bekötés",
+      "v": "zöld-sárga, a legrövidebb úton a PE/EPH sínre"
+    },
+    {
+      "k": "Készülék > 10 m-re a 2. típustól",
+      "v": "3. típusú SPD is kell"
+    },
+    {
+      "k": "SPD az ÁVK után",
+      "v": "S típusú ÁVK, ≥ 3 kA 8/20 µs"
+    },
+    {
+      "k": "TT betáplálás",
+      "v": "3+1: L–N varisztor + N–PE összegző szikraköz"
+    },
+    {
+      "k": "TN-C betáplálás",
+      "v": "3 pólus: L1, L2, L3 – PEN"
+    },
+    {
+      "k": "Mérő előtti SPD (MSZ 447)",
+      "v": "szikraköz, szivárgóáram-mentes, plombálható; ≤ 1 m, ≥ 16 mm²"
+    },
+    {
+      "k": "Villámáram a betápláláson",
+      "v": "50 % a vezetőkre osztva; LPS II: 75 kA / 4 = 18,75 kA"
+    },
+    {
+      "k": "Alkatrészek durvától finomig",
+      "v": "szikraköz → varisztor → szuppresszordióda"
+    }
+  ],
+  "formulas": [
+    {
+      "f": "U<sub>védett</sub> ≈ U<sub>p</sub> + l · 1 kV/m",
+      "note": "T (párhuzamos) bekötés, l = a bekötővezetékek együttes hossza"
+    },
+    {
+      "f": "I<sub>pólus</sub> = 0,5 · I<sub>villám</sub> / n",
+      "note": "n = a betápláló vezetők száma; I<sub>villám</sub>: LPS I 200, II 150, III–IV 100 kA"
+    }
+  ],
+  "mistakes": [
+    "A régi betűket (B, C, D) eltolni: B = 1. típus (durva), C = 2. típus, D = 3. típus (finom).",
+    "U<sub>p</sub>-t és U<sub>c</sub>-t összekeverni: U<sub>c</sub> a tartós üzemi feszültség, U<sub>p</sub> a levezetés közbeni védelmi szint.",
+    "Hosszú, hurkos bekötővezeték „a könnyebb csere miatt”: minden méter kb. 1 kV-tal emeli a védett oldal feszültségét.",
+    "Azt hinni, hogy egy 3. típusú dugaszolható SPD az egész lakást védi: csak a közvetlen környezetét, és csak 2. típus mögött.",
+    "TT-ben az ÁVK előtt varisztort tenni a fázis és a PE közé 3+1 helyett.",
+    "Az SPD-t pillanatműködésű ÁVK mögé tenni: a PE felé folyó lökőáramra az ÁVK lekapcsol vagy tönkremegy.",
+    "Koordinálatlan szikraköz és varisztor közvetlenül egymás mellett: a varisztor kapja a villámáramot.",
+    "AC SPD-t tenni a napelemes DC oldalra, vagy az U<sub>CPV</sub>-t a 25 °C-os U<sub>oc</sub>-ra választani."
+  ],
+  "hooks": [
+    "B–C–D = durva–közepes–finom = T1–T2–T3.",
+    "10/350 a villám, 8/20 a lökés.",
+    "Fél méter az ideál, egy méter a plafon.",
+    "TT-ben 3+1: a szikraköz ül N és PE között."
+  ],
+  "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 640 342\" width=\"640\" font-family=\"sans-serif\" font-size=\"12\" stroke-linecap=\"round\"><text x=\"60\" y=\"30\" font-size=\"12\" text-anchor=\"middle\" fill=\"black\" font-weight=\"bold\">LPZ 0A</text><text x=\"265\" y=\"30\" font-size=\"12\" text-anchor=\"middle\" fill=\"black\" font-weight=\"bold\">LPZ 1</text><text x=\"470\" y=\"30\" font-size=\"12\" text-anchor=\"middle\" fill=\"black\" font-weight=\"bold\">LPZ 2</text><line x1=\"160\" y1=\"38\" x2=\"160\" y2=\"225\" stroke=\"black\" stroke-width=\"1.2\" stroke-dasharray=\"5 4\"/><line x1=\"370\" y1=\"38\" x2=\"370\" y2=\"225\" stroke=\"black\" stroke-width=\"1.2\" stroke-dasharray=\"5 4\"/><line x1=\"20\" y1=\"80\" x2=\"560\" y2=\"80\" stroke=\"black\" stroke-width=\"2.4\"/><text x=\"20\" y=\"70\" font-size=\"11\" text-anchor=\"start\" fill=\"black\">betáplálás (L, N)</text><rect x=\"560\" y=\"58\" width=\"70\" height=\"44\" fill=\"none\" stroke=\"black\" stroke-width=\"2\"/><text x=\"595\" y=\"84\" font-size=\"11\" text-anchor=\"middle\" fill=\"black\">készülék</text><circle cx=\"180\" cy=\"80\" r=\"3\" fill=\"black\"/><line x1=\"180\" y1=\"80\" x2=\"180\" y2=\"110\" stroke=\"black\" stroke-width=\"1.6\"/><rect x=\"165\" y=\"110\" width=\"30\" height=\"44\" fill=\"none\" stroke=\"black\" stroke-width=\"1.6\"/><text x=\"180\" y=\"137\" font-size=\"12\" text-anchor=\"middle\" fill=\"black\" font-weight=\"bold\">T1</text><line x1=\"180\" y1=\"154\" x2=\"180\" y2=\"200\" stroke=\"black\" stroke-width=\"1.6\"/><circle cx=\"180\" cy=\"200\" r=\"3\" fill=\"black\"/><circle cx=\"390\" cy=\"80\" r=\"3\" fill=\"black\"/><line x1=\"390\" y1=\"80\" x2=\"390\" y2=\"110\" stroke=\"black\" stroke-width=\"1.6\"/><rect x=\"375\" y=\"110\" width=\"30\" height=\"44\" fill=\"none\" stroke=\"black\" stroke-width=\"1.6\"/><text x=\"390\" y=\"137\" font-size=\"12\" text-anchor=\"middle\" fill=\"black\" font-weight=\"bold\">T2</text><line x1=\"390\" y1=\"154\" x2=\"390\" y2=\"200\" stroke=\"black\" stroke-width=\"1.6\"/><circle cx=\"390\" cy=\"200\" r=\"3\" fill=\"black\"/><circle cx=\"530\" cy=\"80\" r=\"3\" fill=\"black\"/><line x1=\"530\" y1=\"80\" x2=\"530\" y2=\"110\" stroke=\"black\" stroke-width=\"1.6\"/><rect x=\"515\" y=\"110\" width=\"30\" height=\"44\" fill=\"none\" stroke=\"black\" stroke-width=\"1.6\"/><text x=\"530\" y=\"137\" font-size=\"12\" text-anchor=\"middle\" fill=\"black\" font-weight=\"bold\">T3</text><line x1=\"530\" y1=\"154\" x2=\"530\" y2=\"200\" stroke=\"black\" stroke-width=\"1.6\"/><circle cx=\"530\" cy=\"200\" r=\"3\" fill=\"black\"/><line x1=\"595\" y1=\"102\" x2=\"595\" y2=\"200\" stroke=\"black\" stroke-width=\"1.6\"/><circle cx=\"595\" cy=\"200\" r=\"3\" fill=\"black\"/><line x1=\"20\" y1=\"200\" x2=\"620\" y2=\"200\" stroke=\"black\" stroke-width=\"2\"/><text x=\"24\" y=\"194\" font-size=\"11\" text-anchor=\"start\" fill=\"black\">PE / EPH</text><line x1=\"90\" y1=\"200\" x2=\"90\" y2=\"206\" stroke=\"black\" stroke-width=\"1.6\"/><line x1=\"90\" y1=\"206\" x2=\"90\" y2=\"214\" stroke=\"black\" stroke-width=\"1.6\"/><line x1=\"80\" y1=\"214\" x2=\"100\" y2=\"214\" stroke=\"black\" stroke-width=\"1.6\"/><line x1=\"84\" y1=\"218\" x2=\"96\" y2=\"218\" stroke=\"black\" stroke-width=\"1.6\"/><line x1=\"88\" y1=\"222\" x2=\"92\" y2=\"222\" stroke=\"black\" stroke-width=\"1.6\"/><text x=\"104\" y=\"222\" font-size=\"10\" text-anchor=\"start\" fill=\"black\">MET</text><text x=\"200\" y=\"130\" font-size=\"10\" text-anchor=\"start\" fill=\"black\">bekötés ≤ 0,5 m</text><text x=\"200\" y=\"143\" font-size=\"10\" text-anchor=\"start\" fill=\"black\">(legfeljebb 1 m)</text><text x=\"410\" y=\"72\" font-size=\"10\" text-anchor=\"start\" fill=\"black\">> 10 m vezeték: T3 is kell</text><text x=\"180\" y=\"246\" font-size=\"11\" text-anchor=\"middle\" fill=\"black\" font-weight=\"bold\">Főelosztó / betáplálás</text><text x=\"180\" y=\"261\" font-size=\"10\" text-anchor=\"middle\" fill=\"black\">1. típus (régen B fokozat)</text><text x=\"180\" y=\"276\" font-size=\"10\" text-anchor=\"middle\" fill=\"black\">10/350 µs, I<tspan font-size=\"8\" dy=\"2\">imp</tspan></text><text x=\"180\" y=\"291\" font-size=\"10\" text-anchor=\"middle\" fill=\"black\">U<tspan font-size=\"8\" dy=\"2\">p</tspan><tspan dy=\"-2\">&#160;≤ 2,5 kV</tspan></text><text x=\"390\" y=\"246\" font-size=\"11\" text-anchor=\"middle\" fill=\"black\" font-weight=\"bold\">Alelosztó</text><text x=\"390\" y=\"261\" font-size=\"10\" text-anchor=\"middle\" fill=\"black\">2. típus (régen C fokozat)</text><text x=\"390\" y=\"276\" font-size=\"10\" text-anchor=\"middle\" fill=\"black\">8/20 µs, I<tspan font-size=\"8\" dy=\"2\">n</tspan><tspan dy=\"-2\">&#160;/ I</tspan><tspan font-size=\"8\" dy=\"2\">max</tspan></text><text x=\"390\" y=\"291\" font-size=\"10\" text-anchor=\"middle\" fill=\"black\">U<tspan font-size=\"8\" dy=\"2\">p</tspan><tspan dy=\"-2\">&#160;≤ 2,5 kV</tspan></text><text x=\"545\" y=\"246\" font-size=\"11\" text-anchor=\"middle\" fill=\"black\" font-weight=\"bold\">Készülék előtt</text><text x=\"545\" y=\"261\" font-size=\"10\" text-anchor=\"middle\" fill=\"black\">3. típus (régen D)</text><text x=\"545\" y=\"276\" font-size=\"10\" text-anchor=\"middle\" fill=\"black\">kombinált hullám, U<tspan font-size=\"8\" dy=\"2\">oc</tspan></text><text x=\"545\" y=\"291\" font-size=\"10\" text-anchor=\"middle\" fill=\"black\">kb. 5 m-en belül</text><text x=\"20\" y=\"318\" font-size=\"10\" text-anchor=\"start\" fill=\"black\">Durva → közepes → finom: a T1 viszi a villám-részáramot, a T2/T3 a maradékot korlátozza.</text><text x=\"20\" y=\"332\" font-size=\"10\" text-anchor=\"start\" fill=\"black\">T1–T2 között koordináció kell: vezetékhossz / leválasztó induktivitás, vagy gyárilag koordinált 1+2 kombi.</text></svg>",
+  "sources": [
+    "MSZ HD 60364-4-443, MSZ HD 60364-5-534",
+    "MSZ EN 61643-11",
+    "MSZ EN 62305-1, -4",
+    "villanyszerelo-jegyzet.pdf 3.5 Túlfeszültség-védelem",
+    "MEE-VET-Műszaki alapok.pdf",
+    "mee-vet-2019-msz447.pdf",
+    "vizsga feladat sorok (34 522 04)"
+  ]
+}

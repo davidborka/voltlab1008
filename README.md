@@ -38,11 +38,18 @@ III. Számítási feladatok 20 %, IV. Villamos biztonsági ismeret 40 %, sikeres
   többszörös választás, igaz-hamis, sorba rendezés, párosítás, csoportosítás, listából választás,
   szám beírása) a KRÉTA pontozásával.
 - 570 saját kérdés magyarázattal; a hibás válaszlehetőségeknél azt is, miért rossz.
-- Adaptív: téma- és kérdésszintű tudásmodell, becsült vizsgaeredmény, „Gyengeségeim” vizsga,
-  térközös ismétlés, hibanapló. Az eredmény a böngészőben marad (JSON mentés/betöltés).
+- Vizsgázónkénti belépés (opcionális PIN-nel): mindenki csak a saját eredményeit látja. Az adatok a
+  böngészőben maradnak (localStorage), szerver nincs; JSON mentés/betöltés eszközök között.
+- Gyengeségelemzés: témánként elsajátítás, trend és hogy hány pontba kerül a vizsgán; a lista a
+  legtöbb nyerhető pont szerint rendez. Feladattípus-elemzés is.
+- Gyengeség-felszámolás témánként: tananyag → gyakorlás azonnali magyarázattal → ellenőrző vizsga
+  (≥ 80 %). Célzott vizsga: valódi vizsgaszerkezet, a gyengeségekre szabott feladatokkal.
+- Tananyag: 22 témamagyarázó a tanfolyami anyagokból (`content/interaktiv/explainers/`), hibás
+  válasz után egy kattintással.
+- Térközös ismétlés, hibanapló, haladás oldal (vizsgák vizsgarészenként, témák, típusok).
 
 A kérdésbank a `content/interaktiv/parts/*.json` fájlokban van (séma: `content/interaktiv/SCHEMA.md`).
-Módosítás után: `npm run interaktiv` - ellenőriz és újraírja a `public/interaktiv/data/questions.js`-t.
+Módosítás után: `npm run interaktiv` - ellenőriz és újraírja a `public/interaktiv/data/questions.js`-t és az `explainers.js`-t.
 Maga az oldal build nélküli (`public/interaktiv/`), a React-alkalmazás iframe-ben jeleníti meg.
 
 ## Öt tanulási mód feladatonként

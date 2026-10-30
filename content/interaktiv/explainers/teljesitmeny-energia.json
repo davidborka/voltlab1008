@@ -1,0 +1,160 @@
+{
+ "topic": "teljesitmeny-energia",
+ "title": "Teljesítmény, energia, költség, hatásfok",
+ "summary": "Ebből a témából a vizsga áramot számoltat teljesítményből (egyfázisú vagy háromfázisú, cosφ-vel és motornál η-val), energiát és költséget (kWh, Ft), hőmennyiséget és hatásfokot, valamint az MSZ 447 szerinti méretezési teljesítményt egyidejűségi tényezővel. A pontok többsége azon múlik, hogy jó-e a szorzó (1, √3 vagy 3), a feszültség (230 vagy 400 V) és a mértékegység-váltás (W→kW, perc→óra).",
+ "sections": [
+  {
+   "h": "Áram a teljesítményből: egyfázisú vagy háromfázisú",
+   "body": "Egyfázisú: P = U·I·cosφ, U = 230 V → I = P/(230·cosφ). Szimmetrikus háromfázisú: P = √3·U<sub>v</sub>·I·cosφ = 3·U<sub>f</sub>·I·cosφ, U<sub>v</sub> = 400 V, U<sub>f</sub> = 230 V → I = P/(√3·400·cosφ). A √3 mindig a 400 V-tal, a 3 mindig a 230 V-tal jár együtt. Ohmos fogyasztónál (fűtés, vízmelegítő, izzó) cosφ = 1.<br><b>Kidolgozott példa:</b> 6 kW-os háromfázisú gép, cosφ = 0,85.<br>1. I = 6000/(1,732·400·0,85) = 10,19 A<br>2. Ugyanez egyfázisúként 6000/(230·0,85) = 30,7 A lenne – háromszoros, ezért kell tudni, melyik esetről van szó.",
+   "bullets": [
+    "Ökölszabály 3×400 V-on motoroknál: kb. 2 A/kW; egyfázisú ohmos terhelésnél 1 kW ≈ 4,35 A.",
+    "Csillagkapcsolásban egy fázisimpedanciára 230 V, háromszögben 400 V jut.",
+    "Állandó ellenállásnál P ∝ U²: R = U<sub>n</sub>²/P<sub>n</sub>, P = U²/R = P<sub>n</sub>·(U/U<sub>n</sub>)². 10 % feszültségcsökkenés ≈ 19 % teljesítménycsökkenés.",
+    "230 V-os elemeket 3×400/230 V-os hálózaton csillagba kell kötni; háromszögben (400²/230²) ≈ 3-szoros teljesítményt vennének fel és túlmelegednének."
+   ]
+  },
+  {
+   "h": "Motorok: névleges teljesítmény és hatásfok",
+   "body": "A motor adattábláján a P<sub>n</sub> a tengelyen <b>leadott</b> mechanikai teljesítmény. A hálózatból felvett: P<sub>1</sub> = P<sub>n</sub>/η (osztani kell, a felvett mindig nagyobb). Az áram ebből: I = P<sub>n</sub>/(η·√3·U·cosφ). Hatásfok általában: η = P<sub>le</sub>/P<sub>fel</sub> &lt; 1, veszteség P<sub>v</sub> = P<sub>fel</sub> − P<sub>le</sub>.<br><b>Kidolgozott példa:</b> 4 kW, η = 86 %, cosφ = 0,82, 3×400 V.<br>1. P<sub>1</sub> = 4/0,86 = 4,651 kW<br>2. I = 4651/(1,732·400·0,82) = 8,19 A<br>3. Józan ész-ellenőrzés: 2 A/kW → kb. 8 A, rendben.",
+   "bullets": [
+    "Sorrend: adattábla adatai → P<sub>1</sub> = P<sub>n</sub>/η → I = P<sub>1</sub>/(√3·U·cosφ) → I<sub>B</sub> ≤ I<sub>n</sub> védelem → I<sub>n</sub> ≤ I<sub>z</sub> vezeték."
+   ]
+  },
+  {
+   "h": "Hatásos, meddő és látszólagos teljesítmény",
+   "body": "Teljesítményháromszög: P (W) a vízszintes befogó, Q (var) a függőleges, S (VA) az átfogó. S = U·I (háromfázisúan √3·U<sub>v</sub>·I), P = S·cosφ, Q = S·sinφ, S² = P² + Q², cosφ = P/S ≤ 1. Kisebb cosφ ugyanakkora hatásos teljesítménynél nagyobb áramot jelent.<br><b>Kidolgozott példa:</b> P = 8 kW, cosφ = 0,8.<br>1. S = 8/0,8 = 10 kVA<br>2. sinφ = √(1 − 0,8²) = 0,6 → Q = 10·0,6 = 6 kvar (vagy √(10² − 8²) = 6)."
+  },
+  {
+   "h": "Energia, költség, fogyasztásmérő",
+   "body": "W = P·t: kW-ban és órában számolj, így kWh jön ki. Költség = W·egységár (Ft/kWh). Több fogyasztónál W = Σ P·darabszám·idő. Mérőállandóval (imp/kWh): W = impulzusszám/állandó, P = W/t.<br><b>Kidolgozott példa:</b> 2 kW-os fogyasztó napi 3 órát üzemel 30 napig, 70 Ft/kWh.<br>1. W = 2 kW·3 h·30 = 180 kWh<br>2. Költség = 180·70 = 12 600 Ft<br>3. Mérő: 1000 imp/kWh, 3 perc alatt 60 impulzus → W = 0,06 kWh, t = 0,05 h, P = 1,2 kW.",
+   "bullets": [
+    "Perc → óra: osztás 60-nal (450 perc = 7,5 h); W → kW: osztás 1000-rel (8 W = 0,008 kW).",
+    "Adott pénzből üzemidő: W = Ft/(Ft/kWh), t = W/P.",
+    "Éves energia: napi energia·365."
+   ]
+  },
+  {
+   "h": "Hőmennyiség és hatásfok vízmelegítésnél",
+   "body": "Hasznos hő: Q = m·c·Δt, víznél c = 4,19 kJ/(kg·K), 1 l = 1 kg. Átváltás: 1 kWh = 3600 kJ, 1 W·s = 1 J. Hatásfok: η = Q/W<sub>vill</sub>; felfűtési idő: t = Q/(P·η).<br><b>Kidolgozott példa:</b> 50 l víz 15 °C-ról 55 °C-ra, 2 kW-os betét, η = 95 %.<br>1. Q = 50·4,19·40 = 8380 kJ = 8380/3600 = 2,328 kWh<br>2. Hasznos teljesítmény: 2·0,95 = 1,9 kW<br>3. t = 2,328/1,9 = 1,23 h (kb. 74 perc)."
+  },
+  {
+   "h": "Méretezési teljesítmény az MSZ 447 szerint",
+   "body": "Egy lakás méretezési teljesítménye (MSZ 447:2019): háromfázisú ellátásnál 3×20 A = 13,8 kW, egyfázisúnál 1×32 A = 7,36 kW (régen, 1998: 10 kW villanytűzhelyes, 6,6 kW gáztűzhelyes lakás). Egyidejűségi tényező: e = c + (1 − c)/√n, c = 0,2. Eredő: P<sub>e</sub> = (n·P<sub>m</sub>)·e + Σ(P<sub>f</sub> + P<sub>v</sub>); a közösségi és a vezérelt (külön mért) fogyasztók egyidejűség nélkül (e = 1) adódnak hozzá. Háromfázisú fővezeték fázisárama szimmetrikusnak véve: I = P<sub>e</sub>/(3·230).<br><b>Kidolgozott példa:</b> 10 háromfázisú lakás, mindegyikben 1,8 kW-os vezérelt forróvíztároló.<br>1. e = 0,2 + 0,8/√10 = 0,453 ≈ 0,45<br>2. 10·13,8·0,45 = 62,1 kW<br>3. + 10·1,8 = 18 kW → P<sub>e</sub> = 80,1 kW<br>4. I = 80 100/(3·230) = 116,1 A fázisonként.",
+   "bullets": [
+    "n = 1 → e = 1; n = 16 → e = 0,40.",
+    "Ha a feladat e-t két tizedesre kerekítteti, a kerekített értékkel számolj tovább."
+   ]
+  }
+ ],
+ "keyFacts": [
+  {
+   "k": "Hálózati feszültségek",
+   "v": "3×400/230 V: vonali 400 V, fázis 230 V"
+  },
+  {
+   "k": "√3",
+   "v": "≈ 1,732 = 400/230"
+  },
+  {
+   "k": "Ohmos fogyasztó",
+   "v": "cosφ = 1"
+  },
+  {
+   "k": "Motor adattábla P<sub>n</sub>",
+   "v": "tengelyen leadott teljesítmény; felvett = P<sub>n</sub>/η"
+  },
+  {
+   "k": "Teljesítmény mértékegységei",
+   "v": "P: W · Q: var · S: VA"
+  },
+  {
+   "k": "Energia",
+   "v": "kWh (1 kW 1 órán át); a kW teljesítmény"
+  },
+  {
+   "k": "1 kWh",
+   "v": "3600 kJ"
+  },
+  {
+   "k": "Víz fajhője",
+   "v": "4,19 kJ/(kg·K), 1 l = 1 kg"
+  },
+  {
+   "k": "Lakás méretezési teljesítménye, 3f (MSZ 447:2019)",
+   "v": "3×20 A = 13,8 kW"
+  },
+  {
+   "k": "Lakás méretezési teljesítménye, 1f (MSZ 447:2019)",
+   "v": "1×32 A = 7,36 kW"
+  },
+  {
+   "k": "Egyidejűségi tényező",
+   "v": "e = 0,2 + 0,8/√n"
+  },
+  {
+   "k": "Vezérelt / közösségi fogyasztó",
+   "v": "egyidejűség nélkül adódik hozzá"
+  },
+  {
+   "k": "Ökölszabály motoráram 400 V-on",
+   "v": "≈ 2 A/kW"
+  }
+ ],
+ "formulas": [
+  {
+   "f": "I = P/(U·cosφ)",
+   "note": "egyfázisú, U = 230 V"
+  },
+  {
+   "f": "I = P/(√3·U<sub>v</sub>·cosφ) = P/(3·U<sub>f</sub>·cosφ)",
+   "note": "szimmetrikus háromfázisú, U<sub>v</sub> = 400 V"
+  },
+  {
+   "f": "I = P<sub>n</sub>/(η·√3·U·cosφ)",
+   "note": "motor névleges árama"
+  },
+  {
+   "f": "S = P/cosφ, Q = S·sinφ = √(S² − P²)",
+   "note": "teljesítményháromszög"
+  },
+  {
+   "f": "P = U²/R = P<sub>n</sub>·(U/U<sub>n</sub>)²",
+   "note": "állandó ellenállású fogyasztó"
+  },
+  {
+   "f": "W = P·t; költség = W·egységár",
+   "note": "kW·h = kWh"
+  },
+  {
+   "f": "Q = m·c·Δt; η = Q/W",
+   "note": "vízmelegítés"
+  },
+  {
+   "f": "P<sub>e</sub> = n·P<sub>m</sub>·e + ΣP<sub>v</sub>",
+   "note": "MSZ 447 eredő méretezési teljesítmény"
+  }
+ ],
+ "mistakes": [
+  "Háromfázisú terhelésnél elhagyni a √3-at (√3-szor nagyobb áram jön ki), vagy √3 mellé 230 V-ot írni a 400 V helyett.",
+  "3·U<sub>v</sub>-vel számolni: a helyes pár √3·400 vagy 3·230.",
+  "Elhagyni a cosφ-t: induktív fogyasztó nagyobb áramot vesz fel, mint az azonos hatásos teljesítményű ohmos.",
+  "A motor P<sub>n</sub>-jét felvett teljesítménynek venni, vagy η-val szorozni osztás helyett.",
+  "Perc helyett órával, W helyett kW-tal nem átváltva számolni (60-szoros vagy 1000-szeres hiba).",
+  "Több fogyasztós energiaösszesítőben kihagyni a darabszámot.",
+  "Azt hinni, hogy a teljesítmény a feszültséggel arányos: állandó ellenállásnál a négyzetével arányos.",
+  "A vezérelt forróvíztárolókat vagy a közösségi fogyasztást is egyidejűségi tényezővel szorozni."
+ ],
+ "hooks": [
+  "√3 a 400-zal, 3 a 230-cal.",
+  "Motor: a tábla a leadottat mutatja – osztva η-val kapod, amit a hálózat ad.",
+  "kW-ot órával szorozz, akkor kWh lesz.",
+  "Feszültség −10 % → teljesítmény −19 %."
+ ],
+ "sources": [
+  "kkk/fva_megoldo.txt (IKK ágazati alapvizsga feladatgyűjtemény)",
+  "Délvil_tch/Elektrotech_osszefoglalo.pdf",
+  "Délvil_tch/mee-vet-2019-msz447.pdf (MEE-VET MSZ 447:2019 méretezés)",
+  "MSZ 447:2019",
+  "10_4/nszfi Elektrotechnikai alapismeretek"
+ ]
+}

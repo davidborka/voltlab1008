@@ -1443,9 +1443,9 @@
   ],
   "wrongWhy": [
    null,
-   "10 mm²-en ε = 1,61 % lenne, több mint 1 %.",
+   "10 mm²-en ΔU = 5,89 V, ε = 1,47 %, több mint 1 %.",
    "Megfelel, de nem a legkisebb.",
-   "6 mm²-en ε = 2,68 %."
+   "6 mm²-en ΔU = 9,82 V, ε = 2,46 %."
   ]
  },
  {
@@ -2158,7 +2158,7 @@
   ],
   "wrongWhy": [
    null,
-   "Terhelhetőségre éppen megfelel (32 A), de a feszültségesés kb. 2,3 %.",
+   "Terhelhetőségre éppen megfelel (32 A), de a feszültségesés 4,29 V, kb. 1,86 % > 1 %.",
    "A feszültségesés 6 mm²-en 1,24 % > 1 %.",
    "Megfelel, de nem a legkisebb."
   ]

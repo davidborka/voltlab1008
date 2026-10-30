@@ -1,0 +1,130 @@
+{
+  "topic": "munkavedelem",
+  "title": "Munkavédelem, tűzvédelem, elsősegély villamos balesetnél",
+  "summary": "Az áramütött kiszabadítása, állapotfelmérése és újraélesztése az MSZ 1585:2016 C100 mellékletének sorrendjét követi. A vizsga kérdezi a mentés biztonságos módjait, a 30:2-es újraélesztést, a stabil oldalfekvést, a villamos tűz oltóanyagait, a tűzeseti lekapcsolást, a létra és az egyéni védőeszközök szabályait.",
+  "sections": [
+    {
+      "h": "Az áramütött kiszabadítása",
+      "body": "Sorrend: <b>hangos segítségkérés</b> (ha egyedül van) → <b>kiszabadítás</b> a saját biztonságára vigyázva → <b>állapotvizsgálat</b> → <b>mentőhívás</b> (112 vagy 104), AED hozatása → szükség esetén <b>újraélesztés</b>. A mentő soha ne kerüljön maga is áramkörbe: akkor két áldozat lesz, és senki sem segít.",
+      "bullets": [
+        "Kisfeszültségen a legbiztonságosabb a <b>kikapcsolás</b>: főkapcsoló, kismegszakító, biztosító eltávolítása, dugós készüléknél a dugó kihúzása; utána meg kell győződni a kikapcsolásról. A vezetéket elvágni tilos.",
+        "Ha a kikapcsolás nem megy gyorsan: eltolás vagy elhúzás úgy, hogy a mentő csupasz kézzel se az áldozatot, se fémet ne érintsen: száraz fa eszköz, vastagon száraz ruhába csavart kéz az áldozat ruházatánál fogva, a láb alatt száraz deszka, láda, gumiszőnyeg. Vizes padló, fém létra, csupasz kéz tilos.",
+        "Magasban fogva maradt áldozatnál számítani kell a lezuhanásra (alátámasztás, puha anyag).",
+        "Földre esett nagyfeszültségű vezeték: kb. 10 m-es körzetét kerülni kell, mozogni csak nagyon rövid (10–20 cm-es), csoszogó lépésekkel szabad, mert a lépésfeszültség a lépés hosszával nő. Az üzemeltetőt azonnal értesíteni kell, a vezetékhez nyúlni (faággal sem) tilos.",
+        "Égő ruha: a kiszabadítás után betakarással (pokróc, kabát) oltjuk; a futó áldozatot meg kell állítani."
+      ]
+    },
+    {
+      "h": "Állapotfelmérés és újraélesztés",
+      "body": "Megszólítás, a vállak óvatos megrázása → légút szabaddá tétele (fej hátrahajtása, áll emelése) → légzés vizsgálata <b>legfeljebb 10 s</b>-ig (nézni, hallani, érezni). Ha nincs normális légzés (a ritka, hörgő, ún. agonális légzés nem az), keringésmegállást kell feltételezni: mentőhívás, AED, és azonnal mellkaskompresszió.",
+      "bullets": [
+        "Felnőtt: <b>30 kompresszió : 2 befúvás</b>, a szegycsont alsó felén, legalább 5 cm (legfeljebb 6 cm) mélyen, percenként 100–120-as ütemben, minden nyomás után teljes felengedéssel. Ha a segélynyújtó nem tud lélegeztetni, a folyamatos kompresszió is hatékony.",
+        "A régi „ABC” (légút, befúvás, keringés) sorrend elavult: ma a kompresszió az első beavatkozás.",
+        "Az áramütéses halál leggyakoribb közvetlen oka a <b>kamrafibrilláció</b> (a szív rendezetlen remegése, keringésmegállás), ezért fontos a mielőbbi defibrillálás.",
+        "<b>AED</b>: laikus is használhatja, hangutasítást ad, csak szükség esetén sokkol. Elemzés és sokk alatt senki ne érjen az áldozathoz; a mellkas legyen száraz, az áldozat ne feküdjön vízben vagy fémen. Sokk után azonnal folytatni a kompressziót.",
+        "Eszméletlen, de normálisan lélegzik: <b>stabil oldalfekvés</b>, légút szabadon tartása, légzés folyamatos figyelése, mentő. Ha a légzés megszűnik: újraélesztés.",
+        "Eszméleténél van: megnyugtatni, mellette maradni, csak a szükséges mértékben mozgatni, orvosi vizsgálatot biztosítani (mentőt kell hívni, ha akár rövid időre eszméletét vesztette, sérült, szívbeteg, vagy a segélynyújtó bizonytalan). Az állapot később is romolhat; a balesetet jelenteni kell."
+      ]
+    },
+    {
+      "h": "Tűz villamos berendezésben",
+      "bullets": [
+        "Először: a tűzzel érintett rész <b>leválasztása</b> (ha lehet), riasztás (tűzoltók 105 vagy 112, üzemeltető értesítése), majd oltás megfelelő készülékkel. A tűzoltásvezetőt tájékoztatni kell a feszültség alatt maradt részekről.",
+        "Feszültség alatt alkalmas: <b>CO<sub>2</sub></b> és <b>porral oltó</b> (ABC, BC), a készüléken feltüntetett feszültséghatárig és legkisebb távolságból (jellemzően 1000 V és 1 m). <b>Víz és hab tilos</b>, mert vezetik az áramot.",
+        "Feszültség alatti vezetéket elvágni, kitépni tűz esetén is tilos.",
+        "A CO<sub>2</sub> kiáramláskor erősen lehűl: a szórótölcsért csak a fogantyúnál fogjuk (fagyási sérülés).",
+        "Tűz vagy oltás után (korom, por csökkenti a szigetelést) csak tisztítás, szakszerű javítás és ellenőrzés után szabad visszakapcsolni."
+      ]
+    },
+    {
+      "h": "Tűzeseti lekapcsolás (OTSZ)",
+      "bullets": [
+        "Az építmény központi normál és biztonsági tápforrásról táplált villamos berendezését úgy kell kialakítani, hogy <b>az építmény egésze egy helyről lekapcsolható</b> legyen (köznyelven „tűzvédelmi főkapcsoló”).",
+        "A tűzeseti fogyasztók (pl. biztonsági világítás, füstelvezetés, tűzoltó lift) csoportjai külön lekapcsolhatók legyenek, és a többi kör lekapcsolása után is működtethetők maradjanak.",
+        "A kapcsolók <b>rendeltetését és ki-/bekapcsolt helyzetét</b> is jelölni kell.",
+        "Ikerháznál, sorháznál több csatlakozóvezeték esetén lakásonként is kialakítható. Napelemnél a DC oldal lekapcsolását is a tűzeseti lekapcsolás helyére kell vinni."
+      ]
+    },
+    {
+      "h": "Létra, egyéni védőeszköz, kétfős munka",
+      "bullets": [
+        "Létra: használat előtt ellenőrizni (fokok, csúszásgátló talp, terpeszgátló); az állólétra csak teljesen szétnyitva, lánccal vagy hevederrel kinyitva használható, összecsukva támasztólétrának tilos; a legfelső fokra állni tilos; feszültség közelében szigetelő anyagú (fa, üvegszálas) létra kell, alumínium gumitalppal sem.",
+        "Egyéni védőeszköz a veszélyhez: szigetelő kesztyű (áramütés), arcvédő és íválló ruha (ív, fröccsenő fém), védősisak (leeső tárgy), védőszemüveg (szilánk), hallásvédő (zaj).",
+        "A munkáltató díjmentesen biztosítja, a munkavállaló köteles rendeltetésszerűen használni. Használat előtt ellenőrizni kell (kesztyűt felfújással is); sérült vagy lejárt vizsgálatú szigetelő eszköz nem használható, megragasztva sem. Fém ékszert, órát feszültség közelében le kell venni.",
+        "Feszültség alatti vagy közeli munka legalább két fővel: az izomgörcs miatt az áramütött jobban szorítja a vezetőt, magától ritkán szabadul; a társ kapcsol le, hív segítséget, kezd újraélesztést."
+      ]
+    }
+  ],
+  "keyFacts": [
+    {
+      "k": "Segélyhívó számok",
+      "v": "112 egységes, 104 mentők, 105 tűzoltók"
+    },
+    {
+      "k": "Elsősegély sorrend",
+      "v": "segítségkérés → kiszabadítás → állapotvizsgálat → mentőhívás, AED → újraélesztés"
+    },
+    {
+      "k": "Légzés vizsgálata",
+      "v": "legfeljebb 10 s"
+    },
+    {
+      "k": "Kompresszió : befúvás",
+      "v": "30 : 2"
+    },
+    {
+      "k": "Kompresszió mélysége, üteme",
+      "v": "5–6 cm; 100–120/perc"
+    },
+    {
+      "k": "Eszméletlen, de normálisan lélegzik",
+      "v": "stabil oldalfekvés, légzés figyelése, mentő"
+    },
+    {
+      "k": "Halálok kisfeszültségű áramütésnél",
+      "v": "kamrafibrilláció"
+    },
+    {
+      "k": "Földre esett NF vezeték",
+      "v": "kb. 10 m-es körzetet kerülni; 10–20 cm-es lépések"
+    },
+    {
+      "k": "Feszültség alatti tűzre",
+      "v": "CO<sub>2</sub>, ABC/BC por (jellemzően ≤ 1000 V, ≥ 1 m); víz és hab tilos"
+    },
+    {
+      "k": "Tűzeseti lekapcsolás",
+      "v": "az építmény egésze egy helyről; rendeltetés és állás jelölve"
+    },
+    {
+      "k": "Létra villamos munkához",
+      "v": "szigetelő anyagú; állólétra csak kinyitva, terpeszgátlóval"
+    },
+    {
+      "k": "Feszültség alatti / közeli munka",
+      "v": "legalább 2 fő"
+    }
+  ],
+  "mistakes": [
+    "Az áramütöttet csupasz kézzel, vizes padlón vagy fém létráról megrántani: a mentő is áramkörbe kerül.",
+    "A vezetéket oldalcsípővel elvágni a kiszabadításhoz: ív, áramütés, a vezeték leeshet.",
+    "Az eszméletlen, de lélegző sérültnél kompressziót kezdeni, vagy felültetni és itatni: stabil oldalfekvés kell.",
+    "Elavult „ABC” sorrend: ma nem lélegeztetéssel, hanem 30 mellkaskompresszióval kezdünk.",
+    "Enyhe áramütés után tovább dolgozni orvosi vizsgálat nélkül: az állapot később is romolhat.",
+    "Feszültség alatti elosztót vízzel vagy habbal oltani.",
+    "Földre esett vezeték mellől nagy léptekkel elfutni: a nagy lépés nagy lépésfeszültséget jelent.",
+    "Kilyukadt szigetelő kesztyűt szigetelőszalaggal megjavítani, vagy lejárt vizsgálatú eszközt használni."
+  ],
+  "hooks": [
+    "Először magad, aztán ő: kapcsold le, és csak utána nyúlj.",
+    "30:2, 100–120, 5–6 cm: kompresszió az első.",
+    "Lélegzik, de nem reagál: oldalra fektesd.",
+    "Áram alatt CO<sub>2</sub> és por, víz és hab soha."
+  ],
+  "sources": [
+    "MSZ 1585:2016 C100 melléklet, 6.1.1.101., 10.100.1.",
+    "OTSZ 54/2014. BM rendelet (tűzeseti lekapcsolás)",
+    "Villbizjegyzet.pdf (10_4)",
+    "Délvil_tch/48._Villanyszerelo_JEGYZET.pdf"
+  ]
+}

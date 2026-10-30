@@ -1,0 +1,151 @@
+{
+  "topic": "villamvedelem",
+  "title": "Villámvédelem (LPS, MSZ EN 62305)",
+  "summary": "Új épület villámvédelmét az MSZ EN 62305 sorozat szerint, kockázatelemzésre építve kell megtervezni. A vizsga rajz alapján kéri a külső villámvédelem részeinek (felfogó, levezető, vizsgáló összekötő, földelő) felismerését, a belső villámvédelmet, és az LPS osztályhoz tartozó gördülőgömb-sugarat, hálóméretet, levezető-távolságot, villámáramot, valamint egyszerű számításokat (levezetők száma, s biztonsági távolság).",
+  "sections": [
+    {
+      "h": "Szabványok, felelősség, létesítési lépések",
+      "body": "Új létesítésnél csak az <b>MSZ EN 62305</b> („norma szerinti villámvédelem”) alkalmazható, az OTSZ is erre épít. A régi <b>MSZ 274</b> 2009-ig volt érvényes; az ennek megfelelő villámvédelem meglévő épületen bizonyos feltételekkel megmaradhat, nem kell automatikusan lebontani.",
+      "bullets": [
+        "Sorozat: <b>-1</b> általános elvek, villámparaméterek; <b>-2</b> kockázatkezelés; <b>-3</b> az építmény fizikai károsodása és az életveszély (külső és belső LPS); <b>-4</b> a villamos és elektronikus rendszerek védelme (LPZ, SPD). Az SPD termékvizsgálata nem itt, hanem az MSZ EN 61643-11-ben van.",
+        "Létesítési sorrend: kockázatelemzés (kell-e védelem, milyen LPL) → kiviteli terv jogosult villamos tervezővel (MMK névjegyzék, villámvédelmi tervezői vizsga) → kivitelezés (a földelő, betonalap-földelő az alapozással készül) → használatbavétel előtti felülvizsgálat → időszakos és rendkívüli (villámcsapás vagy átalakítás utáni) felülvizsgálatok. Felülvizsgálatot csak villámvédelmi felülvizsgálói képesítéssel lehet végezni.",
+        "A villámáram hatásai: hőhatás (olvadás, tűz), mechanikai hatás (rombolás), nyomáshullám, másodlagos kisülés és indukált túlfeszültség a belső hálózatokon. A hálózati frekvenciát vagy a talajt tartósan nem változtatja meg."
+      ]
+    },
+    {
+      "h": "A külső villámvédelem részei",
+      "body": "A villámáram útja: <b>felfogó → levezető → vizsgáló összekötő → földbevezető → földelő → talaj</b>.",
+      "bullets": [
+        "<b>Felfogórendszer</b>: becsapási pontot képez, felfogja a közvetlen csapást. Lehet rúd, háló vagy kifeszített vezeték; természetes felfogó a megfelelő vastagságú fém tetőhéjazat.",
+        "<b>Levezetőrendszer</b>: a villámáramot a felfogótól a földelőig vezeti. Legalább kettő kell, egyenletesen, lehetőleg a sarkoknál. Természetes levezető az összefüggő vasbeton vasalás vagy acélváz; műanyag ereszcső nem.",
+        "<b>Vizsgáló (bontható) összekötő</b>: a levezető alján, a talajszint felett, szerszámmal bontható kötés. Bontásával a földelési ellenállás a levezetőtől függetlenül mérhető. A levezetőhöz tartozik, nem a földelőhöz.",
+        "<b>Földelőrendszer</b>: a villámáramot a talajban szétoszlatja. <b>A típus</b>: levezetőnként egyedi vízszintes vagy függőleges földelő, legalább kettő. Legkisebb hossz: vízszintesen l<sub>1</sub>, függőlegesen 0,5·l<sub>1</sub>; LPS III–IV esetén l<sub>1</sub> = 5 m, tehát a függőleges földelő legalább 2,5 m. <b>B típus</b>: az épületet körülvevő gyűrű- (keret-) földelő, hosszának legalább 80 %-a a talajban, vagy betonalap-földelő. A B típus a levezetők között potenciálkiegyenlítést is ad.",
+        "Földelési ellenállás: ha lehet, 10 Ω alatt. Előnyös az egyetlen, közös földelőrendszer (villámvédelem, erősáram, távközlés).",
+        "Anyagok: réz felfogó- és levezetővezető legalább 50 mm²; tűzihorganyzott acél körvezető felfogónak, levezetőnek Ø8 mm, földelőnek Ø10 mm; földelő acélszalag jellemzően 30 × 3,5 mm.",
+        "<b>Természetes</b> elem az épület meglévő, villamosan folytonos fémszerkezete (folytonosságát igazolni kell); <b>mesterséges</b> a kifejezetten villámvédelemre szerelt rúd, háló, levezető, földelő."
+      ]
+    },
+    {
+      "h": "Felfogó-tervezési módszerek és az LPS osztály számai",
+      "body": "A kockázatelemzés adja a villámvédelmi szintet (<b>LPL I–IV</b>, I a legszigorúbb), ebből jön az LPS osztály és vele minden méret. Kisebb szám = szigorúbb = kisebb gömb, sűrűbb háló, sűrűbb levezető.",
+      "bullets": [
+        "<b>Gördülőgömb</b>: az osztálytól függő sugarú képzeletbeli gömböt görgetünk az épület körül; ahol érinti, oda felfogó kell, a gömb alatti tér védett. Bármilyen bonyolult formára jó.",
+        "<b>Védőszög</b>: a rúd csúcsából induló kúp alatti tér védett; a szög a felfogó magasságától és az osztálytól függ, nagy magasságnál nem használható.",
+        "<b>Háló</b>: elsősorban lapos és sík tetőkre; a széleken (attika, tetőél) mindig vezető fut.",
+        "Levezetők száma: kerület / levezető-távolság, <b>felfelé kerekítve</b>, legalább 2. Példa: 12 m × 18 m → kerület 60 m; LPS III (15 m): 4 db; LPS I (10 m): 6 db."
+      ]
+    },
+    {
+      "h": "Belső villámvédelem: potenciálkiegyenlítés és s biztonsági távolság",
+      "body": "Ha az épületen külső villámvédelem van, belső villámvédelem is kell. Célja, hogy a villám-részáram az épületen belül ne okozzon veszélyes szikraátütést (másodlagos kisülést).",
+      "bullets": [
+        "<b>Villámvédelmi potenciálkiegyenlítés</b> az épületbe lépés közelében (LPZ 0A–1 határ), a fő földelősínen: fém csövek, kábelárnyékolások, páncélok közvetlenül; az üzemszerűen feszültség alatti vezetők csak <b>1. típusú SPD-n</b> keresztül (közvetlen bekötésük zárlat lenne). Nem a tetőn.",
+        "<b>s biztonsági távolság</b>: a villámáramot vezető LPS-elemek és az épület más fémszerkezetei, vezetékei között. Levezetéskor a levezetőn nagy induktív feszültség lép fel; ha egy cső, kábel vagy napelemkeret túl közel van, a villám átugorhat rá. Ha az s nem tartható, villámáram-bíró módon össze kell kötni a fémszerkezetet az LPS-sel.",
+        "<b>Elszigetelt LPS</b>: a felfogó és a levezető nem érintkezik az épület vezetőképes részeivel, csak talajszinten kötik össze.",
+        "k<sub>i</sub> az LPS osztálytól függ (I: 0,08; II: 0,06; III–IV: 0,04), k<sub>c</sub> a levezetők közti áramosztástól (több levezető → kisebb), k<sub>m</sub> a közegtől (levegő 1, tégla/beton 0,5)."
+      ]
+    },
+    {
+      "h": "Villámvédelmi zónák (LPZ)",
+      "bullets": [
+        "<b>LPZ 0A</b>: közvetlen csapás és a villám teljes elektromágneses tere is érheti (szabad tér).",
+        "<b>LPZ 0B</b>: a felfogó védett terében, közvetlen csapás nem éri, de az elektromágneses tér csillapítatlanul hat (pl. tetőgépészet a felfogórúd mögött).",
+        "<b>LPZ 1</b>: az épület belseje; a lökőáramokat áramelosztás, potenciálkiegyenlítés és a határon elhelyezett SPD korlátozza.",
+        "<b>LPZ 2</b>: további árnyékolással és újabb SPD-vel még jobban védett belső tér.",
+        "A 0A–1 határon 1. típusú SPD kell, a 0B–1 határon 2. típusú is elegendő."
+      ]
+    }
+  ],
+  "keyFacts": [
+    {
+      "k": "LPS I",
+      "v": "gömb 20 m · háló 5 × 5 m · levezető-távolság 10 m · villámáram 200 kA (legkisebb 3 kA)"
+    },
+    {
+      "k": "LPS II",
+      "v": "gömb 30 m · háló 10 × 10 m · levezető-távolság 10 m · 150 kA (legkisebb 5 kA)"
+    },
+    {
+      "k": "LPS III",
+      "v": "gömb 45 m · háló 15 × 15 m · levezető-távolság 15 m · 100 kA (legkisebb 10 kA)"
+    },
+    {
+      "k": "LPS IV",
+      "v": "gömb 60 m · háló 20 × 20 m · levezető-távolság 20 m · 100 kA (legkisebb 16 kA)"
+    },
+    {
+      "k": "Külső LPS részei",
+      "v": "felfogó, levezető, (vizsgáló összekötő), földelő"
+    },
+    {
+      "k": "Belső LPS",
+      "v": "villámvédelmi potenciálkiegyenlítés (közvetlenül vagy SPD-n át) + s biztonsági távolság"
+    },
+    {
+      "k": "Levezetők száma",
+      "v": "kerület / távolság, felfelé kerekítve, legalább 2"
+    },
+    {
+      "k": "A típusú földelő",
+      "v": "levezetőnként, legalább 2; függőleges ≥ 0,5·l<sub>1</sub> (LPS III–IV: ≥ 2,5 m)"
+    },
+    {
+      "k": "B típusú földelő",
+      "v": "gyűrűföldelő (≥ 80 % a talajban) vagy betonalap-földelő"
+    },
+    {
+      "k": "Ajánlott földelési ellenállás",
+      "v": "< 10 Ω"
+    },
+    {
+      "k": "Réz felfogó/levezető",
+      "v": "legalább 50 mm²"
+    },
+    {
+      "k": "Tűzihorganyzott acél",
+      "v": "felfogó, levezető Ø8 mm; földelő Ø10 mm; szalag 30 × 3,5 mm"
+    },
+    {
+      "k": "k<sub>i</sub> értékek",
+      "v": "I: 0,08; II: 0,06; III–IV: 0,04"
+    },
+    {
+      "k": "Szabvány",
+      "v": "MSZ EN 62305-1…4 (régen MSZ 274, 2009-ig)"
+    }
+  ],
+  "formulas": [
+    {
+      "f": "s = k<sub>i</sub> · (k<sub>c</sub> / k<sub>m</sub>) · l",
+      "note": "l = a vizsgált pont és a legközelebbi potenciálkiegyenlítési pont közti hossz a levezető mentén; LPS III, k<sub>c</sub> = 0,5, l = 10 m: levegőben 0,2 m, téglában 0,4 m"
+    },
+    {
+      "f": "n = ⌈K / a⌉, legalább 2",
+      "note": "K = kerület, a = levezető-távolság"
+    }
+  ],
+  "mistakes": [
+    "A gömb, a háló és a levezető-távolság sorrendjét megfordítani: kisebb osztályszám = szigorúbb = kisebb méret.",
+    "A hálóméretet és a levezető-távolságot összekeverni: LPS I-nél a háló 5 m, a levezető-távolság 10 m.",
+    "A vizsgáló összekötőt a földelőhöz sorolni vagy a föld alá tenni: a levezetőn van, a talaj felett, hogy bontható és mérhető legyen.",
+    "Az A típusú földelőt jobbnak tartani a levezetők közötti potenciálkiegyenlítésre: ezt a gyűrű (B típus) adja.",
+    "Az aktív vezetőket közvetlenül a fő földelősínre kötni: csak 1. típusú SPD-n át szabad.",
+    "A levezetők számát lefelé kerekíteni, vagy egyetlen levezetőt elfogadni.",
+    "A felfogó Ø8 mm-es acél méretét a földelőre is elfogadni: a földben Ø10 mm kell a korrózió miatt.",
+    "Az LPZ 0B-t közvetlen csapásnak kitett zónának gondolni: csak a tér éri, a csapás nem."
+  ],
+  "hooks": [
+    "Gömb: 20 – 30 – 45 – 60 m.",
+    "Háló: 5 – 10 – 15 – 20 m; levezető: 10 – 10 – 15 – 20 m.",
+    "Villámáram: 200 – 150 – 100 – 100 kA.",
+    "Fent fog, középen vezet, lent szétoszt; a vizsgáló összekötő a föld felett bont."
+  ],
+  "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 640 540\" width=\"640\" font-family=\"sans-serif\" font-size=\"12\" stroke-linecap=\"round\"><text x=\"20\" y=\"28\" font-size=\"13\" text-anchor=\"start\" fill=\"black\" font-weight=\"bold\">Családi ház villámvédelme – vázlat (oromfali nézet)</text><line x1=\"20\" y1=\"380\" x2=\"620\" y2=\"380\" stroke=\"black\" stroke-width=\"1.6\"/><line x1=\"30\" y1=\"380\" x2=\"22\" y2=\"388\" stroke=\"black\" stroke-width=\"1\"/><line x1=\"60\" y1=\"380\" x2=\"52\" y2=\"388\" stroke=\"black\" stroke-width=\"1\"/><line x1=\"90\" y1=\"380\" x2=\"82\" y2=\"388\" stroke=\"black\" stroke-width=\"1\"/><line x1=\"120\" y1=\"380\" x2=\"112\" y2=\"388\" stroke=\"black\" stroke-width=\"1\"/><line x1=\"150\" y1=\"380\" x2=\"142\" y2=\"388\" stroke=\"black\" stroke-width=\"1\"/><line x1=\"180\" y1=\"380\" x2=\"172\" y2=\"388\" stroke=\"black\" stroke-width=\"1\"/><line x1=\"210\" y1=\"380\" x2=\"202\" y2=\"388\" stroke=\"black\" stroke-width=\"1\"/><line x1=\"240\" y1=\"380\" x2=\"232\" y2=\"388\" stroke=\"black\" stroke-width=\"1\"/><line x1=\"270\" y1=\"380\" x2=\"262\" y2=\"388\" stroke=\"black\" stroke-width=\"1\"/><line x1=\"300\" y1=\"380\" x2=\"292\" y2=\"388\" stroke=\"black\" stroke-width=\"1\"/><line x1=\"330\" y1=\"380\" x2=\"322\" y2=\"388\" stroke=\"black\" stroke-width=\"1\"/><line x1=\"360\" y1=\"380\" x2=\"352\" y2=\"388\" stroke=\"black\" stroke-width=\"1\"/><line x1=\"390\" y1=\"380\" x2=\"382\" y2=\"388\" stroke=\"black\" stroke-width=\"1\"/><line x1=\"420\" y1=\"380\" x2=\"412\" y2=\"388\" stroke=\"black\" stroke-width=\"1\"/><line x1=\"450\" y1=\"380\" x2=\"442\" y2=\"388\" stroke=\"black\" stroke-width=\"1\"/><line x1=\"480\" y1=\"380\" x2=\"472\" y2=\"388\" stroke=\"black\" stroke-width=\"1\"/><line x1=\"510\" y1=\"380\" x2=\"502\" y2=\"388\" stroke=\"black\" stroke-width=\"1\"/><line x1=\"540\" y1=\"380\" x2=\"532\" y2=\"388\" stroke=\"black\" stroke-width=\"1\"/><line x1=\"570\" y1=\"380\" x2=\"562\" y2=\"388\" stroke=\"black\" stroke-width=\"1\"/><line x1=\"600\" y1=\"380\" x2=\"592\" y2=\"388\" stroke=\"black\" stroke-width=\"1\"/><text x=\"560\" y=\"374\" font-size=\"10\" text-anchor=\"start\" fill=\"black\">talajszint</text><rect x=\"170\" y=\"232\" width=\"300\" height=\"148\" fill=\"none\" stroke=\"black\" stroke-width=\"1.6\"/><line x1=\"156\" y1=\"232\" x2=\"320\" y2=\"110\" stroke=\"black\" stroke-width=\"1.6\"/><line x1=\"320\" y1=\"110\" x2=\"484\" y2=\"232\" stroke=\"black\" stroke-width=\"1.6\"/><line x1=\"156\" y1=\"232\" x2=\"484\" y2=\"232\" stroke=\"black\" stroke-width=\"1.6\"/><line x1=\"320\" y1=\"110\" x2=\"320\" y2=\"58\" stroke=\"black\" stroke-width=\"3\"/><text x=\"330\" y=\"70\" font-size=\"13\" text-anchor=\"start\" fill=\"black\" font-weight=\"bold\">1</text><line x1=\"156\" y1=\"232\" x2=\"320\" y2=\"112\" stroke=\"black\" stroke-width=\"3.2\"/><line x1=\"320\" y1=\"112\" x2=\"484\" y2=\"232\" stroke=\"black\" stroke-width=\"3.2\"/><text x=\"214\" y=\"162\" font-size=\"13\" text-anchor=\"start\" fill=\"black\" font-weight=\"bold\">2</text><line x1=\"156\" y1=\"232\" x2=\"156\" y2=\"380\" stroke=\"black\" stroke-width=\"3\"/><line x1=\"484\" y1=\"232\" x2=\"484\" y2=\"380\" stroke=\"black\" stroke-width=\"3\"/><text x=\"136\" y=\"292\" font-size=\"13\" text-anchor=\"start\" fill=\"black\" font-weight=\"bold\">3</text><text x=\"494\" y=\"292\" font-size=\"13\" text-anchor=\"start\" fill=\"black\" font-weight=\"bold\">3</text><rect x=\"150\" y=\"338\" width=\"12\" height=\"14\" fill=\"none\" stroke=\"black\" stroke-width=\"1.6\"/><rect x=\"478\" y=\"338\" width=\"12\" height=\"14\" fill=\"none\" stroke=\"black\" stroke-width=\"1.6\"/><text x=\"130\" y=\"350\" font-size=\"13\" text-anchor=\"start\" fill=\"black\" font-weight=\"bold\">4</text><text x=\"498\" y=\"350\" font-size=\"13\" text-anchor=\"start\" fill=\"black\" font-weight=\"bold\">4</text><line x1=\"156\" y1=\"380\" x2=\"156\" y2=\"420\" stroke=\"black\" stroke-width=\"3\"/><line x1=\"484\" y1=\"380\" x2=\"484\" y2=\"420\" stroke=\"black\" stroke-width=\"3\"/><line x1=\"156\" y1=\"420\" x2=\"484\" y2=\"420\" stroke=\"black\" stroke-width=\"3\"/><circle cx=\"156\" cy=\"420\" r=\"3\" fill=\"black\"/><circle cx=\"484\" cy=\"420\" r=\"3\" fill=\"black\"/><text x=\"330\" y=\"440\" font-size=\"13\" text-anchor=\"start\" fill=\"black\" font-weight=\"bold\">5</text><rect x=\"200\" y=\"290\" width=\"70\" height=\"44\" fill=\"none\" stroke=\"black\" stroke-width=\"1.6\"/><text x=\"235\" y=\"307\" font-size=\"11\" text-anchor=\"middle\" fill=\"black\">FE</text><text x=\"235\" y=\"325\" font-size=\"10\" text-anchor=\"middle\" fill=\"black\">SPD T1</text><text x=\"278\" y=\"302\" font-size=\"13\" text-anchor=\"start\" fill=\"black\" font-weight=\"bold\">7</text><line x1=\"235\" y1=\"334\" x2=\"235\" y2=\"360\" stroke=\"black\" stroke-width=\"1.6\"/><rect x=\"220\" y=\"360\" width=\"40\" height=\"10\" fill=\"black\" stroke=\"black\"/><text x=\"210\" y=\"356\" font-size=\"13\" text-anchor=\"start\" fill=\"black\" font-weight=\"bold\">6</text><line x1=\"240\" y1=\"370\" x2=\"240\" y2=\"420\" stroke=\"black\" stroke-width=\"1.6\"/><circle cx=\"240\" cy=\"420\" r=\"3\" fill=\"black\"/><line x1=\"260\" y1=\"365\" x2=\"320\" y2=\"365\" stroke=\"black\" stroke-width=\"1.6\"/><text x=\"326\" y=\"369\" font-size=\"10\" text-anchor=\"start\" fill=\"black\">EPH: víz-, gáz-, fűtéscső</text><line x1=\"20\" y1=\"400\" x2=\"205\" y2=\"400\" stroke=\"black\" stroke-width=\"1.6\"/><line x1=\"205\" y1=\"400\" x2=\"205\" y2=\"334\" stroke=\"black\" stroke-width=\"1.6\"/><text x=\"22\" y=\"414\" font-size=\"10\" text-anchor=\"start\" fill=\"black\">betáplálás (földkábel)</text><text x=\"20\" y=\"470\" font-size=\"11\" text-anchor=\"start\" fill=\"black\">1 felfogórúd</text><text x=\"20\" y=\"488\" font-size=\"11\" text-anchor=\"start\" fill=\"black\">2 felfogóvezeték (gerinc, élek)</text><text x=\"20\" y=\"506\" font-size=\"11\" text-anchor=\"start\" fill=\"black\">3 levezető (legalább 2, sarkoknál)</text><text x=\"20\" y=\"524\" font-size=\"11\" text-anchor=\"start\" fill=\"black\">4 vizsgáló (bontható) összekötő a talaj felett</text><text x=\"330\" y=\"470\" font-size=\"11\" text-anchor=\"start\" fill=\"black\">5 földelő: gyűrűföldelő (B típus)</text><text x=\"330\" y=\"488\" font-size=\"11\" text-anchor=\"start\" fill=\"black\">6 fő földelősín (MET): villámvédelmi EPH</text><text x=\"330\" y=\"506\" font-size=\"11\" text-anchor=\"start\" fill=\"black\">7 főelosztó 1. típusú (1+2) SPD-vel</text><text x=\"330\" y=\"524\" font-size=\"11\" text-anchor=\"start\" fill=\"black\" font-weight=\"bold\">külső LPS: 1–5 · belső LPS: 6–7 + s távolság</text></svg>",
+  "sources": [
+    "MSZ EN 62305-1…4",
+    "villanyszerelo-jegyzet.pdf 3.4 Villámvédelem",
+    "MEE-VET-Műszaki alapok.pdf",
+    "11. Dr. Kovács Károly – Földelési megoldások",
+    "vizsga feladat sorok (2017 írásbeli: LPS részei)"
+  ]
+}

@@ -1,0 +1,141 @@
+{
+  "topic": "rajzjelek-anyagjegyzek",
+  "title": "Rajzjelek, kiviteli dokumentáció, anyagjegyzék",
+  "summary": "Az alaprajzi és egyvonalas rajzjelek felismerése (lámpa, fénycső, egy-/kétpólusú, váltó-, keresztkapcsoló), a vezetékszám-jelölés, a tervjelek (S, K, F, M, H), a rajzfajták és a kiviteli terv részei. A vizsga ebből anyagjegyzéket kér: szerelvényt számolni, nyomvonal-, cső- és vezetékhosszt számolni méretarány, érszám és ráhagyás alapján.",
+  "sections": [
+    {
+      "h": "Alaprajzi rajzjelek (MSZ EN 60617)",
+      "body": "A kapcsolók alapjele kis kör ferde vonallal; a vonal végén lévő rövid merőleges <b>zászlók száma a pólusszám</b> (1 = egypólusú, 2 = kétpólusú). A <b>váltókapcsoló</b> vonala átmegy a körön, mindkét végén zászló van (ellentétes oldalon); a <b>keresztkapcsolónál</b> két ilyen vonal keresztezi egymást. A körbe írt X a világítótest, a két végén lezárt vastag vonal a fénycsöves lámpatest.",
+      "bullets": [
+        "Két váltó egy lámpával = váltókapcsolás (egy lámpa két helyről), köztük 2 korrespondáló vezeték.",
+        "Csillárkapcsoló: egy kapcsoló, két lámpakör.",
+        "Ha egy jel nem egyértelmű, a jelmagyarázat dönt."
+      ]
+    },
+    {
+      "h": "Egyvonalas rajz és vezetékszám",
+      "body": "Egyvonalas rajzon egy vonal több vezetéket jelent. A számukat a vonalra húzott rövid <b>ferde vonalkák</b> adják: <b>legfeljebb három vezetékig</b> a vonalkák száma maga a vezetékszám, ennél többnél <b>egy vonalka mellé írt szám</b> (pl. 1 vonalka + „5” = 5 vezeték). Az N és a PE vezetőt kiegészítő rajzjel különbözteti meg a fázistól.",
+      "bullets": [
+        "Tipikus vezetékszámok (kapcsolóhoz nincs PE, lámpához van): egypólusú kapcsoló 2 (L + kapcsolt L); lámpa 3 (kapcsolt L, N, PE); betáplálás 3 (L, N, PE).",
+        "Váltókapcsoló: 3 (betáplált vagy kapcsolt fázis + 2 korrespondáló).",
+        "Keresztkapcsoló: mindig 4 (2 korrespondáló be + 2 ki).",
+        "Csillárkapcsoló: 3 (fázis + 2 kapcsolt fázis); kétkörös csillár: 4 (2 kapcsolt fázis, N, PE)."
+      ]
+    },
+    {
+      "h": "Rajzfajták, tervjelek, kiviteli terv részei",
+      "bullets": [
+        "Épületvillamossági alaprajz (szerelési rajz): szerelvények, lámpák, elosztók HELYE és a nyomvonal – ebből készül az anyagjegyzék.",
+        "Egyvonalas (elosztó) rajz: villamos kapcsolat, védelmek (pl. kismegszakító névleges árama, karakterisztikája). A térbeli elrendezésre csak utal.",
+        "Áramutas (működési) rajz: nyugalmi állapot – kapcsolók kikapcsolva, kontaktorok feszültségmentesen.",
+        "Huzalozási rajz: minden vezeték mindkét végét megcímezi (pl. X2-15 ↔ F2-6), összekötő pont TILOS.",
+        "Műszaki leírás: érintésvédelmi mód (pl. TN-C-S + ÁVK), szerelési technológia (pl. süllyesztett vékonyfalú védőcső, nyomvonal magassága). Jelmagyarázat: a rajzjelek jelentése. Anyagjegyzék: mennyiségek.",
+        "Tervjel (betű + sorszám): S kapcsoló, nyomógomb; K kontaktor, relé; F védelmi készülék (biztosító, hőkioldó relé); M motor; H jelzőlámpa."
+      ]
+    },
+    {
+      "h": "Anyagjegyzék készítése lépésenként",
+      "bullets": [
+        "1. Tervlapok, jelmagyarázat, műszaki leírás áttekintése.",
+        "2. Szerelvények és lámpatestek megszámlálása helyiségenként, típusonként (kettős dugalj = 1 szerelvény; a kapcsolókat típusonként külön tételként).",
+        "3. Szerelvény- és kötődobozok száma.",
+        "4. Nyomvonalhosszak lemérése a méretarány alapján – vízszintes ÉS függőleges szakaszok.",
+        "5. Vezetékhossz = szakaszhossz × érszám + ráhagyás; védőcsőhossz = nyomvonalhossz.",
+        "6. Összesítés tételenként, mértékegységgel (db vagy m), tartalékkal, felfelé kerekítve (cső, csatorna szálban: 3 m-es szálakra átszámolni).",
+        "Darabszámos (db): doboz, kapcsoló, dugalj, kismegszakító. Hosszmértékes (m): vezeték, kábel, védőcső, vezetékcsatorna."
+      ]
+    }
+  ],
+  "keyFacts": [
+    {
+      "k": "Zászlók száma a kapcsolón",
+      "v": "pólusszám"
+    },
+    {
+      "k": "Váltókapcsoló jele",
+      "v": "átmenő vonal, mindkét végén ellentétes oldali zászló"
+    },
+    {
+      "k": "Keresztkapcsoló jele",
+      "v": "két keresztező, kétvégű zászlós vonal"
+    },
+    {
+      "k": "Vonalkák közvetlen jelentése",
+      "v": "legfeljebb 3 vezetékig"
+    },
+    {
+      "k": "Keresztkapcsolóhoz futó vezetékek",
+      "v": "4"
+    },
+    {
+      "k": "Váltókapcsolóhoz futó vezetékek",
+      "v": "3"
+    },
+    {
+      "k": "Egypólusú kapcsolóhoz (PE nélkül)",
+      "v": "2"
+    },
+    {
+      "k": "Lámpához / betápláláshoz",
+      "v": "3 (L, N, PE)"
+    },
+    {
+      "k": "Kétkörös csillárhoz",
+      "v": "4 (2 kapcsolt L, N, PE)"
+    },
+    {
+      "k": "Tervjelek",
+      "v": "S kapcsoló, K kontaktor, F védelem, M motor, H jelzőlámpa"
+    },
+    {
+      "k": "Áramutas rajz állapota",
+      "v": "nyugalmi (kikapcsolt, feszültségmentes)"
+    },
+    {
+      "k": "Huzalozási rajzon összekötő pont",
+      "v": "tilos – minden vezetékvég megcímezve"
+    },
+    {
+      "k": "Méretarány 1:50, 12,4 cm",
+      "v": "12,4 × 50 = 620 cm = 6,2 m"
+    }
+  ],
+  "formulas": [
+    {
+      "f": "Valós hossz = rajzi hossz × méretarány-szorzó",
+      "note": "cm → m átváltás: ÷100"
+    },
+    {
+      "f": "Vezeték = Σ (szakaszhossz × érszám) + érszakaszok száma × ráhagyás",
+      "note": "pl. 4 m × 3 + 1 m × 2 + 2 m × 3 = 20 m"
+    },
+    {
+      "f": "Védőcső = Σ nyomvonalszakasz × (1 + ráhagyás %)",
+      "note": "felfelé egész méterre, majd szálra: 18,5 × 1,1 = 20,35 → 21 m → 7 db 3 m-es szál"
+    }
+  ],
+  "mistakes": [
+    "Az 1 vonalka + „5” jelölést 1 vezetéknek olvasni.",
+    "A vezetékhosszt a nyomvonalhosszal azonosnak venni – minden szakaszt szorozni kell az érszámmal.",
+    "A kapcsolóhoz is 3 eret (PE-t) számolni, ha a feladat szerint oda nem megy védővezető.",
+    "A függőleges szakaszokat (kötődoboz → kapcsoló, → dugalj) kihagyni a nyomvonalból.",
+    "Két kapcsolási helyhez keresztkapcsolót tenni az anyagjegyzékbe – csak 3 helytől kell.",
+    "Méretarányos átszámításnál cm–m hibát véteni (6,2 m helyett 62 m).",
+    "Anyagjegyzékben lefelé kerekíteni – a hiányzó anyag megállítja a munkát.",
+    "Az egyvonalas rajzból térbeli elhelyezést kiolvasni – arra az alaprajz való."
+  ],
+  "hooks": [
+    "Zászló = pólus; átmenő vonal = váltó; kereszt = két átmenő vonal.",
+    "Kereszt = 4 vezeték, váltó = 3, egypólusú = 2.",
+    "„Hossz × ér + ráhagyás” – a vezeték mindig az érszámmal szorzódik, a cső nem.",
+    "Hol? → alaprajz. Mivel védve? → egyvonalas. Hogyan szerelve? → műszaki leírás. Mennyi? → anyagjegyzék."
+  ],
+  "svg": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 255'><circle cx='50' cy='45' r='9' stroke='black' stroke-width='1.5' fill='none'/><line x1='43.6' y1='38.6' x2='56.4' y2='51.4' stroke='black' stroke-width='1.5'/><line x1='43.6' y1='51.4' x2='56.4' y2='38.6' stroke='black' stroke-width='1.5'/><text x='50' y='80' font-family='sans-serif' font-size='12' fill='black' text-anchor='middle'>világítótest</text><line x1='128' y1='45' x2='172' y2='45' stroke='black' stroke-width='2'/><line x1='128' y1='39' x2='128' y2='51' stroke='black' stroke-width='2'/><line x1='172' y1='39' x2='172' y2='51' stroke='black' stroke-width='2'/><text x='150' y='80' font-family='sans-serif' font-size='12' fill='black' text-anchor='middle'>fénycsöves</text><circle cx='244' cy='52' r='4' stroke='black' stroke-width='1.5' fill='none'/><line x1='246.8' y1='49.2' x2='258.1' y2='37.9' stroke='black' stroke-width='1.5'/><line x1='258.1' y1='37.9' x2='262.4' y2='42.1' stroke='black' stroke-width='1.5'/><text x='250' y='80' font-family='sans-serif' font-size='12' fill='black' text-anchor='middle'>egypólusú</text><circle cx='344' cy='52' r='4' stroke='black' stroke-width='1.5' fill='none'/><line x1='346.8' y1='49.2' x2='358.1' y2='37.9' stroke='black' stroke-width='1.5'/><line x1='358.1' y1='37.9' x2='362.4' y2='42.1' stroke='black' stroke-width='1.5'/><line x1='355.3' y1='40.7' x2='359.6' y2='44.9' stroke='black' stroke-width='1.5'/><text x='350' y='80' font-family='sans-serif' font-size='12' fill='black' text-anchor='middle'>kétpólusú</text><circle cx='450' cy='45' r='4' stroke='black' stroke-width='1.5' fill='none'/><line x1='452.8' y1='42.2' x2='464.1' y2='30.9' stroke='black' stroke-width='1.5'/><line x1='464.1' y1='30.9' x2='468.4' y2='35.1' stroke='black' stroke-width='1.5'/><line x1='447.2' y1='47.8' x2='435.9' y2='59.1' stroke='black' stroke-width='1.5'/><line x1='435.9' y1='59.1' x2='431.6' y2='54.9' stroke='black' stroke-width='1.5'/><text x='450' y='80' font-family='sans-serif' font-size='12' fill='black' text-anchor='middle'>váltó</text><circle cx='550' cy='45' r='4' stroke='black' stroke-width='1.5' fill='none'/><line x1='552.8' y1='42.2' x2='564.1' y2='30.9' stroke='black' stroke-width='1.5'/><line x1='564.1' y1='30.9' x2='568.4' y2='35.1' stroke='black' stroke-width='1.5'/><line x1='547.2' y1='47.8' x2='535.9' y2='59.1' stroke='black' stroke-width='1.5'/><line x1='535.9' y1='59.1' x2='531.6' y2='54.9' stroke='black' stroke-width='1.5'/><line x1='552.8' y1='47.8' x2='564.1' y2='59.1' stroke='black' stroke-width='1.5'/><line x1='564.1' y1='59.1' x2='559.9' y2='63.4' stroke='black' stroke-width='1.5'/><line x1='547.2' y1='42.2' x2='535.9' y2='30.9' stroke='black' stroke-width='1.5'/><line x1='535.9' y1='30.9' x2='540.1' y2='26.6' stroke='black' stroke-width='1.5'/><text x='550' y='80' font-family='sans-serif' font-size='12' fill='black' text-anchor='middle'>kereszt</text><text x='20' y='118' font-family='sans-serif' font-size='12' fill='black' font-weight='bold'>Vezetékszám egyvonalas rajzon:</text><text x='20' y='149' font-family='sans-serif' font-size='12' fill='black'>2 vezeték</text><line x1='150' y1='145' x2='330' y2='145' stroke='black' stroke-width='1.5'/><line x1='225' y1='152' x2='235' y2='138' stroke='black' stroke-width='1.5'/><line x1='239' y1='152' x2='249' y2='138' stroke='black' stroke-width='1.5'/><text x='20' y='179' font-family='sans-serif' font-size='12' fill='black'>3 vezeték</text><line x1='150' y1='175' x2='330' y2='175' stroke='black' stroke-width='1.5'/><line x1='225' y1='182' x2='235' y2='168' stroke='black' stroke-width='1.5'/><line x1='239' y1='182' x2='249' y2='168' stroke='black' stroke-width='1.5'/><line x1='253' y1='182' x2='263' y2='168' stroke='black' stroke-width='1.5'/><text x='20' y='209' font-family='sans-serif' font-size='12' fill='black'>4 vezeték</text><line x1='150' y1='205' x2='330' y2='205' stroke='black' stroke-width='1.5'/><line x1='225' y1='212' x2='235' y2='198' stroke='black' stroke-width='1.5'/><text x='242' y='201' font-family='sans-serif' font-size='12' fill='black' font-weight='bold'>4</text><text x='20' y='239' font-family='sans-serif' font-size='12' fill='black'>5 vezeték</text><line x1='150' y1='235' x2='330' y2='235' stroke='black' stroke-width='1.5'/><line x1='225' y1='242' x2='235' y2='228' stroke='black' stroke-width='1.5'/><text x='242' y='231' font-family='sans-serif' font-size='12' fill='black' font-weight='bold'>5</text><text x='350' y='150' font-family='sans-serif' font-size='12' fill='black'>≤ 3 vezetékig: annyi ferde vonalka,</text><text x='350' y='166' font-family='sans-serif' font-size='12' fill='black'>ahány vezeték;</text><text x='350' y='196' font-family='sans-serif' font-size='12' fill='black'>3 felett: 1 vonalka + szám.</text><text x='350' y='226' font-family='sans-serif' font-size='12' fill='black'>Kapcsolón a zászlók száma = pólusszám;</text><text x='350' y='242' font-family='sans-serif' font-size='12' fill='black'>váltó: átmenő vonal, két végén zászló.</text></svg>",
+  "sources": [
+    "Villamosrajz.pdf (villanyszerelés ÚJ gyak könyv)",
+    "MSZ EN 60617 (rajzjelek)",
+    "34_522_04_1_10T és Villanyszerelo 2022 Feladatsor + Megoldás (alaprajzi feladatok, vezetékszám)",
+    "Délvil_tch/48._Villanyszerelo_JEGYZET.pdf (csillár-, keresztkapcsolás)",
+    "villanyszerelo-jegyzet.pdf 5.3.1 (nyomvonal)"
+  ]
+}

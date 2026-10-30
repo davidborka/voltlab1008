@@ -1,0 +1,134 @@
+{
+  "topic": "szerszamok-eszkozok",
+  "title": "Kéziszerszámok, munkaeszközök, műszerek",
+  "summary": "A vizsga egy szerelési technológiához (süllyesztett védőcsöves vagy falon kívüli csatornás) kéri kiválasztani a szerszámokat listából, párosítani a munkafeladatot és a szerszámot, illetve a mérési feladatot és a műszert. Visszatérő téma a feszültségmentesség megállapítása (kétpólusú vizsgáló, nem fázisceruza), a szigetelt szerszám jelölése, a CAT kategória, a lakatfogó és a szerelői ellenőrzés mérési határértékei.",
+  "sections": [
+    {
+      "h": "Szerszám a munkafázishoz",
+      "bullets": [
+        "Kijelölés: mérőszalag, vízmérték, lézeres szintező, csapózsinór.",
+        "Falmarás (süllyesztett szerelés): horonymaró (kéttárcsás falhoronyvágó), fészekmaró, véső + kalapács; porszívó, védőszemüveg, porvédő maszk.",
+        "Dobozfészek: dobozfúró (fúrókorona) fúrógéppel – 60 mm belső átmérőjű szerelvénydobozhoz <b>68 mm</b> (a doboz külső átmérője kb. 64–65 mm + gipsz helye). A korona középső fúrószárát a jelölt középpontra illesztik.",
+        "Dobozok beépítése, gipszelés: serpenyő, spakli, festékkaparó. Védőcső: csővágó, csőhajlító, hőlégfúvó.",
+        "Vezetékek befűzése: behúzórugó (fűzőszalag), csípőfogó, csupaszoló fogó.",
+        "Falon kívüli, csatornás szerelés: gérvágó (sarkok, toldások), reszelő, szike, talpas derékszög, fúrógép, csavarbehajtó. Itt NINCS horonymaró és dobozfúró.",
+        "Nem ide tartozik: mászóvas és biztonsági öv – faoszlopos szabadvezetéki munka."
+      ]
+    },
+    {
+      "h": "Vezetékvég előkészítése",
+      "body": "Hajlékony tömlővezeték (pl. H05VV-F) bekötésének sorrendje: <b>leszabás</b> (csípőfogó) → <b>köpeny eltávolítása</b> (kábelkés, az érszigetelést nem sértve) → <b>erek csupaszolása</b> a hüvelyhez illő hosszon (csupaszoló fogó) → <b>érvéghüvely</b> felhelyezése → <b>sajtolás</b> (érvéghüvely-krimpelő fogó) → bekötés szigetelt csavarhúzóval, <b>húzópróba</b>.",
+      "bullets": [
+        "Érvéghüvely kell, ha hajlékony (finomhuzalos, sodrott) eret csavaros kapocsba vagy sorkapocsba kötnek – a csavar különben szétnyomja a szálakat, csökken a keresztmetszet, nő az átmeneti ellenállás, a kilógó szálak zárlatot okozhatnak. Szűk helyen szigetelt („szoknyás”) hüvely.",
+        "Tömör vezetőhöz érvéghüvely nem kell; alumíniumnál kontaktpaszta kell, azt a hüvely nem helyettesíti.",
+        "Kábelkés: köpeny (körbe- és hosszirányú vágás); csupaszoló fogó: érszigetelés beállítható hosszon."
+      ]
+    },
+    {
+      "h": "Szigetelt szerszám, feszültségvizsgáló",
+      "body": "Feszültség alatti munkára minősített szigetelt szerszámon magán a szerszámon szerepel az <b>1000 V</b> felirat, a <b>kettős háromszög</b> jel és a szabvány száma (MSZ EN 60900 / IEC 60900; 10 kV-tal vizsgálva). A színes nyél vagy a CE-jel önmagában nem minősít; sérült szigetelésű szerszám selejt.",
+      "bullets": [
+        "Feszültségmentesség megállapítása: <b>kétpólusú feszültségvizsgáló</b> (MSZ EN 61243-3), háromlépéses módszerrel: 1. ellenőrzés ismert feszültségen, 2. mérés a munkahelyen minden vezető között és minden vezető és PE között, 3. ismételt ellenőrzés ismert feszültségen. Ha a 3. lépésben nem jelez, a mérés érvénytelen.",
+        "Fázisceruza: a használó testén folyik át áram, védőellenállásának hibája veszélyes; sem feszültségmentességre, sem folytonosságra nem alkalmas, használata nem javasolt.",
+        "Elemes feszültségkémlelő feszültségmentes állapotban hangjelzéssel folytonosságot is jelez.",
+        "Lekapcsolt kismegszakító látványa nem bizonyítja a feszültségmentességet (rossz kör, vissztáplálás)."
+      ]
+    },
+    {
+      "h": "Műszerek és mérési kategória",
+      "bullets": [
+        "Szigetelésmérő: vezetők közötti és vezető–föld szigetelési ellenállás (egyenfeszültség, feszültségmentesen).",
+        "Folytonosságmérő: védővezető, EPH folytonossága, 4–24 V üresjárási feszültséggel, legalább 0,2 A mérőárammal, mérőzsinór nullázásával (régi próbalámpás módszer ma nem elfogadott).",
+        "Hurokimpedancia-mérő: a TN-rendszer lekapcsolási feltétele (feszültség alatt).",
+        "RCD- (ÁVK-) vizsgáló: kioldási áram és idő (feszültség alatt). A TEST gomb csak a mechanikát próbálja.",
+        "Lakatfogó: áram az áramkör megbontása nélkül – csak EGY eret szabad körbefogni; egész kábel körül az L és N tere kioltja egymást (≈ 0 A; ezen alapul a szivárgóáram-mérés és az ÁVK is).",
+        "Kábelkereső (adó + vevő): falban futó nyomvonal, szakadás helye. Multiméter: feszültség, ellenállás, folytonosság; ellenállásmérő állásban csak feszültségmentes körön, árammérő állásban feszültségre kötni zárlatot okoz.",
+        "Mérési kategória: CAT II dugaljról táplált készülék, CAT III rögzített telepítés (lakáselosztó), CAT IV betáplálás kezdete (csatlakozási pont, mérőhely)."
+      ]
+    },
+    {
+      "h": "Szerelői ellenőrzés mérései (MSZ HD 60364-6)",
+      "body": "Szükséges műszerek: szigetelésmérő, folytonosságmérő, hurokimpedancia-mérő, ÁVK-vizsgáló (ma gyakran egy multifunkciós érintésvédelmi műszerben). Előbb a feszültségmentes mérések, utána a feszültség alá helyezés és a feszültség alatti mérések; eredmények jegyzőkönyvbe.",
+      "bullets": [
+        "Feszültségmentesen: szigetelési ellenállás, védővezető-folytonosság, vezetőfelcserélés ohmos vizsgálata.",
+        "Feszültség alatt: hurokimpedancia, ÁVK kioldási idő, fázissorrend.",
+        "Szigetelésmérés előtt az érzékeny elektronikát (túlfeszültség-levezető, elektronikus előtét) le kell választani."
+      ]
+    }
+  ],
+  "keyFacts": [
+    {
+      "k": "Szigetelésmérés 230/400 V-os körben",
+      "v": "500 V DC, legalább 1 MΩ"
+    },
+    {
+      "k": "Szigetelésmérés SELV/PELV körben",
+      "v": "250 V DC, legalább 0,5 MΩ"
+    },
+    {
+      "k": "Szigetelésmérés 500 V felett",
+      "v": "1000 V DC, legalább 1 MΩ"
+    },
+    {
+      "k": "Folytonosságmérés",
+      "v": "4–24 V, legalább 0,2 A"
+    },
+    {
+      "k": "Általános ÁVK kioldási ideje I<sub>Δn</sub>-nél",
+      "v": "≤ 300 ms"
+    },
+    {
+      "k": "Általános ÁVK kioldási ideje 5·I<sub>Δn</sub>-nél",
+      "v": "≤ 40 ms"
+    },
+    {
+      "k": "ÁVK kioldási árama",
+      "v": "0,5–1 × I<sub>Δn</sub> (30 mA-esnél 15–30 mA)"
+    },
+    {
+      "k": "Szigetelt szerszám jelölése",
+      "v": "1000 V + kettős háromszög + MSZ EN/IEC 60900"
+    },
+    {
+      "k": "Dobozfúró 60 mm-es szerelvénydobozhoz",
+      "v": "68 mm"
+    },
+    {
+      "k": "Lakáselosztóban mérés",
+      "v": "legalább CAT III"
+    },
+    {
+      "k": "Mérőhelyen, betáplálás kezdetén",
+      "v": "CAT IV"
+    },
+    {
+      "k": "Feszültségvizsgáló szabványa",
+      "v": "MSZ EN 61243-3, kétpólusú"
+    }
+  ],
+  "mistakes": [
+    "Fázisceruzával megállapítani a feszültségmentességet vagy folytonosságot vizsgálni.",
+    "A feszültségvizsgálót csak mérés előtt ellenőrizni – utána is kell (háromlépéses módszer).",
+    "Az egész NYM kábelt a lakatfogóba fogni – az L és N áram kioltja egymást, ~0 A-t mér.",
+    "Csatornás, falon kívüli szereléshez horonymarót, dobozfúrót választani; süllyesztett szereléshez gérvágót.",
+    "Szigetelésmérővel mérni a védővezető folytonosságát – ahhoz kis ellenállás mérése kell, legalább 0,2 A-rel.",
+    "Multimétert ellenállásmérő állásban feszültség alatti körre kötni.",
+    "A 60 mm-es dobozhoz 60 mm-es koronát választani – nem fér be a doboz és a gipsz.",
+    "A színes nyelet vagy a CE-jelet szigetelési minősítésnek tekinteni."
+  ],
+  "hooks": [
+    "Vizsgáló: „próba – mérés – próba”.",
+    "Szigetelés: „500 V – 1 MΩ”, SELV-nél „250 V – 0,5 MΩ”.",
+    "ÁVK: „300 ms egyszeresnél, 40 ms ötszörösnél”.",
+    "Lakatfogóba egy eret – kettő együtt semmit mutat.",
+    "CAT: minél közelebb a betápláláshoz, annál nagyobb szám."
+  ],
+  "sources": [
+    "villanyszerelés ÚJ gyak könyv/Kéziszerszámok(vill).pdf (munkafázisok szerszámai, fázisceruza, szigetelt szerszám, mérések)",
+    "villanyszerelés ÚJ gyak könyv/Villamos műszerek.pdf",
+    "MSZ HD 60364-6 (szerelői ellenőrzés, 6A táblázat)",
+    "MSZ 1585:2016",
+    "MSZ EN 61243-3, MSZ EN 60900, MSZ EN 61010-1, MSZ EN 61008-1",
+    "Villanyszerelo_Megoldas_2022 7. feladat"
+  ]
+}

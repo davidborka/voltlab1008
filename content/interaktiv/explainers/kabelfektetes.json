@@ -1,0 +1,149 @@
+{
+  "topic": "kabelfektetes",
+  "title": "Kábelfektetési technológia",
+  "summary": "A földkábel fektetésének MSZ 13207 szerinti szabályai: fektetési mélység, homokágy, jelzőszalag, hajlítási sugár, húzóerő, fektetési hőmérséklet, keresztezések és megközelítések (víz, távközlés, út), falátvezetés, kábelszerelvények. Ehhez jönnek a szerelési módok (A1, B, C, D, E) és a terhelhetőséget csökkentő tényezők. A vizsga számokat, sorrendet és rajzos rétegazonosítást kér.",
+  "sections": [
+    {
+      "h": "Kábelárok rétegei és mélysége",
+      "body": "Alulról felfelé: <b>homokágy</b> (legalább 5 cm, semleges kémhatású homok) → <b>kábel</b> → <b>homok takaróréteg</b> (legalább 5 cm, üregmentesen) → részleges visszatöltés → <b>jelzőszalag</b> → visszatöltés rétegenként tömörítve. (Tankönyvekben gyakori a 10 cm-es homokágy – ez megfelel, a szabvány csak minimumot ír.) Nagyobb feszültségnél a takaróhomokra védőborítás (kábeltégla) is kerül a jelzőszalag alá.",
+      "bullets": [
+        "Fektetési mélység: szabályozott terepen 0,6–0,8 m, szabályozatlan terepen (feltöltés, útépítés várható) legalább 1,0 m. Régi jegyzetek „0,7 m”-e a tartományba esik.",
+        "A mélységet a terepszinttől a kábel <b>alsó érintősíkjáig</b> mérjük, nem a tengelyéig.",
+        "Ha a mélység nem tartható: fokozott szilárdságú védőborítás vagy védőcső, és a szakaszt hosszával a nyomvonalrajzon jelölni kell.",
+        "Védőborítás kötelező 3,6/6 kV-tól; kisfeszültségen csak, ha a mélység kisebb az előírtnál."
+      ]
+    },
+    {
+      "h": "Jelzőszalag",
+      "bullets": [
+        "Helye: általában a fektetési mélység kb. felében, de a kábel felső alkotóját legfeljebb 0,3 m-re közelítheti meg – hogy az ásó előbb a szalagot érje.",
+        "Sárga, 100–200 mm széles, legalább 0,2 mm vastag, rajta legalább 0,5 m-enként vörös villámjel és „ERŐSÁRAMÚ KÁBEL” felirat.",
+        "Kötés nélkül legalább 3 m átfedéssel toldható; kábelcsoportok fölött 0,2–0,3 m-enként egy szalag."
+      ]
+    },
+    {
+      "h": "Fektetés, húzás, hajlítás, hőmérséklet",
+      "body": "Munkasorrend: nyomvonal kitűzése és egyeztetés a közművekkel → árok kiásása, éles tárgyak eltávolítása → homokágy → kábel ellenőrzése, fektetése görgőkön, <b>enyhén hullámosan</b> (talajmozgás, hőtágulás) → takaróhomok → részleges visszatöltés + jelzőszalag → visszatöltés, tömörítés, bemérés, dokumentálás.",
+      "bullets": [
+        "Hajlítási sugár (extrudált kábel, gyártói adat hiányában): többerű r ≥ 12·d, egyerű r ≥ 15·d (d = külső átmérő). 50 %-kal csökkenthető egyszeri, 30 °C-ra melegített, sablonon végzett hajlításnál.",
+        "Húzóerő húzófejjel vagy húzóharisnyával: P = S·σ, réz σ = 50 N/mm², alumínium σ = 25 N/mm²; S a megfogott vezetők névleges keresztmetszete, árnyékolás nélkül.",
+        "Legkisebb fektetési hőmérséklet: extrudált (PVC) kábel −5 °C, telített papírszigetelésű +4 °C; hidegebb kábelt elő kell melegíteni (a hideg PVC megreped).",
+        "Sérült burkolatú kábelt nem szabad fektetni; szabályos javítás kell (pl. javító zsugorköpeny), nem szigetelőszalag."
+      ]
+    },
+    {
+      "h": "Távolságok, keresztezések, út, falátvezetés",
+      "bullets": [
+        "Egy síkban fektetett kábelek között ≥ 0,07 m; szélső kábel – árokfal ≥ 0,1 m.",
+        "Vízvezeték, csatorna: megközelítés és keresztezés ≥ 0,5 m, a kábel FÖLÜL halad; ha nem tartható, védőcső mindkét irányban 0,5 m túlnyúlással, 1 m-en belül csőkötés nélkül.",
+        "Távközlési kábel: keresztezésnél az erősáramú FÖLÜL, ≥ 0,5 m (védőcsővel / választótéglázással 0,2 m-ig csökkenthető); vízszintes megközelítés ≥ 1 m.",
+        "Út keresztezése: mindig védőműtárgyban (védőcső, tömbcsatorna), amely 0,5 m-rel túlnyúlik; teteje az útburkolat alatt ≥ 1 m; új létesítésnél tartalék cső. Út alatt kábelek nem keresztezhetik egymást és nem futhatnak az úttengellyel párhuzamosan.",
+        "Falátvezetés: védőcsőben (cserélhetőség; csatlakozókábelnél ≥ 80 mm belső átmérő), kifelé lejtve, végein víz- és gáztömören tömítve; tűzszakaszhatáron minősített tűzgátló tömítés; átvezetésben kötés nem lehet, habarccsal rögzíteni tilos.",
+        "Kábeltálca, kábellétra nem lehet PE (de az EPH-ba bekötjük); létrán földkábel és köpenyes vezeték együtt is lehet; erős- és gyengeáram külön rekeszben, keresztezés 90°-ban."
+      ]
+    },
+    {
+      "h": "Szerelési mód és terhelhetőség (MSZ HD 60364-5-52)",
+      "body": "A terhelhetőség a hőleadástól függ. Referencia-módok: <b>A1</b> egyerű vezeték csőben hőszigetelt falban (legrosszabb hűlés), <b>B1/B2</b> csőben, csatornában falon/falban, <b>C</b> köpenyes vezeték közvetlenül a falon, <b>D</b> talajban (D1 csőben, D2 közvetlenül), <b>E</b> többerű kábel szabad levegőn (perforált tálca), F/G egyerű kábelek levegőn. Sorrend kicsitől nagyig: A1 < B < C < E.",
+      "bullets": [
+        "Terhelhetőséget csökkenti: 30 °C feletti környezet, kötegelés/több áramkör, hőszigetelés, többrétegű fektetés árokban, nullavezető felharmonikus árama.",
+        "NEM csökkenti: a vezeték hossza (az a feszültségesést növeli), a kismegszakító karakterisztikája.",
+        "Kábelszerelvények: végelzáró (vég lezárása, erek kivezetése), egyenes összekötő (toldás), T-elágazó (leágazás folytonos kábelről), préshüvely (fémes kötés sajtolással), hőre zsugorodó cső (szigetelés, tömítés).",
+        "Zsugoros összekötő: a csöveket a préselés ELŐTT kell felhúzni; zsugorítás középről kifelé; végül szigetelésmérés."
+      ]
+    }
+  ],
+  "keyFacts": [
+    {
+      "k": "Fektetési mélység, szabályozott terep",
+      "v": "0,6–0,8 m"
+    },
+    {
+      "k": "Fektetési mélység, szabályozatlan terep",
+      "v": "legalább 1,0 m"
+    },
+    {
+      "k": "Mélység mérése",
+      "v": "a kábel alsó érintősíkjáig"
+    },
+    {
+      "k": "Homokágy / takaróréteg",
+      "v": "legalább 5 cm / 5 cm, semleges homok"
+    },
+    {
+      "k": "Jelzőszalag helye",
+      "v": "kb. h/2, kábeltől legalább 0,3 m"
+    },
+    {
+      "k": "Jelzőszalag",
+      "v": "sárga, 100–200 mm, ≥ 0,2 mm, vörös villámjel, toldás ≥ 3 m átfedéssel"
+    },
+    {
+      "k": "Hajlítási sugár többerű / egyerű",
+      "v": "12·d / 15·d"
+    },
+    {
+      "k": "Megengedett húzófeszültség Cu / Al",
+      "v": "50 / 25 N/mm²"
+    },
+    {
+      "k": "Min. fektetési hőmérséklet PVC / papír",
+      "v": "−5 °C / +4 °C"
+    },
+    {
+      "k": "Kábelek egymástól / árokfaltól",
+      "v": "0,07 m / 0,1 m"
+    },
+    {
+      "k": "Vízvezeték, távközlés keresztezése",
+      "v": "0,5 m, erősáramú kábel felül"
+    },
+    {
+      "k": "Távközlés vízszintes megközelítése",
+      "v": "1 m"
+    },
+    {
+      "k": "Út alatti védőcső",
+      "v": "teteje ≥ 1 m mélyen, 0,5 m túlnyúlás, tartalék cső"
+    },
+    {
+      "k": "Terhelhetőség sorrendje",
+      "v": "A1 < B < C < E"
+    }
+  ],
+  "formulas": [
+    {
+      "f": "r<sub>min</sub> = 12·d (többerű), 15·d (egyerű)",
+      "note": "pl. d = 28 mm → 336 mm; d = 40 mm egyerű → 600 mm"
+    },
+    {
+      "f": "P = S·σ",
+      "note": "S = megfogott vezetők összes keresztmetszete; 4×150 Al: 600·25 = 15 000 N; 4×95 Cu: 380·50 = 19 000 N"
+    }
+  ],
+  "mistakes": [
+    "A mélységet a kábel tengelyéig vagy tetejéig mérni – az alsó érintősíkig kell.",
+    "A jelzőszalagot közvetlenül a kábelre tenni – az ásó addigra a kábelt is eléri.",
+    "A szabályozatlan terep 1,0 m-ét szabályozott terepre alkalmazni (vagy fordítva).",
+    "A húzóerőbe az árnyékolás keresztmetszetét is beszámítani, vagy csak egy ér keresztmetszetével számolni.",
+    "A hajlítási sugarat az átmérővel összekeverni.",
+    "A kábelt a vízvezeték vagy távközlési kábel ALÁ vezetni – az erősáramú kábel felül halad.",
+    "Út alatt védőcső nélkül, „szokásos” mélységben átvezetni a kábelt.",
+    "A vezeték hosszát terhelhetőséget csökkentő tényezőnek tekinteni – az a feszültségesést rontja."
+  ],
+  "hooks": [
+    "Ami keresztez: fél méter; ami mellette fut: egy méter.",
+    "Homok alul 5, felül 5; szalag félúton.",
+    "Réz 50, alumínium 25 N/mm² – az alumínium fele annyit bír.",
+    "Hajlítás: „több ér 12, egy ér 15”.",
+    "Hűlés = terhelhetőség: hőszigetelt fal a legrosszabb, szabad levegő a legjobb."
+  ],
+  "svg": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 306'><text x='16' y='20' font-family='sans-serif' font-size='13' fill='black' font-weight='bold'>Földkábel kábelárokban (MSZ 13207)</text><line x1='40' y1='50' x2='200' y2='50' stroke='black' stroke-width='1.5'/><line x1='400' y1='50' x2='600' y2='50' stroke='black' stroke-width='1.5'/><text x='46' y='44' font-family='sans-serif' font-size='12' fill='black'>terepszint</text><line x1='200' y1='50' x2='200' y2='270' stroke='black' stroke-width='1.5'/><line x1='400' y1='50' x2='400' y2='270' stroke='black' stroke-width='1.5'/><line x1='200' y1='270' x2='400' y2='270' stroke='black' stroke-width='1.5'/><line x1='200' y1='250' x2='400' y2='250' stroke='black' stroke-width='1.5' stroke-dasharray='4 3'/><line x1='200' y1='205' x2='400' y2='205' stroke='black' stroke-width='1.5' stroke-dasharray='4 3'/><circle cx='300' cy='236' r='12' stroke='black' stroke-width='1.5' fill='#bbb'/><line x1='240' y1='140' x2='360' y2='140' stroke='black' stroke-width='4'/><line x1='170' y1='50' x2='170' y2='248' stroke='black' stroke-width='1.5'/><line x1='162' y1='50' x2='178' y2='50' stroke='black' stroke-width='1.5'/><line x1='162' y1='248' x2='178' y2='248' stroke='black' stroke-width='1.5'/><line x1='178' y1='248' x2='288' y2='248' stroke='black' stroke-width='1.5' stroke-dasharray='2 3'/><text x='150' y='155' font-family='sans-serif' font-size='13' fill='black'>h</text><line x1='380' y1='95' x2='450' y2='95' stroke='black' stroke-width='1.5'/><text x='456' y='99' font-family='sans-serif' font-size='12' fill='black'>1 visszatöltés, tömörítve</text><line x1='380' y1='140' x2='450' y2='140' stroke='black' stroke-width='1.5'/><text x='456' y='144' font-family='sans-serif' font-size='12' fill='black'>2 jelzőszalag (sárga, kb. h/2,</text><text x='456' y='156' font-family='sans-serif' font-size='12' fill='black'>kábeltől ≥ 0,3 m)</text><line x1='380' y1='215' x2='450' y2='200' stroke='black' stroke-width='1.5'/><text x='456' y='204' font-family='sans-serif' font-size='12' fill='black'>3 homok takaróréteg ≥ 5 cm</text><line x1='380' y1='236' x2='450' y2='228' stroke='black' stroke-width='1.5'/><text x='456' y='232' font-family='sans-serif' font-size='12' fill='black'>4 kábel (enyhén hullámosan)</text><line x1='380' y1='260' x2='450' y2='262' stroke='black' stroke-width='1.5'/><text x='456' y='266' font-family='sans-serif' font-size='12' fill='black'>5 homokágy ≥ 5 cm</text><text x='40' y='296' font-family='sans-serif' font-size='12' fill='black'>h = terepszint → kábel ALSÓ érintősíkja: szabályozott terep 0,6–0,8 m, szabályozatlan ≥ 1,0 m</text></svg>",
+  "sources": [
+    "MSZ 13207:2000 (Szabványok/msz-13207.pdf) 1.7–1.13, 3.4–3.10, 4.1–4.4, 6.3–6.7, 7.1–7.3",
+    "mee-vet-2019-meret.pdf (MSZ HD 60364-5-52 elhelyezési módok, csökkentő tényezők)",
+    "mee-vet-2019-msz447.pdf (védővezetőként nem alkalmazható szerkezetek)",
+    "villanyszerelo-jegyzet.pdf 4.3.3 (csatlakozás kábellel)",
+    "villanyszerelés ÚJ gyak könyv/Kisfeszültségű hálózatok.pdf"
+  ]
+}

@@ -1,0 +1,160 @@
+{
+  "topic": "keszulekek-szerelvenyek",
+  "title": "Védőkészülékek, szerelvények, elosztók",
+  "summary": "Kismegszakító (B/C/D karakterisztika, adattábla), áramvédő kapcsoló (30 mA, AC/A/F/B típus, bekötési szabályok), RCBO, olvadóbiztosítók (DIAZED színkód, gG/aM, D0, NH), kontaktor és hőkioldó relé kapocsjelei, motorvédő kapcsoló, világításvezérlő készülékek, kapcsolótípusok, kötőelemek, IP-kód és lakáselosztó. A vizsga adattábla-olvasást, párosítást és sorrendet kér.",
+  "sections": [
+    {
+      "h": "Kismegszakító és olvadóbiztosító",
+      "body": "A kismegszakítóban <b>hőkioldó</b> (ikerfém, túlterhelés) és <b>elektromágneses kioldó</b> (zárlat, pillanatszerű) van. A betű a gyorskioldás tartománya: <b>B = 3–5</b>, <b>C = 5–10</b>, <b>D = 10–20 × I<sub>n</sub></b>. Lekapcsolási számításnál a felső értékkel számolunk: B16 → 80 A, C16 → 160 A, D16 → 320 A. Lakásban B az alapeset; C kisebb motorhoz, fénycsöves lámpacsoporthoz; D nagy bekapcsolási áramlökéshez (pl. transzformátor primer oldala).",
+      "bullets": [
+        "Előlap, pl. „C16”: karakterisztika + névleges áram. Téglalapban 6000 = névleges zárlati kapcsolóképesség (I<sub>cn</sub> = 6 kA), NEM üzemóra. Négyzetben 3 = energiahatárolási osztály, NEM pólusszám. CE = megfelelőségi jelölés.",
+        "Olvadóbetét jelei: első betű a működési tartomány (g = teljes: túlterhelés + zárlat; a = részleges: csak zárlat), második a felhasználás (G = általános, M = motor). aM mellé külön túlterhelésvédelem (hőkioldó relé) kell; vezetékvédelemre gG.",
+        "D (DIAZED): nagyobb, E27/E33 menet, porcelán aljzat, illesztőgyűrű (nem lehet nagyobb betétet tenni). D0 (NEOZED): kisebb, D01 = E14, D02 = E18, moduláris elosztóba, jellemzően 63 A-ig. NH (késes): nagy áram, legalább 50 kA megszakítóképesség, csatlakozó- és elosztószekrényben; cseréje csak betétcserélő fogantyúval, védőfelszerelésben.",
+        "DIAZED jelzőtárcsa: 2 A rózsaszín, 4 A barna, 6 A zöld, 10 A piros, 16 A szürke, 20 A kék, 25 A sárga, 35 A fekete, 50 A fehér, 63 A rézszín."
+      ]
+    },
+    {
+      "h": "Áramvédő kapcsoló (ÁVK, RCD) és RCBO",
+      "body": "Az ÁVK az átvezetett vezetők áramának összegét figyeli; ha különbség (hibaáram) lép fel, kiold. Lakásban dugaljkörök kiegészítő védelmére <b>30 mA</b>. Túláram ellen <b>nem véd</b> (nincs hő- és mágneses kioldója), ezért kismegszakítóval vagy biztosítóval együtt kell; a kettő egy készülékben az <b>RCBO</b> (régen „FI/LS”, MSZ EN 61009), adattábláján karakterisztika (B16) és I<sub>Δn</sub> (30 mA) is van.",
+      "bullets": [
+        "A nullavezetőt is át kell vezetni rajta (különben üzemi áramnál is kiold); a PE-t SOHA.",
+        "ÁVK utáni N nem köthető össze PE-vel vagy más kör nullájával (téves kioldás vagy vak védelem).",
+        "Négypólusú ÁVK egyfázisú bekötésénél az N az N jelű kapocsra kerül (a TEST kör ehhez igazodik).",
+        "TEST gomb: a kioldószerkezet működését ellenőrzi.",
+        "Típusok (AC ⊂ A ⊂ F ⊂ B): AC csak szinuszos; A + lüktető egyenáramú; F + vegyes frekvenciájú (egyfázisú frekvenciaváltós mosógép, hőszivattyú); B + sima egyenáramú (háromfázisú inverter, elektromos autó töltése). Ma legalább A ajánlott.",
+        "Adattábla, pl. „F 202 · AC · 25 A · I<sub>Δn</sub> = 0,03 A · I<sub>m</sub> = 1000 A”: F 202 gyártói típusjel; 25 A a tartósan vezethető áram (nem old ki túlterhelésre!); 30 mA a névleges hibaáram; I<sub>m</sub> a névleges ki-/bekapcsolóképesség."
+      ]
+    },
+    {
+      "h": "Kontaktor, hőkioldó relé, motorvédő kapcsoló",
+      "body": "A <b>kontaktor</b> (K) tekercse az <b>A1–A2</b> kapcsokra kerül (vezérlőáramkör, az adattábla szerinti feszültséggel, pl. 230 V AC vagy 24 V DC). Főérintkezők 1–2, 3–4, 5–6; segédérintkezők: második számjegy 1–2 bontó, 3–4 záró (13–14 záró az öntartáshoz, 21–22 bontó a reteszeléshez).",
+      "bullets": [
+        "Hőkioldó relé (F): ikerfémes, a motor áramára (kb. 1–1,2 I<sub>n</sub>) állítják; túlterhelésnél a <b>95–96 bontója</b> nyit a tekercskörben, a kontaktor enged el és ő bontja a főáramkört. 97–98 = záró, jelzéshez. Saját megszakítóképessége nincs, zárlat ellen nem véd.",
+        "Motorvédő kapcsoló: beállítható hőkioldó + mágneses zárlatkioldó + kézi kezelés, mindhárom pólust egyszerre bontja (nincs kétfázisú járás). Tekercse nincs: nyomógombos távvezérléshez kontaktor kell mellé. Hibaáramot nem érzékel."
+      ]
+    },
+    {
+      "h": "Világításvezérlés és kapcsolók",
+      "bullets": [
+        "Egypólusú kapcsoló (katalógusban „1-es”): egy kör egy helyről, mindig a FÁZIST bontja.",
+        "Kétpólusú: fázist és nullát egyszerre bontja.",
+        "Csillárkapcsoló („5-ös”): két lámpacsoport külön kapcsolása EGY helyről.",
+        "Váltókapcsoló („6-os”): két helyről, párban; keresztkapcsoló („7-es”): a két váltó közé, a 3. és további helyekre. n hely = 2 váltó + (n − 2) kereszt.",
+        "Nyomógombok mindig PÁRHUZAMOSAN, tetszőleges számban: impulzusrelé (minden impulzusra vált, időzítés nélkül) vagy lépcsőházi automata (beállított idő után magától kikapcsol). Sok helynél (4–5+) ez a legegyszerűbb.",
+        "Alkonykapcsoló: fényszint alapján kapcsol; időrelé: késleltetve húz meg / enged el; mozgásérzékelő: infravörös érzékelő, személy mozgására."
+      ]
+    },
+    {
+      "h": "Kötések, IP-kód, lakáselosztó",
+      "bullets": [
+        "Kötés csak kötőelemmel (kapocs, összekötő, sajtolt hüvely); csavart-szalagos kötés nem elfogadott.",
+        "Karos összekötő (pl. WAGO 221): tömör, sodrott és finomhuzalos érhez is; dugaszolható (pl. 2273) csak tömörhöz.",
+        "Ónozott eret csavar alá kötni TILOS (az ón hidegfolyása miatt lazul, melegszik); hajlékony érre érvéghüvely. Alumíniumnál oxid eltávolítása + kontaktpaszta.",
+        "IP-kód: első számjegy szilárd test (2 ujj ≥12,5 mm, 3 = 2,5 mm, 4 = 1 mm, 5 porvédett, 6 portömör), második víz (1 függőleges csepegés, 4 fröccsenő víz, 5 vízsugár, 6 erős vízsugár). A második számjegy 6-ig felfelé tartalmazza az alacsonyabbakat: IPX4 helyett IP44, IP54, IP65 is jó.",
+        "Elosztó: TS 35 kalapsín, külön N-sín és PE-sín (műanyag dobozban is kell PE-sín!). TN-C betáplálásnál a PEN először a PE-sínre, onnan az N-sínre; szétválasztás után N és PE újra nem köthető össze. 10–30 % tartalék hely.",
+        "Moduláris (kalapsínre): kismegszakító, ÁVK, impulzusrelé, lépcsőházi automata, túlfeszültség-levezető, csengőtranszformátor. Szerelvény (dobozba): kapcsolók, nyomógomb, dugalj. ÁVK 2 vagy 4 modul, egypólusú kismegszakító 1 modul (modul ≈ 17,5–18 mm)."
+      ]
+    }
+  ],
+  "keyFacts": [
+    {
+      "k": "B / C / D gyorskioldás",
+      "v": "3–5 / 5–10 / 10–20 × I<sub>n</sub>"
+    },
+    {
+      "k": "Lekapcsoló áram B16 / C16 / D16",
+      "v": "80 A / 160 A / 320 A"
+    },
+    {
+      "k": "Téglalapban 6000 a kismegszakítón",
+      "v": "6 kA zárlati kapcsolóképesség"
+    },
+    {
+      "k": "Négyzetben 3",
+      "v": "energiahatárolási osztály"
+    },
+    {
+      "k": "ÁVK lakásban",
+      "v": "30 mA, legalább A típus"
+    },
+    {
+      "k": "ÁVK-típusok szűktől szélesig",
+      "v": "AC → A → F → B"
+    },
+    {
+      "k": "Frekvenciaváltós mosógép / EV-töltő",
+      "v": "F típus / B típus"
+    },
+    {
+      "k": "RCBO",
+      "v": "ÁVK + kismegszakító egy készülékben"
+    },
+    {
+      "k": "gG / aM",
+      "v": "teljes tartomány, általános / csak zárlat, motor"
+    },
+    {
+      "k": "DIAZED 6–10–16–20–25–35 A",
+      "v": "zöld–piros–szürke–kék–sárga–fekete"
+    },
+    {
+      "k": "Kontaktortekercs",
+      "v": "A1–A2"
+    },
+    {
+      "k": "Hőkioldó relé bontó / záró",
+      "v": "95–96 / 97–98"
+    },
+    {
+      "k": "Segédérintkező záró / bontó",
+      "v": "13–14 / 21–22"
+    },
+    {
+      "k": "Többhelyes kapcsolás n helyről",
+      "v": "2 váltó + (n − 2) kereszt"
+    },
+    {
+      "k": "IP44",
+      "v": "1 mm feletti tárgy + fröccsenő víz minden irányból"
+    }
+  ],
+  "formulas": [
+    {
+      "f": "I<sub>a</sub> = k · I<sub>n</sub> (B: k = 5, C: k = 10, D: k = 20)",
+      "note": "a gyors lekapcsoláshoz szükséges zárlati áram"
+    },
+    {
+      "f": "Modulhely = Σ modul × (1 + tartalék)",
+      "note": "felfelé kerekítve; pl. 17 × 1,2 = 20,4 → 21 modul"
+    }
+  ],
+  "mistakes": [
+    "A 6000-et üzemóraszámnak vagy a négyzetbe írt 3-at pólusszámnak olvasni.",
+    "Azt hinni, hogy az ÁVK 25 A felett túlterhelés miatt kiold – az ÁVK csak hibaáramot érzékel.",
+    "A védővezetőt az ÁVK-n átvezetni, vagy a nullát kihagyni belőle.",
+    "Azt hinni, hogy a hőkioldó relé maga bontja a főáramkört – a 95–96 bontója a kontaktort ejti el.",
+    "aM betétet túlterhelés-védelemnek tekinteni – csak zárlat ellen véd.",
+    "Impulzusrelé vagy lépcsőházi automata nyomógombjait sorba kötni – mindig párhuzamosan.",
+    "Négy helyhez négy váltókapcsolót választani – 2 váltó + 2 kereszt kell.",
+    "Ónozott sodrott eret csavaros kapocsba kötni, vagy finomhuzalos eret csak tömörhöz való dugós összekötőbe dugni."
+  ],
+  "hooks": [
+    "B–C–D: „3-5, 5-10, 10-20” – mindig duplázódik.",
+    "AC–A–F–B: egyre több áramfajtát lát.",
+    "Segédérintkező: 1–2 bont, 3–4 zár („egy-kettő bontó, három-négy záró”).",
+    "IP: első szám = por, második = víz.",
+    "Hőkioldó szól, kontaktor bont."
+  ],
+  "svg": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 262'><text x='16' y='20' font-family='sans-serif' font-size='13' fill='black' font-weight='bold'>Kontaktor (K1) és hőkioldó relé (F1) kapocsjelei</text><rect x='30' y='95' width='50' height='40' stroke='black' stroke-width='1.5' fill='none'/><line x1='55' y1='60' x2='55' y2='95' stroke='black' stroke-width='1.5'/><line x1='55' y1='135' x2='55' y2='175' stroke='black' stroke-width='1.5'/><text x='62' y='72' font-family='sans-serif' font-size='13' fill='black'>A1</text><text x='62' y='170' font-family='sans-serif' font-size='13' fill='black'>A2</text><text x='18' y='200' font-family='sans-serif' font-size='13' fill='black'>tekercs</text><text x='18' y='215' font-family='sans-serif' font-size='13' fill='black'>(vezérlés)</text><line x1='150' y1='50' x2='150' y2='90' stroke='black' stroke-width='1.5'/><line x1='150' y1='130' x2='150' y2='170' stroke='black' stroke-width='1.5'/><line x1='150' y1='130' x2='134' y2='93' stroke='black' stroke-width='1.5'/><text x='155' y='62' font-family='sans-serif' font-size='11' fill='black'>1</text><text x='155' y='167' font-family='sans-serif' font-size='11' fill='black'>2</text><line x1='200' y1='50' x2='200' y2='90' stroke='black' stroke-width='1.5'/><line x1='200' y1='130' x2='200' y2='170' stroke='black' stroke-width='1.5'/><line x1='200' y1='130' x2='184' y2='93' stroke='black' stroke-width='1.5'/><text x='205' y='62' font-family='sans-serif' font-size='11' fill='black'>3</text><text x='205' y='167' font-family='sans-serif' font-size='11' fill='black'>4</text><line x1='250' y1='50' x2='250' y2='90' stroke='black' stroke-width='1.5'/><line x1='250' y1='130' x2='250' y2='170' stroke='black' stroke-width='1.5'/><line x1='250' y1='130' x2='234' y2='93' stroke='black' stroke-width='1.5'/><text x='255' y='62' font-family='sans-serif' font-size='11' fill='black'>5</text><text x='255' y='167' font-family='sans-serif' font-size='11' fill='black'>6</text><text x='150' y='200' font-family='sans-serif' font-size='13' fill='black'>főérintkezők</text><text x='150' y='215' font-family='sans-serif' font-size='13' fill='black'>(motor felé)</text><line x1='330' y1='50' x2='330' y2='90' stroke='black' stroke-width='1.5'/><line x1='330' y1='130' x2='330' y2='170' stroke='black' stroke-width='1.5'/><line x1='330' y1='130' x2='314' y2='93' stroke='black' stroke-width='1.5'/><text x='335' y='62' font-family='sans-serif' font-size='11' fill='black'>13</text><text x='335' y='167' font-family='sans-serif' font-size='11' fill='black'>14</text><text x='305' y='200' font-family='sans-serif' font-size='13' fill='black'>záró segéd</text><text x='305' y='215' font-family='sans-serif' font-size='13' fill='black'>(öntartás)</text><line x1='410' y1='50' x2='410' y2='90' stroke='black' stroke-width='1.5'/><line x1='410' y1='90' x2='424' y2='90' stroke='black' stroke-width='1.5'/><line x1='410' y1='130' x2='410' y2='170' stroke='black' stroke-width='1.5'/><line x1='410' y1='130' x2='426' y2='86' stroke='black' stroke-width='1.5'/><text x='388' y='62' font-family='sans-serif' font-size='11' fill='black'>21</text><text x='388' y='167' font-family='sans-serif' font-size='11' fill='black'>22</text><text x='385' y='200' font-family='sans-serif' font-size='13' fill='black'>bontó segéd</text><text x='385' y='215' font-family='sans-serif' font-size='13' fill='black'>(retesz)</text><line x1='80' y1='110' x2='420' y2='110' stroke='black' stroke-width='1.5' stroke-dasharray='5 4'/><line x1='510' y1='50' x2='510' y2='90' stroke='black' stroke-width='1.5'/><line x1='510' y1='90' x2='524' y2='90' stroke='black' stroke-width='1.5'/><line x1='510' y1='130' x2='510' y2='170' stroke='black' stroke-width='1.5'/><line x1='510' y1='130' x2='526' y2='86' stroke='black' stroke-width='1.5'/><text x='488' y='62' font-family='sans-serif' font-size='11' fill='black'>95</text><text x='488' y='167' font-family='sans-serif' font-size='11' fill='black'>96</text><line x1='590' y1='50' x2='590' y2='90' stroke='black' stroke-width='1.5'/><line x1='590' y1='130' x2='590' y2='170' stroke='black' stroke-width='1.5'/><line x1='590' y1='130' x2='574' y2='93' stroke='black' stroke-width='1.5'/><text x='595' y='62' font-family='sans-serif' font-size='11' fill='black'>97</text><text x='595' y='167' font-family='sans-serif' font-size='11' fill='black'>98</text><text x='480' y='200' font-family='sans-serif' font-size='13' fill='black'>F1: 95–96 bontó</text><text x='480' y='215' font-family='sans-serif' font-size='13' fill='black'>97–98 záró (jelzés)</text><rect x='470' y='38' width='160' height='145' stroke='black' stroke-width='1.5' fill='none' stroke-dasharray='3 3'/><text x='16' y='250' font-family='sans-serif' font-size='12' fill='black'>Második számjegy: 1–2 = bontó, 3–4 = záró; első számjegy = sorszám. Szaggatott vonal = mechanikus kapcsolat.</text></svg>",
+  "sources": [
+    "MSZ EN 60898-1 (kismegszakító)",
+    "MSZ EN 61008-1 / 61009-1, MSZ EN 62423 (ÁVK, RCBO)",
+    "MSZ EN 60269-1 (olvadóbiztosító)",
+    "MSZ EN 60529 (IP-kód)",
+    "MSZ EN 60947-4-1 (kontaktor kapocsjelek)",
+    "szakmai_ism_9_villszerel_kidolgozott.pdf (Diazed, kontaktorok, motorvédő)",
+    "villanyszerelo-jegyzet.pdf 5.2.3 és elosztótábla fejezet",
+    "Délvil_tch/48._Villanyszerelo_JEGYZET.pdf (impulzusrelé, lépcsőházi automata)",
+    "Villanyszerelo_2021/2022 Feladatsor + Megoldás"
+  ]
+}

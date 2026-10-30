@@ -1,0 +1,139 @@
+{
+  "topic": "feszultsegmentesites",
+  "title": "Feszültségmentesítés és üzemeltetés (MSZ 1585:2016)",
+  "summary": "Az MSZ 1585:2016 öt biztonsági műveletét kötött sorrendben kell elvégezni, mielőtt bárki hozzányúl a berendezéshez. A vizsga kérdez sorrendet, eszközöket (vizsgáló, földelő, letiltás), az épületvillamossági egyszerűsítéseket, a feszültség alatti, a közeli és a feszültségmentes munka határait, a személyi csoportokat és a munka befejezésének, visszakapcsolásának lépéseit.",
+  "sections": [
+    {
+      "h": "Feszültség nélküli vagy feszültségmentes: nem ugyanaz",
+      "body": "A <b>feszültség nélküli</b> állapot csak annyit jelent, hogy a részt lekapcsolták, de az öt művelet még nincs kész. <b>Feszültségmentes</b> a rész csak akkor, ha mind az öt műveletet elvégezték. Addig a berendezést (az első üzembe helyezéstől kezdve) <b>feszültség alatt állónak kell tekinteni</b>. A műveletek maguk (a villamos működtetésű kapcsolás kivételével) feszültség alatti vagy közeli munkának számítanak, ezért szakképzett vagy kioktatott személy végezheti őket.<br><b>Leválasztás</b>: az áramkör elválasztása minden tápforrástól, légközzel vagy azzal egyenértékű szigeteléssel, hogy a bontási helyen ne legyen átütés. A puszta kikapcsolás (az üzemi áram megszakítása, pl. dobozkapcsolóval) ettől még nem leválasztás.",
+      "bullets": [
+        "<b>Feszültség alatti munka</b> (kisfeszültségen): csupasz aktív részt érint testtel vagy szerszámmal, vagy szokásos körültekintéssel sem tudja ezt biztosan elkerülni. A mérőcsúcsos feszültségmérés is ide tartozik.",
+        "<b>Feszültséghez közeli munka</b>: behatol a közelítési övezetbe (D<sub>V</sub>-n belül), de a feszültség alatti övezetet (D<sub>L</sub>) nem éri el. 1 kV-ig D<sub>L</sub> = „nem lehet érintés”, D<sub>V</sub> = 300 mm. Példa: munka csupasz sín mellett, 20 cm-re, érintés nélkül.",
+        "<b>Feszültségmentes munka</b>: az öt művelet után. Ha a szomszédos aktív részt letakarták, a munka már nem esik a közelítési övezetbe."
+      ]
+    },
+    {
+      "h": "Az öt biztonsági művelet – sorrend és miért",
+      "body": "A sorrend kötött (MSZ 1585:2016 6.2.1.). Mindegyik lépés az előzőre épül: ezért nem cserélhető fel.",
+      "bullets": [
+        "<b>1. Teljes körű leválasztás</b>, minden lehetséges táppontról: szakaszolóval, leválasztó kapcsolóval, kiemelt biztosítóval vagy leválasztásra alkalmas kismegszakítóval. Visszatáplálásra képes forrás (napelemes inverter, UPS, aggregátor, kétoldali betáplálás) is betáplálási pont. <i>Miért:</i> minden energiautat meg kell szüntetni.",
+        "<b>2. Visszakapcsolás elleni biztosítás</b> (letiltás): lakat, „Bekapcsolni tilos” tábla, kezelőfogantyú levétele. <i>Miért:</i> hogy az ellenőrzés után már senki ne kapcsolhasson vissza, ezért kerül a mérés elé.",
+        "<b>3. A feszültség nélküli állapot ellenőrzése</b> a munkahelyen vagy ahhoz a lehető legközelebb, minden póluson: fázis–fázis, fázis–nulla és (ha földelt fém hozzáférhető) fázis–föld. Kisfeszültségen próbalámpa vagy legalább 20 mA-t felvevő kétsarkú feszültségvizsgáló kell, amelyet közvetlenül előtte (lehetőleg utána is) kipróbálunk. <i>Miért:</i> így derül ki a rossz áramkör, a visszatáplálás vagy egy hibás vizsgáló.",
+        "<b>4. Földelés és rövidre zárás</b>: a földelő-rövidrezáró eszközt <b>először a földelési ponthoz</b>, utána a vezetőkhöz kötjük. <i>Miért:</i> ha mégis feszültség jönne, a zárlatot a védelem lekapcsolja, és a szerelő keze nem kerül a vezető és a föld közé. Csak ellenőrzés után jöhet, különben zárlatot és ívet okozna.",
+        "<b>5. Védelem a közeli, feszültség alatt maradó részek ellen</b>: szigetelő letakarás, védőfedés, szalagos elkerítés, a határ táblás vagy zászlós jelölése, nagy területnél írásos meghatározás (pl. „X lakás”). A szóbeli figyelmeztetés nem elég. <i>Miért:</i> a szomszédos mező, sín feszültség alatt marad."
+      ]
+    },
+    {
+      "h": "Egyszerűsítések kis- és törpefeszültségen, épületvillamosságban",
+      "bullets": [
+        "Épületvillamossági berendezésben leválasztás helyett elég a fogyasztásmérő elé szerelt kismegszakítók kikapcsolása, ha a hálózati engedélyes zárópecsétjei sértetlenek.",
+        "Egyszerűsített letiltás: becsavarható biztosító betétjének és fejének kiemelése és elzárása vagy elvitele; kismegszakító ólomzár-furatába fűzött, összecsavart huzal vagy leragasztott kapcsolókar; dobozkapcsoló leragasztása zöld/sárga szalaggal, ha tábla nem helyezhető el. A szekrény tetején hagyott betét nem letiltás. Villamos kezelőtérben általában elég a „Bekapcsolni tilos” tábla.",
+        "Dugós háztartási készülék: elég az összes dugó kihúzása. Rögzített bekötésű háztartási készülék: ha minden csatlakozókapcsot leszereltek, a kisütés, a földelés és a körülhatárolás elhagyható. A készülék saját (gyakran egypólusú) kapcsolója nem leválasztás.",
+        "Kis- és törpefeszültségen a földelés és rövidre zárás elhagyható, ha nem fenyeget újra feszültség alá kerülés. Napelemnél, UPS-nél, aggregátornál ez nem teljesül. A kábelek és a fázisjavító kondenzátorok töltést tárolnak és újratöltődhetnek, ezért ki kell sütni őket.",
+        "Egysarkú feszültségkémlelő csak kivétel: ha csak egy fázisvezető hozzáférhető és nincs közeli földelt fém, vagy ha a kétsarkú vizsgálat zárlatot okozhatna.",
+        "Ha a munkát megszakítják és a berendezés felügyelet nélkül marad (pl. ebédszünet), folytatás előtt újra ellenőrizni kell a feszültség nélküli állapotot, kivéve, ha a munkahely földelve és rövidre zárva maradt."
+      ]
+    },
+    {
+      "h": "Személyek és személyi csoportok",
+      "bullets": [
+        "<b>Berendezésfelelős</b>: a berendezés biztonságos üzemeltetéséért felel, ő adja a felhatalmazást. <b>Munkavezető</b>: a helyszínen a munkát irányítja és közvetlenül felel érte.",
+        "<b>Szakképzett</b> személy maga ítéli meg a villamos kockázatot; <b>kioktatott</b> személyt szakképzett készített fel; a <b>képzetlen</b> egyik sem.",
+        "<b>I. csoport</b> (laikus): kismegszakító, áram-védőkapcsoló, ≤ 32 A-es kapcsoló kezelése; szerszám nélkül hozzáférhető, ≤ 32 A-es D biztosító pótlása; fényforrás cseréje szerszám nélkül (E40 kivételével).",
+        "<b>III. csoport</b> (villamosan kioktatott): védőfedelek le- és felszerelése, E40 (góliát) és szerszámot igénylő fényforráscsere, 32 A feletti D biztosító pótlása.",
+        "<b>IV. csoport</b> (villamosan szakképzett): önálló villamos szakmunka feszültség közelében és alatt is. A villanyszerelő szakmunkás <b>IV/c</b>, ez önmagában legfeljebb 1000 V-ig jogosít.",
+        "<b>V. csoport</b>: akit a munkáltatója villamos munka irányításával bíz meg (megbízás, nem végzettség kérdése). Idegen munkáltató villamos munkájának munkavezetője csak V. csoportú lehet.",
+        "Feszültség alatti vagy közeli munka: legalább <b>kétfős csoport</b>, legalább egy IV. csoportú tag (ő a vezető), a többiek legalább III. csoportúak. Ok: az áramütött ritkán tud magától kiszabadulni."
+      ]
+    },
+    {
+      "h": "Engedély, munkautasítás, készre jelentés, visszakapcsolás",
+      "body": "A munkához a <b>berendezésfelelős</b> ad felhatalmazást, a dolgozóknak pedig a <b>munkavezető</b> engedi meg a kezdést, de csak a leválasztástól a közeli aktív részek elleni védelemig tartó intézkedések elvégzése után. Szóbeli utasítás akkor elég, ha a berendezés egyszerű (a munka idején csak egy oldalról táplálható, nincs önműködő visszakapcsolása, vagy az le van tiltva) és a munka rutinszerű; minden más esetben részletes munkautasítás kell.",
+      "bullets": [
+        "Befejezés sorrendje: a dolgozók értesítése és kivonása → szerszámok, eszközök eltávolítása → a földelések, rövidre zárások eltávolítása → készre jelentés a berendezésfelelősnek → „Bekapcsolni tilos” táblák levétele közvetlenül a bekapcsolás előtt → bekapcsolás.",
+        "Levételkor <b>először a rövidre zárást, utána a földelést</b> szüntetjük meg (a felrakás fordítottja). Ezt az a csoport (vagy a felváltója) végzi, amelyik felrakta. Ettől a pillanattól a berendezés feszültség alatt állónak tekintendő.",
+        "<b>Készre jelentés</b>: a berendezésen dolgozó csoport munkavezetője kezdeményezi, előtte mindenkit össze kell hívni és közölni, hogy a berendezés feszültség alatt állónak tekintendő. Idegen munkáltatónál írásban történik. Nem a munka elején van, és nem bármelyik csoporttag teszi."
+      ]
+    }
+  ],
+  "keyFacts": [
+    {
+      "k": "Az öt művelet sorrendje",
+      "v": "leválasztás → visszakapcsolás elleni biztosítás → feszültség nélküli állapot ellenőrzése → földelés, rövidre zárás → közeli aktív részek elleni védelem"
+    },
+    {
+      "k": "Feszültségvizsgáló kisfeszültségen",
+      "v": "próbalámpa vagy ≥ 20 mA-t felvevő kétsarkú vizsgáló; előtte (és lehetőleg utána) kipróbálni"
+    },
+    {
+      "k": "Az ellenőrzés helye és pólusai",
+      "v": "a munkahelyen vagy a legközelebb; L–L, L–N és L–föld"
+    },
+    {
+      "k": "Földelő felrakása / levétele",
+      "v": "fel: először a földelési pont, utána a vezetők; le: először a rövidre zárás, utána a földelés"
+    },
+    {
+      "k": "Övezetek 1 kV-ig",
+      "v": "D<sub>L</sub>: „nem lehet érintés”; D<sub>V</sub>: 300 mm"
+    },
+    {
+      "k": "D<sub>L</sub> és D<sub>V</sub>",
+      "v": "D<sub>L</sub> = a feszültség alatti övezet külső határa, D<sub>V</sub> = a közelítési övezet külső határa"
+    },
+    {
+      "k": "Csoport feszültség alatti / közeli munkához",
+      "v": "legalább 2 fő; 1 IV. csoportú vezető, a többiek legalább III."
+    },
+    {
+      "k": "Villanyszerelő szakmunkás",
+      "v": "IV/c csoport, önmagában ≤ 1000 V-ig"
+    },
+    {
+      "k": "I. csoport (laikus)",
+      "v": "kismegszakító, ÁVK kapcsolása; ≤ 32 A-es D biztosító pótlása szerszám nélkül"
+    },
+    {
+      "k": "III. csoport",
+      "v": "védőfedél le/fel, E40 fényforrás cseréje"
+    },
+    {
+      "k": "V. csoport",
+      "v": "munkáltatói megbízás villamos munka irányítására"
+    },
+    {
+      "k": "Letiltás villamos kezelőtérben",
+      "v": "„Bekapcsolni tilos” tábla általában elég"
+    },
+    {
+      "k": "Felügyelet nélkül hagyott munkahely",
+      "v": "újrakezdés előtt újra ellenőrizni, kivéve ha földelve maradt"
+    },
+    {
+      "k": "Biztonsági táblák levétele",
+      "v": "csak közvetlenül a bekapcsolás előtt"
+    }
+  ],
+  "mistakes": [
+    "A feszültség nélküli állapot ellenőrzése a letiltás elé kerül: ellenőrzés után valaki még visszakapcsolhatna, ezért előbb le kell zárni.",
+    "Földelés az ellenőrzés előtt: ha a vezető mégis feszültség alatt van, zárlat és ív keletkezik.",
+    "A földelő eszköz először a fázisra kerül: ilyenkor a szerelő keze a vezető és a föld közé kerülhet. Mindig a földelési pont az első.",
+    "Ellenőrzés nagy belső ellenállású multiméterrel, érintésmentes fázisceruzával vagy a lámpa felkapcsolásával: a multiméter csatolt (indukált) feszültséget mutathat, a fázisceruza nem megbízható, a lámpa pedig más áramkörön lehet.",
+    "Azt hinni, hogy a kismegszakító lekapcsolása már „feszültségmentes” állapot: csak az öt művelet után az.",
+    "Szóbeli kérés, a szekrény tetején hagyott biztosítóbetét vagy szóbeli figyelmeztetés mint letiltás vagy körülhatárolás: egyik sem látható és tartós intézkedés.",
+    "A napelemes invertert, UPS-t, aggregátort kifelejteni a leválasztásból; ilyenkor a földelés sem hagyható el.",
+    "A földelést bárki és bármilyen sorrendben leveheti: csak a felrakó csoport, előbb a rövidre zárást, utána a földelést."
+  ],
+  "hooks": [
+    "„Le – Zár – Mér – Föld – Takar”: az öt művelet sorrendje.",
+    "Föld az első fel, föld az utolsó le.",
+    "Amíg nincs meg mind az öt, élőnek tekintsd.",
+    "Kezelőtérben tábla, máshol lakat (vagy huzal, ragasztás)."
+  ],
+  "sources": [
+    "MSZ 1585:2016 4.2.101–4.2.102., 6.1.1.101., 6.2.1–6.2.8., A1.100. táblázat",
+    "Villbizjegyzet.pdf (10_4)",
+    "ocr/villbizt.txt",
+    "vizsga feladat sorok (2022 feszültségmentesítési sorrend)"
+  ]
+}

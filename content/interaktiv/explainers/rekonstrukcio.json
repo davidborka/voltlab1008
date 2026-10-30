@@ -1,0 +1,131 @@
+{
+  "topic": "rekonstrukcio",
+  "title": "Rekonstrukció, bontás, megszüntetés",
+  "summary": "Régi lakáshálózatok felújítása és áramkörök megszüntetése: feszültségmentesítés lépései bontás előtt (MSZ 1585), az alumínium vezetékek hibái és az Al/Cu kötés, a forrasztott sodrat tilalma, TN-C → TN-C-S átalakítás (PEN szétválasztás, nullhíd megszüntetése, 10 mm²-es PEN-minimum), a falban hagyott vezeték kiiktatása, bontási hulladék kezelése és a dokumentálás, szerelői ellenőrzés bővítésnél. A vizsga sorrendet, csoportosítást és helyzetfeladatot ad.",
+  "sections": [
+    {
+      "h": "Bontás előtt: feszültségmentesítés (MSZ 1585)",
+      "body": "Fel nem cserélhető sorrend: <b>1. teljes leválasztás</b> (minden táplálási irányból) → <b>2. visszakapcsolás elleni biztosítás</b> (lakat, tábla, kivett betét) → <b>3. feszültségmentesség megállapítása</b> kétpólusú feszültségkémlelővel (előtte-utána ismert feszültségen ellenőrizve) → <b>4. földelés és rövidrezárás</b> (ahol előírt; csak feszültségmentesnek talált részt) → <b>5. szomszédos feszültség alatti részek elhatárolása, letakarása</b>.",
+      "bullets": [
+        "Megszüntetésnél is ez az első lépés, a táplálási ponton – nem a vezeték kihúzása, nem feszültség alatti szerelvénybontás.",
+        "Régi hálózatban egy dobozban több áramkör is lehet, dokumentálatlan táplálással: egy kismegszakító lekapcsolása nem garancia – minden munkahelyen újra mérni kell."
+      ]
+    },
+    {
+      "h": "Régi alumínium hálózat, rossz kötések",
+      "bullets": [
+        "Csereok: hidegfolyás (tartós szorítás alatt „folyik”, a csavaros kötés lazul), gyorsan kialakuló oxidréteg (nagy átmeneti ellenállás, melegedés), ismételt hajlításra törik – tűzveszély. Emellett jellemzően kétvezetős (nincs PE) és alulméretezett. Az alumínium fajlagos ellenállása kb. 1,6-szorosa a rézének.",
+        "Átmeneti Al–Cu kötés: csak Al/Cu kötésre minősített (jelölt) kötőelemmel (pl. bimetál átmenet, Al-ra minősített kapocs), oxid eltávolítása + kontaktzsír, hozzáférhető helyen, dokumentálva. Sodrás + szalag, ónforrasztás, nem minősített rugós kapocs NEM jó (galvánkorrózió nedvesség mellett).",
+        "Ónnal tömörített sodrat csavaros kapocsban TILOS (az ón hidegfolyással kilágyul, lazul, melegszik, kiolvadhat): a forrasztott véget levágjuk, préselt érvéghüvellyel kötjük újra."
+      ]
+    },
+    {
+      "h": "TN-C → TN-C-S átalakítás",
+      "body": "Sorrend: állapotfelmérés, kiviteli terv, egyeztetés az elosztói engedélyessel → feszültségmentesítés → PEN szétválasztása a kijelölt ponton (PE- és N-sín), földelés és EPH a fő földelősínre → új háromerű (L, N, PE) végáramkörök, ÁVK-k és kismegszakítók az elosztóban → régi vezetékek eltávolítása vagy szabályos kiiktatása → szerelői ellenőrzés, mérések, dokumentálás, átadás.",
+      "bullets": [
+        "Szétválasztás után N és PE egyetlen ponton sem köthető újra össze (párhuzamos áramút a PE-n, ÁVK-kioldás, EMC-zavar).",
+        "ÁVK PEN-es (TN-C) áramkörben nem alkalmazható.",
+        "A régi „nullhíd” (aljzat védőérintkezője a nullakapocsra kötve) életveszélyes – nulla szakadásakor a készülékház fázisra kerül; az átalakításnál meg kell szüntetni.",
+        "PEN csak legalább 10 mm² Cu / 16 mm² Al lehet; alelosztóban is szétválasztható, ha ezt teljesíti. Egy 4×6 mm²-es PEN-es leágazó fővezeték a lakásban NEM választható szét: ötvezetős csere vagy a szétválasztás előbbre hozása kell, a társasházzal és az engedélyessel egyeztetve.",
+        "Fém vízcső nem lehet védővezető."
+      ]
+    },
+    {
+      "h": "Megszüntetett áramkör, hulladék",
+      "bullets": [
+        "A megszüntetett vezetéket lehetőleg el kell távolítani. Ha a falban marad: MINDKÉT végén leválasztani a táplálásról, a végeket szigetelni és megjelölni, a kiiktatást a megvalósulási dokumentációban és az áramköri jegyzékben rögzíteni. Rövidre zárni, „tartaléknak” bekötve hagyni, csak a kismegszakítót lekapcsolni: hibás.",
+        "Veszélyes hulladék (külön gyűjtés, engedélyes átvevő, dokumentált átadás): higanytartalmú fénycsövek és kompakt fénycsövek, ólomakkumulátorok, elemek, régi olajos (esetleg PCB-tartalmú) kondenzátorok.",
+        "Fémhulladék (fajtánként válogatva, újrahasznosítható): rézvezeték, alumínium vezeték, acél védőcső, fém elosztószekrény.",
+        "Inert építési-bontási törmelék: vakolat-, téglatörmelék a vésésből."
+      ]
+    },
+    {
+      "h": "Állapotfelmérés, ellenőrzés, dokumentálás (MSZ HD 60364-6)",
+      "bullets": [
+        "Állapotfelmérés: szigetelési ellenállás mérése, kötések, dobozok szemrevételezése (elszíneződés, melegedés nyomai), vezetékanyag és keresztmetszet vizsgálata – akkor is, ha a régi hálózat még működik. Kétvezetős hálózatban az aljzat védőérintkezője nem megbízható.",
+        "Bővítésnél, módosításnál a szerelői ellenőrzés az új részre ÉS arra is kiterjed, hogy a meglévő berendezés biztonsága ne romoljon (elosztó, védővezető, védelmi eszközök alkalmassága); ha a régi rész alkalmatlan, jelezni kell és felújítást javasolni. Hossztól függetlenül kötelező.",
+        "Átadandó: megvalósulási dokumentáció (tényleges állapot, kiiktatott és meghagyott részekkel), szerelői ellenőrzés jegyzőkönyve mérési eredményekkel, frissített áramköri jegyzék. Szóbeli tájékoztatás nem elég."
+      ]
+    }
+  ],
+  "keyFacts": [
+    {
+      "k": "Feszültségmentesítés 1. lépése",
+      "v": "teljes leválasztás minden irányból"
+    },
+    {
+      "k": "Feszültségmentesítés 3. lépése",
+      "v": "feszültségmentesség megállapítása kétpólusú kémlelővel"
+    },
+    {
+      "k": "Földelni szabad",
+      "v": "csak feszültségmentesnek talált részt"
+    },
+    {
+      "k": "Al hálózat fő hibái",
+      "v": "hidegfolyás, oxidréteg, törékenység"
+    },
+    {
+      "k": "Al fajlagos ellenállása a rézhez képest",
+      "v": "kb. 1,6-szoros"
+    },
+    {
+      "k": "Al–Cu kötés",
+      "v": "Al/Cu-ra minősített kötőelem + oxidmentesítés + kontaktzsír"
+    },
+    {
+      "k": "Forrasztott sodrat csavar alatt",
+      "v": "tilos – levágni, érvéghüvellyel újrakötni"
+    },
+    {
+      "k": "PEN legkisebb keresztmetszete",
+      "v": "10 mm² Cu / 16 mm² Al"
+    },
+    {
+      "k": "Nullhíd",
+      "v": "életveszélyes, meg kell szüntetni"
+    },
+    {
+      "k": "ÁVK TN-C körben",
+      "v": "nem alkalmazható"
+    },
+    {
+      "k": "Falban hagyott vezeték",
+      "v": "mindkét végén leválasztva, szigetelve, jelölve, dokumentálva"
+    },
+    {
+      "k": "Veszélyes hulladék",
+      "v": "fénycső, kompakt fénycső, akkumulátor, elem, olajos kondenzátor"
+    },
+    {
+      "k": "Átadási dokumentumok",
+      "v": "megvalósulási dokumentáció, ellenőrzési jegyzőkönyv, áramköri jegyzék"
+    }
+  ],
+  "mistakes": [
+    "A feszültségmentességet a visszakapcsolás elleni biztosítás ELŐTT megállapítani, vagy földelni a vizsgálat előtt.",
+    "Bontásnál a vezeték kihúzásával vagy feszültség alatti szerelvénybontással kezdeni.",
+    "Azt hinni, hogy az alumínium jobb vezető, vagy hogy nem oxidálódik.",
+    "Al–Cu kötést sodrással, forrasztással vagy nem minősített kapoccsal készíteni.",
+    "A nullhidat az átalakított hálózatban megtartani.",
+    "6 mm²-es PEN-t a lakáselosztóban szétválasztani, vagy ÁVK-val „megoldani” a PEN-es kört.",
+    "Megszüntetett vezetéket csak a kismegszakító lekapcsolásával kiiktatni, vagy végeit rövidre zárni.",
+    "Bővítésnél csak az új áramkört ellenőrizni, a meglévő berendezés alkalmasságát nem."
+  ],
+  "hooks": [
+    "Lekapcsol – lezár – megmér – leföldel – letakar.",
+    "Alumínium: „folyik, oxidál, törik”.",
+    "PEN-t csak 10 mm² felett szabad szétszedni; utána N és PE soha nem találkozik.",
+    "Ami a falban marad: két végén le, szigetel, jelöl, papírra vet.",
+    "Higany, ólom, PCB = veszélyes hulladék; réz, alu, acél = fém."
+  ],
+  "svg": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 300'><text x='12' y='18' font-family='sans-serif' font-size='13' fill='black' font-weight='bold'>Régi „nullázott” aljzat és az átalakított TN-C-S bekötés</text><text x='20' y='44' font-family='sans-serif' font-size='12' fill='black' font-weight='bold'>RÉGI (TN-C, kétvezetős) – életveszélyes</text><line x1='30' y1='80' x2='200' y2='80' stroke='black' stroke-width='1.5'/><text x='30' y='74' font-family='sans-serif' font-size='12' fill='black'>L</text><line x1='30' y1='120' x2='200' y2='120' stroke='black' stroke-width='1.5'/><text x='30' y='114' font-family='sans-serif' font-size='12' fill='black'>PEN (nulla)</text><rect x='200' y='64' width='90' height='100' stroke='black' stroke-width='1.5' fill='none'/><text x='206' y='180' font-family='sans-serif' font-size='12' fill='black'>aljzat</text><circle cx='225' cy='80' r='4' stroke='black' stroke-width='1.5' fill='white'/><circle cx='265' cy='80' r='4' stroke='black' stroke-width='1.5' fill='white'/><circle cx='245' cy='140' r='4' stroke='black' stroke-width='1.5' fill='white'/><text x='214' y='98' font-family='sans-serif' font-size='12' fill='black'>L</text><text x='258' y='98' font-family='sans-serif' font-size='12' fill='black'>N</text><text x='230' y='158' font-family='sans-serif' font-size='12' fill='black'>⏚ védő</text><line x1='200' y1='120' x2='265' y2='120' stroke='black' stroke-width='1.5'/><line x1='265' y1='120' x2='265' y2='84' stroke='black' stroke-width='1.5'/><line x1='265' y1='120' x2='245' y2='136' stroke='black' stroke-width='3'/><text x='110' y='206' font-family='sans-serif' font-size='12' fill='black'>nullhíd: N ↔ védőérintkező</text><text x='70' y='222' font-family='sans-serif' font-size='12' fill='black'>nullaszakadáskor a készülékház fázison!</text><text x='340' y='44' font-family='sans-serif' font-size='12' fill='black' font-weight='bold'>ÚJ (TN-C-S)</text><line x1='340' y1='80' x2='420' y2='80' stroke='black' stroke-width='1.5'/><text x='340' y='74' font-family='sans-serif' font-size='12' fill='black'>PEN</text><rect x='420' y='66' width='80' height='28' stroke='black' stroke-width='1.5' fill='none'/><text x='426' y='85' font-family='sans-serif' font-size='12' fill='black'>PE-sín</text><line x1='500' y1='80' x2='530' y2='80' stroke='black' stroke-width='1.5'/><text x='503' y='74' font-family='sans-serif' font-size='12' fill='black'>híd</text><rect x='530' y='66' width='70' height='28' stroke='black' stroke-width='1.5' fill='none'/><text x='538' y='85' font-family='sans-serif' font-size='12' fill='black'>N-sín</text><line x1='460' y1='94' x2='460' y2='205' stroke='black' stroke-width='1.5'/><line x1='565' y1='94' x2='565' y2='118' stroke='black' stroke-width='1.5'/><line x1='380' y1='130' x2='530' y2='130' stroke='black' stroke-width='1.5'/><text x='380' y='124' font-family='sans-serif' font-size='12' fill='black'>L</text><rect x='530' y='118' width='70' height='32' stroke='black' stroke-width='1.5' fill='none'/><text x='548' y='139' font-family='sans-serif' font-size='12' fill='black'>ÁVK</text><line x1='545' y1='150' x2='545' y2='205' stroke='black' stroke-width='1.5'/><line x1='585' y1='150' x2='585' y2='205' stroke='black' stroke-width='1.5'/><text x='455' y='222' font-family='sans-serif' font-size='12' fill='black'>PE</text><text x='540' y='222' font-family='sans-serif' font-size='12' fill='black'>L</text><text x='580' y='222' font-family='sans-serif' font-size='12' fill='black'>N</text><text x='340' y='248' font-family='sans-serif' font-size='12' fill='black'>L + N + PE; a PE nem megy át az ÁVK-n</text><text x='12' y='290' font-family='sans-serif' font-size='12' fill='black'>PEN ≥ 10 mm² Cu / 16 mm² Al; szétválasztás után N és PE sehol nem köthető össze.</text></svg>",
+  "sources": [
+    "MSZ 1585:2016 (feszültségmentesítés)",
+    "MSZ 447:2019 (mee-vet-2019-msz447.pdf: PEN szétválasztás, alelosztók, ÁVK)",
+    "MSZ HD 60364-6:2017 (bővítés, módosítás ellenőrzése)",
+    "villanyszerelo-jegyzet.pdf 5.2 (alumínium bekötése, forrasztott sodrat tilalma)",
+    "szakmai_ism_9_villszerel_kidolgozott.pdf (alumínium tulajdonságai)",
+    "Villanyszerelo_Megoldas_2021 9. és 2022 8. feladat"
+  ]
+}
