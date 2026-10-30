@@ -664,6 +664,14 @@ async function loadHost(url) {
 function updateHost(dt, realDt) {
   const h = S.host; if (!h) return;
   h.mixer.update(dt);
+  // phones (portrait): the left stand is out of frame, so he steps in to the right of the board, above the question panel
+  const narrow = S.o.camera.aspect < 0.8;
+  if (h.narrow !== narrow) {
+    h.narrow = narrow;
+    h.root.position.set(narrow ? 1.75 : HOST_POS.x, narrow ? 3.0 : HOST_POS.y, narrow ? 1.6 : HOST_POS.z);
+    h.root.rotation.y = Math.atan2(-h.root.position.x, 11 - h.root.position.z);
+    h.root.scale.setScalar(narrow ? 0.8 : 1);
+  }
   if (h.bulb) {
     const cheer = h.cur === h.actions.cheer, goal = cheer ? 3.2 : h.cur === h.actions.sad ? 0.35 : 1;
     h.glow = damp(h.glow, goal, 4, realDt);

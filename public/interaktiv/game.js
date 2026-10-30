@@ -122,6 +122,7 @@ function renderGame() {
     <main class="sh-panel" key="${q.id}">
       <div class="sh-meta"><span>${G.level + 1}. kérdés</span><span>Tét: <b>${esc(r.name)}</b>${r.cert ? ` · 🎓 ${esc(r.cert)}` : ''}</span>
         <span class="sh-timer ${G.state === 'ask' ? '' : 'idle'}"><svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="15.9" class="trk"/><circle cx="18" cy="18" r="15.9" class="arc" id="garc"/></svg><b id="gt">${GAME_SECS}</b></span></div>
+      <div class="sh-prog" title="${G.level + 1}/${RANKS.length}">${RANKS.map((x, i) => `<i class="${i < G.level || (i === G.level && G.state === 'right') ? 'on' : i === G.level ? 'cur' : ''} ${x.cert ? 'cert' : ''}"></i>`).join('')}</div>
       <div class="sh-q">${rich(q.q)}</div>
       ${q.svg ? '<div class="qsvg sh-svg"></div>' : ''}
       ${G.tesla && G.state === 'ask' ? `<div class="sh-tesla">📞 <b>Tesla szerint:</b> ${rich(G.tesla)}</div>` : ''}

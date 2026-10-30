@@ -653,7 +653,7 @@ function renderHome() {
         ${seen < 10 ? '<p class="small"><b>Kezdd egy teljes próbavizsgával</b> – ebből látja a rendszer, hol tartasz.</p>' : ''}
         <p class="small muted">A becslés témánként súlyozott, 50 %-os kiindulásból indul, és minden válasszal pontosodik. ${pct(TARGET)} feletti becslés + a kérdések ≥60 %-ának látása = vizsgakész.</p>
       </div>
-      <div class="card"><h2>Mit csináljak most?</h2><div class="modes">
+      <div class="card todo"><h2>Mit csináljak most?</h2><div class="modes">
         <div class="mode base"><div><b>🎯 Biztos 60% – alapozó mód</b><p>Csak a vizsgaszintű alapkérdések, de azokból mindet: egy kérdés akkor „biztos”, ha kétszer egymás után, tipp nélkül jól válaszoltad.</p>
           <div class="bar ${base.r >= BASE_SAFE ? 'ok' : ''}" style="margin-top:6px"><i style="width:${pct(Math.min(1, base.r / BASE_SAFE))}"></i></div>
           <p class="small">${base.r >= BASE_SAFE ? '<b style="color:var(--ok)">Bombabiztos alap ✔</b> – a 60 % stabilan megvan.' : `Biztos alapkérdések: <b>${pct(base.r)}</b> (cél ${pct(BASE_SAFE)}) · ${TOPICS.parts.map(p => `${p.id}: ${base.parts[p.id].safe}/${base.parts[p.id].total}`).join(' · ')}`}</p></div>
@@ -715,7 +715,7 @@ function weakList(A, limit) {
     $('[data-e]', row).addEventListener('click', () => elimNext(r.t.id));
     box.append(row);
   }
-  if (A.unknown.length) box.append(h(`<p class="small muted" style="margin-top:10px">Még nem mért témák (${A.unknown.length}): ${A.unknown.map(r => esc(r.t.name)).join(', ')}.</p>`));
+  if (A.unknown.length) box.append(h(`<details class="small muted" style="margin-top:10px"><summary>Még nem mért témák (${A.unknown.length})</summary>${A.unknown.map(r => esc(r.t.name)).join(', ')}.</details>`));
   return box;
 }
 
