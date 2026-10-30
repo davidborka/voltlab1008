@@ -580,7 +580,7 @@ function render() {
   app.innerHTML = '';
   if (!loggedIn()) return renderLogin();
   if (S.active) return renderSession();
-  const views = { result: () => renderResult(view.res), start: () => renderStart(view.mode), mistakes: renderMistakes, learn: () => renderLearn(view.topic), library: renderLibrary, elim: renderElim, progress: renderProgress };
+  const views = { result: () => renderResult(view.res), start: () => renderStart(view.mode), mistakes: renderMistakes, learn: () => renderLearn(view.topic), library: renderLibrary, elim: renderElim, progress: renderProgress, game: () => renderGame() };
   return (views[view.name] || renderHome)();
 }
 const goView = v => { view = v; render(); scrollTo(0, 0); };
@@ -658,6 +658,7 @@ function renderHome() {
           <div class="bar ${base.r >= BASE_SAFE ? 'ok' : ''}" style="margin-top:6px"><i style="width:${pct(Math.min(1, base.r / BASE_SAFE))}"></i></div>
           <p class="small">${base.r >= BASE_SAFE ? '<b style="color:var(--ok)">Bombabiztos alap ✔</b> – a 60 % stabilan megvan.' : `Biztos alapkérdések: <b>${pct(base.r)}</b> (cél ${pct(BASE_SAFE)}) · ${TOPICS.parts.map(p => `${p.id}: ${base.parts[p.id].safe}/${base.parts[p.id].total}`).join(' · ')}`}</p></div>
           <div class="col"><button class="btn primary" data-base="practice">Gyakorlás (20)</button><button class="btn" data-base="exam">Alapvizsga</button></div></div>
+        <div class="mode"><div><b>⚡ Legyen Ön is villanyszerelő!</b><p>Kvízjáték Fázis Ferivel: óvodástól Albert Einsteinig, felezéssel, hanggal.${S.game?.best && typeof RANKS !== 'undefined' ? ` Legjobb: ${esc(RANKS[S.game.best - 1].name)}` : ''}</p></div><button class="btn" data-view="game">Játék</button></div>
         <div class="mode"><div><b>Teljes próbavizsga</b><p>Valós KRÉTA-szabályok: ${EXAM_MIN} perc, ${EXAM_POINTS} pont, I–IV. rész 20/20/20/40 %.</p></div><button class="btn primary" data-go="exam">Indítás</button></div>
         <div class="mode"><div><b>Célzott vizsga</b><p>Ugyanaz a vizsgaszerkezet, de a feladatok a gyengeségeidre szabva.</p></div><button class="btn" data-go="targeted" ${seen ? '' : 'disabled'}>Indítás</button></div>
         <div class="mode"><div><b>Gyengeség-felszámolás</b><p>Témánként: tananyag → gyakorlás → ellenőrző vizsga (≥80 %).</p></div><button class="btn" data-view="elim">${activeElim ? `${activeElim} folyamatban` : 'Megnyitás'}</button></div>

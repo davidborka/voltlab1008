@@ -52,6 +52,9 @@ III. Számítási feladatok 20 %, IV. Villamos biztonsági ismeret 40 %, sikeres
   szerzői útmutató: `content/interaktiv/MATH.md`).
 - „Biztos 60%” alapozó mód: csak a vizsgaszintű (1-es nehézségű) kérdések; egy kérdés akkor biztos, ha kétszer
   egymás után, tipp nélkül jó. „🎲 Tippeltem” jelölő: a pont marad, de a kérdés gyakorolandó marad.
+- „Legyen Ön is villanyszerelő!” kvízjáték (`public/interaktiv/game.js`, `game/`): 16 rang Óvodástól Albert Einsteinig,
+  4 bizonyítványos pihenőfok, felező / szabványkönyv / csere, three.js stúdió (`game/studio.js`), Blenderben készült
+  műsorvezető (`game/feri.glb`), ElevenLabs hangok és effektek, motion-graphics nyitófilm (`game/opener.mp4`).
 - NotebookLM-videók a matek-, fizika- és számítási témákhoz (`public/interaktiv/media/`,
   hozzárendelés: `content/interaktiv/videos.json`).
 - Térközös ismétlés, hibanapló, haladás oldal (vizsgák vizsgarészenként, témák, típusok).

@@ -15,6 +15,7 @@ export type Route =
   | { name: 'library' }
   | { name: 'inspection' }
   | { name: 'interactive' }
+  | { name: 'game' }
   | { name: 'about' };
 
 function parseHash(): Route {
@@ -27,6 +28,7 @@ function parseHash(): Route {
   if (h === 'keszulekek') return { name: 'library' };
   if (h === 'ellenorzes') return { name: 'inspection' };
   if (h === 'interaktiv') return { name: 'interactive' };
+  if (h === 'jatek') return { name: 'game' };
   if (h === 'rolunk') return { name: 'about' };
   return { name: 'dashboard' };
 }
@@ -38,6 +40,7 @@ export function go(route: Route) {
     library: 'keszulekek',
     inspection: 'ellenorzes',
     interactive: 'interaktiv',
+    game: 'jatek',
     about: 'rolunk',
   };
   location.hash = route.name === 'task' ? `/feladat/${route.id}${route.exam ? '/vizsga' : ''}` : `/${map[route.name]}`;
@@ -87,6 +90,7 @@ export function App() {
   const nav = [
     { name: 'dashboard' as const, label: 'Feladatok', icon: LayoutGrid },
     { name: 'interactive' as const, label: 'Interaktív vizsga', icon: ListChecks },
+    { name: 'game' as const, label: 'Legyen Ön is villanyszerelő!', icon: Zap },
     { name: 'library' as const, label: 'Készülékek', icon: BookOpen },
     { name: 'inspection' as const, label: 'Ellenőrzés', icon: ClipboardCheck },
     { name: 'about' as const, label: 'Névjegy', icon: Info },
@@ -147,6 +151,7 @@ export function App() {
         {route.name === 'library' && <Library />}
         {route.name === 'inspection' && <Inspection />}
         {route.name === 'interactive' && <InteractiveExam />}
+        {route.name === 'game' && <InteractiveExam hash="jatek" />}
         {route.name === 'about' && <About />}
       </main>
 
@@ -157,10 +162,12 @@ export function App() {
 
 /* A központi interaktív vizsga gyakorlója önálló, build nélküli oldal (public/interaktiv/),
    mert szándékosan a KRÉTA vizsgafelületet utánozza, nem a VOLT LAB témáját. */
-function InteractiveExam() {
+function InteractiveExam({ hash }: { hash?: string }) {
   return (
     <iframe
-      src={`${import.meta.env.BASE_URL}interaktiv/index.html`}
+      key={hash ?? 'exam'}
+      allow="autoplay"
+      src={`${import.meta.env.BASE_URL}interaktiv/index.html${hash ? `#${hash}` : ''}`}
       title="Interaktív vizsga gyakorló"
       className="h-full w-full flex-1 border-0 bg-white"
     />
@@ -176,7 +183,8 @@ function CommandPalette({ open, onClose }: { open: boolean; onClose(): void }) {
         hint: TASKS[id].subtitle,
         run: () => go({ name: 'task', id }),
       })),
-      { label: 'Interaktív vizsga', hint: 'KRÉTA-szerű tesztvizsga, 570 kérdés', run: () => go({ name: 'interactive' }) },
+      { label: 'Interaktív vizsga', hint: 'KRÉTA-szerű tesztvizsga, 808 kérdés', run: () => go({ name: 'interactive' }) },
+      { label: 'Legyen Ön is villanyszerelő!', hint: 'kvízjáték óvodástól Einsteinig', run: () => go({ name: 'game' }) },
       { label: 'Készülékkönyvtár', hint: 'szimbólumok és kapcsok', run: () => go({ name: 'library' }) },
       { label: 'Ellenőrzési lista', hint: 'mérés és dokumentálás', run: () => go({ name: 'inspection' }) },
       { label: 'Névjegy és biztonság', hint: 'forrás, felelősség', run: () => go({ name: 'about' }) },
