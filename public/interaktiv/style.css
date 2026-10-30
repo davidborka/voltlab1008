@@ -248,6 +248,8 @@ section.flash { animation: flash 1.6s ease-out; border-radius: 6px; }
 .show.has3d .stage-fallback { display: none; }
 @keyframes sweep { from { background-position: -120px 0, 120px 0; } to { background-position: 120px 0, -120px 0; } }
 .show > *:not(.stage3d):not(.stage-fallback) { position: relative; z-index: 1; }
+/* the WebGL stage is parked on <body> between game screens (e.g. game over); its canvas is absolute/inset:0, so hide it there or it covers the page */
+.stage3d-keep { display: none; }
 .sh-top { grid-column: 1 / -1; display: flex; align-items: center; gap: 12px; }
 .sh-btn { background: rgba(255,255,255,.08); color: inherit; border: 1px solid rgba(255,255,255,.2); border-radius: 50%; width: 40px; height: 40px; font-size: 18px; cursor: pointer; }
 .sh-helps { display: flex; gap: 10px; margin: 0 auto; }
