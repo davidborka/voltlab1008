@@ -165,25 +165,33 @@ async function callTesla(q) {
   const p0 = Date.now();
   TESLA ||= await fetch('game/tesla.json').then(r => r.json()).catch(() => ({}));
   const o = h(`<div class="overlay phone"><div class="call"><div class="ph-who"><span class="ph-avatar">⚡</span><div><b>Nikola Tesla</b><small id="phs">Tárcsázás…</small></div></div>
-    <div class="ph-dial">📞</div><div class="ph-wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><p id="pht"></p><button class="btn small" id="phx" disabled>Letenni</button></div></div>`);
+    <div class="ph-dial">📞</div><div class="ph-wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><p id="pht"></p><button class="btn small" id="phx">Letenni</button></div></div>`);
   document.body.append(o);
   const st = x => { $('#phs', o).textContent = x; }, txt = x => { $('#pht', o).textContent = x; };
+  // "Letenni" works at any moment: Voice.stop() only pauses the audio (no 'ended' event), so every step
+  // races against the hang-up, otherwise the awaited line never resolves and the call gets stuck
+  let hung = false, hangUp; const hungP = new Promise(r => { hangUp = r; });
+  const step = p => hung ? Promise.resolve() : Promise.race([p, hungP]);
+  $('#phx', o).disabled = false;
+  $('#phx', o).onclick = () => { hung = true; Voice.stop(); hangUp(); };
   st3('host', 'talk');
-  await Voice.say('phone');
-  st('Tárcsázás…'); o.classList.add('dialing'); await SFX.dial();
-  st('Kicseng…'); o.classList.replace('dialing', 'ringing'); await SFX.ring(2);
-  SFX.pickup(); SFX.hiss(true); o.classList.replace('ringing', 'talking'); st('Vonalban'); st3('host', 'think');
-  const hi = Math.floor(Math.random() * 3); txt(Voice.lines.tesla_hi[hi]);
-  await Voice.file(`game/voice/tesla_hi_${hi + 1}.mp3`, 2500);
-  // he says one or two sentences; the full derivation is written out on the card
+  await step(Voice.say('phone'));
+  if (!hung) { st('Tárcsázás…'); o.classList.add('dialing'); await step(SFX.dial()); }
+  if (!hung) { st('Kicseng…'); o.classList.replace('dialing', 'ringing'); await step(SFX.ring(2)); }
+  o.classList.remove('dialing', 'ringing'); o.classList.add('talking'); st3('host', 'think');
+  if (!hung) {
+    SFX.pickup(); SFX.hiss(true); st('Vonalban');
+    const hi = Math.floor(Math.random() * 3); txt(Voice.lines.tesla_hi[hi]);
+    await step(Voice.file(`game/voice/tesla_hi_${hi + 1}.mp3`, 2500));
+  }
+  // he says one or two sentences; the full derivation is written out on the card (shown even after an early hang-up)
   const said = TESLA[q.id], gen = 1 + Math.floor(Math.random() * 2);
   txt(said || (gen === 1 ? 'Hm, ez egy jó kérdés! A helyes választ és a levezetést felírtam a képernyőre, nézze csak!' : 'Ezt fejből tudom! Kiírtam önnek a választ, és azt is, hogy miért.'));
   const card = h(`<div class="ph-note"><div class="ph-ans">✔ ${rich(q.options[q.answer[0]])}</div><div class="ph-exp">${rich(q.explanation)}</div>${q.work ? workBox(q.work, true) : ''}</div>`);
   $('.call', o).insertBefore(card, $('#phx', o));
-  $('#phx', o).disabled = false;
-  let hung = false; $('#phx', o).onclick = () => { hung = true; Voice.stop(); };
-  await Voice.file(said ? `game/tesla/${q.id}.mp3` : `game/voice/tesla_gen_${gen}.mp3`, 3500);
-  if (!hung) { const b = Math.floor(Math.random() * 2); txt(Voice.lines.tesla_bye[b]); await Voice.file(`game/voice/tesla_bye_${b + 1}.mp3`, 2000); }
+  await step(Voice.file(said ? `game/tesla/${q.id}.mp3` : `game/voice/tesla_gen_${gen}.mp3`, 3500));
+  if (!hung) { const b = Math.floor(Math.random() * 2); txt(Voice.lines.tesla_bye[b]); await step(Voice.file(`game/voice/tesla_bye_${b + 1}.mp3`, 2000)); }
+  Voice.stop();
   SFX.hiss(false); SFX.hangup(); st('Hívás vége');
   // keep the card open until the player closes it; the clock stays stopped meanwhile
   $('#phx', o).textContent = 'Vissza a kérdéshez'; $('#phx', o).classList.add('primary');
