@@ -1,0 +1,11 @@
+{
+  "II-vil-103": {
+    "given": ["működtetési helyek száma: n = 6", "kapcsolók (nem nyomógombok)"],
+    "steps": [
+      { "do": "Mit keresünk? Hány keresztkapcsolót kell a lánc közepére tenni, hogy a lámpa hat helyről kapcsolható legyen.", "why": "Bármely kapcsoló átváltása meg kell változtassa a lámpa állapotát; ezt a két váltóvezeték cseréje adja (Alapok: F4 Soros és párhuzamos kapcsolás)." },
+      { "do": "A lánc két végén mindig egy-egy váltókapcsoló áll: az egyikre a fázis érkezik, a másikról megy a kapcsolt fázis a lámpához.", "calc": "váltókapcsolók = 2 db" },
+      { "do": "A többi hely mindegyikére egy keresztkapcsoló kerül a két váltóvezeték közé.", "calc": "keresztkapcsolók = n − 2 = 6 − 2 = 4 db" }
+    ],
+    "check": "2 váltó + 4 kereszt = 6 kapcsoló = 6 működtetési hely – stimmel."
+  }
+}

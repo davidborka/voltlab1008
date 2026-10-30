@@ -50,6 +50,8 @@ III. Számítási feladatok 20 %, IV. Villamos biztonsági ismeret 40 %, sikeres
   levezetése ide vezet vissza, a hivatkozások kattinthatók.
 - Minden számolós feladathoz lépésről lépésre levezetés (`content/interaktiv/steps/<téma>.json`,
   szerzői útmutató: `content/interaktiv/MATH.md`).
+- „Biztos 60%” alapozó mód: csak a vizsgaszintű (1-es nehézségű) kérdések; egy kérdés akkor biztos, ha kétszer
+  egymás után, tipp nélkül jó. „🎲 Tippeltem” jelölő: a pont marad, de a kérdés gyakorolandó marad.
 - NotebookLM-videók a matek-, fizika- és számítási témákhoz (`public/interaktiv/media/`,
   hozzárendelés: `content/interaktiv/videos.json`).
 - Térközös ismétlés, hibanapló, haladás oldal (vizsgák vizsgarészenként, témák, típusok).

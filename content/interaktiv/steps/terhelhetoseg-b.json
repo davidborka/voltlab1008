@@ -1,0 +1,89 @@
+{
+ "III-terh-101": {
+  "given": ["I<sub>táblázat</sub> = 32 A", "k<sub>2</sub> = 0,7 (3 áramkör közös csőben)"],
+  "steps": [
+   { "do": "Mit keresünk? Mennyi áramot bír tartósan a vezeték a köteg rosszabb hűlése miatt.", "why": "A kötegben a vezetők egymást is melegítik, ezért kevesebbet bírnak (Alapok: F10 Melegedés és hőmérsékletfüggés)." },
+   { "do": "A táblázati értéket a csökkentő tényezővel szorozzuk:", "calc": "I<sub>z</sub> = k<sub>2</sub>·I<sub>táblázat</sub>", "why": "A k<sub>2</sub> az MSZ HD 60364-5-52 csoportosítási táblázatából jön (3 áramkör: 0,70)." },
+   { "do": "Behelyettesítés:", "calc": "I<sub>z</sub> = 0,7 · 32 A = 22,4 A" }
+  ],
+  "check": "22,4 A &lt; 32 A – a csökkentő tényező valóban csökkentett."
+ },
+ "III-terh-102": {
+  "given": ["I<sub>B</sub> = 11 A", "sor: 6, 10, 13, 16, 20 A"],
+  "steps": [
+   { "do": "Mit keresünk? A legkisebb kismegszakítót, amely a 11 A-es üzemi áramot tartósan elviseli leoldás nélkül.", "why": "Feltétel: I<sub>n</sub> ≥ I<sub>B</sub> (Alapok: F10 Melegedés és hőmérsékletfüggés)." },
+   { "do": "A sor végignézése:", "calc": "6 A &lt; 11 A; 10 A &lt; 11 A; 13 A ≥ 11 A", "why": "Csak szabványos érték választható, felfelé kerekítünk (Alapok: M6 Kerekítés és szabványos sorok)." },
+   { "do": "Eredmény:", "calc": "I<sub>n</sub> = 13 A" }
+  ],
+  "check": "13 A ≥ 11 A, és az előző (10 A) már kisebb, tehát ez a legkisebb."
+ },
+ "III-terh-103": {
+  "given": ["P = 3200 W", "U = 230 V (egyfázisú, ohmos)", "I<sub>z</sub> = 24 A", "sor: 10, 13, 16, 20, 25 A"],
+  "steps": [
+   { "do": "Mit keresünk? A kismegszakítót, amely a fogyasztó áramát elviseli, de a vezetéket megvédi: I<sub>B</sub> ≤ I<sub>n</sub> ≤ I<sub>z</sub>.", "why": "Alapok: F10 Melegedés és hőmérsékletfüggés." },
+   { "do": "Üzemi áram (ohmos, cosφ = 1):", "calc": "I<sub>B</sub> = 3200 W / 230 V ≈ 13,9 A", "why": "P = U·I átrendezve (Alapok: M2 Képlet átrendezése, F5)." },
+   { "do": "A sáv:", "calc": "13,9 A ≤ I<sub>n</sub> ≤ 24 A" },
+   { "do": "A legkisebb szabványos érték a sávban:", "calc": "13 A &lt; 13,9 A (kiesik); 16 A (jó) → I<sub>n</sub> = 16 A", "why": "Alapok: M6 Kerekítés és szabványos sorok." }
+  ],
+  "check": "16 A ≥ 13,9 A és 16 A ≤ 24 A; a 25 A már nagyobb I<sub>z</sub>-nél."
+ },
+ "III-terh-104": {
+  "given": ["I<sub>B</sub> = 22 A", "I<sub>n</sub> = 25 A", "táblázat: 1,5 mm²: 17,5 A; 2,5 mm²: 24 A; 4 mm²: 32 A; 6 mm²: 41 A"],
+  "steps": [
+   { "do": "Mit keresünk? A legvékonyabb vezetéket, amelyet a 25 A-es kismegszakító még megvéd.", "why": "A védelem csak akkor védi a vezetéket, ha I<sub>n</sub> ≤ I<sub>z</sub> (MSZ HD 60364-4-43; Alapok: F10 Melegedés és hőmérsékletfüggés)." },
+   { "do": "A mértékadó áram a védelemé, nem az üzemi áram:", "calc": "I<sub>z</sub> ≥ I<sub>n</sub> = 25 A", "why": "Az I<sub>B</sub> ≤ I<sub>n</sub> ≤ I<sub>z</sub> lánc szerint I<sub>z</sub> ≥ 25 A-nek is teljesülnie kell, nem csak ≥ 22 A-nek." },
+   { "do": "Összevetés a táblázattal, a legkisebbtől:", "calc": "1,5 mm²: 17,5 A &lt; 25 A; 2,5 mm²: 24 A &lt; 25 A; 4 mm²: 32 A ≥ 25 A", "why": "Alapok: M6 Kerekítés és szabványos sorok." },
+   { "do": "Eredmény:", "calc": "A = 4 mm²" }
+  ],
+  "check": "22 A ≤ 25 A ≤ 32 A – a teljes lánc teljesül."
+ },
+ "III-terh-105": {
+  "given": ["I<sub>n</sub> = 16 A", "k<sub>1</sub> = 0,87 (40 °C, PVC)"],
+  "steps": [
+   { "do": "Mit keresünk? Mekkora 30 °C-os táblázati terhelhetőség kell ahhoz, hogy 40 °C-on is legalább 16 A maradjon.", "why": "Melegebb környezetben a vezeték kevesebb hőt tud leadni (Alapok: F10 Melegedés és hőmérsékletfüggés)." },
+   { "do": "Feltétel:", "calc": "k<sub>1</sub>·I<sub>táblázat</sub> ≥ I<sub>n</sub>", "why": "A korrekció utáni I<sub>z</sub> legyen legalább I<sub>n</sub>; k<sub>1</sub> az MSZ HD 60364-5-52 hőmérsékleti táblázatából jön." },
+   { "do": "I<sub>táblázat</sub>-ra rendezve:", "calc": "I<sub>táblázat</sub> ≥ I<sub>n</sub>/k<sub>1</sub>", "why": "Mindkét oldalt k<sub>1</sub>-gyel osztjuk (Alapok: M2 Képlet átrendezése)." },
+   { "do": "Behelyettesítés, két tizedesre:", "calc": "16 A / 0,87 = 18,391 A ≈ 18,39 A", "why": "Alapok: M6 Kerekítés és szabványos sorok." }
+  ],
+  "check": "Visszafelé: 18,39 · 0,87 ≈ 16,0 A."
+ },
+ "III-terh-106": {
+  "given": ["I<sub>B</sub> ≤ I<sub>n</sub> ≤ I<sub>z</sub>", "k<sub>1</sub> &lt; 1 30 °C felett"],
+  "steps": [
+   { "do": "Mit vizsgálunk? Négy állítást a kismegszakító és a vezeték kapcsolatáról.", "why": "Alapok: F10 Melegedés és hőmérsékletfüggés." },
+   { "do": "1. állítás: a túlterhelés-védelmet a vezeték terhelhetőségéhez (I<sub>z</sub>) igazítjuk.", "calc": "→ igaz", "why": "A túláram a vezetéket melegíti túl (Alapok: F10)." },
+   { "do": "2. állítás: nagyobb A → kisebb R → kevesebb hő.", "calc": "pl. 1,5 mm²: 17,5 A; 2,5 mm²: 24 A → hamis", "why": "Alapok: F3 Ellenállás és Ohm-törvény, F5." },
+   { "do": "3. állítás: 30 °C felett a hűlés rosszabb.", "calc": "pl. 40 °C: k<sub>1</sub> = 0,87 &lt; 1 → igaz", "why": "Alapok: F10." },
+   { "do": "4. állítás:", "calc": "I<sub>n</sub> = 13 A &lt; I<sub>B</sub> = 14 A → nem teljesül I<sub>B</sub> ≤ I<sub>n</sub> → hamis" }
+  ],
+  "check": "Igaz, hamis, igaz, hamis."
+ },
+ "III-terh-107": {
+  "given": ["I<sub>B</sub> = 9 A", "I<sub>z</sub> = 17,5 A", "lehetőségek: 6, 10, 13, 16, 20 A"],
+  "steps": [
+   { "do": "Mit keresünk? Minden szabványos értéket, amely a 9 A és 17,5 A közé esik.", "why": "I<sub>B</sub> ≤ I<sub>n</sub> ≤ I<sub>z</sub> (MSZ HD 60364-4-43)." },
+   { "do": "A sáv:", "calc": "9 A ≤ I<sub>n</sub> ≤ 17,5 A" },
+   { "do": "Egyenként:", "calc": "6 A &lt; 9 A (nem); 10, 13, 16 A (igen); 20 A &gt; 17,5 A (nem)", "why": "Alapok: M6 Kerekítés és szabványos sorok." }
+  ],
+  "check": "Három helyes: 10, 13, 16 A."
+ },
+ "III-terh-108": {
+  "given": ["I<sub>B</sub> = 15 A", "I<sub>z</sub> = 19,2 A", "sor: 10, 13, 16, 20 A"],
+  "steps": [
+   { "do": "Mit keresünk? Az a névleges áram, amely az üzemi áramnál nem kisebb és a vezeték terhelhetőségénél nem nagyobb.", "why": "MSZ HD 60364-4-43 (Alapok: F10 Melegedés és hőmérsékletfüggés)." },
+   { "do": "A sáv:", "calc": "15 A ≤ I<sub>n</sub> ≤ 19,2 A" },
+   { "do": "A sor végignézése:", "calc": "10 és 13 A &lt; 15 A; 16 A (jó); 20 A &gt; 19,2 A → I<sub>n</sub> = 16 A", "why": "Alapok: M6 Kerekítés és szabványos sorok." }
+  ],
+  "check": "16 A az egyetlen szabványos érték a 15–19,2 A közötti sávban."
+ },
+ "III-terh-109": {
+  "given": ["P<sub>1</sub> = 2000 W, P<sub>2</sub> = 1450 W (ohmos, egyszerre)", "U = 230 V", "I<sub>z</sub> = 24 A", "sor: 10, 13, 16, 20, 25 A"],
+  "steps": [
+   { "do": "Mit keresünk? A két, egyszerre üzemelő fogyasztó együttes áramához és a vezetékhez illő kismegszakítót.", "why": "Ugyanazon a körön a párhuzamos fogyasztók áramai összeadódnak (Alapok: F4 Soros és párhuzamos kapcsolás)." },
+   { "do": "Együttes teljesítmény:", "calc": "P = 2000 W + 1450 W = 3450 W" },
+   { "do": "Üzemi áram:", "calc": "I<sub>B</sub> = 3450 W / 230 V = 15 A", "why": "Ohmos, cosφ = 1 (Alapok: F5 Munka, teljesítmény, energia, hő, M2)." },
+   { "do": "Választás:", "calc": "15 A ≤ I<sub>n</sub> ≤ 24 A → 13 A kiesik, 16 A a legkisebb jó", "why": "MSZ HD 60364-4-43 (Alapok: M6 Kerekítés és szabványos sorok)." }
+  ],
+  "check": "Áramokkal külön: 2000/230 ≈ 8,7 A és 1450/230 ≈ 6,3 A, együtt 15 A."
+ }
+}

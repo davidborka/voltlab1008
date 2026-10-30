@@ -230,11 +230,11 @@ function weightedPick(pool, weightFn, n) {
 // ---------- exam composition ----------
 // Real structure: 100 points, parts 20/20/20/40, one sheet ordered by part.
 // targeted = same structure, but within each part the tasks come from your weak spots.
-function composeExam(targeted = false) {
+function composeExam(targeted = false, keep = () => true) {
   const ids = [], tm = topicModel(), now = Date.now();
   for (const p of TOPICS.parts) {
     const budget = Math.round(EXAM_POINTS * p.weight);
-    const pool = QUESTIONS.filter(q => q.part === p.id);
+    const pool = QUESTIONS.filter(q => q.part === p.id && keep(q));
     let pts = 0;
     if (targeted) {
       for (const q of weightedPick(pool, q => priority(q, tm, now) ** 2, pool.length)) {
@@ -278,6 +278,29 @@ function composeReview() {
   return QUESTIONS.filter(q => S.stats[q.id] && S.stats[q.id].due <= now).sort((a, b) => S.stats[a.id].ew - S.stats[b.id].ew).map(q => q.id);
 }
 const minutesFor = ids => Math.max(5, Math.ceil(ids.reduce((s, id) => s + BY_ID[id].points, 0) * EXAM_MIN / EXAM_POINTS));
+
+// ---------- "Biztos 60%" mode ----------
+// Aim: a safe pass, not a top score. Only the core (difficulty 1, real-exam level) questions, and each one
+// counts as safe only after two correct answers in a row without a guess (Leitner box ≥ 2).
+// The real exam is about this level, so ~85 % of the core held safely ≈ 60 %+ on the day.
+const isCore = q => q.difficulty === 1;
+const BASE_SAFE = 0.85;
+const coreSafe = q => { const st = S.stats[q.id]; return !!st && st.lastFrac >= 0.999 && !st.lastGuess && st.box >= 2; };
+function baseReadiness() {
+  const parts = {};
+  for (const p of TOPICS.parts) {
+    const core = QUESTIONS.filter(q => q.part === p.id && isCore(q));
+    parts[p.id] = { total: core.length, safe: core.filter(coreSafe).length, seen: core.filter(q => S.stats[q.id]).length };
+  }
+  const r = TOPICS.parts.reduce((a, p) => a + p.weight * (parts[p.id].total ? parts[p.id].safe / parts[p.id].total : 0), 0);
+  return { r, parts };
+}
+function composeBase(n) {
+  const now = Date.now();
+  // not yet safe first (wrong / guessed before > never seen > right once), then due repeats
+  const w = q => { const st = S.stats[q.id]; if (coreSafe(q)) return st.due <= now ? 0.6 : 0.02; if (!st) return 2; return st.lastFrac < 0.999 || st.lastGuess ? 4 : 3; };
+  return weightedPick(QUESTIONS.filter(isCore), w, n).map(q => q.id);
+}
 
 // ---------- weak-spot elimination program ----------
 // per topic: learn (read the explainer) → practice (10 tasks with feedback) → check (12-task timed exam, ≥80 % = done)
@@ -615,6 +638,7 @@ function renderHome() {
   const wrongNow = QUESTIONS.filter(q => S.stats[q.id] && S.stats[q.id].lastFrac < 0.999).length;
   const ready = pred >= TARGET && seen >= QUESTIONS.length * 0.6;
   const activeElim = Object.entries(S.elim).filter(([, e]) => e.stage !== 'done').length;
+  const base = baseReadiness();
   const el = h(`<div class="dash">
     <div class="topbar"><div class="logo"><svg width="20" height="20" viewBox="0 0 24 24"><path d="M14 1 4 14h6l-2 9 10-13h-6z" fill="#fff"/></svg></div>
       <div><div class="t">Villanyszerelő – interaktív vizsga gyakorló ${window.top === window ? '<a class="small" href="../" style="font-weight:400;margin-left:8px">← VOLT LAB 1008</a>' : ''}</div><div class="s">Épületvillamosság · KKK 4 0713 04 07 · 90 perc · sikeres ≥ 40 %, cél 70–80 %</div></div></div>
@@ -630,6 +654,10 @@ function renderHome() {
         <p class="small muted">A becslés témánként súlyozott, 50 %-os kiindulásból indul, és minden válasszal pontosodik. ${pct(TARGET)} feletti becslés + a kérdések ≥60 %-ának látása = vizsgakész.</p>
       </div>
       <div class="card"><h2>Mit csináljak most?</h2><div class="modes">
+        <div class="mode base"><div><b>🎯 Biztos 60% – alapozó mód</b><p>Csak a vizsgaszintű alapkérdések, de azokból mindet: egy kérdés akkor „biztos”, ha kétszer egymás után, tipp nélkül jól válaszoltad.</p>
+          <div class="bar ${base.r >= BASE_SAFE ? 'ok' : ''}" style="margin-top:6px"><i style="width:${pct(Math.min(1, base.r / BASE_SAFE))}"></i></div>
+          <p class="small">${base.r >= BASE_SAFE ? '<b style="color:var(--ok)">Bombabiztos alap ✔</b> – a 60 % stabilan megvan.' : `Biztos alapkérdések: <b>${pct(base.r)}</b> (cél ${pct(BASE_SAFE)}) · ${TOPICS.parts.map(p => `${p.id}: ${base.parts[p.id].safe}/${base.parts[p.id].total}`).join(' · ')}`}</p></div>
+          <div class="col"><button class="btn primary" data-base="practice">Gyakorlás (20)</button><button class="btn" data-base="exam">Alapvizsga</button></div></div>
         <div class="mode"><div><b>Teljes próbavizsga</b><p>Valós KRÉTA-szabályok: ${EXAM_MIN} perc, ${EXAM_POINTS} pont, I–IV. rész 20/20/20/40 %.</p></div><button class="btn primary" data-go="exam">Indítás</button></div>
         <div class="mode"><div><b>Célzott vizsga</b><p>Ugyanaz a vizsgaszerkezet, de a feladatok a gyengeségeidre szabva.</p></div><button class="btn" data-go="targeted" ${seen ? '' : 'disabled'}>Indítás</button></div>
         <div class="mode"><div><b>Gyengeség-felszámolás</b><p>Témánként: tananyag → gyakorlás → ellenőrző vizsga (≥80 %).</p></div><button class="btn" data-view="elim">${activeElim ? `${activeElim} folyamatban` : 'Megnyitás'}</button></div>
@@ -648,6 +676,9 @@ function renderHome() {
     </div></div>`);
   $('#pb', el).replaceWith(profileBar());
   $('#weak', el).append(weakList(A, 5));
+  el.querySelectorAll('[data-base]').forEach(b => b.addEventListener('click', () => b.dataset.base === 'practice'
+    ? newSession('practice', composeBase(20), 0, 'Biztos 60% – gyakorlás')
+    : newSession('weak', composeExam(true, isCore), EXAM_MIN, 'Biztos 60% – alapvizsga', { base: true })));
   el.querySelectorAll('[data-go]').forEach(b => b.addEventListener('click', () => {
     const g = b.dataset.go;
     if (g === 'review') return newSession('practice', composeReview().slice(0, 40), 0, 'Ismétlés');

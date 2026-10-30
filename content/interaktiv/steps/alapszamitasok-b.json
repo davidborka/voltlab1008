@@ -1,0 +1,291 @@
+{
+ "III-alap-101": {
+  "given": [
+   "U = 230 V",
+   "R = 46 Ω"
+  ],
+  "steps": [
+   {
+    "do": "Mit keresünk? Azt, hogy a 230 V „nyomás” mekkora áramot hajt át a 46 Ω-os ellenálláson.",
+    "why": "Az áram a feszültség hatására folyik, az ellenállás akadályozza (Alapok: F1 Töltés és áram, F2 Feszültség)."
+   },
+   {
+    "do": "Ohm-törvény áramra rendezve:",
+    "calc": "I = U/R",
+    "why": "U = I·R mindkét oldalát R-rel osztjuk (Alapok: M2 Képlet átrendezése, F3 Ellenállás és Ohm-törvény)."
+   },
+   {
+    "do": "Behelyettesítés:",
+    "calc": "I = 230 V / 46 Ω = 5 A",
+    "why": "V/Ω = A (Alapok: M1 Mértékegységek és előtagok)."
+   }
+  ],
+  "check": "Visszafelé: 5 A · 46 Ω = 230 V. Az eredmény amper, nem ohm."
+ },
+ "III-alap-102": {
+  "given": [
+   "ismert: U (V) és I (A)",
+   "keresett: R (Ω)"
+  ],
+  "steps": [
+   {
+    "do": "Mit keresünk? Azt a képletet, amely a mért feszültségből és áramból megadja az ellenállást.",
+    "why": "Az ellenállás azt mutatja, mennyi feszültség kell 1 A áthajtásához (Alapok: F3 Ellenállás és Ohm-törvény)."
+   },
+   {
+    "do": "Kiindulás az Ohm-törvényből:",
+    "calc": "U = I·R"
+   },
+   {
+    "do": "Mindkét oldalt I-vel osztjuk, hogy R egyedül maradjon:",
+    "calc": "R = U/I",
+    "why": "Az egyenlet két oldalán ugyanazt a műveletet végezzük (Alapok: M2 Képlet átrendezése)."
+   },
+   {
+    "do": "Mértékegység-ellenőrzés:",
+    "calc": "V/A = Ω",
+    "why": "A U·I szorzat V·A = W lenne, az teljesítmény (Alapok: F5 Munka, teljesítmény, energia, hő)."
+   }
+  ],
+  "check": "Példa: 230 V / 5 A = 46 Ω, és 46 Ω · 5 A = 230 V."
+ },
+ "III-alap-103": {
+  "given": [
+   "R = 460 Ω",
+   "I = 0,5 A"
+  ],
+  "steps": [
+   {
+    "do": "Mit keresünk? Mekkora feszültség kell ahhoz, hogy a 460 Ω-on 0,5 A folyjon – ennyi esik rajta.",
+    "why": "A feszültség két pont között mérhető, itt az ellenállás két vége között (Alapok: F2 Feszültség)."
+   },
+   {
+    "do": "Ohm-törvény:",
+    "calc": "U = I·R",
+    "why": "Alapok: F3 Ellenállás és Ohm-törvény."
+   },
+   {
+    "do": "Behelyettesítés:",
+    "calc": "U = 0,5 A · 460 Ω = 230 V",
+    "why": "A·Ω = V; a 0,5-tel szorzás a felezés (Alapok: M1 Mértékegységek és előtagok)."
+   }
+  ],
+  "check": "Visszafelé: 230 V / 460 Ω = 0,5 A."
+ },
+ "III-alap-104": {
+  "given": [
+   "a) 2,5 kΩ",
+   "b) 350 mA",
+   "k = 1000-szeres, m = ezredrész"
+  ],
+  "steps": [
+   {
+    "do": "Mit keresünk? Ugyanazt a mennyiséget alapegységben (Ω, A), előtag nélkül.",
+    "why": "Az előtag csak egy szorzó rövidítése (Alapok: M1 Mértékegységek és előtagok)."
+   },
+   {
+    "do": "a) A kilo 1000-et jelent, ezért szorzunk:",
+    "calc": "2,5 kΩ = 2,5·1000 Ω = 2500 Ω",
+    "why": "Nagyobb egységből kisebbe váltva a számérték nő (Alapok: M1)."
+   },
+   {
+    "do": "b) A milli ezredrészt jelent, ezért osztunk:",
+    "calc": "350 mA = 350/1000 A = 0,35 A",
+    "why": "Kisebb egységből nagyobba váltva a számérték csökken (Alapok: M1)."
+   }
+  ],
+  "check": "Visszafelé: 2500 Ω / 1000 = 2,5 kΩ; 0,35 A · 1000 = 350 mA."
+ },
+ "III-alap-105": {
+  "given": [
+   "Ohm-törvény: I = U/R"
+  ],
+  "steps": [
+   {
+    "do": "Mit vizsgálunk? Hogyan változik az áram, ha a feszültség vagy az ellenállás változik.",
+    "why": "I = U/R: U a számlálóban, R a nevezőben (Alapok: F3 Ellenállás és Ohm-törvény)."
+   },
+   {
+    "do": "1. állítás: U kétszeres, R állandó.",
+    "calc": "I = 2U/R = 2·(U/R) → az áram kétszeres → igaz",
+    "why": "Egyenes arányosság (Alapok: M3 Tört, reciprok, arány)."
+   },
+   {
+    "do": "2. állítás: R nagyobb, U állandó.",
+    "calc": "pl. 230/46 = 5 A, 230/92 = 2,5 A → kisebb áram → hamis",
+    "why": "Fordított arányosság (Alapok: M3)."
+   },
+   {
+    "do": "3. állítás:",
+    "calc": "I = 1 V / 1 Ω = 1 A → igaz"
+   },
+   {
+    "do": "4. állítás: az ohm mértékegysége az R = U/I képletből:",
+    "calc": "Ω = V/A, nem V·A → hamis",
+    "why": "A V·A a látszólagos teljesítmény egysége (Alapok: M1, F7 Fáziseltolás és cosφ)."
+   }
+  ],
+  "check": "Igaz, hamis, igaz, hamis."
+ },
+ "III-alap-106": {
+  "given": [
+   "R<sub>1</sub> = 100 Ω",
+   "R<sub>2</sub> = 130 Ω (sorosan)",
+   "U = 230 V"
+  ],
+  "steps": [
+   {
+    "do": "Mit keresünk? A körben folyó (egyetlen) áramot, és hogy a 230 V-ból mennyi jut R<sub>2</sub>-re.",
+    "why": "Soros körben egy út van, ugyanaz az áram folyik mindenen (Alapok: F4 Soros és párhuzamos kapcsolás)."
+   },
+   {
+    "do": "Soros eredő ellenállás: összeadás.",
+    "calc": "R<sub>e</sub> = 100 Ω + 130 Ω = 230 Ω",
+    "why": "Egymás után következő akadályok összeadódnak (Alapok: F4)."
+   },
+   {
+    "do": "Az áram Ohm-törvénnyel:",
+    "calc": "I = 230 V / 230 Ω = 1 A",
+    "why": "Alapok: F3 Ellenállás és Ohm-törvény."
+   },
+   {
+    "do": "R<sub>2</sub> feszültsége:",
+    "calc": "U<sub>2</sub> = 1 A · 130 Ω = 130 V",
+    "why": "Ugyanaz az 1 A folyik R<sub>2</sub>-n is (Alapok: F3, F4)."
+   }
+  ],
+  "check": "U<sub>1</sub> = 1 A · 100 Ω = 100 V; 100 V + 130 V = 230 V – a körben a feszültségek összege a tápfeszültség."
+ },
+ "III-alap-107": {
+  "given": [
+   "R<sub>1</sub> = R<sub>2</sub> = 46 Ω (párhuzamosan)",
+   "U = 230 V"
+  ],
+  "steps": [
+   {
+    "do": "Mit keresünk? A hálózatból felvett teljes áramot, ami a két ág áramának összege.",
+    "why": "A csomópontban az áram nem vész el: ami befolyik, az kifolyik (Alapok: F4 Soros és párhuzamos kapcsolás)."
+   },
+   {
+    "do": "Párhuzamos kapcsolásban minden ág a teljes feszültséget kapja; egy ág árama:",
+    "calc": "I<sub>1</sub> = 230 V / 46 Ω = 5 A",
+    "why": "Alapok: F3 Ellenállás és Ohm-törvény, F4."
+   },
+   {
+    "do": "A második ág ugyanilyen:",
+    "calc": "I<sub>2</sub> = 5 A"
+   },
+   {
+    "do": "Főági áram:",
+    "calc": "I = 5 A + 5 A = 10 A"
+   }
+  ],
+  "check": "Eredővel: két egyforma párhuzamos ellenállás eredője a fele, 23 Ω; 230 V / 23 Ω = 10 A."
+ },
+ "III-alap-108": {
+  "given": [
+   "előtagok: k, M, m, µ"
+  ],
+  "steps": [
+   {
+    "do": "Mit keresünk? Minden előtaghoz azt a számot, amellyel az alapegységet szorozza.",
+    "why": "Alapok: M1 Mértékegységek és előtagok."
+   },
+   {
+    "do": "Nagyító előtagok:",
+    "calc": "k = 1000; M = 1 000 000",
+    "why": "1 kW = 1000 W; 1 MΩ = 1 000 000 Ω."
+   },
+   {
+    "do": "Kicsinyítő előtagok:",
+    "calc": "m = 0,001; µ = 0,000 001",
+    "why": "1 mA = 0,001 A; 1 µA = 0,000 001 A."
+   },
+   {
+    "do": "A „százszoros” egyikhez sem tartozik (az a h, hekto).",
+    "calc": "maradék: százszoros"
+   }
+  ],
+  "check": "M/m = 1 000 000 / 0,001 = 1 000 000 000 – ezért nem szabad a kis- és nagybetűt összekeverni."
+ },
+ "III-alap-109": {
+  "given": [
+   "ρ: fajlagos ellenállás (Ω·mm²/m)",
+   "l: hossz (m)",
+   "A: keresztmetszet (mm²)"
+  ],
+  "steps": [
+   {
+    "do": "Mit keresünk? Azt a képletet, amely szerint hosszabb vezető nagyobb, vastagabb vezető kisebb ellenállású.",
+    "why": "Vízcső-hasonlat: hosszabb csőben nehezebb, vastagabban könnyebb az áramlás (Alapok: F3 Ellenállás és Ohm-törvény)."
+   },
+   {
+    "do": "Hossz: egyenes arányosság → l a számlálóba; keresztmetszet: fordított arányosság → A a nevezőbe.",
+    "calc": "R = ρ·l/A",
+    "why": "Alapok: M3 Tört, reciprok, arány."
+   },
+   {
+    "do": "Mértékegység-ellenőrzés:",
+    "calc": "Ω·mm²/m · m / mm² = Ω",
+    "why": "A mm² és a m kiesik (Alapok: M1 Mértékegységek és előtagok)."
+   }
+  ],
+  "check": "Példa: 100 m, 2,5 mm² réz: 0,0175·100/2,5 = 0,7 Ω – reális érték."
+ },
+ "III-alap-110": {
+  "given": [
+   "U<sub>0</sub> = 230 V",
+   "Z<sub>s</sub> = 2 Ω",
+   "C16: gyors kioldás 10·I<sub>n</sub>"
+  ],
+  "steps": [
+   {
+    "do": "Mit keresünk? Mekkora áram folyik testzárlatkor a hibahurokban, és ez eléri-e a kismegszakító mágneses (gyors) kioldóáramát.",
+    "why": "A hibaáram a fázisvezetőn a hibahelyig, majd a PE-n és a tápoldalon át folyik vissza (Alapok: F11 Hibaáram útja és érintésvédelem fizikája)."
+   },
+   {
+    "do": "Ohm-törvény a hurokra:",
+    "calc": "I<sub>a</sub> = U<sub>0</sub>/Z<sub>s</sub> = 230 V / 2 Ω = 115 A",
+    "why": "Alapok: F3 Ellenállás és Ohm-törvény."
+   },
+   {
+    "do": "A szükséges kioldóáram C jelleggörbénél:",
+    "calc": "10·I<sub>n</sub> = 10·16 A = 160 A",
+    "why": "MSZ EN 60898-1: B: 3–5·I<sub>n</sub>, C: 5–10·I<sub>n</sub>, D: 10–20·I<sub>n</sub>; a felső határral számolunk, hogy biztosan kioldjon."
+   },
+   {
+    "do": "Összevetés:",
+    "calc": "115 A &lt; 160 A → nem felel meg"
+   }
+  ],
+  "check": "B16-tal: 5·16 = 80 A ≤ 115 A – az már megfelelne."
+ },
+ "III-alap-111": {
+  "given": [
+   "U<sub>0</sub> = 230 V",
+   "Z<sub>s</sub> = 0,92 Ω",
+   "B20, gyors kioldás 5·I<sub>n</sub>"
+  ],
+  "steps": [
+   {
+    "do": "Mit keresünk? A testzárlati áramot és a B20 biztos mágneses kioldásához szükséges áramot.",
+    "why": "Alapok: F11 Hibaáram útja és érintésvédelem fizikája."
+   },
+   {
+    "do": "Testzárlati áram:",
+    "calc": "I<sub>a</sub> = 230 V / 0,92 Ω = 250 A",
+    "why": "Alapok: F3 Ellenállás és Ohm-törvény."
+   },
+   {
+    "do": "Szükséges kioldóáram:",
+    "calc": "5·I<sub>n</sub> = 5·20 A = 100 A",
+    "why": "B jelleggörbe felső határa 5·I<sub>n</sub> (MSZ EN 60898-1)."
+   },
+   {
+    "do": "Összevetés:",
+    "calc": "250 A ≥ 100 A → a védelem gyorsan kiold"
+   }
+  ],
+  "check": "Z<sub>s</sub>·I<sub>a</sub> = 0,92·100 = 92 V ≤ 230 V – a Z<sub>s</sub>·I<sub>a</sub> ≤ U<sub>0</sub> feltétel is teljesül."
+ }
+}

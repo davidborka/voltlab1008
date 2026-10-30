@@ -1,0 +1,12 @@
+{
+  "II-mot-108": {
+    "given": ["motor: 400/690 V Δ/Y (a tekercs névleges feszültsége 400 V)", "hálózat: 3×400/230 V, U<sub>v</sub> = 400 V", "indítás: csillag fokozat"],
+    "steps": [
+      { "do": "Mit keresünk? Azt a feszültséget, amely csillag kapcsolásban egy tekercs két vége között van indításkor.", "why": "A tekercs áramát és nyomatékát ez a feszültség határozza meg (Alapok: F2 Feszültség)." },
+      { "do": "Csillagban a tekercs egyik vége a fázisvezetőre, a másik a csillagpontra csatlakozik, tehát a fázisfeszültséget kapja, nem a vonalit.", "why": "Szimmetrikus háromfázisú rendszerben a fázisfeszültség a vonali feszültség √3-ad része (Alapok: háromfázisú rendszer)." },
+      { "do": "Behelyettesítünk.", "calc": "U<sub>t</sub> = U<sub>v</sub> / √3 = 400 V / 1,732 = 230,9 V" },
+      { "do": "Egész voltra kerekítünk, ahogy a feladat kéri.", "calc": "U<sub>t</sub> ≈ 231 V" }
+    ],
+    "check": "231 V ≈ a hálózat 230 V-os fázisfeszültsége; deltában ugyanez a tekercs 400 V-ot kap, ami az adattábla Δ értéke – stimmel."
+  }
+}

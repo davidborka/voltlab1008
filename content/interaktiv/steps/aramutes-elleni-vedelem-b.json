@@ -1,0 +1,12 @@
+{
+  "IV-av-114": {
+    "given": ["U = 230 V (a testzárlatos ház feszültsége a földhöz képest)", "R = 1000 Ω (test + átmeneti ellenállások)"],
+    "steps": [
+      { "do": "Mit keresünk? Azt az áramot, amely a hibás ház érintésekor a testen át a földbe folyik. Az áramütés veszélyét ez az áram (nem a feszültség) határozza meg.", "why": "Az élettani hatás az áram nagyságától és idejétől függ (Alapok: F11 Hibaáram útja és érintésvédelem fizikája)." },
+      { "do": "Az áramkör: fázis → hibás ház → ember → föld. Az ember és az átmenetek ellenállása korlátozza az áramot, ezért Ohm-törvénnyel számolunk.", "calc": "I = U / R = 230 V / 1000 Ω = 0,23 A", "why": "Ohm-törvény: az áram a feszültség és az ellenállás hányadosa (Alapok: F3 Ellenállás és Ohm-törvény)." },
+      { "do": "Átváltjuk mA-be, mert a kérdés így kéri, és az élettani határokat is mA-ben szokás megadni.", "calc": "0,23 A · 1000 = 230 mA", "why": "1 A = 1000 mA (Alapok: M1 Mértékegységek és előtagok)." },
+      { "do": "Összevetjük a határokkal: az elengedési határ kb. 10 mA, a fibrilláció veszélye néhány tíz mA-től áll fenn. A 230 mA tehát életveszélyes.", "why": "IEC 60479-1 áramhatás-tartományai; ezért ír elő a szabvány önműködő lekapcsolást és 30 mA-es kiegészítő védelmet." }
+    ],
+    "check": "Visszaszámolás: 0,23 A · 1000 Ω = 230 V – egyezik a feszültséggel. Nagyságrend: 230 V / ~1 kΩ ≈ néhány száz mA."
+  }
+}

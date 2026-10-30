@@ -1,0 +1,12 @@
+{
+  "IV-pv-102": {
+    "given": ["P<sub>össz</sub> ≥ 8 kWp = 8000 Wp", "P<sub>modul</sub> = 455 Wp"],
+    "steps": [
+      { "do": "Mit keresünk? Hány darab modul kell ahhoz, hogy a modulok névleges teljesítményének összege legalább 8 kWp legyen.", "why": "Modulok összekötésekor (sorosan vagy párhuzamosan) a teljesítmények összeadódnak (Alapok: F6 Teljesítmény)." },
+      { "do": "Az egységeket azonosra hozzuk: kWp-ből Wp lesz.", "calc": "8 kWp = 8 · 1000 Wp = 8000 Wp", "why": "1 k = 1000 (Alapok: M1 Mértékegységek és előtagok)." },
+      { "do": "Elosztjuk az összteljesítményt egy modul teljesítményével.", "calc": "n = 8000 Wp / 455 Wp ≈ 17,58" },
+      { "do": "Modulból csak egész darab van, és a 8 kWp alsó határ, ezért felfelé kerekítünk.", "calc": "n = 18 db", "why": "Lefelé kerekítve (17 db) a rendszer kisebb lenne az előírtnál (Alapok: M6 Kerekítés és szabványos sorok)." }
+    ],
+    "check": "18 · 455 Wp = 8190 Wp ≥ 8000 Wp, de 17 · 455 Wp = 7735 Wp < 8000 Wp – tehát 18 a legkisebb jó érték."
+  }
+}

@@ -233,3 +233,5 @@ section.flash { animation: flash 1.6s ease-out; border-radius: 6px; }
 @keyframes flash { from { background: #fff3c4; } to { background: transparent; } }
 .qid { margin-left: auto; font: .75rem ui-monospace, Consolas, monospace; color: var(--muted); user-select: all; }
 .guess { margin-right: auto; display: inline-flex; align-items: center; gap: 6px; font-size: .9rem; cursor: pointer; user-select: none; }
+.mode.base { background: color-mix(in srgb, var(--ok) 8%, transparent); border-radius: 8px; padding: 10px; }
+.mode .col { display: grid; gap: 6px; }

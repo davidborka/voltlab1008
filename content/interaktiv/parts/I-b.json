@@ -1,0 +1,1421 @@
+[
+ {
+  "part": "I",
+  "id": "I-kab-101",
+  "topic": "kabel-szerkezet",
+  "type": "single",
+  "difficulty": 1,
+  "points": 1,
+  "q": "Mit jelent a <b>második V</b> betű a <b>H05VV-F</b> típusjelben?",
+  "options": [
+   "PVC köpeny",
+   "PVC érszigetelés",
+   "Hajlékony vezető",
+   "500 V-os névleges feszültség"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "Az érszigetelés anyagát az első V jelöli.",
+   "A hajlékony vezetőt a kötőjel utáni F jelöli.",
+   "A feszültséget a 05 jelöli (300/500 V)."
+  ],
+  "explanation": "A harmonizált jelben a feszültségkód után előbb a szigetelés, aztán a köpeny anyaga jön: H05 <b>V</b> (PVC érszigetelés) <b>V</b> (PVC köpeny) -F (hajlékony vezető). A H05VV-F tehát PVC szigetelésű, PVC köpenyű, közepes igénybevételű tömlővezeték (régi hazai neve MT). Memóriahorog: belülről kifelé olvasd – ér, aztán köpeny.",
+  "source": "HD 361 / MSZ HD 21, MSZ HD 22 (harmonizált típusjelek); 01__Kabel.pdf; Vezetekjellemzok.pdf"
+ },
+ {
+  "part": "I",
+  "id": "I-kab-102",
+  "topic": "kabel-szerkezet",
+  "type": "single",
+  "difficulty": 1,
+  "points": 1,
+  "q": "Egy kapcsolószekrény belső huzalozásához <b>egyerű, hajlékony</b> vezetőjű, köpeny nélküli vezetéket keres. Melyiket választja?",
+  "options": [
+   "H07V-K",
+   "H07V-U",
+   "NYM-J",
+   "H05VV-F"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "Az -U tömör (egyhuzalos) vezetőt jelent, nem hajlékonyat.",
+   "Az NYM-J köpenyes, többerű kiskábel, nem huzalozó vezeték.",
+   "A H05VV-F köpenyes, többerű tömlővezeték mozgatható készülékekhez."
+  ],
+  "explanation": "A H07V-K PVC szigetelésű, köpeny nélküli, egyerű vezeték, a -K hajlékony (finomhuzalos) vezetőt jelent rögzített szereléshez. Ezért jól vezethető sűrű szekrényhuzalozásban; csavaros kapocsba érvéghüvellyel kötjük. Régi hazai neve MKH.",
+  "source": "HD 361 / MSZ HD 21, MSZ HD 22 (harmonizált típusjelek); 01__Kabel.pdf; Vezetekjellemzok.pdf"
+ },
+ {
+  "part": "I",
+  "id": "I-kab-103",
+  "topic": "kabel-szerkezet",
+  "type": "truefalse",
+  "difficulty": 2,
+  "points": 2,
+  "q": "Döntse el, igazak vagy hamisak az <b>NYM-J</b> jelölés betűire vonatkozó állítások!",
+  "statements": [
+   {
+    "text": "Az N azt jelzi, hogy a kábel szabványos (VDE-norma szerinti) típus.",
+    "answer": true
+   },
+   {
+    "text": "Az Y a PVC szigetelőanyag jele.",
+    "answer": true
+   },
+   {
+    "text": "Az M köpenyes szerelési vezetéket (kiskábelt) jelent.",
+    "answer": true
+   },
+   {
+    "text": "Az NYM-O kábelben is van zöld-sárga ér.",
+    "answer": false
+   }
+  ],
+  "explanation": "A német (VDE) típusjelben N = norma szerinti típus, Y = PVC, M = Mantelleitung, vagyis köpenyes szerelési vezeték. A -J utótag zöld-sárga eres, a -O utótag zöld-sárga ér nélküli kivitelt jelent, ezért az NYM-O-ban nincs védővezetőnek használható ér. Régi hazai neve MBCu.",
+  "source": "HD 361 / MSZ HD 21, MSZ HD 22 (harmonizált típusjelek); 01__Kabel.pdf; Vezetekjellemzok.pdf; DIN VDE 0250"
+ },
+ {
+  "part": "I",
+  "id": "I-kab-104",
+  "topic": "kabel-szerkezet",
+  "type": "single",
+  "difficulty": 2,
+  "points": 1,
+  "q": "Egy háromfázisú motort (nullavezető nem kell) hajlékony gumikábellel kötnek be, védővezetővel. Melyik kábelt rendeli?",
+  "options": [
+   "H07RN-F 4G2,5",
+   "H07RN-F 4X2,5",
+   "H07RN-F 3G2,5",
+   "H07RN-F 5X2,5"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "Az X azt jelenti, hogy nincs zöld-sárga ér, így szabályos PE nem alakítható ki.",
+   "Három érből kettő maradna fázisnak, a harmadik fázis hiányozna.",
+   "Öt ér, de egyik sem zöld-sárga: PE-t ebből sem szabad kialakítani."
+  ],
+  "explanation": "A motornak L1, L2, L3 és PE kell, ez 4 ér. A <b>G</b> jelentése: az erek között van egy zöld-sárga (védővezető) ér; az <b>X</b> jelentése: nincs zöld-sárga ér. Tehát 4G2,5 a helyes. Memóriahorog: G = „green-yellow”, van PE.",
+  "source": "HD 361 / MSZ HD 21, MSZ HD 22 (harmonizált típusjelek); 01__Kabel.pdf; Vezetekjellemzok.pdf"
+ },
+ {
+  "part": "I",
+  "id": "I-kab-105",
+  "topic": "kabel-szerkezet",
+  "type": "single",
+  "difficulty": 2,
+  "points": 1,
+  "q": "Melyik a legkisebb igénybevételre szánt, <b>300/300 V</b> névleges feszültségű könnyű tömlővezeték (pl. kis asztali lámpa zsinórja)?",
+  "options": [
+   "H03VV-F",
+   "H07RN-F",
+   "H07V-U",
+   "NYY-J"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "Nehéz gumitömlő-vezeték (450/750 V) építkezéshez, kültérre.",
+   "Köpeny nélküli, tömör, egyerű szerelési vezeték védőcsőbe.",
+   "0,6/1 kV-os, földbe is fektethető kábel."
+  ],
+  "explanation": "A harmonizált jelben a 03 = 300/300 V, a 05 = 300/500 V, a 07 = 450/750 V. A H03VV-F könnyű PVC tömlővezeték kis, könnyű készülékekhez; a H05VV-F közepes (pl. mosógép), a H07RN-F nehéz igénybevételre való. Minél nagyobb a szám, annál „erősebb” a vezeték.",
+  "source": "HD 361 / MSZ HD 21, MSZ HD 22 (harmonizált típusjelek); 01__Kabel.pdf; Vezetekjellemzok.pdf"
+ },
+ {
+  "part": "I",
+  "id": "I-kab-106",
+  "topic": "kabel-szerkezet",
+  "type": "multi",
+  "difficulty": 1,
+  "points": 2,
+  "q": "Mely vezetékeknek, kábeleknek van <b>külső köpenye</b>? (Rossz jelölés pontlevonással jár.)",
+  "options": [
+   "NYM-J",
+   "H05VV-F",
+   "NYY-J",
+   "H07RN-F",
+   "H07V-U",
+   "H07V-K"
+  ],
+  "answer": [
+   0,
+   1,
+   2,
+   3
+  ],
+  "wrongWhy": [
+   null,
+   null,
+   null,
+   null,
+   "Egyerű, köpeny nélküli szerelési vezeték: csak védőcsőben, csatornában, szekrényben szerelhető.",
+   "Egyerű, köpeny nélküli hajlékony vezeték, szintén csak védett helyre."
+  ],
+  "explanation": "A köpeny az erek közös, mechanikai védelmet adó burka. Köpenyes: NYM-J (kiskábel), H05VV-F és H07RN-F (tömlővezeték), NYY-J (földkábel). A H07V-U és a H07V-K egyetlen szigetelt ér köpeny nélkül; a jelben is csak egy anyagbetű (V) van, a köpenyes típusoknál kettő (VV, RN).",
+  "source": "HD 361 / MSZ HD 21, MSZ HD 22 (harmonizált típusjelek); 01__Kabel.pdf; Vezetekjellemzok.pdf"
+ },
+ {
+  "part": "I",
+  "id": "I-kab-107",
+  "topic": "kabel-szerkezet",
+  "type": "order",
+  "difficulty": 2,
+  "points": 2,
+  "q": "A <b>H07V-K 1×2,5</b> jelölés részeit rendezze abban a sorrendben, ahogy a típusjelben balról jobbra következnek!",
+  "items": [
+   "H – harmonizált típus",
+   "07 – névleges feszültség (450/750 V)",
+   "V – szigetelés anyaga (PVC)",
+   "K – vezető kialakítása (hajlékony, rögzített szereléshez)",
+   "1×2,5 – erek száma × keresztmetszet (mm²)"
+  ],
+  "explanation": "A harmonizált típusjel felépítése: jelleg (H) → feszültségkód (03/05/07) → szigetelés, majd köpeny anyaga (V, R, N…) → kötőjel után a vezető kialakítása (U, R, K, F) → erek száma és keresztmetszete (G vagy X, illetve ×). Így bármelyik jelet „kibetűzheti”.",
+  "source": "HD 361 / MSZ HD 21, MSZ HD 22 (harmonizált típusjelek); 01__Kabel.pdf; Vezetekjellemzok.pdf"
+ },
+ {
+  "part": "I",
+  "id": "I-kab-108",
+  "topic": "kabel-szerkezet",
+  "type": "single",
+  "difficulty": 2,
+  "points": 1,
+  "q": "Mit jelent az <b>NYY-J</b> kábel <b>0,6/1 kV</b> névleges feszültsége?",
+  "options": [
+   "U<sub>0</sub> = 0,6 kV a vezető és a föld között, U = 1 kV két vezető között",
+   "0,6 kV az üzemi, 1 kV a próbafeszültség",
+   "0,6 kV egyfázisú, 1 kV háromfázisú hálózatban használható",
+   "0,6 mm az érszigetelés, 1 mm a köpeny vastagsága"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "A próbafeszültség ennél jóval nagyobb, és nem a típusjelben szerepel.",
+   "Mindkét szám ugyanarra a hálózatra vonatkozik: az egyik fázis–föld, a másik vonali érték.",
+   "A jel feszültséget ad meg, nem méretet."
+  ],
+  "explanation": "A kábelek névleges feszültségét U<sub>0</sub>/U alakban adják meg: U<sub>0</sub> a vezető és a föld (köpeny) közötti, U a két fázisvezető közötti legnagyobb tartós feszültség. Ugyanez a logika: NYM-J 300/500 V, H07V-U 450/750 V. A 230/400 V-os hálózathoz mindegyik elegendő, a 0,6/1 kV-os kábel földbe is fektethető.",
+  "source": "HD 361 / MSZ HD 21, MSZ HD 22 (harmonizált típusjelek); 01__Kabel.pdf; Vezetekjellemzok.pdf"
+ },
+ {
+  "part": "I",
+  "id": "I-jel-101",
+  "topic": "jelolesek-szinek",
+  "type": "single",
+  "difficulty": 1,
+  "points": 1,
+  "q": "Egy új <b>NYM-J 3×1,5</b> kábelben milyen színű a fázisvezető ér?",
+  "options": [
+   "barna",
+   "világoskék",
+   "zöld-sárga",
+   "szürke"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "A világoskék a nullavezető (N) színe.",
+   "A zöld-sárga a védővezető (PE) színe.",
+   "Szürke ér csak az ötérű kábelben van (L3)."
+  ],
+  "explanation": "A háromerű, -J kábel színsora a HD 308 szerint: barna (L), világoskék (N), zöld-sárga (PE). A szürke és a fekete csak a négy- és ötérű kábelekben jelenik meg további fázisként.",
+  "source": "HD 308 S2, MSZ HD 60364-5-51 (514.3); szakmai_ism_9_villszerel_kidolgozott.pdf"
+ },
+ {
+  "part": "I",
+  "id": "I-jel-102",
+  "topic": "jelolesek-szinek",
+  "type": "truefalse",
+  "difficulty": 2,
+  "points": 2,
+  "q": "Egy régi lakás villamos hálózatát újítja fel. Döntse el, igazak vagy hamisak az érszínekre vonatkozó állítások!",
+  "statements": [
+   {
+    "text": "Régi szerelésben a vezető szerepét az érszínből nem lehet biztosan megállapítani, ezért bekötés előtt méréssel kell ellenőrizni.",
+    "answer": true
+   },
+   {
+    "text": "Régi többerű kábelben két fekete ér is előfordulhat, ezért a fázisokat azonosítani és jelölni kell.",
+    "answer": true
+   },
+   {
+    "text": "Ha régi szerelésben egy zöld-sárga ér fázisként van bekötve, elég a végein barna szalaggal megjelölni.",
+    "answer": false
+   },
+   {
+    "text": "A régi színek miatt új szerelésben is választható a világoskék ér védővezetőnek.",
+    "answer": false
+   }
+  ],
+  "explanation": "A mai színrend (barna, fekete, szürke – fázis; világoskék – N; zöld-sárga – PE) a HD 308 harmonizálás óta kötelező; a régebbi kábelekben más színsor is előfordult (pl. két fekete ér). A zöld-sárga kizárólag PE vagy PEN lehet, átjelöléssel sem lehet fázissá tenni – ilyen vezetéket ki kell cserélni. Új szerelésben csak a mai színrend használható.",
+  "source": "HD 308 S2, MSZ HD 60364-5-51 (514.3); szakmai_ism_9_villszerel_kidolgozott.pdf"
+ },
+ {
+  "part": "I",
+  "id": "I-jel-103",
+  "topic": "jelolesek-szinek",
+  "type": "match",
+  "difficulty": 2,
+  "points": 2,
+  "q": "Párosítsa a vezetők betűjelét (kapocs- és rajzjelölés) a jelentésükkel!",
+  "pairs": [
+   [
+    "L+",
+    "pozitív egyenáramú vezető"
+   ],
+   [
+    "L−",
+    "negatív egyenáramú vezető"
+   ],
+   [
+    "M",
+    "középvezető egyenáramú rendszerben"
+   ],
+   [
+    "N",
+    "nullavezető (váltakozó áramú rendszerben)"
+   ],
+   [
+    "PEN",
+    "egyesített védő- és nullavezető"
+   ]
+  ],
+  "distractors": [
+   "védővezető nélküli fázisvezető"
+  ],
+  "explanation": "Az MSZ EN 60445 a vezetők betűjelét is rögzíti: L1–L3 fázis, N nulla, PE védő, PEN egyesített védő- és nullavezető; egyenáramnál L+ és L−, a középpontból kivezetett vezető jele M. A napelemes (DC) oldalon ezért L+ és L− jelölést lát a kapcsokon.",
+  "source": "MSZ EN 60445 (vezetők és kapcsok azonosítása)"
+ },
+ {
+  "part": "I",
+  "id": "I-kesz-101",
+  "topic": "keszulekek-szerelvenyek",
+  "type": "multi",
+  "difficulty": 1,
+  "points": 2,
+  "q": "Hol alkalmazunk jellemzően <b>D karakterisztikájú</b> kismegszakítót? (Rossz jelölés pontlevonással jár.)",
+  "options": [
+   "Transzformátor primer oldalán",
+   "Nagy indítóáramú motor áramkörében",
+   "Lakás világítási áramkörében",
+   "Lakás dugaszolóaljzat-áramkörében"
+  ],
+  "answer": [
+   0,
+   1
+  ],
+  "wrongWhy": [
+   null,
+   null,
+   "Ide B karakterisztika kell; nincs nagy bekapcsolási áramlökés.",
+   "Ide is B karakterisztika kell; D-nél a hurokimpedancia-feltétel (gyors lekapcsolás) sokkal nehezebben teljesül."
+  ],
+  "explanation": "A D karakterisztikájú kismegszakító gyorskioldója csak 10–20 × I<sub>n</sub> felett működik, így kibírja a transzformátorok és nagy motorok bekapcsolási áramlökését. Cserébe zárlatkor nagy áram kell a lekapcsoláshoz, ezért lakáskörökbe B karakterisztikát (3–5 × I<sub>n</sub>) teszünk, közepes áramlökésnél C-t (5–10 × I<sub>n</sub>).",
+  "source": "MSZ EN 60898-1; szakmai_ism_9_villszerel_kidolgozott.pdf"
+ },
+ {
+  "part": "I",
+  "id": "I-kesz-102",
+  "topic": "keszulekek-szerelvenyek",
+  "type": "multi",
+  "difficulty": 1,
+  "points": 2,
+  "q": "Mi ellen véd a <b>kismegszakító</b>? (Rossz jelölés pontlevonással jár.)",
+  "options": [
+   "Túlterhelés ellen (hőkioldó)",
+   "Zárlat ellen (elektromágneses kioldó)",
+   "Emberi testen átfolyó 30 mA-es hibaáram ellen",
+   "Villám okozta túlfeszültség ellen",
+   "Hálózati feszültségcsökkenés ellen"
+  ],
+  "answer": [
+   0,
+   1
+  ],
+  "wrongWhy": [
+   null,
+   null,
+   "Ilyen kis áramot nem érzékel; erre az áramvédő kapcsoló (ÁVK) való.",
+   "Erre a túlfeszültség-levezető (SPD) való.",
+   "Ehhez külön feszültségcsökkenési kioldó kell."
+  ],
+  "explanation": "A kismegszakító vezetékvédelmi készülék: a bimetall (hő)kioldó a tartós túlterhelést, az elektromágneses kioldó a zárlatot kapcsolja le. Emberi érintésnél a hibaáram túl kicsi a működéséhez – ezért kell mellé ÁVK. Túlfeszültség ellen az SPD véd.",
+  "source": "MSZ EN 60898-1; szakmai_ism_9_villszerel_kidolgozott.pdf"
+ },
+ {
+  "part": "I",
+  "id": "I-kesz-103",
+  "topic": "keszulekek-szerelvenyek",
+  "type": "single",
+  "difficulty": 1,
+  "points": 1,
+  "q": "Egy kültéri lámpatest adatlapján <b>IK08</b> jelölés áll. Mit fejez ki az IK kód?",
+  "options": [
+   "A burkolat mechanikai ütés elleni védettségét",
+   "A víz behatolása elleni védettséget",
+   "A por elleni védettséget",
+   "A készülék érintésvédelmi osztályát"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "Azt az IP-kód második számjegye adja meg.",
+   "Azt az IP-kód első számjegye adja meg.",
+   "Az érintésvédelmi osztályt (I., II., III.) külön jelölik, nem IK-kóddal."
+  ],
+  "explanation": "Az IK kód (MSZ EN 62262) a burkolat ütésállóságát adja meg, a fokozat mögött egy meghatározott ütési energia áll; minél nagyobb a szám, annál nagyobb ütést bír ki. Az IP-kód ettől független: por és víz behatolása ellen véd. Rongálásnak kitett helyre (pl. közterület, tornaterem) nagy IK fokozatú szerelvényt választunk.",
+  "source": "MSZ EN 62262 (IK kód)"
+ },
+ {
+  "part": "I",
+  "id": "I-kesz-104",
+  "topic": "keszulekek-szerelvenyek",
+  "type": "truefalse",
+  "difficulty": 2,
+  "points": 2,
+  "q": "Döntse el, igazak vagy hamisak az IK kódra vonatkozó állítások!",
+  "statements": [
+   {
+    "text": "Minél nagyobb az IK fokozat száma, annál nagyobb ütést bír ki a burkolat.",
+    "answer": true
+   },
+   {
+    "text": "Az IK10 a legmagasabb fokozat, 20 J ütési energiának felel meg.",
+    "answer": true
+   },
+   {
+    "text": "Az IK kód és az IP-kód ugyanazt a védettséget jelöli, csak más szabvány szerint.",
+    "answer": false
+   }
+  ],
+  "explanation": "Az IK fokozatok IK00-tól IK10-ig terjednek; az IK10 20 J ütési energiát jelent (kb. 5 kg-os tömeg 40 cm-ről). Az IP-kód por és víz, az IK kód mechanikai ütés elleni védettség – két külön tulajdonság, egy lámpán gyakran mindkettő szerepel (pl. IP65 IK08).",
+  "source": "MSZ EN 62262 (IK kód)"
+ },
+ {
+  "part": "I",
+  "id": "I-kesz-105",
+  "topic": "keszulekek-szerelvenyek",
+  "type": "dropdown",
+  "difficulty": 1,
+  "points": 2,
+  "q": "Egészítse ki a mondatot az <b>IPX4</b> jelölés jelentésével!",
+  "text": "Az IPX4 jelölésben az X azt jelenti, hogy {0}, a 4-es számjegy pedig {1} elleni védelmet jelent.",
+  "blanks": [
+   {
+    "options": [
+     "a szilárd testek elleni védettséget nem adták meg",
+     "a szilárd testek ellen nincs semmilyen védelem",
+     "a szilárd testek ellen teljes a védelem"
+    ],
+    "answer": 0
+   },
+   {
+    "options": [
+     "minden irányból fröccsenő víz",
+     "tartós vízbe merítés",
+     "csak függőlegesen csepegő víz"
+    ],
+    "answer": 0
+   }
+  ],
+  "explanation": "Az IP-kódban az X nem nullát jelent, hanem azt, hogy azt a jellemzőt nem adták meg (nem vizsgálták) – a 0 jelentené a „nincs védelem” fokozatot. A második számjegy 4-es fokozata a minden irányból fröccsenő víz elleni védelem; a tartós merítés 8, a függőlegesen csepegő víz 1.",
+  "source": "MSZ EN 60529 (IP-kód)"
+ },
+ {
+  "part": "I",
+  "id": "I-kesz-106",
+  "topic": "keszulekek-szerelvenyek",
+  "type": "single",
+  "difficulty": 2,
+  "points": 1,
+  "q": "Egy szivattyút <b>háromfázisú frekvenciaváltó</b> hajt. Milyen típusú áramvédő kapcsolót (ÁVK) kell elé tenni?",
+  "options": [
+   "B típus",
+   "F típus",
+   "A típus",
+   "AC típus"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "Az F típus egyfázisú frekvenciaváltós készülékekhez való; sima egyenáramú hibaáramot nem érzékel.",
+   "Az A típus a lüktető egyenáramot még érzékeli, a sima egyenáramot nem.",
+   "Az AC típus csak szinuszos váltakozó hibaáramot érzékel."
+  ],
+  "explanation": "A háromfázisú egyenirányító (frekvenciaváltó) hibájakor sima, szinte hullámosság nélküli egyenáramú hibaáram is folyhat. Ezt csak a B típusú ÁVK érzékeli; a sima egyenáram az A, F és AC típust „elvakíthatja”, így azok nem oldanának ki.",
+  "source": "MSZ HD 60364-5-53 (531.3); MSZ EN 62423"
+ },
+ {
+  "part": "I",
+  "id": "I-kesz-107",
+  "topic": "keszulekek-szerelvenyek",
+  "type": "truefalse",
+  "difficulty": 2,
+  "points": 2,
+  "q": "Döntse el, igazak vagy hamisak az áramvédő kapcsolóra (ÁVK) vonatkozó állítások!",
+  "statements": [
+   {
+    "text": "A sima ÁVK (nem RCBO) nem véd túlterhelés és zárlat ellen, ezért elé vagy mögé túláramvédelem is kell.",
+    "answer": true
+   },
+   {
+    "text": "Az ÁVK a fázis és a nullavezető közötti zárlatot érzékeli és lekapcsolja.",
+    "answer": false
+   },
+   {
+    "text": "Az ÁVK működőképességét a próbagombbal (T) rendszeresen ellenőrizni kell.",
+    "answer": true
+   },
+   {
+    "text": "A 30 mA-es ÁVK kiegészítő védelmet ad, ha valaki közvetlenül megérint egy aktív részt.",
+    "answer": true
+   }
+  ],
+  "explanation": "Az ÁVK a ki- és visszafolyó áram különbségét figyeli. A fázis–nulla zárlati áram a nullán visszafolyik, különbség nincs, így az ÁVK nem old ki – ezt a kismegszakító kapcsolja le. Ha viszont az áram egy része emberen át a földbe folyik, a különbség 30 mA alatt kioldást okoz. A T gomb mesterséges hibaáramot hoz létre a próbához.",
+  "source": "MSZ HD 60364-4-41 (411.3.3, 415.1); MSZ EN 61008-1"
+ },
+ {
+  "part": "I",
+  "id": "I-kesz-108",
+  "topic": "keszulekek-szerelvenyek",
+  "type": "single",
+  "difficulty": 1,
+  "points": 1,
+  "q": "Mi a feladata a D-rendszerű (DIAZED) olvadóbiztosító aljzatába csavart <b>illesztőcsavarnak (illesztőgyűrűnek)</b>?",
+  "options": [
+   "Megakadályozza, hogy nagyobb névleges áramú betétet helyezzenek be",
+   "Jelzi, hogy a betét kiolvadt",
+   "Rögzíti a biztosítófejet rezgés ellen",
+   "Zárlatkor kioltja a betétben keletkező ívet"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "A kiolvadást a betét színes jelzőtárcsája jelzi.",
+   "A fejet a menete rögzíti, nem az illesztőcsavar.",
+   "Az ívet a betétben lévő kvarchomok oltja."
+  ],
+  "explanation": "Az illesztőcsavar furata a névleges áramhoz igazodik: a nagyobb áramú betét talpa vastagabb, ezért nem fér bele. Így a vezeték nem kaphat a keresztmetszeténél nagyobb biztosítót. Az illesztőcsavar színe a betét jelzőtárcsájának színével egyezik.",
+  "source": "MSZ HD 60269-3 (D-rendszer); szakmai_ism_9_villszerel_kidolgozott.pdf"
+ },
+ {
+  "part": "I",
+  "id": "I-kesz-109",
+  "topic": "keszulekek-szerelvenyek",
+  "type": "single",
+  "difficulty": 2,
+  "points": 1,
+  "q": "Mi a fő különbség a <b>mágneskapcsoló (kontaktor)</b> és a <b>segédrelé</b> között?",
+  "options": [
+   "A kontaktor főérintkezői nagy (pl. motor-) áramot kapcsolnak ívoltással, a segédrelé kis vezérlőáramot kapcsol",
+   "A kontaktornak nincs tekercse, a relének van",
+   "A kontaktor csak egyenáramú, a relé csak váltakozó áramú",
+   "A relé védi a motort túlterhelés ellen, a kontaktor nem"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "Mindkettőt elektromágnes (tekercs, A1–A2) működteti.",
+   "Mindkettő kapható egyen- és váltakozó áramú tekerccsel.",
+   "Túlterhelés ellen a hőkioldó relé véd, nem a segédrelé."
+  ],
+  "explanation": "Mindkét készülék elektromágneses kapcsoló: a tekercs meghúzza a mozgó érintkezőket. A kontaktor erős főérintkezőkkel és ívoltó kamrával a főáramkört (motor, fűtés) kapcsolja, és segédérintkezői is vannak. A segédrelé kis áramú érintkezői a vezérlőáramkörben jeleket kapcsolnak, reteszelnek.",
+  "source": "MSZ EN 60947-4-1, MSZ EN 60947-5-1; Működtetők.pdf"
+ },
+ {
+  "part": "I",
+  "id": "I-kesz-110",
+  "topic": "keszulekek-szerelvenyek",
+  "type": "single",
+  "difficulty": 3,
+  "points": 2,
+  "q": "Egy mágneskapcsoló adattábláján az áll: <b>AC-3, 400 V, 4 kW</b>. Mit jelent az AC-3 alkalmazási kategória?",
+  "options": [
+   "Kalickás forgórészű motor indítása és üzem közbeni lekapcsolása",
+   "Nem induktív vagy enyhén induktív terhelés (pl. fűtés) kapcsolása",
+   "Motor ellenáramú fékezése, léptetése (gyakori indítás járás nélkül)",
+   "A kontaktornak három főérintkezője van"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "Ez az AC-1 kategória.",
+   "Ez az AC-4 kategória, nehezebb igénybevétel, mint az AC-3.",
+   "A kategória az igénybevételt jelöli, nem az érintkezők számát."
+  ],
+  "explanation": "Az alkalmazási kategória azt mondja meg, milyen terhelés kapcsolására méretezték a kontaktort. AC-3: kalickás motor indítása (nagy bekapcsolási áram) és normál járás közbeni kikapcsolása – ez a leggyakoribb motorkapcsolás. A „4 kW” tehát az AC-3 szerint kapcsolható legnagyobb motorteljesítmény 400 V-on; fűtés kapcsolásánál (AC-1) ugyanaz a kontaktor nagyobb áramot bír.",
+  "source": "MSZ EN 60947-4-1 (alkalmazási kategóriák)"
+ },
+ {
+  "part": "I",
+  "id": "I-kesz-111",
+  "topic": "keszulekek-szerelvenyek",
+  "type": "single",
+  "difficulty": 1,
+  "points": 1,
+  "q": "Miben különbözik a <b>nyomógomb</b> (nyomókapcsoló) a hagyományos kapcsolótól?",
+  "options": [
+   "Csak addig zár (vagy bont), amíg nyomják; elengedve rugó állítja vissza",
+   "Két áramkört kapcsol egyszerre",
+   "A fázist és a nullát egyszerre bontja",
+   "Csak egyenáramú körben használható"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "Ez a csillárkapcsoló jellemzője.",
+   "Ez a kétpólusú kapcsoló jellemzője.",
+   "Váltakozó áramú körökben is általános, pl. csengő, lépcsőházi automata."
+  ],
+  "explanation": "A nyomógomb nem marad meg a kapcsolt állásban, csak impulzust ad. Ezért csengőhöz, lépcsőházi automatához, impulzusreléhez vagy kontaktoros vezérléshez (BE/KI gomb, öntartás) használjuk. A kapcsoló ezzel szemben a beállított állapotban marad.",
+  "source": "szakmai_ism_9_villszerel_kidolgozott.pdf; Működtetők.pdf"
+ },
+ {
+  "part": "I",
+  "id": "I-kesz-112",
+  "topic": "keszulekek-szerelvenyek",
+  "type": "truefalse",
+  "difficulty": 2,
+  "points": 2,
+  "q": "Döntse el, igazak vagy hamisak az ipari (CEE, MSZ EN 60309) csatlakozókra vonatkozó állítások!",
+  "statements": [
+   {
+    "text": "A 400 V-os háromfázisú CEE dugaszolóaljzat színe piros.",
+    "answer": true
+   },
+   {
+    "text": "A 230 V-os egyfázisú CEE dugaszolóaljzat színe kék.",
+    "answer": true
+   },
+   {
+    "text": "Az ötpólusú háromfázisú CEE aljzat érintkezői: L1, L2, L3, N, PE.",
+    "answer": true
+   },
+   {
+    "text": "Egy 32 A-es CEE dugó egy 16 A-es CEE aljzatba is bedugható.",
+    "answer": false
+   }
+  ],
+  "explanation": "A CEE csatlakozók színe a feszültséget jelöli (kék ≈ 230 V, piros ≈ 400 V, sárga ≈ 110 V). A 16 A-es és a 32 A-es kivitel mérete eltér, ezért nem dughatók össze – így nem lehet kis áramra méretezett aljzatból nagy áramú fogyasztót táplálni. A védőérintkező helyzete (óraállás) is kódol, hogy rossz feszültségre ne lehessen csatlakozni.",
+  "source": "MSZ EN 60309-2"
+ },
+ {
+  "part": "I",
+  "id": "I-kesz-113",
+  "topic": "keszulekek-szerelvenyek",
+  "type": "single",
+  "difficulty": 1,
+  "points": 1,
+  "q": "Mire szolgál a lakásokban használt dugaszolóaljzat <b>védőérintkezője</b> (a két oldalsó fémrugó)?",
+  "options": [
+   "A csatlakoztatott I. érintésvédelmi osztályú készülék testének a védővezetőre (PE) kötésére",
+   "A nullavezető csatlakoztatására",
+   "A dugó mechanikai rögzítésére, villamos szerepe nincs",
+   "A fázis bontására a dugó kihúzásakor"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "A nullavezető az egyik csatlakozóhüvelyre kerül, nem a védőérintkezőre.",
+   "Villamos szerepe éppen a legfontosabb: a PE-kapcsolat.",
+   "A dugó kihúzásakor a hüvelyek szakítják meg a fázist és a nullát."
+  ],
+  "explanation": "A védőérintkezőre a zöld-sárga PE vezető csatlakozik, így a fémházas (I. osztályú) készülék teste testzárlatkor a védővezetőn keresztül lekapcsolást okoz. A védőérintkező a dugó bedugásakor előbb zár, mint a fázis- és nullaérintkezők. Védőérintkező nélküli aljzat ma lakásban nem szerelhető.",
+  "source": "MSZ HD 60364-4-41; MSZ 9871 (dugaszolóaljzatok)"
+ },
+ {
+  "part": "I",
+  "id": "I-kesz-114",
+  "topic": "keszulekek-szerelvenyek",
+  "type": "group",
+  "difficulty": 2,
+  "points": 2,
+  "q": "Csoportosítsa az eszközöket aszerint, hogy melyik szekrénybe kerülnek jellemzően!",
+  "groups": [
+   "Mérőszekrény (fogyasztásmérő hely)",
+   "Lakáselosztó",
+   "19\"-os rack-szekrény"
+  ],
+  "items": [
+   {
+    "text": "fogyasztásmérő (villanyóra)",
+    "group": 0
+   },
+   {
+    "text": "vezérelt (éjszakai) áramkör mérője",
+    "group": 0
+   },
+   {
+    "text": "áramköri kismegszakítók",
+    "group": 1
+   },
+   {
+    "text": "áramvédő kapcsoló a lakás áramköreihez",
+    "group": 1
+   },
+   {
+    "text": "patch panel",
+    "group": 2
+   },
+   {
+    "text": "hálózati switch",
+    "group": 2
+   }
+  ],
+  "explanation": "A mérőszekrény az elosztói engedélyes által plombált mérőhely: itt vannak a fogyasztásmérők (köztük a vezérelt tarifás mérő). A lakáselosztóban (lakáson belül) a fogyasztói áramkörök védőkészülékei vannak: kismegszakítók, ÁVK. A 19\"-os rack-szekrény informatikai, gyengeáramú eszközöknek (patch panel, switch, router) való.",
+  "source": "MSZ EN 61439-3 (lakáselosztó); MSZ EN 60297 (19\" rendszer); szakmai_ism_9_villszerel_kidolgozott.pdf"
+ },
+ {
+  "part": "I",
+  "id": "I-kesz-115",
+  "topic": "keszulekek-szerelvenyek",
+  "type": "multi",
+  "difficulty": 2,
+  "points": 2,
+  "q": "Mely állítások igazak a <b>19\"-os rack-szekrényre</b>? (Rossz jelölés pontlevonással jár.)",
+  "options": [
+   "A beépíthető magasságot U egységben adják meg; 1 U = 44,45 mm",
+   "A 19\" (482,6 mm) a beépíthető eszközök előlapjának szélessége a rögzítőfülekkel",
+   "Informatikai, hálózati eszközök (switch, patch panel) elhelyezésére való",
+   "A lakáselosztót (kismegszakítókat) is ide kell szerelni",
+   "Az 1 U = 19 mm"
+  ],
+  "answer": [
+   0,
+   1,
+   2
+  ],
+  "wrongWhy": [
+   null,
+   null,
+   null,
+   "A lakáselosztó a kalapsínes moduláris készülékek külön szekrénye; a rackbe csak a rack-eszközök tápellátása (pl. elosztósáv) kerül.",
+   "Az 1 U 1,75 hüvelyk, azaz 44,45 mm; a 19 a szélesség hüvelykben."
+  ],
+  "explanation": "A rack-szabvány szélességet (19 hüvelyk = 482,6 mm előlap) és magassági egységet (1 U = 1,75\" = 44,45 mm) rögzít; a szekrényt pl. 42 U magasnak adják meg. Gyengeáramú, informatikai eszközöknek való, nem az erősáramú lakáselosztó helyettesítője.",
+  "source": "MSZ EN 60297 (19\" rendszer)"
+ },
+ {
+  "part": "I",
+  "id": "I-kesz-116",
+  "topic": "keszulekek-szerelvenyek",
+  "type": "single",
+  "difficulty": 1,
+  "points": 1,
+  "q": "Gipszkarton falba kell kapcsolót szerelni. Milyen szerelvénydobozt választ?",
+  "options": [
+   "Üreges falba szerelhető dobozt, amelyet billenő (szorító) körmök rögzítenek a laphoz",
+   "Hagyományos süllyesztett dobozt, gipsszel rögzítve",
+   "Falon kívüli, tömszelencés dobozt",
+   "Kötődobozt fedéllel"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "A vékony gipszkarton lapban a gipsz nem tart; a doboz kiszakadna.",
+   "Ez vakolat feletti szerelésre való, nem süllyesztett kapcsolóhoz.",
+   "A kötődobozba vezetékkötések kerülnek, szerelvény nem."
+  ],
+  "explanation": "Az üreges falba (gipszkarton) szerelhető doboz pereme a lap elején fekszik fel, a csavarral meghúzott körmök hátulról szorítják a laphoz. A furatot a dobozhoz illő fúrókoronával vágják. Hagyományos téglafalban a süllyesztett dobozt gipsszel rögzítik – ott ez a helyes.",
+  "source": "szakmai_ism_9_villszerel_kidolgozott.pdf; gyártói katalógusok (üreges falba szerelhető doboz)"
+ },
+ {
+  "part": "I",
+  "id": "I-kesz-117",
+  "topic": "keszulekek-szerelvenyek",
+  "type": "match",
+  "difficulty": 1,
+  "points": 2,
+  "q": "Párosítsa a dobozfajtákat a felhasználásukkal!",
+  "pairs": [
+   [
+    "süllyesztett szerelvénydoboz",
+    "falba épített kapcsoló vagy dugaszolóaljzat befogadása"
+   ],
+   [
+    "kötődoboz (elágazódoboz)",
+    "vezetékek összekötése, elágaztatása"
+   ],
+   [
+    "falon kívüli, tömszelencés doboz",
+    "vakolat feletti szerelés, nedves helyen is"
+   ],
+   [
+    "sorolható (iker-) szerelvénydoboz",
+    "több szerelvény egymás mellé, egy keretbe"
+   ]
+  ],
+  "distractors": [
+   "kismegszakítók elhelyezése kalapsínen"
+  ],
+  "explanation": "A szerelvénydobozba a kapcsoló, aljzat kerül; a kötődobozban csak vezetékkötés van, fedéllel zárják, és hozzáférhetőnek kell maradnia. A falon kívüli doboz tömszelencés bevezetéssel nedves helyen is megfelelő IP védettséget ad. Kismegszakítók kalapsínre, elosztóba kerülnek, nem dobozba.",
+  "source": "szakmai_ism_9_villszerel_kidolgozott.pdf"
+ },
+ {
+  "part": "I",
+  "id": "I-kesz-118",
+  "topic": "keszulekek-szerelvenyek",
+  "type": "single",
+  "difficulty": 1,
+  "points": 1,
+  "q": "Melyik a legvékonyabb falú merev műanyag védőcső?",
+  "options": [
+   "Mü III",
+   "Mü I",
+   "Acélpáncélcső",
+   "KPE cső"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "A Mü I vastag falú, falon kívüli szerelésre is alkalmas.",
+   "Fémcső, a legnagyobb mechanikai védelmet adja.",
+   "Kemény polietilén cső, főleg földbe fektetett kábelek védelmére."
+  ],
+  "explanation": "A Mü III vékony falú, lágyított PVC cső: hidegen hajlítható, főleg vakolat alá (süllyesztve) szerelik. Mechanikai ellenállása a legkisebb, ezért ott alkalmazzák, ahol a fal, vakolat vagy burkolat további védelmet ad. A Mü I vastag falú, falon kívül is szerelhető.",
+  "source": "szakmai_ism_9_villszerel_kidolgozott.pdf (MÜ I, MÜ III védőcső)"
+ },
+ {
+  "part": "I",
+  "id": "I-kesz-119",
+  "topic": "keszulekek-szerelvenyek",
+  "type": "truefalse",
+  "difficulty": 2,
+  "points": 2,
+  "q": "Döntse el, igazak vagy hamisak a műanyag védőcsövekre vonatkozó állítások!",
+  "statements": [
+   {
+    "text": "A Mü I vastag falú cső falon kívüli szerelésnél is megfelelő mechanikai védelmet ad.",
+    "answer": true
+   },
+   {
+    "text": "A Mü III cső kisebb méretei (kb. 16 mm-ig) előmelegítés nélkül, hidegen hajlíthatók.",
+    "answer": true
+   },
+   {
+    "text": "A Mü III cső falon kívül, napsütésnek kitett helyen is szerelhető.",
+    "answer": false
+   },
+   {
+    "text": "A Mü III csőnek van a legnagyobb ellenállása a mechanikai hatásokkal szemben.",
+    "answer": false
+   }
+  ],
+  "explanation": "A Mü I kemény, kevés lágyítót tartalmazó PVC; falra, falba, betonba is fektethető. A Mü III több lágyítót tartalmaz, ezért rugalmas és hidegen hajlítható, de mechanikailag a leggyengébb, és napfénynek kitett helyen falon kívül nem szerelhető. Nagy igénybevételre acélcső vagy acélpáncélcső való.",
+  "source": "szakmai_ism_9_villszerel_kidolgozott.pdf (MÜ I, MÜ III védőcső)"
+ },
+ {
+  "part": "I",
+  "id": "I-kesz-120",
+  "topic": "keszulekek-szerelvenyek",
+  "type": "single",
+  "difficulty": 1,
+  "points": 1,
+  "q": "Mire használják jellemzően a <b>KPE</b> (kemény polietilén) védőcsövet?",
+  "options": [
+   "Földbe fektetett kábel védelmére, pl. út vagy járda alatti átvezetésnél",
+   "Lakásban vakolat alá süllyesztett szereléshez",
+   "Szerelvénydobozok közötti rövid ívek kialakítására",
+   "Kapcsolószekrényben a vezetékek kötegelésére"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "Vakolat alá a vékony falú Mü III vagy hajlékony gégecső való.",
+   "Erre a hajlékony műanyag gégecső szolgál.",
+   "Szekrényben vezetékcsatornát, kötegelőt használnak."
+  ],
+  "explanation": "A KPE cső merev, ütés- és nyomásálló, nem korrodál, ezért földben, útátvezetésnél, épületbe való bevezetésnél védi a kábelt, és később a kábel cserélhető (behúzható) benne. Lakáson belüli süllyesztett szerelésre nem ezt használjuk.",
+  "source": "szakmai_ism_9_villszerel_kidolgozott.pdf; MSZ 13207 (földkábelek fektetése)"
+ },
+ {
+  "part": "I",
+  "id": "I-kesz-121",
+  "topic": "keszulekek-szerelvenyek",
+  "type": "multi",
+  "difficulty": 2,
+  "points": 2,
+  "q": "Mire használható a <b>hajlékony műanyag védőcső (gégecső)</b>? (Rossz jelölés pontlevonással jár.)",
+  "options": [
+   "Kettős könyökök, 90°-tól eltérő ívek kialakítására",
+   "Kisebb mechanikai védelmet igénylő csatlakozásokhoz",
+   "Falon kívül, nagy mechanikai igénybevételű helyen (pl. műhely padlója mentén)",
+   "Útátvezetésnél a földkábel védelmére"
+  ],
+  "answer": [
+   0,
+   1
+  ],
+  "wrongWhy": [
+   null,
+   null,
+   "Ide vastag falú cső, acélcső vagy acélpáncélcső kell.",
+   "Ide merev, nyomásálló KPE cső való."
+  ],
+  "explanation": "A gégecső bordázott fala miatt könnyen hajlik, ezért íveknél, nehéz nyomvonalakon, dobozok közötti csatlakozásoknál gyors. Mechanikai szilárdsága kicsi, így ütésnek, nyomásnak kitett helyre nem való; ott vastag falú vagy fém védőcső kell.",
+  "source": "szakmai_ism_9_villszerel_kidolgozott.pdf (hajlékony műanyag védőcső)"
+ },
+ {
+  "part": "I",
+  "id": "I-kesz-122",
+  "topic": "keszulekek-szerelvenyek",
+  "type": "single",
+  "difficulty": 1,
+  "points": 1,
+  "q": "Melyik készülék véd az elosztóban a villám vagy kapcsolás okozta <b>túlfeszültség</b> ellen?",
+  "options": [
+   "Túlfeszültség-levezető (SPD)",
+   "Áramvédő kapcsoló (ÁVK)",
+   "Kismegszakító",
+   "Olvadóbiztosító"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "Az ÁVK a földbe folyó hibaáramot érzékeli, a feszültséget nem korlátozza.",
+   "A kismegszakító túláram (túlterhelés, zárlat) ellen véd.",
+   "Az olvadóbiztosító is csak túláram ellen véd."
+  ],
+  "explanation": "Az SPD (túlfeszültség-levezető) a feszültség hirtelen megugrásakor rövid időre vezetővé válik, és a lökőáramot a PE/EPH felé levezeti, így a készülékekre jutó feszültséget korlátozza. Fokozatai: 1. típus (betáplálás, villámáram), 2. típus (elosztó), 3. típus (a készülék közelében). A túláramvédelmi készülékek erre nem alkalmasak.",
+  "source": "MSZ HD 60364-5-534; MSZ EN 61643-11"
+ },
+ {
+  "part": "I",
+  "id": "I-rajz-101",
+  "topic": "rajzjelek-anyagjegyzek",
+  "type": "match",
+  "difficulty": 1,
+  "points": 2,
+  "q": "Rajz alapján: párosítsa a kapcsolási rajzjeleket (A–E) a megnevezésükkel!",
+  "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 520 140\" width=\"520\" font-family=\"sans-serif\" font-size=\"18\" stroke=\"black\" fill=\"none\" stroke-width=\"2\"><circle cx=\"50\" cy=\"60\" r=\"20\"/><line x1=\"36\" y1=\"46\" x2=\"64\" y2=\"74\"/><line x1=\"64\" y1=\"46\" x2=\"36\" y2=\"74\"/><line x1=\"10\" y1=\"60\" x2=\"30\" y2=\"60\"/><line x1=\"70\" y1=\"60\" x2=\"90\" y2=\"60\"/><rect x=\"125\" y=\"50\" width=\"50\" height=\"20\"/><line x1=\"110\" y1=\"60\" x2=\"190\" y2=\"60\"/><line x1=\"250\" y1=\"25\" x2=\"250\" y2=\"55\"/><line x1=\"228\" y1=\"55\" x2=\"272\" y2=\"55\"/><line x1=\"236\" y1=\"64\" x2=\"264\" y2=\"64\"/><line x1=\"244\" y1=\"73\" x2=\"256\" y2=\"73\"/><circle cx=\"350\" cy=\"60\" r=\"22\"/><line x1=\"350\" y1=\"18\" x2=\"350\" y2=\"38\"/><text x=\"350\" y=\"67\" text-anchor=\"middle\" stroke=\"none\" fill=\"black\" font-size=\"20\">M</text><circle cx=\"440\" cy=\"60\" r=\"18\"/><circle cx=\"465\" cy=\"60\" r=\"18\"/><line x1=\"402\" y1=\"60\" x2=\"422\" y2=\"60\"/><line x1=\"483\" y1=\"60\" x2=\"503\" y2=\"60\"/><g stroke=\"none\" fill=\"black\"><text x=\"50\" y=\"120\" text-anchor=\"middle\">A</text><text x=\"150\" y=\"120\" text-anchor=\"middle\">B</text><text x=\"250\" y=\"120\" text-anchor=\"middle\">C</text><text x=\"350\" y=\"120\" text-anchor=\"middle\">D</text><text x=\"452\" y=\"120\" text-anchor=\"middle\">E</text></g></svg>",
+  "pairs": [
+   [
+    "A",
+    "lámpa (fényforrás)"
+   ],
+   [
+    "B",
+    "olvadóbiztosító"
+   ],
+   [
+    "C",
+    "földelés"
+   ],
+   [
+    "D",
+    "motor"
+   ],
+   [
+    "E",
+    "transzformátor"
+   ]
+  ],
+  "distractors": [
+   "ellenállás",
+   "kondenzátor"
+  ],
+  "explanation": "Kapcsolási rajzjelek (MSZ EN 60617): körben ferde kereszt = lámpa; téglalap, amelyen a vezetékvonal végigmegy = olvadóbiztosító (a sima, üres téglalap az ellenállás); csökkenő hosszúságú vízszintes vonalak = földelés; körben M betű = motor; két egymásba érő kör = transzformátor. A kondenzátor jele két párhuzamos rövid vonal.",
+  "source": "MSZ EN 60617 (rajzjelek); Elektrotechnikai_alapkapcsolások_2019_06_29.pdf"
+ },
+ {
+  "part": "I",
+  "id": "I-rajz-102",
+  "topic": "rajzjelek-anyagjegyzek",
+  "type": "single",
+  "difficulty": 2,
+  "points": 1,
+  "q": "Egy elosztó kapcsolási rajzán <b>-X1</b> tervjel szerepel. Mit jelöl?",
+  "options": [
+   "Sorkapocs (kapocsléc)",
+   "Kismegszakító",
+   "Kontaktor",
+   "Jelzőlámpa"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "A védőkészülékek betűjele F (illetve Q).",
+   "A kontaktor, relé betűjele K (újabb rajzokon Q).",
+   "A jelzőlámpa betűjele H (újabb rajzokon P)."
+  ],
+  "explanation": "A tervjel (készülékazonosító) első betűje a készülék fajtáját mutatja: X = csatlakozó, sorkapocs, dugaszolókapcsolat. A szám a sorszám (X1, X2…), a kapocsszám a sorkapcson belüli helyet adja meg (pl. X1:3). Az anyagjegyzékben a sorkapcsok számát és típusát innen olvassuk ki.",
+  "source": "MSZ EN 81346-2 (tervjelek); Elektrotechnikai_alapkapcsolások_2019_06_29.pdf"
+ },
+ {
+  "part": "I",
+  "id": "I-rajz-103",
+  "topic": "rajzjelek-anyagjegyzek",
+  "type": "single",
+  "difficulty": 1,
+  "points": 1,
+  "q": "Az alaprajzon egy fénycsöves lámpatest jele mellett ez áll: <b>2×36 W</b>. Mit jelent?",
+  "options": [
+   "A lámpatestben két darab 36 W-os fényforrás van",
+   "Két lámpatest, összesen 36 W",
+   "A lámpatest 36 W-os, két helyről kapcsolják",
+   "A lámpatestet 2 × 36 cm távolságra kell szerelni"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "Az összes teljesítmény 2·36 = 72 W lenne; a darabszámot a lámpatestek jelei mutatják.",
+   "A kapcsolási helyek számát a kapcsolók jelei mutatják.",
+   "A felirat teljesítményt ad meg (W), nem távolságot."
+  ],
+  "explanation": "A lámpatest jele mellé a fényforrások számát és egyenkénti teljesítményét írják: 2×36 W = két darab 36 W-os cső, összesen 72 W. Az anyagjegyzékben ebből lesz a lámpatest típusa és a fényforrások darabszáma.",
+  "source": "MSZ EN 60617; Fénycső kapcsolások.pdf"
+ },
+ {
+  "part": "I",
+  "id": "I-rajz-104",
+  "topic": "rajzjelek-anyagjegyzek",
+  "type": "single",
+  "difficulty": 1,
+  "points": 1,
+  "q": "Az alaprajzon egy dugaszolóaljzat jele mellett ez olvasható: <b>h = 1,1 m</b>. Mit jelent?",
+  "options": [
+   "A szerelvény beépítési magassága a kész padlószinttől",
+   "Az aljzat távolsága az ajtótól",
+   "A vezeték hossza a kötődobozig",
+   "A helyiség belmagassága"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "A vízszintes távolságot méretvonallal adják meg, nem h-val.",
+   "A vezetékhosszt a nyomvonalból mérik le, nem írják a szerelvényhez.",
+   "A belmagasságot az építészeti terv adja meg, nem a szerelvény mellé írják."
+  ],
+  "explanation": "A h betű a magasságot (height) jelöli: a szerelvény közepének magassága a kész padlószinttől. Ha a terven nincs jelölve, a szokásos magasságok érvényesek (pl. kapcsolók kb. 1,4 m, lakószobai aljzatok alacsonyabban). A h érték a függőleges csőhosszakhoz is kell az anyagjegyzékben.",
+  "source": "szakmai_ism_9_villszerel_kidolgozott.pdf (szerelvénydobozok magassága)"
+ },
+ {
+  "part": "I",
+  "id": "I-rajz-105",
+  "topic": "rajzjelek-anyagjegyzek",
+  "type": "multi",
+  "difficulty": 2,
+  "points": 2,
+  "q": "Mely adatokat kell egy anyagjegyzék tételénél feltüntetni? (Rossz jelölés pontlevonással jár.)",
+  "options": [
+   "Az anyag megnevezése és típusa (pl. NYM-J 3×2,5)",
+   "A mennyiség",
+   "A mértékegység (db, m)",
+   "A tételt beépítő szerelő neve",
+   "A munkadíj óradíja"
+  ],
+  "answer": [
+   0,
+   1,
+   2
+  ],
+  "wrongWhy": [
+   null,
+   null,
+   null,
+   "Az anyagjegyzék az anyagokról szól, a szerelő nem anyagtétel.",
+   "A munkadíj a költségvetésbe tartozik, nem az anyagjegyzékbe."
+  ],
+  "explanation": "Az anyagjegyzék a kiviteli tervből kigyűjtött anyagok listája: sorszám, megnevezés, típus/méret, mennyiség, mértékegység (szükség szerint megjegyzés, pl. szín, IP védettség). Ebből rendelnek anyagot; a díjak és árak a költségvetésbe kerülnek.",
+  "source": "KKK (alkatrész- és anyagjegyzék készítése); szakmai_ism_9_villszerel_kidolgozott.pdf"
+ },
+ {
+  "part": "I",
+  "id": "I-szer-101",
+  "topic": "szerszamok-eszkozok",
+  "type": "single",
+  "difficulty": 1,
+  "points": 1,
+  "q": "Milyen mértékegységben kapja jellemzően egy hibátlan lakásáramkör <b>szigetelési ellenállásának</b> mérési eredményét?",
+  "options": [
+   "MΩ (megaohm)",
+   "mΩ (milliohm)",
+   "Ω (ohm)",
+   "kV (kilovolt)"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "Milliohmos értéke a jó védővezetőnek, kötésnek van, nem a szigetelésnek.",
+   "Néhány ohm a hurokimpedancia nagyságrendje, a szigetelésnek sokkal nagyobbnak kell lennie.",
+   "A kV a mérőfeszültség lehetne nagyobb rendszereknél, nem az eredmény mértékegysége."
+  ],
+  "explanation": "A szigetelésnek nagyon nagy ellenállásúnak kell lennie: 230/400 V-os körben 500 V DC mérőfeszültséggel legalább 1 MΩ az előírás, egy jó új szerelés ennél jóval többet mutat. Ezért a szigetelésmérő MΩ-ban (gyakran GΩ-ig) mér. Memóriahorog: szigetelés = „mega”, védővezető = „milli”.",
+  "source": "MSZ HD 60364-6 (6.4.3.3)"
+ },
+ {
+  "part": "I",
+  "id": "I-szer-102",
+  "topic": "szerszamok-eszkozok",
+  "type": "truefalse",
+  "difficulty": 2,
+  "points": 2,
+  "q": "Döntse el, igazak vagy hamisak a szigetelt (1000 V-os) kéziszerszámokra vonatkozó állítások!",
+  "statements": [
+   {
+    "text": "Az 1000 V jelű szerszám váltakozó feszültségen legfeljebb 1000 V-ig minősített.",
+    "answer": true
+   },
+   {
+    "text": "Szigetelt szerszámmal is feszültségmentesítés után kell dolgozni, ha nem feszültség alatti munkát (FAM) végzünk.",
+    "answer": true
+   },
+   {
+    "text": "A sérült szigetelésű szigetelt csavarhúzó szigetelőszalaggal megjavítva tovább használható.",
+    "answer": false
+   },
+   {
+    "text": "Bármely műanyag nyelű csavarhúzó szigetelt szerszámnak számít.",
+    "answer": false
+   }
+  ],
+  "explanation": "A szigetelt szerszámot az MSZ EN 60900 szerint vizsgálják, és kettős háromszöggel, 1000 V felirattal jelölik. A szigetelt szerszám nem ad engedélyt feszültség alatti munkára: az csak külön képesítéssel és technológiával végezhető, egyébként feszültségmentesítünk. Sérült szigetelésű szerszámot selejtezni kell; a sima műanyag nyél nem minősített szigetelés.",
+  "source": "MSZ EN 60900; MSZ 1585:2016"
+ },
+ {
+  "part": "I",
+  "id": "I-szer-103",
+  "topic": "szerszamok-eszkozok",
+  "type": "single",
+  "difficulty": 2,
+  "points": 1,
+  "q": "Egy 35 mm²-es vezetőre csősarut (kábelsarut) kell szerelni. Melyik szerszámmal készíti a kötést?",
+  "options": [
+   "Présfogóval (krimpelő), a saru méretéhez illő sajtolóbetéttel",
+   "Kombinált fogóval összenyomva",
+   "Forrasztópákával",
+   "Csípőfogóval"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "A kombinált fogó nem ad egyenletes, előírt sajtolást; a kötés melegedne, kilazulna.",
+   "Forrasztott kötés a nagyáramú kapcsolatnál nem megfelelő, a forrasz megfolyhat.",
+   "A csípőfogó vágásra való."
+  ],
+  "explanation": "A csősarut a keresztmetszethez illő sajtolóbetéttel (kézi vagy hidraulikus présfogóval) kell felpréselni, hogy a kötés kis ellenállású és tartós legyen. A saru és a betét méretét a keresztmetszet (itt 35 mm²) alapján választjuk.",
+  "source": "szakmai_ism_9_villszerel_kidolgozott.pdf; MSZ EN 61238-1 (sajtolt kötések)"
+ },
+ {
+  "part": "I",
+  "id": "I-szer-104",
+  "topic": "szerszamok-eszkozok",
+  "type": "single",
+  "difficulty": 1,
+  "points": 1,
+  "q": "Egy <b>NYY-J 4×50</b> kábelt kell elvágni. Melyik szerszám a legalkalmasabb?",
+  "options": [
+   "Kábelvágó olló (racsnis vagy hidraulikus)",
+   "Oldalcsípő fogó",
+   "Csupaszoló fogó",
+   "Kombinált fogó"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "Ilyen vastag kábelhez kicsi; a pofák kicsorbulnak, a vágás nem sikerül.",
+   "Szigetelés eltávolítására való, nem vágásra.",
+   "Vékony vezetékekhez való, ekkora kábelt nem vág el szépen."
+  ],
+  "explanation": "A kábelvágó olló kifejezetten kör keresztmetszetű kábelek összenyomás nélküli, sima vágására készül; nagy keresztmetszetnél racsnis vagy hidraulikus kivitelben. Az oldalcsípő és a kombinált fogó csak kis keresztmetszetű vezetékekhez való.",
+  "source": "szakmai_ism_9_villszerel_kidolgozott.pdf"
+ },
+ {
+  "part": "I",
+  "id": "I-szer-105",
+  "topic": "szerszamok-eszkozok",
+  "type": "truefalse",
+  "difficulty": 1,
+  "points": 2,
+  "q": "Döntse el, igazak vagy hamisak a multiméter használatára vonatkozó állítások!",
+  "statements": [
+   {
+    "text": "Feszültségmérésnél a műszert a mérendő részzel párhuzamosan kötjük.",
+    "answer": true
+   },
+   {
+    "text": "Árammérésnél a műszert az áramkörbe sorosan kötjük.",
+    "answer": true
+   },
+   {
+    "text": "Ellenállást feszültség alatt lévő áramkörben is szabad mérni.",
+    "answer": false
+   },
+   {
+    "text": "Áram mérő állásban a műszert a hálózati aljzat két pólusára lehet csatlakoztatni.",
+    "answer": false
+   }
+  ],
+  "explanation": "A feszültségmérő nagy belső ellenállású, ezért párhuzamosan kötjük; az árammérő kicsi, ezért sorosan. Árammérő állásban a hálózatra kötve a műszer zárlatot okoz (ív, balesetveszély). Ellenállást csak feszültségmentes körben mérünk, különben hamis az eredmény és a műszer is károsodhat.",
+  "source": "Elektrotechnikai_alapkapcsolások_2019_06_29.pdf; Ép_vil_mérés_Gy"
+ },
+ {
+  "part": "I",
+  "id": "I-szer-106",
+  "topic": "szerszamok-eszkozok",
+  "type": "single",
+  "difficulty": 1,
+  "points": 1,
+  "q": "Melyik műszerrel méri a villámvédelmi vagy üzemi <b>földelés ellenállását</b>?",
+  "options": [
+   "Földelési ellenállásmérővel, segédszondákkal",
+   "Szigetelésmérővel",
+   "Lakatfogóval",
+   "Kétpólusú feszültségvizsgálóval"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "A szigetelésmérő MΩ-os tartományban mér, a földelés ellenállása néhány ohm.",
+   "A lakatfogó áramot mér (bár léteznek földelésmérő fogók, ez nem az általános lakatfogó).",
+   "Ez csak a feszültség meglétét jelzi, ellenállást nem mér."
+  ],
+  "explanation": "A földelési ellenállást földelésmérővel mérjük: a műszer áramot hajt a földelő és egy áramszonda között, és egy feszültségszondával méri a feszültséget (három- vagy négyvezetékes módszer). A szondákat a földelőtől megfelelő távolságra kell leverni, különben hamis az eredmény.",
+  "source": "MSZ HD 60364-6; MSZ EN 62305-3; Ép_vil_mérés_Gy"
+ },
+ {
+  "part": "I",
+  "id": "I-szer-107",
+  "topic": "szerszamok-eszkozok",
+  "type": "single",
+  "difficulty": 1,
+  "points": 1,
+  "q": "Vasbeton födémbe kell 6 mm-es furatot készíteni dübelhez. Melyik szerszám a legalkalmasabb?",
+  "options": [
+   "Fúrókalapács (pl. SDS-plus) keményfém betétes fúróval",
+   "Akkus csavarbehajtó fafúróval",
+   "Ütés nélküli fúrógép HSS fémfúróval",
+   "Dobozfúró (fúrókorona)"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "A fafúró és a csavarbehajtó betonban nem halad.",
+   "A HSS fúró fémhez való, betonban gyorsan tönkremegy, ütés nélkül nem halad.",
+   "A fúrókorona nagy átmérőjű dobozfészekhez való, nem 6 mm-es furathoz."
+  ],
+  "explanation": "Betonba, vasbetonba a pneumatikus ütőművű fúrókalapács és a keményfém (widia) lapkás fúrószár való; az SDS befogás az ütést jól átadja. Téglába ütvefúró is elég, fába és fémbe ütés nélkül fúrunk.",
+  "source": "szakmai_ism_9_villszerel_kidolgozott.pdf"
+ },
+ {
+  "part": "I",
+  "id": "I-szer-108",
+  "topic": "szerszamok-eszkozok",
+  "type": "multi",
+  "difficulty": 1,
+  "points": 2,
+  "q": "Egy NYM-J 3×2,5 kábelt kell egy süllyesztett dugaszolóaljzatba bekötni. Mely szerszámokra van szükség? (Rossz jelölés pontlevonással jár.)",
+  "options": [
+   "Kábelkés vagy köpenycsupaszoló",
+   "Csupaszoló fogó",
+   "Szigetelt csavarhúzó",
+   "Présfogó csősaruhoz",
+   "Csőhajlító rugó"
+  ],
+  "answer": [
+   0,
+   1,
+   2
+  ],
+  "wrongWhy": [
+   null,
+   null,
+   null,
+   "Tömör, 2,5 mm²-es eret közvetlenül a kapocsba kötünk, csősaru nem kell.",
+   "Ez védőcső hajlítására való, a bekötéshez nem kell."
+  ],
+  "explanation": "A bekötés lépései: köpeny eltávolítása (kábelkés, köpenycsupaszoló), az erek csupaszolása a kapocshoz illő hosszon (csupaszoló fogó), a kapcsok meghúzása (szigetelt csavarhúzó, vagy rugós kapocsnál csak bedugás). Tömör érhez érvéghüvely és saru sem kell.",
+  "source": "szakmai_ism_9_villszerel_kidolgozott.pdf"
+ },
+ {
+  "part": "I",
+  "id": "I-kesz-123",
+  "topic": "keszulekek-szerelvenyek",
+  "type": "truefalse",
+  "difficulty": 2,
+  "points": 2,
+  "q": "Egy kismegszakító előlapján ez áll: <b>C16</b>, egy téglalapban <b>6000</b>, egy négyzetben <b>3</b>. Döntse el, igazak vagy hamisak az állítások!",
+  "statements": [
+   {
+    "text": "A 3-as szám az energiahatárolási osztályt jelöli; a 3-as osztályú készülék engedi át a legkevesebb zárlati energiát.",
+    "answer": true
+   },
+   {
+    "text": "A 6000 azt jelenti, hogy a készülék 6000 W-os fogyasztóig használható.",
+    "answer": false
+   },
+   {
+    "text": "A hőkioldót 30 °C környezeti hőmérsékletre kalibrálják; melegebb elosztóban már kisebb áramnál is kiold.",
+    "answer": true
+   },
+   {
+    "text": "Hideg környezetben a kismegszakító a névleges áramánál kisebb áramnál old ki.",
+    "answer": false
+   }
+  ],
+  "explanation": "A téglalapban lévő szám (6000) a névleges zárlati kapcsolóképesség amperben (6 kA), nem teljesítmény. A négyzetbe írt 1, 2 vagy 3 az energiahatárolási osztály: a 3-as a leggyorsabban korlátozza a zárlati áramot. A hőkioldó bimetallja a környezet hőjét is „érzi”: a kalibrálás 30 °C-ra szól, melegben előbb, hidegben később old ki, ezért zsúfolt, meleg elosztóban csökkentő tényezővel kell számolni.",
+  "source": "MSZ EN 60898-1 (jelölések, 30 °C referencia); szakmai_ism_9_villszerel_kidolgozott.pdf"
+ },
+ {
+  "part": "I",
+  "id": "I-kesz-124",
+  "topic": "keszulekek-szerelvenyek",
+  "type": "single",
+  "difficulty": 2,
+  "points": 1,
+  "q": "Egy nagy áramú betáplálás mérésére <b>100/5 A</b> jelölésű áramváltót építenek be. Mit jelent ez?",
+  "options": [
+   "100 A primer áramnál a szekunder (műszer felőli) oldalon 5 A folyik",
+   "A váltó 100 A és 5 A közötti áramokat tud mérni",
+   "A primer oldalon 5 A, a szekunderen 100 A folyik",
+   "100 menetes primer és 5 menetes szekunder tekercse van, feszültségmérésre"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "Ez nem méréstartomány, hanem áttétel: a két áram aránya 20.",
+   "Fordítva: a nagy áram a primer (fővezeték) oldalon van.",
+   "Az áramváltó áram (nem feszültség) mérésére való, és a primer menetszám a kisebb."
+  ],
+  "explanation": "Az áramváltó a nagy fővezetéki áramot arányosan kis, mérhető áramra alakítja: 100/5 A-nél az áttétel 20, így 60 A primer áramnál 3 A folyik a mérőműszerben. Így a fogyasztásmérő, ampermérő kis áramra készülhet, és leválasztva van a főáramkörtől. Fontos szabály: üzem közben a szekunder kört nem szabad nyitva hagyni, előbb rövidre kell zárni, különben veszélyes nagy feszültség keletkezik.",
+  "source": "MSZ EN 61869-2 (áramváltók); szakmai_ism_9_villszerel_kidolgozott.pdf"
+ },
+ {
+  "part": "I",
+  "id": "I-kesz-125",
+  "topic": "keszulekek-szerelvenyek",
+  "type": "match",
+  "difficulty": 2,
+  "points": 2,
+  "q": "Párosítsa az elosztószekrények fajtáit a jellemző feladatukkal!",
+  "pairs": [
+   [
+    "főelosztó",
+    "az épület betáplálása után az alelosztók, felszálló vezetékek táplálása"
+   ],
+   [
+    "fogyasztói (lakás-) elosztó",
+    "a lakás áramköreinek kismegszakítói, ÁVK-ja"
+   ],
+   [
+    "kültéri elosztószekrény",
+    "szabadtéri elhelyezés, nagy IP védettséggel (pl. építési elosztó)"
+   ],
+   [
+    "rack-szekrény",
+    "informatikai, hálózati eszközök 19\"-os szerelése"
+   ]
+  ],
+  "distractors": [
+   "a villám levezetése a földelőbe"
+  ],
+  "explanation": "Az elosztóhálózat fa-szerkezetű: a főelosztóból indulnak az alelosztók és a fogyasztói (lakás-) elosztók, ezekben vannak az áramköri védőkészülékek. A kültéri szekrényt időjárás ellen védett (pl. IP44–IP65) kivitelben készítik. A rack-szekrény gyengeáramú eszközöknek való. A villám levezetése a villámvédelmi levezetők feladata, nem szekrényé.",
+  "source": "MSZ EN 61439-1, -3, -4; szakmai_ism_9_villszerel_kidolgozott.pdf"
+ },
+ {
+  "part": "I",
+  "id": "I-kab-109",
+  "topic": "kabel-szerkezet",
+  "type": "single",
+  "difficulty": 2,
+  "points": 1,
+  "q": "Egy irodában az erősáramú (230 V) kábeleket és az informatikai (UTP) kábeleket egy kábeltálcán vezetnék. Mi a helyes megoldás (zavarszegregáció)?",
+  "options": [
+   "Külön tálcán vagy elválasztó fallal, előírt távolságra vezetni őket, kereszteződésnél merőlegesen",
+   "Szorosan összekötegelni, hogy kevesebb helyet foglaljanak",
+   "Az UTP kábelt az erősáramú kábelek köré tekerni",
+   "Nem kell elválasztani, mert az UTP kábel szigetelt"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "Együtt kötegelve az erősáramú kábel tere zavart indukál az adatkábelbe.",
+   "A tekerés növeli a csatolást, így a zavart is.",
+   "A szigetelés áramütés ellen véd, elektromágneses zavar ellen nem."
+  ],
+  "explanation": "Az erősáramú vezetékek mágneses és villamos tere zavarjelet indukálhat az adatkábelekbe, ezért a két rendszert el kell különíteni: külön csatorna vagy elválasztó fal, megfelelő távolság, kereszteződésnél 90°. Ez a zavarszegregáció; a szükséges távolság a kábelek fajtájától és árnyékolásától függ (MSZ EN 50174-2).",
+  "source": "MSZ EN 50174-2 (erős- és gyengeáramú kábelek elválasztása)"
+ },
+ {
+  "part": "I",
+  "id": "I-rajz-106",
+  "topic": "rajzjelek-anyagjegyzek",
+  "type": "single",
+  "difficulty": 1,
+  "points": 1,
+  "q": "Miben különbözik a <b>többvonalas</b> kapcsolási rajz az egyvonalastól?",
+  "options": [
+   "Minden vezetőt (L1, L2, L3, N, PE) külön vonallal rajzol",
+   "A készülékek valós elhelyezését mutatja az épület alaprajzán",
+   "Csak a vezérlőáramkört ábrázolja",
+   "A vezetékek számát ferde vonalkákkal jelöli"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "Ez az alaprajz (szerelési rajz) feladata.",
+   "A vezérlőáramkört külön az áramutas (működési) rajz mutatja.",
+   "Ez éppen az egyvonalas rajz jelölési módja."
+  ],
+  "explanation": "Az egyvonalas rajz egy vonallal jelöli a több vezetőből álló áramkört, a vezetékszámot ferde vonalkák mutatják – áttekintéshez, elosztó tervhez jó. A többvonalas rajz minden vezetőt külön vonallal ábrázol, ezért a bekötés pontosan követhető belőle (pl. motorkapcsolás főáramköre). Az alaprajz a térbeli elhelyezést, az áramutas rajz a működést mutatja.",
+  "source": "MSZ EN 61082-1 (dokumentációk); Elektrotechnikai_alapkapcsolások_2019_06_29.pdf"
+ }
+]

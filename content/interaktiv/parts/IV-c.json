@@ -1,0 +1,1547 @@
+[
+  {
+    "id": "IV-fm-101",
+    "part": "IV",
+    "topic": "feszultsegmentesites",
+    "type": "single",
+    "difficulty": 1,
+    "points": 1,
+    "q": "Mekkora feszültségig számít egy berendezés kisfeszültségűnek?",
+    "options": [
+      "Legfeljebb 50 V váltakozó, illetve 120 V egyenfeszültségig",
+      "Legfeljebb 400 V váltakozó feszültségig",
+      "Legfeljebb 1000 V váltakozó, illetve 1500 V egyenfeszültségig",
+      "Legfeljebb 35 kV-ig"
+    ],
+    "answer": [
+      2
+    ],
+    "wrongWhy": [
+      "Ez a törpefeszültség felső határa, nem a kisfeszültségé.",
+      "A 400 V a lakossági hálózat vonali feszültsége, de a kisfeszültségű tartomány ennél tovább, 1000 V AC-ig tart.",
+      null,
+      "Az 1000 V AC fölötti feszültség már nagyfeszültség; a 35 kV egy középfeszültségű hálózati érték."
+    ],
+    "explanation": "A kisfeszültség felső határa 1000 V váltakozó (AC) és 1500 V egyenfeszültség (DC). Ebbe a tartományba esik a 230/400 V-os épületvillamosság és a legtöbb napelemes DC oldal is. Az 50 V AC / 120 V DC alatti tartomány a törpefeszültség, az 1000 V AC fölötti a nagyfeszültség. Emlékeztető: „ezer váltó, ezerötszáz egyen”. Tágabb értelemben a törpefeszültség is 1000 V alatti, de a vizsgán külön kategória: ha törpe- és kisfeszültség közül kell választani, az 50 V AC / 120 V DC alatti érték törpefeszültség.",
+    "source": "MSZ 1585:2016 fogalmai; MSZ HD 60364-1 (feszültségsávok); 10_4/Villbizjegyzet.pdf.txt"
+  },
+  {
+    "id": "IV-fm-102",
+    "part": "IV",
+    "topic": "feszultsegmentesites",
+    "type": "group",
+    "difficulty": 2,
+    "points": 2,
+    "q": "Csoportosítsa a névleges feszültségeket aszerint, hogy törpe-, kis- vagy nagyfeszültségnek számítanak!",
+    "groups": [
+      "Törpefeszültség",
+      "Kisfeszültség",
+      "Nagyfeszültség"
+    ],
+    "items": [
+      {
+        "text": "24 V AC (vezérlőkör)",
+        "group": 0
+      },
+      {
+        "text": "110 V DC",
+        "group": 0
+      },
+      {
+        "text": "230 V AC (fázisfeszültség)",
+        "group": 1
+      },
+      {
+        "text": "400 V AC (vonali feszültség)",
+        "group": 1
+      },
+      {
+        "text": "800 V DC (napelemes string)",
+        "group": 1
+      },
+      {
+        "text": "20 kV AC (középfeszültségű hálózat)",
+        "group": 2
+      },
+      {
+        "text": "120 kV AC (főelosztó hálózat)",
+        "group": 2
+      }
+    ],
+    "explanation": "Törpefeszültség: legfeljebb 50 V AC vagy 120 V DC, ezért a 110 V DC még ide tartozik (ez a tipikus csapda). Kisfeszültség: 1000 V AC-ig, illetve 1500 V DC-ig, így a 800 V-os napelemes string is kisfeszültségű, pedig életveszélyes. Az 1000 V AC fölötti hálózatok (20 kV, 120 kV) nagyfeszültségűek; az MSZ 1585 ezeknél más biztonsági távolságokat és eljárásokat ír elő. Tágabb értelemben a törpefeszültség is 1000 V alatti, de a vizsgán külön kategória: ha törpe- és kisfeszültség közül kell választani, az 50 V AC / 120 V DC alatti érték törpefeszültség.",
+    "source": "MSZ 1585:2016; MSZ HD 60364-1; MSZ HD 60364-4-41 414. (törpefeszültség)"
+  },
+  {
+    "id": "IV-fm-103",
+    "part": "IV",
+    "topic": "feszultsegmentesites",
+    "type": "multi",
+    "difficulty": 1,
+    "points": 2,
+    "q": "Válassza ki, melyek a feszültségmentesítés MSZ 1585 szerinti lépései! Jelölje meg az összes helyeset!",
+    "options": [
+      "Teljes körű leválasztás",
+      "Visszakapcsolás elleni biztosítás",
+      "A feszültség nélküli állapot ellenőrzése",
+      "Földelés és rövidre zárás",
+      "Védelem a közeli, feszültség alatt maradó részek ellen",
+      "A szigetelési ellenállás megmérése",
+      "Az áram-védőkapcsoló próbagombjának megnyomása",
+      "A berendezés fogyasztóinak bekapcsolása próbaképpen"
+    ],
+    "answer": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "wrongWhy": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      "A szigetelésmérés az ellenőrzés (szerelői ellenőrzés) része, nem a feszültségmentesítésé.",
+      "A próbagomb az ÁVK működését ellenőrzi, a feszültségmentességről semmit nem mond.",
+      "A fogyasztó bekapcsolása nem bizonyítja a feszültség hiányát (pl. kiégett izzó), és nem is része az öt lépésnek."
+    ],
+    "explanation": "A feszültségmentesítés öt lépése: 1. leválasztás, 2. visszakapcsolás elleni biztosítás, 3. a feszültség nélküli állapot ellenőrzése, 4. földelés és rövidre zárás, 5. a közeli, feszültség alatti részek elhatárolása, letakarása. Kisfeszültségű épületvillamossági munkánál a 4. lépés feltételekkel elhagyható, de attól még a lépések közé tartozik. A mérések és próbák a szerelői ellenőrzés részei.",
+    "source": "MSZ 1585:2016 6.2. (öt biztonsági szabály)"
+  },
+  {
+    "id": "IV-fm-104",
+    "part": "IV",
+    "topic": "feszultsegmentesites",
+    "type": "single",
+    "difficulty": 2,
+    "points": 1,
+    "q": "Egy társasház gondnokát a villanyszerelő megtanította a lekapcsolt kismegszakító visszakapcsolására, és elmagyarázta neki a villamos veszélyeket. Az MSZ 1585 szerint milyen személynek minősül a gondnok ebben a feladatban?",
+    "options": [
+      "Szakképzett személynek",
+      "Kioktatott személynek",
+      "Képzetlen személynek",
+      "Berendezésfelelősnek"
+    ],
+    "answer": [
+      1
+    ],
+    "wrongWhy": [
+      "Szakképzett az, akinek villamos szakképzettsége és gyakorlata van; a gondnoknak nincs.",
+      null,
+      "Képzetlen az lenne, akit senki sem oktatott ki; őt egy szakképzett személy kioktatta.",
+      "A berendezésfelelős a berendezés biztonságos üzemeltetéséért felel a munka idején; ezt a kioktatás nem adja meg."
+    ],
+    "explanation": "Kioktatott személy az, akit szakképzett személy úgy oktatott ki (és szükség szerint felügyel), hogy az adott tevékenységnél el tudja kerülni a villamosság okozta veszélyeket. A kioktatás mindig egy meghatározott feladatra szól, nem tesz valakit általánosan szakképzetté. Tipikus hiba összekeverni a kioktatottat a szakképzettel.",
+    "source": "MSZ 1585:2016 3.2. (személyek)"
+  },
+  {
+    "id": "IV-fm-105",
+    "part": "IV",
+    "topic": "feszultsegmentesites",
+    "type": "single",
+    "difficulty": 1,
+    "points": 1,
+    "q": "Mi a célja a feszültségmentesítésnél a visszakapcsolás elleni biztosításnak?",
+    "options": [
+      "Hogy a leválasztott berendezést a munka alatt senki ne kapcsolhassa vissza, se véletlenül, se tévedésből",
+      "Hogy a kismegszakító túlterheléskor ne kapcsoljon le",
+      "Hogy a berendezést a munka végén gyorsabban vissza lehessen kapcsolni",
+      "Hogy a feszültségvizsgálatot ne kelljen elvégezni"
+    ],
+    "answer": [
+      0
+    ],
+    "wrongWhy": [
+      null,
+      "Ez a túláramvédelemhez tartozna, és éppen veszélyes lenne.",
+      "A cél épp az ellenkezője: a visszakapcsolás csak a készre jelentés után történhet.",
+      "A feszültség nélküli állapotot a biztosítás után is mindig ellenőrizni kell (3. lépés)."
+    ],
+    "explanation": "A második lépés (visszakapcsolás elleni biztosítás) azt akadályozza meg, hogy a leválasztott részt valaki a munka közben visszakapcsolja. Eszközei: lakat, kezelőkar lezárása, leragasztás, „Bekapcsolni tilos” tábla, biztosítóbetét elvitele. Ettől még a feszültség nélküli állapotot ellenőrizni kell, mert lehet tévedés a leválasztott áramkörben.",
+    "source": "MSZ 1585:2016 6.2.2."
+  },
+  {
+    "id": "IV-fm-106",
+    "part": "IV",
+    "topic": "feszultsegmentesites",
+    "type": "truefalse",
+    "difficulty": 1,
+    "points": 2,
+    "q": "Egy lakás aljzatkörén dolgozik. Döntse el az állításokról, hogy igazak vagy hamisak!",
+    "statements": [
+      {
+        "text": "A kismegszakító lekapcsolása után is meg kell győződni feszültségvizsgálóval arról, hogy az aljzatnál nincs feszültség.",
+        "answer": true
+      },
+      {
+        "text": "Ha az aljzatba dugott lámpa nem világít, az áramkör biztosan feszültségmentes.",
+        "answer": false
+      },
+      {
+        "text": "Hibás bekötés vagy visszatáplálás miatt a nullavezető is lehet feszültség alatt.",
+        "answer": true
+      }
+    ],
+    "explanation": "A kismegszakító lekapcsolása csak az első lépés: lehet, hogy rossz kismegszakítót kapcsoltak le, vagy az áramkört máshonnan is táplálják. Egy nem világító lámpa nem bizonyíték (kiégett izzó, laza érintkezés), ezért kipróbált kétsarkú feszültségvizsgáló kell. A nullavezetőt sem szabad eleve feszültségmentesnek tekinteni: felcserélt vagy szakadt nulla esetén, illetve visszatáplálásnál feszültséget hordozhat.",
+    "source": "MSZ 1585:2016 6.2.3.; IV-fm-029 lakásos példa (saját bank)"
+  },
+  {
+    "id": "IV-fm-107",
+    "part": "IV",
+    "topic": "feszultsegmentesites",
+    "type": "single",
+    "difficulty": 2,
+    "points": 1,
+    "q": "Egy mennyezeti lámpatestet kell kicserélni. Miért nem elegendő csak a fali kapcsolót lekapcsolni?",
+    "options": [
+      "Mert a kapcsoló nem leválasztó, bárki visszakapcsolhatja, és hibás bekötésnél a fázis a lámpatesten maradhat",
+      "Mert a fali kapcsoló a nullavezetőt is mindig bontja, ezért nem lehet ellenőrizni",
+      "Mert lámpacserénél a ház főkapcsolóját is földelni kell",
+      "Elegendő, ha a kapcsoló kikapcsolt állásban van"
+    ],
+    "answer": [
+      0
+    ],
+    "wrongWhy": [
+      null,
+      "Az egypólusú kapcsoló csak egy vezetőt bont; ha ez hibásan a nulla, a fázis a lámpán marad.",
+      "Kisfeszültségű épületvillamossági munkánál a földelés feltételekkel elhagyható; nem ez az ok.",
+      "A kapcsoló nem biztosít leválasztást, és nem védett a visszakapcsolás ellen."
+    ],
+    "explanation": "A fali kapcsoló üzemi kapcsoló, nem leválasztó: egypólusú, és ha a szerelő hibásan a nullát kapcsolta rá, a lámpatest foglalatán kikapcsolt állapotban is fázis van. Ráadásul bárki felkapcsolhatja. Helyesen: a kör kismegszakítóját le kell kapcsolni, visszakapcsolás ellen biztosítani (tábla, leragasztás), majd a lámpahelyen kétsarkú feszültségvizsgálóval ellenőrizni.",
+    "source": "MSZ 1585:2016 6.2.; MSZ HD 60364-6 (polaritás)"
+  },
+  {
+    "id": "IV-em-101",
+    "part": "IV",
+    "topic": "ellenorzes-meresek",
+    "type": "single",
+    "difficulty": 1,
+    "points": 1,
+    "q": "Melyik tevékenységgel kezdődik egy új lakásberendezés szerelői ellenőrzése?",
+    "options": [
+      "Hurokimpedancia-méréssel",
+      "Szemrevételezéssel, feszültségmentes állapotban",
+      "Az áram-védőkapcsoló kioldási idejének mérésével",
+      "A fogyasztók bekapcsolásával és működési próbával"
+    ],
+    "answer": [
+      1
+    ],
+    "wrongWhy": [
+      "A hurokimpedancia méréséhez feszültség kell, ez a műszeres vizsgálatok végén jön.",
+      null,
+      "Az ÁVK vizsgálata feszültség alatt történik, a szemrevételezés és a feszültségmentes mérések után.",
+      "A működési próba az ellenőrzés utolsó része."
+    ],
+    "explanation": "A szerelői (első) ellenőrzés sorrendje: szemrevételezés → mérések (előbb a feszültségmentes állapotban végezhetők: védővezető folytonossága, szigetelési ellenállás; utána a feszültség alattiak: hurokimpedancia, ÁVK) → működési próba. A szemrevételezés azért az első, mert a látható hibákat (rossz érszín, hiányzó burkolat, laza kötés) olcsóbb és biztonságosabb feszültség nélkül megtalálni.",
+    "source": "MSZ HD 60364-6:2017 6.4.2., 6.4.3."
+  },
+  {
+    "id": "IV-em-102",
+    "part": "IV",
+    "topic": "ellenorzes-meresek",
+    "type": "multi",
+    "difficulty": 2,
+    "points": 2,
+    "q": "Mely vizsgálatokat lehet CSAK feszültség alá helyezett berendezésen elvégezni? Jelölje meg az összes helyeset!",
+    "options": [
+      "Földzárlati hurokimpedancia mérése",
+      "Áram-védőkapcsoló kioldóáramának és kioldási idejének mérése",
+      "Fázissorrend ellenőrzése",
+      "Védővezető folytonosságának mérése",
+      "Szigetelési ellenállás mérése",
+      "Szemrevételezés"
+    ],
+    "answer": [
+      0,
+      1,
+      2
+    ],
+    "wrongWhy": [
+      null,
+      null,
+      null,
+      "A folytonosságot a műszer saját áramával, feszültségmentes berendezésen mérjük.",
+      "A szigetelésmérő saját egyenfeszültséget ad; feszültség alatt mérni tilos és veszélyes.",
+      "A szemrevételezést feszültségmentes állapotban, a mérések előtt végezzük."
+    ],
+    "explanation": "A hurokimpedancia-mérő a hálózati feszültséget használja, az ÁVK-vizsgáló a hálózatból hoz létre hibaáramot, a fázissorrendet pedig csak élő háromfázisú hálózaton lehet megállapítani. A folytonosság- és a szigetelésmérés feszültségmentes berendezésen történik, a műszer saját tápjával. Ezért ezek megelőzik a feszültség alá helyezést.",
+    "source": "MSZ HD 60364-6:2017 6.4.3.1–6.4.3.10."
+  },
+  {
+    "id": "IV-em-103",
+    "part": "IV",
+    "topic": "ellenorzes-meresek",
+    "type": "single",
+    "difficulty": 2,
+    "points": 1,
+    "q": "TN-rendszerű végáramkörön miért mérjük a földzárlati hurokimpedanciát?",
+    "options": [
+      "Hogy a fogyasztók szigetelésének jóságát megállapítsuk",
+      "Hogy igazoljuk: testzárlatkor elég nagy hibaáram folyik ahhoz, hogy a túláramvédelem az előírt időn belül (pl. 0,4 s) lekapcsoljon",
+      "Hogy megmérjük az áramkör névleges terhelőáramát",
+      "Hogy a nullavezető színjelölését ellenőrizzük"
+    ],
+    "answer": [
+      1
+    ],
+    "wrongWhy": [
+      "A szigetelést szigetelésméréssel (500 V DC, ≥ 1 MΩ) ellenőrizzük.",
+      null,
+      "A terhelőáramot lakatfogóval mérjük; a hurokimpedancia a hibahurokra vonatkozik.",
+      "A színjelölés a szemrevételezés része."
+    ],
+    "explanation": "A hurokimpedancia (Z<sub>s</sub>) a hibaáram útjának impedanciája: tápforrás, fázisvezető a hibahelyig, védővezető vissza. Ebből adódik a testzárlati áram: I = U<sub>0</sub>/Z<sub>s</sub>. Ha Z<sub>s</sub> túl nagy, az áram kicsi, és a kismegszakító nem kapcsol le elég gyorsan, a test pedig veszélyes feszültségen marad. A feltétel: Z<sub>s</sub>·I<sub>a</sub> ≤ U<sub>0</sub>.",
+    "source": "MSZ HD 60364-4-41 411.4.4.; MSZ HD 60364-6:2017 6.4.3.7."
+  },
+  {
+    "id": "IV-em-104",
+    "part": "IV",
+    "topic": "ellenorzes-meresek",
+    "type": "truefalse",
+    "difficulty": 1,
+    "points": 2,
+    "q": "Szigetelési ellenállás mérése 230 V-os lakásáramkörön. Döntse el, igazak-e az állítások!",
+    "statements": [
+      {
+        "text": "A szigetelési ellenállást egyenfeszültséggel, feszültségmentes berendezésen mérjük.",
+        "answer": true
+      },
+      {
+        "text": "Minél nagyobb a mért szigetelési ellenállás, annál jobb a szigetelés.",
+        "answer": true
+      },
+      {
+        "text": "500 V DC mérőfeszültséggel mérve 0,5 MΩ már megfelelő érték.",
+        "answer": false
+      }
+    ],
+    "explanation": "A szigetelésmérő saját egyenfeszültséget ad (230/400 V-os áramkörnél 500 V DC), ezért a berendezésnek feszültségmentesnek kell lennie. A szigetelési ellenállás azt mutatja, mennyire nem folyik áram a vezetők között és a föld felé: a nagy érték a jó. Az MSZ HD 60364-6:2017 szerint 500 V-os mérésnél legalább 1 MΩ kell; a 0,5 MΩ csak a törpefeszültségű (250 V-tal mért) köröknél elég. Régebbi jegyzetekben 0,5 MΩ is szerepel 230 V-ra – ez már nem érvényes.",
+    "source": "MSZ HD 60364-6:2017 6.4.3.3. és 6.1. táblázat"
+  },
+  {
+    "id": "IV-em-105",
+    "part": "IV",
+    "topic": "ellenorzes-meresek",
+    "type": "single",
+    "difficulty": 1,
+    "points": 1,
+    "q": "Melyik műszerrel mérjük egy lakásáramkör szigetelési ellenállását?",
+    "options": [
+      "Szigetelésmérővel, 500 V-os egyenfeszültségű mérőfeszültséggel",
+      "Digitális multiméter ohmmérő állásával",
+      "Lakatfogóval",
+      "Hurokimpedancia-mérővel"
+    ],
+    "answer": [
+      0
+    ],
+    "wrongWhy": [
+      null,
+      "A multiméter csak néhány voltos mérőfeszültséget ad, a szigetelési hibák így nem derülnek ki, és MΩ-os tartománya sem megfelelő.",
+      "A lakatfogó áramot mér, nem ellenállást.",
+      "A hurokimpedancia-mérő a hibahurok impedanciáját méri, feszültség alatt."
+    ],
+    "explanation": "A szigetelési ellenállást szigetelésmérő (régi néven „megger”) műszerrel mérjük, 230/400 V-os áramkörnél 500 V DC mérőfeszültséggel. A nagy mérőfeszültség azért kell, hogy a szigetelés gyenge pontjai üzemihez hasonló igénybevétel mellett kiderüljenek. Az eredmény MΩ-ban jelenik meg; legalább 1 MΩ kell.",
+    "source": "MSZ HD 60364-6:2017 6.4.3.3.; MSZ EN 61557-2"
+  },
+  {
+    "id": "IV-em-106",
+    "part": "IV",
+    "topic": "ellenorzes-meresek",
+    "type": "single",
+    "difficulty": 1,
+    "points": 1,
+    "q": "Megnyomja egy áram-védőkapcsoló „T” próbagombját, de a készülék nem old ki. Mi a teendő?",
+    "options": [
+      "A gombot addig kell nyomogatni, amíg kiold",
+      "A készüléket ki kell cserélni; addig az áramkör nem tekinthető védettnek",
+      "Az áram-védőkapcsolót át kell hidalni, hogy a fogyasztók működjenek",
+      "Nem kell semmit tenni, a próbagomb csak tájékoztató jellegű"
+    ],
+    "answer": [
+      1
+    ],
+    "wrongWhy": [
+      "Ha egy próbára nem old ki, a kioldó mechanika hibás; a véletlen későbbi kioldás nem bizonyít semmit.",
+      null,
+      "Az áthidalás megszünteti a védelmet, életveszélyes és tilos.",
+      "A próbagomb a készülék működőképességét ellenőrzi; ha nem old ki, a készülék hibás."
+    ],
+    "explanation": "A próbagomb a beépített próbaellenállással mesterséges különbségi áramot hoz létre; egy ép áram-védőkapcsolónak erre azonnal ki kell oldania. Ha nem old ki, a készülék meghibásodott, és cserélni kell – addig az áramkör kiegészítő védelme nem működik. A próbagombot a gyártó által megadott időközönként rendszeresen meg kell nyomni, mert a ritkán működtetett mechanika beragadhat.",
+    "source": "MSZ HD 60364-6:2017 6.4.3.10.; gyártói kezelési utasítások"
+  },
+  {
+    "id": "IV-em-107",
+    "part": "IV",
+    "topic": "ellenorzes-meresek",
+    "type": "single",
+    "difficulty": 1,
+    "points": 1,
+    "q": "Mit igazol a védővezető folytonosságának mérése?",
+    "options": [
+      "Hogy a fázis- és a nullavezető között nincs zárlat",
+      "Hogy a védővezető a fő földelősíntől minden testig és aljzat-védőérintkezőig megszakítás nélkül, kis ellenállással összeköt",
+      "Hogy az áram-védőkapcsoló 30 mA-nél kiold",
+      "Hogy a védővezetőn üzemszerűen elég nagy áram folyik"
+    ],
+    "answer": [
+      1
+    ],
+    "wrongWhy": [
+      "Ezt a szigetelési ellenállás mérése mutatja ki.",
+      null,
+      "Ezt az ÁVK vizsgálata igazolja, feszültség alatt.",
+      "A védővezetőn üzemszerűen nem folyik áram; csak hiba esetén vezet."
+    ],
+    "explanation": "A folytonosságmérés (legalább 200 mA mérőárammal) azt bizonyítja, hogy a PE sehol nem szakadt meg, és ellenállása kicsi. Ha a PE szakadt, testzárlatkor a készülék háza feszültség alatt marad, és a kismegszakító sem kapcsol le. Ezért ez az első műszeres vizsgálat, a szigetelésmérés és a hurokimpedancia-mérés előtt.",
+    "source": "MSZ HD 60364-6:2017 6.4.3.2."
+  },
+  {
+    "id": "IV-em-108",
+    "part": "IV",
+    "topic": "ellenorzes-meresek",
+    "type": "order",
+    "difficulty": 1,
+    "points": 2,
+    "q": "Rendezze sorba a szerelői ellenőrzés fő részeit a végrehajtás sorrendjében (első legfelül)!",
+    "items": [
+      "Szemrevételezés feszültségmentes állapotban",
+      "Mérések feszültségmentes állapotban (védővezető folytonossága, szigetelési ellenállás)",
+      "Mérések feszültség alá helyezés után (hurokimpedancia, áram-védőkapcsoló)",
+      "Működési próba (kapcsolók, ÁVK próbagomb, fogyasztók)"
+    ],
+    "explanation": "A rövid szabály: szemrevételezés → mérés → próba. A méréseken belül előbb a feszültségmentesek jönnek (folytonosság, szigetelés), mert ezek igazolják, hogy a berendezést biztonságos feszültség alá helyezni. Csak ezután következnek a feszültség alatti mérések, végül a működési próba. Ha bármely vizsgálat nem felel meg, a hiba kijavítása után azt és az általa befolyásolt korábbi vizsgálatokat meg kell ismételni.",
+    "source": "MSZ HD 60364-6:2017 6.4.2–6.4.3."
+  },
+  {
+    "id": "IV-av-101",
+    "part": "IV",
+    "topic": "aramutes-elleni-vedelem",
+    "type": "multi",
+    "difficulty": 1,
+    "points": 2,
+    "q": "Melyik névleges feszültség számít törpefeszültségnek? Jelölje meg az összes helyeset!",
+    "options": [
+      "12 V AC",
+      "24 V AC",
+      "48 V AC",
+      "110 V DC",
+      "60 V AC",
+      "150 V DC",
+      "230 V AC"
+    ],
+    "answer": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "wrongWhy": [
+      null,
+      null,
+      null,
+      null,
+      "Váltakozó feszültségnél a határ 50 V, a 60 V AC már kisfeszültség.",
+      "Egyenfeszültségnél a határ 120 V, a 150 V DC már kisfeszültség.",
+      "A 230 V a hálózati fázisfeszültség, kisfeszültség."
+    ],
+    "explanation": "Törpefeszültség (ELV): legfeljebb 50 V váltakozó vagy 120 V (felharmonikus-mentes) egyenfeszültség. Ezért 110 V DC még törpe, de 60 V AC már nem. A tipikus hiba, hogy az 50 V-os határt egyenfeszültségre is alkalmazzák. Vigyázat: a törpefeszültség önmagában még nem védelmi mód; az áramütés elleni védelmet csak a SELV vagy PELV kialakítás (biztonsági elválasztás) adja. Tágabb értelemben a törpefeszültség is 1000 V alatti, de a vizsgán külön kategória: ha törpe- és kisfeszültség közül kell választani, az 50 V AC / 120 V DC alatti érték törpefeszültség.",
+    "source": "MSZ HD 60364-4-41 414.1.1.; 10_4/Villbizjegyzet.pdf.txt 2.3.1."
+  },
+  {
+    "id": "IV-av-102",
+    "part": "IV",
+    "topic": "aramutes-elleni-vedelem",
+    "type": "single",
+    "difficulty": 1,
+    "points": 1,
+    "q": "Mit nevezünk áramütésnek?",
+    "options": [
+      "Az emberi vagy állati testen áthaladó áram okozta élettani hatást",
+      "Két fázisvezető közötti zárlatot",
+      "A kismegszakító túlterhelés miatti lekapcsolását",
+      "Bármilyen vezeték megérintését, akkor is, ha az nincs feszültség alatt"
+    ],
+    "answer": [
+      0
+    ],
+    "wrongWhy": [
+      null,
+      "Ez zárlat, berendezéshiba; nem a testen át folyó áram.",
+      "Ez a túláramvédelem működése.",
+      "Feszültség nélküli vezetőn át nem folyik áram, így áramütés sem jöhet létre."
+    ],
+    "explanation": "Áramütés: az emberi vagy állati testen átfolyó áram élettani (fiziológiai) hatása. A veszélyt nem a feszültség, hanem az áram nagysága, útja (pl. kéz–kéz, kéz–láb a szíven át) és időtartama határozza meg; a feszültség csak annyiban számít, hogy a test ellenállásán mekkora áramot hajt át. Az áramütés elleni védelem célja, hogy ilyen áram ne jöhessen létre, vagy elég gyorsan megszűnjön.",
+    "source": "MSZ EN 61140 (fogalmak); IEC 60479-1 (áram hatása az emberre); 10_4/Villbizjegyzet.pdf.txt"
+  },
+  {
+    "id": "IV-av-103",
+    "part": "IV",
+    "topic": "aramutes-elleni-vedelem",
+    "type": "match",
+    "difficulty": 2,
+    "points": 2,
+    "q": "Párosítsa a testen átfolyó 50 Hz-es váltakozó áram hozzávetőleges nagyságát (kéz–láb út, felnőtt) a hatásával!",
+    "pairs": [
+      [
+        "Kb. 0,5–1 mA",
+        "Érzetküszöb: az áram éppen érezhető"
+      ],
+      [
+        "Kb. 10 mA",
+        "Elengedési határ: felette az izomgörcs miatt a vezetőt sokan nem tudják elengedni"
+      ],
+      [
+        "30 mA",
+        "Az áram-védőkapcsoló kiegészítő védelmének névleges kioldó-különbözeti árama"
+      ],
+      [
+        "Kb. 50 mA felett, tized másodpercnél hosszabb ideig",
+        "Szívkamra-fibrilláció veszélye, életveszély"
+      ]
+    ],
+    "distractors": [
+      "Ez alatt az áram semmilyen hatással nincs az emberre: kb. 5 A"
+    ],
+    "explanation": "Az élettani hatás az áram nagyságával és idejével nő: kb. 0,5–1 mA az érzetküszöb, kb. 10 mA az elengedési határ (a karizmok görcse miatt a kéz rászorul a vezetőre), néhány tíz mA felett, ha az áram tized másodperceknél tovább tart, kamrafibrilláció léphet fel – ez a kisfeszültségű áramütéses halál fő oka. A 30 mA-es ÁVK ezért ad kiegészítő védelmet: ennél kisebb áramnál és gyors lekapcsolással a fibrilláció valószínűsége kicsi. A pontos határértékek forrásonként kissé eltérnek (pl. 1–1,5 mA érzetküszöb, 15 mA elengedési áram), a nagyságrend a lényeg.",
+    "source": "IEC 60479-1 (áramhatás-tartományok); 10_4/Villbizjegyzet.pdf.txt (élettani hatások táblázata)"
+  },
+  {
+    "id": "IV-av-104",
+    "part": "IV",
+    "topic": "aramutes-elleni-vedelem",
+    "type": "single",
+    "difficulty": 3,
+    "points": 2,
+    "q": "Mit jelent a FELV (funkcionális törpefeszültség)?",
+    "options": [
+      "Biztonsági transzformátorról táplált, földeletlen törpefeszültségű áramkört",
+      "Olyan törpefeszültségű áramkört, amelyet üzemi okból alkalmaznak, de nem teljesíti a SELV/PELV elválasztási követelményeit, ezért a védelmet a tápláló (primer) oldal védelmi rendszere adja",
+      "Olyan törpefeszültséget, amely egy pontján üzemi okból földelt, de biztonsági elválasztású",
+      "1000 V fölötti, funkcionális okból földelt áramkört"
+    ],
+    "answer": [
+      1
+    ],
+    "wrongWhy": [
+      "Ez a SELV meghatározása.",
+      null,
+      "Ez a PELV meghatározása.",
+      "A FELV törpefeszültségű; az 1000 V fölötti tartomány nagyfeszültség."
+    ],
+    "explanation": "FELV: a feszültség törpefeszültségű, de csak a működéshez kell (pl. vezérlés), és a tápforrás nem biztosít biztonsági elválasztást (pl. egyszerű autotranszformátor, nem biztonsági trafó). Ezért nem számít önálló védelmi módnak: az alapvédelmet a primer oldalnak megfelelő szigetelés vagy burkolat, a hibavédelmet a testek primer oldali védővezetőre kötése adja. SELV: földeletlen, biztonsági elválasztású; PELV: biztonsági elválasztású, de földelhető.",
+    "source": "MSZ HD 60364-4-41 411.7. (FELV), 414. (SELV, PELV)"
+  },
+  {
+    "id": "IV-av-105",
+    "part": "IV",
+    "topic": "aramutes-elleni-vedelem",
+    "type": "single",
+    "difficulty": 1,
+    "points": 1,
+    "q": "Mekkora névleges kioldó-különbözeti áramú (I<sub>Δn</sub>) áram-védőkapcsoló ad kiegészítő védelmet (például fürdőszobai vagy aljzatkörökben)?",
+    "options": [
+      "Legfeljebb 30 mA",
+      "100 mA",
+      "300 mA",
+      "500 mA"
+    ],
+    "answer": [
+      0
+    ],
+    "wrongWhy": [
+      null,
+      "A kiegészítő védelemhez legfeljebb 30 mA szükséges; 100 mA-nél nagyobb a fibrilláció veszélye.",
+      "A 300 mA-es ÁVK tűzvédelmi célú (szigetelési hibából eredő tűz ellen), életvédelemre nem elég.",
+      "Ekkora kioldóárammal személyvédelem nem valósul meg."
+    ],
+    "explanation": "Kiegészítő védelemnek (az alap- és hibavédelem kudarca vagy gondatlan érintés esetére) legfeljebb 30 mA névleges kioldó-különbözeti áramú ÁVK fogadható el. Ennél az áramnál és a gyors lekapcsolásnál (I<sub>Δn</sub>-nél ≤ 300 ms, 5·I<sub>Δn</sub>-nél ≤ 40 ms) a kamrafibrilláció valószínűsége kicsi. A 100–300 mA-es készülékek tűzvédelemre vagy hibavédelemre (pl. TT-rendszer) valók.",
+    "source": "MSZ HD 60364-4-41 415.1.1.; MSZ HD 60364-4-42 (tűz elleni védelem)"
+  },
+  {
+    "id": "IV-av-106",
+    "part": "IV",
+    "topic": "aramutes-elleni-vedelem",
+    "type": "dropdown",
+    "difficulty": 2,
+    "points": 2,
+    "q": "Rajz alapján: mindkét áramkört biztonsági transzformátor táplálja 24 V-tal. Milyen törpefeszültségű rendszer az A és a B áramkör?",
+    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 600 230\" font-family=\"sans-serif\" font-size=\"13\"><g stroke=\"black\" fill=\"none\" stroke-width=\"2\"><line x1=\"20\" y1=\"70\" x2=\"70\" y2=\"70\"/><line x1=\"20\" y1=\"130\" x2=\"70\" y2=\"130\"/><rect x=\"70\" y=\"50\" width=\"70\" height=\"100\"/><line x1=\"105\" y1=\"50\" x2=\"105\" y2=\"150\"/><line x1=\"140\" y1=\"70\" x2=\"240\" y2=\"70\"/><line x1=\"140\" y1=\"130\" x2=\"240\" y2=\"130\"/><line x1=\"240\" y1=\"70\" x2=\"240\" y2=\"82\"/><line x1=\"240\" y1=\"118\" x2=\"240\" y2=\"130\"/><circle cx=\"240\" cy=\"100\" r=\"18\"/><line x1=\"227\" y1=\"87\" x2=\"253\" y2=\"113\"/><line x1=\"253\" y1=\"87\" x2=\"227\" y2=\"113\"/></g><g stroke=\"black\" fill=\"none\" stroke-width=\"2\" transform=\"translate(310,0)\"><line x1=\"20\" y1=\"70\" x2=\"70\" y2=\"70\"/><line x1=\"20\" y1=\"130\" x2=\"70\" y2=\"130\"/><rect x=\"70\" y=\"50\" width=\"70\" height=\"100\"/><line x1=\"105\" y1=\"50\" x2=\"105\" y2=\"150\"/><line x1=\"140\" y1=\"70\" x2=\"240\" y2=\"70\"/><line x1=\"140\" y1=\"130\" x2=\"240\" y2=\"130\"/><line x1=\"240\" y1=\"70\" x2=\"240\" y2=\"82\"/><line x1=\"240\" y1=\"118\" x2=\"240\" y2=\"130\"/><circle cx=\"240\" cy=\"100\" r=\"18\"/><line x1=\"227\" y1=\"87\" x2=\"253\" y2=\"113\"/><line x1=\"253\" y1=\"87\" x2=\"227\" y2=\"113\"/><line x1=\"190\" y1=\"130\" x2=\"190\" y2=\"175\"/><line x1=\"176\" y1=\"175\" x2=\"204\" y2=\"175\"/><line x1=\"181\" y1=\"182\" x2=\"199\" y2=\"182\"/><line x1=\"186\" y1=\"189\" x2=\"194\" y2=\"189\"/></g><g fill=\"black\"><text x=\"20\" y=\"25\" font-size=\"18\" font-weight=\"bold\">A</text><text x=\"20\" y=\"105\">230 V</text><text x=\"160\" y=\"105\">24 V</text><text x=\"70\" y=\"172\">biztonsági transzformátor</text><text x=\"100\" y=\"210\">egyik pont sincs földelve</text><text x=\"330\" y=\"25\" font-size=\"18\" font-weight=\"bold\">B</text><text x=\"330\" y=\"105\">230 V</text><text x=\"470\" y=\"105\">24 V</text><text x=\"380\" y=\"172\">biztonsági transzformátor</text><text x=\"508\" y=\"186\">földelt pont</text></g></svg>",
+    "text": "Az A áramkör {0}. A B áramkör {1}.",
+    "blanks": [
+      {
+        "options": [
+          "SELV",
+          "PELV",
+          "FELV"
+        ],
+        "answer": 0
+      },
+      {
+        "options": [
+          "SELV",
+          "PELV",
+          "FELV"
+        ],
+        "answer": 1
+      }
+    ],
+    "explanation": "Mindkét áramkör biztonsági transzformátorról, biztonsági elválasztással kapja a 24 V-ot, ezért mindkettő vagy SELV, vagy PELV. Az A áramkörben sem az aktív részek, sem a lámpa nincs földelve: ez SELV. A B áramkör egyik pontja földelt: ez PELV (üzemi okból, pl. vezérléseknél szokás). FELV akkor lenne, ha a tápforrás nem adna biztonsági elválasztást (pl. egyszerű takaréktranszformátor).",
+    "source": "MSZ HD 60364-4-41 414.3–414.4.; MSZ EN 61558-2-6 (biztonsági transzformátor)"
+  },
+  {
+    "id": "IV-av-107",
+    "part": "IV",
+    "topic": "aramutes-elleni-vedelem",
+    "type": "single",
+    "difficulty": 2,
+    "points": 1,
+    "q": "Mi jellemző a 0. érintésvédelmi (védelmi) osztályú készülékre?",
+    "options": [
+      "Kettős vagy megerősített szigetelése van",
+      "Csak alapszigetelése van, és nincs védővezető-csatlakozási pontja",
+      "Csak biztonsági törpefeszültségről működtethető",
+      "A testét védővezetővel kell bekötni"
+    ],
+    "answer": [
+      1
+    ],
+    "wrongWhy": [
+      "Ez a II. osztály jellemzője (jele: két egymásba rajzolt négyzet).",
+      null,
+      "Ez a III. osztály jellemzője (jele: rombuszba írt III).",
+      "Ez az I. osztály jellemzője (jele: védőföldelés-jel)."
+    ],
+    "explanation": "A 0. osztályú készüléknek csak alapszigetelése van, és nincs PE-kapcsa; ha az alapszigetelés meghibásodik, a hibavédelmet csak a környezet adhatná (pl. nemvezető környezet). Ilyen környezet lakásban nincs, ezért épületvillamossági berendezésben nem alkalmazható; régebbi készülékeknél még találkozhatunk vele. Az osztályok: 0 – csak alapszigetelés; I – alapszigetelés + védővezető; II – kettős/megerősített szigetelés; III – SELV-táplálás.",
+    "source": "MSZ EN 61140 7. (osztályok); MSZ HD 60364-4-41 C melléklet"
+  },
+  {
+    "id": "IV-av-108",
+    "part": "IV",
+    "topic": "aramutes-elleni-vedelem",
+    "type": "truefalse",
+    "difficulty": 1,
+    "points": 2,
+    "q": "Érintésvédelmi osztályok. Döntse el, igazak-e az állítások!",
+    "statements": [
+      {
+        "text": "A II. osztályú készülék csatlakozózsinórjában nincs védővezető.",
+        "answer": true
+      },
+      {
+        "text": "Az I. osztályú készülék hibavédelme csak akkor működik, ha a védővezetője be van kötve.",
+        "answer": true
+      },
+      {
+        "text": "Egy 12 V-os, biztonsági transzformátorról táplált lámpatest lehet III. osztályú.",
+        "answer": true
+      },
+      {
+        "text": "Ha egy készüléknek fémháza van, akkor biztosan I. osztályú.",
+        "answer": false
+      }
+    ],
+    "explanation": "II. osztály: kettős vagy megerősített szigetelés, védővezetőt nem kapcsolnak hozzá, ezért a zsinór kéteres. I. osztály: alapszigetelés + a test védővezetőre kötése; szakadt PE mellett testzárlatkor a ház feszültség alatt marad. III. osztály: csak SELV-ről táplálható (pl. 12 V-os lámpa biztonsági trafóval). A fémház nem dönti el az osztályt: létezik fémházas II. osztályú készülék is, ha belül kettős szigetelés választja el az aktív részeket – mindig az adattábla jele számít.",
+    "source": "MSZ EN 61140 7.; MSZ HD 60364-4-41 412., 414."
+  },
+  {
+    "id": "IV-av-109",
+    "part": "IV",
+    "topic": "aramutes-elleni-vedelem",
+    "type": "single",
+    "difficulty": 1,
+    "points": 1,
+    "q": "Mit nevezünk az MSZ HD 60364 szerint hibavédelemnek?",
+    "options": [
+      "Védelmet a hibátlan berendezés aktív részeinek közvetlen érintése ellen",
+      "Védelmet egyetlen hiba esetén, amikor az alapszigetelés meghibásodása miatt egy test feszültség alá kerül",
+      "A vezetékek túlterhelés és zárlat elleni védelmét",
+      "Csak a 30 mA-es áram-védőkapcsoló alkalmazását"
+    ],
+    "answer": [
+      1
+    ],
+    "wrongWhy": [
+      "Ez az alapvédelem (régi néven: közvetlen érintés elleni védelem).",
+      null,
+      "Ez a túláramvédelem, a vezetékeket védi, nem közvetlenül az embert.",
+      "A 30 mA-es ÁVK kiegészítő védelem; hibavédelem lehet pl. az önműködő lekapcsolás kismegszakítóval is."
+    ],
+    "explanation": "Az áramütés elleni védelem két része: az alapvédelem a normál, hibátlan állapotban véd az aktív részek érintése ellen (szigetelés, burkolat), a hibavédelem pedig egyetlen hiba – az alapszigetelés meghibásodása – esetén véd a feszültség alá került test érintése ellen (pl. önműködő lekapcsolás, kettős szigetelés). Régi neve: közvetett érintés elleni védelem. Ezek mellé jöhet kiegészítő védelem (30 mA-es ÁVK, kiegészítő EPH).",
+    "source": "MSZ HD 60364-4-41 410.3.; MSZ EN 61140"
+  },
+  {
+    "id": "IV-av-110",
+    "part": "IV",
+    "topic": "aramutes-elleni-vedelem",
+    "type": "single",
+    "difficulty": 2,
+    "points": 1,
+    "q": "Mit jelent a TN-C-S hálózati rendszer jelölésében a „C-S” betűpár?",
+    "options": [
+      "A rendszer egy részén a nulla- és a védővezető egyesítve (PEN) fut, majd egy ponttól külön N és PE vezetőként",
+      "A rendszer egy részén külön N és PE fut, utána a kettőt PEN-vezetővé egyesítik",
+      "C = rézvezető, S = acélvezető",
+      "C = csillagpont földelt, S = a testek saját földelőhöz kötve"
+    ],
+    "answer": [
+      0
+    ],
+    "wrongWhy": [
+      null,
+      "Fordítva: szétválasztás után az N és a PE újra nem köthető össze.",
+      "A betűk a vezetők szerepére utalnak, nem az anyagukra.",
+      "A tápforrás földelését az első betű (T), a testek bekötését a második (N) jelöli; a TT-rendszerben vannak saját földelők."
+    ],
+    "explanation": "TN-C-S: T – a tápforrás csillagpontja közvetlenül földelt; N – a testek a csillagponthoz vannak kötve; C (combined) – egy szakaszon egyesített PEN-vezető; S (separated) – a szétválasztási ponttól külön N és PE. Magyarországon tipikusan a közcélú hálózat és a csatlakozás TN-C, a fogyasztói berendezés a szétválasztás után TN-S. A szétválasztás után a két vezetőt tilos újra összekötni.",
+    "source": "MSZ HD 60364-1 312.2.; MSZ 447:2019"
+  },
+  {
+    "id": "IV-av-111",
+    "part": "IV",
+    "topic": "aramutes-elleni-vedelem",
+    "type": "single",
+    "difficulty": 1,
+    "points": 1,
+    "q": "TN-S rendszerben hány vezető fut egy háromfázisú, nullavezetőt is igénylő fogyasztóhoz (pl. háromfázisú alelosztóhoz)?",
+    "options": [
+      "3",
+      "4",
+      "5",
+      "6"
+    ],
+    "answer": [
+      2
+    ],
+    "wrongWhy": [
+      "Három csak a fázisvezetők száma; a nulla- és a védővezető hiányzik.",
+      "Négy vezető (L1, L2, L3, PEN) a TN-C rendszerben fut, ahol a nulla és a védővezető egyesített.",
+      null,
+      "Hat vezetőre nincs szükség: a TN-S-ben egy N és egy PE van."
+    ],
+    "explanation": "TN-S-ben a nulla- (N) és a védővezető (PE) végig külön fut: L1, L2, L3, N, PE – öt vezető (pl. 5×2,5 mm²-es kábel). TN-C-ben a PEN egyesíti a kettőt, ott négy vezető elég. Ha a fogyasztónak nem kell nulla (pl. háromfázisú motor), TN-S-ben is négy vezető (L1, L2, L3, PE) fut hozzá.",
+    "source": "MSZ HD 60364-1 312.2.1.; MSZ HD 60364-5-51 (vezetők jelölése)"
+  },
+  {
+    "id": "IV-av-112",
+    "part": "IV",
+    "topic": "aramutes-elleni-vedelem",
+    "type": "single",
+    "difficulty": 2,
+    "points": 1,
+    "q": "Rajz alapján: a fürdőszobában az X sínre zöld-sárga vezetőkkel bekötötték a felsorolt részeket. Milyen védelmi intézkedést mutat a rajz?",
+    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 600 260\" font-family=\"sans-serif\" font-size=\"13\"><g stroke=\"black\" fill=\"none\" stroke-width=\"2\"><rect x=\"10\" y=\"10\" width=\"580\" height=\"240\" stroke-dasharray=\"6 4\"/><rect x=\"240\" y=\"180\" width=\"120\" height=\"20\"/><line x1=\"260\" y1=\"180\" x2=\"80\" y2=\"80\"/><line x1=\"280\" y1=\"180\" x2=\"200\" y2=\"80\"/><line x1=\"300\" y1=\"180\" x2=\"320\" y2=\"80\"/><line x1=\"320\" y1=\"180\" x2=\"440\" y2=\"80\"/><line x1=\"340\" y1=\"180\" x2=\"540\" y2=\"80\"/></g><g fill=\"black\" text-anchor=\"middle\"><text x=\"300\" y=\"30\" font-weight=\"bold\">Fürdőszoba</text><text x=\"300\" y=\"195\">X sín</text><text x=\"80\" y=\"70\">fém kád</text><text x=\"200\" y=\"70\">hidegvízcső</text><text x=\"320\" y=\"70\">melegvízcső</text><text x=\"440\" y=\"70\">fűtéscső</text><text x=\"540\" y=\"55\">aljzatkör</text><text x=\"540\" y=\"70\">PE-vezetője</text><text x=\"300\" y=\"230\">(a sín nincs földelőhöz kötve, földelővezető nem csatlakozik rá)</text></g></svg>",
+    "options": [
+      "Fő védő egyenpotenciálú összekötés (fő EPH)",
+      "Kiegészítő (helyi) védő egyenpotenciálú összekötés",
+      "Villámvédelmi földelés",
+      "TT-rendszerű védőföldelés"
+    ],
+    "answer": [
+      1
+    ],
+    "wrongWhy": [
+      "A fő EPH a fő földelősínen (MET), az épületbe belépésnél köti össze a csöveket, és oda csatlakozik a földelővezető is.",
+      null,
+      "A villámvédelmi földelő a levezetőkhöz csatlakozik a talajban; a rajzon nincs ilyen.",
+      "TT-ben a testek saját földelőhöz csatlakoznak; itt nincs földelő, csak összekötés."
+    ],
+    "explanation": "A rajz kiegészítő (helyi) EPH-t mutat: egy helyiségben az egyidejűleg érinthető idegen vezetőképes részeket (kád, csövek) és a testeket (aljzatkör PE-je) kötik össze. Célja, hogy közöttük hiba esetén se léphessen fel veszélyes feszültségkülönbség. A fő EPH ezzel szemben az épületbe lépő fémcsöveket és szerkezeteket a fő földelősínre köti, ahová a földelővezető is csatlakozik.",
+    "source": "MSZ HD 60364-4-41 415.2.; MSZ HD 60364-5-54 544.2.; MSZ HD 60364-7-701"
+  },
+  {
+    "id": "IV-av-113",
+    "part": "IV",
+    "topic": "aramutes-elleni-vedelem",
+    "type": "multi",
+    "difficulty": 2,
+    "points": 2,
+    "q": "Mi ellen véd az önálló (kismegszakító nélküli) áram-védőkapcsoló? Jelölje meg az összes helyeset!",
+    "options": [
+      "A test és a föld (PE) felé folyó hibaáram ellen: lekapcsolja a testzárlatos áramkört",
+      "Kiegészítő védelemként (30 mA), ha valaki fázist érint, és az áram a testén át a földbe folyik",
+      "Szigetelési hibából eredő tűz ellen (pl. 300 mA-es kivitel)",
+      "A vezetékek túlterhelése ellen",
+      "A fázis- és nullavezető közötti zárlat ellen",
+      "A villámcsapásból eredő tranziens túlfeszültség ellen"
+    ],
+    "answer": [
+      0,
+      1,
+      2
+    ],
+    "wrongWhy": [
+      null,
+      null,
+      null,
+      "A túlterhelésnél a ki- és befolyó áram egyenlő, nincs különbségi áram; ehhez kismegszakító kell.",
+      "L–N zárlatnál sincs különbségi áram; a zárlatvédelmet a kismegszakító vagy olvadóbiztosító adja.",
+      "A tranziens túlfeszültség ellen túlfeszültség-levezető (SPD) véd."
+    ],
+    "explanation": "Az ÁVK csak a különbségi (földbe szivárgó) áramot érzékeli. Ezért véd testzárlat és – 30 mA-es kivitelben – a fázis és föld közötti érintés ellen, 300 mA-es kivitelben a szigetelési hibából eredő tűz ellen. Túlterhelésnél és L–N zárlatnál a befolyó és visszafolyó áram egyenlő, ezért ezeket nem érzékeli: ehhez kismegszakító kell (vagy kombinált ÁVK+kismegszakító, „FI/LS”). Túlfeszültség ellen az SPD véd.",
+    "source": "MSZ HD 60364-4-41 411., 415.1.; MSZ HD 60364-4-42 422.3.9.; MEE-VET Műszaki alapok"
+  },
+  {
+    "id": "IV-av-114",
+    "part": "IV",
+    "topic": "aramutes-elleni-vedelem",
+    "type": "number",
+    "difficulty": 2,
+    "points": 2,
+    "q": "Egy személy egy testzárlatos készülék házát érinti, így a teljes 230 V-os fázisfeszültség jut rá. Az áram útjának teljes ellenállása (test + átmeneti ellenállások) 1000 Ω. Mekkora áram folyik át a testén? Az eredményt mA-ben adja meg!",
+    "fields": [
+      {
+        "label": "I",
+        "unit": "mA",
+        "answer": 230,
+        "tolAbs": 1
+      }
+    ],
+    "explanation": "Ohm-törvény: I = U / R = 230 V / 1000 Ω = 0,23 A = 230 mA. Ez nagyságrenddel több, mint az elengedési határ (kb. 10 mA), és bőven a kamrafibrilláció veszélyes tartományában van, ezért életveszélyes. Ezért kell, hogy a hibavédelem (önműködő lekapcsolás) vagy a 30 mA-es ÁVK gyorsan lekapcsoljon. Tipikus hiba az A–mA átváltás: 0,23 A nem 23 mA.",
+    "source": "Ohm-törvény; IEC 60479-1; 10_4/Villbizjegyzet.pdf.txt (testellenállás)"
+  },
+  {
+    "id": "IV-av-115",
+    "part": "IV",
+    "topic": "aramutes-elleni-vedelem",
+    "type": "single",
+    "difficulty": 2,
+    "points": 1,
+    "q": "Egy rézkábel fázisvezetői 25 mm² keresztmetszetűek. Mekkora a vele azonos anyagú védővezető legkisebb keresztmetszete a táblázatos módszer szerint?",
+    "options": [
+      "10 mm²",
+      "12,5 mm²",
+      "16 mm²",
+      "25 mm²"
+    ],
+    "answer": [
+      2
+    ],
+    "wrongWhy": [
+      "A táblázat 16 és 35 mm² közötti fázisvezetőhöz 16 mm²-t ír elő; 10 mm² kevés.",
+      "Az S/2 szabály csak 35 mm² feletti fázisvezetőre vonatkozik, és 12,5 mm² nem is szabványos méret.",
+      null,
+      "S-sel azonos PE csak legfeljebb 16 mm²-es fázisvezetőnél kötelező; 25 mm²-nél elég a 16 mm²."
+    ],
+    "explanation": "A védővezető táblázata (azonos anyag esetén): S ≤ 16 mm² → S<sub>PE</sub> = S; 16 mm² < S ≤ 35 mm² → S<sub>PE</sub> = 16 mm²; S > 35 mm² → S<sub>PE</sub> = S/2. A 25 mm² a középső sávba esik, ezért 16 mm². Tipikus hiba, hogy a felezést minden méretre alkalmazzák.",
+    "source": "MSZ HD 60364-5-54 543.1.2. és 54.2. táblázat"
+  },
+  {
+    "id": "IV-mv-101",
+    "part": "IV",
+    "topic": "munkavedelem",
+    "type": "single",
+    "difficulty": 1,
+    "points": 1,
+    "q": "Egy kollégáját áramütés érte, és még érintkezik a feszültség alatti résszel. Mit kell tennie, MIELŐTT a testéhez nyúlna?",
+    "options": [
+      "Azonnal meg kell fognia a kezét, és el kell rántania a vezetőtől",
+      "Meg kell szüntetnie az áramkört (kikapcsolás, dugó kihúzása), vagy szigetelő eszközzel, szigetelten állva kell eltávolítania a vezetőtől",
+      "Le kell locsolnia vízzel, hogy a görcs oldódjon",
+      "Azonnal el kell kezdenie a mellkaskompressziót"
+    ],
+    "answer": [
+      1
+    ],
+    "wrongWhy": [
+      "Csupasz kézzel megfogva a segítőt is áramütés éri, így két sérült lesz.",
+      null,
+      "A víz vezeti az áramot, a segítőt is veszélyezteti.",
+      "Az újraélesztést csak a kiszabadítás után, áramkörön kívül lehet elkezdeni."
+    ],
+    "explanation": "Az elsősegély első szabálya a saját biztonság: amíg az áramütött érintkezik a feszültség alatti résszel, a testét csupasz kézzel megérinteni tilos. Először az áramkört kell megszakítani (kismegszakító, főkapcsoló, dugó), és ha ez nem megy gyorsan, száraz szigetelő eszközzel (fa, száraz ruha), szigetelő helyen állva kell elválasztani. Csak ezután jön az állapotfelmérés, mentőhívás és szükség esetén újraélesztés.",
+    "source": "MSZ 1585:2016 C100 melléklet (elsősegélynyújtás); ocr/villbizt.txt"
+  },
+  {
+    "id": "IV-mv-102",
+    "part": "IV",
+    "topic": "munkavedelem",
+    "type": "single",
+    "difficulty": 1,
+    "points": 1,
+    "q": "Miért tilos feszültség alatt álló villamos berendezés tüzét vízzel oltani?",
+    "options": [
+      "Mert a víz vezeti az áramot, így az oltót áramütés érheti",
+      "Mert a víz a tüzet tovább erősíti",
+      "Mert a víz a vezetékek rézanyagát azonnal elolvasztja",
+      "Nem tilos, a víz minden tűzhöz a legjobb oltóanyag"
+    ],
+    "answer": [
+      0
+    ],
+    "wrongWhy": [
+      null,
+      "A víz a legtöbb szilárd anyag tüzét jól oltja; a villamos tűznél az áramütés a gond.",
+      "A víz hűt, nem olvaszt; a probléma a vezetőképessége.",
+      "Feszültség alatti berendezésnél a vízsugár életveszélyes."
+    ],
+    "explanation": "A (szennyezett) víz és a vízsugár vezeti az áramot, így a feszültség alatti berendezésről az áram az oltó emberen át a földbe folyhat. Ezért először le kell kapcsolni a berendezést; ha ez nem lehetséges, csak villamos tűzhöz alkalmas, a készüléken feltüntetett feszültségig és távolságból használható oltóval (CO<sub>2</sub>, oltópor) szabad oltani. A hab is vizes, ezért szintén nem alkalmas.",
+    "source": "MSZ 1585:2016 10.100.; 54/2014. BM rendelet (OTSZ)"
+  },
+  {
+    "id": "IV-mv-103",
+    "part": "IV",
+    "topic": "munkavedelem",
+    "type": "match",
+    "difficulty": 2,
+    "points": 2,
+    "q": "Párosítsa a tűzosztályokat (MSZ EN 2) az égő anyaggal!",
+    "pairs": [
+      [
+        "A",
+        "Szilárd, izzó parazsat képező anyagok (fa, papír, textil)"
+      ],
+      [
+        "B",
+        "Folyadékok és cseppfolyósodó szilárd anyagok (benzin, olaj, viasz)"
+      ],
+      [
+        "C",
+        "Gázok (földgáz, propán-bután)"
+      ],
+      [
+        "D",
+        "Fémek (pl. magnézium, alumíniumpor)"
+      ],
+      [
+        "F",
+        "Sütőolaj, étolaj és zsiradék a konyhai sütőberendezésben"
+      ]
+    ],
+    "distractors": [
+      "Kizárólag feszültség alatti villamos berendezés"
+    ],
+    "explanation": "Az MSZ EN 2 öt tűzosztálya: A szilárd, B folyadék, C gáz, D fém, F étolaj/zsír. A villamos tüzeknek nincs külön osztályuk (a régi „E” osztály megszűnt); azt, hogy egy oltó feszültség alatti berendezésen használható-e, a készülék felirata mutatja (pl. „1000 V-ig, 1 m távolságból”). Villamos berendezéshez jellemzően CO<sub>2</sub> vagy (ABC, BC) oltópor használható.",
+    "source": "MSZ EN 2 (tűzosztályok); MSZ EN 3-7 (tűzoltó készülékek jelölése)"
+  },
+  {
+    "id": "IV-mv-104",
+    "part": "IV",
+    "topic": "munkavedelem",
+    "type": "truefalse",
+    "difficulty": 1,
+    "points": 2,
+    "q": "Áramütés okozta égési sérülés ellátása. Döntse el, igazak-e az állítások!",
+    "statements": [
+      {
+        "text": "Áramütéskor az áram be- és kilépési pontján égési seb keletkezhet, a belső sérülés nagyobb is lehet, mint amilyennek kívülről látszik.",
+        "answer": true
+      },
+      {
+        "text": "Az égési sebet zsírral vagy krémmel kell bekenni.",
+        "answer": false
+      },
+      {
+        "text": "Az égett bőrre ráragadt ruhát le kell tépni a sebről.",
+        "answer": false
+      },
+      {
+        "text": "Az égett felületet hűteni kell (pl. hideg, tiszta folyó vízzel), majd steril kötéssel lazán fedni.",
+        "answer": true
+      }
+    ],
+    "explanation": "Az áram útja mentén a szövetek belül is roncsolódhatnak, ezért kis külső seb mellett is orvosi vizsgálat kell. Az égést hűteni kell, majd steril, laza kötéssel fedni. Zsírt, krémet nem szabad kenni rá (bent tartja a hőt és fertőz), a beleragadt ruhát pedig nem szabad letépni, mert a bőrrel együtt jön le.",
+    "source": "MSZ 1585:2016 C100 melléklet; elsősegély-alapismeretek (Magyar Vöröskereszt)"
+  },
+  {
+    "id": "IV-mv-105",
+    "part": "IV",
+    "topic": "munkavedelem",
+    "type": "single",
+    "difficulty": 1,
+    "points": 1,
+    "q": "Munkavégzés közben kisebb sérülést szenvedett (enyhe áramütés, horzsolás). Mi a kötelessége a munkavédelmi törvény szerint?",
+    "options": [
+      "Haladéktalanul jelenteni a munkahelyi vezetőjének (munkáltatónak)",
+      "Csak akkor kell jelenteni, ha egy hétnél tovább nem tud dolgozni",
+      "Csak a háziorvosnak kell szólni",
+      "Nem kell jelenteni, ha a munkát be tudja fejezni"
+    ],
+    "answer": [
+      0
+    ],
+    "wrongWhy": [
+      null,
+      "A jelentés nem a sérülés súlyosságától függ; a munkáltató dönti el a kivizsgálást.",
+      "Az orvosi ellátás fontos, de a munkáltató felé a jelentés kötelező.",
+      "A később jelentkező panaszok (pl. szívritmuszavar áramütés után) miatt is azonnal jelenteni kell."
+    ],
+    "explanation": "A munkavédelemről szóló törvény szerint a munkavállaló köteles a munkabalesetet – a kisebbet is – haladéktalanul jelenteni a munkáltatónak (közvetlen vezetőjének). A munkáltató nyilvántartja és kivizsgálja. Áramütés után különösen fontos, mert a szívritmuszavar órákkal később is jelentkezhet, ezért orvosi vizsgálat is szükséges.",
+    "source": "1993. évi XCIII. törvény a munkavédelemről (Mvt.); MSZ 1585:2016 C100 melléklet"
+  },
+  {
+    "id": "IV-vv-101",
+    "part": "IV",
+    "topic": "villamvedelem",
+    "type": "multi",
+    "difficulty": 1,
+    "points": 2,
+    "q": "Melyek a külső villámvédelmi rendszer fő részei? Jelölje meg az összes helyeset!",
+    "options": [
+      "Felfogó (rúd, háló, vezető)",
+      "Levezető",
+      "Földelő",
+      "Áram-védőkapcsoló",
+      "Kismegszakító",
+      "3. típusú túlfeszültség-levezető aljzat"
+    ],
+    "answer": [
+      0,
+      1,
+      2
+    ],
+    "wrongWhy": [
+      null,
+      null,
+      null,
+      "Az ÁVK áramütés elleni védelmi eszköz, nem villámvédelmi elem.",
+      "A kismegszakító túláramvédelmi eszköz.",
+      "Az SPD a belső villámvédelemhez (túlfeszültség-védelemhez) tartozik, és a 3. típus a készülékek mellett van."
+    ],
+    "explanation": "A külső villámvédelem három fő része: a felfogó, amely a becsapást fogadja; a levezető, amely a villámáramot a földelőig vezeti; és a földelő, amely az áramot a talajban szétoszlatja. A belső villámvédelemhez tartozik a villámvédelmi potenciálkiegyenlítés (EPH, SPD-k) és a biztonsági távolság betartása. Az ÁVK és a kismegszakító nem villámvédelmi eszköz.",
+    "source": "MSZ EN 62305-3 5. (külső LPS), 6. (belső LPS)"
+  },
+  {
+    "id": "IV-vv-102",
+    "part": "IV",
+    "topic": "villamvedelem",
+    "type": "single",
+    "difficulty": 2,
+    "points": 1,
+    "q": "Mi a célja a villámvédelmi potenciálkiegyenlítésnek?",
+    "options": [
+      "Hogy az épületbe belépő fém csővezetékek, kábelárnyékolások és – túlfeszültség-levezetőn át – az aktív vezetők a villámvédelmi földeléssel azonos potenciálra kerüljenek, és ne jöjjön létre közöttük veszélyes szikra",
+      "Hogy a villám ne csaphasson be az épületbe",
+      "Hogy a villámáramot a vízvezetéken vezessék le a földbe a levezetők helyett",
+      "Hogy a kismegszakítók villámcsapáskor lekapcsoljanak"
+    ],
+    "answer": [
+      0
+    ],
+    "wrongWhy": [
+      null,
+      "A becsapást semmi nem akadályozza meg; a villámvédelem a becsapást fogadja és levezeti.",
+      "A csöveket összekötjük, de levezetőként nem helyettesítik a villámvédelmi levezetőt.",
+      "A kismegszakító nem villámvédelmi eszköz; a túlfeszültség ellen az SPD véd."
+    ],
+    "explanation": "Becsapáskor a villámvédelmi földelés potenciálja a talajhoz képest akár sok száz kV-ra emelkedhet. Ha az épületbe lépő fémszerkezetek és vezetékek nincsenek hozzá kötve, közöttük átütés (szikra, tűz) jön létre. A villámvédelmi EPH ezért a fémrészeket közvetlenül, az aktív vezetőket (amelyeket nem lehet közvetlenül összekötni) túlfeszültség-levezetőn át köti a fő földelősínre, lehetőleg a belépési pont közelében.",
+    "source": "MSZ EN 62305-3 6.2. (villámvédelmi potenciálkiegyenlítés)"
+  },
+  {
+    "id": "IV-vv-103",
+    "part": "IV",
+    "topic": "villamvedelem",
+    "type": "multi",
+    "difficulty": 3,
+    "points": 2,
+    "q": "Rajz alapján: a kábel a szabadból (LPZ 0) az épületbe (LPZ 1), majd egy árnyékolt helyiségbe (LPZ 2) fut a készülékig. A villámvédelmi zónakoncepció szerint mely jelölt pontokon kell túlfeszültség-levezetőt (SPD) beépíteni? Jelölje meg az összes helyeset!",
+    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 600 240\" font-family=\"sans-serif\" font-size=\"13\"><g stroke=\"black\" fill=\"none\" stroke-width=\"2\"><rect x=\"150\" y=\"40\" width=\"420\" height=\"180\"/><rect x=\"380\" y=\"90\" width=\"170\" height=\"110\" stroke-dasharray=\"6 3\"/><line x1=\"10\" y1=\"150\" x2=\"470\" y2=\"150\"/><rect x=\"470\" y=\"130\" width=\"60\" height=\"40\"/><circle cx=\"70\" cy=\"150\" r=\"6\"/><circle cx=\"150\" cy=\"150\" r=\"6\"/><circle cx=\"265\" cy=\"150\" r=\"6\"/><circle cx=\"380\" cy=\"150\" r=\"6\"/></g><g fill=\"black\"><text x=\"20\" y=\"60\" font-weight=\"bold\">LPZ 0</text><text x=\"160\" y=\"62\" font-weight=\"bold\">LPZ 1 (épület)</text><text x=\"390\" y=\"110\" font-weight=\"bold\">LPZ 2</text><text x=\"475\" y=\"155\">készülék</text><text x=\"64\" y=\"135\" font-weight=\"bold\">D</text><text x=\"156\" y=\"135\" font-weight=\"bold\">A</text><text x=\"259\" y=\"135\" font-weight=\"bold\">C</text><text x=\"386\" y=\"135\" font-weight=\"bold\">B</text><text x=\"20\" y=\"180\">kábel</text><text x=\"160\" y=\"205\">külső fal</text><text x=\"390\" y=\"190\">árnyékolt helyiség fala</text></g></svg>",
+    "options": [
+      "A pont: a kábel belépése az épületbe (LPZ 0/1 határ)",
+      "B pont: belépés az árnyékolt helyiségbe (LPZ 1/2 határ)",
+      "C pont: a kábel közepe az épületen belül, zónahatár nélkül",
+      "D pont: a kábel a szabadban, az épülettől távol"
+    ],
+    "answer": [
+      0,
+      1
+    ],
+    "wrongWhy": [
+      null,
+      null,
+      "Egy zónán belül nincs zónahatár, itt nem kell SPD.",
+      "A szabadban, zónahatáron kívül nem szerelünk SPD-t; a védelem a belépési pontnál kezdődik."
+    ],
+    "explanation": "A zónakoncepció szerint minden olyan vezetéket, amely zónahatáron lép át, a határon be kell kötni a potenciálkiegyenlítésbe: a fém részeket közvetlenül, az aktív vezetőket SPD-n át. Az LPZ 0/1 határon (épületbe lépés, A pont) jellemzően 1. típusú (villámáram-levezető), az LPZ 1/2 határon (B pont) 2. típusú SPD kerül. Zónán belül (C) vagy a szabadban (D) nincs zónahatár, ott nem kell SPD.",
+    "source": "MSZ EN 62305-4 (LEMP-védelem, zónakoncepció); MSZ EN 62305-3 6.2."
+  },
+  {
+    "id": "IV-vv-104",
+    "part": "IV",
+    "topic": "villamvedelem",
+    "type": "truefalse",
+    "difficulty": 1,
+    "points": 2,
+    "q": "Villámvédelem. Döntse el, igazak-e az állítások!",
+    "statements": [
+      {
+        "text": "A villámvédelem célja, hogy a villám egyáltalán ne csapjon az épületbe.",
+        "answer": false
+      },
+      {
+        "text": "A levezetőket a lehető legrövidebb, egyenes úton, hurkok nélkül kell a földelőig vezetni.",
+        "answer": true
+      },
+      {
+        "text": "A villámvédelmi földelőt össze kell kötni az épület fő földelősínjével (közös földelőrendszer).",
+        "answer": true
+      }
+    ],
+    "explanation": "A villámvédelem nem akadályozza meg a becsapást, hanem fogadja (felfogó) és biztonságosan a földbe vezeti (levezető, földelő) a villámáramot. A levezető legyen rövid és egyenes, mert minden kanyar és hurok növeli az induktív feszültségesést és az átütés veszélyét. Az MSZ EN 62305-3 egységes, közös földelőrendszert ír elő a villámvédelem, az erősáram és a gyengeáram számára, így nincs veszélyes potenciálkülönbség a földelők között.",
+    "source": "MSZ EN 62305-3 5.3., 5.4."
+  },
+  {
+    "id": "IV-vv-105",
+    "part": "IV",
+    "topic": "villamvedelem",
+    "type": "order",
+    "difficulty": 2,
+    "points": 2,
+    "q": "Rendezze sorba a villámvédelmi zónákat (LPZ) aszerint, hogy hol a legnagyobb a villám hatása (első: legveszélyesebb, utolsó: legvédettebb)!",
+    "items": [
+      "LPZ 0A – közvetlen becsapás érheti, teljes elektromágneses tér",
+      "LPZ 0B – közvetlen becsapás nem éri, de csillapítatlan elektromágneses tér",
+      "LPZ 1 – az épület belseje, a lökőáramot a zónahatáron SPD-k korlátozzák",
+      "LPZ 2 – árnyékolt helyiség vagy szekrény, tovább csökkentett hatás"
+    ],
+    "explanation": "Az LPZ 0A a szabad tér, ahová közvetlenül becsaphat a villám. Az LPZ 0B a felfogók védett terében van (pl. felfogórúd mellett a tetőn): becsapás nem éri, de a villám tere csillapítatlan. Az LPZ 1 az épület belseje, ahová a vezetékeken érkező lökőáramot a határon beépített SPD-k korlátozzák; az LPZ 2 egy további árnyékolt tér. Minél nagyobb a zóna száma, annál kisebb a túlfeszültség és az elektromágneses tér.",
+    "source": "MSZ EN 62305-1 (zónák meghatározása); MSZ EN 62305-4"
+  },
+  {
+    "id": "IV-tv-101",
+    "part": "IV",
+    "topic": "tulfeszultseg-vedelem",
+    "type": "group",
+    "difficulty": 1,
+    "points": 2,
+    "q": "Egy külső villámvédelemmel ellátott családi házban lépcsős túlfeszültség-védelmet alakítanak ki. Csoportosítsa a beépítési helyeket a jellemzően odavaló SPD típus szerint!",
+    "groups": [
+      "1. típus (T1)",
+      "2. típus (T2)",
+      "3. típus (T3)"
+    ],
+    "items": [
+      {
+        "text": "Főelosztó, ahol a betápláló kábel belép az épületbe",
+        "group": 0
+      },
+      {
+        "text": "Lakáselosztó",
+        "group": 1
+      },
+      {
+        "text": "Emeleti alelosztó (a főelosztótól távol)",
+        "group": 1
+      },
+      {
+        "text": "Túlfeszültség-védett elosztósáv a televízió mögött",
+        "group": 2
+      },
+      {
+        "text": "Túlfeszültség-védelmi betét az érzékeny számítógép aljzatában",
+        "group": 2
+      }
+    ],
+    "explanation": "A fokozatok a betáplálástól a készülék felé haladnak: T1 (villámáram-levezető, 10/350 µs) a belépési pontnál, ha LPS van vagy közvetlen csapás érheti a betáplálást; T2 (8/20 µs) az al- és lakáselosztókban; T3 (finomvédelem) közvetlenül a védendő készülék közelében, pl. aljzatban, elosztósávban. Régebbi jegyzetekben B, C, D fokozat szerepel – ez a T1, T2, T3 régi megnevezése.",
+    "source": "MSZ EN 61643-11; MSZ HD 60364-5-534; MEE-VET Műszaki alapok"
+  },
+  {
+    "id": "IV-tv-102",
+    "part": "IV",
+    "topic": "tulfeszultseg-vedelem",
+    "type": "single",
+    "difficulty": 1,
+    "points": 1,
+    "q": "Mi ellen véd a túlfeszültség-levezető (SPD)?",
+    "options": [
+      "A villámcsapásból vagy kapcsolásból eredő rövid idejű (tranziens) túlfeszültségek ellen",
+      "A vezetékek túlterhelése ellen",
+      "Az áramütés ellen, ha valaki fázist érint",
+      "A nullavezető szakadása miatti tartós túlfeszültség ellen"
+    ],
+    "answer": [
+      0
+    ],
+    "wrongWhy": [
+      null,
+      "A túlterhelés ellen a kismegszakító vagy olvadóbiztosító véd.",
+      "Áramütés ellen az alap- és hibavédelem, kiegészítőleg a 30 mA-es ÁVK véd.",
+      "A tartós, hálózati frekvenciájú túlfeszültséget az SPD nem tudja levezetni; ilyenkor maga is tönkremehet."
+    ],
+    "explanation": "Az SPD a mikroszekundumos nagyságrendű lökőfeszültségeket korlátozza: túlfeszültség esetén rövid időre a PE/föld felé vezeti le az áramot, így a készülékekre csak a védelmi szint (U<sub>p</sub>) jut. Tartós túlfeszültség (pl. nullaszakadás miatt 400 V a fázison) ellen nem véd, arra feszültségfigyelő relé való. Túláram ellen kismegszakító, áramütés ellen ÁVK és hibavédelem véd.",
+    "source": "MSZ HD 60364-4-443; MSZ HD 60364-5-534; MSZ EN 61643-11"
+  },
+  {
+    "id": "IV-tv-103",
+    "part": "IV",
+    "topic": "tulfeszultseg-vedelem",
+    "type": "truefalse",
+    "difficulty": 2,
+    "points": 2,
+    "q": "Lépcsős (koordinált) túlfeszültség-védelem. Döntse el, igazak-e az állítások!",
+    "statements": [
+      {
+        "text": "A betáplálástól a készülék felé haladva a fokozatok levezetőképessége csökken, és a védelmi szintjük (U<sub>p</sub>) is egyre kisebb.",
+        "answer": true
+      },
+      {
+        "text": "Egy túlfeszültség-védett elosztósáv (3. típus) önmagában kiváltja a lakáselosztóba szerelt 2. típusú SPD-t.",
+        "answer": false
+      },
+      {
+        "text": "Az SPD a túlfeszültséget a PE/föld felé vezeti le, ezért földoldali bekötése nélkül nem működik.",
+        "answer": true
+      }
+    ],
+    "explanation": "A lépcsős védelemben az első fokozat (T1) viszi el a nagy energiát, a következők (T2, T3) egyre kisebb maradék energiát, de egyre alacsonyabb védelmi szintre korlátoznak. A 3. típus kis levezetőképességű, csak a 2. típus mögött, annak kiegészítéseként működik megbízhatóan. Az SPD föld felé vezet le: a földoldali vezető (zöld-sárga, rövid) nélkül hatástalan.",
+    "source": "MSZ HD 60364-5-534 534.4.; MSZ EN 61643-12; MEE-VET Műszaki alapok"
+  },
+  {
+    "id": "IV-tv-104",
+    "part": "IV",
+    "topic": "tulfeszultseg-vedelem",
+    "type": "single",
+    "difficulty": 2,
+    "points": 1,
+    "q": "Mi a különbség a külső villámvédelem (LPS) és a túlfeszültség-védelem (SPD) feladata között?",
+    "options": [
+      "Az LPS az épületet és a benne lévőket védi a közvetlen becsapás fizikai hatásaitól (tűz, rombolás), az SPD a villamos hálózatot és a készülékeket a vezetékeken érkező túlfeszültségtől",
+      "Az LPS a készülékeket, az SPD az épület szerkezetét védi",
+      "Nincs különbség, bármelyik helyettesíti a másikat",
+      "Az LPS csak ipari épületen kötelező, az SPD csak lakóépületben"
+    ],
+    "answer": [
+      0
+    ],
+    "wrongWhy": [
+      null,
+      "Fordítva: az LPS a szerkezetet, az SPD a villamos rendszert védi.",
+      "A két rendszer kiegészíti egymást; LPS mellett is jöhet be túlfeszültség a vezetékeken, és SPD nem fogja fel a becsapást.",
+      "A szükségességet kockázatelemzés (LPS) és az MSZ HD 60364-4-443 (SPD) dönti el, nem az épület jellege önmagában."
+    ],
+    "explanation": "A külső villámvédelem (felfogó, levezető, földelő) a közvetlen becsapás áramát vezeti le úgy, hogy az épület ne gyulladjon ki és ne sérüljön. A túlfeszültség-védelem (SPD-k) a villamos és informatikai vezetékeken érkező lökőfeszültséget korlátozza, akár közeli vagy távoli csapásból, akár kapcsolásból ered. Ahol LPS van, ott a betáplálásnál 1. típusú SPD is kell, mert a villámáram egy része a vezetékeken folyik el.",
+    "source": "MSZ EN 62305-3, 62305-4; MSZ HD 60364-4-443"
+  },
+  {
+    "id": "IV-pv-101",
+    "part": "IV",
+    "topic": "fotovoltaik",
+    "type": "single",
+    "difficulty": 1,
+    "points": 1,
+    "q": "Rajz alapján: hány stringből áll a napelemmező, és stringenként hány modul van?",
+    "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 600 230\" font-family=\"sans-serif\" font-size=\"13\"><g stroke=\"black\" fill=\"none\" stroke-width=\"2\"><rect x=\"20\" y=\"40\" width=\"60\" height=\"40\"/><rect x=\"100\" y=\"40\" width=\"60\" height=\"40\"/><rect x=\"180\" y=\"40\" width=\"60\" height=\"40\"/><rect x=\"260\" y=\"40\" width=\"60\" height=\"40\"/><line x1=\"80\" y1=\"60\" x2=\"100\" y2=\"60\"/><line x1=\"160\" y1=\"60\" x2=\"180\" y2=\"60\"/><line x1=\"240\" y1=\"60\" x2=\"260\" y2=\"60\"/><line x1=\"320\" y1=\"60\" x2=\"380\" y2=\"60\"/><polyline points=\"20,60 10,60 10,100 380,100\"/><rect x=\"20\" y=\"130\" width=\"60\" height=\"40\"/><rect x=\"100\" y=\"130\" width=\"60\" height=\"40\"/><rect x=\"180\" y=\"130\" width=\"60\" height=\"40\"/><rect x=\"260\" y=\"130\" width=\"60\" height=\"40\"/><line x1=\"80\" y1=\"150\" x2=\"100\" y2=\"150\"/><line x1=\"160\" y1=\"150\" x2=\"180\" y2=\"150\"/><line x1=\"240\" y1=\"150\" x2=\"260\" y2=\"150\"/><line x1=\"320\" y1=\"150\" x2=\"380\" y2=\"150\"/><polyline points=\"20,150 10,150 10,190 380,190\"/><rect x=\"380\" y=\"40\" width=\"80\" height=\"165\"/><line x1=\"460\" y1=\"110\" x2=\"500\" y2=\"110\"/><line x1=\"460\" y1=\"130\" x2=\"500\" y2=\"130\"/><rect x=\"500\" y=\"90\" width=\"80\" height=\"60\"/></g><g fill=\"black\"><text x=\"20\" y=\"28\">napelem-modulok (felülnézet, kapcsolás)</text><text x=\"330\" y=\"55\">+</text><text x=\"330\" y=\"95\">−</text><text x=\"330\" y=\"145\">+</text><text x=\"330\" y=\"185\">−</text><text x=\"385\" y=\"125\">gyűjtő-</text><text x=\"385\" y=\"140\">doboz</text><text x=\"510\" y=\"125\">inverter</text></g></svg>",
+    "options": [
+      "1 string, 8 modul",
+      "2 string, stringenként 4 modul",
+      "4 string, stringenként 2 modul",
+      "8 string, stringenként 1 modul"
+    ],
+    "answer": [
+      1
+    ],
+    "wrongWhy": [
+      "A két sor nincs egymással sorba kötve: mindkét sor saját + és − vezetékkel fut a gyűjtődobozba.",
+      null,
+      "Egy soron belül mind a négy modul sorba van kötve (egyik modul kimenete a következő bemenete).",
+      "A modulok nem külön-külön csatlakoznak, hanem soronként sorba kötve."
+    ],
+    "explanation": "A string sorba kötött modulok fűzére: a modulok feszültsége összeadódik, az áram azonos. A rajzon mindkét sorban négy modul van egymás után kötve, és mindkét sor külön + és − vezetékkel jut a gyűjtődobozba, ahol a két string párhuzamosan kapcsolódik (az áramuk adódik össze). Tehát 2 string, stringenként 4 modul.",
+    "source": "villanyszerelo-jegyzet.pdf.txt 9. fejezet (Fotovoltaikus áramtermelés); MSZ HD 60364-7-712"
+  },
+  {
+    "id": "IV-pv-102",
+    "part": "IV",
+    "topic": "fotovoltaik",
+    "type": "number",
+    "difficulty": 1,
+    "points": 2,
+    "q": "Egy családi házra legalább 8 kWp névleges teljesítményű napelemes rendszert terveznek 455 Wp-os modulokból. Legalább hány modul szükséges?",
+    "fields": [
+      {
+        "label": "Modulok száma",
+        "unit": "db",
+        "answer": 18,
+        "tolAbs": 0
+      }
+    ],
+    "explanation": "n = P<sub>össz</sub> / P<sub>modul</sub> = 8000 Wp / 455 Wp ≈ 17,58. Modulból csak egész darab lehet, és legalább 8 kWp kell, ezért felfelé kerekítünk: 18 db (18 · 455 Wp = 8190 Wp = 8,19 kWp). 17 db csak 7,735 kWp lenne, kevés. Tipikus hiba a kW–W átváltás elhagyása (8/455) vagy a lefelé kerekítés.",
+    "source": "villanyszerelo-jegyzet.pdf.txt 9. fejezet; IV-pv-005 (saját bank, Wp összegzés)"
+  },
+  {
+    "id": "IV-pv-103",
+    "part": "IV",
+    "topic": "fotovoltaik",
+    "type": "single",
+    "difficulty": 2,
+    "points": 1,
+    "q": "Mi a napelemes rendszer DC leválasztójának (DC szakaszolójának) feladata?",
+    "options": [
+      "Az inverter DC bemenetét terhelés alatt is biztonságosan leválasztja a stringekről (pl. karbantartáshoz, tűzesetkor)",
+      "Feszültségmentessé teszi a modulokat és a tetőn futó DC kábeleket is",
+      "Helyettesíti az inverter utáni AC kismegszakítót",
+      "Erre a célra bármelyik 230 V AC-re méretezett kapcsoló megfelel"
+    ],
+    "answer": [
+      0
+    ],
+    "wrongWhy": [
+      null,
+      "Napsütésben a modulok és a modul–leválasztó szakasz továbbra is feszültség alatt van.",
+      "Az AC oldalon külön leválasztó és túláramvédelem kell; a kettő nem helyettesíti egymást.",
+      "Az egyenáramú ív nehezen alszik ki; csak DC-re, a string feszültségére és áramára méretezett kapcsoló használható."
+    ],
+    "explanation": "A DC leválasztó a stringek és az inverter között bontja az egyenáramú kört, terhelés alatt is, ezért DC-re és a string legnagyobb feszültségére (akár 1000 V DC) kell méretezni. Lekapcsolása után az inverter DC bemenete leválasztott, de a modulok felőli oldal napsütésben továbbra is feszültség alatt marad – ezt mindig figyelembe kell venni.",
+    "source": "MSZ HD 60364-7-712 712.536.; villanyszerelo-jegyzet.pdf.txt 9.3"
+  },
+  {
+    "id": "IV-pv-104",
+    "part": "IV",
+    "topic": "fotovoltaik",
+    "type": "dropdown",
+    "difficulty": 1,
+    "points": 2,
+    "q": "Egészítse ki a hálózatra csatlakozó (on-grid) napelemes inverterről szóló mondatokat!",
+    "text": "Az inverter a napelemek {0} áramát a hálózattal szinkron {1} árammá alakítja. Hálózatkimaradáskor az inverter {2}.",
+    "blanks": [
+      {
+        "options": [
+          "egyen-",
+          "váltakozó",
+          "háromfázisú"
+        ],
+        "answer": 0
+      },
+      {
+        "options": [
+          "egyen-",
+          "váltakozó"
+        ],
+        "answer": 1
+      },
+      {
+        "options": [
+          "leáll, és nem táplál a lekapcsolt hálózatba",
+          "tovább táplálja a hálózatot",
+          "rövidre zárja a modulokat"
+        ],
+        "answer": 0
+      }
+    ],
+    "explanation": "A napelem egyenáramot termel, az inverter ezt alakítja a hálózat feszültségével és frekvenciájával szinkron váltakozó árammá. A hálózatkimaradást érzékelve a hálózatra csatlakozó inverternek le kell állnia (szigetüzem elleni védelem), különben a lekapcsolt hálózaton dolgozó szerelőket áramütés érhetné. Hibrid, tárolós rendszer csak a hálózattól leválasztva táplálhatja tovább a saját épületet.",
+    "source": "MSZ EN 50549-1; villanyszerelo-jegyzet.pdf.txt 9. fejezet"
+  },
+  {
+    "id": "IV-pv-105",
+    "part": "IV",
+    "topic": "fotovoltaik",
+    "type": "truefalse",
+    "difficulty": 2,
+    "points": 2,
+    "q": "Tűzeseti leválasztás napelemes rendszernél. Döntse el, igazak-e az állítások!",
+    "statements": [
+      {
+        "text": "A tűzeseti DC leválasztó célja, hogy lekapcsolása után az épületen belül futó DC kábelszakasz feszültségmentes legyen.",
+        "answer": true
+      },
+      {
+        "text": "A tűzeseti DC leválasztás után is feszültség alatt maradnak a modulok és a modul és a leválasztó közötti vezetékek, ha fény éri a modulokat.",
+        "answer": true
+      },
+      {
+        "text": "Napelemes épületnél a tetőn lévő modulok vízzel oltása veszélytelen, mert a DC feszültség csak törpefeszültség.",
+        "answer": false
+      }
+    ],
+    "explanation": "A modulokat nem lehet „kikapcsolni”: amíg fény éri őket, feszültséget adnak. A tűzeseti DC leválasztót ezért a modulokhoz, illetve az épületbe lépéshez közel helyezik el, hogy lekapcsolása után legalább az épületen belüli DC nyomvonal feszültségmentes legyen. A string feszültsége több száz, akár 1000 V DC – kisfeszültség, nem törpefeszültség –, ezért a tűzoltóknak a modulok és a DC kábelek közelében továbbra is áramütés-veszéllyel kell számolniuk.",
+    "source": "54/2014. BM rendelet (OTSZ); TvMI 7.4 (napelemes rendszerek); villanyszerelo-jegyzet.pdf.txt 9.3.3"
+  },
+  {
+    "id": "IV-mv-106",
+    "part": "IV",
+    "topic": "munkavedelem",
+    "type": "multi",
+    "difficulty": 1,
+    "points": 2,
+    "q": "Melyek a villamos ív (pl. zárlatkor egy elosztóban) veszélyei? Jelölje meg az összes helyeset!",
+    "options": [
+      "Súlyos égési sérülés a nagy hő miatt",
+      "Szemsérülés az erős (UV) fénysugárzástól",
+      "Szétfröccsenő olvadt fém",
+      "Nyomáshullám, hanghatás",
+      "Az ív a dolgozót mindig elektromosan elszigeteli a földtől",
+      "Az ív csak 1000 V felett jöhet létre"
+    ],
+    "answer": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "wrongWhy": [
+      null,
+      null,
+      null,
+      null,
+      "Az ív nem szigetel, hanem éppen vezető plazmacsatorna.",
+      "Kisfeszültségen (230/400 V) is kialakulhat veszélyes ív, főleg nagy zárlati áramú helyen."
+    ],
+    "explanation": "A villamos ív több ezer °C-os plazma: égést okoz, erős UV- és fénysugárzása szemsérülést, a szétfröccsenő olvadt fém és a nyomáshullám további sérülést. Kisfeszültségen is kialakul, különösen a betáplálás közelében, ahol nagy a zárlati áram. Védekezés: feszültségmentes munkavégzés, ha ez nem lehet, arcvédő pajzs, íválló védőruha, szigetelő kesztyű, és a szerszámok szigetelése, hogy zárlat ne jöjjön létre.",
+    "source": "MSZ 1585:2016 (egyéni védőeszközök, ívzárlat); MSZ EN 61482 (ív elleni védőruházat)"
+  },
+  {
+    "id": "IV-av-116",
+    "part": "IV",
+    "topic": "aramutes-elleni-vedelem",
+    "type": "single",
+    "difficulty": 2,
+    "points": 1,
+    "q": "TN-C rendszerben megszakad a PEN-vezető. Mi lehet ennek következménye a szakadás utáni részen?",
+    "options": [
+      "A PEN-re kötött testek a bekapcsolt egyfázisú fogyasztókon át fázisfeszültség közelébe kerülhetnek, és a fázisok feszültsége eltolódhat",
+      "Semmi, mert a PEN-en üzemszerűen nem folyik áram",
+      "A kismegszakítók azonnal lekapcsolnak, így veszély nem marad",
+      "Csak a háromfázisú motorok forgásiránya fordul meg"
+    ],
+    "answer": [
+      0
+    ],
+    "wrongWhy": [
+      null,
+      "A PEN egyben nullavezető is, üzemszerűen áram folyik rajta; és a testek is rá vannak kötve.",
+      "A PEN-szakadás nem zárlat, a túláram-védelem nem érzékeli.",
+      "A forgásirányt a fázissorrend dönti el, a PEN-szakadás nem változtat rajta."
+    ],
+    "explanation": "A PEN-vezető egyszerre nulla- és védővezető. Ha megszakad, a mögötte lévő testek a bekapcsolt egyfázisú fogyasztókon keresztül fázispotenciált kapnak (érintésveszély), a nulla potenciálja „lebeg”, ezért aszimmetrikus terhelésnél egyes fázisokon 230 V-nál jóval nagyobb feszültség jelenhet meg, ami készülékeket tesz tönkre. Ezért tilos a PEN-be kapcsolót, biztosítót tenni, és ezért kell ismételt (potenciálrögzítő) földelés.",
+    "source": "MSZ HD 60364-4-41 411.4.; MSZ 447:2019; MEE-VET Műszaki alapok"
+  },
+  {
+    "id": "IV-av-117",
+    "part": "IV",
+    "topic": "aramutes-elleni-vedelem",
+    "type": "single",
+    "difficulty": 1,
+    "points": 1,
+    "q": "Mit nevezünk lépésfeszültségnek?",
+    "options": [
+      "A talaj felszínén egy lépésnyi (kb. 1 m) távolságra lévő két pont közötti feszültséget, amely egy földbe folyó áram (pl. leszakadt vezeték, villámcsapás) körül alakul ki",
+      "A fázis- és a nullavezető közötti feszültséget",
+      "A test és egy kézzel elérhető földelt fémszerkezet közötti feszültséget",
+      "A feszültségvizsgáló lépcsőzetes kijelzésének egy fokozatát"
+    ],
+    "answer": [
+      0
+    ],
+    "wrongWhy": [
+      null,
+      "Ez a fázisfeszültség (230 V).",
+      "Ez az érintési feszültség (kéz–láb).",
+      "Ez nem villamos biztonsági fogalom."
+    ],
+    "explanation": "Ha áram folyik a földbe, a földelési pont körül a talaj potenciálja kifelé haladva fokozatosan csökken. A két láb közé eső potenciálkülönbség a lépésfeszültség: az áram láb–láb úton folyik át. Ezért kell egy leszakadt vezeték körzetét elkerülni, és ha mozogni kell, nagyon kis lépésekkel (vagy páros lábbal szökdelve) távozni. Az érintési feszültség ezzel szemben a kéz és a láb között lép fel.",
+    "source": "MSZ HD 60364-4-41 fogalmai; MSZ 1585:2016 C100 melléklet; ocr/villbizt.txt"
+  },
+  {
+    "id": "IV-av-118",
+    "part": "IV",
+    "topic": "aramutes-elleni-vedelem",
+    "type": "single",
+    "difficulty": 2,
+    "points": 1,
+    "q": "Mi a célja a PEN- vagy védővezető ismételt (potenciálrögzítő) földelésének, például a fogyasztói főelosztóban?",
+    "options": [
+      "A védővezető potenciáljának a földhöz rögzítése, hogy PEN-szakadás vagy hálózati hiba esetén kisebb legyen a testeken megjelenő feszültség",
+      "Hogy a fogyasztók kevesebb energiát fogyasszanak",
+      "Hogy a nullavezetőn ne folyjon üzemi áram",
+      "Hogy az áram-védőkapcsolóra ne legyen szükség"
+    ],
+    "answer": [
+      0
+    ],
+    "wrongWhy": [
+      null,
+      "A földelés az energiafogyasztást nem befolyásolja.",
+      "A nullavezetőn az aszimmetrikus terhelés miatt földeléstől függetlenül folyik áram.",
+      "Az ismételt földelés nem helyettesíti a 30 mA-es kiegészítő védelmet."
+    ],
+    "explanation": "Az ismételt földelés (potenciálrögzítő földelés) a PEN/PE vezetőt a fogyasztónál is a földhöz köti. Így ha a hálózat PEN-vezetője megszakad, vagy a hálózaton földzárlat lép fel, a testek feszültsége a földhöz képest kisebb marad, és a fő EPH-val együtt a fogyasztói berendezés potenciálja a helyi földhöz igazodik. Az MSZ 447 ehhez lehetőleg legfeljebb 10 Ω-os földelést kér.",
+    "source": "MSZ 447:2019; MSZ HD 60364-4-41 411.4.2."
+  },
+  {
+    "id": "IV-av-119",
+    "part": "IV",
+    "topic": "aramutes-elleni-vedelem",
+    "type": "match",
+    "difficulty": 2,
+    "points": 2,
+    "q": "Párosítsa az áram-védőkapcsoló adattábláján található jelöléseket a jelentésükkel!",
+    "pairs": [
+      [
+        "I<sub>Δn</sub> = 0,03 A",
+        "Névleges kioldó-különbözeti áram (30 mA)"
+      ],
+      [
+        "I<sub>n</sub> = 40 A",
+        "Névleges (tartósan vezethető) üzemi áram"
+      ],
+      [
+        "Keretbe írt S betű",
+        "Szelektív, időkésleltetett kioldású kivitel"
+      ],
+      [
+        "T jelű gomb",
+        "Próbagomb a működőképesség rendszeres ellenőrzésére"
+      ]
+    ],
+    "distractors": [
+      "Védelmi feszültségszint (túlfeszültség-levezetőnél)"
+    ],
+    "explanation": "I<sub>Δn</sub> a különbségi áram, amelynél a készülék biztosan kiold (30 mA = kiegészítő védelem). I<sub>n</sub> az az üzemi áram, amelyet az érintkezők tartósan elviselnek – ez nem túláramvédelem, az ÁVK elé méretezett kismegszakító vagy biztosító kell. Az S jelű ÁVK késleltetve old ki, ezért sorba kötésnél a betáplálás felőli oldalra kerül. A T próbagombot rendszeresen, a gyártó előírása szerint meg kell nyomni. Az U<sub>p</sub> az SPD adata.",
+    "source": "MSZ EN 61008-1, 61009-1 (jelölések); MEE-VET Műszaki alapok"
+  },
+  {
+    "id": "IV-av-120",
+    "part": "IV",
+    "topic": "aramutes-elleni-vedelem",
+    "type": "single",
+    "difficulty": 2,
+    "points": 1,
+    "q": "Egy főelosztóban egy 300 mA-es, S jelű (szelektív) áram-védőkapcsoló van, mögötte az alelosztókban 30 mA-es áram-védőkapcsolók. Miért kell a betáplálás felőli ÁVK-nak szelektív kivitelűnek lennie?",
+    "options": [
+      "Hogy egy leágazás hibájakor csak a hibás körhöz tartozó 30 mA-es ÁVK oldjon ki, ne az egész épület ellátása szűnjön meg",
+      "Hogy a 30 mA-es ÁVK-kra ne legyen szükség",
+      "Hogy túlterhelés ellen is védjen",
+      "Mert szelektív ÁVK nélkül a 30 mA-es készülékek nem kapnak feszültséget"
+    ],
+    "answer": [
+      0
+    ],
+    "wrongWhy": [
+      null,
+      "A 300 mA nem ad kiegészítő (személy-) védelmet, a 30 mA-esek kellenek.",
+      "Az ÁVK túlterhelést nem érzékel; ahhoz kismegszakító kell.",
+      "A szelektivitás a kioldási sorrendről szól, a táplálást nem befolyásolja."
+    ],
+    "explanation": "Ha két ÁVK sorba van kötve, és mindkettő azonnal old, hibánál könnyen mindkettő – vagy a nagyobb – lekapcsol, és az egész épület sötét marad. A szelektív (S) ÁVK késleltetve old, így a hibához közelebbi, gyors 30 mA-es készülék kapcsol le előbb, és csak a hibás kör esik ki. Ez a szelektivitás (kioldási sorrend) lényege; a nagyobb névleges kioldóáram önmagában ezt nem biztosítja.",
+    "source": "MSZ HD 60364-5-53 535.3. (ÁVK-k szelektivitása); MSZ EN 61008-1"
+  },
+  {
+    "id": "IV-pv-106",
+    "part": "IV",
+    "topic": "fotovoltaik",
+    "type": "single",
+    "difficulty": 1,
+    "points": 1,
+    "q": "A napelem-modul I–U jelleggörbéjének melyik pontján adja a modul a legnagyobb teljesítményt?",
+    "options": [
+      "A rövidzárási pontban (I<sub>sc</sub>, U = 0)",
+      "Az üresjárási pontban (U<sub>oc</sub>, I = 0)",
+      "A maximális teljesítményű munkapontban (MPP), ahol az U·I szorzat a legnagyobb",
+      "A görbe bármely pontján ugyanakkora a teljesítmény"
+    ],
+    "answer": [
+      2
+    ],
+    "wrongWhy": [
+      "Rövidzárban a feszültség nulla, így P = U·I = 0.",
+      "Üresjárásban az áram nulla, így P = 0.",
+      null,
+      "A teljesítmény a munkaponttól függ, a két végponton nulla."
+    ],
+    "explanation": "A modul teljesítménye P = U·I. A rövidzárási pontban (I<sub>sc</sub>) a feszültség, az üresjárási pontban (U<sub>oc</sub>) az áram nulla, ezért ott nincs teljesítmény. A kettő között, a görbe „könyökénél” van az MPP (U<sub>mpp</sub>, I<sub>mpp</sub>), ahol a szorzat a legnagyobb; az inverter MPPT-funkciója ezt a pontot keresi folyamatosan.",
+    "source": "villanyszerelo-jegyzet.pdf.txt 9. fejezet; MSZ EN 60904 (STC jellemzők)"
+  }
+]

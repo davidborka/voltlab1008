@@ -1,0 +1,1297 @@
+[
+ {
+  "id": "III-alap-101",
+  "part": "III",
+  "topic": "alapszamitasok",
+  "type": "single",
+  "difficulty": 1,
+  "points": 1,
+  "q": "Egy 46 Ω-os fűtőellenállást 230 V-ra kapcsolunk. Mekkora áram folyik rajta?",
+  "options": [
+   "5 A",
+   "5 Ω",
+   "10 580 A",
+   "0,2 A"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "Jó szám, de rossz mértékegység: az áram mértékegysége az amper (A), az ohm (Ω) az ellenállásé.",
+   "Ez U·R; az áramhoz a feszültséget el kell osztani az ellenállással.",
+   "Ez R/U, fordított osztás: I = U/R."
+  ],
+  "explanation": "Ohm-törvény: I = U/R = 230 V / 46 Ω = 5 A. A tipikus hibák: a két szám összeszorzása, fordított osztás, vagy jó számérték rossz mértékegységgel. Emlékeztető: „U a tetején” – U = I·R, ebből I = U/R.",
+  "source": "NSZFI Elektrotechnikai alapismeretek (10_4), villamos alapfogalmak"
+ },
+ {
+  "id": "III-alap-102",
+  "part": "III",
+  "topic": "alapszamitasok",
+  "type": "single",
+  "difficulty": 1,
+  "points": 1,
+  "q": "Melyik képlettel számolja ki egy fogyasztó ellenállását, ha ismeri a kapcsain mért feszültséget és a rajta átfolyó áramot?",
+  "options": [
+   "R = U / I",
+   "R = U · I",
+   "R = I / U",
+   "R = U² · I"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "U·I a teljesítmény (P), nem az ellenállás.",
+   "Ez az ellenállás reciproka (a vezetés, G = 1/R).",
+   "Ilyen összefüggés nincs; P = U²/R-ből R = U²/P lenne, de abban P szerepel, nem I."
+  ],
+  "explanation": "Az Ohm-törvény U = I·R alakjából mindkét oldalt I-vel osztva R = U/I. Mértékegységben: V/A = Ω. A U·I szorzat a teljesítmény, ezt sokan összekeverik az ellenállással.",
+  "source": "NSZFI Elektrotechnikai alapismeretek (10_4), villamos alapfogalmak"
+ },
+ {
+  "id": "III-alap-103",
+  "part": "III",
+  "topic": "alapszamitasok",
+  "type": "number",
+  "difficulty": 1,
+  "points": 1,
+  "q": "Egy 460 Ω-os ellenálláson 0,5 A áram folyik. Mekkora feszültség esik rajta?",
+  "fields": [
+   {
+    "label": "U",
+    "unit": "V",
+    "answer": 230,
+    "tol": 0.01
+   }
+  ],
+  "explanation": "U = I·R = 0,5 A · 460 Ω = 230 V. Tipikus hiba osztani szorzás helyett (460/0,5 = 920, ez nem feszültség), vagy fordítva (0,5/460). Az amper és az ohm szorzata volt.",
+  "source": "NSZFI Elektrotechnikai alapismeretek (10_4), villamos alapfogalmak"
+ },
+ {
+  "id": "III-alap-104",
+  "part": "III",
+  "topic": "alapszamitasok",
+  "type": "number",
+  "difficulty": 1,
+  "points": 2,
+  "q": "Váltsa át a mennyiségeket! a) 2,5 kΩ = ? Ω  b) 350 mA = ? A",
+  "fields": [
+   {
+    "label": "a) 2,5 kΩ",
+    "unit": "Ω",
+    "answer": 2500,
+    "tolAbs": 0.5
+   },
+   {
+    "label": "b) 350 mA",
+    "unit": "A",
+    "answer": 0.35,
+    "tolAbs": 0.001
+   }
+  ],
+  "explanation": "A kilo (k) ezerszerest jelent: 2,5 kΩ = 2,5·1000 Ω = 2500 Ω. A milli (m) ezredrészt: 350 mA = 350/1000 A = 0,35 A. Nagyobb egységről kisebbre szorzunk, kisebbről nagyobbra osztunk; a tipikus hiba az irány elrontása (pl. 350 mA = 350 000 A).",
+  "source": "NSZFI Elektrotechnikai alapismeretek (10_4), mértékegységek és prefixumok"
+ },
+ {
+  "id": "III-alap-105",
+  "part": "III",
+  "topic": "alapszamitasok",
+  "type": "truefalse",
+  "difficulty": 1,
+  "points": 4,
+  "q": "Döntse el az Ohm-törvényre vonatkozó állításokról, hogy igazak vagy hamisak!",
+  "statements": [
+   {
+    "text": "Állandó ellenállásnál a feszültség kétszeresére növelése az áramot is kétszeresére növeli.",
+    "answer": true
+   },
+   {
+    "text": "Állandó feszültségnél nagyobb ellenálláson nagyobb áram folyik.",
+    "answer": false
+   },
+   {
+    "text": "1 V feszültség 1 Ω ellenálláson 1 A áramot hajt át.",
+    "answer": true
+   },
+   {
+    "text": "Az ellenállás mértékegysége a V·A.",
+    "answer": false
+   }
+  ],
+  "explanation": "I = U/R: az áram a feszültséggel egyenesen, az ellenállással fordítottan arányos – nagyobb ellenállás kisebb áramot enged. 1 V / 1 Ω = 1 A, ez az egységek definíciója. Az ohm V/A (osztás!), a V·A a látszólagos teljesítmény egysége.",
+  "source": "NSZFI Elektrotechnikai alapismeretek (10_4), villamos alapfogalmak"
+ },
+ {
+  "id": "III-alap-106",
+  "part": "III",
+  "topic": "alapszamitasok",
+  "type": "number",
+  "difficulty": 2,
+  "points": 2,
+  "q": "A rajz szerint R<sub>1</sub> = 100 Ω és R<sub>2</sub> = 130 Ω sorosan van kötve 230 V-ra. Mekkora az áram, és mekkora feszültség esik R<sub>2</sub>-n?",
+  "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 320 150\" width=\"320\" font-family=\"sans-serif\" font-size=\"13\"><circle cx=\"40\" cy=\"75\" r=\"18\" stroke=\"black\" fill=\"none\" stroke-width=\"2\"/><text x=\"34\" y=\"80\" fill=\"black\">U</text><text x=\"64\" y=\"80\" fill=\"black\">U = 230 V</text><path d=\"M40 57 V30 H100 M150 30 H190 M240 30 H280 V120 H40 V93\" stroke=\"black\" fill=\"none\" stroke-width=\"2\"/><rect x=\"100\" y=\"22\" width=\"50\" height=\"16\" stroke=\"black\" fill=\"none\" stroke-width=\"2\"/><rect x=\"190\" y=\"22\" width=\"50\" height=\"16\" stroke=\"black\" fill=\"none\" stroke-width=\"2\"/><text x=\"96\" y=\"16\" fill=\"black\">R1 = 100 Ω</text><text x=\"186\" y=\"16\" fill=\"black\">R2 = 130 Ω</text><text x=\"200\" y=\"60\" fill=\"black\">I →</text></svg>",
+  "fields": [
+   {
+    "label": "I",
+    "unit": "A",
+    "answer": 1,
+    "tol": 0.01
+   },
+   {
+    "label": "U<sub>2</sub>",
+    "unit": "V",
+    "answer": 130,
+    "tol": 0.01
+   }
+  ],
+  "explanation": "Sorosan az ellenállások összeadódnak: R<sub>e</sub> = 100 + 130 = 230 Ω. I = U/R<sub>e</sub> = 230 V / 230 Ω = 1 A, és ez az egy áram folyik mindkét ellenálláson. U<sub>2</sub> = I·R<sub>2</sub> = 1 A · 130 Ω = 130 V (R<sub>1</sub>-en 100 V, együtt 230 V). Tipikus hiba csak az egyik ellenállással számolni (230/100 = 2,3 A).",
+  "source": "NSZFI Elektrotechnikai alapismeretek (10_4), soros kapcsolás"
+ },
+ {
+  "id": "III-alap-107",
+  "part": "III",
+  "topic": "alapszamitasok",
+  "type": "single",
+  "difficulty": 2,
+  "points": 2,
+  "q": "A rajz szerint két egyforma, 46 Ω-os fűtőellenállás párhuzamosan van kötve 230 V-ra. Mekkora a hálózatból felvett (főági) áram?",
+  "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 340 160\" width=\"340\" font-family=\"sans-serif\" font-size=\"13\"><circle cx=\"40\" cy=\"80\" r=\"18\" stroke=\"black\" fill=\"none\" stroke-width=\"2\"/><text x=\"34\" y=\"85\" fill=\"black\">U</text><text x=\"64\" y=\"85\" fill=\"black\">U = 230 V</text><path d=\"M40 62 V30 H250 M40 98 V130 H250 M150 30 V60 M150 100 V130 M250 30 V60 M250 100 V130\" stroke=\"black\" fill=\"none\" stroke-width=\"2\"/><rect x=\"142\" y=\"60\" width=\"16\" height=\"40\" stroke=\"black\" fill=\"none\" stroke-width=\"2\"/><rect x=\"242\" y=\"60\" width=\"16\" height=\"40\" stroke=\"black\" fill=\"none\" stroke-width=\"2\"/><text x=\"164\" y=\"85\" fill=\"black\">R1 = 46 Ω</text><text x=\"264\" y=\"85\" fill=\"black\">R2 = 46 Ω</text><text x=\"70\" y=\"24\" fill=\"black\">I →</text></svg>",
+  "options": [
+   "10 A",
+   "5 A",
+   "2,5 A",
+   "23 Ω"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "Ez csak egy ág árama; a főágban a két ágáram összeadódik.",
+   "Ez soros kapcsolás lenne (92 Ω): 230/92 = 2,5 A.",
+   "23 Ω az eredő ellenállás, nem az áram – rossz mértékegység."
+  ],
+  "explanation": "Párhuzamosan mindkét ellenállás a teljes 230 V-ot kapja: egy ág árama 230/46 = 5 A, a főág árama 5 + 5 = 10 A. Ugyanez eredővel: két egyforma párhuzamos ellenállás eredője a fele, 23 Ω, így I = 230/23 = 10 A.",
+  "source": "NSZFI Elektrotechnikai alapismeretek (10_4), párhuzamos kapcsolás"
+ },
+ {
+  "id": "III-alap-108",
+  "part": "III",
+  "topic": "alapszamitasok",
+  "type": "match",
+  "difficulty": 1,
+  "points": 4,
+  "q": "Párosítsa a mértékegység-előtagokat azzal a szorzóval, amit jelentenek!",
+  "pairs": [
+   [
+    "k (kilo)",
+    "1000-szeres"
+   ],
+   [
+    "M (mega)",
+    "1 000 000-szoros"
+   ],
+   [
+    "m (milli)",
+    "ezredrész (0,001)"
+   ],
+   [
+    "µ (mikro)",
+    "milliomodrész (0,000 001)"
+   ]
+  ],
+  "distractors": [
+   "százszoros"
+  ],
+  "explanation": "k = 10<sup>3</sup>, M = 10<sup>6</sup>, m = 10<sup>−3</sup>, µ = 10<sup>−6</sup>. Vigyázat: a kis m (milli) és a nagy M (mega) között milliárdszoros a különbség, ezért a kis- és nagybetű nem cserélhető fel (pl. 1 mΩ ≠ 1 MΩ). A százszorost a h (hekto) jelöli, a villamos gyakorlatban ritka.",
+  "source": "NSZFI Elektrotechnikai alapismeretek (10_4), mértékegységek és prefixumok"
+ },
+ {
+  "id": "III-alap-109",
+  "part": "III",
+  "topic": "alapszamitasok",
+  "type": "single",
+  "difficulty": 1,
+  "points": 1,
+  "q": "Melyik képlettel számolható ki egy l hosszúságú, A keresztmetszetű vezető ellenállása, ha ρ a fajlagos ellenállás?",
+  "options": [
+   "R = ρ · l / A",
+   "R = ρ · A / l",
+   "R = l / (ρ · A)",
+   "R = ρ · l · A"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "Fordítva: a hosszabb vezetőnek nagyobb, a vastagabbnak kisebb az ellenállása.",
+   "Ez a fajlagos vezetőképességgel (γ = 1/ρ) érvényes alak, l/(γ·A); ρ-val szorozni kell, nem osztani.",
+   "A keresztmetszet növelése csökkenti az ellenállást, ezért A a nevezőbe kerül."
+  ],
+  "explanation": "R = ρ·l/A: az ellenállás a hosszal egyenesen, a keresztmetszettel fordítottan arányos (hosszabb cső nehezebben, vastagabb könnyebben vezet). Ugyanez vezetőképességgel: R = l/(γ·A), mert γ = 1/ρ. Réznél ρ = 0,0175 Ω·mm²/m, γ ≈ 56 m/(Ω·mm²).",
+  "source": "NSZFI Elektrotechnikai alapismeretek (10_4), vezetők ellenállása"
+ },
+ {
+  "id": "III-alap-110",
+  "part": "III",
+  "topic": "alapszamitasok",
+  "type": "single",
+  "difficulty": 2,
+  "points": 2,
+  "q": "Egy C16-os kismegszakítóval védett áramkör végén a mért hurokimpedancia Z<sub>s</sub> = 2 Ω, U<sub>0</sub> = 230 V. A C jelleggörbénél a biztos gyors kioldáshoz 10·I<sub>n</sub> áram kell. Mekkora a testzárlati áram, és megfelel-e a védelem?",
+  "options": [
+   "115 A – nem felel meg, mert kisebb 160 A-nél",
+   "115 A – megfelel, mert nagyobb 80 A-nél",
+   "460 A – megfelel, mert nagyobb 160 A-nél",
+   "115 A – megfelel, mert nagyobb 16 A-nél"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "A 80 A (5·I<sub>n</sub>) a B jelleggörbéhez tartozik; C-nél 10·I<sub>n</sub> = 160 A kell.",
+   "U·Z szorzás osztás helyett: I = U<sub>0</sub>/Z<sub>s</sub>.",
+   "A névleges áramnál nagyobb áramra is csak lassan (hőkioldóval) old le; a gyors kioldáshoz a mágneses kioldó tartománya kell."
+  ],
+  "explanation": "Ohm-törvény a hibahurokra: I<sub>a</sub> = U<sub>0</sub>/Z<sub>s</sub> = 230 V / 2 Ω = 115 A. C16-nál a mágneses kioldó biztosan 10·16 = 160 A-nél működik; 115 A < 160 A, így a gyors lekapcsolás nem biztosított. Megoldás: B16 (5·16 = 80 A ≤ 115 A), vagy kisebb Z<sub>s</sub> (vastagabb, rövidebb vezeték), vagy áram-védőkapcsoló.",
+  "source": "MSZ HD 60364-4-41 411.4.4 (Zs·Ia ≤ U0); MSZ EN 60898-1 B/C/D jelleggörbe pillanatkioldási tartományai"
+ },
+ {
+  "id": "III-alap-111",
+  "part": "III",
+  "topic": "alapszamitasok",
+  "type": "number",
+  "difficulty": 1,
+  "points": 2,
+  "q": "Egy B20-as kismegszakítóval védett áramkörben a hurokimpedancia Z<sub>s</sub> = 0,92 Ω, U<sub>0</sub> = 230 V. Mekkora a testzárlati áram, és mekkora áram kell a B20 biztos gyors kioldásához (5·I<sub>n</sub>)?",
+  "fields": [
+   {
+    "label": "I<sub>a</sub>",
+    "unit": "A",
+    "answer": 250,
+    "tol": 0.01
+   },
+   {
+    "label": "5·I<sub>n</sub>",
+    "unit": "A",
+    "answer": 100,
+    "tol": 0.001
+   }
+  ],
+  "explanation": "I<sub>a</sub> = U<sub>0</sub>/Z<sub>s</sub> = 230 V / 0,92 Ω = 250 A. A B jelleggörbénél a mágneses kioldó legkésőbb 5·I<sub>n</sub> = 5·20 = 100 A-nél működik. 250 A ≥ 100 A, tehát a védelem gyorsan lekapcsol. C-nél 10·I<sub>n</sub>, D-nél 20·I<sub>n</sub> lenne a szorzó.",
+  "source": "MSZ HD 60364-4-41 411.4.4 (Zs·Ia ≤ U0); MSZ EN 60898-1 B/C/D jelleggörbe pillanatkioldási tartományai"
+ },
+ {
+  "id": "III-telj-101",
+  "part": "III",
+  "topic": "teljesitmeny-energia",
+  "type": "single",
+  "difficulty": 1,
+  "points": 2,
+  "q": "Egy egyfázisú (230 V) motor 10 A áramot vesz fel, cosφ = 0,8. Mekkora a felvett hatásos teljesítménye?",
+  "options": [
+   "1840 W",
+   "2300 W",
+   "3187 W",
+   "2875 W"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "Kimaradt a cosφ: 230·10 = 2300 VA a látszólagos teljesítmény.",
+   "Egyfázisú körben nincs √3 – az csak háromfázisú képletben szerepel.",
+   "cosφ-vel osztani nem kell, szorozni kell: 2300/0,8 helyett 2300·0,8."
+  ],
+  "explanation": "Egyfázisú hatásos teljesítmény: P = U·I·cosφ = 230 V · 10 A · 0,8 = 1840 W. A cosφ nélküli 2300 VA a látszólagos teljesítmény. A √3 csak háromfázisú körben kell.",
+  "source": "VeI – Vezetékek villamos méretezése, 7. fejezet (ocr/VeI-Vezetékméretezés1.txt)"
+ },
+ {
+  "id": "III-telj-102",
+  "part": "III",
+  "topic": "teljesitmeny-energia",
+  "type": "single",
+  "difficulty": 2,
+  "points": 2,
+  "q": "Egy háromfázisú (3×400 V) motor vonali árama 10 A, cosφ = 0,85. Mekkora a felvett hatásos teljesítmény?",
+  "options": [
+   "5889 W",
+   "6928 W",
+   "3400 W",
+   "10 200 W"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "Kimaradt a cosφ: ez a látszólagos teljesítmény (VA).",
+   "Kimaradt a √3: 400·10·0,85 csak egy „fázispár” értéke.",
+   "3-mal szorzott √3 helyett; 3-as szorzó csak fázisfeszültséggel (3·230·I·cosφ) lenne jó."
+  ],
+  "explanation": "Háromfázisú hatásos teljesítmény: P = √3·U<sub>v</sub>·I·cosφ = 1,732 · 400 V · 10 A · 0,85 ≈ 5889 W ≈ 5,9 kW. Ellenőrzés fázisonként: 3·230·10·0,85 = 5865 W – a kis eltérés a 230 V kerekítése (400/√3 = 230,9 V).",
+  "source": "VeI – Vezetékek villamos méretezése, 7. fejezet (ocr/VeI-Vezetékméretezés1.txt)"
+ },
+ {
+  "id": "III-telj-103",
+  "part": "III",
+  "topic": "teljesitmeny-energia",
+  "type": "single",
+  "difficulty": 1,
+  "points": 1,
+  "q": "Melyik képlettel számolja egy szimmetrikus háromfázisú fogyasztó hatásos teljesítményét, ha a vonali feszültséget (U<sub>v</sub>) és a vonali áramot (I) ismeri?",
+  "options": [
+   "P = √3 · U<sub>v</sub> · I · cosφ",
+   "P = 3 · U<sub>v</sub> · I · cosφ",
+   "P = √3 · U<sub>v</sub> · I",
+   "P = U<sub>v</sub> · I · cosφ"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "Vonali feszültséggel √3 kell; a 3-as szorzó a fázisfeszültséggel (3·U<sub>f</sub>·I·cosφ) érvényes.",
+   "cosφ nélkül ez a látszólagos teljesítmény (S, VA).",
+   "Ez csak egyfázisú képlet; a három fázis teljesítménye hiányzik belőle."
+  ],
+  "explanation": "P = √3·U<sub>v</sub>·I·cosφ. A √3 onnan jön, hogy a három fázis teljesítménye 3·U<sub>f</sub>·I·cosφ, és U<sub>f</sub> = U<sub>v</sub>/√3, így 3/√3 = √3. cosφ nélkül a látszólagos teljesítményt kapjuk.",
+  "source": "VeI – Vezetékek villamos méretezése, 7. fejezet (ocr/VeI-Vezetékméretezés1.txt)"
+ },
+ {
+  "id": "III-telj-104",
+  "part": "III",
+  "topic": "teljesitmeny-energia",
+  "type": "single",
+  "difficulty": 1,
+  "points": 2,
+  "q": "Egy egyfázisú (230 V) fogyasztó hatásos teljesítménye 1840 W, cosφ = 0,8. Mekkora az áramfelvétele?",
+  "options": [
+   "10 A",
+   "8 A",
+   "6,4 A",
+   "10 Ω"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "Kimaradt a cosφ: 1840/230 = 8 A ohmos fogyasztóra igaz, itt kevés.",
+   "cosφ-vel szorzott osztás helyett: I = P/(U·cosφ).",
+   "Jó szám, rossz mértékegység: áramot amperben adunk meg."
+  ],
+  "explanation": "P = U·I·cosφ átrendezve: I = P/(U·cosφ) = 1840 W / (230 V · 0,8) = 1840/184 = 10 A. A cosφ < 1 miatt a motor több áramot vesz fel, mint egy ugyanakkora hatásos teljesítményű ohmos fogyasztó (8 A).",
+  "source": "VeI – Vezetékek villamos méretezése, 7. fejezet (ocr/VeI-Vezetékméretezés1.txt)"
+ },
+ {
+  "id": "III-telj-105",
+  "part": "III",
+  "topic": "teljesitmeny-energia",
+  "type": "number",
+  "difficulty": 1,
+  "points": 1,
+  "q": "Egy 2 kW-os hősugárzó 3 órán át üzemel. Mennyi villamos energiát fogyaszt (kWh)?",
+  "fields": [
+   {
+    "label": "W",
+    "unit": "kWh",
+    "answer": 6,
+    "tol": 0.01
+   }
+  ],
+  "explanation": "W = P·t = 2 kW · 3 h = 6 kWh. Ha a teljesítmény kW-ban és az idő órában van, a szorzat egyből kWh. Tipikus hiba: wattban hagyni (6000 Wh = 6 kWh), vagy osztani (2/3) szorzás helyett.",
+  "source": "Villanyszerelő írásbeli 2021 és 2022, feszültségesés- és fogyasztásszámítási feladatok (megoldókulcs)"
+ },
+ {
+  "id": "III-telj-106",
+  "part": "III",
+  "topic": "teljesitmeny-energia",
+  "type": "number",
+  "difficulty": 1,
+  "points": 2,
+  "q": "Egy 1500 W-os vasaló 2 órát üzemel. Mennyi energiát fogyaszt (kWh), és mennyibe kerül ez, ha 1 kWh ára 70 Ft?",
+  "fields": [
+   {
+    "label": "W",
+    "unit": "kWh",
+    "answer": 3,
+    "tol": 0.01
+   },
+   {
+    "label": "költség",
+    "unit": "Ft",
+    "answer": 210,
+    "tolAbs": 1
+   }
+  ],
+  "explanation": "Először kW-ra váltunk: 1500 W = 1,5 kW. W = P·t = 1,5 kW · 2 h = 3 kWh. Költség = 3 kWh · 70 Ft/kWh = 210 Ft. Ha a wattot nem váltjuk át, 3000 „kWh”-t és 210 000 Ft-ot kapnánk – ezerszeres hiba.",
+  "source": "Villanyszerelő írásbeli 2021 és 2022, feszültségesés- és fogyasztásszámítási feladatok (megoldókulcs)"
+ },
+ {
+  "id": "III-telj-107",
+  "part": "III",
+  "topic": "teljesitmeny-energia",
+  "type": "single",
+  "difficulty": 1,
+  "points": 1,
+  "q": "Egy 60 W-os izzó összesen 50 órát világít. Mennyi energiát fogyaszt?",
+  "options": [
+   "3 kWh",
+   "3000 kWh",
+   "30 kWh",
+   "0,3 kWh"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "60·50 = 3000 Wh, nem kWh: ezerrel osztani kell.",
+   "Tizedesvessző-hiba: 3000 Wh = 3 kWh, nem 30.",
+   "Tizedesvessző-hiba: 3000 Wh = 3 kWh, nem 0,3."
+  ],
+  "explanation": "W = P·t = 60 W · 50 h = 3000 Wh. 1 kWh = 1000 Wh, így 3000 Wh = 3 kWh. Másképp: 60 W = 0,06 kW, 0,06 · 50 = 3 kWh.",
+  "source": "Villanyszerelő írásbeli 2021 és 2022, feszültségesés- és fogyasztásszámítási feladatok (megoldókulcs)"
+ },
+ {
+  "id": "III-telj-108",
+  "part": "III",
+  "topic": "teljesitmeny-energia",
+  "type": "single",
+  "difficulty": 2,
+  "points": 2,
+  "q": "Egy háromfázisú (3×400 V) fűtőkészülék szimmetrikus, ohmos (cosφ = 1), teljesítménye 13,8 kW. Mekkora a vonali áram?",
+  "options": [
+   "19,92 A",
+   "34,5 A",
+   "60 A",
+   "11,5 A"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "Kimaradt a √3: 13 800/400 = 34,5 A.",
+   "Mintha egyetlen fázis (230 V) vinné az egész teljesítményt.",
+   "3·400 = 1200 a nevező: √3 helyett 3-mal szoroztunk."
+  ],
+  "explanation": "I = P/(√3·U<sub>v</sub>·cosφ) = 13 800 W / (1,732 · 400 V · 1) ≈ 19,92 A. Gyors ellenőrzés fázisonként: egy fázisra 13,8/3 = 4,6 kW jut, 4600/230 = 20 A – ugyanaz, kerekítési eltéréssel.",
+  "source": "VeI – Vezetékek villamos méretezése, 7. fejezet (ocr/VeI-Vezetékméretezés1.txt)"
+ },
+ {
+  "id": "III-telj-109",
+  "part": "III",
+  "topic": "teljesitmeny-energia",
+  "type": "single",
+  "difficulty": 2,
+  "points": 2,
+  "q": "Egy motor a tengelyén 3 kW-ot ad le, hatásfoka 75 %. Mekkora teljesítményt vesz fel a hálózatból?",
+  "options": [
+   "4 kW",
+   "2,25 kW",
+   "3,75 kW",
+   "75 %"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "Szorzott osztás helyett: a felvett teljesítmény mindig nagyobb a leadottnál.",
+   "A hatásfokot nem lehet kW-hoz hozzáadni; P<sub>fel</sub> = P<sub>le</sub>/η.",
+   "Ez maga a hatásfok, nem teljesítmény."
+  ],
+  "explanation": "η = P<sub>le</sub>/P<sub>fel</sub>, átrendezve P<sub>fel</sub> = P<sub>le</sub>/η = 3 kW / 0,75 = 4 kW. A különbség, 1 kW, a veszteség (hő). A felvett teljesítmény mindig nagyobb a leadottnál, mert η < 1.",
+  "source": "NSZFI Elektrotechnikai alapismeretek (10_4), hatásfok"
+ },
+ {
+  "id": "III-telj-110",
+  "part": "III",
+  "topic": "teljesitmeny-energia",
+  "type": "truefalse",
+  "difficulty": 1,
+  "points": 4,
+  "q": "Döntse el a teljesítményre és az energiára vonatkozó állításokról, hogy igazak vagy hamisak!",
+  "statements": [
+   {
+    "text": "Egy 2 kW-os készülék 30 perc alatt 1 kWh energiát fogyaszt.",
+    "answer": true
+   },
+   {
+    "text": "A teljesítménytényező (cosφ) értéke lehet 1-nél nagyobb is.",
+    "answer": false
+   },
+   {
+    "text": "Egy ohmos fogyasztó (pl. vízforraló) teljesítménytényezője cosφ = 1.",
+    "answer": true
+   },
+   {
+    "text": "A háromfázisú teljesítmény képletében a √3-at a fázisfeszültséggel (230 V) szorozzuk.",
+    "answer": false
+   }
+  ],
+  "explanation": "30 perc = 0,5 h, 2 kW · 0,5 h = 1 kWh. A cosφ 0 és 1 között van; ohmos terhelésnél nincs fáziseltolás, cosφ = 1. A √3·U·I·cosφ képletben U a vonali feszültség (400 V); fázisfeszültséggel 3·U<sub>f</sub>·I·cosφ a helyes alak.",
+  "source": "VeI – Vezetékek villamos méretezése, 7. fejezet (ocr/VeI-Vezetékméretezés1.txt)"
+ },
+ {
+  "id": "III-telj-111",
+  "part": "III",
+  "topic": "teljesitmeny-energia",
+  "type": "single",
+  "difficulty": 2,
+  "points": 2,
+  "q": "Egy 2000 W-os villanybojler naponta 3 órát fűt. Mennyi a havi (30 nap) energiaköltsége, ha 1 kWh ára 60 Ft?",
+  "options": [
+   "10 800 Ft",
+   "360 Ft",
+   "10 800 000 Ft",
+   "180 Ft"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "Ez csak egy nap költsége (6 kWh · 60 Ft); a 30 nap kimaradt.",
+   "A wattot nem váltotta kW-ra: ezerszeres hiba.",
+   "180 kWh a havi energia, nem forint; meg kell szorozni az egységárral."
+  ],
+  "explanation": "Napi energia: 2 kW · 3 h = 6 kWh. Havi: 6 kWh · 30 = 180 kWh. Költség: 180 kWh · 60 Ft/kWh = 10 800 Ft. Lépésenként haladva (napi → havi → Ft) nehéz elrontani.",
+  "source": "Villanyszerelő írásbeli 2021 és 2022, feszültségesés- és fogyasztásszámítási feladatok (megoldókulcs)"
+ },
+ {
+  "id": "III-telj-112",
+  "part": "III",
+  "topic": "teljesitmeny-energia",
+  "type": "multi",
+  "difficulty": 1,
+  "points": 2,
+  "q": "Melyek az energia (villamos munka) mértékegységei? (Több helyes válasz van; a rossz jelölés pontlevonással jár.)",
+  "options": [
+   "kWh",
+   "J (joule)",
+   "Ws (wattszekundum)",
+   "kW",
+   "VA",
+   "var"
+  ],
+  "answer": [
+   0,
+   1,
+   2
+  ],
+  "wrongWhy": [
+   null,
+   null,
+   null,
+   "A kW teljesítmény (egységnyi idő alatti energia), nem energia.",
+   "A VA a látszólagos teljesítmény egysége.",
+   "A var a meddő teljesítmény egysége."
+  ],
+  "explanation": "Energia = teljesítmény · idő, ezért a mértékegysége W·s = J, illetve a gyakorlatban kWh (1 kWh = 3 600 000 J). A kW, VA és var teljesítmény-mértékegységek (hatásos, látszólagos, meddő). Emlékeztető: ha van benne „h” vagy „s” szorzóként, energia.",
+  "source": "NSZFI Elektrotechnikai alapismeretek (10_4), munka, teljesítmény"
+ },
+ {
+  "id": "III-telj-113",
+  "part": "III",
+  "topic": "teljesitmeny-energia",
+  "type": "dropdown",
+  "difficulty": 2,
+  "points": 2,
+  "q": "Egészítse ki a mondatokat a helyes értékekkel!",
+  "text": "Egy egyfázisú, 230 V-os fogyasztó 10 A-t vesz fel. A látszólagos teljesítménye {0}. Ha cosφ = 0,8, a hatásos teljesítménye {1}.",
+  "blanks": [
+   {
+    "options": [
+     "2300 VA",
+     "1840 VA",
+     "3984 VA"
+    ],
+    "answer": 0
+   },
+   {
+    "options": [
+     "1840 W",
+     "2300 W",
+     "2875 W"
+    ],
+    "answer": 0
+   }
+  ],
+  "explanation": "S = U·I = 230 V · 10 A = 2300 VA (cosφ nélkül). P = U·I·cosφ = 2300 · 0,8 = 1840 W. A 3984 VA a √3-mal szorzott hibás érték (egyfázisú körben nincs √3), a 2875 W cosφ-vel való osztásból jön.",
+  "source": "VeI – Vezetékek villamos méretezése, 7. fejezet (ocr/VeI-Vezetékméretezés1.txt)"
+ },
+ {
+  "id": "III-telj-114",
+  "part": "III",
+  "topic": "teljesitmeny-energia",
+  "type": "order",
+  "difficulty": 2,
+  "points": 3,
+  "q": "Rendezze sorba a háztartási fogyasztókat napi energiafogyasztásuk szerint, a legtöbbet fogyasztóval kezdve! Hűtő: átlagosan 100 W, 24 óra · mosógép: 2000 W, 1 óra · vízforraló: 2000 W, 15 perc · tévé: 80 W, 5 óra.",
+  "items": [
+   "hűtő",
+   "mosógép",
+   "vízforraló",
+   "tévé"
+  ],
+  "explanation": "W = P·t, kW-ban és órában: hűtő 0,1·24 = 2,4 kWh; mosógép 2·1 = 2 kWh; vízforraló 2·0,25 = 0,5 kWh; tévé 0,08·5 = 0,4 kWh. A kis teljesítményű, de egész nap működő hűtő fogyaszt a legtöbbet – nem a teljesítmény, hanem a teljesítmény és az idő szorzata dönt. 15 perc = 0,25 óra, nem 0,15!",
+  "source": "Villanyszerelő írásbeli 2021 és 2022, feszültségesés- és fogyasztásszámítási feladatok (megoldókulcs)"
+ },
+ {
+  "id": "III-telj-115",
+  "part": "III",
+  "topic": "teljesitmeny-energia",
+  "type": "single",
+  "difficulty": 2,
+  "points": 2,
+  "q": "Egy háromfázisú (3×400 V) aszinkronmotor adattábláján: P<sub>2</sub> = 4 kW (tengelyteljesítmény), η = 85 %, cosφ = 0,8. Mekkora a motor felvett (vonali) árama?",
+  "options": [
+   "8,49 A",
+   "7,22 A",
+   "14,71 A",
+   "6,79 A"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "Kimaradt a hatásfok: az adattáblán a leadott (tengely-) teljesítmény áll, a felvett ennél nagyobb.",
+   "Kimaradt a √3: háromfázisú vonali áramnál √3·400 V a szorzó.",
+   "Kimaradt a cosφ: a motor a hatásos teljesítménynél nagyobb látszólagos teljesítményt vesz fel."
+  ],
+  "explanation": "Először a felvett hatásos teljesítmény: P<sub>1</sub> = P<sub>2</sub>/η = 4000 W / 0,85 ≈ 4706 W. Majd I = P<sub>1</sub>/(√3·U<sub>v</sub>·cosφ) = 4706 / (1,732 · 400 · 0,8) ≈ 8,49 A. A három tipikus hiba: η, √3 vagy cosφ kihagyása.",
+  "source": "VeI – Vezetékek villamos méretezése, 7. fejezet (ocr/VeI-Vezetékméretezés1.txt)"
+ },
+ {
+  "id": "III-telj-116",
+  "part": "III",
+  "topic": "teljesitmeny-energia",
+  "type": "number",
+  "difficulty": 2,
+  "points": 2,
+  "q": "Egy négypólusú (p = 2 póluspár) aszinkronmotor 50 Hz-es hálózatról üzemel, a tengely fordulatszáma 1440 1/min. Mekkora a forgómező szinkron fordulatszáma és a motor szlipje (%)?",
+  "fields": [
+   {
+    "label": "n<sub>0</sub>",
+    "unit": "1/min",
+    "answer": 1500,
+    "tol": 0.001
+   },
+   {
+    "label": "s",
+    "unit": "%",
+    "answer": 4,
+    "tol": 0.01
+   }
+  ],
+  "explanation": "Szinkron fordulatszám: n<sub>0</sub> = 60·f/p = 60·50/2 = 1500 1/min. Szlip: s = (n<sub>0</sub> − n)/n<sub>0</sub>·100 = (1500 − 1440)/1500·100 = 4 %. Tipikus hiba a pólusszámmal (4) osztani a póluspárszám (2) helyett – az 750 1/min-t adna.",
+  "source": "NSZFI Elektrotechnikai alapismeretek (10_4), aszinkronmotorok"
+ },
+ {
+  "id": "III-telj-117",
+  "part": "III",
+  "topic": "teljesitmeny-energia",
+  "type": "single",
+  "difficulty": 1,
+  "points": 2,
+  "q": "Egy egyfázisú (230 V) motor 10 A-t vesz fel, cosφ = 0,8, sinφ = 0,6. Mekkora a meddő teljesítménye?",
+  "options": [
+   "1380 var",
+   "1840 var",
+   "2300 var",
+   "1380 W"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "cosφ-vel számolt: az a hatásos teljesítmény (1840 W), a meddőhöz sinφ kell.",
+   "Ez a látszólagos teljesítmény (S = U·I, VA).",
+   "Jó szám, rossz mértékegység: a meddő teljesítmény egysége a var, nem a W."
+  ],
+  "explanation": "Q = U·I·sinφ = 230 V · 10 A · 0,6 = 1380 var. Ellenőrzés a P–Q–S háromszöggel: P = 1840 W, S = 2300 VA, √(1840² + 1380²) = 2300. A hatásos teljesítmény W, a meddő var, a látszólagos VA.",
+  "source": "VeI – Vezetékek villamos méretezése, 7. fejezet (ocr/VeI-Vezetékméretezés1.txt)"
+ },
+ {
+  "id": "III-telj-118",
+  "part": "III",
+  "topic": "teljesitmeny-energia",
+  "type": "number",
+  "difficulty": 2,
+  "points": 2,
+  "q": "Egy egyfázisú fogyasztón méréssel: U = 230 V, I = 5 A, a wattmérő 920 W-ot mutat. Mekkora a látszólagos teljesítmény és a teljesítménytényező?",
+  "fields": [
+   {
+    "label": "S",
+    "unit": "VA",
+    "answer": 1150,
+    "tol": 0.01
+   },
+   {
+    "label": "cosφ",
+    "unit": "",
+    "answer": 0.8,
+    "tolAbs": 0.005
+   }
+  ],
+  "explanation": "S = U·I = 230 V · 5 A = 1150 VA. cosφ = P/S = 920 W / 1150 VA = 0,8. A cosφ mértékegység nélküli szám, és sosem nagyobb 1-nél; ha 1-nél nagyobb jön ki, P és S fel van cserélve.",
+  "source": "VeI – Vezetékek villamos méretezése, 7. fejezet (ocr/VeI-Vezetékméretezés1.txt)"
+ },
+ {
+  "id": "III-telj-119",
+  "part": "III",
+  "topic": "teljesitmeny-energia",
+  "type": "number",
+  "difficulty": 2,
+  "points": 2,
+  "q": "Egy hűtőszekrény átlagos teljesítménye 100 W, és egész évben (365 nap, napi 24 óra) üzemel. Mennyi az éves energiafogyasztása (kWh), és mennyibe kerül, ha 1 kWh ára 70 Ft?",
+  "fields": [
+   {
+    "label": "W",
+    "unit": "kWh",
+    "answer": 876,
+    "tol": 0.005
+   },
+   {
+    "label": "költség",
+    "unit": "Ft",
+    "answer": 61320,
+    "tol": 0.005
+   }
+  ],
+  "explanation": "100 W = 0,1 kW. Napi energia: 0,1 kW · 24 h = 2,4 kWh; éves: 2,4 · 365 = 876 kWh. Költség: 876 kWh · 70 Ft/kWh = 61 320 Ft. A watt kW-ra váltása nélkül ezerszer nagyobb érték jönne ki.",
+  "source": "Villanyszerelő írásbeli 2021 és 2022, feszültségesés- és fogyasztásszámítási feladatok (megoldókulcs)"
+ },
+ {
+  "id": "III-fesz-101",
+  "part": "III",
+  "topic": "feszultsegeses",
+  "type": "single",
+  "difficulty": 1,
+  "points": 1,
+  "q": "Egy háromfázisú (3×400 V) kábelen a vonali feszültségesés 8 V. Hány százalék ez?",
+  "options": [
+   "2 %",
+   "3,48 %",
+   "8 %",
+   "0,02 %"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "A vonali esést a vonali (400 V) feszültséghez kell viszonyítani, nem a 230 V-hoz.",
+   "A volt nem százalék: el kell osztani a 400 V-tal.",
+   "Ez a hányados (0,02), még szorozni kell 100-zal."
+  ],
+  "explanation": "ε = ΔU/U·100 = 8 V / 400 V · 100 = 2 %. Mindig azonos fajta feszültséget hasonlítunk össze: vonali esést vonali feszültséghez (400 V), fázisonkénti esést fázisfeszültséghez (230 V).",
+  "source": "VeI – Vezetékek villamos méretezése, 7. fejezet (ocr/VeI-Vezetékméretezés1.txt)"
+ },
+ {
+  "id": "III-fesz-102",
+  "part": "III",
+  "topic": "feszultsegeses",
+  "type": "number",
+  "difficulty": 1,
+  "points": 2,
+  "q": "Egy háromfázisú (3×400 V) kábel vonali feszültségesése 2,5 %. Hány volt ez, és mekkora vonali feszültség jut a fogyasztó kapcsaira?",
+  "fields": [
+   {
+    "label": "ΔU",
+    "unit": "V",
+    "answer": 10,
+    "tol": 0.01
+   },
+   {
+    "label": "U<sub>fogy</sub>",
+    "unit": "V",
+    "answer": 390,
+    "tol": 0.001
+   }
+  ],
+  "explanation": "ΔU = 2,5·400 V/100 = 10 V. A fogyasztóra a tápfeszültség és az esés különbsége jut: 400 V − 10 V = 390 V. A vezetéken eső feszültség „elvész”, ezért a fogyasztón kisebb, nem nagyobb feszültség mérhető.",
+  "source": "VeI – Vezetékek villamos méretezése, 7. fejezet (ocr/VeI-Vezetékméretezés1.txt)"
+ },
+ {
+  "id": "III-fesz-103",
+  "part": "III",
+  "topic": "feszultsegeses",
+  "type": "single",
+  "difficulty": 1,
+  "points": 1,
+  "q": "Melyik képlettel számolja ki egy egyfázisú áramkör feszültségesését voltban? (I: áram, l: a vezeték egyszeres hossza, γ: fajlagos vezetőképesség, A: keresztmetszet)",
+  "options": [
+   "ΔU = 2 · I · l · cosφ / (γ · A)",
+   "ΔU = √3 · I · l · cosφ / (γ · A)",
+   "ΔU = I · l · cosφ / (γ · A)",
+   "ΔU = 2 · I · γ · A / (l · cosφ)"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "A √3 a szimmetrikus háromfázisú (vonali) esés képletében szerepel.",
+   "Kimaradt a 2-es szorzó: egyfázisú körben a fázis- és a nullavezetőn is esik feszültség.",
+   "Fordított tört: a hosszabb vezetéken nagyobb, a vastagabbon kisebb az esés, ezért l a számlálóban, γ·A a nevezőben van."
+  ],
+  "explanation": "Egyfázisú körben az áram a fázisvezetőn oda, a nullavezetőn vissza folyik, így a vezetékhossz kétszer számít: ΔU = 2·I·l·cosφ/(γ·A). Szimmetrikus háromfázisú körben 2 helyett √3 áll. A γ·A a nevezőben van, mert jobb vezető és vastagabb ér kisebb esést ad.",
+  "source": "VeI – Vezetékek villamos méretezése, 7. fejezet (ocr/VeI-Vezetékméretezés1.txt)"
+ },
+ {
+  "id": "III-fesz-104",
+  "part": "III",
+  "topic": "feszultsegeses",
+  "type": "single",
+  "difficulty": 2,
+  "points": 2,
+  "q": "Egy egyfázisú (230 V) ohmos fogyasztót 28 m hosszú, 2,5 mm²-es rézvezeték táplál, az áram 10 A. γ = 56 m/(Ω·mm²). Mekkora a feszültségesés?",
+  "options": [
+   "4 V",
+   "2 V",
+   "3,46 V",
+   "4 %"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "Kimaradt a 2-es szorzó (csak a fázisvezető esése).",
+   "Egyfázisú körben 2 a szorzó, nem √3.",
+   "A 4 volt, nem százalék: 4 V/230 V = 1,74 %."
+  ],
+  "explanation": "ΔU = 2·I·l·cosφ/(γ·A) = 2 · 10 A · 28 m · 1 / (56 · 2,5) = 560/140 = 4 V. Százalékban: 4/230·100 ≈ 1,74 %. Figyeljen a mértékegységre: a képlet voltot ad, a százalékhoz még a 230 V-tal osztani kell.",
+  "source": "VeI – Vezetékek villamos méretezése, 7. fejezet (ocr/VeI-Vezetékméretezés1.txt)"
+ },
+ {
+  "id": "III-fesz-105",
+  "part": "III",
+  "topic": "feszultsegeses",
+  "type": "number",
+  "difficulty": 2,
+  "points": 3,
+  "q": "Egy szimmetrikus, ohmos (cosφ = 1) háromfázisú (3×400 V) terhelést 56 m hosszú, 10 mm²-es rézkábel táplál, a vonali áram 20 A. γ = 56 m/(Ω·mm²). Mekkora a vonali feszültségesés voltban és százalékban? (Két tizedesre kerekítsen!)",
+  "fields": [
+   {
+    "label": "ΔU",
+    "unit": "V",
+    "answer": 3.46,
+    "tol": 0.01
+   },
+   {
+    "label": "ε",
+    "unit": "%",
+    "answer": 0.87,
+    "tol": 0.02
+   }
+  ],
+  "explanation": "ΔU = √3·I·l·cosφ/(γ·A) = 1,732 · 20 A · 56 m · 1 / (56 · 10) = 1939,9/560 ≈ 3,46 V. ε = 3,46/400·100 ≈ 0,87 %. Háromfázisú szimmetrikus terhelésnél √3 a szorzó (nem 2), és a vonali esést a 400 V-hoz viszonyítjuk.",
+  "source": "VeI – Vezetékek villamos méretezése, 7. fejezet (ocr/VeI-Vezetékméretezés1.txt)"
+ },
+ {
+  "id": "III-fesz-106",
+  "part": "III",
+  "topic": "feszultsegeses",
+  "type": "single",
+  "difficulty": 2,
+  "points": 2,
+  "q": "Egy egyfázisú (230 V) áramkör számított feszültségesése 8 V, a megengedett érték 3 %. Megfelel-e az áramkör?",
+  "options": [
+   "Nem: 8 V a 230 V 3,48 %-a, ez több 3 %-nál.",
+   "Igen: 8 V a 400 V 2 %-a, ez kevesebb 3 %-nál.",
+   "Igen: a 3 % 230 V-on 13,8 V, a 8 V ennél kisebb.",
+   "A vezeték hossza nélkül nem dönthető el."
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "Egyfázisú körben a 230 V-hoz viszonyítunk, nem a 400 V-hoz.",
+   "A 3 % 230 V-on 6,9 V; a 13,8 V a duplája (a 2-es szorzó itt már nem kell).",
+   "Az esés voltban már adott, a hosszt már tartalmazza."
+  ],
+  "explanation": "ε = 8/230·100 ≈ 3,48 % > 3 %, tehát nem felel meg. Fordítva is: 3 % = 3·230/100 = 6,9 V, és 8 V > 6,9 V. Megoldás nagyobb keresztmetszet vagy rövidebb nyomvonal.",
+  "source": "VeI – Vezetékek villamos méretezése, 7. fejezet (ocr/VeI-Vezetékméretezés1.txt)"
+ },
+ {
+  "id": "III-fesz-107",
+  "part": "III",
+  "topic": "feszultsegeses",
+  "type": "truefalse",
+  "difficulty": 1,
+  "points": 4,
+  "q": "Döntse el a feszültségesésre vonatkozó állításokról, hogy igazak vagy hamisak!",
+  "statements": [
+   {
+    "text": "A feszültségesés miatt a fogyasztó kapcsain a hálózatinál nagyobb feszültség mérhető.",
+    "answer": false
+   },
+   {
+    "text": "Egyfázisú képletben a 2-es szorzó azért van, mert az áram a fázisvezetőn oda, a nullavezetőn vissza folyik.",
+    "answer": true
+   },
+   {
+    "text": "230 V-on a 2 % feszültségesés 2 V.",
+    "answer": false
+   },
+   {
+    "text": "Egyfázisú körben a százalékos esést a 230 V-hoz viszonyítjuk.",
+    "answer": true
+   }
+  ],
+  "explanation": "A vezetéken eső feszültség hiányzik a fogyasztóról, ezért ott kevesebb jut (U<sub>fogy</sub> = U − ΔU). A 2-es szorzó a két (oda-vissza) vezető miatt kell. 2 % 230 V-on 2·230/100 = 4,6 V, nem 2 V – a százalék és a volt nem azonos. Egyfázisú körben az alap a 230 V fázisfeszültség.",
+  "source": "VeI – Vezetékek villamos méretezése, 7. fejezet (ocr/VeI-Vezetékméretezés1.txt)"
+ },
+ {
+  "id": "III-fesz-108",
+  "part": "III",
+  "topic": "feszultsegeses",
+  "type": "single",
+  "difficulty": 2,
+  "points": 2,
+  "q": "Egy egyfázisú (230 V), 16 A-es, 20 m hosszú rézvezetékes áramkör feszültségesése a keresztmetszet szerint: 1,5 mm²: 7,62 V · 2,5 mm²: 4,57 V · 4 mm²: 2,86 V. A megengedett esés 3 %. Melyik a legkisebb megfelelő keresztmetszet?",
+  "options": [
+   "2,5 mm²",
+   "1,5 mm²",
+   "4 mm²",
+   "Egyik sem felel meg."
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "7,62 V > 6,9 V (3 %), túl nagy az esés.",
+   "Megfelel, de nem a legkisebb: a 2,5 mm² is elég.",
+   "A 2,5 és a 4 mm² is a 6,9 V-os határ alatt van."
+  ],
+  "explanation": "A határ voltban: 3 % · 230 V = 6,9 V. 1,5 mm²: 7,62 V > 6,9 V – nem jó; 2,5 mm²: 4,57 V ≤ 6,9 V – jó. A legkisebb megfelelő tehát 2,5 mm² (a terhelhetőséget külön is ellenőrizni kell, de ez itt nem volt kérdés).",
+  "source": "VeI – Vezetékek villamos méretezése, 7. fejezet (ocr/VeI-Vezetékméretezés1.txt)"
+ },
+ {
+  "id": "III-fesz-109",
+  "part": "III",
+  "topic": "feszultsegeses",
+  "type": "number",
+  "difficulty": 1,
+  "points": 1,
+  "q": "Egy egyfázisú, 230 V-ról táplált áramkörben a fázisvezetőn 3 V, a nullavezetőn is 3 V feszültség esik. Mekkora feszültség jut a fogyasztóra?",
+  "fields": [
+   {
+    "label": "U<sub>fogy</sub>",
+    "unit": "V",
+    "answer": 224,
+    "tol": 0.001
+   }
+  ],
+  "explanation": "A két vezető sorosan van a fogyasztóval, a teljes esés 3 + 3 = 6 V. A fogyasztóra 230 − 6 = 224 V jut. Tipikus hiba csak az egyik vezető esését levonni (227 V), vagy az esést hozzáadni (236 V).",
+  "source": "VeI – Vezetékek villamos méretezése, 7. fejezet (ocr/VeI-Vezetékméretezés1.txt)"
+ },
+ {
+  "id": "III-fesz-110",
+  "part": "III",
+  "topic": "feszultsegeses",
+  "type": "number",
+  "difficulty": 2,
+  "points": 3,
+  "q": "Egy egyfázisú (230 V) ohmos fogyasztót 35 m hosszú, 4 mm²-es rézvezeték táplál, az áram 16 A. γ = 56 m/(Ω·mm²). Mekkora a feszültségesés voltban és százalékban? (A százalékot két tizedesre kerekítse!)",
+  "fields": [
+   {
+    "label": "ΔU",
+    "unit": "V",
+    "answer": 5,
+    "tol": 0.01
+   },
+   {
+    "label": "ε",
+    "unit": "%",
+    "answer": 2.17,
+    "tol": 0.01
+   }
+  ],
+  "explanation": "ΔU = 2·I·l·cosφ/(γ·A) = 2 · 16 A · 35 m · 1 / (56 · 4) = 1120/224 = 5 V. ε = 5/230·100 ≈ 2,17 %. A 2-es szorzó nélkül 2,5 V jönne ki – ez csak az egyik vezető esése.",
+  "source": "VeI – Vezetékek villamos méretezése, 7. fejezet (ocr/VeI-Vezetékméretezés1.txt)"
+ },
+ {
+  "id": "III-fesz-111",
+  "part": "III",
+  "topic": "feszultsegeses",
+  "type": "group",
+  "difficulty": 2,
+  "points": 6,
+  "q": "Egyfázisú (230 V) áramkörök feszültségesését számoltuk ki. A megengedett érték 3 %. Csoportosítsa az eredményeket aszerint, hogy megfelelnek-e!",
+  "groups": [
+   "megfelel (≤ 3 %)",
+   "nem felel meg (> 3 %)"
+  ],
+  "items": [
+   {
+    "text": "4,6 V",
+    "group": 0
+   },
+   {
+    "text": "6,9 V",
+    "group": 0
+   },
+   {
+    "text": "2,5 %",
+    "group": 0
+   },
+   {
+    "text": "7,2 V",
+    "group": 1
+   },
+   {
+    "text": "9 V",
+    "group": 1
+   },
+   {
+    "text": "3,5 %",
+    "group": 1
+   }
+  ],
+  "explanation": "A 3 % 230 V-on 3·230/100 = 6,9 V. A voltban megadott értékeket ehhez, a százalékosakat a 3 %-hoz hasonlítjuk: 4,6 V (2 %) és 6,9 V (pont 3 %) megfelel, 2,5 % is; 7,2 V (3,13 %), 9 V (3,91 %) és 3,5 % nem. Pontosan a határérték még megfelel (≤).",
+  "source": "VeI – Vezetékek villamos méretezése, 7. fejezet (ocr/VeI-Vezetékméretezés1.txt)"
+ },
+ {
+  "id": "III-terh-101",
+  "part": "III",
+  "topic": "terhelhetoseg",
+  "type": "number",
+  "difficulty": 1,
+  "points": 1,
+  "q": "Egy vezeték táblázati terhelhetősége 32 A. Három áramkör halad egy közös védőcsőben, ezért k<sub>2</sub> = 0,7 csoportosítási tényezővel kell számolni (más korrekció nincs). Mekkora a vezeték megengedett tartós árama?",
+  "fields": [
+   {
+    "label": "I<sub>z</sub>",
+    "unit": "A",
+    "answer": 22.4,
+    "tol": 0.01
+   }
+  ],
+  "explanation": "I<sub>z</sub> = k<sub>2</sub>·I<sub>táblázat</sub> = 0,7 · 32 A = 22,4 A. A csökkentő tényezővel szorozni kell, mert a köteg rosszabbul hűl, így kevesebbet bír a vezeték. Osztás (32/0,7 = 45,7 A) nagyobb értéket adna – ez a fordított feladatnál kell, amikor a szükséges táblázati értéket keressük.",
+  "source": "MSZ HD 60364-5-52:2011 B.52 táblázatok és csökkentő tényezők (MEE-VET 2019 méretezési előadás)"
+ },
+ {
+  "id": "III-terh-102",
+  "part": "III",
+  "topic": "terhelhetoseg",
+  "type": "single",
+  "difficulty": 1,
+  "points": 1,
+  "q": "Egy áramkör üzemi árama I<sub>B</sub> = 11 A. Melyik a legkisebb névleges áramú kismegszakító, amely üzemszerű terhelésnél nem old le? (Sor: 6, 10, 13, 16, 20 A)",
+  "options": [
+   "13 A",
+   "10 A",
+   "16 A",
+   "6 A"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "10 A < 11 A: kisebb az üzemi áramnál, tartós terhelésnél leoldana.",
+   "Megfelelhet, de nem a legkisebb: a 13 A is ≥ 11 A.",
+   "Jóval kisebb az üzemi áramnál."
+  ],
+  "explanation": "Feltétel: I<sub>n</sub> ≥ I<sub>B</sub>. A szabványos sorból az első, amelyik legalább 11 A: 13 A. (Utána ellenőrizni kell az I<sub>n</sub> ≤ I<sub>z</sub> feltételt is, hogy a vezetéket védje.)",
+  "source": "MSZ HD 60364-4-43 433.1 (régi MSZ 2364-430 5.2): IB ≤ In ≤ Iz, I2 ≤ 1,45·Iz"
+ },
+ {
+  "id": "III-terh-103",
+  "part": "III",
+  "topic": "terhelhetoseg",
+  "type": "single",
+  "difficulty": 2,
+  "points": 2,
+  "q": "Egy 3,2 kW-os egyfázisú (230 V), ohmos fogyasztót 2,5 mm²-es rézvezeték táplál (I<sub>z</sub> = 24 A). Melyik kismegszakító felel meg? (Sor: 10, 13, 16, 20, 25 A)",
+  "options": [
+   "16 A",
+   "13 A",
+   "10 A",
+   "25 A"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "13 A < 13,9 A üzemi áram: leoldana.",
+   "10 A jóval kisebb az üzemi áramnál.",
+   "25 A > 24 A = I<sub>z</sub>: a vezetéket nem védi túlterhelés ellen."
+  ],
+  "explanation": "Üzemi áram: I<sub>B</sub> = P/U = 3200 W / 230 V ≈ 13,9 A. Feltétel: I<sub>B</sub> ≤ I<sub>n</sub> ≤ I<sub>z</sub>, azaz 13,9 A ≤ I<sub>n</sub> ≤ 24 A. A legkisebb megfelelő szabványos érték 16 A (a 20 A is beleférne, de a legkisebbet választjuk, az jobban védi a vezetéket).",
+  "source": "MSZ HD 60364-4-43 433.1 (régi MSZ 2364-430 5.2): IB ≤ In ≤ Iz, I2 ≤ 1,45·Iz"
+ },
+ {
+  "id": "III-terh-104",
+  "part": "III",
+  "topic": "terhelhetoseg",
+  "type": "single",
+  "difficulty": 3,
+  "points": 2,
+  "q": "Egy egyfázisú áramkör üzemi árama I<sub>B</sub> = 22 A, védelme 25 A-es kismegszakító. Táblázat (B1 szerelési mód, 2 terhelt ér, PVC, Cu, 30 °C, korrekció nincs): 1,5 mm²: 17,5 A · 2,5 mm²: 24 A · 4 mm²: 32 A · 6 mm²: 41 A. Melyik a legkisebb megfelelő keresztmetszet?",
+  "options": [
+   "4 mm²",
+   "2,5 mm²",
+   "6 mm²",
+   "1,5 mm²"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "24 A ≥ 22 A üzemi áram, de 24 A < 25 A = I<sub>n</sub>: a kismegszakító nem védi a vezetéket.",
+   "Megfelel, de nem a legkisebb.",
+   "17,5 A még az üzemi áramnál is kisebb."
+  ],
+  "explanation": "Feltétel: I<sub>n</sub> ≤ I<sub>z</sub>, vagyis a vezetéknek legalább 25 A-t kell bírnia (nem csak a 22 A-es üzemi áramot!). 2,5 mm²: 24 A < 25 A – nem jó; 4 mm²: 32 A ≥ 25 A – jó. A csapda: az üzemi áramhoz hasonlítani a védelem helyett.",
+  "source": "MSZ HD 60364-5-52:2011 B.52 táblázatok és csökkentő tényezők (MEE-VET 2019 méretezési előadás)"
+ },
+ {
+  "id": "III-terh-105",
+  "part": "III",
+  "topic": "terhelhetoseg",
+  "type": "number",
+  "difficulty": 1,
+  "points": 2,
+  "q": "Egy 16 A-es kismegszakítóval védett vezeték 40 °C-os környezetben halad (k<sub>1</sub> = 0,87, más korrekció nincs). Legalább mekkora táblázati (30 °C-ra vonatkozó) terhelhetőségű vezeték kell? (Két tizedesre kerekítsen!)",
+  "fields": [
+   {
+    "label": "I<sub>táblázat</sub>",
+    "unit": "A",
+    "answer": 18.39,
+    "tol": 0.01
+   }
+  ],
+  "explanation": "Feltétel: k<sub>1</sub>·I<sub>táblázat</sub> ≥ I<sub>n</sub>, átrendezve I<sub>táblázat</sub> ≥ I<sub>n</sub>/k<sub>1</sub> = 16 A / 0,87 ≈ 18,39 A. Itt osztunk, mert a szükséges (korrekció előtti) értéket keressük; szorzással (13,92 A) túl vékony vezetéket választanánk.",
+  "source": "MSZ HD 60364-5-52:2011 B.52 táblázatok és csökkentő tényezők (MEE-VET 2019 méretezési előadás)"
+ },
+ {
+  "id": "III-terh-106",
+  "part": "III",
+  "topic": "terhelhetoseg",
+  "type": "truefalse",
+  "difficulty": 1,
+  "points": 4,
+  "q": "Döntse el a kismegszakító és a vezeték összehangolására vonatkozó állításokról, hogy igazak vagy hamisak!",
+  "statements": [
+   {
+    "text": "A kismegszakító túlterhelés elleni védelme elsősorban a vezetéket védi a túlmelegedéstől.",
+    "answer": true
+   },
+   {
+    "text": "Nagyobb keresztmetszetű vezeték azonos szerelési módban kisebb áramot bír tartósan.",
+    "answer": false
+   },
+   {
+    "text": "A 30 °C-nál melegebb környezet miatti k<sub>1</sub> tényező 1-nél kisebb, ezért csökkenti a terhelhetőséget.",
+    "answer": true
+   },
+   {
+    "text": "Ha az üzemi áram 14 A, a 13 A-es kismegszakító megfelel, mert a különbség kicsi.",
+    "answer": false
+   }
+  ],
+  "explanation": "A kismegszakítót a vezetékhez méretezzük: azt védi a túlmelegedéstől. Vastagabb vezető kisebb ellenállású, kevésbé melegszik, többet bír. A táblázat 30 °C-ra szól; melegebb környezetben k<sub>1</sub> < 1 (pl. 40 °C-on PVC-re 0,87), hidegebben 1 feletti is lehet. I<sub>n</sub> ≥ I<sub>B</sub> kötelező: 13 A < 14 A esetén a védelem üzem közben leold.",
+  "source": "MSZ HD 60364-4-43 433.1 (régi MSZ 2364-430 5.2): IB ≤ In ≤ Iz, I2 ≤ 1,45·Iz"
+ },
+ {
+  "id": "III-terh-107",
+  "part": "III",
+  "topic": "terhelhetoseg",
+  "type": "multi",
+  "difficulty": 2,
+  "points": 2,
+  "q": "Egy áramkör üzemi árama I<sub>B</sub> = 9 A, a vezeték megengedett tartós árama I<sub>z</sub> = 17,5 A. Mely névleges áramú kismegszakítók felelnek meg az I<sub>B</sub> ≤ I<sub>n</sub> ≤ I<sub>z</sub> feltételnek? (Több helyes válasz van; a rossz jelölés pontlevonással jár.)",
+  "options": [
+   "6 A",
+   "10 A",
+   "13 A",
+   "16 A",
+   "20 A"
+  ],
+  "answer": [
+   1,
+   2,
+   3
+  ],
+  "wrongWhy": [
+   "6 A < 9 A: üzem közben leoldana.",
+   null,
+   null,
+   null,
+   "20 A > 17,5 A: a vezetéket nem védi."
+  ],
+  "explanation": "A sáv 9 A ≤ I<sub>n</sub> ≤ 17,5 A. Ebbe a 10, a 13 és a 16 A esik bele. A 6 A az üzemi áramnál kisebb, a 20 A a vezeték terhelhetőségénél nagyobb.",
+  "source": "MSZ HD 60364-4-43 433.1 (régi MSZ 2364-430 5.2): IB ≤ In ≤ Iz, I2 ≤ 1,45·Iz"
+ },
+ {
+  "id": "III-terh-108",
+  "part": "III",
+  "topic": "terhelhetoseg",
+  "type": "single",
+  "difficulty": 1,
+  "points": 1,
+  "q": "Egy 2,5 mm²-es vezeték megengedett tartós árama a korrekciók után I<sub>z</sub> = 19,2 A, az üzemi áram I<sub>B</sub> = 15 A. Melyik kismegszakító felel meg? (Sor: 10, 13, 16, 20 A)",
+  "options": [
+   "16 A",
+   "20 A",
+   "13 A",
+   "10 A"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "20 A > 19,2 A = I<sub>z</sub>: a vezetéket nem védi túlterhelés ellen.",
+   "13 A < 15 A = I<sub>B</sub>: üzem közben leoldana.",
+   "10 A < 15 A = I<sub>B</sub>: üzem közben leoldana."
+  ],
+  "explanation": "15 A ≤ I<sub>n</sub> ≤ 19,2 A – a szabványos sorból csak a 16 A esik bele. Gyakori hiba a „megszokott” 20 A választása: a korrekció miatt csökkent terhelhetőséghez az már túl nagy.",
+  "source": "MSZ HD 60364-4-43 433.1 (régi MSZ 2364-430 5.2): IB ≤ In ≤ Iz, I2 ≤ 1,45·Iz"
+ },
+ {
+  "id": "III-terh-109",
+  "part": "III",
+  "topic": "terhelhetoseg",
+  "type": "single",
+  "difficulty": 2,
+  "points": 2,
+  "q": "Egy egyfázisú (230 V) konyhai dugaszolóaljzat-körön egyszerre üzemel egy 2000 W-os vízforraló és egy 1450 W-os kenyérpirító (mindkettő ohmos). A vezeték I<sub>z</sub> = 24 A. Melyik a legkisebb megfelelő kismegszakító? (Sor: 10, 13, 16, 20, 25 A)",
+  "options": [
+   "16 A",
+   "10 A",
+   "13 A",
+   "25 A"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "Ez csak a vízforraló áramára (8,7 A) elég; a két fogyasztó együtt üzemel.",
+   "13 A < 15 A együttes üzemi áram: leoldana.",
+   "25 A > 24 A = I<sub>z</sub>: a vezetéket nem védi."
+  ],
+  "explanation": "Az egyidejű teljesítmény 2000 + 1450 = 3450 W, az áram I<sub>B</sub> = 3450/230 = 15 A. Feltétel: 15 A ≤ I<sub>n</sub> ≤ 24 A, a legkisebb szabványos érték 16 A. Előbb a teljesítményeket adjuk össze, és csak utána osztunk.",
+  "source": "MSZ HD 60364-4-43 433.1 (régi MSZ 2364-430 5.2): IB ≤ In ≤ Iz, I2 ≤ 1,45·Iz"
+ }
+]
