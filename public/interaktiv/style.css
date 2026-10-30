@@ -231,3 +231,4 @@ table.hist td, table.hist th { padding: 6px 4px; border-bottom: 1px solid var(--
 .alap-ref { font-weight: 600; }
 section.flash { animation: flash 1.6s ease-out; border-radius: 6px; }
 @keyframes flash { from { background: #fff3c4; } to { background: transparent; } }
+.qid { margin-left: auto; font: .75rem ui-monospace, Consolas, monospace; color: var(--muted); user-select: all; }

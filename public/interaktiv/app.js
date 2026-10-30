@@ -345,7 +345,7 @@ let uid = 0; // radio group names must be unique when several questions share a 
 function renderQuestion(q, a, sh, opts, onChange) {
   const ro = !!opts.ro, show = !!opts.show, nm = `q${++uid}`;
   const wrap = h(`<div class="${ro ? 'locked' : ''}"></div>`);
-  wrap.append(h(`<div class="qmeta"><span class="pill">${esc(TYPE_NAME[q.type])}</span><span class="pill">${esc(PART[q.part]?.name || '')}</span>${opts.exam ? '' : `<span class="pill">${esc(TOPIC[q.topic]?.name || q.topic)}</span>`}<span class="pill">${q.points} pont</span></div>`));
+  wrap.append(h(`<div class="qmeta"><span class="pill">${esc(TYPE_NAME[q.type])}</span><span class="pill">${esc(PART[q.part]?.name || '')}</span>${opts.exam ? '' : `<span class="pill">${esc(TOPIC[q.topic]?.name || q.topic)}</span>`}<span class="pill">${q.points} pont</span><span class="qid" title="Kérdés azonosító – hibajelzésnél ezt add meg">#${esc(q.id)}</span></div>`));
   wrap.append(h(`<div class="qtitle">${rich(q.q)}</div>`));
   if (q.svg) { const d = h('<div class="qsvg"></div>'); d.innerHTML = q.svg; d.querySelectorAll('script').forEach(x => x.remove()); wrap.append(d); }
   const set = (patch) => { Object.assign(a, patch); onChange && onChange(); };
@@ -434,7 +434,11 @@ function renderSlots(q, a, sh, ro, show, set) {
   if (kind === 'match') { slotLabels = q.pairs.map((p, i) => `${i + 1}. ${p[0]}`); itemTexts = [...q.pairs.map(p => p[1]), ...(q.distractors || [])]; leftTitle = 'Válaszlehetőségek'; rightTitle = 'Párosítandó elemek'; }
   if (kind === 'group') { slotLabels = q.groups.map((g, i) => `${i + 1}. ${g}`); itemTexts = q.items.map(i => i.text); leftTitle = 'Csoportok'; rightTitle = 'Csoportosítandó elemek'; }
   const right = (it) => kind === 'order' ? a.pos[it] === it : kind === 'match' ? (it < q.pairs.length ? a.assign[it] === it && matchCorrect(q, a, it) : a.assign[it] == null) : a.assign[it] === q.items[it].group;
-  const wrap = h(`<div class="two"><div><h4>${leftTitle}</h4><div class="slots"></div></div><div><h4>${rightTitle}</h4><div class="pool"></div></div></div>`);
+  // KRÉTA: in matching every option takes exactly one item, so extra items stay unplaced; say so up front
+  const extra = kind === 'match' ? q.distractors?.length || 0 : 0;
+  const hint = kind === 'match' ? `Minden válaszlehetőséghez pontosan egy elem tartozik${extra ? `, ezért <b>${extra} elem kimarad</b> (egyikhez sem tartozik)` : ''}. Ha egy foglalt számot választasz, az előző elem onnan visszakerül.`
+    : kind === 'group' ? 'Egy csoportba több elem is kerülhet.' : '';
+  const wrap = h(`<div>${hint && !ro ? `<p class="small muted">${hint}</p>` : ''}<div class="two"><div><h4>${leftTitle}</h4><div class="slots"></div></div><div><h4>${rightTitle}</h4><div class="pool"></div></div></div></div>`);
   const slots = $('.slots', wrap), pool = $('.pool', wrap);
   const assign = (it, slot) => {
     const m = { ...a[key] };
@@ -866,7 +870,7 @@ const defaultOrder = q => q.type === 'single' || q.type === 'multi' ? range(q.op
 
 function mistakeDetails(q) {
   const st = S.stats[q.id];
-  const d = h(`<details class="rv"><summary><span>${rich(q.q.length > 120 ? q.q.slice(0, 120).replace(/<[^>]*$/, '') + '…' : q.q)}</span><span class="sc small muted">${st?.wrong ? `${st.wrong}× hibás` : 'részben hibás'}</span></summary><div class="inner"></div></details>`);
+  const d = h(`<details class="rv"><summary><span><span class="qid">#${esc(q.id)}</span> ${rich(q.q.length > 120 ? q.q.slice(0, 120).replace(/<[^>]*$/, '') + '…' : q.q)}</span><span class="sc small muted">${st?.wrong ? `${st.wrong}× hibás` : 'részben hibás'}</span></summary><div class="inner"></div></details>`);
   d.addEventListener('toggle', () => {
     const inner = $('.inner', d); if (!d.open || inner.childElementCount) return;
     inner.append(renderSolutionOnly(q), explanationBox(q, 0));
