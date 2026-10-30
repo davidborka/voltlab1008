@@ -1,6 +1,6 @@
 /** Alkalmazásváz: hash-alapú navigáció, téma, parancspaletta. */
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { BookOpen, ClipboardCheck, Command, Info, LayoutGrid, ListChecks, Moon, Search, Sun, Zap } from 'lucide-react';
+import { BookOpen, ClipboardCheck, Command, Info, LayoutGrid, ListChecks, Moon, Search, Sun, Users, Zap } from 'lucide-react';
 import { Button, Modal, cx, useLocal } from '../components/ui';
 import { TASKS, TASK_ORDER } from '../data/tasks';
 import { Dashboard } from '../pages/Dashboard';
@@ -16,6 +16,7 @@ export type Route =
   | { name: 'inspection' }
   | { name: 'interactive' }
   | { name: 'game' }
+  | { name: 'party' }
   | { name: 'about' };
 
 function parseHash(): Route {
@@ -29,6 +30,7 @@ function parseHash(): Route {
   if (h === 'ellenorzes') return { name: 'inspection' };
   if (h === 'interaktiv') return { name: 'interactive' };
   if (h === 'jatek') return { name: 'game' };
+  if (h === 'parti') return { name: 'party' };
   if (h === 'rolunk') return { name: 'about' };
   return { name: 'dashboard' };
 }
@@ -41,6 +43,7 @@ export function go(route: Route) {
     inspection: 'ellenorzes',
     interactive: 'interaktiv',
     game: 'jatek',
+    party: 'parti',
     about: 'rolunk',
   };
   location.hash = route.name === 'task' ? `/feladat/${route.id}${route.exam ? '/vizsga' : ''}` : `/${map[route.name]}`;
@@ -91,6 +94,7 @@ export function App() {
     { name: 'dashboard' as const, label: 'Feladatok', icon: LayoutGrid },
     { name: 'interactive' as const, label: 'Interaktív vizsga', icon: ListChecks },
     { name: 'game' as const, label: 'Legyen Ön is villanyszerelő!', icon: Zap },
+    { name: 'party' as const, label: 'Hálózatépítők (online)', icon: Users },
     { name: 'library' as const, label: 'Készülékek', icon: BookOpen },
     { name: 'inspection' as const, label: 'Ellenőrzés', icon: ClipboardCheck },
     { name: 'about' as const, label: 'Névjegy', icon: Info },
@@ -152,6 +156,7 @@ export function App() {
         {route.name === 'inspection' && <Inspection />}
         {route.name === 'interactive' && <InteractiveExam />}
         {route.name === 'game' && <InteractiveExam hash="jatek" />}
+        {route.name === 'party' && <PartyGame />}
         {route.name === 'about' && <About />}
       </main>
 
@@ -174,6 +179,18 @@ function InteractiveExam({ hash }: { hash?: string }) {
   );
 }
 
+/* Online társasjáték (public/interaktiv/party.html): a telefonok PeerJS-sel, közvetlenül kapcsolódnak. */
+function PartyGame() {
+  return (
+    <iframe
+      allow="autoplay; fullscreen; clipboard-write; web-share"
+      src={`${import.meta.env.BASE_URL}interaktiv/party.html`}
+      title="Hálózatépítők – online társasjáték"
+      className="h-full w-full flex-1 border-0 bg-[#07090d]"
+    />
+  );
+}
+
 function CommandPalette({ open, onClose }: { open: boolean; onClose(): void }) {
   const [q, setQ] = useState('');
   const items = useMemo(() => {
@@ -185,6 +202,7 @@ function CommandPalette({ open, onClose }: { open: boolean; onClose(): void }) {
       })),
       { label: 'Interaktív vizsga', hint: 'KRÉTA-szerű tesztvizsga, 808 kérdés', run: () => go({ name: 'interactive' }) },
       { label: 'Legyen Ön is villanyszerelő!', hint: 'kvízjáték óvodástól Einsteinig', run: () => go({ name: 'game' }) },
+      { label: 'Hálózatépítők (online)', hint: 'társasjáték telefonokon, 2–5 fő', run: () => go({ name: 'party' }) },
       { label: 'Készülékkönyvtár', hint: 'szimbólumok és kapcsok', run: () => go({ name: 'library' }) },
       { label: 'Ellenőrzési lista', hint: 'mérés és dokumentálás', run: () => go({ name: 'inspection' }) },
       { label: 'Névjegy és biztonság', hint: 'forrás, felelősség', run: () => go({ name: 'about' }) },

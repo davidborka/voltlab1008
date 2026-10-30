@@ -10,8 +10,10 @@ const hash = path => createHash('sha1').update(readFileSync(join(dir, path))).di
 // the 3D studio is loaded by a dynamic import inside game.js: stamp that first, so game.js's own hash includes it
 const gamePath = join(dir, 'game.js');
 writeFileSync(gamePath, readFileSync(gamePath, 'utf8').replace(/import\('\.\/game\/studio\.js(?:\?v=\w+)?'\)/, `import('./game/studio.js?v=${hash('game/studio.js')}')`));
-const file = join(dir, 'index.html');
+for (const page of ['index.html', 'party.html']) {
+const file = join(dir, page);
 const html = readFileSync(file, 'utf8').replace(/(src|href)="((?!https?:)[^"?]+\.(?:js|css))(?:\?v=[^"]*)?"/g, (_, attr, path) =>
   `${attr}="${path}?v=${hash(path)}"`);
 writeFileSync(file, html);
-console.log('stamped', [...html.matchAll(/\?v=\w+/g)].length, 'assets');
+console.log(page, 'stamped', [...html.matchAll(/\?v=\w+/g)].length, 'assets');
+}
