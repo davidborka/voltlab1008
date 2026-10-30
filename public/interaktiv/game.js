@@ -119,6 +119,7 @@ function renderGame() {
     </header>
     <aside class="sh-ladder">${RANKS.map((x, i) => `<div class="rung ${i < G.level || (i === G.level && G.state === 'right') ? 'on' : ''} ${i === G.level && G.state !== 'right' ? 'cur' : ''} ${x.cert ? 'cert' : ''}" style="--i:${i}"><span class="led"></span><span class="n">${i + 1}</span><span class="nm">${esc(x.name)}</span>${x.cert ? '<span class="badge">🎓</span>' : ''}</div>`).reverse().join('')}</aside>
     <div class="sh-host ${G.line ? 'talk' : ''}"><span class="avatar">⚡</span><div><b>Fázis Feri</b><p id="gline">${esc(G.line || '')}</p></div></div>
+    <div class="sh-spacer"></div>
     <main class="sh-panel" key="${q.id}">
       <div class="sh-meta"><span>${G.level + 1}. kérdés</span><span>Tét: <b>${esc(r.name)}</b>${r.cert ? ` · 🎓 ${esc(r.cert)}` : ''}</span>
         <span class="sh-timer ${G.state === 'ask' ? '' : 'idle'}"><svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="15.9" class="trk"/><circle cx="18" cy="18" r="15.9" class="arc" id="garc"/></svg><b id="gt">${GAME_SECS}</b></span></div>
@@ -159,6 +160,9 @@ function renderGame() {
   if (old) { stage.replaceWith(old); old.classList.remove('stage3d-keep'); el.classList.add('has3d'); }
   else loadStudio(stage).then(s => { if (s) { el.classList.add('has3d'); s.setLevel(G.level, RANKS.length); s.ask(); s.setHost?.('game/feri.glb'); } });
   if (G.state === 'ask') startGameClock();
+  // phones: the panel can be taller than the screen, so bring the buttons that matter into view
+  if (G.state === 'right') requestAnimationFrame(() => $('.sh-next', el)?.scrollIntoView({ block: 'end', behavior: 'smooth' }));
+  if (G.state === 'ask' && G.picked === null) el.scrollTop = 0;
 }
 // "Felhívom Teslát": dial, ring, Tesla picks up and explains the right answer (pre-recorded per question)
 let TESLA = null;
