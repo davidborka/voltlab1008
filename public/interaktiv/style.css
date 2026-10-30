@@ -83,7 +83,7 @@ table.hist td, table.hist th { padding: 6px 4px; border-bottom: 1px solid var(--
 .qmeta { font-size: .78rem; color: var(--muted); margin-bottom: 8px; display: flex; gap: 8px; flex-wrap: wrap; }
 .qsvg { margin: 4px 0 18px; padding: 12px; border: 1px solid var(--line); border-radius: var(--radius); background: #fff; overflow-x: auto; }
 .qsvg svg { max-width: 100%; height: auto; display: block; margin: 0 auto; color: #111; }
-.next { position: absolute; right: 40px; bottom: 30px; display: flex; gap: 8px; }
+.next { position: absolute; left: 40px; right: 40px; bottom: 30px; display: flex; gap: 8px; justify-content: flex-end; align-items: center; }
 .opts { display: grid; gap: 10px; max-width: 760px; }
 .opt { display: flex; gap: 12px; align-items: flex-start; border: 1px solid var(--line); border-radius: var(--radius); padding: 11px 14px; cursor: pointer; background: #fff; }
 .opt:hover { border-color: #c4c7cc; }
@@ -232,3 +232,4 @@ table.hist td, table.hist th { padding: 6px 4px; border-bottom: 1px solid var(--
 section.flash { animation: flash 1.6s ease-out; border-radius: 6px; }
 @keyframes flash { from { background: #fff3c4; } to { background: transparent; } }
 .qid { margin-left: auto; font: .75rem ui-monospace, Consolas, monospace; color: var(--muted); user-select: all; }
+.guess { margin-right: auto; display: inline-flex; align-items: center; gap: 6px; font-size: .9rem; cursor: pointer; user-select: none; }

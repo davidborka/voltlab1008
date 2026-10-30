@@ -125,17 +125,23 @@ function answered(q, a) {
 // ---------- learning model ----------
 // per question: n, ew (EWMA of score fraction), last, box (Leitner), due, wrong (times < 50 %)
 // S.log keeps every attempt (question, topic, score, time) for trends and the progress page.
-function record(q, frac) {
+// guess = the learner marked the answer as a guess: the score stays, but a lucky hit must not read as
+// knowledge, so the learning model sees at most GUESS_CAP and the question comes back soon
+const GUESS_CAP = 0.4;
+function record(q, real, guess = false) {
+  const frac = guess ? Math.min(real, GUESS_CAP) : real;
   const st = S.stats[q.id] || { n: 0, ew: null, box: 0, wrong: 0 };
   st.n++;
+  st.lastGuess = guess;
+  if (guess) st.guessed = (st.guessed || 0) + 1;
   st.ew = st.ew === null ? frac : 0.5 * st.ew + 0.5 * frac;
   st.lastFrac = frac;
   st.last = Date.now();
   if (frac >= 0.999) st.box = Math.min(st.box + 1, BOX_DAYS.length - 1); else st.box = 0;
-  if (frac < 0.5) st.wrong++;
+  if (real < 0.5) st.wrong++;
   st.due = st.last + BOX_DAYS[st.box] * DAY;
   S.stats[q.id] = st;
-  S.log.push({ id: q.id, t: q.topic, f: Math.round(frac * 100) / 100, ts: st.last });
+  S.log.push({ id: q.id, t: q.topic, f: Math.round(frac * 100) / 100, ts: st.last, ...(guess ? { g: 1 } : {}) });
   if (S.log.length > 5000) S.log = S.log.slice(-5000);
 }
 function topicModel() {
@@ -314,7 +320,7 @@ function finishSession() {
     const q = BY_ID[id]; if (!q) continue;
     if (s.mode === 'practice' && !s.checked[id]) continue; // practice: only what was actually checked
     const frac = grade(q, s.answers[id]);
-    if (s.mode !== 'practice') record(q, frac); // practice records on each check
+    if (s.mode !== 'practice') record(q, frac, !!s.answers[id]?.guess); // practice records on each check
     got += frac * q.points; max += q.points;
     const p = (parts[q.part] ||= { got: 0, max: 0 }); p.got += frac * q.points; p.max += q.points;
     items.push({ id, frac, a: s.answers[id] || null });
@@ -482,9 +488,10 @@ function renderSlots(q, a, sh, ro, show, set) {
   return wrap;
 }
 
-function explanationBox(q, frac) {
+function explanationBox(q, frac, guess = false) {
   const cls = frac >= 0.999 ? '' : frac > 0 ? 'part' : 'bad';
-  const head = frac >= 0.999 ? '✔ Helyes' : frac > 0 ? `◐ Részben helyes (${pct(frac)})` : '✘ Hibás';
+  const head = (frac >= 0.999 ? '✔ Helyes' : frac > 0 ? `◐ Részben helyes (${pct(frac)})` : '✘ Hibás') + (guess ? ' · 🎲 tippelve' : '');
+  if (guess && frac >= 0.999) frac = 0.5; // a lucky guess still gets the full study help
   const box = h(`<div class="feedback ${cls}"><h3>${head}</h3><div>${rich(q.explanation)}</div>${q.work ? workBox(q.work, frac < 0.999) : ''}<div class="src">Forrás: ${esc(q.source)}</div>
     <div class="row">${EXPLAINERS[q.topic] && frac < 0.999 ? `<button class="btn small learn-link">📘 Tananyag: ${esc(TOPIC[q.topic]?.name || q.topic)}</button>` : ''}
     ${q.work && EXPLAINERS.alapok ? '<button class="btn small basics-link">🧮 Matek és fizika alapok</button>' : ''}</div></div>`);
@@ -751,13 +758,18 @@ function renderSession() {
   const main = $('.main', shell);
   const ro = practice ? checked : false;
   main.append(renderQuestion(q, a, s.shuf[id] || range(q.options?.length || 0), { ro, show: practice && checked, exam: !practice }, () => save()));
-  if (practice && checked) main.append(explanationBox(q, grade(q, a)));
+  if (practice && checked) main.append(explanationBox(q, grade(q, a), a.guess));
   const nav = h('<div class="next"></div>');
+  if (!(practice && checked)) {
+    const g = h(`<label class="guess" title="A pontszámod nem változik, de a rendszer ezt a kérdést gyakorolandónak veszi."><input type="checkbox" ${a.guess ? 'checked' : ''}> 🎲 Tippeltem</label>`);
+    $('input', g).addEventListener('change', e => { a.guess = e.target.checked; save(); });
+    nav.append(g);
+  }
   if (practice && !checked) {
     const b = h('<button class="btn primary">Ellenőrzés</button>');
     b.addEventListener('click', () => {
       if (!answered(q, a)) return alertBox('Előbb adj meg egy választ — vagy lépj tovább (Átugrás).');
-      s.checked[id] = true; record(q, grade(q, a)); save(); render();
+      s.checked[id] = true; record(q, grade(q, a), !!a.guess); save(); render();
     });
     const sk = h('<button class="btn">Átugrás</button>');
     sk.addEventListener('click', () => { s.idx++; save(); render(); });
@@ -817,6 +829,7 @@ function renderResult(res) {
   const pass = ratio >= PASS;
   const verdict = ratio >= 0.8 ? 'Kiváló – ez vizsgaszinten is 80 % feletti.' : ratio >= 0.7 ? 'Elérted a 70 %-os célt.' : pass ? 'Sikeres lenne (≥40 %), de még nincs meg a 70 %-os cél.' : 'Ez most nem lenne sikeres (<40 %).';
   const wrong = res.items.filter(i => i.frac < 0.999);
+  const guessed = res.items.filter(i => i.a?.guess);
   const byTopic = {};
   for (const it of wrong) { const q = BY_ID[it.id]; if (q) byTopic[q.topic] = (byTopic[q.topic] || 0) + q.points * (1 - it.frac); }
   const lost = Object.entries(byTopic).sort((a, b) => b[1] - a[1]).slice(0, 5);
@@ -827,6 +840,7 @@ function renderResult(res) {
       : `<div class="banner bad">Az ellenőrző vizsga ${pct(ratio)} lett, a ${pct(ELIM_PASS)} még nincs meg. Nézd át lent a hibákat és a tananyagot, aztán gyakorolj újra. <button class="btn" data-learn="${E.topic}">📘 Tananyag</button> <button class="btn primary" data-elim>Újra gyakorlás</button></div>`;
   const el = h(`<div><div class="close-head">${esc(profile().name)} – ${esc(res.title)}</div><div class="close-body">
     <p class="verdict">A feladatsor befejeződött. Eredmény: <b>${pct(ratio)}</b> (${fmt(res.got)} / ${res.max} pont)<br><span style="font-size:1rem;color:${ratio >= 0.7 ? 'var(--ok)' : pass ? 'var(--accent)' : 'var(--bad)'}">${verdict}</span></p>
+    ${guessed.length ? `<p class="small">🎲 <b>${guessed.length}</b> feladatnál jelölted, hogy tippeltél, ebből <b>${guessed.filter(i => i.frac >= 0.999).length}</b> lett jó. A pontszámba beszámít, de a rendszer ezeket gyakorolandónak veszi, és hamarosan visszahozza.</p>` : ''}
     ${elimBanner}
     <div class="grid">
       <div class="card"><h3>Vizsgarészenként</h3>${TOPICS.parts.filter(p => res.parts[p.id]).map(p => { const r = res.parts[p.id], v = r.got / r.max; return `<div class="part-row"><span>${p.id}. ${esc(p.name)}</span><div class="bar ${v >= 0.7 ? 'ok' : v < PASS ? 'bad' : ''}"><i style="width:${pct(v)}"></i></div><b>${pct(v)}</b></div>`; }).join('')}
@@ -835,7 +849,7 @@ function renderResult(res) {
         ${lost.length ? '<div class="row" style="margin-top:12px"><button class="btn primary" id="drill">Gyakorold ezeket most</button></div>' : ''}</div>
     </div>
     <h2 style="margin-top:26px">Feladatok és magyarázatok</h2>
-    <div class="row" style="margin-bottom:8px"><label class="small"><input type="checkbox" id="onlyBad" checked> csak a hibás / részben hibás feladatok</label></div>
+    <div class="row" style="margin-bottom:8px"><label class="small"><input type="checkbox" id="onlyBad" checked> csak a hibás / részben hibás / tippelt feladatok</label></div>
     <div id="rvlist"></div>
     <div class="row" style="margin-top:20px;justify-content:center"><button class="btn green" data-back>Befejezés</button></div>
   </div></div>`);
@@ -844,13 +858,13 @@ function renderResult(res) {
     list.innerHTML = '';
     const only = $('#onlyBad', el).checked;
     res.items.forEach((it, n) => {
-      const q = BY_ID[it.id]; if (!q || (only && it.frac >= 0.999)) return;
-      const d = h(`<details class="rv"><summary><span class="pill ${it.frac >= 0.999 ? 'ok' : 'bad'}">${n + 1}.</span><span>${rich(q.q.length > 110 ? q.q.slice(0, 110).replace(/<[^>]*$/, '') + '…' : q.q)}</span><span class="sc small">${fmt(it.frac * q.points)} / ${q.points} p</span></summary><div class="inner"></div></details>`);
+      const q = BY_ID[it.id]; if (!q || (only && it.frac >= 0.999 && !it.a?.guess)) return;
+      const d = h(`<details class="rv"><summary><span class="pill ${it.frac >= 0.999 ? 'ok' : 'bad'}">${n + 1}.</span>${it.a?.guess ? '<span title="tippelt">🎲</span>' : ''}<span>${rich(q.q.length > 110 ? q.q.slice(0, 110).replace(/<[^>]*$/, '') + '…' : q.q)}</span><span class="sc small">${fmt(it.frac * q.points)} / ${q.points} p</span></summary><div class="inner"></div></details>`);
       d.addEventListener('toggle', () => {
         const inner = $('.inner', d); if (!d.open || inner.childElementCount) return;
         inner.append(renderQuestion(q, structuredClone(it.a || {}), defaultOrder(q), { ro: true, show: true }));
         if (!it.a || !answered(q, it.a)) inner.append(h('<p class="small" style="color:var(--bad)">Nem adtál választ.</p>'));
-        inner.append(explanationBox(q, it.frac));
+        inner.append(explanationBox(q, it.frac, it.a?.guess));
       });
       list.append(d);
     });
@@ -870,7 +884,7 @@ const defaultOrder = q => q.type === 'single' || q.type === 'multi' ? range(q.op
 
 function mistakeDetails(q) {
   const st = S.stats[q.id];
-  const d = h(`<details class="rv"><summary><span><span class="qid">#${esc(q.id)}</span> ${rich(q.q.length > 120 ? q.q.slice(0, 120).replace(/<[^>]*$/, '') + '…' : q.q)}</span><span class="sc small muted">${st?.wrong ? `${st.wrong}× hibás` : 'részben hibás'}</span></summary><div class="inner"></div></details>`);
+  const d = h(`<details class="rv"><summary><span><span class="qid">#${esc(q.id)}</span> ${rich(q.q.length > 120 ? q.q.slice(0, 120).replace(/<[^>]*$/, '') + '…' : q.q)}</span><span class="sc small muted">${st?.lastGuess && st.lastFrac >= GUESS_CAP - 1e-9 ? '🎲 tippelve' : st?.wrong ? `${st.wrong}× hibás` : 'részben hibás'}</span></summary><div class="inner"></div></details>`);
   d.addEventListener('toggle', () => {
     const inner = $('.inner', d); if (!d.open || inner.childElementCount) return;
     inner.append(renderSolutionOnly(q), explanationBox(q, 0));
