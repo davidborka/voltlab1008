@@ -27,6 +27,24 @@ ellenőrzési lista - szerver, adatbázis és regisztráció nélkül.
 Az A-D és a H feladat a vizsga gyakorlati feladatlapjainak rajzaiból készült (H: „Csillag-delta.pdf”).
 Az E, F és G kiegészítés, az I egy vizsgabeszámoló alapján készült (PEN-szétválasztás, földelési rendszerek), nem azokból származik - lásd [`docs/source-analysis.md`](docs/source-analysis.md).
 
+## Interaktív vizsga (KRÉTA-szerű tesztvizsga)
+
+Az **Interaktív vizsga** menüpont a központi interaktív vizsgatevékenység gyakorlója (KKK 4 0713 04 07,
+Épületvillamosság): 90 perc, I. Alkatrész és anyagismeret 20 %, II. Technológiai ismeret 20 %,
+III. Számítási feladatok 20 %, IV. Villamos biztonsági ismeret 40 %, sikeres ≥ 40 %.
+
+- A KRÉTA vizsgafelületet követi: Következő feladat, átlépett feladatok a végén, továbblépés után nem
+  módosítható válasz, időlejártakor automatikus befejezés, és mind a nyolc feladattípus (egyszeres és
+  többszörös választás, igaz-hamis, sorba rendezés, párosítás, csoportosítás, listából választás,
+  szám beírása) a KRÉTA pontozásával.
+- 570 saját kérdés magyarázattal; a hibás válaszlehetőségeknél azt is, miért rossz.
+- Adaptív: téma- és kérdésszintű tudásmodell, becsült vizsgaeredmény, „Gyengeségeim” vizsga,
+  térközös ismétlés, hibanapló. Az eredmény a böngészőben marad (JSON mentés/betöltés).
+
+A kérdésbank a `content/interaktiv/parts/*.json` fájlokban van (séma: `content/interaktiv/SCHEMA.md`).
+Módosítás után: `npm run interaktiv` - ellenőriz és újraírja a `public/interaktiv/data/questions.js`-t.
+Maga az oldal build nélküli (`public/interaktiv/`), a React-alkalmazás iframe-ben jeleníti meg.
+
 ## Öt tanulási mód feladatonként
 
 - **Áttekintés** - mit csinál a kapcsolás, miből áll, hogyan folyik benne az energia és a vezérlés,
