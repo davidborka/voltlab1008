@@ -31,7 +31,7 @@ const HELPS = {
 let G = null, gameTick = null, Studio = null, studioReady = null;
 
 function loadStudio(container) {
-  studioReady ||= import('./game/studio.js').then(m => m.default).catch(() => null);
+  studioReady ||= import('./game/studio.js?v=c3d334b7').then(m => m.default).catch(() => null);
   return studioReady.then(s => { if (s && container.isConnected && s.init(container)) Studio = s; else Studio = null; window.Studio3D = Studio; return Studio; });
 }
 const st3 = (fn, ...a) => { try { Studio?.[fn]?.(...a); } catch { /* the show goes on without 3D */ } };
@@ -239,13 +239,14 @@ function gameOverScreen() {
       <h1>${r ? esc(RANKS[r - 1].name) : 'Még nincs rang'}</h1>
       ${r ? `<div class="small">${esc(RANKS[r - 1].sub)}</div>` : ''}
       <div class="cert-who">${esc(profile().name)} · ${r}/${RANKS.length} fok · ${new Date().toLocaleDateString('hu-HU')}</div></div>
-    <div id="gexp"></div>
-    <div class="row" style="margin-top:16px">${back()}<button class="btn primary" id="gagain">Új játék ▶</button></div></div></div>`);
+    <div class="row" style="margin:14px 0">${back()}<button class="btn primary" id="gagain">Új játék ▶</button></div>
+    <div id="gexp"></div></div></div>`);
   if (G.kind === 'lose' && G.q) $('#gexp', el).append(h('<h3>Az utolsó kérdés megoldása</h3>'), renderSolutionOnly(G.q), explanationBox(G.q, 0));
   wireBack(el);
   el.querySelectorAll('[data-back]').forEach(b => b.addEventListener('click', () => { G = null; }));
   $('#gagain', el).addEventListener('click', startGame);
   app.append(el);
+  scrollTo(0, 0);
 }
 
 if (location.hash === '#jatek') goView({ name: 'game' });
