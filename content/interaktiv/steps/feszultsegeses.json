@@ -1,0 +1,421 @@
+{
+ "III-fesz-001": {
+  "given": ["egyfázisú kör, U = 230 V", "ε<sub>meg</sub> = 3 % (megengedett feszültségesés)"],
+  "steps": [
+   { "do": "Mit keresünk? Hány voltot „veszíthet” a vezeték, ha a 230 V-nak legfeljebb 3 %-a eshet rajta.",
+     "why": "A százalék mindig egy egészhez viszonyít; egyfázisú körben a fogyasztó az L és az N között 230 V-ot kap, ez az egész (Alapok: M4 Százalék)." },
+   { "do": "A százalékot voltba váltjuk: rész = százalék · egész / 100.", "calc": "ΔU<sub>meg</sub> = 3·230 V/100 = 6,9 V",
+     "why": "3 % = 3 század rész (Alapok: M4 Százalék)." },
+   { "do": "Ez a teljes áramkörre (fázis- és nullavezető együtt) vonatkozik; egy vezetőre ennek a fele jut.", "calc": "6,9 V/2 = 3,45 V (egy vezetőre)",
+     "why": "Az áram oda-vissza folyik, a két egyforma vezetőn ugyanakkora feszültség esik (Alapok: F4 Soros és párhuzamos kapcsolás)." }
+  ],
+  "check": "Visszafelé: 6,9 V/230 V·100 = 3 %. Fejben: 1 % = 2,3 V, 3 % = 3·2,3 V = 6,9 V."
+ },
+ "III-fesz-002": {
+  "given": ["3×400/230 V hálózat (vonali 400 V, fázis 230 V)", "ε<sub>meg</sub> = 1 %"],
+  "steps": [
+   { "do": "Mit keresünk? Az 1 %-os határt voltban, kétféle „egészhez” mérve: a két fázisvezető közötti 400 V-hoz és a fázis–nulla közötti 230 V-hoz.",
+     "why": "Háromfázisú hálózatban két feszültség van: a vonali (L–L) √3-szor nagyobb a fázisfeszültségnél (L–N) (Alapok: F8 Háromfázisú rendszer)." },
+   { "do": "Vonali feszültségre:", "calc": "ΔU<sub>vonali</sub> = 1·400 V/100 = 4,0 V",
+     "why": "Ehhez hasonlítjuk a √3·I·l·cosφ/(γ·A) képlet eredményét, mert az is két fázisvezető közötti feszültség (Alapok: M4 Százalék)." },
+   { "do": "Fázisfeszültségre:", "calc": "ΔU<sub>fázis</sub> = 1·230 V/100 = 2,3 V",
+     "why": "Ehhez hasonlítjuk a fázisonkénti I·l·cosφ/(γ·A) esést (Alapok: M4 Százalék)." },
+   { "do": "A két érték ugyanazt a %-ot jelenti, csak más alapra.", "calc": "4,0 V/2,3 V = 1,74 ≈ √3",
+     "why": "A feszültség is és az esés is ugyanazzal a √3-mal tér el, ezért a hányadosuk (a %) azonos (Alapok: M3 Tört, reciprok, arány, F8 Háromfázisú rendszer)." }
+  ],
+  "check": "4 V/400 V = 2,3 V/230 V = 0,01 = 1 %."
+ },
+ "III-fesz-003": {
+  "given": ["egyfázisú kör, U = 230 V", "ΔU = 5,52 V"],
+  "steps": [
+   { "do": "Mit keresünk? Az 5,52 V-os esés a 230 V-nak hányad része, százalékban kifejezve.",
+     "why": "Százalék = rész/egész·100; egyfázisú körben az egész a 230 V (Alapok: M4 Százalék)." },
+   { "do": "Hányados:", "calc": "5,52 V/230 V = 0,024",
+     "why": "V/V: a mértékegység kiesik, tiszta arányszám marad (Alapok: M1 Mértékegységek és előtagok)." },
+   { "do": "Százalékká alakítás:", "calc": "ε = 0,024·100 = 2,4 %" }
+  ],
+  "check": "Visszafelé: 2,4·230 V/100 = 5,52 V. Az 5,52 V nem 5,52 %: a 230 V 1 %-a 2,3 V, az 5,52 V ennek kb. 2,4-szerese."
+ },
+ "III-fesz-004": {
+  "given": ["egyfázisú kör, U = 230 V", "l = 25 m (nyomvonalhossz)", "A = 2,5 mm², réz, γ = 56 m/(Ω·mm²)", "I = 16 A, cosφ = 1"],
+  "steps": [
+   { "do": "Mit keresünk? Mennyi feszültség esik a két vezetőn (L és N) együtt, és ez a 230 V hány százaléka.",
+     "why": "A vezeték ellenállásán átfolyó áram feszültséget ejt, ennyivel kevesebb jut a fogyasztóra (Alapok: F3 Ellenállás és Ohm-törvény)." },
+   { "do": "Az áram oda a fázison, vissza a nullán folyik, ezért az áram útja kétszer olyan hosszú, mint a vezeték.", "calc": "l<sub>út</sub> = 2·25 m = 50 m",
+     "why": "A két vezető sorba van kötve, mindkettőn ugyanaz az áram folyik (Alapok: F4 Soros és párhuzamos kapcsolás)." },
+   { "do": "Az áramút ellenállása:", "calc": "R = l<sub>út</sub>/(γ·A) = 50 m/(56·2,5 mm²) = 50/140 = 0,3571 Ω",
+     "why": "R = l/(γ·A): γ-val és A-val osztunk; m és mm² kiesik, Ω marad (Alapok: F3 Ellenállás és Ohm-törvény, M1 Mértékegységek és előtagok)." },
+   { "do": "Ohm-törvény; cosφ = 1, mert ohmos terhelés.", "calc": "ΔU = I·R = 16 A·0,3571 Ω = 5,71 V (pontosan 800/140 = 5,714 V)",
+     "why": "U = I·R (Alapok: F3); cosφ = 1-nél az egész áram hatásos (Alapok: F7 Fáziseltolás és cosφ)." },
+   { "do": "Százalék a 230 V-hoz:", "calc": "ε = 5,714 V/230 V·100 = 2,48 %",
+     "why": "Egyfázisú kör, az egész a 230 V (Alapok: M4 Százalék)." }
+  ],
+  "check": "2,48 % a szokásos 3 %-os (6,9 V) határon belül van. 2-es szorzó nélkül 2,86 V jönne ki – az csak a fázisvezető esése."
+ },
+ "III-fesz-005": {
+  "given": ["egyfázisú, 230 V, ohmos fogyasztó (cosφ = 1)", "l = 30 m", "A = 4 mm², réz, γ = 56 m/(Ω·mm²)", "I = 20 A"],
+  "steps": [
+   { "do": "Mit keresünk? A vezeték két erén (L és N) együtt eső feszültséget, voltban.",
+     "why": "Az áram a fázisvezetőn oda, a nullán vissza folyik; mindkettő ellenállásán esik feszültség (Alapok: F3 Ellenállás és Ohm-törvény)." },
+   { "do": "Egyfázisú képlet, 2-es szorzóval, cosφ = 1:", "calc": "ΔU = 2·I·l/(γ·A)",
+     "why": "Oda-vissza: 2·l a teljes vezetőhossz (Alapok: F4 Soros és párhuzamos kapcsolás); ohmos terhelésnél cosφ = 1 (Alapok: F7 Fáziseltolás és cosφ)." },
+   { "do": "Behelyettesítés:", "calc": "ΔU = 2·20 A·30 m/(56·4 mm²) = 1200/224 = 5,36 V",
+     "why": "A·m/(m/(Ω·mm²)·mm²) = A·Ω = V (Alapok: M1 Mértékegységek és előtagok)." },
+   { "do": "Ellenőrzésül százalékban is:", "calc": "ε = 5,36 V/230 V·100 = 2,33 %",
+     "why": "A válasz voltban kell; a 2,33 a %-os érték, nem volt (Alapok: M4 Százalék)." }
+  ],
+  "check": "A 2,68 V a 2-es szorzó nélküli érték, a 2,33 a százalék, a 4,64 V a √3-as (háromfázisú) képlet – egyik sem illik egyfázisú körre."
+ },
+ "III-fesz-006": {
+  "given": ["szimmetrikus háromfázisú, ohmos (cosφ = 1), 3×400 V", "I = 25 A fázisonként (rajz)", "l = 40 m, A = 6 mm², réz, γ = 56 m/(Ω·mm²)"],
+  "steps": [
+   { "do": "Mit keresünk? A két fázisvezető közötti (vonali) feszültség csökkenését, és hogy ez a 400 V hány %-a.",
+     "why": "A háromfázisú fogyasztó a vonali feszültséget kapja (Alapok: F8 Háromfázisú rendszer)." },
+   { "do": "Miért nincs 2-es szorzó? A három egyforma, 120°-kal eltolt áram összege nulla, a nullavezetőn nem folyik áram, nincs visszavezetési esés.", "calc": "I<sub>N</sub> = 0 A",
+     "why": "Szimmetrikus terhelés (Alapok: F8 Háromfázisú rendszer)." },
+   { "do": "Egy fázisvezetőn eső feszültség:", "calc": "ΔU<sub>f</sub> = I·l/(γ·A) = 25·40/(56·6) = 1000/336 = 2,976 V",
+     "why": "ΔU = I·R, R = l/(γ·A) (Alapok: F3 Ellenállás és Ohm-törvény)." },
+   { "do": "A vonali esés ennek √3-szorosa:", "calc": "ΔU = 1,732·2,976 V = 5,15 V",
+     "why": "Ahogy 230 V·√3 = 400 V, úgy a fázisonkénti esés is √3-szorosan jelenik meg két fázis között (Alapok: F8 Háromfázisú rendszer, M5 Négyzet, gyök, π és a kör területe)." },
+   { "do": "Százalék a vonali feszültséghez:", "calc": "ε = 5,155 V/400 V·100 = 1,29 %",
+     "why": "A vonali esést a vonali 400 V-hoz mérjük (Alapok: M4 Százalék)." }
+  ],
+  "check": "Fázisonként: 2,976 V/230 V·100 = 1,29 % – ugyanaz. Ha a vonali esést 230 V-hoz mérnénk, 2,24 % jönne ki – az hibás párosítás."
+ },
+ "III-fesz-007": {
+  "given": ["P<sub>n</sub> = 7,5 kW = 7500 W (a tengelyen leadott)", "η = 88 % = 0,88; cosφ = 0,84", "3×400 V, l = 60 m, A = 4 mm², réz, γ = 56 m/(Ω·mm²)"],
+  "steps": [
+   { "do": "Mit keresünk? A kábel százalékos feszültségesését. Ehhez előbb a motor áramát kell kiszámolni.",
+     "why": "ΔU = I·R: áram nélkül nincs esés (Alapok: F3 Ellenállás és Ohm-törvény)." },
+   { "do": "A P<sub>n</sub> a tengelyen leadott teljesítmény; a hálózatból ennél többet vesz fel a motor.", "calc": "P<sub>fel</sub> = P<sub>n</sub>/η = 7500 W/0,88 = 8523 W",
+     "why": "Hatásfok = leadott/felvett, a különbség a motorban hővé válik (Alapok: F5 Munka, teljesítmény, energia, hő)." },
+   { "do": "Áram a háromfázisú teljesítményből:", "calc": "I = P<sub>fel</sub>/(√3·U·cosφ) = 8523/(1,732·400·0,84) = 8523/582,0 = 14,64 A",
+     "why": "P = √3·U·I·cosφ, I-re rendezve (Alapok: F8 Háromfázisú rendszer, F7 Fáziseltolás és cosφ, M2 Képlet átrendezése)." },
+   { "do": "Vonali esés szimmetrikus terhelésnél: √3 és cosφ.", "calc": "ΔU = 1,732·14,64·60·0,84/(56·4) = 1278/224 = 5,71 V",
+     "why": "A nullán nincs áram, a √3 a vonali átváltás; a cosφ az áram hatásos része, kábelnél a reaktancia elhanyagolható (Alapok: F8, F7)." },
+   { "do": "Százalék a 400 V-hoz:", "calc": "ε = 5,71 V/400 V·100 = 1,43 %",
+     "why": "Vonali esés ↔ vonali feszültség (Alapok: M4 Százalék)." }
+  ],
+  "check": "Fázisonként: 14,64·60·0,84/224 = 3,30 V → 3,30/230 = 1,43 %. 2-vel √3 helyett 1,65 %, cosφ nélkül 1,70 %, η nélkül 1,26 % jönne – ezek a rossz válaszok."
+ },
+ "III-fesz-008": {
+  "given": ["egyfázisú, 230 V", "I = 10 A, cosφ = 0,8 (motor, induktív terhelés)", "l = 40 m, A = 2,5 mm², réz, γ = 56 m/(Ω·mm²)"],
+  "steps": [
+   { "do": "Mit keresünk? A két vezetőn együtt eső feszültséget, a vezeték reaktanciáját elhanyagolva.",
+     "why": "Szigetelt vezeték induktív ellenállása (reaktanciája) nagyon kicsi, csak a valódi ellenállást vesszük figyelembe (Alapok: F3 Ellenállás és Ohm-törvény)." },
+   { "do": "Az áram hatásos része:", "calc": "I·cosφ = 10 A·0,8 = 8 A",
+     "why": "Motornál az áram késik a feszültséghez képest; a fogyasztó feszültségét az ellenálláson eső feszültségnek csak a feszültséggel egy ütemben lévő része csökkenti (Alapok: F7 Fáziseltolás és cosφ)." },
+   { "do": "Oda-vissza út:", "calc": "2·l = 2·40 m = 80 m",
+     "why": "Fázis- és nullavezető sorban (Alapok: F4 Soros és párhuzamos kapcsolás)." },
+   { "do": "Feszültségesés:", "calc": "ΔU = 2·l·I·cosφ/(γ·A) = 80·8/(56·2,5) = 640/140 = 4,57 V",
+     "why": "ΔU = I·R, R = l/(γ·A) (Alapok: F3 Ellenállás és Ohm-törvény)." }
+  ],
+  "check": "4,57 V/230 V = 1,99 % < 3 %. cosφ nélkül 5,71 V jönne ki – az túlbecslés."
+ },
+ "III-fesz-009": {
+  "given": ["P = 3,5 kW = 3500 W, ohmos (cosφ = 1)", "egyfázisú, U = 230 V", "l = 35 m, réz, γ = 56 m/(Ω·mm²)", "ε<sub>meg</sub> = 3 %"],
+  "steps": [
+   { "do": "Mit keresünk? A legvékonyabb vezetőt, amelyen az esés éppen 3 % (a kerekítés előtti, számított értéket).",
+     "why": "Nagyobb keresztmetszet kisebb esést ad, ezért a határesés a legkisebb megengedett keresztmetszetet adja (Alapok: M3 Tört, reciprok, arány)." },
+   { "do": "Áram a teljesítményből:", "calc": "I = P/U = 3500 W/230 V = 15,22 A",
+     "why": "P = U·I (cosφ = 1), I-re rendezve (Alapok: F5 Munka, teljesítmény, energia, hő, M2 Képlet átrendezése)." },
+   { "do": "Megengedett esés voltban:", "calc": "ΔU<sub>meg</sub> = 3·230 V/100 = 6,9 V",
+     "why": "A képletbe voltot írunk, nem százalékot (Alapok: M4 Százalék)." },
+   { "do": "A képletet A-ra rendezzük és behelyettesítünk:", "calc": "A ≥ 2·l·I/(γ·ΔU<sub>meg</sub>) = 2·35·15,22/(56·6,9) = 1065,2/386,4 = 2,76 mm²",
+     "why": "ΔU = 2·I·l/(γ·A): mindkét oldalt A-val szorozzuk, ΔU-val osztjuk (Alapok: M2 Képlet átrendezése, F3 Ellenállás és Ohm-törvény)." },
+   { "do": "Szereléshez ezt a következő szabványos értékre kerekítjük felfelé.", "calc": "2,76 mm² → 4 mm²",
+     "why": "A 2,5 mm² kisebb a szükségesnél, azon 3 %-nál több esne (Alapok: M6 Kerekítés és szabványos sorok)." }
+  ],
+  "check": "4 mm²-en: 2·35·15,22/(56·4) = 4,76 V = 2,07 % ≤ 3 %. A kérdés a számított értéket kéri: 2,76 mm²."
+ },
+ "III-fesz-010": {
+  "given": ["3×400/230 V, szimmetrikus, cosφ = 1", "P = 12 kW = 12000 W", "l = 110 m, réz, γ = 56 m/(Ω·mm²)", "ε<sub>meg</sub> = 1 % (csatlakozóvezeték)"],
+  "steps": [
+   { "do": "Mit keresünk? A legkisebb szabványos keresztmetszetet, amelyen a vonali esés legfeljebb 1 %.",
+     "why": "Nagyobb A kisebb esést ad; a határhoz tartozó A a legkisebb megengedett (Alapok: M3 Tört, reciprok, arány)." },
+   { "do": "Áram a teljesítményből:", "calc": "I = P/(√3·U) = 12000/(1,732·400) = 12000/692,8 = 17,32 A",
+     "why": "P = √3·U·I·cosφ, cosφ = 1, I-re rendezve (Alapok: F8 Háromfázisú rendszer, M2 Képlet átrendezése)." },
+   { "do": "Megengedett esés voltban, a 400 V-ból:", "calc": "ΔU<sub>meg</sub> = 1·400 V/100 = 4 V",
+     "why": "A √3-as képlet vonali esést ad, ezért a vonali feszültségből számoljuk (Alapok: M4 Százalék, F8 Háromfázisú rendszer)." },
+   { "do": "Szükséges keresztmetszet:", "calc": "A ≥ √3·l·I/(γ·ΔU<sub>meg</sub>) = 1,732·110·17,32/(56·4) = 3300/224 = 14,73 mm²",
+     "why": "A feszültségesés-képlet A-ra rendezve (Alapok: M2 Képlet átrendezése)." },
+   { "do": "Felkerekítés és visszaellenőrzés:", "calc": "14,73 → 16 mm²; ΔU = 3300/(56·16) = 3,68 V = 0,92 % ≤ 1 %",
+     "why": "A sorban 10 után 16 következik; a 10 kisebb a szükségesnél (Alapok: M6 Kerekítés és szabványos sorok)." }
+  ],
+  "check": "10 mm²-en 5,89 V = 1,47 % > 1 % – nem jó; 25 mm² megfelel, de nem a legkisebb."
+ },
+ "III-fesz-011": {
+  "given": ["egyfázisú, 230 V, I = 32 A, cosφ = 1", "l = 18 m, A = 10 mm², réz, γ = 56 m/(Ω·mm²)"],
+  "steps": [
+   { "do": "Mit keresünk? A mért fővezeték esését a 230 V százalékában.",
+     "why": "Egyfázisú kör: oda-vissza vezetés, és a fázisfeszültséghez viszonyítunk (Alapok: F4 Soros és párhuzamos kapcsolás, M4 Százalék)." },
+   { "do": "Feszültségesés voltban:", "calc": "ΔU = 2·l·I/(γ·A) = 2·18·32/(56·10) = 1152/560 = 2,057 V",
+     "why": "ΔU = I·R, a teljes vezetőhossz 2·l (Alapok: F3 Ellenállás és Ohm-törvény)." },
+   { "do": "Százalék:", "calc": "ε = 2,057 V/230 V·100 = 0,89 %",
+     "why": "Rész/egész·100 (Alapok: M4 Százalék)." }
+  ],
+  "check": "A 230 V 1 %-a 2,3 V; 2,06 V ennél kicsit kevesebb, kb. 0,9 % – stimmel."
+ },
+ "III-fesz-012": {
+  "given": ["egyfázisú, 230 V, cosφ = 1", "alumínium, γ<sub>Al</sub> = 35 m/(Ω·mm²)", "l = 30 m, A = 16 mm², I = 20 A"],
+  "steps": [
+   { "do": "Mit keresünk? Az alumínium csatlakozóvezeték két erén eső feszültséget voltban.",
+     "why": "Az alumínium rosszabb vezető a réznél, ezért a saját γ-jával (35) kell számolni (Alapok: F3 Ellenállás és Ohm-törvény)." },
+   { "do": "Egyfázisú képlet, alumínium γ-val:", "calc": "ΔU = 2·l·I/(γ<sub>Al</sub>·A) = 2·30·20/(35·16) = 1200/560 = 2,14 V",
+     "why": "Oda-vissza 2·l; a γ a nevezőben van (osztunk vele) (Alapok: F4 Soros és párhuzamos kapcsolás, M3 Tört, reciprok, arány)." },
+   { "do": "Ellenőrzésül százalékban:", "calc": "ε = 2,14 V/230 V·100 = 0,93 %",
+     "why": "Az 1 %-os csatlakozóvezeték-határon belül (Alapok: M4 Százalék)." }
+  ],
+  "check": "Rézzel (γ = 56) 1,34 V jönne ki; 2,14/1,34 = 1,6 = 56/35 – a különbség pontosan a vezetőképességek aránya."
+ },
+ "III-fesz-013": {
+  "given": ["ΔU = 2·I·l·cosφ/(γ·A) (egyfázisú)", "ΔU = √3·I·l·cosφ/(γ·A) (szimmetrikus háromfázisú)"],
+  "steps": [
+   { "do": "Mit keresünk? Minden állításnál azt, hogy a képlet szerint hogyan változik ΔU.",
+     "why": "A képlet a vezeték ellenállásából és Ohm-törvényből jön, minden állítás ebből ellenőrizhető (Alapok: F3 Ellenállás és Ohm-törvény)." },
+   { "do": "1. állítás: l és I a számlálóban van → egyenes arányosság. IGAZ. Példa: 16 A, 2,5 mm², 25 m helyett 50 m:", "calc": "2·50·16/(56·2,5) = 11,43 V = 2·5,71 V",
+     "why": "Ami a számlálóban van, annak kétszerese kétszeres eredményt ad (Alapok: M3 Tört, reciprok, arány)." },
+   { "do": "2. állítás: A a nevezőben van → fordított arányosság. IGAZ. Példa: 2,5 helyett 5 mm²:", "calc": "2·25·16/(56·5) = 2,86 V = 5,71 V/2",
+     "why": "Kétszer nagyobb nevező fele akkora hányadost ad (Alapok: M3 Tört, reciprok, arány)." },
+   { "do": "3. állítás: szimmetrikus háromfázisú terhelésnél a nullán nincs áram, nincs visszaút, a vonali átváltás √3. IGAZ.",
+     "why": "A három 120°-kal eltolt áram összege nulla (Alapok: F8 Háromfázisú rendszer)." },
+   { "do": "4. állítás: szigetelt vezetéknél a reaktancia hanyagolható el, nem a cosφ; induktív terhelésnél az I·cosφ számít. HAMIS. Példa: 10 A, cosφ = 0,8, 40 m, 2,5 mm²:", "calc": "cosφ-vel 4,57 V, nélküle 5,71 V",
+     "why": "Az esésből a feszültséggel egy irányba eső rész számít (Alapok: F7 Fáziseltolás és cosφ)." },
+   { "do": "5. állítás: γ<sub>Al</sub> = 35 &lt; γ<sub>Cu</sub> = 56, és a γ a nevezőben van, ezért alumíniumból nagyobb keresztmetszet kell. HAMIS.", "calc": "A<sub>Al</sub>/A<sub>Cu</sub> = 56/35 = 1,6",
+     "why": "Kisebb nevezőhöz nagyobb A kell ugyanakkora eredményhez (Alapok: M3 Tört, reciprok, arány)." }
+  ],
+  "check": "Helyes megoldás: igaz, igaz, igaz, hamis, hamis."
+ },
+ "III-fesz-014": {
+  "given": ["γ: vezetőképesség, A: keresztmetszet, l: nyomvonalhossz"],
+  "steps": [
+   { "do": "Mit keresünk? Minden képletnél: hány vezetőn folyik az áram (2, √3 vagy 1 a szorzó), és van-e benne cosφ.",
+     "why": "Minden képlet ΔU = I·R alakú, csak az áramút és a hatásos áram változik (Alapok: F3 Ellenállás és Ohm-törvény)." },
+   { "do": "2·I·l/(γ·A): oda-vissza (2), cosφ nincs → egyfázisú vagy egyenáramú kör, ohmos terhelés.",
+     "why": "Ohmos terhelésnél cosφ = 1, ezért elmarad (Alapok: F4 Soros és párhuzamos kapcsolás, F7 Fáziseltolás és cosφ)." },
+   { "do": "2·I·l·cosφ/(γ·A): oda-vissza és cosφ → egyfázisú kör, induktív terhelés.",
+     "why": "Induktív terhelésnél csak a hatásos áram (I·cosφ) számít (Alapok: F7 Fáziseltolás és cosφ)." },
+   { "do": "√3·I·l·cosφ/(γ·A): nincs visszaút, √3 a vonali átváltás → szimmetrikus háromfázisú terhelés, vonali esés.",
+     "why": "A nullán nincs áram; a vonali feszültség a fázisfeszültség √3-szorosa (Alapok: F8 Háromfázisú rendszer)." },
+   { "do": "I·l·cosφ/(γ·A): egy vezető, egyszeres hossz → egyetlen vezetőn (fázisonként) eső feszültség.",
+     "why": "Egy vezető ellenállása l/(γ·A) (Alapok: F3 Ellenállás és Ohm-törvény)." },
+   { "do": "A csalik: 3·I·l·cosφ/(γ·A) – ilyen szorzó nincs (√3 ≈ 1,732, nem 3); I²·l/(γ·A) – ez áram² × ellenállás, vagyis teljesítmény, nem feszültség.", "calc": "A·Ω = V, de A²·Ω = W",
+     "why": "Mértékegység-ellenőrzés (Alapok: M1 Mértékegységek és előtagok, F5 Munka, teljesítmény, energia, hő)." }
+  ],
+  "check": "Mind a négy helyes képlet áram × (hossz/(γ·A)) alakú, tehát voltot ad; csak a szorzó és a cosφ különbözik."
+ },
+ "III-fesz-015": {
+  "given": ["méretezés feszültségesésre"],
+  "steps": [
+   { "do": "Mit keresünk? A lépések logikai sorrendjét: melyik lépéshez mi kell az előzőből.",
+     "why": "Egy képletbe csak akkor helyettesíthetünk, ha minden benne lévő mennyiség ismert (Alapok: M2 Képlet átrendezése)." },
+   { "do": "1. A terhelő áram – a képletben I szerepel, nélküle nem lehet számolni.", "calc": "pl. I = P/(√3·U·cosφ), motornál P = P<sub>n</sub>/η",
+     "why": "A teljesítményből jön az áram (Alapok: F5 Munka, teljesítmény, energia, hő, F8 Háromfázisú rendszer)." },
+   { "do": "2. A megengedett esés %-ból voltba – a képlet voltot vár.", "calc": "pl. 3 %·400 V = 12 V",
+     "why": "Rész = százalék·egész/100 (Alapok: M4 Százalék)." },
+   { "do": "3. A szükséges keresztmetszet a képletből.", "calc": "A ≥ √3·I·l·cosφ/(γ·ΔU<sub>meg</sub>)",
+     "why": "A feszültségesés-képlet A-ra rendezve (Alapok: M2 Képlet átrendezése)." },
+   { "do": "4. A számítottnál nagyobb vagy egyenlő legkisebb szabványos keresztmetszet.",
+     "why": "Csak szabványos méret kapható, és lefelé kerekítve túllépné a határt (Alapok: M6 Kerekítés és szabványos sorok)." },
+   { "do": "5. Visszaellenőrzés: a választott keresztmetszeten a tényleges esés ≤ a határ." }
+  ],
+  "check": "A sorrend az adatfüggőségből jön: minden lépés az előző eredményét használja."
+ },
+ "III-fesz-016": {
+  "given": ["egyfázisú, 230 V, cosφ = 1", "A = 4 mm², réz, γ = 56 m/(Ω·mm²)", "I<sub>1</sub> = 10 A a táponttól 15 m-re", "I<sub>2</sub> = 6 A további 15 m-re (a táponttól 30 m)"],
+  "steps": [
+   { "do": "Mit keresünk? A táppont és a legtávolabbi (2.) fogyasztó közötti feszültségesést, a 230 V százalékában.",
+     "why": "A két szakasz sorba van kötve, az esésük összeadódik (Alapok: F4 Soros és párhuzamos kapcsolás)." },
+   { "do": "Szakaszáramok: az első szakaszon mindkét fogyasztó árama folyik, a másodikon csak a 2.-é.", "calc": "I<sub>a</sub> = 10 + 6 = 16 A; I<sub>b</sub> = 6 A",
+     "why": "Az áram a leágazásnál szétoszlik, de nem vész el (Alapok: F4 Soros és párhuzamos kapcsolás)." },
+   { "do": "Áramnyomatékok (áram × hossz) összege:", "calc": "Σ I·l = 16·15 + 6·15 = 240 + 90 = 330 A·m (fogyasztónként: 10·15 + 6·30 = 330 A·m)",
+     "why": "A két számítás azonos, mert a 6 A mindkét szakaszon átfolyik (Alapok: M2 Képlet átrendezése)." },
+   { "do": "Feszültségesés:", "calc": "ΔU = 2·Σ(I·l)/(γ·A) = 2·330/(56·4) = 660/224 = 2,946 V",
+     "why": "Oda-vissza vezetés, ×2 (Alapok: F3 Ellenállás és Ohm-törvény)." },
+   { "do": "Százalék:", "calc": "ε = 2,946 V/230 V·100 = 1,28 %",
+     "why": "Egyfázisú kör → 230 V (Alapok: M4 Százalék)." }
+  ],
+  "check": "Ha a 2. fogyasztót hibásan csak 15 m-re számolnánk (240 A·m), 0,93 % jönne ki. 1,28 % a 2 %-on belül van."
+ },
+ "III-fesz-017": {
+  "given": ["egyfázisú, 230 V, cosφ = 1, réz, γ = 56 m/(Ω·mm²)", "I<sub>1</sub> = 12 A a táponttól 20 m-re", "I<sub>2</sub> = 8 A további 15 m-re (a táponttól 35 m)", "ε<sub>meg</sub> = 2 % a legtávolabbi fogyasztóig"],
+  "steps": [
+   { "do": "Mit keresünk? A legkisebb szabványos keresztmetszetet, amelyen a legtávolabbi fogyasztóig az esés legfeljebb 2 %.",
+     "why": "Nagyobb A kisebb esést ad (Alapok: M3 Tört, reciprok, arány)." },
+   { "do": "Nyomatékösszeg a táponttól mért távolságokkal:", "calc": "Σ I·l = 12·20 + 8·35 = 240 + 280 = 520 A·m",
+     "why": "A távoli fogyasztó árama az első szakaszon is átfolyik, ezért a teljes 35 m-rel számít (Alapok: F4 Soros és párhuzamos kapcsolás)." },
+   { "do": "Megengedett esés voltban:", "calc": "ΔU<sub>meg</sub> = 2·230 V/100 = 4,6 V",
+     "why": "Egyfázisú kör → 230 V (Alapok: M4 Százalék)." },
+   { "do": "Szükséges keresztmetszet:", "calc": "A ≥ 2·Σ(I·l)/(γ·ΔU<sub>meg</sub>) = 2·520/(56·4,6) = 1040/257,6 = 4,04 mm²",
+     "why": "A képlet A-ra rendezve (Alapok: M2 Képlet átrendezése)." },
+   { "do": "Felkerekítés:", "calc": "4,04 mm² → 6 mm²",
+     "why": "A 4 mm² kisebb a szükségesnél; lefelé kerekíteni tilos, még hajszálnyi eltérésnél is (Alapok: M6 Kerekítés és szabványos sorok)." }
+  ],
+  "check": "4 mm²-en: 1040/224 = 4,64 V = 2,02 % > 2 %; 6 mm²-en: 1040/336 = 3,10 V = 1,35 % ≤ 2 %."
+ },
+ "III-fesz-018": {
+  "given": ["egyfázisú, 230 V, cosφ = 1", "I = 16 A, A = 2,5 mm², réz, γ = 56 m/(Ω·mm²)", "ε<sub>meg</sub> = 3 %"],
+  "steps": [
+   { "do": "Mit keresünk? A legnagyobb nyomvonalhosszt, amelynél az esés még nem haladja meg a 3 %-ot.",
+     "why": "Az esés egyenesen arányos a hosszal, a határesés a legnagyobb hosszt adja (Alapok: M3 Tört, reciprok, arány)." },
+   { "do": "Megengedett esés voltban:", "calc": "ΔU<sub>meg</sub> = 3·230 V/100 = 6,9 V",
+     "why": "Rész = százalék·egész/100 (Alapok: M4 Százalék)." },
+   { "do": "A ΔU = 2·I·l/(γ·A) képletet l-re rendezzük:", "calc": "l = ΔU<sub>meg</sub>·γ·A/(2·I)",
+     "why": "Mindkét oldalt γ·A-val szorozzuk és 2·I-vel osztjuk (Alapok: M2 Képlet átrendezése)." },
+   { "do": "Behelyettesítés:", "calc": "l = 6,9·56·2,5/(2·16) = 966/32 = 30,2 m",
+     "why": "V·m/(Ω·mm²)·mm²/A = m (Alapok: M1 Mértékegységek és előtagok)." }
+  ],
+  "check": "Visszafelé: 2·16·30,2/(56·2,5) = 6,9 V. A 60,4 m a 2-es szorzó nélküli (hibás) érték."
+ },
+ "III-fesz-019": {
+  "given": ["3×400 V, I = 32 A, cosφ = 0,85", "A = 6 mm², réz, γ = 56 m/(Ω·mm²)", "ε<sub>meg</sub> = 4 %"],
+  "steps": [
+   { "do": "Mit keresünk? A kábel legnagyobb hosszát, amelynél a vonali esés legfeljebb 4 %.",
+     "why": "Az esés a hosszal egyenesen arányos (Alapok: M3 Tört, reciprok, arány)." },
+   { "do": "Megengedett esés voltban, a vonali feszültségből:", "calc": "ΔU<sub>meg</sub> = 4·400 V/100 = 16 V",
+     "why": "A √3-as képlet vonali esést ad, ezért a 400 V-hoz tartozik (Alapok: M4 Százalék, F8 Háromfázisú rendszer)." },
+   { "do": "A ΔU = √3·I·l·cosφ/(γ·A) képletet l-re rendezzük:", "calc": "l = ΔU<sub>meg</sub>·γ·A/(√3·I·cosφ)",
+     "why": "Mindkét oldalt γ·A-val szorozzuk, √3·I·cosφ-vel osztjuk (Alapok: M2 Képlet átrendezése)." },
+   { "do": "Behelyettesítés:", "calc": "l = 16·56·6/(1,732·32·0,85) = 5376/47,11 = 114,1 m" },
+   { "do": "Egész méterre kerekítve:", "calc": "l<sub>max</sub> ≈ 114 m",
+     "why": "Felső határról van szó, ezért nem kerekítünk fölé (Alapok: M6 Kerekítés és szabványos sorok)." }
+  ],
+  "check": "Visszafelé: 1,732·32·114·0,85/(56·6) = 15,98 V ≤ 16 V. 9,2 V-tal (4 %·230 V) hibásan 66 m jönne ki."
+ },
+ "III-fesz-020": {
+  "given": ["MSZ 447, csatlakozóvezeték", "eredő méretezési teljesítménnyel terhelve, a hálózat névleges feszültségére"],
+  "steps": [
+   { "do": "Mit keresünk? Az MSZ 447 által a csatlakozóvezetékre (hálózati leágazástól a csatlakozási pontig) megengedett esést.",
+     "why": "Ez szabványi határérték: a szolgáltató hálózata és a mérő közötti, nem mért veszteséget korlátozza." },
+   { "do": "A szabvány a csatlakozóvezeték és a méretlen fővezetékek együttes esését 2 %-ban korlátozza, és ezt kettéosztja:", "calc": "2 % = 1 % (csatlakozóvezeték) + 1 % (méretlen fővezetékek együtt)",
+     "why": "A két szakasz sorba van kötve, az esésük összeadódik (Alapok: F4 Soros és párhuzamos kapcsolás)." },
+   { "do": "A csatlakozóvezetékre tehát 1 % jut; voltban:", "calc": "1 %·230 V = 2,3 V (fázisonként); 1 %·400 V = 4 V (vonali)",
+     "why": "Alapok: M4 Százalék." }
+  ],
+  "check": "A 2 % a két szakasz együttes határa, nem a csatlakozóvezetéké egyedül."
+ },
+ "III-fesz-021": {
+  "given": ["rajz: 1 csatlakozóvezeték, 2 méretlen fővezeték, 3 mért fővezeték", "MSZ 447"],
+  "steps": [
+   { "do": "Mit keresünk? Az MSZ 447 feszültségesési határait a rajz egyes szakaszaira.",
+     "why": "A szakaszok sorba kapcsolódnak, az esésük összeadódik, ezért a szabvány szakaszonként és együtt is ad határt (Alapok: F4 Soros és párhuzamos kapcsolás)." },
+   { "do": "{0}: az 1. szakasz (csatlakozóvezeték) esése legfeljebb 1 %.", "why": "MSZ 447 szabványi érték." },
+   { "do": "{1}: a méretlen fővezetékek (2.) együttesen legfeljebb 1 %." },
+   { "do": "{2}: a kettő együtt:", "calc": "1 % + 1 % = 2 %", "why": "Az összeadódó esések együttes korlátja (Alapok: M4 Százalék)." },
+   { "do": "{3}: a határ az eredő méretezési teljesítménnyel való terhelésre vonatkozik – ez az egyidejűséggel számolt legnagyobb terhelés, nem a beépített (összes készülék) teljesítmény, és nem a zárlati áram.",
+     "why": "Feszültségesést a tartós üzemi áram okoz; a zárlatot a védelem rövid időn belül bontja (Alapok: F3 Ellenállás és Ohm-törvény)." }
+  ],
+  "check": "Sorrend: 1 %, 1 %, 2 %, méretezési teljesítménnyel. A 3. (mért) szakasz már a felhasználói berendezés része."
+ },
+ "III-fesz-022": {
+  "given": ["egyfázisú, 230 V, ohmos (cosφ = 1), I = 13 A", "l = 45 m, A = 2,5 mm², réz, γ = 56 m/(Ω·mm²)"],
+  "steps": [
+   { "do": "Mit keresünk? A fogyasztóra jutó feszültséget: a táp feszültségéből levonjuk a vezetéken eső részt.",
+     "why": "Egy körben a táp feszültsége megoszlik a sorba kötött vezeték és a fogyasztó között (Alapok: F4 Soros és párhuzamos kapcsolás)." },
+   { "do": "Feszültségesés a két vezetőn:", "calc": "ΔU = 2·l·I/(γ·A) = 2·45·13/(56·2,5) = 1170/140 = 8,36 V",
+     "why": "Oda-vissza vezetés, ΔU = I·R (Alapok: F3 Ellenállás és Ohm-törvény)." },
+   { "do": "A fogyasztó feszültsége:", "calc": "U<sub>fogy</sub> = 230 V − 8,36 V = 221,64 V" }
+  ],
+  "check": "ε = 8,36/230·100 = 3,63 % > 3 % – ilyen hosszú körhöz 4 mm² ajánlott (azon 5,22 V lenne)."
+ },
+ "III-fesz-023": {
+  "given": ["egyfázisú, cosφ = 1", "l = 20 m, A = 1,5 mm², ρ = 0,0175 Ω·mm²/m", "I = 10 A"],
+  "steps": [
+   { "do": "Mit keresünk? A világítási kör két vezetőjén eső feszültséget, most fajlagos ellenállással (ρ) számolva.",
+     "why": "ρ = 1/γ, ezért ρ-val szorzunk ott, ahol γ-val osztanánk (Alapok: M3 Tört, reciprok, arány)." },
+   { "do": "Az áramút ellenállása (oda-vissza 2·l):", "calc": "R = ρ·2·l/A = 0,0175·40/1,5 = 0,4667 Ω",
+     "why": "R = ρ·l/A; Ω·mm²/m · m / mm² = Ω (Alapok: F3 Ellenállás és Ohm-törvény, F4 Soros és párhuzamos kapcsolás)." },
+   { "do": "Ohm-törvény:", "calc": "ΔU = I·R = 10 A·0,4667 Ω = 4,67 V",
+     "why": "Alapok: F3 Ellenállás és Ohm-törvény." },
+   { "do": "Ellenőrzésül százalékban:", "calc": "ε = 4,67 V/230 V·100 = 2,03 % &lt; 3 % (6,9 V)",
+     "why": "Alapok: M4 Százalék." }
+  ],
+  "check": "γ-val ugyanez: 2·20·10/(57,14·1,5) = 4,67 V, mert γ = 1/0,0175 = 57,14. A 2,33 V a 2-es szorzó nélküli érték."
+ },
+ "III-fesz-024": {
+  "given": ["szimmetrikus háromfázisú, I = 20 A fázisonként", "l = 50 m, A = 6 mm², réz, ρ = 0,0175 Ω·mm²/m"],
+  "steps": [
+   { "do": "Mit keresünk? A kábelben hővé alakuló teljesítményt (veszteséget) wattban.",
+     "why": "Az ellenálláson átfolyó áram hőt termel: P = I²·R (Alapok: F5 Munka, teljesítmény, energia, hő)." },
+   { "do": "Egy ér ellenállása (egyszeres hossz, mert minden eret külön számolunk):", "calc": "R<sub>ér</sub> = ρ·l/A = 0,0175·50/6 = 0,1458 Ω",
+     "why": "Alapok: F3 Ellenállás és Ohm-törvény." },
+   { "do": "Hány ér vezet áramot? A három fázisvezető; a nullán szimmetrikus terhelésnél nincs áram.", "calc": "n = 3",
+     "why": "A három 120°-kal eltolt áram összege nulla (Alapok: F8 Háromfázisú rendszer)." },
+   { "do": "Teljes veszteség:", "calc": "P<sub>v</sub> = 3·I²·R<sub>ér</sub> = 3·20²·0,1458 = 3·400·0,1458 = 175,0 W",
+     "why": "Minden ér I²·R-t fűt, a három összeadódik (Alapok: F5 Munka, teljesítmény, energia, hő)." }
+  ],
+  "check": "Kerekítés nélkül: 3·400·0,0175·50/6 = 175,0 W; egy ér 58,3 W. Mértékegység: A²·Ω = W."
+ },
+ "III-fesz-025": {
+  "given": ["3×32 A, szimmetrikus, cosφ = 1", "l = 40 m, A = 10 mm², réz, γ = 56 m/(Ω·mm²)", "MSZ 447 határ a csatlakozóvezetékre: 1 %"],
+  "steps": [
+   { "do": "Mit keresünk? A csatlakozóvezeték %-os esését, és hogy belefér-e az 1 %-ba.",
+     "why": "Szimmetrikus háromfázisú terhelés: √3-as képlet, 400 V-hoz mérve (Alapok: F8 Háromfázisú rendszer)." },
+   { "do": "Vonali feszültségesés:", "calc": "ΔU = √3·I·l/(γ·A) = 1,732·32·40/(56·10) = 2217/560 = 3,959 V",
+     "why": "A nullán nincs áram, nincs ×2; cosφ = 1 (Alapok: F8, F3)." },
+   { "do": "Százalék a 400 V-hoz:", "calc": "ε = 3,959 V/400 V·100 = 0,99 %",
+     "why": "Vonali esés ↔ vonali feszültség (Alapok: M4 Százalék)." },
+   { "do": "Összehasonlítás a határral:", "calc": "0,99 % &lt; 1 % → megfelel, de alig marad tartalék" }
+  ],
+  "check": "Fázisonként: 32·40/560 = 2,286 V → 2,286/230 = 0,99 % – ugyanaz. Az 1,72 % a vonali esés 230 V-hoz mérve (hibás), az 1,14 % a 2-es szorzóval, a 0,57 % a fázisonkénti esés 400 V-hoz mérve."
+ },
+ "III-fesz-026": {
+  "given": ["ΔU = szorzó·I·l·cosφ/(γ·A)"],
+  "steps": [
+   { "do": "Mit keresünk? Melyik változtatás csökkenti ΔU-t a képlet szerint.",
+     "why": "Ami a számlálóban van, annak növelése növeli az esést; ami a nevezőben, annak növelése csökkenti (Alapok: M3 Tört, reciprok, arány)." },
+   { "do": "Nagyobb keresztmetszet (A a nevezőben) → kisebb ΔU: HELYES.", "calc": "pl. 2,5 → 4 mm²: ΔU·2,5/4 = 0,625·ΔU",
+     "why": "Fordított arányosság (Alapok: M3 Tört, reciprok, arány)." },
+   { "do": "Rövidebb nyomvonal (l a számlálóban) → HELYES. A hosszabb, de egyenesebb nyomvonal ROSSZ, mert csak a hossz számít, az irány nem.",
+     "why": "Egyenes arányosság a hosszal (Alapok: F3 Ellenállás és Ohm-törvény)." },
+   { "do": "Réz (γ = 56) az alumínium (γ = 35) helyett → HELYES.", "calc": "ΔU<sub>Cu</sub>/ΔU<sub>Al</sub> = 35/56 = 0,625",
+     "why": "γ a nevezőben van (Alapok: M3 Tört, reciprok, arány)." },
+   { "do": "Háromfázisú táplálás egyfázisú helyett → HELYES: azonos teljesítménynél vezetőnként harmadakkora áram, és nincs visszavezetési esés.", "calc": "I<sub>3f</sub> = P/(√3·400 V) ≈ I<sub>1f</sub>/3 → a %-os esés kb. hatodára csökken",
+     "why": "Alapok: F8 Háromfázisú rendszer." },
+   { "do": "Kisebb kismegszakító → ROSSZ: a fogyasztó ugyanannyi áramot vesz fel. Romló cosφ → ROSSZ: ugyanakkora hatásos teljesítményhez nagyobb áram kell.", "calc": "I = P/(U·cosφ): cosφ csökken → I nő",
+     "why": "Alapok: F7 Fáziseltolás és cosφ." }
+  ],
+  "check": "Helyes válaszok: nagyobb keresztmetszet, rövidebb nyomvonal, réz, háromfázisú táplálás."
+ },
+ "III-fesz-027": {
+  "given": ["háromfázisú négyvezetékes (3f+N) csatlakozóvezeték", "ε = 1 %, U<sub>f</sub> = 230 V"],
+  "steps": [
+   { "do": "Mit keresünk? Az egy (fázis)vezetőre engedett feszültségesést voltban.",
+     "why": "Az 1 %-os keret a fázis- és a nullavezetőn együtt eshet; a MEE-VET módszer ezt felosztja a vezetők között." },
+   { "do": "Az 1 % a fázisfeszültségre:", "calc": "1·230 V/100 = 2,3 V",
+     "why": "Alapok: M4 Százalék." },
+   { "do": "Ebből 75 % a fázisvezetőé, 25 % tartalék a nullavezető esésére aszimmetrikus terheléskor.", "calc": "é = 0,75·1·230/100 = 0,75·2,3 V = 1,725 V",
+     "why": "Ha a fázisok terhelése nem egyforma, a nullán is folyik áram, és azon is esik feszültség (Alapok: F8 Háromfázisú rendszer)." }
+  ],
+  "check": "1,725 V + 0,575 V (nulla tartalék) = 2,3 V. Egyfázisú kétvezetékesnél 2,3/2 = 1,15 V lenne."
+ },
+ "III-fesz-028": {
+  "given": ["alumínium, ρ<sub>Al</sub> = 0,0285 Ω·mm²/m", "l = 25 m, I = 25,3 A fázisonként, cosφ = 1", "é = 1,725 V (egy fázisvezetőre)"],
+  "steps": [
+   { "do": "Mit keresünk? A legkisebb szabványos keresztmetszetet, amelyen egy fázisvezető esése legfeljebb é = 1,725 V.",
+     "why": "é már egy vezetőre jutó határ, ezért itt nincs 2-es vagy √3-as szorzó." },
+   { "do": "Egy vezető esése I·R = ρ·l·I/A; ennek legfeljebb é-nek kell lennie. A-ra rendezve:", "calc": "A ≥ ρ·I·l/é",
+     "why": "Alapok: F3 Ellenállás és Ohm-törvény, M2 Képlet átrendezése." },
+   { "do": "Behelyettesítés:", "calc": "A ≥ 0,0285·25,3·25/1,725 = 18,03/1,725 = 10,45 mm²" },
+   { "do": "Felkerekítés:", "calc": "10,45 mm² → 16 mm²",
+     "why": "A 10 mm² kisebb a szükségesnél; a sorban a következő a 16 (Alapok: M6 Kerekítés és szabványos sorok)." }
+  ],
+  "check": "16 mm²-en: 18,03/16 = 1,13 V ≤ 1,725 V. 10 mm²-en 1,80 V > 1,725 V – nem jó."
+ },
+ "III-fesz-029": {
+  "given": ["P = 22 kW = 22000 W (hatásos), cosφ = 0,9", "szimmetrikus háromfázisú, 3×400 V", "l = 85 m, réz, γ = 56 m/(Ω·mm²)", "ε<sub>meg</sub> = 3 %"],
+  "steps": [
+   { "do": "Mit keresünk? A vezetőnkénti áramot, és a feszültségesés szerint szükséges legkisebb keresztmetszetet (számított érték).",
+     "why": "Az esés-képlethez előbb áram kell (Alapok: F3 Ellenállás és Ohm-törvény)." },
+   { "do": "Áram a hatásos teljesítményből:", "calc": "I = P/(√3·U·cosφ) = 22000/(1,732·400·0,9) = 22000/623,5 = 35,28 A",
+     "why": "P = √3·U·I·cosφ, I-re rendezve (Alapok: F8 Háromfázisú rendszer, F7 Fáziseltolás és cosφ, M2 Képlet átrendezése)." },
+   { "do": "Megengedett esés voltban (vonali):", "calc": "ΔU<sub>meg</sub> = 3·400 V/100 = 12 V",
+     "why": "Alapok: M4 Százalék." },
+   { "do": "Szükséges keresztmetszet:", "calc": "A ≥ √3·I·l·cosφ/(γ·ΔU<sub>meg</sub>) = 1,732·35,28·85·0,9/(56·12) = 4675/672 = 6,96 mm²",
+     "why": "A feszültségesés-képlet A-ra rendezve (Alapok: M2 Képlet átrendezése)." },
+   { "do": "Szereléshez felkerekítünk; a terhelhetőséget ezután külön ellenőrizni kell.", "calc": "6,96 mm² → 10 mm²",
+     "why": "Alapok: M6 Kerekítés és szabványos sorok." }
+  ],
+  "check": "I·cosφ = 22000/(1,732·400) = 31,75 A, így a cosφ kiesik: 1,732·31,75·85/672 = 6,96 mm² – ugyanaz. 10 mm²-en az esés 2,09 %."
+ }
+}

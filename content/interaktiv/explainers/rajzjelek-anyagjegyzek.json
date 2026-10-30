@@ -103,15 +103,31 @@
   "formulas": [
     {
       "f": "Valós hossz = rajzi hossz × méretarány-szorzó",
-      "note": "cm → m átváltás: ÷100"
+      "note": "cm → m átváltás: ÷100",
+      "derive": [
+        "Az 1:50 méretarány azt jelenti, hogy a rajzon minden hossz a valódi 50-ed része (Alapok: M3 Tört, reciprok, arány).",
+        "Visszafelé tehát a rajzi hosszt 50-nel kell szorozni: 12,4 cm · 50 = 620 cm.",
+        "A rajzot cm-ben mérjük, az eredményt m-ben kérik: 100 cm = 1 m, ezért ÷100 (Alapok: M1 Mértékegységek és előtagok)."
+      ]
     },
     {
       "f": "Vezeték = Σ (szakaszhossz × érszám) + érszakaszok száma × ráhagyás",
-      "note": "pl. 4 m × 3 + 1 m × 2 + 2 m × 3 = 20 m"
+      "note": "pl. 4 m × 3 + 1 m × 2 + 2 m × 3 = 20 m",
+      "derive": [
+        "Egy csőben annyi vezeték fut, ahány ér: egy 3 eres szakasz 3-szor annyi vezetéket igényel, mint a szakasz hossza.",
+        "Ezért szakaszonként hossz × érszám, és a szakaszokat összeadjuk.",
+        "A kötésekhez minden ér minden végén kell ráhagyás: érszakaszok száma × ráhagyás jön még hozzá.",
+        "Hány ér kell egy szakaszon? A kör zártságából: a fázis a kapcsolóhoz le és vissza megy, a nulla és a PE közvetlenül a fogyasztóhoz (Alapok: F4 Soros és párhuzamos kapcsolás; F11 Hibaáram útja és érintésvédelem fizikája)."
+      ]
     },
     {
       "f": "Védőcső = Σ nyomvonalszakasz × (1 + ráhagyás %)",
-      "note": "felfelé egész méterre, majd szálra: 18,5 × 1,1 = 20,35 → 21 m → 7 db 3 m-es szál"
+      "note": "felfelé egész méterre, majd szálra: 18,5 × 1,1 = 20,35 → 21 m → 7 db 3 m-es szál",
+      "derive": [
+        "A cső a nyomvonalat követi, ezért alapja a nyomvonalszakaszok összege.",
+        "A ráhagyás (ívek, vágási veszteség) százalékos: 10 % → 1 + 0,1 = 1,1-es szorzó (Alapok: M4 Százalék).",
+        "Anyagrendelésnél felfelé kerekítünk egész méterre, majd egész szálra (Alapok: M6 Kerekítés és szabványos sorok)."
+      ]
     }
   ],
   "mistakes": [

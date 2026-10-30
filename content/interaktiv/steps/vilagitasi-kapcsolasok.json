@@ -1,0 +1,140 @@
+{
+  "II-vil-001": {
+    "given": [
+      "egypólusú kapcsoló, egy lámpatest, TN-S rendszer",
+      "a: táp a dobozig; b: doboz – kapcsoló; c: doboz – lámpa",
+      "PE a lámpához megy, a kapcsolóhoz nem"
+    ],
+    "steps": [
+      {
+        "do": "Mit keresünk? Szakaszonként hány ér kell. Az alapelv: a lámpán át zárt körnek kell létrejönnie fázis → kapcsoló → lámpa → nulla → vissza a forrásig. A kapcsoló ezt a kört szakítja meg.",
+        "why": "Áram csak zárt körben folyik, a kapcsoló egy soros megszakítás a körben (Alapok: F4 Soros és párhuzamos kapcsolás)."
+      },
+      {
+        "do": "a (táp): TN-S rendszerben külön fázis, nulla és védővezető érkezik.",
+        "calc": "a = L + N + PE = 3"
+      },
+      {
+        "do": "b (doboz – kapcsoló): az egypólusú kapcsoló a fázist bontja, ezért a fázis lemegy, és kapcsolt fázisként (L′) visszajön.",
+        "calc": "b = L + L′ = 2",
+        "why": "A fázist kell bontani, hogy kikapcsolt állapotban a lámpafoglalat ne legyen feszültség alatt; a nullát nem kell a kapcsolóhoz vinni (Alapok: F2 Feszültség)."
+      },
+      {
+        "do": "c (doboz – lámpa): kapcsolt fázis, nulla (az áram visszaútja) és PE (a fém lámpatest hibavédelme).",
+        "calc": "c = L′ + N + PE = 3",
+        "why": "A PE üzemszerűen nem vezet áramot, csak testzárlatnál vezeti el a hibaáramot a védelem kioldásáig (Alapok: F11 Hibaáram útja és érintésvédelem fizikája)."
+      }
+    ],
+    "check": "Ellenőrzés: a dobozba bejön L, N, PE; a nulla és a PE közvetlenül továbbmegy a lámpához, a fázis „kitérőt tesz” a kapcsolón át. Minden ér a dobozban kötődik."
+  },
+  "II-vil-002": {
+    "given": [
+      "kétkörös csillár, csillárkapcsoló (két csoport külön és együtt is)",
+      "b: doboz – kapcsoló; c: doboz – csillár",
+      "PE a csillárhoz megy, a kapcsolóhoz nem"
+    ],
+    "steps": [
+      {
+        "do": "Mit keresünk? A b és c szakasz érszámát. A csillárkapcsoló két, közös fázisbemenetű egypólusú kapcsoló: egy fázis be, két kapcsolt fázis (L′1, L′2) ki.",
+        "why": "Két, egymástól független kört (két lámpacsoportot) csak két külön kapcsolt vezetékkel lehet külön működtetni (Alapok: F4 Soros és párhuzamos kapcsolás)."
+      },
+      {
+        "do": "b (doboz – kapcsoló): a fázis le, a két kapcsolt fázis vissza.",
+        "calc": "b = L + L′1 + L′2 = 3"
+      },
+      {
+        "do": "c (doboz – csillár): a két kapcsolt fázis, egy közös nulla és a PE.",
+        "calc": "c = L′1 + L′2 + N + PE = 4",
+        "why": "A két csoport áramának visszaútja ugyanaz a nulla lehet, mert mindkettő ugyanahhoz a forráshoz tér vissza (Alapok: F4); a PE a hibavédelem (Alapok: F11)."
+      }
+    ],
+    "check": "Ellenőrzés: egy egyszerű egypólusú kapcsoláshoz (b = 2, c = 3) képest a második lámpacsoport mindkét szakaszon egy-egy plusz kapcsolt fázist hoz: 3 és 4."
+  },
+  "II-vil-003": {
+    "given": [
+      "váltókapcsolás (két helyről), S1 és S2 a központi dobozból ágazik le",
+      "a: táp; b: S1; c: lámpa; d: S2",
+      "PE a lámpához megy, a kapcsolókhoz nem"
+    ],
+    "steps": [
+      {
+        "do": "Mit keresünk? Az a–d szakaszok érszámát. A váltókapcsolónak 3 kapcsa van: egy közös és két váltó. A két kapcsoló váltókapcsait két „korrespondáló” vezeték köti össze; a lámpa akkor ég, ha mindkét kapcsoló ugyanarra a vezetékre áll.",
+        "why": "Két út közül pontosan egyiken van zárt kör – ezért bármelyik kapcsoló átbillentése megfordítja az állapotot (Alapok: F4 Soros és párhuzamos kapcsolás)."
+      },
+      {
+        "do": "a (táp): L, N, PE.",
+        "calc": "a = 3"
+      },
+      {
+        "do": "b (S1): a fázis lemegy S1 közös kapcsára, a két váltókapocsról a két korrespondáló jön vissza a dobozba.",
+        "calc": "b = 1 + 2 = 3"
+      },
+      {
+        "do": "d (S2): a dobozból a két korrespondáló megy S2 váltókapcsaira, S2 közös kapcsáról a kapcsolt fázis jön vissza.",
+        "calc": "d = 2 + 1 = 3",
+        "why": "Mivel mindkét kapcsoló a dobozból ágazik le, a korrespondálók a dobozban kötődnek össze."
+      },
+      {
+        "do": "c (lámpa): kapcsolt fázis, nulla, PE.",
+        "calc": "c = L′ + N + PE = 3",
+        "why": "A PE a fém lámpatest hibavédelme (Alapok: F11)."
+      }
+    ],
+    "check": "Ellenőrzés: a kapcsolókhoz annyi ér fut, ahány kapcsuk van (váltó = 3). Ha a kapcsolók egymásból lennének fűzve, más számok jönnének ki – mindig a rajz topológiájából indulj ki."
+  },
+  "II-vil-004": {
+    "given": [
+      "három helyről kapcsolás: S1 és S3 váltó, S2 kereszt; mindhárom a központi dobozból ágazik le",
+      "b: S1; c: S2; d: S3; e: lámpa",
+      "PE a lámpához megy, a kapcsolókhoz nem"
+    ],
+    "steps": [
+      {
+        "do": "Mit keresünk? A b–e szakasz érszámát. Elv: a két váltókapcsoló között két korrespondáló fut; a keresztkapcsolót ezek közé iktatjuk, és ez a két vezetéket egyenesen vagy keresztben köti tovább.",
+        "why": "A kör vagy záródik, vagy nem; bármelyik kapcsoló átbillentése a másik útra tereli az áramot, így megfordítja az állapotot (Alapok: F4 Soros és párhuzamos kapcsolás)."
+      },
+      {
+        "do": "b (S1 váltó): fázis le a közös kapocsra, két korrespondáló vissza.",
+        "calc": "b = 1 + 2 = 3"
+      },
+      {
+        "do": "c (S2 kereszt): a keresztkapcsolónak 4 kapcsa van: S1 két korrespondálója be, és két korrespondáló ki S3 felé.",
+        "calc": "c = 2 + 2 = 4"
+      },
+      {
+        "do": "d (S3 váltó): két korrespondáló be, a közös kapocsról a kapcsolt fázis vissza.",
+        "calc": "d = 2 + 1 = 3"
+      },
+      {
+        "do": "e (lámpa): kapcsolt fázis, nulla, PE.",
+        "calc": "e = L′ + N + PE = 3",
+        "why": "A PE a lámpatest hibavédelme, a kapcsolóknak nincs fém érinthető testük (Alapok: F11)."
+      }
+    ],
+    "check": "Ellenőrzés: minden kapcsolóhoz annyi ér fut, ahány kapcsa van: váltó 3, kereszt 4, váltó 3."
+  },
+  "II-vil-005": {
+    "given": [
+      "fénycsöves lámpatest, <b>kétpólusú</b> kapcsoló",
+      "a kapcsoló a lámpatest feletti dobozból ágazik le",
+      "PE a lámpatesthez megy, a kapcsolóhoz nem"
+    ],
+    "steps": [
+      {
+        "do": "Mit keresünk? A doboz–kapcsoló és a doboz–lámpa szakasz érszámát. A kétpólusú kapcsoló egyszerre két vezetőt bont: a fázist és a nullát is.",
+        "why": "Ha a nullát is bontjuk, kikapcsolva a lámpatest mindkét pólusa le van választva a hálózatról (Alapok: F2 Feszültség)."
+      },
+      {
+        "do": "Doboz – kapcsoló: a fázis és a nulla is lemegy, és mindkettő kapcsoltan jön vissza.",
+        "calc": "L + N + L′ + N′ = 4",
+        "why": "Minden bontott vezető egy kapcsolóérintkezőn megy át, és egy érintkezőnek bemenete és kimenete van: 2 érintkező · 2 ér = 4 (Alapok: F4)."
+      },
+      {
+        "do": "Doboz – lámpatest: a kapcsolt fázis, a kapcsolt nulla és a PE.",
+        "calc": "L′ + N′ + PE = 3",
+        "why": "A PE nincs bontva – soha nem szabad kapcsolni, mert a hibavédelem csak folytonos védővezetővel működik (Alapok: F11)."
+      }
+    ],
+    "check": "Összevetés: egypólusú kapcsolónál a kapcsolóhoz 2 ér menne (L, L′); a nulla bontása ehhez +2 eret ad: 4. A lámpához mindkét esetben 3 ér fut."
+  }
+}

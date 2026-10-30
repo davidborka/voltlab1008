@@ -130,11 +130,23 @@
   "formulas": [
     {
       "f": "Z<sub>s</sub> · I<sub>a</sub> ≤ U<sub>0</sub>",
-      "note": "TN-rendszer, U<sub>0</sub> = 230 V"
+      "note": "TN-rendszer, U<sub>0</sub> = 230 V",
+      "derive": [
+        "Testzárlatkor a hibaáram útja: forrás → fázisvezető → test → PE → vissza a forrásba; ennek a huroknak az impedanciája Z<sub>s</sub> (Alapok: F11 Hibaáram útja és érintésvédelem fizikája).",
+        "A hurkot a fázis–föld feszültség, U<sub>0</sub> = 230 V hajtja, ezért a hibaáram I = U<sub>0</sub> / Z<sub>s</sub> (Alapok: F3 Ellenállás és Ohm-törvény).",
+        "Az előírt időn belüli lekapcsoláshoz ez az áram legalább a védőeszköz I<sub>a</sub> kioldóárama legyen: U<sub>0</sub> / Z<sub>s</sub> ≥ I<sub>a</sub>.",
+        "Mindkét oldalt Z<sub>s</sub>-sel szorozva: Z<sub>s</sub> · I<sub>a</sub> ≤ U<sub>0</sub> (Alapok: M2 Képlet átrendezése)."
+      ]
     },
     {
       "f": "R<sub>A</sub> · I<sub>Δn</sub> ≤ 50 V",
-      "note": "TT-rendszer, I<sub>Δn</sub> amperben"
+      "note": "TT-rendszer, I<sub>Δn</sub> amperben",
+      "derive": [
+        "TT-ben a hibaáram a test földelőjén (R<sub>A</sub>) át a földbe, onnan a transzformátor üzemi földelőjén vissza folyik (Alapok: F11 Hibaáram útja és érintésvédelem fizikája).",
+        "Az R<sub>A</sub>-n eső feszültség U = R<sub>A</sub> · I – ennyi feszültség alá kerül a test (Alapok: F3 Ellenállás és Ohm-törvény).",
+        "Az RCD biztosan kiold I<sub>Δn</sub>-nél; ekkor a test feszültsége ne legyen több a tartósan megengedett 50 V-nál: R<sub>A</sub> · I<sub>Δn</sub> ≤ 50 V.",
+        "Az I<sub>Δn</sub> amperben: 30 mA = 0,03 A, így R<sub>A</sub> ≤ 50 V / 0,03 A = 1666,7 Ω (Alapok: M1 Mértékegységek és előtagok; M2 Képlet átrendezése)."
+      ]
     }
   ],
   "mistakes": [

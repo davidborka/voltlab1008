@@ -1,0 +1,34 @@
+{
+  "I-kesz-025": {
+    "given": [
+      "1 db négypólusú ÁVK: 4 modul",
+      "1 db háromfázisú C16 kismegszakító: 3 modul",
+      "7 db egypólusú B kismegszakító: 1-1 modul",
+      "1 db csengőtranszformátor: 2 modul",
+      "1 db impulzusrelé: 1 modul",
+      "tartalék: 20 %"
+    ],
+    "steps": [
+      {
+        "do": "Mit keresünk? Hány „szabványos szélességű hely” (modul, kb. 17,5–18 mm) kell a sínen, hogy minden készülék elférjen, és maradjon hely a későbbi bővítésre.",
+        "why": "A moduláris készülékek szélességét modulban adják meg: egy pólus = egy modul, ezért a 4 pólusú ÁVK 4, a 3 pólusú kismegszakító 3 modul."
+      },
+      {
+        "do": "a) Összeadjuk a darabszám × modulszélesség szorzatokat. A 7 egypólusú kismegszakító 7 · 1 modul.",
+        "calc": "4 + 3 + 7·1 + 2 + 1 = 17 modul",
+        "why": "Ugyanolyan mértékegységű (modul) mennyiségeket egyszerűen összeadunk."
+      },
+      {
+        "do": "b) A 20 % tartalék azt jelenti, hogy a 17 modulhoz még a 17 modul 20 %-át hozzátesszük, vagyis 17-et 1 + 0,20 = 1,2-del szorzunk.",
+        "calc": "17 modul · 1,2 = 20,4 modul",
+        "why": "20 % = 20/100 = 0,2; az egész plusz a rész: 1 + 0,2 = 1,2 (Alapok: M4 Százalék)."
+      },
+      {
+        "do": "Fél modulhely nincs, és ha lefelé kerekítenénk (20), nem maradna meg a teljes 20 % tartalék. Ezért felfelé kerekítünk egész modulra.",
+        "calc": "20,4 → 21 modul",
+        "why": "Méretezésnél (hely, keresztmetszet, védelem) mindig felfelé kerekítünk, hogy a feltétel biztosan teljesüljön (Alapok: M6 Kerekítés és szabványos sorok)."
+      }
+    ],
+    "check": "Visszaellenőrzés: 21 modulból 17 foglalt, 4 szabad; 4/17 ≈ 0,235 = 23,5 % ≥ 20 % – megfelel, 20 modulnál csak 17,6 % lenne. A gyakorlatban a következő dobozméret a 2×12 = 24 modul."
+  }
+}

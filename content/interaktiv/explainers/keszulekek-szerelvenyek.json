@@ -121,11 +121,22 @@
   "formulas": [
     {
       "f": "I<sub>a</sub> = k · I<sub>n</sub> (B: k = 5, C: k = 10, D: k = 20)",
-      "note": "a gyors lekapcsoláshoz szükséges zárlati áram"
+      "note": "a gyors lekapcsoláshoz szükséges zárlati áram",
+      "derive": [
+        "Testzárlatkor a hibaáramot csak a hurok impedanciája korlátozza: I = U<sub>0</sub>/Z<sub>s</sub>; ez a zárlati áram (Alapok: F3 Ellenállás és Ohm-törvény; F11 Hibaáram útja és érintésvédelem fizikája).",
+        "A kismegszakítóban két kioldó van: a hőkioldó (bimetall) lassan, a melegedés alapján old, a mágneses kioldó (tekercs) pillanatszerűen, ha az áram elég nagy (Alapok: F5 Munka, teljesítmény, energia, hő; F9 Mágnesesség, indukció, transzformátor, motor).",
+        "A karakterisztika betűje megmondja, a névleges áram hányszorosánál működik biztosan a mágneses kioldó: B legfeljebb 5-szörös, C legfeljebb 10-szeres, D legfeljebb 20-szoros (MSZ EN 60898).",
+        "Ezért I<sub>a</sub> = k · I<sub>n</sub>, pl. B16: 5 · 16 A = 80 A – ennyi áram kell a 0,4 s-on belüli lekapcsoláshoz."
+      ]
     },
     {
       "f": "Modulhely = Σ modul × (1 + tartalék)",
-      "note": "felfelé kerekítve; pl. 17 × 1,2 = 20,4 → 21 modul"
+      "note": "felfelé kerekítve; pl. 17 × 1,2 = 20,4 → 21 modul",
+      "derive": [
+        "Minden moduláris készülék szélessége modulban adott (1 modul ≈ 17,5–18 mm, pólusonként általában 1 modul), ezért a helyigény a modulszámok összege: Σ modul.",
+        "A tartalékot százalékban adják meg; „20 % tartalék” = az összeg 20 %-a még hozzájön, vagyis a szorzó 1 + 0,2 = 1,2 (Alapok: M4 Százalék).",
+        "Fél modul nincs, és a tartaléknak teljesülnie kell, ezért mindig felfelé kerekítünk egész modulra (Alapok: M6 Kerekítés és szabványos sorok)."
+      ]
     }
   ],
   "mistakes": [

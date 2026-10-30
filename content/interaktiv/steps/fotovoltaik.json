@@ -1,0 +1,135 @@
+{
+  "IV-pv-003": {
+    "given": [
+      "16 modul sorba kötve (egy string)",
+      "egy modul: U<sub>oc</sub> = 49,8 V (üresjárási feszültség), I<sub>sc</sub> = 13,9 A (rövidzárási áram)"
+    ],
+    "steps": [
+      {
+        "do": "Mit keresünk? A teljes string feszültségét terhelés nélkül (U<sub>oc</sub>) és áramát rövidre zárva (I<sub>sc</sub>). Soros kapcsolásnál a modulok egymás után, egy láncban vannak, mint a sorba tett elemek egy zseblámpában.",
+        "why": "Sorba kötött forrásoknál a feszültségek összeadódnak, az áram mindegyiken ugyanaz, mert csak egy útja van (Alapok: F4 Soros és párhuzamos kapcsolás)."
+      },
+      {
+        "do": "Feszültség: 16 azonos modul feszültsége összeadódik, vagyis 16-tal szorzunk.",
+        "calc": "U<sub>oc,string</sub> = 16 · 49,8 V = 796,8 V"
+      },
+      {
+        "do": "Áram: egy láncon ugyanaz az áram folyik végig, tehát a string árama egy modul árama.",
+        "calc": "I<sub>sc,string</sub> = 13,9 A",
+        "why": "Az áram nem vész el és nem szaporodik meg egy soros körben (Alapok: F1 Töltés és áram; F4)."
+      }
+    ],
+    "check": "Nagyságrend: 16 · ~50 V ≈ 800 V – stimmel. Ha az áramot is szoroznánk (222 A), az a párhuzamos kapcsolás szabálya lenne – itt hibás."
+  },
+  "IV-pv-004": {
+    "given": [
+      "2 string párhuzamosan, stringenként 10 modul sorban",
+      "egy modul: U<sub>mpp</sub> = 41,5 V, I<sub>mpp</sub> = 13,2 A (munkaponti feszültség és áram)"
+    ],
+    "steps": [
+      {
+        "do": "Mit keresünk? A teljes napelemcsoport munkaponti feszültségét, áramát és teljesítményét. Először egy stringet számolunk (soros), aztán a két stringet együtt (párhuzamos).",
+        "why": "Soros: a feszültség adódik össze; párhuzamos: az áram adódik össze (Alapok: F4 Soros és párhuzamos kapcsolás)."
+      },
+      {
+        "do": "Egy string: 10 modul sorban, a feszültség 10-szeres, az áram egy moduléval egyezik.",
+        "calc": "U<sub>string</sub> = 10 · 41,5 V = 415 V; I<sub>string</sub> = 13,2 A"
+      },
+      {
+        "do": "Két string párhuzamosan: mindkettő ugyanarra a két pontra (az MPPT-bemenetre) csatlakozik, ezért a feszültség ugyanaz marad, az áramok a csomópontban összeadódnak.",
+        "calc": "U<sub>mpp</sub> = 415 V; I<sub>mpp</sub> = 2 · 13,2 A = 26,4 A",
+        "why": "A csomópontba befolyó áramok összege = a kifolyó áram (Alapok: F4)."
+      },
+      {
+        "do": "Teljesítmény: feszültség × áram, majd W → kW, két tizedesre kerekítve.",
+        "calc": "P = 415 V · 26,4 A = 10 956 W = 10,956 kW ≈ 10,96 kW",
+        "why": "P = U·I (Alapok: F5 Munka, teljesítmény, energia, hő); 1 kW = 1000 W (Alapok: M1 Mértékegységek és előtagok)."
+      }
+    ],
+    "check": "Visszaellenőrzés modulonként: 20 modul · 41,5 V · 13,2 A = 20 · 547,8 W = 10 956 W – ugyanaz, mert a teljesítmény a kapcsolás módjától függetlenül összeadódik."
+  },
+  "IV-pv-005": {
+    "given": [
+      "24 db modul, egyenként 455 Wp",
+      "fajlagos éves termelés: 1150 kWh/kWp (déli tájolás, Magyarország)"
+    ],
+    "steps": [
+      {
+        "do": "Mit keresünk? A rendszer névleges (csúcs-) teljesítményét és egy év alatt várható energiatermelését. A Wp („watt peak”) a modul teljesítménye szabványos vizsgálati körülmények között (STC: 1000 W/m² besugárzás, 25 °C cellahőmérséklet).",
+        "why": "A teljesítmény azt mondja meg, milyen gyorsan termel energiát; az energia = teljesítmény × idő (Alapok: F5 Munka, teljesítmény, energia, hő)."
+      },
+      {
+        "do": "Névleges teljesítmény: a modulok csúcsteljesítménye összeadódik, majd Wp → kWp.",
+        "calc": "P = 24 · 455 Wp = 10 920 Wp = 10,92 kWp",
+        "why": "Alapok: M1 Mértékegységek és előtagok – 1000 W = 1 kW."
+      },
+      {
+        "do": "Éves termelés: a fajlagos érték megmondja, hogy 1 kWp beépített teljesítmény évente hány kWh-t termel. Ezt szorozzuk a kWp-vel.",
+        "calc": "E = 10,92 kWp · 1150 kWh/kWp = 12 558 kWh",
+        "why": "kWp · kWh/kWp – a kWp kiesik, kWh marad. Az 1150 a hazai éves napsütésből és a veszteségekből adódó tapasztalati érték: mintha a rendszer évente 1150 órát járna teljes teljesítményen (Alapok: M3 Tört, reciprok, arány)."
+      }
+    ],
+    "check": "Ellenőrzés: 12 558 kWh / 10,92 kW = 1150 óra – egy évben 8760 óra van, tehát a rendszer átlagosan a névleges teljesítménye kb. 13 %-án termel. Reális."
+  },
+  "IV-pv-006": {
+    "given": [
+      "U<sub>oc,STC</sub> = 49,6 V (25 °C-on)",
+      "hőmérsékleti együttható: β = −0,27 %/°C = −0,0027 1/°C",
+      "legkisebb cellahőmérséklet: −15 °C",
+      "inverter max. DC bemeneti feszültsége: 1000 V"
+    ],
+    "steps": [
+      {
+        "do": "Mit keresünk? A modul feszültségét a leghidegebb állapotban, és hogy hány ilyen modul fér egy stringbe az inverter 1000 V-os határa alatt. A napelemcella feszültsége hidegben nő, ezért a legnagyobb feszültség télen, hideg reggelen, terhelés nélkül lép fel.",
+        "why": "A cella feszültsége hőmérsékletfüggő – az adatlap β együtthatója adja meg, hány %-kal változik 1 °C-onként; a negatív előjel azt jelenti, hogy melegedéssel csökken, hűléssel nő (Alapok: F10 Melegedés és hőmérsékletfüggés)."
+      },
+      {
+        "do": "A hőmérséklet-különbség a 25 °C-os STC-hez képest:",
+        "calc": "ΔT = −15 °C − 25 °C = −40 °C",
+        "why": "Különbséget számolunk, ezért a °C és K itt egyenértékű (Alapok: M1 Mértékegységek és előtagok)."
+      },
+      {
+        "do": "A feszültség relatív változása: β · ΔT. Két negatív szám szorzata pozitív, tehát a feszültség nő, 10,8 %-kal.",
+        "calc": "β · ΔT = (−0,0027 1/°C) · (−40 °C) = +0,108 = +10,8 %",
+        "why": "−0,27 % = −0,27/100 = −0,0027 (Alapok: M4 Százalék)."
+      },
+      {
+        "do": "Az új feszültség: az eredeti plusz a 10,8 %-a, vagyis 1,108-szoros.",
+        "calc": "U<sub>oc</sub>(−15 °C) = 49,6 V · (1 + 0,108) = 49,6 V · 1,108 = 54,96 V",
+        "why": "Alapok: M4 Százalék – százalékos növekedés = szorzás (1 + p)-vel."
+      },
+      {
+        "do": "Modulszám: sorba kötve a feszültségek összeadódnak, tehát 1000 V-ot elosztjuk egy modul hideg feszültségével, és lefelé kerekítünk.",
+        "calc": "n = 1000 V / 54,96 V = 18,2 → 18 db",
+        "why": "Soros kapcsolásban a feszültségek összeadódnak (Alapok: F4). Itt lefelé kerekítünk, mert 19 modul már túllépné a határt – a határértéket nem szabad átlépni (Alapok: M6 Kerekítés és szabványos sorok)."
+      }
+    ],
+    "check": "Visszaellenőrzés: 18 · 54,96 V = 989,3 V < 1000 V ✓; 19 · 54,96 V = 1044,2 V > 1000 V ✗. Ha 25 °C-kal számolnánk: 1000 / 49,6 = 20,2 → 20 modul, ami télen tönkretenné az invertert."
+  },
+  "IV-pv-027": {
+    "given": [
+      "3 azonos string párhuzamosan, stringenként 12 modul sorban",
+      "egy modul: U<sub>oc</sub> = 40,1 V, I<sub>sc</sub> = 11,2 A"
+    ],
+    "steps": [
+      {
+        "do": "Mit keresünk? A teljes napelemcsoport üresjárási feszültségét és rövidzárási áramát. Először egy stringet számolunk (soros), aztán a három stringet együtt (párhuzamos).",
+        "why": "Soros: feszültségek adódnak össze; párhuzamos: áramok adódnak össze (Alapok: F4 Soros és párhuzamos kapcsolás)."
+      },
+      {
+        "do": "Egy string: 12 modul sorban.",
+        "calc": "U<sub>oc,string</sub> = 12 · 40,1 V = 481,2 V; I<sub>sc,string</sub> = 11,2 A"
+      },
+      {
+        "do": "Három string párhuzamosan: a gyűjtősínen mindegyik ugyanazon a két ponton van, ezért a feszültség nem változik.",
+        "calc": "U<sub>oc,csoport</sub> = 481,2 V"
+      },
+      {
+        "do": "Az áramok a gyűjtődobozban (csomópont) összeadódnak.",
+        "calc": "I<sub>sc,csoport</sub> = 3 · 11,2 A = 33,6 A",
+        "why": "Ami a csomópontba befolyik, az ki is folyik (Alapok: F1 Töltés és áram; F4)."
+      }
+    ],
+    "check": "Teljesítmény-ellenőrzés: 36 modul · 40,1 V · 11,2 A = 16 168 W, és 481,2 V · 33,6 A = 16 168 W – egyezik. Háromnál több (vagy három) párhuzamos stringnél a string-biztosítókat is vizsgálni kell."
+  }
+}

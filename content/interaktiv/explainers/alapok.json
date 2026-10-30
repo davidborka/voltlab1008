@@ -1,0 +1,422 @@
+{
+ "topic": "alapok",
+ "title": "Matek és fizika alapok",
+ "summary": "Ez az a lépcső, amelyre az összes vizsgaképlet épül. Az általános iskolai számolásból (összeadás, szorzás, osztás) indulunk, és minden új fogalmat csak a korábbiakra építünk: előbb a matek eszközök (mértékegység, átrendezés, tört, százalék, négyzet és gyök, kerekítés), aztán a fizika (áram, feszültség, ellenállás, teljesítmény, váltakozó áram, cosφ, három fázis, motor, melegedés, hibaáram). Ha egy képletnél elakadsz, a levezetése egy ide mutató hivatkozással ér véget, például „(Alapok: F3 Ellenállás és Ohm-törvény)”.",
+ "sections": [
+  {
+   "h": "M1 Mértékegységek és előtagok",
+   "body": "<b>Hasonlat.</b> Ugyanazt a távolságot mondhatod 1 km-nek vagy 1000 m-nek: a mennyiség nem változik, csak a „csomag” mérete. Az előtag megmondja, hány alapegység van egy csomagban.<br><b>Meghatározás.</b> Minden szám mellé mértékegység tartozik; számolás előtt mindent ugyanarra az egységre kell hozni, különben a szám rossz lesz, akár ezerszeresen is.<br><b>Képlet.</b> k (kilo) = 1000, M (mega) = 1 000 000, m (milli) = 0,001, µ (mikro) = 0,000 001. Tehát 1 kW = 1000 W, 1 mA = 0,001 A, 1 kV = 1000 V, 1 µF = 0,000 001 F. Idő: 1 óra (h) = 60 perc = 3600 s. Hőmérséklet-<i>különbség</i>: 1 °C változás = 1 K változás.<br><b>Példa.</b> Egy 1200 W-os radiátor 450 percig megy. 1200 W = 1,2 kW; 450 perc = 450/60 = 7,5 h. Energia: 1,2 kW · 7,5 h = 9 kWh. Ha 20 °C-ról 70 °C-ra melegszik valami, a különbség 50 °C = 50 K.<br><b>Hol jön elő a vizsgán?</b> Szinte mindenhol: W → kW és perc → óra az energiaszámításnál, mA → A az áram-védőkapcsolónál (30 mA = 0,03 A), °C → K a hőmérsékletfüggésnél és a vízmelegítésnél.",
+   "bullets": [
+    "Keresztmetszet: 1 mm² = 0,000 001 m² (egy 1 mm × 1 mm-es négyzet). A vezetékszámításban ezért a ρ-t eleve Ω·mm²/m-ben adják meg, így a mm² maradhat mm², nem kell m²-re váltani.",
+    "Wh és kWh: 1 kWh = 1000 W · 3600 s = 3 600 000 J = 3600 kJ.",
+    "Kelvin: T(K) = t(°C) + 273,15, de a vizsga képleteiben szinte mindig csak különbség (Δt) szerepel, és az °C-ban és K-ben ugyanannyi.",
+    "Ellenőrzés: a mértékegységekkel is „számolj” – ha a végén nem az jön ki, aminek kell (pl. Ω, A, kWh), valahol hiba van."
+   ]
+  },
+  {
+   "h": "M2 Képlet átrendezése",
+   "body": "<b>Hasonlat.</b> A képlet egy kétkarú mérleg: a bal és a jobb oldal egyensúlyban van. Ha az egyik oldallal csinálsz valamit (osztod, szorzod), a másikkal is pontosan ugyanazt kell tenned, különben felborul.<br><b>Meghatározás.</b> Átrendezésnél a keresett mennyiséget úgy hagyjuk egyedül az egyik oldalon, hogy mindkét oldalon ugyanazt a műveletet végezzük el; a szorzás „ellentéte” az osztás, az összeadásé a kivonás.<br><b>Képlet.</b> Ha a = b·c, akkor mindkét oldalt c-vel osztva b = a/c, és b-vel osztva c = a/b. Ha a = b + c, akkor b = a − c.<br><b>Példa.</b> U = I·R, keressük I-t. Mindkét oldalt elosztjuk R-rel: U/R = I. Számmal: U = 230 V, R = 52,9 Ω → I = 230/52,9 = 4,35 A. Másik: R = ρ·l/A, keressük l-t. Mindkét oldalt szorozzuk A-val: R·A = ρ·l; aztán osztjuk ρ-val: l = R·A/ρ = 0,35·2,5/0,0175 = 50 m.<br><b>Hol jön elő a vizsgán?</b> Visszafelé kérdezett feladatoknál: hossz a mért ellenállásból, keresztmetszet a megengedett feszültségesésből, hőmérséklet a meleg ellenállásból, idő az energiából.",
+   "bullets": [
+    "Szabály: ami szorzóként van a keresett mellett, az a másik oldalon osztó lesz – és fordítva.",
+    "Ellenőrzés: helyettesítsd vissza az eredményt az eredeti képletbe; ha kijön a kiinduló szám, jó az átrendezés (50·0,0175/2,5 = 0,35 Ω).",
+    "Tipikus csapda: l = R·ρ/A rossz – a ρ és az A helyet cserél, ha l-t keresed."
+   ]
+  },
+  {
+   "h": "M3 Tört, reciprok, arány",
+   "body": "<b>Hasonlat.</b> Ha egy pizzát 4 felé vágsz, egy szelet 1/4. Minél több felé vágod, annál kisebb a szelet: a nevező (alsó szám) növelése csökkenti a tört értékét.<br><b>Meghatározás.</b> A reciprok „1 osztva a számmal”: 1/R. Két mennyiség <i>egyenesen arányos</i>, ha az egyik kétszerese a másik kétszeresét okozza; <i>fordítottan arányos</i>, ha kétszeres az egyik, felére csökken a másik.<br><b>Képlet.</b> Reciprok: 1/x. Ha y = k·x, y egyenesen arányos x-szel; ha y = k/x, fordítottan arányos. Két tört összege: 1/a + 1/b = (a + b)/(a·b), ezért ennek reciproka a·b/(a + b).<br><b>Példa.</b> 40 Ω és 60 Ω párhuzamosan: 1/R = 1/40 + 1/60 = 0,025 + 0,01667 = 0,04167 1/Ω, R = 1/0,04167 = 24 Ω (ugyanaz, mint 40·60/(40 + 60) = 2400/100 = 24 Ω). Réz: ρ = 0,0175, a reciproka γ = 1/0,0175 = 57,1. A vezeték ellenállása egyenesen arányos a hosszal (kétszer hosszabb → kétszer nagyobb R), és fordítottan a keresztmetszettel (kétszer vastagabb → fele akkora R).<br><b>Hol jön elő a vizsgán?</b> Párhuzamos ellenállások és földelők eredője, γ ↔ ρ átváltás, „hányszorosára változik” típusú kérdések (Cu → Al csere, kétszeres áram).",
+   "bullets": [
+    "ρ (fajlagos ellenállás) és γ (vezetőképesség) egymás reciproka: γ = 1/ρ, ρ = 1/γ. Ezért ρ a számlálóba, γ a nevezőbe kerül: R = ρ·l/A = l/(γ·A).",
+    "n egyforma tag reciprokának összege: n·(1/R), ennek reciproka R/n.",
+    "Arányos változás négyzettel: ha y = k·x², a kétszeres x négyszeres y-t ad (pl. veszteség I²·R)."
+   ]
+  },
+  {
+   "h": "M4 Százalék",
+   "body": "<b>Hasonlat.</b> A százalék azt mondja meg, hogy 100 egyforma darabra vágott egészből hány darab a rész. A „3 %” azt jelenti: minden 100-ból 3.<br><b>Meghatározás.</b> Százalék = a rész osztva az egésszel, szorozva 100-zal. Az „egész” mindig az, amihez viszonyítunk (pl. a 230 V-os névleges feszültség).<br><b>Képlet.</b> p = rész/egész · 100 (%); visszafelé rész = p·egész/100. Hatásfok: η = P<sub>le</sub>/P<sub>fel</sub> · 100 (%), veszteség = P<sub>fel</sub> − P<sub>le</sub>.<br><b>Példa.</b> 5,52 V esés 230 V-on: 5,52/230·100 = 2,4 %. A 230 V 3 %-a: 3·230/100 = 6,9 V. Motor: felvesz 5,2 kW-ot, lead 4,5 kW-ot → η = 4,5/5,2·100 = 86,5 %, veszteség 5,2 − 4,5 = 0,7 kW = 700 W. A 230 V-nál 10 %-kal kisebb feszültség: 230·0,9 = 207 V.<br><b>Hol jön elő a vizsgán?</b> Feszültségesés %-ban (1 %, 3 %, 4 % határ), motor- és vízmelegítő-hatásfok, „−10 %-os feszültség” feladatok.",
+   "bullets": [
+    "A százalékot számolás előtt alakítsd tizedes törtté: 88 % = 0,88; 3 % = 0,03.",
+    "Egyfázisú körnél az esést 230 V-hoz, háromfázisú vonali esést 400 V-hoz viszonyítjuk (1 % = 2,3 V, illetve 4 V).",
+    "A hatásfok mindig 100 %-nál kisebb; ha nagyobb jött ki, felcserélted a leadott és a felvett teljesítményt."
+   ]
+  },
+  {
+   "h": "M5 Négyzet, gyök, π és a kör területe",
+   "body": "<b>Hasonlat.</b> Egy 4 lépés oldalú négyzet alakú kertbe 4·4 = 16 négyzetlap fér: ez a négyzetre emelés. A gyök a visszafelé kérdés: hány lépés az oldala egy 16 lapos kertnek? 4. A kör a legkevesebb kerítéssel körbezárt kert, területe a sugár négyzetének kb. 3,14-szerese.<br><b>Meghatározás.</b> x² = x·x; √y az a nemnegatív szám, amelynek a négyzete y. π ≈ 3,1416 a kör kerületének és átmérőjének aránya; a kör területe r²·π.<br><b>Képlet.</b> A = r²·π, és mivel a sugár a fél átmérő (r = d/2), r² = d²/4, így <b>A = d²·π/4</b> (A: keresztmetszet mm², d: átmérő mm). √3 ≈ 1,732 (mert 1,732·1,732 ≈ 3,000), √2 ≈ 1,414. Pitagorasz-tétel derékszögű háromszögre: c² = a² + b², vagyis c = √(a² + b²).<br><b>Példa.</b> d = 1,38 mm-es rézhuzal: A = 1,38²·3,1416/4 = 1,9044·3,1416/4 = 1,496 mm² ≈ 1,5 mm². Pitagorasz: a = 10, b = 7,5 → c = √(100 + 56,25) = √156,25 = 12,5.<br><b>Hol jön elő a vizsgán?</b> Huzal keresztmetszete az átmérőből, a P–Q–S teljesítményháromszög (Pitagorasz), a √3 a háromfázisú képletekben, a √2 a csúcsértéknél, és √n az egyidejűségi tényezőben.",
+   "bullets": [
+    "Hiba: d²·π a /4 nélkül – négyszeres eredmény. Vagy r²·π-be d-t írni.",
+    "Egyenlő oldalú, 2 egység oldalú háromszög magassága Pitagorasszal √(2² − 1²) = √3 – innen jön a √3 a háromfázisú rendszerben (Alapok: F8).",
+    "Négyzet és gyök kioltja egymást: √(x²) = x (pozitív x-re)."
+   ]
+  },
+  {
+   "h": "M6 Kerekítés és szabványos sorok",
+   "body": "<b>Hasonlat.</b> Ha 2,3 pár cipő méretű lábad van, nem veszel 2-est, mert szorít: a következő <i>kapható</i> méretet veszed. Vezetéket és védelmet is csak kapható (szabványos) méretben lehet venni.<br><b>Meghatározás.</b> A részeredményeket több tizedessel visszük tovább, és csak a végén kerekítünk a kért pontosságra; méretezésnél pedig a számított értéket a biztonságos irányba igazítjuk a szabványos sorhoz.<br><b>Képlet.</b> Szokásos kerekítés: 5-től felfelé (2,345 → 2,35). Keresztmetszet: a számított A-nál nagyobb vagy egyenlő legközelebbi szabványos érték (1,5 – 2,5 – 4 – 6 – 10 – 16 – 25 – 35 – 50 – 70 – 95 mm²). Kismegszakító: I<sub>B</sub> ≤ I<sub>n</sub> ≤ I<sub>z</sub> a sorból (6 – 10 – 13 – 16 – 20 – 25 – 32 – 40 – 50 – 63 A). Megengedett legnagyobb hossz: lefelé kerekítünk.<br><b>Példa.</b> Feszültségesésre 2,76 mm² jön ki → 4 mm² (a 2,5 kevés). Áramsűrűségből 5,33 mm² → 6 mm². Üzemi áram 14 A, vezeték I<sub>z</sub> = 19,5 A → 16 A-es kismegszakító (16 ≥ 14 és 16 ≤ 19,5; a 20 A már nagyobb I<sub>z</sub>-nél). Legnagyobb hossz 114,1 m → 114 m (a 115 m már túllépné).<br><b>Hol jön elő a vizsgán?</b> Minden méretezési feladat végén; a „Két tizedesre kerekítsen!” utasításoknál; a „melyik a legkisebb megfelelő szabványos keresztmetszet” kérdéseknél.",
+   "bullets": [
+    "Ne kerekíts menet közben durván: 0,4167 helyett 0,4-gyel továbbszámolva több százalék hiba jöhet ki.",
+    "A számított keresztmetszet sosem végeredmény, ha a kérdés szabványos értéket kér – például 15,75 vagy 8 mm² nem létező méret.",
+    "Ha a feladat maga kéri egy részeredmény kerekítését (pl. e két tizedesre), azzal kell továbbszámolni."
+   ]
+  },
+  {
+   "h": "F1 Töltés és áram",
+   "body": "<b>Hasonlat.</b> Egy vízcsőben a víz mennyisége liter, az áramlás erőssége pedig liter/másodperc: ennyi víz folyik át egy keresztmetszeten egy másodperc alatt. Villamosan a „víz” a töltés, az „áramlás” az áram.<br><b>Meghatározás.</b> Az áramerősség megmutatja, mennyi töltés halad át a vezető keresztmetszetén 1 másodperc alatt.<br><b>Képlet.</b> I = Q/t, ahol I az áramerősség (amper, A), Q a töltés (coulomb, C), t az idő (s). 1 A = 1 C/s. Egy elektron töltése kb. 1,6·10<sup>−19</sup> C, tehát 1 C kb. 6,24·10<sup>18</sup> elektron. Áramsűrűség: J = I/A (A/mm²) – mennyi áram jut 1 mm² keresztmetszetre.<br><b>Példa.</b> 2 s alatt 10 C töltés halad át: I = 10/2 = 5 A. Egy 2,5 mm²-es vezetőben 20 A folyik: J = 20/2,5 = 8 A/mm².<br><b>Hol jön elő a vizsgán?</b> Az áram minden számítás kiindulópontja (áram teljesítményből, feszültségesés, védelem); közvetlenül az áramsűrűség-feladatokban.",
+   "bullets": [
+    "Áram csak zárt körben folyik: ami a fázison kimegy, annak vissza is kell jönnie (a nullán vagy hiba esetén máshol) – ez lesz az F4 és F11 alapja.",
+    "A megállapodás szerinti áramirány a + pólustól a − felé mutat; a fémben az elektronok valójában ellenkező irányba mozognak. A számításokban ez nem számít.",
+    "Vastagabb cső (nagyobb A) ugyanakkora áramnál kisebb áramsűrűséget, kisebb melegedést jelent."
+   ]
+  },
+  {
+   "h": "F2 Feszültség",
+   "body": "<b>Hasonlat.</b> A víztoronyban magasan álló víz nyomása hajtja a vizet a csőben. Nyomáskülönbség nélkül (két egyforma magasságú tartály között) nem folyik semmi. A villamos „nyomáskülönbség” a feszültség.<br><b>Meghatározás.</b> A feszültség két pont közötti különbség, amely megmutatja, mennyi munkát végez 1 C töltés, miközben az egyik pontból a másikba jut; ez hajtja az áramot.<br><b>Képlet.</b> U = W/Q, ahol U a feszültség (volt, V), W a munka (joule, J), Q a töltés (C); 1 V = 1 J/C. Feszültséget mindig <b>két pont között</b> mérünk (pl. L–N, L–PE, L1–L2).<br><b>Példa.</b> 2 C töltés halad át egy 230 V-os fogyasztón: a végzett munka W = U·Q = 230·2 = 460 J. Két 1,5 V-os elem sorba kötve 3 V-ot ad. Egy lakásban L–N között 230 V, N–PE között üzemszerűen közel 0 V mérhető.<br><b>Hol jön elő a vizsgán?</b> Fázis- és vonali feszültség (230/400 V), a vezetéken eső feszültség (a vezeték két vége közötti különbség), érintési feszültség, feszültségmentesség ellenőrzése.",
+   "bullets": [
+    "A „feszültségesés” a vezeték elején és végén mért feszültség különbsége: ennyi „nyomás” vész el a vezetékben, ennyivel kevesebb jut a fogyasztóra.",
+    "Egy pont feszültségéről csak akkor beszélhetünk, ha hozzáértjük, mihez képest (általában a földhöz vagy a nullához)."
+   ]
+  },
+  {
+   "h": "F3 Ellenállás és Ohm-törvény",
+   "body": "<b>Hasonlat.</b> A csőben a vizet a cső fala fékezi. Hosszabb cső jobban fékez, vastagabb cső könnyebben átengedi a vizet, és számít az anyag is (sima vagy érdes fal). Az ellenállás ez a „fékezés”.<br><b>Meghatározás.</b> Az ellenállás megmutatja, mekkora feszültség kell ahhoz, hogy 1 A áram folyjon; fémeknél állandó hőmérsékleten a feszültség és az áram egyenesen arányos (Ohm-törvény).<br><b>Képlet.</b> <b>U = I·R</b>, ahol U feszültség (V), I áram (A), R ellenállás (ohm, Ω); átrendezve I = U/R, R = U/I (Alapok: M2). Vezetékre: <b>R = ρ·l/A = l/(γ·A)</b>, ahol ρ a fajlagos ellenállás (Ω·mm²/m; réz 0,0175), γ = 1/ρ a vezetőképesség (m/(Ω·mm²); réz ≈ 57, számításban 56), l a vezető hossza (m), A a keresztmetszet (mm²).<br><b>Példa.</b> 40 m, 1,5 mm²-es rézvezető egy ere: R = 0,0175·40/1,5 = 0,467 Ω. Egyfázisú áramkörben az áram oda (L) és vissza (N) is megteszi a 40 m-t: R = 2·0,0175·40/1,5 = 0,933 Ω. Ha ezen 10 A folyik, a vezetéken U = 10·0,933 = 9,33 V esik.<br><b>Hol jön elő a vizsgán?</b> Vezetékellenállás, feszültségesés, földelők, fűtőellenállás árama, hurokimpedancia – szinte minden számolós feladat mögött ez áll.",
+   "bullets": [
+    "A mértékegységek kiesnek: (Ω·mm²/m)·m / mm² = Ω.",
+    "Az áramkör ellenállásánál számít, hányszor teszi meg az áram az utat: egyfázisúnál 2·l; egy ér mérésénél 1·l; a PE üzemszerűen nem vezet, nem számít.",
+    "Alumínium: ρ ≈ 0,028–0,0286 Ω·mm²/m (γ ≈ 35), kb. 1,6-szor rosszabb vezető a réznél."
+   ]
+  },
+  {
+   "h": "F4 Soros és párhuzamos kapcsolás",
+   "body": "<b>Hasonlat.</b> Ha egy csövön a víz két szűkületen halad át egymás után (soros), mindkettő fékez, a fékezés összeadódik, és ugyanannyi víz folyik át mindkettőn. Ha a cső kettéágazik (párhuzamos), a víz megoszlik, összesen több víz fér át, mint egy ágon; ami az elágazásba befolyik, az az ágakból együtt kifolyik.<br><b>Meghatározás.</b> Csomópontba befolyó áramok összege egyenlő a kifolyókéval (az áram nem vész el), és egy zárt kör mentén a feszültségek összege megegyezik a tápfeszültséggel (Kirchhoff-törvények).<br><b>Képlet.</b> Soros: I közös, U = U<sub>1</sub> + U<sub>2</sub>, R<sub>e</sub> = R<sub>1</sub> + R<sub>2</sub>. Párhuzamos: U közös, I = I<sub>1</sub> + I<sub>2</sub>, 1/R<sub>e</sub> = 1/R<sub>1</sub> + 1/R<sub>2</sub>, két ágra R<sub>e</sub> = R<sub>1</sub>·R<sub>2</sub>/(R<sub>1</sub> + R<sub>2</sub>) (Alapok: M3). Jelek: R<sub>e</sub> eredő ellenállás (Ω), U feszültség (V), I áram (A).<br><b>Példa.</b> Soros: 20 Ω és 80 Ω 230 V-on → R<sub>e</sub> = 100 Ω, I = 230/100 = 2,3 A, U<sub>1</sub> = 2,3·20 = 46 V, U<sub>2</sub> = 2,3·80 = 184 V, összesen 230 V. Párhuzamos: két 100 Ω 230 V-on → R<sub>e</sub> = 100·100/200 = 50 Ω, I = 230/50 = 4,6 A, ágonként 2,3 A.<br><b>Hol jön elő a vizsgán?</b> Vegyes kapcsolás eredője, feszültségosztó, párhuzamos földelők, és a fizikai háttér: a lakás fogyasztói párhuzamosan kapcsolódnak, az RCD a csomóponti törvényt használja (Alapok: F11).",
+   "bullets": [
+    "Soros kapcsolásban a nagyobb ellenálláson esik a nagyobb feszültség.",
+    "Párhuzamos eredő mindig kisebb a legkisebb ágnál.",
+    "Egy vezeték és a fogyasztó sorosan kapcsolódik: a vezetéken eső feszültség (Alapok: F3) hiányzik a fogyasztó feszültségéből."
+   ]
+  },
+  {
+   "h": "F5 Munka, teljesítmény, energia, hő",
+   "body": "<b>Hasonlat.</b> A vízimalom kereke annál több munkát végez, minél nagyobb a víz nyomása (feszültség) és minél több víz folyik át rajta másodpercenként (áram). A teljesítmény a munka „sebessége”, az energia az összes elvégzett munka.<br><b>Meghatározás.</b> A teljesítmény az 1 másodperc alatt átalakított energia; az energia a teljesítmény és az idő szorzata; a hatásfok a hasznos és a felvett teljesítmény aránya.<br><b>Képlet.</b> <b>P = U·I</b> (P watt, W; 1 W = 1 J/s), Ohm-törvénnyel P = I²·R = U²/R (Alapok: F3). <b>W = P·t</b> (W joule vagy kWh, t s vagy h). Melegítés: Q = m·c·Δt (Q kJ, m tömeg kg, c fajhő kJ/(kg·K), víz 4,19, Δt K). Hatásfok η = P<sub>hasznos</sub>/P<sub>felvett</sub> (Alapok: M4).<br><b>Példa.</b> 2000 W / 230 V-os fűtőtest: I = 2000/230 = 8,70 A, R = U²/P = 230²/2000 = 26,45 Ω. 207 V-on: P = 207²/26,45 = 1620 W. Vezetékveszteség: 10 A egy 0,42 Ω-os vezetékben P<sub>v</sub> = 10²·0,42 = 42 W hő. 1 liter víz 20 °C-ról 100 °C-ra: Q = 1·4,19·80 = 335,2 kJ; 2 kW-tal veszteség nélkül t = 335,2/2 = 167,6 s.<br><b>Hol jön elő a vizsgán?</b> Áram teljesítményből, napi/éves energia és költség (kWh · Ft/kWh), vízforraló és bojler hatásfoka, vezetékveszteség, motor felvett teljesítménye (P<sub>n</sub>/η).",
+   "bullets": [
+    "1 kW = 1 kJ/s, tehát 2 kW-tal másodpercenként 2 kJ hő keletkezik – ezért adható meg a melegítési idő kJ/kW = s alakban.",
+    "1 kWh = 3600 kJ: egy 1 kW-os készülék 1 órán át.",
+    "Kétszeres áram négyszeres veszteség (I², Alapok: M3)."
+   ]
+  },
+  {
+   "h": "F6 Váltakozó áram",
+   "body": "<b>Hasonlat.</b> Egy fűrészt előre-hátra húzva is vágsz, pedig a fűrész nem halad sehova. A váltakozó áramban a töltések ide-oda lengenek, és közben ugyanúgy végeznek munkát (melegítenek, forgatnak).<br><b>Meghatározás.</b> A hálózati feszültség szinusz alakban változik, másodpercenként 50 teljes lengéssel; a megadott 230 V az effektív érték, vagyis az az egyenfeszültség, amely ugyanannyi hőt fejlesztene egy ellenálláson.<br><b>Képlet.</b> f = 50 Hz (frekvencia, 1/s), periódusidő T = 1/f = 0,02 s = 20 ms. U<sub>csúcs</sub> = √2·U<sub>eff</sub> (Alapok: M5), ahol U<sub>eff</sub> az effektív érték (V). Egy periódus alatt a feszültség kétszer halad át a nullán, tehát másodpercenként 100-szor.<br><b>Példa.</b> 230 V effektív érték csúcsa: 230·1,414 = 325,3 V ≈ 325 V; a pozitív és negatív csúcs között 650,5 V. 400 V csúcsa: 400·1,414 = 565,7 V.<br><b>Hol jön elő a vizsgán?</b> Minden „230 V” és „400 V” effektív érték, ezzel számolunk teljesítményt és áramot. A csúcsérték a szigetelés és a mérőműszerek szempontjából fontos; a váltakozás teszi lehetővé a transzformátort és a forgómezőt (Alapok: F9).",
+   "bullets": [
+    "A hálózati feszültség megengedett tűrése ±10 %: 207–253 V.",
+    "A műszerek (multiméter, lakatfogó) effektív értéket mutatnak.",
+    "Egyenáramnál (DC) nincs váltakozás, nincs frekvencia; az érintési feszültség határa is más (50 V AC, 120 V DC)."
+   ]
+  },
+  {
+   "h": "F7 Fáziseltolás és cosφ",
+   "body": "<b>Hasonlat.</b> Egy uszályt a partról kötéllel húz egy ló. A ló a kötél irányában húz (látszólagos), de az uszályt csak a folyóval párhuzamos része viszi előre (hatásos); a parthoz merőleges rész csak feszíti a kötelet, nem visz előre semmit (meddő). Minél kisebb a kötél szöge, annál nagyobb a hasznos rész.<br><b>Meghatározás.</b> Tekercses fogyasztóknál (motor, transzformátor) az áram szinusza késik a feszültséghez képest egy φ szöggel; a cosφ (teljesítménytényező) megmutatja, hogy a látszólagos teljesítmény hányad része hatásos.<br><b>Képlet.</b> Látszólagos S = U·I (VA), hatásos P = U·I·cosφ (W), meddő Q = U·I·sinφ (var). A három egy derékszögű háromszöget alkot (lásd ábra): S² = P² + Q², S = √(P² + Q²) (Alapok: M5), cosφ = P/S. Ohmos fogyasztóra (fűtés, izzó) φ = 0°, cosφ = 1.<br><b>Példa.</b> Egyfázisú motor: 230 V, 6 A, cosφ = 0,78. S = 230·6 = 1380 VA; P = 1380·0,78 = 1076,4 W; sinφ = √(1 − 0,78²) = 0,626; Q = 1380·0,626 = 863,6 var (ellenőrzés: √(1380² − 1076,4²) = 863,6). Visszafelé: P = 10 kW, cosφ = 0,8 → S = 10/0,8 = 12,5 kVA, Q = 12,5·0,6 = 7,5 kvar.<br><b>Hol jön elő a vizsgán?</b> Áram teljesítményből (I = P/(U·cosφ)), motoráram, teljesítményháromszög-feladatok, és a feszültségesés képletében a cosφ szorzó.",
+   "bullets": [
+    "A vezetéket a teljes áram (I) melegíti, nem csak a hatásos része – ezért rossz cosφ-nél ugyanakkora P-hez nagyobb áram és vastagabb vezeték kell.",
+    "A feszültségesés közelítő képletében (ΔU = 2·I·l·cosφ/(γ·A)) a vezeték ohmos ellenállásán a terheléssel egy fázisban lévő esést számoljuk; a vezeték reaktanciáját elhanyagoljuk.",
+    "sin²φ + cos²φ = 1 (Pitagorasz az egységnyi átfogójú háromszögben), ezért sinφ = √(1 − cos²φ).",
+    "Kondenzátornál az áram siet a feszültséghez képest; a meddő teljesítmény kompenzálása ezen alapul."
+   ]
+  },
+  {
+   "h": "F8 Háromfázisú rendszer",
+   "body": "<b>Hasonlat.</b> Három evezős egy csónakban, egymáshoz képest egyharmad ütemmel eltolva húz: így a csónak egyenletesebben halad, mintha egyszerre húznának. A három fázis ugyanilyen eltolt „húzás”.<br><b>Meghatározás.</b> A háromfázisú hálózat három, egyenként 230 V-os szinuszfeszültségből áll, amelyek egymáshoz képest 120°-kal (egyharmad periódussal) el vannak tolva; a közös csillagpont a nulla (N).<br><b>Képlet.</b> Fázisfeszültség U<sub>f</sub> (fázis–N) = 230 V; vonali feszültség U<sub>v</sub> (fázis–fázis) = √3·U<sub>f</sub> ≈ 400 V. Szimmetrikus terhelés teljesítménye: P = 3·U<sub>f</sub>·I·cosφ = √3·U<sub>v</sub>·I·cosφ, mert 3·U<sub>f</sub> = 3·U<sub>v</sub>/√3 = √3·U<sub>v</sub>. Jelek: I vonali áram (A), P (W).<br><b>Honnan a √3?</b> Az ábrán két fázisnyíl (230 V) 120°-ot zár be. A két nyílvég távolsága a vonali feszültség. A 120°-os szöget felezve két derékszögű háromszög keletkezik: átfogójuk a 230 V-os nyíl, a csúcsnál 60°-os szög van, és ezzel a szöggel szemben fekszik az alap fele: 230·sin60° = 230·√3/2 = 199,2 V, az egész alap 2·199,2 = 398,4 V ≈ 400 V. (sin60° = √3/2 a 2 oldalú egyenlő oldalú háromszögből, Alapok: M5.)<br><b>Példa.</b> 9 kW-os, ohmos, szimmetrikus háromfázisú vízmelegítő: I = 9000/(1,732·400) = 12,99 A. (3·230-cal: 9000/690 = 13,04 A – a kis eltérés abból jön, hogy 230·√3 = 398,4, nem pontosan 400.)<br><b>Hol jön elő a vizsgán?</b> Háromfázisú áram és teljesítmény, háromfázisú feszültségesés √3-mal, csillag-delta indítás, fűtőelemek csillag vagy háromszög (delta) kapcsolása.",
+   "bullets": [
+    "Csillag (Y): minden fogyasztóelem fázis és N (vagy csillagpont) közé kerül, 230 V-ot kap; a vonali áram = az elem árama.",
+    "Háromszög (delta, Δ): minden elem két fázis közé kerül, 400 V-ot kap; a vonali áram = √3 · elemáram.",
+    "Ugyanaz az ellenállás deltában (400/230)² ≈ 3-szoros teljesítményt vesz fel, mint csillagban (P = U²/R, Alapok: F5) – egy 230 V-os elemet deltába kötve túlterheljük.",
+    "Szimmetrikus terhelésnél a három fázisáram összege minden pillanatban nulla, a nullavezetőn nem folyik áram; ezért a 3f esésnél nem 2-vel, hanem √3-mal szorzunk."
+   ]
+  },
+  {
+   "h": "F9 Mágnesesség, indukció, transzformátor, motor",
+   "body": "<b>Hasonlat.</b> Ha egy iránytű mellett áram folyik, a tű kitér: az áram mágneses teret kelt. Fordítva: ha egy mágnest tologatsz egy tekercsben, a tekercs végein feszültség jelenik meg – de csak amíg mozog. Olyan, mint a kerékpár-dinamó: csak forgás közben világít.<br><b>Meghatározás.</b> Az áram mágneses teret hoz létre, a <i>változó</i> mágneses tér pedig feszültséget indukál a vezetőben (indukció); ezen működik a transzformátor és a motor.<br><b>Transzformátor – felépítés.</b> Egy zárt vasmag, rajta két tekercs. Az egyik a <b>primer</b> (N<sub>1</sub> menet), erre kapcsoljuk a hálózatot, ez veszi fel az energiát; a másik a <b>szekunder</b> (N<sub>2</sub> menet), erről vesszük le az átalakított feszültséget. A két tekercs között nincs vezetői (galvanikus) kapcsolat: csak a vasmagban körbefutó közös mágneses tér, a <b>fluxus</b> (Φ) köti össze őket. A vasmag azért kell, mert a vas sokkal könnyebben „vezeti” a mágneses teret, mint a levegő, így szinte az egész fluxus mindkét tekercsen átmegy.<br><b>Transzformátor – működés lépésenként.</b> 1) A primerre váltakozó feszültséget kapcsolunk, a primerben váltakozó áram folyik (Alapok: F6). 2) Ez a vasmagban váltakozó fluxust kelt, amely 50 Hz-en másodpercenként 50-szer irányt vált. 3) A változó fluxus <i>minden egyes menetben</i> ugyanakkora feszültséget indukál, mert mindegyik menetet ugyanaz a fluxus járja át; nevezzük ezt egy menet feszültségének (u<sub>m</sub>). 4) A tekercs menetei sorba vannak kötve, a menetfeszültségek összeadódnak (Alapok: F4): U<sub>1</sub> = N<sub>1</sub>·u<sub>m</sub>, U<sub>2</sub> = N<sub>2</sub>·u<sub>m</sub>. 5) Elosztva egymással u<sub>m</sub> kiesik: <b>U<sub>1</sub>/U<sub>2</sub> = N<sub>1</sub>/N<sub>2</sub></b> – ezt az arányt nevezzük áttételnek (a). Több menet = nagyobb feszültség, kevesebb menet = kisebb.<br><b>Miért fordított az áramok aránya?</b> A transzformátor nem termel energiát, csak átalakítja; jó transzformátornál a veszteség kicsi (hatásfok kb. 96–99 %), ezért közelítőleg annyi teljesítmény jön ki, amennyi bemegy: U<sub>1</sub>·I<sub>1</sub> ≈ U<sub>2</sub>·I<sub>2</sub> (Alapok: F5). Ha a szekunder feszültség tizedakkora, az áram ott tízszer akkora lehet: <b>I<sub>1</sub>/I<sub>2</sub> = U<sub>2</sub>/U<sub>1</sub> = N<sub>2</sub>/N<sub>1</sub></b> (fordított arányosság, Alapok: M3). Ugyanezt mondja a gerjesztések egyensúlya: I<sub>1</sub>·N<sub>1</sub> = I<sub>2</sub>·N<sub>2</sub>. A primer áramot tehát a szekunder terhelés „rendeli meg”: üresjárásban (nincs fogyasztó) a primer csak egy kis mágnesező áramot vesz fel.<br><b>Miért csak váltakozó árammal?</b> Egyenáram állandó fluxust ad, állandó fluxus nem indukál feszültséget, így a szekunderen nincs feszültség. Ráadásul a primer áramát ekkor csak a tekercs kis rézellenállása korlátozza (Ohm-törvény, Alapok: F3), mert hiányzik a váltakozó fluxus által indukált, áramot fékező feszültség: a tekercs túlmelegszik, leég.<br><b>Képlet.</b> Transzformátor: U<sub>1</sub>/U<sub>2</sub> = N<sub>1</sub>/N<sub>2</sub> = I<sub>2</sub>/I<sub>1</sub> (N a menetszám). Három, 120°-kal eltolt tekercs háromfázisú árammal forgó mágneses teret (forgómezőt) hoz létre, amelynek szinkron fordulatszáma <b>n<sub>0</sub> = 60·f/p</b> (n<sub>0</sub> 1/min, f Hz, p póluspárok száma). Az aszinkronmotor forgórésze kicsit lassabban forog (n): szlip s = (n<sub>0</sub> − n)/n<sub>0</sub> (Alapok: M4).<br><b>Példa.</b> 50 Hz, p = 2 (4 pólusú motor): n<sub>0</sub> = 60·50/2 = 1500 1/min. Ha a motor 1440 1/min-cel forog: s = (1500 − 1440)/1500 = 0,04 = 4 %. Transzformátor 400 V-ról 24 V-ra: N<sub>1</sub>/N<sub>2</sub> = 400/24 = 16,7. Egy 230/24 V-os transzformátor szekunderéről 2 A-t veszünk fel: a szekunder teljesítmény 24 V·2 A = 48 VA, a primer áram veszteség nélkül I<sub>1</sub> = 48 VA/230 V ≈ 0,21 A (az áttétel 230/24 ≈ 9,58, és 2 A/9,58 ≈ 0,21 A – ugyanaz).<br><b>Hol jön elő a vizsgán?</b> Motor adattábla és áram, forgásirányváltás (két fázis cseréje megfordítja a forgómezőt), csillag-delta indítás, biztonsági (SELV/PELV) transzformátor és villamos elválasztás az áramütés elleni védelemnél, és hogy a motor miért induktív (cosφ &lt; 1, Alapok: F7).",
+   "bullets": [
+    "p = 1 → 3000 1/min, p = 2 → 1500 1/min, p = 3 → 1000 1/min (50 Hz-en).",
+    "A forgórész azért nem éri el a szinkron fordulatszámot, mert ha ugyanúgy forogna, mint a mező, nem „látna” változó teret, nem indukálódna benne áram, és nem lenne nyomaték.",
+    "Transzformátor egyenárammal nem működik: állandó áram állandó teret ad, abban nincs változás, így indukció sincs.",
+    "Csillagban a 400 V-os hálózaton a tekercs csak 230 V-ot kap (1/√3), ezért az indítóáram és a nyomaték a deltás érték 1/3-a.",
+    "Lemezelt vasmag: a változó fluxus magában a vasban is feszültséget indukál, és abban körbefutó örvényáramok folynak, amelyek fűtik a vasat. Ezért a vasmag vékony (pl. 0,35 mm-es), egymástól szigetelt lemezekből áll: a szigetelés megszakítja az örvényáramok útját.",
+    "Veszteségek: <b>rézveszteség</b> a tekercsek ellenállásán, I²·R szerint – kétszeres áram négyszeres rézveszteség (Alapok: F5); <b>vasveszteség</b> (örvényáram + az átmágnesezés munkája, a hiszterézis) a vasmagban, üresjárásban is megvan, és mivel a fluxus terheléskor is közel ugyanakkora, a terheléstől alig függ; <b>szórás</b>: a fluxus egy része nem jut át a másik tekercsen. Hatásfok: η = P<sub>2</sub>/(P<sub>2</sub> + P<sub>vas</sub> + P<sub>réz</sub>) (Alapok: M4).",
+    "Biztonsági transzformátor (MSZ EN 61558-2-6): a primer és szekunder tekercs között kettős vagy megerősített szigetelés van, így a hálózati feszültség hiba esetén sem jut át a szekunderre; törpefeszültséget (legfeljebb 50 V AC / 120 V DC) ad SELV vagy PELV áramkörhöz. Megfelelőségét kívülről nem lehet ellenőrizni, csak az adattáblán lévő jelképről lehet felismerni; külön jelképe van például a játék-, a kézilámpa- és a csengőtranszformátornak is.",
+    "Elválasztó transzformátor (villamos elválasztás): nem feltétlenül törpefeszültség (legfeljebb 500 V), a szekunder oldal „lebeg”. Mivel nincs földelt pontja, aki egy pólust megérint, azon nincs zárt áramút a földön át; ezért sem a szekunder aktív részét, sem a fogyasztó testét nem szabad földelni.",
+    "Takarékkapcsolású transzformátor (autotranszformátor): primer és szekunder egy közös tekercs része, galvanikusan összefüggenek – nem ad elválasztást, SELV/PELV táplálásra és villamos elválasztásra nem használható."
+   ]
+  },
+  {
+   "h": "F10 Melegedés és hőmérsékletfüggés",
+   "body": "<b>Hasonlat.</b> Egy folyosón könnyű végigmenni, ha az emberek nyugodtan állnak; ha mindenki ugrál, sokkal nehezebb átjutni. A fém atomjai melegen jobban rezegnek, és jobban akadályozzák az elektronokat: nő az ellenállás.<br><b>Meghatározás.</b> Az áram a vezetőben hőt termel (I²·R), a vezető addig melegszik, amíg a leadott hő egyensúlyba nem kerül a termelttel; fémeknél a hőmérséklet emelkedésével nő az ellenállás.<br><b>Képlet.</b> R<sub>t</sub> = R<sub>20</sub>·(1 + α·Δt), ahol R<sub>20</sub> a 20 °C-os ellenállás (Ω), α a hőfoktényező (réz 0,0039 1/K), Δt = t − 20 °C (K). Terhelhetőség: I<sub>z</sub> = I<sub>t</sub>·k<sub>1</sub>·k<sub>2</sub> (I<sub>t</sub> táblázati érték 30 °C-ra, k<sub>1</sub> hőmérséklet-, k<sub>2</sub> csoportosítási tényező).<br><b>Példa.</b> 12,0 Ω-os réztekercs 70 °C-on: Δt = 50 K, R = 12·(1 + 0,0039·50) = 12·1,195 = 14,34 Ω. Visszafelé: 4,0 Ω-ból 4,8 Ω lett → Δt = (4,8/4,0 − 1)/0,0039 = 51,3 K, t = 20 + 51,3 = 71,3 °C. Terhelhetőség: 24 A-es vezeték 40 °C-on (k<sub>1</sub> = 0,87): I<sub>z</sub> = 24·0,87 = 20,88 A.<br><b>Hol jön elő a vizsgán?</b> Tekercs-hőmérséklet ellenállásmérésből, vezeték terhelhetősége korrekciós tényezőkkel, szerelési módok (hőszigetelt fal rosszabbul hűt), túlterhelés elleni védelem.",
+   "bullets": [
+    "A szigetelés megengedett hőmérséklete korlátoz: PVC 70 °C, XLPE 90 °C. Melegebb környezetben kisebb a hőmérséklet-tartalék, ezért kisebb áram engedhető (k<sub>1</sub> &lt; 1).",
+    "Több áramkör egy csőben egymást is melegíti, ezért k<sub>2</sub> &lt; 1.",
+    "Réznél 10 K melegedés kb. 3,9 % ellenállás-növekedés.",
+    "A Δt-ből a hőmérséklethez a 20 °C-ot még hozzá kell adni."
+   ]
+  },
+  {
+   "h": "F11 Hibaáram útja és érintésvédelem fizikája",
+   "body": "<b>Hasonlat.</b> Ha egy vízcső kilyukad, a víz nem a tervezett úton tér vissza. Ha van mellette egy széles vízelvezető árok (PE), a víz nagy része ott folyik el, olyan gyorsan és sokan, hogy a vízóra (kismegszakító) azonnal elzár. Ha nincs árok, a víz rajtad keresztül keres utat.<br><b>Meghatározás.</b> Testzárlatnál a fázis a készülék fém házára kerül; a hibaáram zárt hurokban folyik vissza a táppontra, és a védelemnek ezt az áramot annyira nagynak kell látnia, hogy előírt időn belül lekapcsoljon.<br><b>Képlet.</b> TN-rendszer, hibahurok: transzformátor tekercse → fázisvezető → hibahely → ház → PE (PEN) → transzformátor csillagpontja. Hibaáram I<sub>k</sub> = U<sub>0</sub>/Z<sub>s</sub> (Alapok: F3), ahol U<sub>0</sub> = 230 V a fázis–föld feszültség, Z<sub>s</sub> a hurok impedanciája (Ω). Feltétel: <b>Z<sub>s</sub>·I<sub>a</sub> ≤ U<sub>0</sub></b>, I<sub>a</sub> a kioldást biztosító áram (B kismegszakító 5·I<sub>n</sub>, C 10·I<sub>n</sub>). TT: R<sub>A</sub>·I<sub>Δn</sub> ≤ 50 V. RCD: az L-en kimenő és az N-en visszajövő áram különbségét figyeli (csomóponti törvény, Alapok: F4).<br><b>Példa.</b> 16 A-es B kismegszakító: I<sub>a</sub> = 5·16 = 80 A, Z<sub>s,max</sub> = 230/80 = 2,875 Ω. Ha a mért Z<sub>s</sub> = 1,2 Ω, I<sub>k</sub> = 230/1,2 = 191,7 A &gt; 80 A → azonnal kiold. TT, 30 mA-es RCD: R<sub>A</sub> ≤ 50/0,03 = 1667 Ω.<br><b>Hol jön elő a vizsgán?</b> Hurokimpedancia-határ, lekapcsolási idők (TN 0,4 s végáramkörön), RCD működése és 30 mA, TN/TT rendszerek, PE folytonosság mérése.",
+   "bullets": [
+    "Érintési feszültség: a hibás ház és a föld (vagy egy másik fém) között megjelenő feszültség; tartósan megengedett határa U<sub>L</sub> = 50 V AC.",
+    "Az emberi testen át folyó áram veszélyes: már néhány tíz mA is életveszélyes lehet, ezért 30 mA-es RCD a kiegészítő védelem.",
+    "Ha az áram L-en ki- és N-en visszafolyik, az RCD-ben a különbség 0. Ha egy rész a PE-n vagy egy emberen át tér vissza, a különbség épp ez a hibaáram.",
+    "Minél kisebb Z<sub>s</sub> (vastagabb, rövidebb vezeték), annál nagyobb a hibaáram és annál gyorsabb a lekapcsolás."
+   ]
+  }
+ ],
+ "keyFacts": [
+  {
+   "k": "Réz fajlagos ellenállása",
+   "v": "ρ = 0,0175 Ω·mm²/m"
+  },
+  {
+   "k": "Réz vezetőképessége",
+   "v": "γ = 1/ρ ≈ 57 m/(Ω·mm²), számításban többnyire 56"
+  },
+  {
+   "k": "Alumínium",
+   "v": "ρ ≈ 0,028–0,0286 Ω·mm²/m, γ ≈ 35 m/(Ω·mm²)"
+  },
+  {
+   "k": "Réz hőfoktényezője",
+   "v": "α = 0,0039 1/K (melegen nő az ellenállás)"
+  },
+  {
+   "k": "Hálózati feszültség",
+   "v": "3×400/230 V: fázis–N 230 V, fázis–fázis 400 V; tűrés ±10 % (207–253 V)"
+  },
+  {
+   "k": "Frekvencia, fázisszög",
+   "v": "f = 50 Hz, T = 20 ms; a fázisok között 120°"
+  },
+  {
+   "k": "Csúcsérték",
+   "v": "230·√2 ≈ 325 V (400 V → ≈ 566 V)"
+  },
+  {
+   "k": "Nevezetes számok",
+   "v": "√3 ≈ 1,732 · √2 ≈ 1,414 · π ≈ 3,1416"
+  },
+  {
+   "k": "Energia átváltás",
+   "v": "1 kWh = 3600 kJ = 3,6 MJ; 1 h = 3600 s"
+  },
+  {
+   "k": "Víz fajhője",
+   "v": "c = 4,19 kJ/(kg·K), 1 liter víz = 1 kg"
+  },
+  {
+   "k": "Szinkron fordulatszám 50 Hz-en",
+   "v": "p = 1: 3000 · p = 2: 1500 · p = 3: 1000 1/min"
+  },
+  {
+   "k": "Érintési feszültség határa",
+   "v": "U<sub>L</sub> = 50 V AC, 120 V DC"
+  },
+  {
+   "k": "Kioldóáram kismegszakítónál",
+   "v": "B: I<sub>a</sub> = 5·I<sub>n</sub> · C: I<sub>a</sub> = 10·I<sub>n</sub>"
+  },
+  {
+   "k": "Szabványos keresztmetszetek",
+   "v": "1,5 – 2,5 – 4 – 6 – 10 – 16 – 25 – 35 – 50 – 70 – 95 mm²"
+  },
+  {
+   "k": "Kismegszakító névleges áramai",
+   "v": "6 – 10 – 13 – 16 – 20 – 25 – 32 – 40 – 50 – 63 A"
+  }
+ ],
+ "formulas": [
+  {
+   "f": "I = Q/t",
+   "note": "áram: átfolyt töltés másodpercenként",
+   "derive": [
+    "Az áram azt méri, mennyi töltés halad át egy keresztmetszeten.",
+    "Ha t idő alatt Q töltés halad át, 1 s-ra Q/t jut, mint a vízcsőben a liter/s.",
+    "Ezért I = Q/t, és 1 A = 1 C/s (Alapok: F1 Töltés és áram)."
+   ]
+  },
+  {
+   "f": "U = I·R",
+   "note": "Ohm-törvény; I = U/R, R = U/I",
+   "derive": [
+    "Fém vezetőben kétszer nagyobb „nyomás” (feszültség) kétszer nagyobb áramot hajt át: U és I egyenesen arányos (Alapok: M3 Tört, reciprok, arány).",
+    "Az arányossági tényező a vezető fékezése, az ellenállás: U = I·R (Alapok: F3 Ellenállás és Ohm-törvény).",
+    "A másik két alak átrendezéssel: mindkét oldalt R-rel, illetve I-vel osztjuk (Alapok: M2 Képlet átrendezése)."
+   ]
+  },
+  {
+   "f": "R = ρ·l/A = l/(γ·A)",
+   "note": "vezeték ellenállása; egyfázisú hurokra 2·l",
+   "derive": [
+    "Kétszer hosszabb vezeték kétszer annyit fékez: R egyenesen arányos l-lel (Alapok: M3 Tört, reciprok, arány).",
+    "Kétszer vastagabb vezeték kétszer annyi áramot enged át: R fordítottan arányos A-val (Alapok: M3 Tört, reciprok, arány).",
+    "Az anyag jellemzője ρ (1 m hosszú, 1 mm²-es darab ellenállása): R = ρ·l/A (Alapok: F3 Ellenállás és Ohm-törvény).",
+    "Mivel γ = 1/ρ, ugyanez R = l/(γ·A) (Alapok: M3 Tört, reciprok, arány)."
+   ]
+  },
+  {
+   "f": "R<sub>e</sub> = R<sub>1</sub> + R<sub>2</sub> ; 1/R<sub>e</sub> = 1/R<sub>1</sub> + 1/R<sub>2</sub>",
+   "note": "soros ; párhuzamos (két ágra R<sub>1</sub>·R<sub>2</sub>/(R<sub>1</sub>+R<sub>2</sub>))",
+   "derive": [
+    "Sorosan ugyanaz az I folyik át mindkettőn, a feszültségek összeadódnak: U = I·R<sub>1</sub> + I·R<sub>2</sub> = I·(R<sub>1</sub> + R<sub>2</sub>) (Alapok: F4 Soros és párhuzamos kapcsolás).",
+    "Párhuzamosan a feszültség közös, az áramok adódnak: I = U/R<sub>1</sub> + U/R<sub>2</sub> (Alapok: F4 Soros és párhuzamos kapcsolás).",
+    "U-val osztva: I/U = 1/R<sub>e</sub> = 1/R<sub>1</sub> + 1/R<sub>2</sub> (Alapok: M2 Képlet átrendezése).",
+    "Két tört összege (R<sub>1</sub> + R<sub>2</sub>)/(R<sub>1</sub>·R<sub>2</sub>), ennek reciproka R<sub>1</sub>·R<sub>2</sub>/(R<sub>1</sub> + R<sub>2</sub>) (Alapok: M3 Tört, reciprok, arány)."
+   ]
+  },
+  {
+   "f": "P = U·I = I²·R = U²/R",
+   "note": "teljesítmény egyenáramon és ohmos fogyasztón",
+   "derive": [
+    "A feszültség 1 C töltésre jutó munka (U = W/Q), az áram 1 s alatt átfolyt töltés (I = Q/t) (Alapok: F2 Feszültség, F1 Töltés és áram).",
+    "Szorzatuk U·I = W/Q · Q/t = W/t, vagyis az 1 s alatt végzett munka, a teljesítmény (Alapok: F5 Munka, teljesítmény, energia, hő).",
+    "U helyére I·R-t írva P = I²·R; I helyére U/R-t írva P = U²/R (Alapok: F3 Ellenállás és Ohm-törvény)."
+   ]
+  },
+  {
+   "f": "W = P·t",
+   "note": "energia; kW · h = kWh",
+   "derive": [
+    "A teljesítmény az 1 s (vagy 1 h) alatt átalakított energia.",
+    "t idő alatt t-szer annyi: W = P·t (Alapok: F5 Munka, teljesítmény, energia, hő).",
+    "Ha P kW-ban és t órában van, az eredmény kWh; percet előbb órára váltunk (Alapok: M1 Mértékegységek és előtagok)."
+   ]
+  },
+  {
+   "f": "η = P<sub>le</sub>/P<sub>fel</sub> ; P<sub>v</sub> = P<sub>fel</sub> − P<sub>le</sub>",
+   "note": "hatásfok és veszteség",
+   "derive": [
+    "A felvett teljesítmény egy része hasznos (leadott), a többi hővé alakul (veszteség) (Alapok: F5 Munka, teljesítmény, energia, hő).",
+    "A hasznos rész aránya az egészhez a hatásfok, százalékban ·100 (Alapok: M4 Százalék).",
+    "Motornál az adattábla P<sub>n</sub>-je a leadott, ezért P<sub>fel</sub> = P<sub>n</sub>/η (Alapok: M2 Képlet átrendezése)."
+   ]
+  },
+  {
+   "f": "Q = m·c·Δt",
+   "note": "melegítéshez szükséges hő; víz c = 4,19 kJ/(kg·K)",
+   "derive": [
+    "A fajhő megmondja, hány kJ kell 1 kg anyag 1 K-nel való melegítéséhez.",
+    "m kg-hoz m-szer, Δt fokhoz Δt-szer annyi kell: Q = m·c·Δt (Alapok: M3 Tört, reciprok, arány).",
+    "Az idő t = Q/(η·P), mert a fűtés másodpercenként η·P kJ-t ad át (Alapok: F5 Munka, teljesítmény, energia, hő)."
+   ]
+  },
+  {
+   "f": "A = d²·π/4",
+   "note": "kör keresztmetszet az átmérőből",
+   "derive": [
+    "A kör területe r²·π (Alapok: M5 Négyzet, gyök, π és a kör területe).",
+    "A sugár a fél átmérő: r = d/2, így r² = d²/4.",
+    "Behelyettesítve A = d²·π/4 (Alapok: M2 Képlet átrendezése)."
+   ]
+  },
+  {
+   "f": "U<sub>csúcs</sub> = √2·U<sub>eff</sub>",
+   "note": "230 V → ≈ 325 V",
+   "derive": [
+    "A váltakozó feszültség szinusz alakú, a legnagyobb értéke a csúcsérték (Alapok: F6 Váltakozó áram).",
+    "Az effektív érték az az egyenfeszültség, amely ugyanannyi hőt (U²/R) fejleszt (Alapok: F5 Munka, teljesítmény, energia, hő).",
+    "A szinusz négyzetének átlaga a csúcs négyzetének fele, ezért U<sub>eff</sub>² = U<sub>csúcs</sub>²/2, U<sub>csúcs</sub> = √2·U<sub>eff</sub> (Alapok: M5 Négyzet, gyök, π és a kör területe)."
+   ]
+  },
+  {
+   "f": "S = U·I ; P = S·cosφ ; Q = S·sinφ ; S² = P² + Q²",
+   "note": "teljesítményháromszög egy fázisra",
+   "derive": [
+    "Tekercses fogyasztónál az áram φ szöggel késik a feszültséghez képest (Alapok: F7 Fáziseltolás és cosφ).",
+    "Az áramot két részre bontjuk: a feszültséggel egy fázisban lévő I·cosφ végez munkát, a rá merőleges I·sinφ csak ide-oda leng.",
+    "Feszültséggel szorozva: P = U·I·cosφ, Q = U·I·sinφ, S = U·I (Alapok: F5 Munka, teljesítmény, energia, hő).",
+    "A két rész merőleges, így Pitagorasszal S² = P² + Q² (Alapok: M5 Négyzet, gyök, π és a kör területe)."
+   ]
+  },
+  {
+   "f": "U<sub>v</sub> = √3·U<sub>f</sub>",
+   "note": "230 V · 1,732 = 398 ≈ 400 V",
+   "derive": [
+    "A három fázisfeszültség 230 V-os, egymáshoz képest 120°-kal eltolt (Alapok: F8 Háromfázisú rendszer).",
+    "Két fázis közötti feszültség a két 230 V-os nyíl végpontjainak távolsága, amelyek 120°-ot zárnak be.",
+    "A háromszöget kettévágva két derékszögű háromszög keletkezik, az alap fele 230·sin60° = 230·√3/2 (Alapok: M5 Négyzet, gyök, π és a kör területe).",
+    "Az egész alap 2·230·√3/2 = √3·230 ≈ 398 V, kerekítve 400 V."
+   ]
+  },
+  {
+   "f": "P = √3·U<sub>v</sub>·I·cosφ = 3·U<sub>f</sub>·I·cosφ",
+   "note": "szimmetrikus háromfázisú teljesítmény; I = P/(√3·U<sub>v</sub>·cosφ)",
+   "derive": [
+    "Egy fázis teljesítménye U<sub>f</sub>·I·cosφ (Alapok: F7 Fáziseltolás és cosφ).",
+    "Három egyforma fázis: P = 3·U<sub>f</sub>·I·cosφ (Alapok: F8 Háromfázisú rendszer).",
+    "U<sub>f</sub> = U<sub>v</sub>/√3, így 3·U<sub>v</sub>/√3 = √3·U<sub>v</sub>, mert 3 = √3·√3 (Alapok: M5 Négyzet, gyök, π és a kör területe).",
+    "Az áramra átrendezve I = P/(√3·U<sub>v</sub>·cosφ) (Alapok: M2 Képlet átrendezése)."
+   ]
+  },
+  {
+   "f": "U<sub>1</sub>/U<sub>2</sub> = N<sub>1</sub>/N<sub>2</sub> = I<sub>2</sub>/I<sub>1</sub> = a",
+   "note": "ideális (veszteségmentes) transzformátor; a = áttétel",
+   "derive": [
+    "A primer váltakozó árama a közös vasmagban váltakozó fluxust kelt, amely minden menetben ugyanakkora u<sub>m</sub> feszültséget indukál (Alapok: F9 Mágnesesség, indukció, transzformátor, motor).",
+    "A menetek sorba vannak kötve, a feszültségük összeadódik: U<sub>1</sub> = N<sub>1</sub>·u<sub>m</sub>, U<sub>2</sub> = N<sub>2</sub>·u<sub>m</sub> (Alapok: F4 Soros és párhuzamos kapcsolás).",
+    "A kettőt elosztva u<sub>m</sub> kiesik: U<sub>1</sub>/U<sub>2</sub> = N<sub>1</sub>/N<sub>2</sub> (Alapok: M3 Tört, reciprok, arány).",
+    "Veszteség nélkül a felvett és a leadott teljesítmény egyenlő: U<sub>1</sub>·I<sub>1</sub> = U<sub>2</sub>·I<sub>2</sub> (Alapok: F5 Munka, teljesítmény, energia, hő).",
+    "Mindkét oldalt U<sub>2</sub>·I<sub>1</sub>-gyel osztva U<sub>1</sub>/U<sub>2</sub> = I<sub>2</sub>/I<sub>1</sub>: az áram fordítva arányos a feszültséggel (Alapok: M2 Képlet átrendezése)."
+   ]
+  },
+  {
+   "f": "n<sub>0</sub> = 60·f/p ; s = (n<sub>0</sub> − n)/n<sub>0</sub>",
+   "note": "szinkron fordulatszám (1/min) és szlip",
+   "derive": [
+    "A háromfázisú tekercselés forgó mágneses teret kelt (Alapok: F9 Mágnesesség, indukció, transzformátor, motor).",
+    "Egy póluspárnál a mező egy periódus alatt egyszer fordul körbe, tehát másodpercenként f-szer, percenként 60·f-szer (Alapok: M1 Mértékegységek és előtagok).",
+    "p póluspárnál p-szer lassabban fordul: n<sub>0</sub> = 60·f/p (Alapok: M3 Tört, reciprok, arány).",
+    "A forgórész lemaradása a szinkronhoz képest arányban kifejezve a szlip (Alapok: M4 Százalék)."
+   ]
+  },
+  {
+   "f": "R<sub>t</sub> = R<sub>20</sub>·(1 + α·Δt)",
+   "note": "fém ellenállása melegen; Δt = t − 20 °C",
+   "derive": [
+    "Melegen a fém atomjai jobban rezegnek, jobban fékezik az áramot (Alapok: F10 Melegedés és hőmérsékletfüggés).",
+    "1 K melegedés az ellenállás α-szorosával növeli (réz: 0,0039, azaz 0,39 %) (Alapok: M4 Százalék).",
+    "Δt fok melegedés R<sub>20</sub>·α·Δt növekedés, az új érték R<sub>20</sub> + R<sub>20</sub>·α·Δt = R<sub>20</sub>·(1 + α·Δt) (Alapok: M2 Képlet átrendezése)."
+   ]
+  },
+  {
+   "f": "I<sub>k</sub> = U<sub>0</sub>/Z<sub>s</sub> ; Z<sub>s</sub>·I<sub>a</sub> ≤ U<sub>0</sub>",
+   "note": "TN-rendszer lekapcsolási feltétele",
+   "derive": [
+    "Testzárlatkor a hibaáram zárt hurokban folyik: fázis → ház → PE → táppont (Alapok: F11 Hibaáram útja és érintésvédelem fizikája).",
+    "A hurok teljes ellenállása (impedanciája) Z<sub>s</sub>, a hajtó feszültség U<sub>0</sub> = 230 V, így Ohm-törvénnyel I<sub>k</sub> = U<sub>0</sub>/Z<sub>s</sub> (Alapok: F3 Ellenállás és Ohm-törvény).",
+    "A védelem akkor old ki időben, ha I<sub>k</sub> ≥ I<sub>a</sub>, vagyis U<sub>0</sub>/Z<sub>s</sub> ≥ I<sub>a</sub>.",
+    "Mindkét oldalt Z<sub>s</sub>-sel szorozva Z<sub>s</sub>·I<sub>a</sub> ≤ U<sub>0</sub> (Alapok: M2 Képlet átrendezése)."
+   ]
+  }
+ ],
+ "mistakes": [
+  "Mértékegység-váltás kihagyása: W-ot kW helyett, percet óra helyett beírni – az eredmény 1000-szer vagy 60-szor rossz.",
+  "Átrendezésnél csak az egyik oldalon elvégezni a műveletet (pl. l = R·ρ/A): az egyensúly felborul, rossz képlet jön ki.",
+  "Párhuzamos ellenállásokat összeadni – a párhuzamos eredő mindig kisebb a legkisebb ágnál.",
+  "d²·π-vel számolni a /4 nélkül, vagy sugár helyett átmérőt írni r²·π-be.",
+  "A cosφ-t kifelejteni a motoros/induktív fogyasztó áramából, vagy ohmos fogyasztónál 1-től eltérő cosφ-vel számolni.",
+  "Háromfázisúnál 230 V-tal és √3-mal együtt számolni: √3 mellé a vonali 400 V tartozik, 3 mellé a fázis 230 V.",
+  "A csúcsértéket (325 V) használni teljesítményszámításban – a vizsgaképletek mind effektív értékkel (230 V) dolgoznak.",
+  "Számított keresztmetszetet lefelé kerekíteni, vagy a hőmérsékletes feladatnál a Δt-t megadni végeredményként a 20 °C hozzáadása nélkül."
+ ],
+ "hooks": [
+  "Mérleg-szabály: amit az egyik oldallal teszel, tedd a másikkal is.",
+  "Víz-hasonlat: feszültség = nyomás, áram = liter/s, ellenállás = szűk cső.",
+  "√3 a 400 V-é, 3 a 230 V-é: P = √3·400·I·cosφ = 3·230·I·cosφ.",
+  "Keresztmetszet felfelé, legnagyobb hossz lefelé kerekít.",
+  "Hibaáram csak hurokban folyik: nincs hurok, nincs kioldás."
+ ],
+ "svg": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 520 230' width='520' font-family='sans-serif' font-size='13' fill='none' stroke='currentColor' stroke-width='2'><text x='10' y='18' fill='currentColor' stroke='none' font-weight='bold'>Teljesítményháromszög</text><line x1='30' y1='190' x2='210' y2='190'/><line x1='210' y1='190' x2='210' y2='70'/><line x1='30' y1='190' x2='210' y2='70'/><polyline points='198,190 198,178 210,178' stroke-width='1'/><path d='M 75 190 A 45 45 0 0 0 67 165' stroke-width='1.5'/><text x='80' y='180' fill='currentColor' stroke='none'>φ</text><text x='120' y='210' fill='currentColor' stroke='none' text-anchor='middle'>P (W) hatásos</text><text x='218' y='135' fill='currentColor' stroke='none'>Q (var)</text><text x='218' y='151' fill='currentColor' stroke='none'>meddő</text><text x='30' y='105' fill='currentColor' stroke='none'>S (VA)</text><text x='30' y='121' fill='currentColor' stroke='none'>látszólagos</text><text x='10' y='228' fill='currentColor' stroke='none' font-size='12'>cosφ = P/S · S² = P² + Q²</text><text x='300' y='18' fill='currentColor' stroke='none' font-weight='bold'>Csillag: 3×400/230 V</text><circle cx='400' cy='130' r='4' fill='currentColor'/><text x='380' y='145' fill='currentColor' stroke='none'>N</text><line x1='400' y1='130' x2='400' y2='45'/><line x1='400' y1='130' x2='474' y2='173'/><line x1='400' y1='130' x2='326' y2='173'/><circle cx='400' cy='45' r='3' fill='currentColor'/><circle cx='474' cy='173' r='3' fill='currentColor'/><circle cx='326' cy='173' r='3' fill='currentColor'/><text x='400' y='37' fill='currentColor' stroke='none' text-anchor='middle'>L1</text><text x='488' y='182' fill='currentColor' stroke='none'>L2</text><text x='300' y='182' fill='currentColor' stroke='none'>L3</text><text x='366' y='90' fill='currentColor' stroke='none' text-anchor='end'>230 V</text><line x1='400' y1='45' x2='474' y2='173' stroke-dasharray='5 4' stroke-width='1.5'/><text x='448' y='100' fill='currentColor' stroke='none'>400 V</text><text x='400' y='122' fill='currentColor' stroke='none' font-size='11' text-anchor='middle' dx='18'>120°</text><text x='300' y='212' fill='currentColor' stroke='none' font-size='12'>L–N: 230 V · L–L: 230·√3 ≈ 400 V</text></svg>",
+ "sources": [
+  "Saját összefoglaló a tanfolyami anyagok alapján",
+  "10_4/nszfi Elektrotechnikai alapismeretek",
+  "Délvil_tch/Elektrotech_osszefoglalo.pdf",
+  "MSZ HD 60364-4-41 (áramütés elleni védelem)",
+  "MSZ HD 60364-5-52 (vezetékrendszerek, terhelhetőség)",
+  "MSZ EN 50160 (a hálózati feszültség jellemzői)"
+ ]
+}

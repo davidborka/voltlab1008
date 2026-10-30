@@ -1,0 +1,368 @@
+{
+ "III-telj-001": {
+  "given": ["P = 2500 W", "U = 230 V, egyfázisú", "ohmos fogyasztó → cosφ = 1"],
+  "steps": [
+   { "do": "Mit keresünk? Az áramot, amit a hősugárzó a hálózatból felvesz, hogy 2500 W-ot hővé alakítson.",
+     "why": "A teljesítmény a feszültség és az áram szorzata (Alapok: F5 Munka, teljesítmény, energia, hő)." },
+   { "do": "Ohmos fogyasztónál nincs fáziseltolás, ezért cosφ = 1, és P = U·I.",
+     "why": "Fűtőszálban az áram együtt halad a feszültséggel (Alapok: F7 Fáziseltolás és cosφ)." },
+   { "do": "Áramra rendezünk és behelyettesítünk; két tizedesre kerekítünk.", "calc": "I = P/U = 2500 W / 230 V = 10,87 A",
+     "why": "Mindkét oldalt U-val osztjuk; W/V = A (Alapok: M2 Képlet átrendezése, M1 Mértékegységek és előtagok)." }
+  ],
+  "check": "Ökölszabály: 1 kW ≈ 4,35 A, 2,5 kW ≈ 10,9 A – stimmel. Visszaszámolva 230·10,87 ≈ 2500 W."
+ },
+ "III-telj-002": {
+  "given": ["P = 450 W (hatásos)", "cosφ = 0,85", "U = 230 V, egyfázisú"],
+  "steps": [
+   { "do": "Mit keresünk? A ventilátor áramát. A motoros fogyasztónál az áram késik a feszültséghez képest, ezért az áramnak csak egy része végez munkát.",
+     "why": "Hatásos teljesítmény P = U·I·cosφ (Alapok: F7 Fáziseltolás és cosφ)." },
+   { "do": "Áramra rendezünk.", "calc": "I = P/(U·cosφ)",
+     "why": "Mindkét oldalt U·cosφ-vel osztjuk (Alapok: M2 Képlet átrendezése)." },
+   { "do": "Behelyettesítünk, két tizedesre kerekítünk.", "calc": "I = 450 W / (230 V · 0,85) = 450 / 195,5 = 2,30 A" }
+  ],
+  "check": "cosφ nélkül 450/230 = 1,96 A jönne ki; a valódi áram nagyobb, mert 1-nél kisebb számmal osztunk – logikus."
+ },
+ "III-telj-003": {
+  "given": ["P = 4 kW = 4000 W (felvett hatásos)", "U<sub>v</sub> = 400 V, háromfázisú", "cosφ = 0,82"],
+  "steps": [
+   { "do": "Mit keresünk? A vonali áramot: egy fázisvezetőn folyó áramot, miközben a három fázis együtt 4 kW-ot szállít.",
+     "why": "Szimmetrikus terhelésnél a három fázis egyformán osztozik (Alapok: F8 Háromfázisú rendszer)." },
+   { "do": "A háromfázisú teljesítmény képlete a vonali feszültséggel.", "calc": "P = √3·U<sub>v</sub>·I·cosφ",
+     "why": "3·U<sub>f</sub>·I·cosφ, és U<sub>f</sub> = U<sub>v</sub>/√3, így 3/√3 = √3 (Alapok: F8 Háromfázisú rendszer, M5 Négyzet, gyök, π és a kör területe)." },
+   { "do": "Áramra rendezünk és behelyettesítünk.", "calc": "I = 4000 W / (1,732 · 400 V · 0,82) = 4000 / 568,1 = 7,04 A",
+     "why": "A 4 kW-ot W-ba váltjuk (Alapok: M1 Mértékegységek és előtagok, M2 Képlet átrendezése)." },
+   { "do": "A helyes válasz 7,04 A.",
+     "why": "12,20 A √3 nélküli, 5,77 A cosφ nélküli, 12,24 A 230 V-tal √3 mellett, 4,07 A 3·400-zal számolt rossz érték." }
+  ],
+  "check": "Ökölszabály kb. 2 A/kW → 4 kW kb. 8 A; 7 A ugyanaz a nagyságrend. Más úton: 4000/(3·230·0,82) = 7,07 A."
+ },
+ "III-telj-004": {
+  "given": ["P<sub>n</sub> = 7,5 kW (leadott, tengelyen)", "η = 88 % = 0,88", "cosφ = 0,84", "U = 3×400 V"],
+  "steps": [
+   { "do": "Mit keresünk? Először, mennyit vesz fel a motor a hálózatból (ez több, mint amit a tengelyen lead), aztán ebből a vonali áramot.",
+     "why": "Az adattábla P<sub>n</sub>-je a leadott mechanikai teljesítmény, a veszteség miatt a felvett nagyobb (Alapok: F9 Mágnesesség, indukció, transzformátor, motor, F5 Munka, teljesítmény, energia, hő)." },
+   { "do": "η = P<sub>n</sub>/P<sub>1</sub>-ből a felvett teljesítmény; három tizedesre kerekítünk.", "calc": "P<sub>1</sub> = P<sub>n</sub>/η = 7,5 kW / 0,88 = 8,523 kW",
+     "why": "Mindkét oldalt P<sub>1</sub>-gyel szorozzuk, majd η-val osztjuk; a 88 %-ot 0,88-ként írjuk (Alapok: M2 Képlet átrendezése, M4 Százalék)." },
+   { "do": "A háromfázisú áram a felvett teljesítményből.", "calc": "I = P<sub>1</sub>/(√3·U·cosφ) = 8523 W / (1,732 · 400 V · 0,84) = 8523 / 582,0 = 14,64 A",
+     "why": "P = √3·U<sub>v</sub>·I·cosφ átrendezve (Alapok: F8 Háromfázisú rendszer, M2 Képlet átrendezése)." }
+  ],
+  "check": "Ökölszabály 2 A/kW → 7,5 kW kb. 15 A – stimmel. Hatásfok nélkül 12,89 A jönne ki, ami túl kicsi."
+ },
+ "III-telj-005": {
+  "given": ["P<sub>n</sub> = 11 kW (leadott)", "η = 90 % = 0,90", "cosφ = 0,85", "U = 3×400 V"],
+  "steps": [
+   { "do": "Mit keresünk? A motor névleges áramát, amit a hálózatból felvett teljesítmény határoz meg.",
+     "why": "A P<sub>n</sub> leadott teljesítmény, a hálózat ennél többet ad (Alapok: F9 Mágnesesség, indukció, transzformátor, motor)." },
+   { "do": "Felvett teljesítmény.", "calc": "P<sub>1</sub> = 11 kW / 0,90 = 12,222 kW",
+     "why": "η = P<sub>le</sub>/P<sub>fel</sub> átrendezve (Alapok: M2 Képlet átrendezése, M4 Százalék)." },
+   { "do": "Háromfázisú áram.", "calc": "I = 12 222 W / (1,732 · 400 V · 0,85) = 12 222 / 588,9 = 20,75 A ≈ 20,8 A",
+     "why": "Alapok: F8 Háromfázisú rendszer." },
+   { "do": "A helyes válasz 20,8 A.",
+     "why": "18,7 A η nélkül, 16,8 A η-val szorozva, 35,9 A √3 nélkül, 17,6 A cosφ nélkül adódna." }
+  ],
+  "check": "Ökölszabály 2 A/kW → 11 kW kb. 22 A – ugyanaz a nagyságrend."
+ },
+ "III-telj-006": {
+  "given": ["P = 1200 W", "t = 450 perc/nap"],
+  "steps": [
+   { "do": "Mit keresünk? A napi energiát, vagyis mennyi munkát végez a radiátor egy nap alatt; ezt kWh-ban számlázzák.",
+     "why": "Energia = teljesítmény × idő (Alapok: F5 Munka, teljesítmény, energia, hő)." },
+   { "do": "Átváltjuk a mennyiségeket kW-ra és órára.", "calc": "P = 1200 W / 1000 = 1,2 kW; t = 450 perc / 60 = 7,5 h",
+     "why": "1 kW = 1000 W, 1 óra = 60 perc; így a szorzat kWh lesz (Alapok: M1 Mértékegységek és előtagok)." },
+   { "do": "Szorzunk.", "calc": "W = P·t = 1,2 kW · 7,5 h = 9,0 kWh" }
+  ],
+  "check": "Nagyságrend: kb. 1 kW 7–8 órán át kb. 8–9 kWh – stimmel. Percben számolva 540 000 jönne ki, ami nyilván rossz egység."
+ },
+ "III-telj-007": {
+  "given": ["fűtőtest 2000 W · 1 db · 360 perc", "ventilátor 150 W · 2 db · 180 perc", "világítás 800 W · 1 db · 420 perc", "egyéb 1500 W · 1 db · 30 perc"],
+  "steps": [
+   { "do": "Mit keresünk? Az iroda összes napi energiafogyasztását: minden fogyasztó energiáját külön kiszámoljuk, aztán összeadjuk.",
+     "why": "Az energiák összeadódnak; egy fogyasztóé P·db·t (Alapok: F5 Munka, teljesítmény, energia, hő)." },
+   { "do": "Mindent kW-ba és órába váltunk.", "calc": "2 kW·6 h; 0,15 kW·3 h; 0,8 kW·7 h; 1,5 kW·0,5 h",
+     "why": "W/1000 = kW, perc/60 = h (Alapok: M1 Mértékegységek és előtagok)." },
+   { "do": "Fogyasztónként szorzunk (darabszámmal együtt).", "calc": "fűtőtest: 2·1·6 = 12,00 kWh; ventilátor: 0,15·2·3 = 0,90 kWh; világítás: 0,8·1·7 = 5,60 kWh; egyéb: 1,5·1·0,5 = 0,75 kWh",
+     "why": "2 ventilátor kétszer annyi energiát fogyaszt, mint egy (Alapok: M3 Tört, reciprok, arány)." },
+   { "do": "Összeadjuk.", "calc": "W<sub>napi</sub> = 12,00 + 0,90 + 5,60 + 0,75 = 19,25 kWh" }
+  ],
+  "check": "A legnagyobb tétel a fűtőtest (12 kWh), az összeg ennél kicsit több mint másfélszer nagyobb – életszerű. A ventilátor darabszáma nélkül 18,80 kWh lenne."
+ },
+ "III-telj-008": {
+  "given": ["P = 800 W = 0,8 kW", "t = 7 h/nap, 365 nap", "egységár 70 Ft/kWh"],
+  "steps": [
+   { "do": "Mit keresünk? Az egy év alatt elhasznált energiát és annak árát.",
+     "why": "Energia = teljesítmény × idő, költség = energia × egységár (Alapok: F5 Munka, teljesítmény, energia, hő)." },
+   { "do": "Napi energia.", "calc": "W<sub>nap</sub> = 0,8 kW · 7 h = 5,6 kWh",
+     "why": "800 W = 0,8 kW (Alapok: M1 Mértékegységek és előtagok)." },
+   { "do": "Éves energia: 365 egyforma nap.", "calc": "W<sub>év</sub> = 5,6 kWh · 365 = 2044 kWh" },
+   { "do": "Költség.", "calc": "2044 kWh · 70 Ft/kWh = 143 080 Ft",
+     "why": "kWh · Ft/kWh = Ft; a költség egyenesen arányos az energiával (Alapok: M3 Tört, reciprok, arány)." }
+  ],
+  "check": "Napi költség 5,6·70 = 392 Ft, ·365 = 143 080 Ft – ugyanaz."
+ },
+ "III-telj-009": {
+  "given": ["P = 2 kW = 2000 W", "m = 1,5 kg (1,5 l víz)", "Δt = 100 − 15 = 85 K", "t = 5 perc = 300 s", "c = 4,19 kJ/(kg·K)"],
+  "steps": [
+   { "do": "Mit keresünk? A hatásfokot: a felvett villamos energia hányad része jutott ténylegesen a vízbe hőként.",
+     "why": "η = hasznos / felvett (Alapok: M4 Százalék)." },
+   { "do": "A víz melegítéséhez szükséges (hasznos) hő.", "calc": "Q = m·c·Δt = 1,5 kg · 4,19 kJ/(kg·K) · 85 K = 534,2 kJ",
+     "why": "c az 1 kg 1 K-nel való melegítéséhez kell; m kg-ra és Δt fokra szorzunk (Alapok: F5 Munka, teljesítmény, energia, hő)." },
+   { "do": "A felvett villamos energia; az időt másodpercben, mert 1 W·s = 1 J.", "calc": "W = P·t = 2000 W · 300 s = 600 000 J = 600 kJ",
+     "why": "5 perc = 5·60 = 300 s; 1000 J = 1 kJ (Alapok: M1 Mértékegységek és előtagok)." },
+   { "do": "Hatásfok, százalékban egy tizedesre.", "calc": "η = 534,2 kJ / 600 kJ = 0,8904 → 89,0 %",
+     "why": "Hányadost 100-zal szorozva kapjuk a százalékot (Alapok: M4 Százalék)." }
+  ],
+  "check": "η &lt; 100 %, ahogy kell; a veszteség 600 − 534 = 66 kJ (a kanna és a levegő melegedése)."
+ },
+ "III-telj-010": {
+  "given": ["m = 80 kg (80 l víz)", "Δt = 65 − 15 = 50 K", "P = 2 kW", "η = 95 % = 0,95", "c = 4,19 kJ/(kg·K)", "1 kWh = 3600 kJ"],
+  "steps": [
+   { "do": "Mit keresünk? Mennyi idő kell, hogy a fűtőbetét a szükséges hőt a vízbe juttassa. A veszteség miatt a 2 kW-nak csak 95 %-a melegíti a vizet.",
+     "why": "idő = energia / teljesítmény (Alapok: F5 Munka, teljesítmény, energia, hő)." },
+   { "do": "A szükséges hő.", "calc": "Q = 80 kg · 4,19 kJ/(kg·K) · 50 K = 16 760 kJ",
+     "why": "Q = m·c·Δt (Alapok: F5 Munka, teljesítmény, energia, hő)." },
+   { "do": "Átváltjuk kWh-ra, hogy kW-tal oszthassunk.", "calc": "Q = 16 760 kJ / 3600 = 4,656 kWh",
+     "why": "1 kWh = 1000 W · 3600 s = 3600 kJ (Alapok: M1 Mértékegységek és előtagok)." },
+   { "do": "A vízbe ténylegesen jutó (hasznos) teljesítmény.", "calc": "P·η = 2 kW · 0,95 = 1,90 kW",
+     "why": "Alapok: M4 Százalék." },
+   { "do": "Felfűtési idő, két tizedesre kerekítve.", "calc": "t = 4,656 kWh / 1,90 kW = 2,45 h (≈ 147 perc)",
+     "why": "W = P·t átrendezve t = W/P (Alapok: M2 Képlet átrendezése)." }
+  ],
+  "check": "Veszteség nélkül 4,656/2 = 2,33 h lenne; a veszteség miatt hosszabb – logikus."
+ },
+ "III-telj-011": {
+  "given": ["P = 10 kW", "cosφ = 0,8"],
+  "steps": [
+   { "do": "Mit keresünk? A látszólagos teljesítményt (S, amit a hálózatnak szállítania kell) és a meddőt (Q, ami ide-oda leng és nem végez munkát).",
+     "why": "P, Q és S derékszögű háromszöget alkot, S az átfogó (Alapok: F7 Fáziseltolás és cosφ)." },
+   { "do": "P = S·cosφ-ből a látszólagos teljesítmény.", "calc": "S = P/cosφ = 10 kW / 0,8 = 12,5 kVA",
+     "why": "Alapok: M2 Képlet átrendezése." },
+   { "do": "A meddő Pitagorasz-tétellel.", "calc": "Q = √(S² − P²) = √(12,5² − 10²) = √(156,25 − 100) = √56,25 = 7,5 kvar",
+     "why": "S² = P² + Q² (Alapok: M5 Négyzet, gyök, π és a kör területe)." }
+  ],
+  "check": "Más úton: sinφ = √(1 − 0,8²) = 0,6, Q = 12,5·0,6 = 7,5 kvar – ugyanaz. S &gt; P, ahogy kell."
+ },
+ "III-telj-012": {
+  "given": ["P = 3,6 kW", "S = 4,5 kVA"],
+  "steps": [
+   { "do": "Mit keresünk? A teljesítménytényezőt: a látszólagos teljesítmény hányad része hatásos (végez munkát).",
+     "why": "cosφ = P/S (Alapok: F7 Fáziseltolás és cosφ)." },
+   { "do": "Osztunk.", "calc": "cosφ = 3,6 kW / 4,5 kVA = 0,8",
+     "why": "A kW/kVA egység kiesik, a cosφ mértékegység nélküli szám (Alapok: M3 Tört, reciprok, arány)." },
+   { "do": "A helyes válasz 0,8.",
+     "why": "1,25 az S/P (cosφ nem lehet 1 fölött, mert a befogó nem hosszabb az átfogónál); 0,6 a sinφ." }
+  ],
+  "check": "Q = √(4,5² − 3,6²) = 2,7 kvar; 0,8² + 0,6² = 1 – stimmel."
+ },
+ "III-telj-013": {
+  "given": ["U = 230 V", "I = 6 A", "cosφ = 0,78"],
+  "steps": [
+   { "do": "Mit keresünk? A látszólagos teljesítményt (feszültség × áram) és ennek a munkát végző részét, a hatásos teljesítményt.",
+     "why": "S = U·I, P = U·I·cosφ (Alapok: F7 Fáziseltolás és cosφ)." },
+   { "do": "Látszólagos teljesítmény.", "calc": "S = 230 V · 6 A = 1380 VA",
+     "why": "Alapok: F5 Munka, teljesítmény, energia, hő." },
+   { "do": "Hatásos teljesítmény.", "calc": "P = S·cosφ = 1380 VA · 0,78 = 1076,4 W" }
+  ],
+  "check": "P &lt; S, ahogy kell. A különbséget a meddő adja: Q = 1380·√(1 − 0,78²) = 1380·0,626 ≈ 864 var; √(1076,4² + 864²) ≈ 1380."
+ },
+ "III-telj-014": {
+  "given": ["P = 9 kW = 9000 W", "U<sub>v</sub> = 400 V, háromfázisú, szimmetrikus", "ohmos → cosφ = 1"],
+  "steps": [
+   { "do": "Mit keresünk? Egy fázisvezető áramát, miközben a három fázis együtt 9 kW-ot ad.",
+     "why": "Szimmetrikus háromfázisú terhelés (Alapok: F8 Háromfázisú rendszer)." },
+   { "do": "Ohmos fogyasztó: cosφ = 1.", "why": "Fűtőszálnál nincs fáziseltolás (Alapok: F7 Fáziseltolás és cosφ)." },
+   { "do": "Háromfázisú áram.", "calc": "I = P/(√3·U<sub>v</sub>) = 9000 W / (1,732 · 400 V) = 9000 / 692,8 = 12,99 A",
+     "why": "P = √3·U<sub>v</sub>·I·cosφ átrendezve (Alapok: M2 Képlet átrendezése)." },
+   { "do": "A helyes válasz 12,99 A.",
+     "why": "22,50 A √3 nélkül, 39,13 A egyetlen fázisra (9000/230), 7,50 A 3·400-zal osztva jönne ki." }
+  ],
+  "check": "Fázisonként 3 kW / 230 V = 13,04 A – csaknem ugyanaz (a különbség a 400/√3 = 230,9 V kerekítése)."
+ },
+ "III-telj-015": {
+  "given": ["3 db fűtőelem, névlegesen 2 kW / 230 V", "háromszög-kapcsolás 3×400/230 V-os hálózaton", "R állandó"],
+  "steps": [
+   { "do": "Mit keresünk? Mennyit vesz fel a három elem, ha mindegyik két fázis közé (háromszögbe) van kötve. Ehhez előbb kiszámoljuk egy elem ellenállását.",
+     "why": "Az elem ellenállása nem változik, a teljesítménye a ráeső feszültségtől függ (Alapok: F3 Ellenállás és Ohm-törvény)." },
+   { "do": "Egy elem ellenállása a névleges adatokból.", "calc": "R = U<sub>n</sub>²/P<sub>n</sub> = (230 V)² / 2000 W = 52 900 / 2000 = 26,45 Ω",
+     "why": "P = U²/R átrendezve (Alapok: M2 Képlet átrendezése, F5 Munka, teljesítmény, energia, hő)." },
+   { "do": "Háromszögben minden elem két fázisvezető közé kerül, tehát a vonali feszültséget kapja.", "calc": "U<sub>elem</sub> = 400 V",
+     "why": "Két fázis között 400 V, fázis és nulla között 230 V (Alapok: F8 Háromfázisú rendszer)." },
+   { "do": "Egy elem teljesítménye 400 V-on.", "calc": "P<sub>elem</sub> = (400 V)² / 26,45 Ω = 160 000 / 26,45 = 6049 W",
+     "why": "P = U²/R (Alapok: F5 Munka, teljesítmény, energia, hő)." },
+   { "do": "Három elem együtt.", "calc": "P = 3 · 6049 W = 18 147 W ≈ 18,1 kW" }
+  ],
+  "check": "(400/230)² = 3,02 → elemenként kb. a névleges háromszorosa (2 kW · 3 = 6 kW); összesen kb. 18 kW. A 6,0 kW a helyes, csillagba kötött eset lenne."
+ },
+ "III-telj-016": {
+  "given": ["pénz: 1000 Ft", "egységár 70 Ft/kWh", "P = 2 kW"],
+  "steps": [
+   { "do": "Mit keresünk? Hány órán át működhet a hősugárzó annyi energiából, amennyit 1000 Ft-ért kapunk.",
+     "why": "Előbb a pénzből energiát, aztán az energiából időt számolunk (Alapok: F5 Munka, teljesítmény, energia, hő)." },
+   { "do": "Mennyi energia jön 1000 Ft-ért?", "calc": "W = 1000 Ft / 70 Ft/kWh = 14,286 kWh",
+     "why": "költség = W·egységár átrendezve W = költség/egységár (Alapok: M2 Képlet átrendezése)." },
+   { "do": "Üzemidő; két tizedesre kerekítünk.", "calc": "t = W/P = 14,286 kWh / 2 kW = 7,14 h",
+     "why": "W = P·t átrendezve; kWh/kW = h (Alapok: M2 Képlet átrendezése, M1 Mértékegységek és előtagok)." }
+  ],
+  "check": "Visszaszámolva: 2 kW · 7,14 h = 14,28 kWh · 70 Ft ≈ 1000 Ft – stimmel."
+ },
+ "III-telj-017": {
+  "given": ["mérőállandó 1000 imp/kWh", "n = 50 impulzus", "t = 2 perc"],
+  "steps": [
+   { "do": "Mit keresünk? A fogyasztó teljesítményét: ehhez megnézzük, mennyi energia fogyott, és mennyi idő alatt.",
+     "why": "Teljesítmény = energia / idő (Alapok: F5 Munka, teljesítmény, energia, hő)." },
+   { "do": "Az energia: 1000 impulzus jelent 1 kWh-t, tehát 1 impulzus 1/1000 kWh.", "calc": "W = 50 imp / 1000 imp/kWh = 0,050 kWh",
+     "why": "Egyenes arányosság (Alapok: M3 Tört, reciprok, arány)." },
+   { "do": "Az idő órában.", "calc": "t = 2 perc / 60 = 0,03333 h",
+     "why": "kWh-t órával osztva kW jön ki (Alapok: M1 Mértékegységek és előtagok)." },
+   { "do": "Teljesítmény.", "calc": "P = W/t = 0,050 kWh / 0,03333 h = 1,50 kW",
+     "why": "W = P·t átrendezve (Alapok: M2 Képlet átrendezése)." }
+  ],
+  "check": "Visszafelé: 1,5 kW 2 percig = 1,5·2/60 = 0,05 kWh = 50 impulzus – stimmel."
+ },
+ "III-telj-018": {
+  "given": ["e = c + (1 − c)/√n", "c = 0,2", "n = 16 lakás"],
+  "steps": [
+   { "do": "Mit keresünk? Azt a tényezőt, amely megmondja, hogy 16 lakás együttes csúcsa a névleges teljesítmények összegének hányad része.",
+     "why": "A lakások nem egyszerre fogyasztanak csúcson; az MSZ 447 ezt tapasztalati képlettel veszi figyelembe (Alapok: M4 Százalék)." },
+   { "do": "Gyökvonás.", "calc": "√16 = 4",
+     "why": "4·4 = 16 (Alapok: M5 Négyzet, gyök, π és a kör területe)." },
+   { "do": "Behelyettesítünk.", "calc": "e = 0,2 + (1 − 0,2)/4 = 0,2 + 0,8/4 = 0,2 + 0,2 = 0,40" }
+  ],
+  "check": "0 &lt; e ≤ 1, és több lakásnál kisebb (n = 1-nél 1) – logikus; 0,40 = 40 %."
+ },
+ "III-telj-019": {
+  "given": ["n = 6 lakás", "P<sub>m</sub> = 13,8 kW (háromfázisú lakás)", "P<sub>v</sub> = 1,8 kW lakásonként (vezérelt)", "e = 0,2 + 0,8/√n, két tizedesre"],
+  "steps": [
+   { "do": "Mit keresünk? Az épület bekötésének méretezési teljesítményét: a lakások valószínű közös csúcsa + a vezérelt tárolók, amelyek biztosan egyszerre üzemelnek.",
+     "why": "MSZ 447 eredő-képlet (Alapok: F5 Munka, teljesítmény, energia, hő)." },
+   { "do": "Egyidejűségi tényező, két tizedesre kerekítve.", "calc": "√6 = 2,449; e = 0,2 + 0,8/2,449 = 0,2 + 0,3266 = 0,5266 ≈ 0,53",
+     "why": "A feladat két tizedest kér, és a kerekített értékkel számolunk tovább (Alapok: M5 Négyzet, gyök, π és a kör területe, M6 Kerekítés és szabványos sorok)." },
+   { "do": "A lakások része.", "calc": "6 · 13,8 kW · 0,53 = 82,8 · 0,53 = 43,884 kW",
+     "why": "Az összeg 53 %-a a várható csúcs (Alapok: M4 Százalék)." },
+   { "do": "A vezérelt tárolók egyidejűség nélkül (e = 1).", "calc": "6 · 1,8 kW = 10,8 kW",
+     "why": "A vezérlés (pl. éjszakai jel) mindet egyszerre kapcsolja be, ezért nincs eltolódás." },
+   { "do": "Összeadjuk, két tizedesre.", "calc": "P<sub>e</sub> = 43,884 + 10,8 = 54,684 kW ≈ 54,68 kW" }
+  ],
+  "check": "P<sub>e</sub> kisebb, mint a teljes összeg (82,8 + 10,8 = 93,6 kW), de nagyobb, mint a tárolók nélküli rész – logikus."
+ },
+ "III-telj-020": {
+  "given": ["n = 9 egyfázisú lakás, P<sub>m</sub> = 7,36 kW", "e<sub>9</sub> = 0,47", "közösségi P<sub>k</sub> = 2,3 kW", "háromfázisú fővezeték, U<sub>f</sub> = 230 V, cosφ = 1"],
+  "steps": [
+   { "do": "Mit keresünk? Az épület eredő méretezési teljesítményét, és azt, hogy ebből egy fázisvezetőre mennyi áram jut.",
+     "why": "A lakásokat a három fázisra egyenletesen osztják, így a terhelés szimmetrikus (Alapok: F8 Háromfázisú rendszer)." },
+   { "do": "A lakások egyidejű csúcsa.", "calc": "9 · 7,36 kW · 0,47 = 66,24 · 0,47 = 31,133 kW",
+     "why": "Az egyidejűségi tényező a valószínű csúcsot adja (Alapok: M4 Százalék)." },
+   { "do": "Hozzáadjuk a közösségi fogyasztást egyidejűség nélkül.", "calc": "P<sub>e</sub> = 31,133 + 2,3 = 33,433 kW ≈ 33,43 kW",
+     "why": "Az MSZ 447 szerint a közösségi fogyasztás e nélkül adódik hozzá." },
+   { "do": "A teljesítmény három fázisra oszlik, mindegyik 230 V-on.", "calc": "I = P<sub>e</sub>/(3·U<sub>f</sub>) = 33 433 W / (3 · 230 V) = 33 433 / 690 = 48,45 A",
+     "why": "Egy fázis P<sub>e</sub>/3-at visz; I = P/U, cosφ = 1 (Alapok: F8 Háromfázisú rendszer, F5 Munka, teljesítmény, energia, hő)." }
+  ],
+  "check": "Egy fázisra 33,43/3 = 11,14 kW jut, 11 144 W / 230 V = 48,45 A – ugyanaz. Egyfázisúként 145 A jönne ki, háromszoros hiba."
+ },
+ "III-telj-021": {
+  "given": ["MSZ 447:2019: háromfázisú lakás 3×20 A, egyfázisú 1×32 A", "U<sub>f</sub> = 230 V"],
+  "steps": [
+   { "do": "Mit keresünk? Azt a teljesítményt, amire egy háromfázisú lakás bekötését tervezni kell. A szabvány ezt áramerősséggel adja meg: 3×20 A.",
+     "why": "Az MSZ 447:2019 lakásonkénti méretezési áramot ír elő; ebből teljesítményt P = U·I-vel kapunk (Alapok: F5 Munka, teljesítmény, energia, hő)." },
+   { "do": "Három fázis, mindegyik 230 V-on 20 A-rel.", "calc": "P = 3 · 230 V · 20 A = 13 800 W = 13,8 kW",
+     "why": "Fázisonként U<sub>f</sub>·I, háromszor (Alapok: F8 Háromfázisú rendszer, M1 Mértékegységek és előtagok)." },
+   { "do": "A helyes válasz 13,8 kW (3×20 A).",
+     "why": "230 V · 32 A = 7,36 kW az egyfázisú lakás; a 10 kW és 6,6 kW a régi, 1998-as szabvány értékei." }
+  ],
+  "check": "13,8 kW kb. kétszerese az egyfázisú 7,36 kW-nak – a háromfázisú ellátás nagyobb igényt fedez, logikus."
+ },
+ "III-telj-022": {
+  "given": ["5 összefüggés: U·I·cosφ, √3·U<sub>v</sub>·I, √3·U<sub>v</sub>·I·sinφ, P·t, P<sub>le</sub>/P<sub>fel</sub>"],
+  "steps": [
+   { "do": "Mit keresünk? Minden képlethez azt a mennyiséget, amit kiszámol. Nézzük, milyen tényezők vannak benne.",
+     "why": "U·I a teljes (látszólagos) szorzat; cosφ a hatásos, sinφ a meddő részt veszi ki (Alapok: F7 Fáziseltolás és cosφ)." },
+   { "do": "U·I·cosφ: egy fázis, cosφ-vel → egyfázisú hatásos teljesítmény.",
+     "why": "Alapok: F7 Fáziseltolás és cosφ." },
+   { "do": "√3·U<sub>v</sub>·I: háromfázisú (√3 és vonali feszültség), sem cos, sem sin → háromfázisú látszólagos; ugyanez ·sinφ → háromfázisú meddő.",
+     "why": "3·U<sub>f</sub> = √3·U<sub>v</sub> (Alapok: F8 Háromfázisú rendszer)." },
+   { "do": "P·t: teljesítmény × idő → villamos energia (munka); P<sub>le</sub>/P<sub>fel</sub> → hatásfok.",
+     "why": "Alapok: F5 Munka, teljesítmény, energia, hő, M4 Százalék." }
+  ],
+  "check": "A „teljesítménytényező” (P/S) és az „áramsűrűség” (I/A) egyik képlethez sem tartozik – ezek a kimaradó elemek."
+ },
+ "III-telj-023": {
+  "given": ["5 állítás teljesítményről és energiáról"],
+  "steps": [
+   { "do": "Mit keresünk? Melyik állítás egyezik a teljesítmény és az energia definíciójával.",
+     "why": "Alapok: F5 Munka, teljesítmény, energia, hő." },
+   { "do": "1. Igaz: a motor adattábláján a P<sub>n</sub> a tengelyen leadott mechanikai teljesítmény.",
+     "why": "Alapok: F9 Mágnesesség, indukció, transzformátor, motor." },
+   { "do": "2. Hamis: a kWh energia (kW·h), a teljesítmény egysége a W/kW.",
+     "why": "W = P·t (Alapok: M1 Mértékegységek és előtagok)." },
+   { "do": "3. Igaz: I = P/(U·cosφ), kisebb cosφ-vel osztva nagyobb áram jön ki.", "calc": "pl. 1000 W/(230·1) = 4,35 A; 1000 W/(230·0,5) = 8,70 A",
+     "why": "Alapok: F7 Fáziseltolás és cosφ, M3 Tört, reciprok, arány." },
+   { "do": "4. Igaz: a meddő teljesítmény egysége var. 5. Hamis: a hatásfok mindig 100 % alatt van, mert mindig van veszteség.",
+     "why": "Energia nem keletkezik a semmiből, a leadott nem lehet több a felvettnél (Alapok: F5 Munka, teljesítmény, energia, hő, M4 Százalék)." }
+  ],
+  "check": "Helyes sor: igaz, hamis, igaz, igaz, hamis."
+ },
+ "III-telj-024": {
+  "given": ["P<sub>fel</sub> = 5,2 kW", "P<sub>le</sub> = 4,5 kW"],
+  "steps": [
+   { "do": "Mit keresünk? Hogy a felvett teljesítmény hány százaléka jut a tengelyre (hatásfok), és mennyi alakul hővé a motorban (veszteség).",
+     "why": "η = P<sub>le</sub>/P<sub>fel</sub>, P<sub>v</sub> = P<sub>fel</sub> − P<sub>le</sub> (Alapok: F5 Munka, teljesítmény, energia, hő)." },
+   { "do": "Hatásfok, egy tizedesre.", "calc": "η = 4,5 kW / 5,2 kW = 0,8654 → 86,5 %",
+     "why": "A hányados ·100 = százalék (Alapok: M4 Százalék)." },
+   { "do": "Veszteség W-ban.", "calc": "P<sub>v</sub> = 5,2 kW − 4,5 kW = 0,7 kW = 700 W",
+     "why": "1 kW = 1000 W (Alapok: M1 Mértékegységek és előtagok)." }
+  ],
+  "check": "4,5 + 0,7 = 5,2 kW – a felvett teljesítmény megvan; η &lt; 100 %, ahogy kell."
+ },
+ "III-telj-025": {
+  "given": ["szimmetrikus háromfázisú fogyasztó, 3×400/230 V-os hálózat"],
+  "steps": [
+   { "do": "Mit keresünk? A háromfázisú teljesítményképlet szorzóját és feszültségét, valamint hogy csillagkapcsolásban mennyi jut egy elemre.",
+     "why": "Alapok: F8 Háromfázisú rendszer." },
+   { "do": "Három fázis, mindegyik U<sub>f</sub>·I·cosφ: P = 3·U<sub>f</sub>·I·cosφ.", "calc": "3·U<sub>f</sub> = 3·U<sub>v</sub>/√3 = √3·U<sub>v</sub>",
+     "why": "U<sub>v</sub> = √3·U<sub>f</sub>, és 3/√3 = √3 (Alapok: M5 Négyzet, gyök, π és a kör területe)." },
+   { "do": "Tehát a szorzó <b>√3</b>, az U a <b>vonali</b> feszültség, értéke <b>400</b> V.", "calc": "1,732 · 230 V ≈ 400 V" },
+   { "do": "Csillagkapcsolásban minden elem egy fázis és a csillagpont (nulla) közé kerül, ezért <b>230</b> V jut rá.",
+     "why": "Fázis–nulla feszültség = fázisfeszültség (Alapok: F8 Háromfázisú rendszer)." }
+  ],
+  "check": "Kitöltés: √3 – vonali – 400 – 230. A 3-as szorzó csak a 230 V-tal együtt helyes."
+ },
+ "III-telj-026": {
+  "given": ["P = 8 W (folyamatos)", "30 nap, napi 24 h", "70 Ft/kWh"],
+  "steps": [
+   { "do": "Mit keresünk? Egy hónap készenléti fogyasztásának árát. A készülék folyamatosan, éjjel-nappal fogyaszt.",
+     "why": "Energia = teljesítmény × idő, költség = energia × egységár (Alapok: F5 Munka, teljesítmény, energia, hő)." },
+   { "do": "Átváltás kW-ra és az összes órára.", "calc": "P = 8 W / 1000 = 0,008 kW; t = 24 h · 30 = 720 h",
+     "why": "Alapok: M1 Mértékegységek és előtagok." },
+   { "do": "Energia.", "calc": "W = 0,008 kW · 720 h = 5,76 kWh" },
+   { "do": "Költség.", "calc": "5,76 kWh · 70 Ft/kWh = 403,2 Ft ≈ 403 Ft",
+     "why": "Alapok: M3 Tört, reciprok, arány." }
+  ],
+  "check": "Napi 0,192 kWh · 70 = 13,4 Ft, ·30 = 403 Ft – stimmel. W-ban hagyva 403 200 Ft jönne ki – ezerszeres hiba."
+ },
+ "III-telj-027": {
+  "given": ["P<sub>n</sub> = 2000 W, U<sub>n</sub> = 230 V", "U = 207 V", "R állandó"],
+  "steps": [
+   { "do": "Mit keresünk? Mennyit fűt a készülék, ha kisebb feszültséget kap. Az ellenállása ugyanaz marad, ezért kisebb feszültség kisebb áramot is hajt.",
+     "why": "I = U/R (Alapok: F3 Ellenállás és Ohm-törvény)." },
+   { "do": "A fűtőszál ellenállása a névleges adatokból.", "calc": "R = U<sub>n</sub>²/P<sub>n</sub> = (230 V)² / 2000 W = 52 900 / 2000 = 26,45 Ω",
+     "why": "P = U·I és I = U/R → P = U²/R, átrendezve (Alapok: F5 Munka, teljesítmény, energia, hő, M2 Képlet átrendezése)." },
+   { "do": "Teljesítmény 207 V-on.", "calc": "P = U²/R = (207 V)² / 26,45 Ω = 42 849 / 26,45 = 1620 W",
+     "why": "Alapok: F5 Munka, teljesítmény, energia, hő." }
+  ],
+  "check": "Más úton: P = 2000·(207/230)² = 2000·0,9² = 2000·0,81 = 1620 W. A feszültség 10 %-kal, a teljesítmény 19 %-kal csökkent, mert a feszültség négyzetén múlik (Alapok: M5 Négyzet, gyök, π és a kör területe)."
+ },
+ "III-telj-028": {
+  "given": ["háromfázisú motor adattáblája", "cél: a tápvezeték méretezéséhez szükséges áram és a védelem"],
+  "steps": [
+   { "do": "Mit keresünk? A logikus sorrendet: mindig csak olyat számolhatunk ki, amihez az előző lépés eredménye már megvan.",
+     "why": "Minden lépés bemenete az előző kimenete." },
+   { "do": "1. Az adattábla adatai (P<sub>n</sub>, η, cosφ, U<sub>n</sub>) – ezek nélkül semmit nem tudunk számolni." },
+   { "do": "2. Felvett teljesítmény P<sub>1</sub> = P<sub>n</sub>/η, mert a P<sub>n</sub> a leadott teljesítmény.",
+     "why": "Alapok: F9 Mágnesesség, indukció, transzformátor, motor, M2 Képlet átrendezése." },
+   { "do": "3. Áram I = P<sub>1</sub>/(√3·U·cosφ) – ez az I<sub>B</sub> üzemi áram.",
+     "why": "Alapok: F8 Háromfázisú rendszer." },
+   { "do": "4. Védelem: I<sub>B</sub> ≤ I<sub>n</sub>; 5. vezeték: I<sub>n</sub> ≤ I<sub>z</sub>.",
+     "why": "A védelemnek el kell bírnia az üzemi áramot, a vezetéknek pedig el kell bírnia azt az áramot, amit a védelem még átenged – ezért előbb a védelmet választjuk, aztán a vezetéket (Alapok: F10 Melegedés és hőmérsékletfüggés)." }
+  ],
+  "check": "Lánc: adattábla → P<sub>1</sub> → I<sub>B</sub> → I<sub>n</sub> → I<sub>z</sub>; egyik lépés sem használ még ki nem számolt mennyiséget."
+ }
+}

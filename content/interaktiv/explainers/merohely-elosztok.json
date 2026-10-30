@@ -108,15 +108,30 @@
   "formulas": [
     {
       "f": "e = c + (1 − c) / n",
-      "note": "c = 0,2; 10 lakás: e = 0,2 + 0,8/10 = 0,28"
+      "note": "c = 0,2; 10 lakás: e = 0,2 + 0,8/10 = 0,28",
+      "derive": [
+        "Az egyidejűségi tényező megmondja, az összes beépített teljesítmény hányad része lép fel egyszerre (0 és 1 közötti arányszám, Alapok: M4 Százalék).",
+        "A c rész (itt 0,2) minden lakásnál egyszerre jelentkezik, ez az alapterhelés.",
+        "A maradék 1 − c rész csúcsai véletlenszerűek; minél több a lakás, annál kisebb részük esik egybe, ezért osztunk n-nel (Alapok: M3 Tört, reciprok, arány).",
+        "Próba: n = 1 → e = c + 1 − c = 1 (egy lakás a saját csúcsát adja); n = 10 → 0,2 + 0,08 = 0,28."
+      ]
     },
     {
       "f": "P<sub>eredő</sub> = n · P · e",
-      "note": "10 · 13,8 kW · 0,28 = 38,64 kW"
+      "note": "10 · 13,8 kW · 0,28 = 38,64 kW",
+      "derive": [
+        "n lakás összes beépített méretezési teljesítménye n · P (azonos lakásoknál).",
+        "Ebből csak az e-szeres rész lép fel egyszerre, ezért szorzunk e-vel: 10 · 13,8 kW · 0,28 = 38,64 kW (Alapok: M4 Százalék)."
+      ]
     },
     {
       "f": "P = 3 · 230 V · 20 A = 13,8 kW ;  P = 230 V · 32 A = 7,36 kW",
-      "note": "lakás méretezési teljesítménye"
+      "note": "lakás méretezési teljesítménye",
+      "derive": [
+        "Egy fázison a teljesítmény feszültség × áram: P = U · I (Alapok: F5 Munka, teljesítmény, energia, hő).",
+        "Háromfázisú lakásnál mindhárom fázis 230 V-on 20 A-t adhat, ezért háromszor annyi: 3 · 230 V · 20 A = 13 800 W (Alapok: F8 Háromfázisú rendszer).",
+        "Egyfázisú 32 A-es lakásnál: 230 V · 32 A = 7360 W; W → kW: ÷1000 (Alapok: M1 Mértékegységek és előtagok)."
+      ]
     }
   ],
   "mistakes": [

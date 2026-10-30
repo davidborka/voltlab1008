@@ -114,11 +114,23 @@
   "formulas": [
     {
       "f": "r<sub>min</sub> = 12·d (többerű), 15·d (egyerű)",
-      "note": "pl. d = 28 mm → 336 mm; d = 40 mm egyerű → 600 mm"
+      "note": "pl. d = 28 mm → 336 mm; d = 40 mm egyerű → 600 mm",
+      "derive": [
+        "Hajlításkor a kábel külső oldala megnyúlik, a belső összenyomódik; a nyúlás a kábel vastagsága és az ív sugara arányától függ.",
+        "Ha a sugarat az átmérő többszöröseként adjuk meg (r = k·d), minden kábelméretnél ugyanakkora a relatív nyúlás – egyenes arányosság (Alapok: M3 Tört, reciprok, arány).",
+        "A k szorzó szabványi érték gyártói adat hiányában (MSZ 13207): többerű 12, egyerű 15, mert az egyerű kábelt nem támasztják más erek.",
+        "Példa: 12 · 28 mm = 336 mm; a sugár, nem az átmérő!"
+      ]
     },
     {
       "f": "P = S·σ",
-      "note": "S = megfogott vezetők összes keresztmetszete; 4×150 Al: 600·25 = 15 000 N; 4×95 Cu: 380·50 = 19 000 N"
+      "note": "S = megfogott vezetők összes keresztmetszete; 4×150 Al: 600·25 = 15 000 N; 4×95 Cu: 380·50 = 19 000 N",
+      "derive": [
+        "A húzóerőt a fém vezetők viselik; σ megmondja, 1 mm² vezető mekkora erőt bír maradandó nyúlás nélkül (N/mm²).",
+        "n mm² keresztmetszet n-szer annyit bír, ezért P = S · σ – egyenes arányosság (Alapok: M3 Tört, reciprok, arány).",
+        "S csak a ténylegesen megfogott vezetők összes keresztmetszete (pl. 4 · 150 mm² = 600 mm²); az árnyékolás nem számít.",
+        "Mértékegység: mm² · N/mm² = N (Alapok: M1 Mértékegységek és előtagok)."
+      ]
     }
   ],
   "mistakes": [

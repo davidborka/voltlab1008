@@ -1,0 +1,56 @@
+{
+  "II-mot-016": {
+    "given": [
+      "csillag-delta indító, a motor üzemszerűen deltában jár",
+      "a hőkioldó a hálózati kontaktor után, az U1-V1-W1 ágban van → a tekercsáramot érzékeli",
+      "I<sub>n</sub> = 26 A (a motor névleges, vonali árama)"
+    ],
+    "steps": [
+      {
+        "do": "Mit keresünk? Azt az áramot, amit a hőkioldó a saját helyén normál, névleges üzemben lát. A hőkioldót mindig arra az áramra állítjuk, ami rajta keresztülfolyik, amikor a motor éppen névlegesen terhelt.",
+        "why": "A hőkioldó a rajta átfolyó áram melegítő hatását érzékeli (I²·R hő, Alapok: F5 Munka, teljesítmény, energia, hő); ha nagyobb áramra állítjuk, mint amit lát, soha nem old ki."
+      },
+      {
+        "do": "A motor adattábláján a 26 A a vonali áram (ami a hálózati vezetékben folyik). Deltában minden vonali vezető két tekercs csatlakozási pontjához fut, ezért a vonali áram két tekercsáram (vektoros) különbsége.",
+        "why": "A csomópontban az áram nem vész el: ami befolyik, az a két tekercsbe oszlik szét (Alapok: F4 Soros és párhuzamos kapcsolás)."
+      },
+      {
+        "do": "A két tekercsáram egymáshoz képest 120°-kal el van tolva, ezért a különbségük nem 2-szeres, hanem √3-szoros: I<sub>vonali</sub> = √3 · I<sub>tekercs</sub>. Átrendezve kapjuk a tekercsáramot.",
+        "calc": "I<sub>tekercs</sub> = I<sub>vonali</sub> / √3",
+        "why": "Ugyanaz a √3, mint a 230 V és 400 V között: két 120°-ra eltolt szinusz különbsége √3-szor nagyobb az egyiknél (Alapok: F8 Háromfázisú rendszer; M2 Képlet átrendezése; M5 Négyzet, gyök)."
+      },
+      {
+        "do": "Behelyettesítünk, és egy tizedesre kerekítünk.",
+        "calc": "I<sub>beáll</sub> = 26 A / 1,732 = 15,01 A ≈ 15,0 A"
+      }
+    ],
+    "check": "Visszaellenőrzés: 15,0 A · 1,732 = 26 A. Ha 26 A-re állítanánk, a tekercs 26/15 = 1,73-szoros, azaz 73 %-os túlterhelésénél sem oldana ki. Ha a hőkioldó a hálózati kontaktor előtt lenne (vonali áramot lát), 26 A lenne a helyes."
+  },
+  "II-mot-017": {
+    "given": [
+      "delta üzemű motor, I<sub>n</sub> = 12 A",
+      "indítóáram-viszony: I<sub>i</sub>/I<sub>n</sub> = 6"
+    ],
+    "steps": [
+      {
+        "do": "Mit keresünk? A hálózatból indításkor felvett áramot két esetben. Álló motornál még nincs ellen-feszültség (a forgórész nem forog), ezért a motor szinte rövidzárként viselkedik, és a névleges áram többszörösét veszi fel.",
+        "why": "Forgó motorban a forgómező a tekercsben feszültséget indukál, ami az áramot korlátozza; állva ez hiányzik (Alapok: F9 Mágnesesség, indukció, transzformátor, motor)."
+      },
+      {
+        "do": "a) Közvetlen (delta) indítás: az indítóáram a névleges 6-szorosa.",
+        "calc": "I<sub>i,Δ</sub> = 6 · 12 A = 72 A"
+      },
+      {
+        "do": "b) Csillagban minden tekercs csak a fázisfeszültséget kapja (230 V a 400 V helyett), vagyis √3-ad részét. A tekercs ugyanaz, ezért az árama is √3-ad részére esik.",
+        "calc": "U<sub>tekercs</sub>: 400 V → 400 V / 1,732 = 230 V",
+        "why": "Ugyanazon az ellenálláson (impedancián) kisebb feszültség arányosan kisebb áramot hajt (Alapok: F3 Ellenállás és Ohm-törvény; F8 Háromfázisú rendszer)."
+      },
+      {
+        "do": "Deltában a vonali áram még √3-szor nagyobb a tekercsáramnál, csillagban viszont a vonali áram egyenlő a tekercsárammal. Így a hálózati áram két √3-as szorzót veszít: √3 · √3 = 3.",
+        "calc": "I<sub>i,Y</sub> = 72 A / 3 = 24 A",
+        "why": "√3 · √3 = 3 (Alapok: M5 Négyzet, gyök, π és a kör területe; F8 – csillag/delta)."
+      }
+    ],
+    "check": "Ellenőrzés: 24 A = 2 · 12 A, vagyis csillagban az indítóáram a névleges „csak” kétszerese. Ugyanígy a nyomaték is harmadára esik (a nyomaték a feszültség négyzetével arányos: (1/√3)² = 1/3), ezért csillag-delta csak kis terheléssel induló gépnél jó."
+  }
+}

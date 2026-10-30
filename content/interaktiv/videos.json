@@ -1,0 +1,56 @@
+{
+  "alapok": [
+    {
+      "src": "media/alapok-matek.mp4",
+      "poster": "media/alapok-matek.jpg",
+      "title": "Matek eszközök: mértékegységek, átrendezés, tört, százalék, gyök, kerekítés (M1–M6)",
+      "mins": 10,
+      "note": "Kb. 5:20-nál a narrátor „0,04667”-et mond; helyesen 1/40 + 1/60 = 0,04167 (a képernyőn ez látszik), az eredmény 24 Ω."
+    },
+    {
+      "src": "media/alapok-fizika1.mp4",
+      "poster": "media/alapok-fizika1.jpg",
+      "title": "Fizika 1: áram, feszültség, ellenállás, kapcsolások, teljesítmény (F1–F5)",
+      "mins": 8
+    },
+    {
+      "src": "media/alapok-fizika2.mp4",
+      "poster": "media/alapok-fizika2.jpg",
+      "title": "Fizika 2: váltakozó áram, cosφ, három fázis és √3, motor, melegedés, hibaáram (F6–F11)",
+      "mins": 12
+    }
+  ],
+  "alapszamitasok": [
+    {
+      "src": "media/alapszamitasok.mp4",
+      "poster": "media/alapszamitasok.jpg",
+      "title": "Ohm-törvény és vezetékellenállás a vízcső-hasonlatból + 2 vizsgafeladat",
+      "mins": 9
+    }
+  ],
+  "teljesitmeny-energia": [
+    {
+      "src": "media/teljesitmeny-energia.mp4",
+      "poster": "media/teljesitmeny-energia.jpg",
+      "title": "Teljesítmény, cosφ, három fázis, hatásfok + 3 vizsgafeladat",
+      "mins": 12,
+      "note": "Egy helyen elhangzik, hogy a meddő teljesítményt (Q) wattban mérjük – helyesen varban (VAr); a hatásos P mértékegysége a watt."
+    }
+  ],
+  "feszultsegeses": [
+    {
+      "src": "media/feszultsegeses.mp4",
+      "poster": "media/feszultsegeses.jpg",
+      "title": "Feszültségesés a nulláról: ×2, √3, százalék → volt + 3 vizsgafeladat",
+      "mins": 11
+    }
+  ],
+  "terhelhetoseg": [
+    {
+      "src": "media/terhelhetoseg.mp4",
+      "poster": "media/terhelhetoseg.jpg",
+      "title": "Terhelhetőség: miért melegszik, I<sub>B</sub> ≤ I<sub>n</sub> ≤ I<sub>z</sub>, korrekció szorzás vagy osztás + 2 vizsgafeladat",
+      "mins": 9
+    }
+  ]
+}

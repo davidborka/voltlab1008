@@ -1,0 +1,60 @@
+{
+  "IV-tv-010": {
+    "given": [
+      "2. típusú SPD, védelmi szint: U<sub>p</sub> = 1,3 kV",
+      "párhuzamos (T) bekötés",
+      "a bekötővezetékeken lökőáramnál ≈ 1 kV/m induktív feszültségesés",
+      "1. eset: l = 1,2 m; 2. eset: l = 0,3 m (fázis- és földoldali együtt)"
+    ],
+    "steps": [
+      {
+        "do": "Mit keresünk? Mekkora túlfeszültség jut a védett hálózatra, amikor az SPD levezet. A védett pont és a föld között a feszültség három rész összege: a fázisoldali bekötővezeték esése + az SPD saját feszültsége (U<sub>p</sub>) + a földoldali bekötővezeték esése.",
+        "why": "Sorba kapcsolt elemeken a feszültségek összeadódnak (Alapok: F4 Soros és párhuzamos kapcsolás)."
+      },
+      {
+        "do": "Miért esik feszültség egy rövid vezetéken is? A lökőáram mikroszekundumok alatt több kA-re nő; a gyorsan változó áram a vezeték önindukciója miatt hosszal arányos feszültséget kelt (≈ 1 kV méterenként). Ezért a két bekötővezeték együttes hosszával számolunk.",
+        "calc": "U<sub>védett</sub> = U<sub>p</sub> + l · 1 kV/m",
+        "why": "Önindukció: a feszültség az áram változásának sebességével és a vezeték induktivitásával (∝ hossz) arányos (Alapok: F9 Mágnesesség, indukció, transzformátor, motor)."
+      },
+      {
+        "do": "1. eset: 1,2 m együttes bekötővezeték.",
+        "calc": "U<sub>védett</sub> = 1,3 kV + 1,2 m · 1 kV/m = 1,3 kV + 1,2 kV = 2,5 kV",
+        "why": "m · kV/m = kV, a méter kiesik (Alapok: M1 Mértékegységek és előtagok)."
+      },
+      {
+        "do": "2. eset: 0,3 m együttes bekötővezeték.",
+        "calc": "U<sub>védett</sub> = 1,3 kV + 0,3 m · 1 kV/m = 1,3 kV + 0,3 kV = 1,6 kV"
+      }
+    ],
+    "check": "Összevetés: a 2,5 kV pont a II. túlfeszültség-kategória határa (nincs tartalék), az 1,6 kV bőven alatta van. Ezért kell a bekötővezetékeket lehetőleg 0,5 m alatt tartani (MSZ HD 60364-5-534)."
+  },
+  "IV-tv-031": {
+    "given": [
+      "LPS II osztály → méretezési villámáram: 150 kA (10/350 µs)",
+      "pesszimista becslés: 50 % a földelőn, 50 % az erősáramú betápláláson",
+      "TN-C, 4 vezető: L1, L2, L3, PEN – egyenletes megoszlás"
+    ],
+    "steps": [
+      {
+        "do": "Mit keresünk? Egy betápláló vezetőn (pólusán) átfolyó villámáramot, mert ekkora áramot kell az ott beépített 1. típusú SPD-nek pólusonként levezetnie.",
+        "why": "Az épületbe csapó villámáram nem vész el, hanem szétoszlik a földbe vezető párhuzamos utakon (Alapok: F4 Soros és párhuzamos kapcsolás)."
+      },
+      {
+        "do": "A villámvédelmi osztály adja meg a méretezési legnagyobb villámáramot. LPS II-nél ez 150 kA.",
+        "calc": "I<sub>villám</sub> = 150 kA",
+        "why": "Szabványi érték (MSZ EN 62305-1): LPS I 200 kA, II 150 kA, III–IV 100 kA."
+      },
+      {
+        "do": "Ennek fele a földelőn, fele a betápláló kábelen folyik el (a feladat feltételezése).",
+        "calc": "I<sub>betáp</sub> = 0,5 · 150 kA = 75 kA",
+        "why": "50 % = 0,5 (Alapok: M4 Százalék)."
+      },
+      {
+        "do": "A 75 kA egyenletesen oszlik meg a 4 vezető között.",
+        "calc": "I<sub>pólus</sub> = 75 kA / 4 = 18,75 kA",
+        "why": "Azonos párhuzamos ágakon egyenlő az áram, és összegük a teljes áram (Alapok: F4)."
+      }
+    ],
+    "check": "Visszaellenőrzés: 4 · 18,75 kA = 75 kA, 75 kA + 75 kA (földelő) = 150 kA. Az SPD pólusonkénti I<sub>imp</sub>-je legalább 18,75 kA legyen (pl. egy pólusonként 25 kA-es eszköz megfelel)."
+  }
+}

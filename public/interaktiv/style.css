@@ -213,3 +213,21 @@ table.hist td, table.hist th { padding: 6px 4px; border-bottom: 1px solid var(--
 .learn-link { margin-top: 10px; }
 @media (max-width: 820px) { .weak-row { flex-direction: column; align-items: stretch; } .weak-row .wr-act { justify-content: flex-start; } .overlay .sheet { padding: 14px 16px; } }
 .card.wide { grid-column: 1 / -1; order: -1; }
+
+/* worked solutions and formula derivations */
+.work { margin: 10px 0; padding: 8px 12px; background: var(--card, #fff); border: 1px solid var(--line); border-radius: 6px; }
+.work summary, .formula details summary { cursor: pointer; font-weight: 600; }
+.work .given { margin: 8px 0; font-size: .92rem; }
+.work ol { margin: 6px 0; padding-left: 1.4em; } .work li { margin: 8px 0; }
+.work code { display: inline-block; margin: 3px 0; padding: 2px 8px; background: #f6f7f9; border-radius: 4px; font: 600 .95rem/1.4 ui-monospace, Consolas, monospace; }
+.work .why, .formula details li { font-size: .87rem; color: var(--muted); }
+.work .check { font-size: .9rem; color: var(--ok); margin-top: 4px; }
+.formula details ol { margin: 4px 0; padding-left: 1.3em; }
+.ex-video { margin: 12px 0; } .ex-video video { width: 100%; border-radius: 8px; background: #000; }
+.ex-video figcaption { font-size: .85rem; color: var(--muted); margin-top: 4px; }
+
+.toc { display: flex; flex-wrap: wrap; gap: 6px; margin: 12px 0; }
+.toc a { font-size: .82rem; padding: 3px 9px; border: 1px solid var(--line); border-radius: 999px; text-decoration: none; color: inherit; }
+.alap-ref { font-weight: 600; }
+section.flash { animation: flash 1.6s ease-out; border-radius: 6px; }
+@keyframes flash { from { background: #fff3c4; } to { background: transparent; } }

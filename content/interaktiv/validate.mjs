@@ -7,7 +7,8 @@ import { fileURLToPath } from 'node:url';
 const root = dirname(fileURLToPath(import.meta.url));
 const topics = JSON.parse(readFileSync(join(root, 'topics.json'), 'utf8'));
 const topicPart = Object.fromEntries(topics.topics.map(t => [t.id, t.part]));
-const args = process.argv.slice(2);
+const noWrite = process.argv.includes('--no-write');
+const args = process.argv.slice(2).filter(a => a !== '--no-write');
 const files = args.length ? args : readdirSync(join(root, 'parts')).filter(f => f.endsWith('.json')).map(f => join(root, 'parts', f));
 
 const errors = [];
@@ -84,13 +85,31 @@ for (const file of files) {
   }
 }
 
+// worked solutions live in steps/<topic>.json ({ "<question id>": { "given": [...], "steps": [{ "do", "calc", "why" }], "check" } })
+// so several authors can work in parallel without touching the part files
+const byId = Object.fromEntries(all.map(q => [q.id, q]));
+const stepDir = join(root, 'steps');
+for (const f of readdirSync(stepDir).filter(f => f.endsWith('.json'))) {
+  let m; try { m = JSON.parse(readFileSync(join(stepDir, f), 'utf8')); } catch (e) { errors.push(`steps/${f}: invalid JSON: ${e.message}`); continue; }
+  for (const [id, w] of Object.entries(m)) {
+    const err = x => errors.push(`steps/${f} ${id}: ${x}`);
+    if (!byId[id]) { if (!args.length) err('unknown question'); continue; }
+    if (w.given !== undefined && (!Array.isArray(w.given) || !w.given.every(isStr))) err('bad given');
+    if (!Array.isArray(w.steps) || w.steps.length < 2 || !w.steps.every(x => isStr(x.do) && (x.calc === undefined || isStr(x.calc)) && (x.why === undefined || isStr(x.why)))) err('bad steps');
+    if (w.check !== undefined && !isStr(w.check)) err('bad check');
+    byId[id].work = w;
+  }
+}
+// every calculation must have a worked solution
+if (!args.length) for (const q of all) if ((q.type === 'number' || q.part === 'III') && !q.work) errors.push(`${q.id}: missing steps (steps/${q.topic}.json)`);
+
 const count = (k) => all.reduce((m, q) => (m[q[k]] = (m[q[k]] ?? 0) + 1, m), {});
-console.log(`${all.length} questions, ${errors.length} errors`);
+console.log(`${all.length} questions, ${all.filter(q => q.work).length} worked solutions, ${errors.length} errors`);
 console.log('by part', count('part'));
 console.log('by type', count('type'));
 console.log('by topic', count('topic'));
 if (errors.length) { console.log(errors.slice(0, 80).join('\n')); process.exit(1); }
-if (!args.length) {
+if (!args.length && !noWrite) {
   writeFileSync(join(root, '../../public/interaktiv/data/questions.js'), `window.TOPICS=${JSON.stringify(topics)};\nwindow.QUESTIONS=${JSON.stringify(all)};\n`);
   console.log('wrote public/interaktiv/data/questions.js');
 }

@@ -1,0 +1,60 @@
+{
+  "IV-vv-008": {
+    "given": [
+      "téglalap alaprajz: 12 m × 18 m",
+      "levezető-távolság (MSZ EN 62305-3): LPS III: 15 m; LPS I (és II): 10 m",
+      "levezetők száma = kerület / távolság, felfelé kerekítve, legalább 2"
+    ],
+    "steps": [
+      {
+        "do": "Mit keresünk? Hány levezető kell az épület kerülete mentén. A villámáram a felfogóról a levezetőkön át jut a földelőbe; minél több levezető van, annál kisebb áram jut egyre, és annál kisebb feszültség lép fel rajtuk.",
+        "why": "Párhuzamos ágakon az áram megoszlik (Alapok: F4 Soros és párhuzamos kapcsolás); a szigorúbb osztály (LPS I) ezért sűrűbb levezetőket ír elő."
+      },
+      {
+        "do": "A levezetők a kerület mentén vannak, ezért először a kerületet számoljuk ki: téglalapnál két hosszú és két rövid oldal.",
+        "calc": "K = 2 · (12 m + 18 m) = 2 · 30 m = 60 m"
+      },
+      {
+        "do": "LPS III: a kerületet elosztjuk a 15 m-es levezető-távolsággal.",
+        "calc": "n = 60 m / 15 m = 4 db",
+        "why": "m / m – a mértékegység kiesik, darabszám marad (Alapok: M1 Mértékegységek és előtagok)."
+      },
+      {
+        "do": "LPS I: ugyanígy a 10 m-es távolsággal.",
+        "calc": "n = 60 m / 10 m = 6 db",
+        "why": "Ha a hányados nem egész, felfelé kerekítünk, hogy a távolság sehol ne legyen nagyobb a megengedettnél (Alapok: M6 Kerekítés és szabványos sorok)."
+      }
+    ],
+    "check": "Visszaellenőrzés: 4 levezető 60 m-en egymástól 15 m-re, 6 levezető egymástól 10 m-re – egyik sem haladja meg az osztály határát; mindkettő ≥ 2. A gyakorlatban a sarkokra kerülnek."
+  },
+  "IV-vv-017": {
+    "given": [
+      "s = k<sub>i</sub> · (k<sub>c</sub> / k<sub>m</sub>) · l",
+      "LPS III: k<sub>i</sub> = 0,04",
+      "áramosztási tényező: k<sub>c</sub> = 0,5",
+      "l = 10 m (a vizsgált pont és a legközelebbi potenciálkiegyenlítési pont közötti hossz a levezető mentén)",
+      "levegő: k<sub>m</sub> = 1; tégla/beton: k<sub>m</sub> = 0,5"
+    ],
+    "steps": [
+      {
+        "do": "Mit keresünk? Azt a legkisebb távolságot, amelynél a villámáramot vezető levezető és a mellette lévő (földelt) fém csővezeték között nem ugrik át szikra. Villámcsapáskor a levezetőn nagy feszültség keletkezik a földhöz képest; ha a cső túl közel van, átütés lesz.",
+        "why": "A villámáram nagyon gyorsan nő, és egy vezetőn a gyorsan változó áram önindukciós feszültséget kelt, ami a vezető hosszával arányos (Alapok: F9 Mágnesesség, indukció, transzformátor, motor)."
+      },
+      {
+        "do": "Mit jelentenek a tényezők? k<sub>i</sub>: a villámvédelmi osztály (nagyobb védelmi szint → nagyobb méretezési áram → nagyobb k<sub>i</sub>). k<sub>c</sub>: a villámáram hányad része jut erre a levezetőre (párhuzamos levezetők megosztják). l: minél hosszabb a levezetőszakasz a legközelebbi egyenpotenciálra hozott pontig, annál nagyobb a feszültség. k<sub>m</sub>: a közeg szigetelőképessége (levegő 1, szilárd anyag 0,5).",
+        "why": "Párhuzamos ágakban az áram megoszlik (Alapok: F4 Soros és párhuzamos kapcsolás); a k<sub>m</sub>-mel osztunk, mert gyengébb szigetelőközeg nagyobb távolságot igényel (Alapok: M3 Tört, reciprok, arány)."
+      },
+      {
+        "do": "Levegőben (k<sub>m</sub> = 1): behelyettesítünk, először a zárójelet számolva.",
+        "calc": "s = 0,04 · (0,5 / 1) · 10 m = 0,04 · 0,5 · 10 m = 0,2 m = 20 cm",
+        "why": "A tényezők mértékegység nélküliek, csak l-nek van mértékegysége (m); 1 m = 100 cm (Alapok: M1 Mértékegységek és előtagok)."
+      },
+      {
+        "do": "Tégla/beton közegben (k<sub>m</sub> = 0,5): a zárójelben 0,5 / 0,5 = 1.",
+        "calc": "s = 0,04 · (0,5 / 0,5) · 10 m = 0,04 · 1 · 10 m = 0,4 m = 40 cm",
+        "why": "Feleakkora k<sub>m</sub>-mel osztva kétszeres eredményt kapunk – fordított arányosság (Alapok: M3)."
+      }
+    ],
+    "check": "Ellenőrzés: a szilárd közegben pont kétszer akkora a távolság (40 cm = 2 · 20 cm), mert a k<sub>m</sub> fele. Ha az s nem tartható, a csövet villámáram-bíró módon össze kell kötni az LPS-sel."
+  }
+}

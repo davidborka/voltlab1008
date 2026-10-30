@@ -68,7 +68,9 @@ function deleteProfile() {
 const $ = (sel, el = document) => el.querySelector(sel);
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 // question text allows a small HTML subset; everything else is escaped
-const rich = s => esc(s).replace(/&lt;(\/?)(b|i|sub|sup|br)\s*\/?&gt;/g, '<$1$2>');
+// "(Alapok: F3 …, M1)" references become links to that foundations section
+const rich = s => esc(s).replace(/&lt;(\/?)(b|i|sub|sup|br)\s*\/?&gt;/g, '<$1$2>')
+  .replace(/Alapok:[^)]*/g, m => m.replace(/\b([MF]\d{1,2})\b/g, '<a href="#" class="alap-ref" data-ref="$1">$1</a>'));
 const plain = s => String(s).replace(/<[^>]*>/g, ''); // for <option>, which can't hold markup
 const pct = x => Math.round(x * 100) + '%';
 const fmt = n => (Math.round(n * 10) / 10).toString().replace('.', ',');
@@ -479,32 +481,54 @@ function renderSlots(q, a, sh, ro, show, set) {
 function explanationBox(q, frac) {
   const cls = frac >= 0.999 ? '' : frac > 0 ? 'part' : 'bad';
   const head = frac >= 0.999 ? '✔ Helyes' : frac > 0 ? `◐ Részben helyes (${pct(frac)})` : '✘ Hibás';
-  const box = h(`<div class="feedback ${cls}"><h3>${head}</h3><div>${rich(q.explanation)}</div><div class="src">Forrás: ${esc(q.source)}</div>
-    ${EXPLAINERS[q.topic] && frac < 0.999 ? `<button class="btn small learn-link">📘 Tananyag: ${esc(TOPIC[q.topic]?.name || q.topic)}</button>` : ''}</div>`);
+  const box = h(`<div class="feedback ${cls}"><h3>${head}</h3><div>${rich(q.explanation)}</div>${q.work ? workBox(q.work, frac < 0.999) : ''}<div class="src">Forrás: ${esc(q.source)}</div>
+    <div class="row">${EXPLAINERS[q.topic] && frac < 0.999 ? `<button class="btn small learn-link">📘 Tananyag: ${esc(TOPIC[q.topic]?.name || q.topic)}</button>` : ''}
+    ${q.work && EXPLAINERS.alapok ? '<button class="btn small basics-link">🧮 Matek és fizika alapok</button>' : ''}</div></div>`);
   $('.learn-link', box)?.addEventListener('click', () => openExplainer(q.topic));
+  $('.basics-link', box)?.addEventListener('click', () => openExplainer('alapok'));
   return box;
+}
+// worked solution: data → steps (what we do, the calculation, why it is allowed) → sanity check
+function workBox(w, open) {
+  return `<details class="work"${open ? ' open' : ''}><summary>🧮 Levezetés lépésről lépésre</summary>
+    ${w.given?.length ? `<div class="given"><b>Adatok:</b> ${w.given.map(rich).join(' · ')}</div>` : ''}
+    <ol>${w.steps.map(x => `<li><div>${rich(x.do)}</div>${x.calc ? `<code>${rich(x.calc)}</code>` : ''}${x.why ? `<div class="why">Miért? ${rich(x.why)}</div>` : ''}</li>`).join('')}</ol>
+    ${w.check ? `<div class="check">✔ Ellenőrzés: ${rich(w.check)}</div>` : ''}</details>`;
 }
 
 // ---------- study explainers ----------
 const para = s => rich(s).replace(/\n/g, '<br>');
 function renderExplainer(tid) {
-  const e = EXPLAINERS[tid], t = TOPIC[tid];
+  const e = EXPLAINERS[tid], t = TOPIC[tid] || (e && { name: e.title });
   if (!e) return h(`<article class="explainer"><h1>${esc(t?.name || tid)}</h1><p class="muted">Ehhez a témához még nincs tananyag. A feladatok magyarázatai a Hibanaplóban olvashatók.</p></article>`);
-  const el = h(`<article class="explainer">
-    <div class="eyebrow">${t.part}. vizsgarész · ${esc(PART[t.part].name)}</div>
+  const el = h(`<article class="explainer" data-tid="${esc(tid)}">
+    <div class="eyebrow">${t.part ? `${t.part}. vizsgarész · ${esc(PART[t.part].name)}` : 'Alapok · ide vezet vissza minden képlet'}</div>
     <h1>${rich(e.title)}</h1>
     <p class="lead">${para(e.summary)}</p>
+    ${(e.videos || []).map(v => `<figure class="ex-video"><video controls preload="none" src="${esc(v.src)}"${v.poster ? ` poster="${esc(v.poster)}"` : ''}></video><figcaption>🎬 ${rich(v.title)}${v.mins ? ` · ${v.mins} perc` : ''} <span class="muted">· NotebookLM-videó</span>${v.note ? `<br><b>Javítás:</b> ${rich(v.note)}` : ''}</figcaption></figure>`).join('')}
+    ${tid !== 'alapok' && EXPLAINERS.alapok && e.formulas?.length ? '<p><button class="btn small basics-link">🧮 Elakadtál egy képletnél? Matek és fizika alapok</button></p>' : ''}
     ${e.keyFacts?.length ? `<h2>Amit tudni kell</h2><table class="facts">${e.keyFacts.map(k => `<tr><th>${rich(k.k)}</th><td>${rich(k.v)}</td></tr>`).join('')}</table>` : ''}
-    ${e.formulas?.length ? `<h2>Képletek</h2><div class="formulas">${e.formulas.map(f => `<div class="formula"><code>${rich(f.f)}</code>${f.note ? `<span>${rich(f.note)}</span>` : ''}</div>`).join('')}</div>` : ''}
+    ${e.formulas?.length ? `<h2>Képletek</h2><div class="formulas">${e.formulas.map(f => `<div class="formula"><code>${rich(f.f)}</code>${f.note ? `<span>${rich(f.note)}</span>` : ''}${f.derive?.length ? `<details><summary>Honnan jön ez a képlet?</summary><ol>${f.derive.map(x => `<li>${rich(x)}</li>`).join('')}</ol></details>` : ''}</div>`).join('')}</div>` : ''}
     <div class="ex-svg"></div>
-    ${e.sections.map(s => `<section><h2>${rich(s.h)}</h2>${s.body ? `<p>${para(s.body)}</p>` : ''}${s.bullets?.length ? `<ul>${s.bullets.map(b => `<li>${rich(b)}</li>`).join('')}</ul>` : ''}</section>`).join('')}
+    ${e.sections.length >= 6 ? `<nav class="toc">${e.sections.map((s, i) => `<a href="#" data-sec="${i}">${rich(s.h)}</a>`).join('')}</nav>` : ''}
+    ${e.sections.map((s, i) => `<section data-sec="${i}" data-code="${esc((s.h.match(/^[MF]\d{1,2}\b/) || [''])[0])}"><h2>${rich(s.h)}</h2>${s.body ? `<p>${para(s.body)}</p>` : ''}${s.bullets?.length ? `<ul>${s.bullets.map(b => `<li>${rich(b)}</li>`).join('')}</ul>` : ''}</section>`).join('')}
     <h2>Tipikus hibák</h2><ul class="mistakes">${e.mistakes.map(m => `<li>${rich(m)}</li>`).join('')}</ul>
     ${e.hooks?.length ? `<h2>Jegyezd meg</h2><ul class="hooks">${e.hooks.map(m => `<li>${rich(m)}</li>`).join('')}</ul>` : ''}
     <p class="src">Források: ${e.sources.map(esc).join(' · ')}</p>
   </article>`);
+  $('.basics-link', el)?.addEventListener('click', () => openExplainer('alapok'));
   if (e.svg) { const d = h('<div class="qsvg"></div>'); d.innerHTML = e.svg; d.querySelectorAll('script').forEach(x => x.remove()); $('.ex-svg', el).append(d); }
   return el;
 }
+document.addEventListener('click', ev => {
+  const a = ev.target.closest('.alap-ref, .toc a'); if (!a) return;
+  ev.preventDefault();
+  if (a.dataset.sec) return a.closest('.explainer').querySelector(`section[data-sec="${a.dataset.sec}"]`)?.scrollIntoView({ behavior: 'smooth' });
+  const here = a.closest('.explainer[data-tid="alapok"]');
+  if (!here) openExplainer('alapok');
+  const sec = here ? here.querySelector(`section[data-code="${a.dataset.ref}"]`) : [...document.querySelectorAll('.overlay').values()].at(-1).querySelector(`section[data-code="${a.dataset.ref}"]`);
+  if (sec) { sec.scrollIntoView(); sec.classList.add('flash'); }
+});
 function openExplainer(tid) {
   const o = h(`<div class="overlay"><div class="sheet"><div class="row" style="justify-content:flex-end"><button class="btn">Bezárás ✕</button></div></div></div>`);
   $('.sheet', o).append(renderExplainer(tid));
@@ -902,6 +926,11 @@ function renderLibrary() {
   const el = h(`<div class="dash"><div class="row" style="justify-content:space-between"><h1>Tananyag</h1>${back()}</div>
     <p class="muted">Témánkénti magyarázók a tanfolyami anyagok alapján, vizsgarészenként. A színes címke a saját eredményed.</p><div id="g"></div></div>`);
   const g = $('#g', el);
+  if (EXPLAINERS.alapok) {
+    const c = h(`<button class="lib-card"><b>🧮 ${esc(EXPLAINERS.alapok.title)}</b><span class="small muted">Innen vezethető le minden képlet – ide nyúlj vissza, ha valami ködös.</span></button>`);
+    c.addEventListener('click', () => goView({ name: 'learn', topic: 'alapok' }));
+    g.append(h('<h2 style="margin-top:20px">Alapok</h2>'), h('<div class="lib-grid"></div>')); g.lastChild.append(c);
+  }
   for (const p of TOPICS.parts) {
     g.append(h(`<h2 style="margin-top:20px">${p.id}. ${esc(p.name)} <span class="muted small">(${pct(p.weight)})</span></h2>`));
     const grid = h('<div class="lib-grid"></div>');

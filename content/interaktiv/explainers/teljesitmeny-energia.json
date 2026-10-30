@@ -1,59 +1,81 @@
 {
  "topic": "teljesitmeny-energia",
  "title": "Teljesítmény, energia, költség, hatásfok",
- "summary": "Ebből a témából a vizsga áramot számoltat teljesítményből (egyfázisú vagy háromfázisú, cosφ-vel és motornál η-val), energiát és költséget (kWh, Ft), hőmennyiséget és hatásfokot, valamint az MSZ 447 szerinti méretezési teljesítményt egyidejűségi tényezővel. A pontok többsége azon múlik, hogy jó-e a szorzó (1, √3 vagy 3), a feszültség (230 vagy 400 V) és a mértékegység-váltás (W→kW, perc→óra).",
+ "summary": "Ebből a témából a vizsga áramot számoltat teljesítményből (egyfázisú vagy háromfázisú, cosφ-vel, motornál hatásfokkal), energiát és költséget (kWh, Ft), hőmennyiséget és hatásfokot, valamint az MSZ 447 szerinti méretezési teljesítményt egyidejűségi tényezővel. Minden képlet egyetlen gondolatból jön: a teljesítmény = feszültség × áram (P = U·I), az energia = teljesítmény × idő (W = P·t). A pontok többsége azon múlik, hogy jó-e a szorzó (1, √3 vagy 3), a feszültség (230 vagy 400 V) és a mértékegység-váltás (W → kW, perc → óra).",
  "sections": [
   {
-   "h": "Áram a teljesítményből: egyfázisú vagy háromfázisú",
-   "body": "Egyfázisú: P = U·I·cosφ, U = 230 V → I = P/(230·cosφ). Szimmetrikus háromfázisú: P = √3·U<sub>v</sub>·I·cosφ = 3·U<sub>f</sub>·I·cosφ, U<sub>v</sub> = 400 V, U<sub>f</sub> = 230 V → I = P/(√3·400·cosφ). A √3 mindig a 400 V-tal, a 3 mindig a 230 V-tal jár együtt. Ohmos fogyasztónál (fűtés, vízmelegítő, izzó) cosφ = 1.<br><b>Kidolgozott példa:</b> 6 kW-os háromfázisú gép, cosφ = 0,85.<br>1. I = 6000/(1,732·400·0,85) = 10,19 A<br>2. Ugyanez egyfázisúként 6000/(230·0,85) = 30,7 A lenne – háromszoros, ezért kell tudni, melyik esetről van szó.",
+   "h": "Honnan jön a P = U·I, és mit csinál benne a cosφ",
+   "body": "<b>Miért P = U·I?</b> A feszültség azt mondja meg, mennyi munkát végez 1 egységnyi töltés, amíg átmegy a fogyasztón (1 V = 1 J munka 1 C töltésenként). Az áram azt, hány egységnyi töltés megy át 1 másodperc alatt (1 A = 1 C/s). A kettő szorzata tehát a másodpercenként végzett munka, vagyis a <b>teljesítmény</b>: 1 V · 1 A = 1 J/s = 1 W (watt).<br><b>Mit jelent a cosφ?</b> Váltakozó áramnál (a hálózat 50-szer fordul meg másodpercenként) a tekercses fogyasztóknál (motor, ventilátor, előtét) az áram kicsit késik a feszültséghez képest; ennek a késésnek a szöge a φ (fí). Az áramnak csak a feszültséggel „egy ütemben” lévő része végez valódi munkát (hő, mozgás) – ez az I·cosφ. Ezért a <b>hatásos teljesítmény</b> P = U·I·cosφ (W). A szorzat egészét, U·I-t <b>látszólagos teljesítménynek</b> hívjuk: S (VA). Ami a kettő között „ide-oda leng” és nem végez munkát, az a <b>meddő teljesítmény</b>: Q = U·I·sinφ (var). Ohmos fogyasztónál (fűtőszál, vízmelegítő, izzó) nincs késés: cosφ = 1, így P = U·I.<br><b>Teljesítményháromszög:</b> P a vízszintes befogó, Q a függőleges befogó, S az átfogó, ezért Pitagorasz-tétellel S² = P² + Q², és cosφ = P/S ≤ 1 (a befogó sosem hosszabb az átfogónál).<br><b>Kidolgozott példa:</b> P = 8 kW, cosφ = 0,8.<br>1. S = P/cosφ = 8/0,8 = 10 kVA.<br>2. sinφ = √(1 − 0,8²) = √0,36 = 0,6 → Q = S·sinφ = 10·0,6 = 6 kvar (vagy √(10² − 8²) = √36 = 6).",
    "bullets": [
-    "Ökölszabály 3×400 V-on motoroknál: kb. 2 A/kW; egyfázisú ohmos terhelésnél 1 kW ≈ 4,35 A.",
-    "Csillagkapcsolásban egy fázisimpedanciára 230 V, háromszögben 400 V jut.",
-    "Állandó ellenállásnál P ∝ U²: R = U<sub>n</sub>²/P<sub>n</sub>, P = U²/R = P<sub>n</sub>·(U/U<sub>n</sub>)². 10 % feszültségcsökkenés ≈ 19 % teljesítménycsökkenés.",
-    "230 V-os elemeket 3×400/230 V-os hálózaton csillagba kell kötni; háromszögben (400²/230²) ≈ 3-szoros teljesítményt vennének fel és túlmelegednének."
+    "Egyfázisú áram teljesítményből: P = U·I·cosφ átrendezve I = P/(U·cosφ), U = 230 V.",
+    "Kisebb cosφ ugyanakkora hatásos teljesítménynél nagyobb áramot jelent (kisebb számmal osztunk) – nagyobb vezetékveszteség és feszültségesés.",
+    "Mértékegységek: P → W, Q → var, S → VA; a kW teljesítmény, a kWh energia."
    ]
   },
   {
-   "h": "Motorok: névleges teljesítmény és hatásfok",
-   "body": "A motor adattábláján a P<sub>n</sub> a tengelyen <b>leadott</b> mechanikai teljesítmény. A hálózatból felvett: P<sub>1</sub> = P<sub>n</sub>/η (osztani kell, a felvett mindig nagyobb). Az áram ebből: I = P<sub>n</sub>/(η·√3·U·cosφ). Hatásfok általában: η = P<sub>le</sub>/P<sub>fel</sub> &lt; 1, veszteség P<sub>v</sub> = P<sub>fel</sub> − P<sub>le</sub>.<br><b>Kidolgozott példa:</b> 4 kW, η = 86 %, cosφ = 0,82, 3×400 V.<br>1. P<sub>1</sub> = 4/0,86 = 4,651 kW<br>2. I = 4651/(1,732·400·0,82) = 8,19 A<br>3. Józan ész-ellenőrzés: 2 A/kW → kb. 8 A, rendben.",
+   "h": "Háromfázisú teljesítmény: honnan a √3 és a 3",
+   "body": "A 3×400/230 V-os hálózatban három fázisvezető (L1, L2, L3) és egy nullavezető van. Egy fázisvezető és a nulla között a <b>fázisfeszültség</b> U<sub>f</sub> = 230 V, két fázisvezető között a <b>vonali feszültség</b> U<sub>v</sub> = 400 V. A kettő aránya 400/230 ≈ 1,732 = √3 – ez abból jön, hogy a három fázis egymáshoz képest 120°-kal el van csúsztatva, és két ilyen szinusz különbsége √3-szor nagyobb.<br><b>Miért P = 3·U<sub>f</sub>·I·cosφ?</b> Szimmetrikus terhelésnél mindhárom fázis ugyanannyit szállít, egy fázis U<sub>f</sub>·I·cosφ-t, összesen háromszor ennyit. Mivel U<sub>f</sub> = U<sub>v</sub>/√3, a 3·U<sub>v</sub>/√3 = √3·U<sub>v</sub>, ezért ugyanez <b>P = √3·U<sub>v</sub>·I·cosφ</b>. Szabály: a √3 mindig a 400 V-tal, a 3 mindig a 230 V-tal jár együtt. (A két alak 0,2 %-ot eltérhet, mert 400/√3 = 230,9 V, nem pontosan 230 V.)<br>Áram a teljesítményből: I = P/(√3·400·cosφ).<br><b>Csillag és háromszög:</b> csillagkapcsolásban minden fogyasztóelem egy fázis és a csillagpont közé kerül, tehát 230 V jut rá; háromszögben két fázis közé, tehát 400 V. Mivel állandó ellenálláson P = U²/R, a 400 V-on egy elem (400/230)² ≈ 3-szoros teljesítményt vesz fel. Ezért kell a 230 V-os elemeket 3×400/230 V-os hálózaton <b>csillagba</b> kötni.<br><b>Kidolgozott példa:</b> 6 kW-os háromfázisú gép, cosφ = 0,85.<br>1. I = 6000/(1,732·400·0,85) = 6000/588,9 = 10,19 A.<br>2. Ugyanez egyfázisúként 6000/(230·0,85) = 30,7 A lenne – háromszoros, ezért fontos tudni, melyik esetről van szó.",
    "bullets": [
-    "Sorrend: adattábla adatai → P<sub>1</sub> = P<sub>n</sub>/η → I = P<sub>1</sub>/(√3·U·cosφ) → I<sub>B</sub> ≤ I<sub>n</sub> védelem → I<sub>n</sub> ≤ I<sub>z</sub> vezeték."
+    "Ökölszabály 3×400 V-on motoroknál: kb. 2 A/kW; egyfázisú ohmos terhelésnél 1 kW ≈ 4,35 A (1000/230).",
+    "Állandó ellenállásnál P ∝ U²: R = U<sub>n</sub>²/P<sub>n</sub>, P = U²/R = P<sub>n</sub>·(U/U<sub>n</sub>)². 10 % feszültségcsökkenés: 0,9² = 0,81 → kb. 19 % teljesítménycsökkenés.",
+    "Háromfázisú látszólagos teljesítmény S = √3·U<sub>v</sub>·I, meddő Q = √3·U<sub>v</sub>·I·sinφ."
    ]
   },
   {
-   "h": "Hatásos, meddő és látszólagos teljesítmény",
-   "body": "Teljesítményháromszög: P (W) a vízszintes befogó, Q (var) a függőleges, S (VA) az átfogó. S = U·I (háromfázisúan √3·U<sub>v</sub>·I), P = S·cosφ, Q = S·sinφ, S² = P² + Q², cosφ = P/S ≤ 1. Kisebb cosφ ugyanakkora hatásos teljesítménynél nagyobb áramot jelent.<br><b>Kidolgozott példa:</b> P = 8 kW, cosφ = 0,8.<br>1. S = 8/0,8 = 10 kVA<br>2. sinφ = √(1 − 0,8²) = 0,6 → Q = 10·0,6 = 6 kvar (vagy √(10² − 8²) = 6)."
+   "h": "Motorok és hatásfok: leadott ≠ felvett",
+   "body": "<b>Hatásfok</b> (η, éta): a hasznos (leadott) és a befektetett (felvett) teljesítmény aránya, η = P<sub>le</sub>/P<sub>fel</sub>. Mivel minden gépben van veszteség (a tekercsek melegszenek, a csapágy súrlódik), a leadott mindig kevesebb a felvettnél, ezért η &lt; 1 (100 % alatt). A különbség a veszteség: P<sub>v</sub> = P<sub>fel</sub> − P<sub>le</sub>, ez hővé alakul.<br>A motor adattábláján a <b>P<sub>n</sub> a tengelyen leadott mechanikai teljesítmény</b> (ezt kapja meg a hajtott gép). A hálózatból felvett ebből átrendezéssel: P<sub>1</sub> = P<sub>n</sub>/η – osztunk, és mivel η &lt; 1, a felvett nagyobb lesz. Az áramot a felvett teljesítmény határozza meg: I = P<sub>1</sub>/(√3·U·cosφ) = P<sub>n</sub>/(η·√3·U·cosφ).<br><b>Kidolgozott példa:</b> 4 kW, η = 86 %, cosφ = 0,82, 3×400 V.<br>1. P<sub>1</sub> = 4/0,86 = 4,651 kW.<br>2. I = 4651/(1,732·400·0,82) = 8,19 A.<br>3. Józan ész: 2 A/kW → 4 kW kb. 8 A, rendben.",
+   "bullets": [
+    "Méretezési sorrend: adattábla (P<sub>n</sub>, η, cosφ, U<sub>n</sub>) → P<sub>1</sub> = P<sub>n</sub>/η → I = P<sub>1</sub>/(√3·U·cosφ) = I<sub>B</sub> üzemi áram → védelem I<sub>B</sub> ≤ I<sub>n</sub> → vezeték I<sub>n</sub> ≤ I<sub>z</sub> (a vezeték terhelhetősége).",
+    "Százalékot tizedes törtként írj be: 88 % = 0,88."
+   ]
   },
   {
-   "h": "Energia, költség, fogyasztásmérő",
-   "body": "W = P·t: kW-ban és órában számolj, így kWh jön ki. Költség = W·egységár (Ft/kWh). Több fogyasztónál W = Σ P·darabszám·idő. Mérőállandóval (imp/kWh): W = impulzusszám/állandó, P = W/t.<br><b>Kidolgozott példa:</b> 2 kW-os fogyasztó napi 3 órát üzemel 30 napig, 70 Ft/kWh.<br>1. W = 2 kW·3 h·30 = 180 kWh<br>2. Költség = 180·70 = 12 600 Ft<br>3. Mérő: 1000 imp/kWh, 3 perc alatt 60 impulzus → W = 0,06 kWh, t = 0,05 h, P = 1,2 kW.",
+   "h": "Energia, költség, fogyasztásmérő, vízmelegítés",
+   "body": "<b>Energia (villamos munka):</b> ha egy fogyasztó P teljesítménnyel t ideig működik, W = P·t energiát vesz fel. Ha P-t kW-ban és t-t órában írod, az eredmény kWh (1 kWh = 1 kW teljesítmény 1 órán át). <b>Költség</b> = W·egységár (Ft/kWh). Több fogyasztónál mindegyikre P·darabszám·idő, aztán összeadjuk.<br><b>Fogyasztásmérő:</b> a mérőállandó (pl. 1000 imp/kWh) megmondja, hány impulzus (villanás) jelent 1 kWh-t. Így W = impulzusszám/állandó, és P = W/t.<br><b>Hő:</b> a víz melegítéséhez szükséges hő Q = m·c·Δt, ahol c (fajhő) az az energia, ami 1 kg-ot 1 K-nel melegít; víznél c = 4,19 kJ/(kg·K), és 1 l víz = 1 kg. Átváltás: 1 W·s = 1 J, ezért 1 kWh = 1000 W·3600 s = 3 600 000 J = 3600 kJ. Hatásfok: η = Q/W<sub>vill</sub>; felfűtési idő: a hasznos teljesítmény P·η, így t = Q/(P·η).<br><b>Kidolgozott példák:</b><br>1. 2 kW napi 3 órát 30 napig, 70 Ft/kWh: W = 2·3·30 = 180 kWh, költség 180·70 = 12 600 Ft.<br>2. Mérő 1000 imp/kWh, 3 perc alatt 60 impulzus: W = 60/1000 = 0,06 kWh, t = 3/60 = 0,05 h, P = 0,06/0,05 = 1,2 kW.<br>3. 50 l víz 15 → 55 °C, 2 kW, η = 95 %: Q = 50·4,19·40 = 8380 kJ = 8380/3600 = 2,328 kWh; P·η = 1,9 kW; t = 2,328/1,9 = 1,23 h (kb. 74 perc).",
    "bullets": [
     "Perc → óra: osztás 60-nal (450 perc = 7,5 h); W → kW: osztás 1000-rel (8 W = 0,008 kW).",
-    "Adott pénzből üzemidő: W = Ft/(Ft/kWh), t = W/P.",
-    "Éves energia: napi energia·365."
+    "Adott pénzből üzemidő: W = Ft / (Ft/kWh), majd t = W/P.",
+    "Éves energia: napi energia·365; folyamatos (készenléti) üzem: napi 24 h.",
+    "Ha J-ben (kJ-ban) számolsz, az időt másodpercben kell megadni (W·s = J)."
    ]
-  },
-  {
-   "h": "Hőmennyiség és hatásfok vízmelegítésnél",
-   "body": "Hasznos hő: Q = m·c·Δt, víznél c = 4,19 kJ/(kg·K), 1 l = 1 kg. Átváltás: 1 kWh = 3600 kJ, 1 W·s = 1 J. Hatásfok: η = Q/W<sub>vill</sub>; felfűtési idő: t = Q/(P·η).<br><b>Kidolgozott példa:</b> 50 l víz 15 °C-ról 55 °C-ra, 2 kW-os betét, η = 95 %.<br>1. Q = 50·4,19·40 = 8380 kJ = 8380/3600 = 2,328 kWh<br>2. Hasznos teljesítmény: 2·0,95 = 1,9 kW<br>3. t = 2,328/1,9 = 1,23 h (kb. 74 perc)."
   },
   {
    "h": "Méretezési teljesítmény az MSZ 447 szerint",
-   "body": "Egy lakás méretezési teljesítménye (MSZ 447:2019): háromfázisú ellátásnál 3×20 A = 13,8 kW, egyfázisúnál 1×32 A = 7,36 kW (régen, 1998: 10 kW villanytűzhelyes, 6,6 kW gáztűzhelyes lakás). Egyidejűségi tényező: e = c + (1 − c)/√n, c = 0,2. Eredő: P<sub>e</sub> = (n·P<sub>m</sub>)·e + Σ(P<sub>f</sub> + P<sub>v</sub>); a közösségi és a vezérelt (külön mért) fogyasztók egyidejűség nélkül (e = 1) adódnak hozzá. Háromfázisú fővezeték fázisárama szimmetrikusnak véve: I = P<sub>e</sub>/(3·230).<br><b>Kidolgozott példa:</b> 10 háromfázisú lakás, mindegyikben 1,8 kW-os vezérelt forróvíztároló.<br>1. e = 0,2 + 0,8/√10 = 0,453 ≈ 0,45<br>2. 10·13,8·0,45 = 62,1 kW<br>3. + 10·1,8 = 18 kW → P<sub>e</sub> = 80,1 kW<br>4. I = 80 100/(3·230) = 116,1 A fázisonként.",
+   "body": "Egy lakás <b>méretezési teljesítménye</b> az a teljesítmény, amire a bekötést és a fővezetéket tervezni kell (MSZ 447:2019). Háromfázisú ellátásnál 3×20 A: 3·230 V·20 A = <b>13,8 kW</b>; egyfázisúnál 1×32 A: 230 V·32 A = <b>7,36 kW</b> (régen, 1998: 10 kW villanytűzhelyes, 6,6 kW gáztűzhelyes lakás).<br><b>Egyidejűségi tényező:</b> sok lakás nem egyszerre éri el a csúcsát (az egyik főz, a másik épp nincs otthon), ezért a közös vezetéket nem kell az összegre méretezni. A szabvány tapasztalati képlete: e = c + (1 − c)/√n, c = 0,2. Egy lakásnál (√1 = 1) e = 1; sok lakásnál e a 0,2-hez közelít, vagyis az összeg 20 %-a alá sosem megy. 16 lakásnál √16 = 4, e = 0,2 + 0,8/4 = 0,40 → a csúcs csak az összeg 40 %-a.<br><b>Eredő:</b> P<sub>e</sub> = (n·P<sub>m</sub>)·e + Σ(P<sub>f</sub> + P<sub>v</sub>). A közösségi (P<sub>f</sub>, pl. lépcsőház, lift) és a vezérelt, külön mért (P<sub>v</sub>, pl. éjszakai forróvíztároló) fogyasztók egyidejűség nélkül (e = 1) adódnak hozzá, mert ezek ténylegesen egyszerre üzemelnek (a vezérlés egyszerre kapcsolja be őket). A háromfázisú fővezeték fázisárama, ha a terhelést egyenletesen osztjuk el: I = P<sub>e</sub>/(3·230) (cosφ = 1).<br><b>Kidolgozott példa:</b> 10 háromfázisú lakás, mindegyikben 1,8 kW-os vezérelt forróvíztároló.<br>1. e = 0,2 + 0,8/√10 = 0,2 + 0,8/3,162 = 0,453 ≈ 0,45.<br>2. 10·13,8·0,45 = 62,1 kW.<br>3. + 10·1,8 = 18 kW → P<sub>e</sub> = 80,1 kW.<br>4. I = 80 100/(3·230) = 116,1 A fázisonként.",
    "bullets": [
-    "n = 1 → e = 1; n = 16 → e = 0,40.",
+    "n = 1 → e = 1; n = 6 → 0,53; n = 9 → 0,47; n = 16 → 0,40.",
     "Ha a feladat e-t két tizedesre kerekítteti, a kerekített értékkel számolj tovább."
+   ]
+  },
+  {
+   "h": "Számolási recept – a vizsga feladattípusai lépésenként",
+   "body": "Először mindig írd ki az adatokat mértékegységgel, és döntsd el: egyfázisú vagy háromfázisú? ohmos (cosφ = 1) vagy motoros? leadott vagy felvett teljesítmény? A részeredményeket több tizedessel vidd tovább, csak a végén kerekíts.",
+   "bullets": [
+    "<b>Egyfázisú áram:</b> 1) P W-ban, U = 230 V. 2) Ohmos? cosφ = 1. 3) I = P/(U·cosφ). 4) Ellenőrzés: 1 kW ≈ 4,35 A.",
+    "<b>Háromfázisú áram:</b> 1) P W-ban. 2) I = P/(√3·400·cosφ) vagy P/(3·230·cosφ). 3) Ellenőrzés: motornál kb. 2 A/kW, és √3 nélkül 1,73-szor nagyobb jönne ki.",
+    "<b>Motoráram adattáblából:</b> 1) P<sub>1</sub> = P<sub>n</sub>/η (η tizedes törtként). 2) I = P<sub>1</sub>/(√3·U·cosφ). 3) Ellenőrzés: I nagyobb, mint η nélkül.",
+    "<b>Hatásfok, veszteség:</b> 1) η = P<sub>le</sub>/P<sub>fel</sub>, ·100 a %-hoz. 2) P<sub>v</sub> = P<sub>fel</sub> − P<sub>le</sub>, W-ba váltva.",
+    "<b>Teljesítményháromszög:</b> 1) S = U·I (vagy P/cosφ). 2) P = S·cosφ, cosφ = P/S. 3) Q = √(S² − P²) vagy S·sinφ, sinφ = √(1 − cos²φ). 4) Ellenőrzés: P ≤ S és cosφ ≤ 1.",
+    "<b>Feszültségváltozás állandó ellenálláson:</b> 1) R = U<sub>n</sub>²/P<sub>n</sub>. 2) P = U²/R (vagy P<sub>n</sub>·(U/U<sub>n</sub>)²). Csillag/háromszög: nézd meg, 230 vagy 400 V jut-e egy elemre.",
+    "<b>Energia és költség:</b> 1) P → kW, t → óra (perc/60). 2) W = P·db·t, több fogyasztónál összeadás; évesen ·365. 3) Költség = W·Ft/kWh. Fordítva: W = Ft/(Ft/kWh), t = W/P.",
+    "<b>Fogyasztásmérő:</b> 1) W = impulzus/állandó (kWh). 2) t órában. 3) P = W/t.",
+    "<b>Vízmelegítés:</b> 1) Q = m·c·Δt (kJ). 2) Villamos energia W = P·t (kW·s = kJ, vagy kWh·3600). 3) η = Q/W, vagy t = Q/(P·η).",
+    "<b>MSZ 447 eredő:</b> 1) e = 0,2 + 0,8/√n, kerekítés a kért módon. 2) n·P<sub>m</sub>·e. 3) + közösségi és vezérelt fogyasztók e nélkül. 4) Fázisáram I = P<sub>e</sub>/(3·230)."
    ]
   }
  ],
  "keyFacts": [
+  {
+   "k": "Teljesítmény",
+   "v": "P = U·I (1 V · 1 A = 1 W); váltakozó áramnál P = U·I·cosφ"
+  },
   {
    "k": "Hálózati feszültségek",
    "v": "3×400/230 V: vonali 400 V, fázis 230 V"
   },
   {
    "k": "√3",
-   "v": "≈ 1,732 = 400/230"
+   "v": "≈ 1,732 ≈ 400/230"
   },
   {
    "k": "Ohmos fogyasztó",
@@ -62,6 +84,10 @@
   {
    "k": "Motor adattábla P<sub>n</sub>",
    "v": "tengelyen leadott teljesítmény; felvett = P<sub>n</sub>/η"
+  },
+  {
+   "k": "Hatásfok",
+   "v": "η = P<sub>le</sub>/P<sub>fel</sub> &lt; 1 (100 % alatt)"
   },
   {
    "k": "Teljesítmény mértékegységei",
@@ -73,7 +99,7 @@
   },
   {
    "k": "1 kWh",
-   "v": "3600 kJ"
+   "v": "3600 kJ (1 W·s = 1 J)"
   },
   {
    "k": "Víz fajhője",
@@ -93,7 +119,7 @@
   },
   {
    "k": "Vezérelt / közösségi fogyasztó",
-   "v": "egyidejűség nélkül adódik hozzá"
+   "v": "egyidejűség nélkül (e = 1) adódik hozzá"
   },
   {
    "k": "Ökölszabály motoráram 400 V-on",
@@ -102,53 +128,102 @@
  ],
  "formulas": [
   {
-   "f": "I = P/(U·cosφ)",
-   "note": "egyfázisú, U = 230 V"
+   "f": "P = U·I·cosφ; I = P/(U·cosφ)",
+   "note": "egyfázisú, U = 230 V; ohmosnál cosφ = 1",
+   "derive": [
+    "A feszültség az 1 C töltésre jutó munka (J/C), az áram az 1 s alatt átfolyó töltés (C/s) (Alapok: F1 Töltés és áram, F2 Feszültség).",
+    "A szorzatuk J/s, vagyis 1 s alatti munka: ez a teljesítmény, P = U·I (Alapok: F5 Munka, teljesítmény, energia, hő).",
+    "Váltakozó áramnál csak az áram feszültséggel egy ütemben lévő része, I·cosφ végez munkát, ezért P = U·I·cosφ (Alapok: F7 Fáziseltolás és cosφ).",
+    "Mindkét oldalt U·cosφ-vel osztva I = P/(U·cosφ) (Alapok: M2 Képlet átrendezése)."
+   ]
   },
   {
-   "f": "I = P/(√3·U<sub>v</sub>·cosφ) = P/(3·U<sub>f</sub>·cosφ)",
-   "note": "szimmetrikus háromfázisú, U<sub>v</sub> = 400 V"
+   "f": "P = √3·U<sub>v</sub>·I·cosφ = 3·U<sub>f</sub>·I·cosφ",
+   "note": "szimmetrikus háromfázisú, U<sub>v</sub> = 400 V, U<sub>f</sub> = 230 V; I = P/(√3·U<sub>v</sub>·cosφ)",
+   "derive": [
+    "Egy fázis teljesítménye U<sub>f</sub>·I·cosφ (Alapok: F7 Fáziseltolás és cosφ).",
+    "Szimmetrikus terhelésnél a három fázis egyforma, ezért P = 3·U<sub>f</sub>·I·cosφ (Alapok: F8 Háromfázisú rendszer).",
+    "A vonali feszültség √3-szorosa a fázisnak (400 = 1,732·230), tehát U<sub>f</sub> = U<sub>v</sub>/√3 (Alapok: F8 Háromfázisú rendszer).",
+    "Beírva 3·U<sub>v</sub>/√3 = √3·U<sub>v</sub>, mert 3 = √3·√3; így P = √3·U<sub>v</sub>·I·cosφ (Alapok: M5 Négyzet, gyök, π és a kör területe).",
+    "Az áram átrendezéssel: I = P/(√3·U<sub>v</sub>·cosφ) (Alapok: M2 Képlet átrendezése)."
+   ]
   },
   {
-   "f": "I = P<sub>n</sub>/(η·√3·U·cosφ)",
-   "note": "motor névleges árama"
+   "f": "η = P<sub>le</sub>/P<sub>fel</sub>; P<sub>1</sub> = P<sub>n</sub>/η; I = P<sub>n</sub>/(η·√3·U·cosφ)",
+   "note": "hatásfok és motor névleges árama; P<sub>v</sub> = P<sub>fel</sub> − P<sub>le</sub>",
+   "derive": [
+    "A hatásfok megmondja, a felvett teljesítmény hányad része hasznos; százalékban ·100 (Alapok: M4 Százalék).",
+    "A gépben mindig van hővé alakuló veszteség, ezért P<sub>le</sub> &lt; P<sub>fel</sub> és η &lt; 1 (Alapok: F5 Munka, teljesítmény, energia, hő).",
+    "Az adattábla P<sub>n</sub>-je a leadott teljesítmény; η = P<sub>n</sub>/P<sub>1</sub>-ből P<sub>1</sub> = P<sub>n</sub>/η (Alapok: M2 Képlet átrendezése, F9 Mágnesesség, indukció, transzformátor, motor).",
+    "Az áramot a hálózatból felvett P<sub>1</sub> szabja meg, ezt írjuk a háromfázisú áramképletbe (Alapok: F8 Háromfázisú rendszer)."
+   ]
   },
   {
-   "f": "S = P/cosφ, Q = S·sinφ = √(S² − P²)",
-   "note": "teljesítményháromszög"
+   "f": "S = U·I = P/cosφ; Q = S·sinφ = √(S² − P²)",
+   "note": "teljesítményháromszög; háromfázisúan S = √3·U<sub>v</sub>·I",
+   "derive": [
+    "U·I a teljes szorzat, ezt látszólagos teljesítménynek hívjuk (VA) (Alapok: F7 Fáziseltolás és cosφ).",
+    "P = U·I·cosφ = S·cosφ, átrendezve S = P/cosφ (Alapok: M2 Képlet átrendezése).",
+    "P, Q és S derékszögű háromszöget alkot (S az átfogó), ezért Pitagorasz szerint S² = P² + Q², Q = √(S² − P²) (Alapok: M5 Négyzet, gyök, π és a kör területe).",
+    "Ugyanebből a háromszögből Q = S·sinφ, és sin²φ + cos²φ = 1, így sinφ = √(1 − cos²φ) (Alapok: F7 Fáziseltolás és cosφ)."
+   ]
   },
   {
    "f": "P = U²/R = P<sub>n</sub>·(U/U<sub>n</sub>)²",
-   "note": "állandó ellenállású fogyasztó"
+   "note": "állandó ellenállású fogyasztó; R = U<sub>n</sub>²/P<sub>n</sub>",
+   "derive": [
+    "Ohm-törvény: I = U/R (Alapok: F3 Ellenállás és Ohm-törvény).",
+    "P = U·I-be beírva P = U·U/R = U²/R (Alapok: F5 Munka, teljesítmény, energia, hő).",
+    "A névleges adatokból átrendezve R = U<sub>n</sub>²/P<sub>n</sub> (Alapok: M2 Képlet átrendezése).",
+    "Ezt visszaírva P = U²·P<sub>n</sub>/U<sub>n</sub>² = P<sub>n</sub>·(U/U<sub>n</sub>)²: a feszültség négyzete számít, 0,9² = 0,81 (Alapok: M5 Négyzet, gyök, π és a kör területe)."
+   ]
   },
   {
    "f": "W = P·t; költség = W·egységár",
-   "note": "kW·h = kWh"
+   "note": "kW·h = kWh; mérőnél W = impulzus/állandó",
+   "derive": [
+    "A teljesítmény az 1 s alatt végzett munka, tehát t idő alatt a munka P·t (Alapok: F5 Munka, teljesítmény, energia, hő).",
+    "kW-ot órával szorozva kWh jön ki; percből óra: /60, W-ból kW: /1000 (Alapok: M1 Mértékegységek és előtagok).",
+    "A költség egyenesen arányos az energiával: kWh·Ft/kWh = Ft (Alapok: M3 Tört, reciprok, arány)."
+   ]
   },
   {
-   "f": "Q = m·c·Δt; η = Q/W",
-   "note": "vízmelegítés"
+   "f": "Q = m·c·Δt; η = Q/W; t = Q/(P·η)",
+   "note": "vízmelegítés; 1 kWh = 3600 kJ",
+   "derive": [
+    "A c fajhő az az energia, ami 1 kg-ot 1 K-nel melegít; m kg-ot Δt K-nel m·c·Δt melegít (Alapok: F5 Munka, teljesítmény, energia, hő).",
+    "1 W·s = 1 J, ezért 1 kWh = 1000 W·3600 s = 3 600 000 J = 3600 kJ (Alapok: M1 Mértékegységek és előtagok).",
+    "A hatásfok a hasznos hő és a felvett villamos energia aránya: η = Q/W (Alapok: M4 Százalék).",
+    "A vízbe jutó teljesítmény P·η, és t = energia/teljesítmény, tehát t = Q/(P·η) (Alapok: M2 Képlet átrendezése)."
+   ]
   },
   {
-   "f": "P<sub>e</sub> = n·P<sub>m</sub>·e + ΣP<sub>v</sub>",
-   "note": "MSZ 447 eredő méretezési teljesítmény"
+   "f": "e = 0,2 + 0,8/√n; P<sub>e</sub> = n·P<sub>m</sub>·e + Σ(P<sub>f</sub> + P<sub>v</sub>)",
+   "note": "MSZ 447 egyidejűség és eredő méretezési teljesítmény; I = P<sub>e</sub>/(3·230)",
+   "derive": [
+    "Az e = c + (1 − c)/√n képlet az MSZ 447 tapasztalati (statisztikai) szabálya, c = 0,2; nem fizikai törvény, hanem mért lakossági fogyasztásból készült.",
+    "n = 1-nél √1 = 1, e = 0,2 + 0,8 = 1; nagy n-nél 0,8/√n egyre kisebb, e a 0,2-hez közelít (Alapok: M5 Négyzet, gyök, π és a kör területe).",
+    "e azt mondja meg, az összeg hány százaléka a valódi közös csúcs (0,40 = 40 %) (Alapok: M4 Százalék).",
+    "A lakás P<sub>m</sub>-je 3·230 V·20 A = 13,8 kW (háromfázisú) vagy 230 V·32 A = 7,36 kW (egyfázisú) (Alapok: F5 Munka, teljesítmény, energia, hő, F8 Háromfázisú rendszer).",
+    "A fázisáram: a P<sub>e</sub> három fázisra oszlik egyenletesen, mindegyik 230 V-on, ezért I = P<sub>e</sub>/(3·230) (Alapok: F8 Háromfázisú rendszer)."
+   ]
   }
  ],
  "mistakes": [
   "Háromfázisú terhelésnél elhagyni a √3-at (√3-szor nagyobb áram jön ki), vagy √3 mellé 230 V-ot írni a 400 V helyett.",
-  "3·U<sub>v</sub>-vel számolni: a helyes pár √3·400 vagy 3·230.",
+  "3·U<sub>v</sub>-vel számolni: a helyes pár √3·400 vagy 3·230, mert U<sub>v</sub> = √3·U<sub>f</sub>.",
   "Elhagyni a cosφ-t: induktív fogyasztó nagyobb áramot vesz fel, mint az azonos hatásos teljesítményű ohmos.",
-  "A motor P<sub>n</sub>-jét felvett teljesítménynek venni, vagy η-val szorozni osztás helyett.",
-  "Perc helyett órával, W helyett kW-tal nem átváltva számolni (60-szoros vagy 1000-szeres hiba).",
+  "A motor P<sub>n</sub>-jét felvett teljesítménynek venni, vagy η-val szorozni osztás helyett – a felvett mindig nagyobb a leadottnál.",
+  "Perc helyett órával, W helyett kW-tal nem átváltva számolni (60-szoros vagy 1000-szeres hiba); kJ-os számolásnál a percet másodpercre kell váltani.",
   "Több fogyasztós energiaösszesítőben kihagyni a darabszámot.",
-  "Azt hinni, hogy a teljesítmény a feszültséggel arányos: állandó ellenállásnál a négyzetével arányos.",
+  "Azt hinni, hogy a teljesítmény a feszültséggel arányos: állandó ellenállásnál a négyzetével (P = U²/R).",
   "A vezérelt forróvíztárolókat vagy a közösségi fogyasztást is egyidejűségi tényezővel szorozni."
  ],
  "hooks": [
   "√3 a 400-zal, 3 a 230-cal.",
   "Motor: a tábla a leadottat mutatja – osztva η-val kapod, amit a hálózat ad.",
   "kW-ot órával szorozz, akkor kWh lesz.",
-  "Feszültség −10 % → teljesítmény −19 %."
+  "Feszültség −10 % → teljesítmény −19 % (0,9² = 0,81)."
  ],
  "sources": [
   "kkk/fva_megoldo.txt (IKK ágazati alapvizsga feladatgyűjtemény)",

@@ -116,19 +116,41 @@
   "formulas": [
     {
       "f": "U<sub>string</sub> = n · U<sub>modul</sub>;  I<sub>csoport</sub> = m · I<sub>string</sub>",
-      "note": "n soros modul, m párhuzamos string"
+      "note": "n soros modul, m párhuzamos string",
+      "derive": [
+        "Sorba kötött modulokon ugyanaz az áram folyik, a feszültségek összeadódnak: n modul → n · U<sub>modul</sub> (Alapok: F4 Soros és párhuzamos kapcsolás).",
+        "Párhuzamos stringek ugyanarra a két pontra csatlakoznak, ezért a feszültségük azonos, az áramok a csomópontban összeadódnak: m string → m · I<sub>string</sub> (Alapok: F1 Töltés és áram; F4).",
+        "A teljesítmény mindkét esetben összeadódik: P = U · I = n · m · P<sub>modul</sub> (Alapok: F5 Munka, teljesítmény, energia, hő)."
+      ]
     },
     {
       "f": "U<sub>oc</sub>(T) = U<sub>oc,STC</sub> · (1 + β · (T − 25 °C))",
-      "note": "β negatív, pl. −0,0027 1/°C; T = legkisebb cellahőmérséklet"
+      "note": "β negatív, pl. −0,0027 1/°C; T = legkisebb cellahőmérséklet",
+      "derive": [
+        "A napelemcella feszültsége hőmérsékletfüggő: hidegben nő, melegben csökken (Alapok: F10 Melegedés és hőmérsékletfüggés).",
+        "Az adatlap β együtthatója megmondja, 1 °C eltérés hány %-os változást okoz a 25 °C-os STC-értékhez képest; ΔT = T − 25 °C (Alapok: M1 Mértékegységek és előtagok – a °C-különbség K-különbség).",
+        "A relatív változás β · ΔT; a százalékos változás szorzás (1 + β · ΔT)-vel (Alapok: M4 Százalék).",
+        "Példa: −0,0027 · (−15 − 25) = +0,108 → 49,6 V · 1,108 = 54,96 V; két negatív szám szorzata pozitív, tehát hidegben nő."
+      ]
     },
     {
       "f": "n<sub>max</sub> = U<sub>inv,max</sub> / U<sub>oc</sub>(T<sub>min</sub>), lefelé kerekítve",
-      "note": "1000 V / 54,96 V = 18,2 → 18 modul"
+      "note": "1000 V / 54,96 V = 18,2 → 18 modul",
+      "derive": [
+        "Soros stringben a modulfeszültségek összeadódnak, ezért n modul feszültsége n · U<sub>oc</sub> (Alapok: F4 Soros és párhuzamos kapcsolás).",
+        "A legnagyobb feszültség a leghidegebb állapotban, üresjárásban lép fel, ezért U<sub>oc</sub>(T<sub>min</sub>)-nel számolunk (Alapok: F10 Melegedés és hőmérsékletfüggés).",
+        "Feltétel: n · U<sub>oc</sub>(T<sub>min</sub>) ≤ U<sub>inv,max</sub>; átrendezve n ≤ U<sub>inv,max</sub> / U<sub>oc</sub>(T<sub>min</sub>) (Alapok: M2 Képlet átrendezése).",
+        "Határértéket nem léphetünk át, ezért itt lefelé kerekítünk: 18,2 → 18 (Alapok: M6 Kerekítés és szabványos sorok)."
+      ]
     },
     {
       "f": "P = U<sub>mpp</sub> · I<sub>mpp</sub>;  E = P<sub>kWp</sub> · e<sub>fajl</sub>",
-      "note": "e<sub>fajl</sub> kWh/kWp-ben"
+      "note": "e<sub>fajl</sub> kWh/kWp-ben",
+      "derive": [
+        "Egyenáramú körben a teljesítmény feszültség × áram: P = U<sub>mpp</sub> · I<sub>mpp</sub> (Alapok: F5 Munka, teljesítmény, energia, hő).",
+        "Az energia teljesítmény × idő; a fajlagos termelés (kWh/kWp) azt adja meg, hány „teljes teljesítményű órát” termel 1 kWp évente (Alapok: F5).",
+        "Ezért E = P<sub>kWp</sub> · e<sub>fajl</sub>; kWp · kWh/kWp = kWh (Alapok: M1 Mértékegységek és előtagok)."
+      ]
     }
   ],
   "mistakes": [

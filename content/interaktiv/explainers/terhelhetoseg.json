@@ -1,50 +1,56 @@
 {
  "topic": "terhelhetoseg",
  "title": "Terhelhetőség, korrekciós tényezők, keresztmetszet-választás",
- "summary": "A vezeték keresztmetszetét melegedésre (terhelhetőség) és feszültségesésre is méretezni kell, és a kettő közül a nagyobb dönt. A vizsga a táblázati terhelhetőség korrigálását (k<sub>1</sub> hőmérséklet, k<sub>2</sub> csoportosítás), az I<sub>B</sub> ≤ I<sub>n</sub> ≤ I<sub>z</sub> és I<sub>2</sub> ≤ 1,45·I<sub>z</sub> feltételt, a szerelési módokat és a szabványos keresztmetszetsorra való felkerekítést kérdezi. A táblázati értékeket és a tényezőket a feladat mindig megadja – a módszert kell tudni.",
+ "summary": "A vezetékben folyó áram hőt termel (I²·R). A <b>terhelhetőség</b> az a legnagyobb tartós áram, amelynél a szigetelés még nem melegszik a megengedettnél jobban. A keresztmetszetet melegedésre (terhelhetőség) és feszültségesésre is méretezni kell, és a kettő közül a nagyobb dönt. A vizsga a táblázati terhelhetőség korrigálását (k<sub>1</sub> hőmérséklet, k<sub>2</sub> csoportosítás), az I<sub>B</sub> ≤ I<sub>n</sub> ≤ I<sub>z</sub> és I<sub>2</sub> ≤ 1,45·I<sub>z</sub> feltételt, a szerelési módokat és a szabványos keresztmetszetsorra való felkerekítést kérdezi. A táblázati értékeket és a tényezőket a feladat mindig megadja – a módszert kell érteni.",
  "sections": [
   {
-   "h": "A három áram: I<sub>B</sub> ≤ I<sub>n</sub> ≤ I<sub>z</sub>",
-   "body": "I<sub>B</sub> az áramkör üzemi (méretezési) árama, I<sub>n</sub> a túláramvédelem névleges árama, I<sub>z</sub> a vezeték megengedett tartós árama a szerelési mód és a korrekciók figyelembevételével. A védelem a kettő közé esik. Második feltétel: I<sub>2</sub> ≤ 1,45·I<sub>z</sub>, ahol I<sub>2</sub> a védelem egyezményes (biztos) működési árama (MSZ HD 60364-4-43, régen MSZ 2364-430). Kismegszakítónál I<sub>2</sub> = 1,45·I<sub>n</sub>, így ha I<sub>n</sub> ≤ I<sub>z</sub>, ez automatikusan teljesül. gG olvadóbiztosítónál I<sub>2</sub> = 1,6·I<sub>n</sub>, ezért I<sub>z</sub> ≥ 1,6·I<sub>n</sub>/1,45 ≈ 1,1·I<sub>n</sub> kell.<br><b>Kidolgozott példa:</b> I<sub>B</sub> = 14 A, I<sub>z</sub> = 19,5 A. A sorból (6, 10, 13, 16, 20, 25 A…) csak a 16 A fér bele: 13 A &lt; I<sub>B</sub>, 20 A &gt; I<sub>z</sub>. Ellenőrzés: I<sub>2</sub> = 1,45·16 = 23,2 A ≤ 1,45·19,5 = 28,3 A.<br>25 A-es gG biztosítónál: I<sub>2</sub> = 40 A → I<sub>z</sub> ≥ 40/1,45 = 27,59 A.",
+   "h": "Miért melegszik a vezeték, és mi a terhelhetőség?",
+   "body": "A vezető ellenállásán átfolyó áram hőt termel: P = I²·R (Alapok: F5 Munka, teljesítmény, energia, hő). A négyzet miatt kétszeres áram négyszeres hőt jelent. A hő a szigetelésen át a környezetbe távozik; minél nagyobb a vezető és a környezet hőmérséklet-különbsége, és minél jobb a hűtés, annál több hőt tud leadni (Alapok: F10 Melegedés és hőmérsékletfüggés). Egy idő után beáll az egyensúly: amennyi hő keletkezik, annyi távozik. A <b>megengedett tartós áram</b> (I<sub>z</sub>) az az áram, amelynél ez az egyensúly éppen a szigetelés megengedett hőmérsékletén áll be: <b>PVC 70 °C, XLPE/EPR 90 °C</b>. Ennél melegebben a szigetelés gyorsan öregszik, rideggé válik, végül tönkremegy – tűz- és áramütésveszély.<br>A <b>táblázati terhelhetőség</b> (I<sub>t</sub>, MSZ HD 60364-5-52, régen MSZ 2364-523) rögzített alapfeltételekre szól: 30 °C-os levegő, egyedül fektetett áramkör, adott szerelési mód és adott számú terhelt ér. Ha a valóság ettől eltér, korrigálni kell.",
    "bullets": [
-    "Az I<sub>n</sub> ≤ I<sub>z</sub> akkor is kötelező, ha az üzemi áram kicsi – a túlterhelést a felhasználó okozhatja.",
-    "A vezetéket a védelem névleges áramára (I<sub>n</sub>) méretezzük, nem az üzemi áramra.",
-    "Szabványos névleges áramok: 6 – 10 – 13 – 16 – 20 – 25 – 32 – 40 – 50 – 63 A."
-   ]
-  },
-  {
-   "h": "Szerelési módok és terhelt erek",
-   "body": "A táblázati terhelhetőség (MSZ HD 60364-5-52) a hűtési körülménytől függ. A betű a környezet: <b>A</b> hőszigetelt falban (legrosszabb hűtés), <b>B</b> védőcsőben/csatornában fal mentén, <b>C</b> közvetlenül a falon (cső nélkül), <b>D</b> földben, <b>E/F/G</b> szabad levegőben (legjobb). Az index: 1 = köpeny nélküli vezeték (pl. H07V-U), 2 = többerű kábel/köpenyes vezeték. Tehát A1 &lt; B1 &lt; C &lt; E. Terhelt ér: egyfázisú körben 2 (L, N), szimmetrikus háromfázisúban 3 (a nulla és a PE nem számít, a nulla csak jelentős felharmonikus esetén). Három terhelt érre kisebb a táblázati érték.",
-   "bullets": [
+    "<b>Szerelési mód</b> = mennyire jól hűl a vezeték. A betű a környezet: <b>A</b> hőszigetelt falban (a hőszigetelés a hőt is bent tartja – legrosszabb), <b>B</b> védőcsőben/csatornában fal mentén, <b>C</b> közvetlenül a falon (cső nélkül), <b>D</b> földben, <b>E/F/G</b> szabad levegőben (legjobb). Az index: 1 = köpeny nélküli vezeték (pl. H07V-U), 2 = többerű kábel/köpenyes vezeték. Sorrend: A1 &lt; B1 &lt; C &lt; E.",
+    "<b>Terhelt ér</b> = az az ér, amelyen üzemszerűen áram folyik, és így fűt. Egyfázisú körben 2 (L és N, mert az áram oda-vissza folyik), szimmetrikus háromfázisúban 3 (a nullán nincs áram, Alapok: F8 Háromfázisú rendszer; csak jelentős felharmonikus áramnál kell számolni vele). A PE soha nem terhelt ér – üzemszerűen nem vezet. Három terhelt ér egy burkolatban több hőt termel, ezért erenként kisebb a táblázati érték.",
     "B1, 2 terhelt ér, PVC, Cu, 30 °C: 1,5: 17,5 A · 2,5: 24 A · 4: 32 A · 6: 41 A · 10: 57 A · 16: 76 A.",
     "B1, 3 terhelt ér: 1,5: 15,5 A · 2,5: 21 A · 4: 28 A · 6: 36 A · 10: 50 A · 16: 68 A.",
     "C, 3 terhelt ér: 1,5: 17,5 A · 2,5: 24 A · 4: 32 A · 6: 41 A · 10: 57 A.",
-    "A1, 3 terhelt ér: 1,5: 13,5 A · 2,5: 18 A · 4: 24 A · 6: 31 A · 10: 42 A · 16: 56 A · 25: 73 A.",
-    "Megengedett vezetőhőmérséklet: PVC 70 °C, XLPE/EPR 90 °C."
+    "A1, 3 terhelt ér: 1,5: 13,5 A · 2,5: 18 A · 4: 24 A · 6: 31 A · 10: 42 A · 16: 56 A · 25: 73 A."
    ]
   },
   {
-   "h": "Korrekciós tényezők: k<sub>1</sub> és k<sub>2</sub>",
-   "body": "A táblázat 30 °C-os levegőre és egyedül fektetett áramkörre szól. <b>I<sub>z</sub> = I<sub>t</sub>·k<sub>1</sub>·k<sub>2</sub></b> – a tényezők szorzódnak, és 30 °C felett, illetve több áramkörnél 1-nél kisebbek. Visszafelé, amikor keresztmetszetet keresel: <b>I<sub>t</sub> ≥ I<sub>n</sub>/(k<sub>1</sub>·k<sub>2</sub>)</b> – itt osztani kell. Ezen kívül csökkentő tényező kell földben a talaj hőellenállására és a nullát terhelő felharmonikusokra; a hossz, a feszültségesés és a cosφ nem terhelhetőségi tényező.<br><b>Kidolgozott példa:</b> 6 egyfázisú kör egy gégecsőben (k<sub>2</sub> = 0,57), 2,5 mm², I<sub>t</sub> = 24 A, 30 °C → I<sub>z</sub> = 24·0,57 = 13,68 A – 16 A-es kismegszakítóhoz kevés.",
+   "h": "A három áram és a védelem: I<sub>B</sub> ≤ I<sub>n</sub> ≤ I<sub>z</sub> és I<sub>2</sub> ≤ 1,45·I<sub>z</sub>",
+   "body": "Három áramot kell sorba állítani:<br>• <b>I<sub>B</sub></b> – üzemi (méretezési) áram: amennyit a terhelés tartósan felvesz.<br>• <b>I<sub>n</sub></b> – a túláramvédelem (kismegszakító, olvadóbiztosító) névleges árama.<br>• <b>I<sub>z</sub></b> – a vezeték megengedett tartós árama a szerelési móddal és a korrekciókkal.<br><b>Miért ebben a sorrendben?</b> I<sub>B</sub> ≤ I<sub>n</sub>, különben a védelem normál üzemben is leoldana. I<sub>n</sub> ≤ I<sub>z</sub>, mert a védelemnek előbb kell közbelépnie, mint ahogy a vezeték túlmelegszik – akkor is, ha az üzemi áram kicsi, hiszen a túlterhelést a felhasználó okozhatja (pl. több készülék egy aljzaton). Ezért a vezetéket a védelem névleges áramára méretezzük, nem az üzemi áramra.<br><b>Második feltétel: I<sub>2</sub> ≤ 1,45·I<sub>z</sub></b> (MSZ HD 60364-4-43, régen MSZ 2364-430). A védelem nem pontosan I<sub>n</sub>-nél old: kis túlterhelésnél sokáig vár. I<sub>2</sub> az <i>egyezményes (biztos) működési áram</i>: ennél az áramnál a szabványban rögzített időn belül biztosan működik. A vezeték ilyen ritka, korlátozott ideig tartó túlterhelést legfeljebb 1,45·I<sub>z</sub>-ig visel el károsodás nélkül. Kismegszakítónál I<sub>2</sub> = 1,45·I<sub>n</sub>, így ha I<sub>n</sub> ≤ I<sub>z</sub>, akkor mindkét oldalt 1,45-tel szorozva 1,45·I<sub>n</sub> ≤ 1,45·I<sub>z</sub> – automatikusan teljesül. gG olvadóbiztosítónál I<sub>2</sub> = 1,6·I<sub>n</sub>, ezért 1,6·I<sub>n</sub> ≤ 1,45·I<sub>z</sub> → I<sub>z</sub> ≥ 1,6/1,45·I<sub>n</sub> ≈ 1,1·I<sub>n</sub>.<br><b>Kidolgozott példa:</b> I<sub>B</sub> = 14 A, I<sub>z</sub> = 19,5 A. A sorból (6, 10, 13, 16, 20, 25 A…) csak a 16 A fér bele: 13 A &lt; I<sub>B</sub>, 20 A &gt; I<sub>z</sub>. Ellenőrzés: I<sub>2</sub> = 1,45·16 = 23,2 A ≤ 1,45·19,5 = 28,3 A.<br>25 A-es gG biztosítónál: I<sub>2</sub> = 1,6·25 = 40 A → I<sub>z</sub> ≥ 40/1,45 = 27,59 A.",
+   "bullets": [
+    "Szabványos névleges áramok: 6 – 10 – 13 – 16 – 20 – 25 – 32 – 40 – 50 – 63 A.",
+    "Ha a legnagyobb megengedhető védelem a kérdés: a sor legnagyobb eleme, amely még ≤ I<sub>z</sub> (pl. I<sub>z</sub> = 20,22 A → 20 A)."
+   ]
+  },
+  {
+   "h": "Korrekciós tényezők: honnan jönnek, miért szorzunk, mikor osztunk",
+   "body": "<b>k<sub>1</sub> – környezeti hőmérséklet.</b> PVC-nél a vezető legfeljebb 70 °C lehet. 30 °C-os levegőben 70 − 30 = 40 °C „hőmérséklet-tartalék” jut a melegedésre, 40 °C-os levegőben csak 30 °C. A leadható hő ezzel a különbséggel arányos, a keletkező hő pedig I²-tel (Alapok: F5, F10), ezért a megengedett áram a tartalék négyzetgyökével arányos: k<sub>1</sub> = √((70 − θ)/(70 − 30)), ahol θ (théta) a környezet hőmérséklete. 40 °C: √(30/40) = 0,87; 35 °C: √(35/40) = 0,94; 45 °C: √(25/40) = 0,79 – pontosan a táblázat értékei. 30 °C alatt a tényező 1-nél nagyobb (25 °C: 1,06).<br><b>k<sub>2</sub> – csoportosítás.</b> Ha több áramkör halad egy csőben vagy kötegben, egymást is fűtik, és a közös burkolatnak több hőt kell leadnia; ezért mindegyikre kisebb áram jut. Az értékeket a szabvány táblázata adja, a feladat megadja.<br><b>Miért szorzunk?</b> Minden tényező azt mondja meg, a terhelhetőség hányad része marad meg (0,87 = 87 %). Két hatás egyszerre: a megmaradt rész megmaradt része – százaléknak a százaléka, vagyis szorzat (Alapok: M4 Százalék): <b>I<sub>z</sub> = I<sub>t</sub>·k<sub>1</sub>·k<sub>2</sub></b>. Melegebb és zsúfoltabb hely → kisebb I<sub>z</sub>, sosem nagyobb.<br><b>Mikor osztunk?</b> Ha a keresztmetszet még nincs meg, azt keressük, mekkora táblázati érték kell ahhoz, hogy a korrekció után is maradjon I<sub>n</sub>: I<sub>t</sub>·k<sub>1</sub>·k<sub>2</sub> ≥ I<sub>n</sub>, mindkét oldalt elosztva: <b>I<sub>t</sub> ≥ I<sub>n</sub>/(k<sub>1</sub>·k<sub>2</sub>)</b> (Alapok: M2 Képlet átrendezése). 1-nél kisebb számmal osztva nagyobbat kapunk – logikus, rossz körülményekhez erősebb vezeték kell.<br><b>Ami nem terhelhetőségi tényező:</b> a hossz, a megengedett feszültségesés és a cosφ – ezek a feszültségesés-méretezéshez tartoznak. Csökkentő tényező kell viszont földben fektetett kábelnél a talaj hőellenállására és a nullavezetőt terhelő jelentős felharmonikus áramra.<br><b>Kidolgozott példa:</b> 6 egyfázisú kör egy gégecsőben (k<sub>2</sub> = 0,57), 2,5 mm², I<sub>t</sub> = 24 A, 30 °C → I<sub>z</sub> = 24·0,57 = 13,68 A – 16 A-es kismegszakítóhoz kevés.",
    "bullets": [
     "k<sub>1</sub> (PVC): 25 °C: 1,06 · 30 °C: 1,00 · 35 °C: 0,94 · 40 °C: 0,87 · 45 °C: 0,79 · 50 °C: 0,71.",
-    "k<sub>2</sub> (kötegelve / csőben): 1 kör: 1,00 · 2: 0,80 · 3: 0,70 · 4: 0,65 · 5: 0,60 · 6: 0,57.",
+    "k<sub>2</sub> (kötegelve / csőben): 1 kör: 1,00 · 2: 0,80 · 3: 0,70 · 4: 0,65 · 5: 0,60 · 6: 0,57. Az áramköröket számoljuk, nem az ereket – a terhelt erek száma már a táblázati oszlopban benne van.",
     "Példák: 24·0,87 = 20,88 A; 21·0,94·0,70 = 13,82 A; 32·0,79·0,80 = 20,22 A → max. 20 A-es védelem."
    ]
   },
   {
-   "h": "Keresztmetszet-választás lépésről lépésre",
-   "body": "1) I<sub>B</sub> a terhelésből (motor: P<sub>n</sub>/(η·√3·U·cosφ)) → 2) I<sub>n</sub> ≥ I<sub>B</sub> a szabványos sorból → 3) szerelési mód, terhelt erek, k<sub>1</sub>, k<sub>2</sub> → 4) I<sub>t</sub> ≥ I<sub>n</sub>/(k<sub>1</sub>·k<sub>2</sub>), a táblázat első ennél nem kisebb értéke adja a keresztmetszetet → 5) feszültségesés ellenőrzése (I<sub>B</sub>-vel); ha nem felel meg, nagyobb keresztmetszet → 6) a kettő közül a <b>nagyobb</b> → 7) végül az önműködő lekapcsolás (hibavédelem) ellenőrzése.<br><b>Kidolgozott példa:</b> 3f ohmos terhelés, I<sub>B</sub> = 24 A, 25 A-es kismegszakító, B1, 3 terhelt ér, 40 °C (k<sub>1</sub> = 0,87), 2 kör egy csőben (k<sub>2</sub> = 0,80), l = 100 m, ε<sub>meg</sub> = 3 %, réz, γ = 56.<br>1. I<sub>t</sub> ≥ 25/(0,87·0,80) = 25/0,696 = 35,92 A → 6 mm² (36 A); ellenőrzés: 36·0,696 = 25,06 A ≥ 25 A<br>2. Feszültségesés: ΔU<sub>meg</sub> = 3 %·400 = 12 V; A ≥ 1,732·24·100/(56·12) = 6,19 mm² → 10 mm²<br>3. Döntés: max(6; 10) = <b>10 mm²</b>; ellenőrzés: ε = 1,86 % (6 mm²-en 3,09 % lett volna).",
+   "h": "Két méretezés, a nagyobb nyer – és mindig felfelé kerekítünk",
+   "body": "A keresztmetszetnek két, egymástól független feltételt kell teljesítenie: <b>ne melegedjen túl</b> (terhelhetőség) és <b>ne essen rajta túl sok feszültség</b> (feszültségesés). A kettő más-más keresztmetszetet adhat; a nagyobb mindkettőnek megfelel, a kisebb csak az egyiknek – ezért mindig a <b>nagyobb</b> dönt. Rövid, erősen terhelt vezetéknél a melegedés, hosszú csatlakozó- és fővezetéknél gyakran a feszültségesés a döntő (pl. 1×32 A, 15 m, 1 %: terhelhetőségre 4 mm², esésre 7,45 → 10 mm²). A feszültségesést az üzemi árammal (I<sub>B</sub>) számoljuk, mert tartósan az folyik; a terhelhetőséget a védelem I<sub>n</sub>-jéhez hasonlítjuk. Végül az önműködő lekapcsolás (hibavédelem) feltételét is ellenőrizni kell, mert az a kész vezeték ellenállásától függ (Alapok: F11 Hibaáram útja és érintésvédelem fizikája).<br><b>Felkerekítés:</b> vezeték csak szabványos keresztmetszetben kapható (MSZ EN 60228): 0,5 – 0,75 – 1 – 1,5 – 2,5 – 4 – 6 – 10 – 16 – 25 – 35 – 50 – 70 – 95 – 120 mm². Nem létezik 3, 8, 12, 20 mm². A számított érték a <b>legkisebb</b> megengedett; lefelé kerekítve a vezeték kisebb lenne a szükségesnél – túlmelegedne, vagy túllépné az esést. Ezért a számítottnál nagyobb vagy egyenlő legkisebb elemet választjuk, akkor is, ha csak hajszállal nagyobb (21,35 A-hez a 21 A-es 2,5 mm² nem jó, 4 mm² kell). A még nagyobb is megfelelne, de a kérdés a legkisebb megfelelőt kéri (az olcsóbb és könnyebben szerelhető).",
    "bullets": [
-    "Hosszú csatlakozó- és fővezetéknél sokszor a feszültségesés a döntő (pl. 1×32 A, 15 m, 1 %: terhelhetőségre 4 mm², esésre 7,45 → 10 mm²)."
+    "7,45 mm² → 10 mm²; 4,33 mm² → 6 mm²; 15,75 mm² → 16 mm².",
+    "Táblázatból: az első olyan sor, amelynek értéke ≥ a szükséges I<sub>t</sub> (pl. 48,44 A → 56 A → 16 mm², A1, 3 terhelt ér)."
    ]
   },
   {
-   "h": "Felkerekítés a szabványos sorra",
-   "body": "Szabványos rézvezető-keresztmetszetek (MSZ EN 60228): 0,5 – 0,75 – 1 – 1,5 – 2,5 – 4 – 6 – 10 – 16 – 25 – 35 – 50 – 70 – 95 – 120 mm². Mindig a számított értéknél <b>nagyobb vagy egyenlő legkisebb</b> elemet választjuk – még akkor is, ha a számított érték csak hajszállal nagyobb (21,35 A-hez a 21 A-es 2,5 mm² nem jó, 4 mm² kell). Nem létezik 3, 8, 12, 20 mm².",
+   "h": "Számolási recept – a vizsga feladattípusai",
+   "body": "Az első kérdés mindig: hány terhelt ér van (1f: 2, szimmetrikus 3f: 3), melyik szerelési mód, és hány °C, hány áramkör halad együtt? Ezekből jön a táblázati oszlop, a k<sub>1</sub> és a k<sub>2</sub>.",
    "bullets": [
-    "7,45 mm² → 10 mm²; 4,33 mm² → 6 mm²; 15,75 mm² → 16 mm².",
-    "Táblázatból a legkisebb megfelelőt kell megadni: a nagyobb is jó lenne, de a kérdés a legkisebbet kéri."
+    "<b>A) Kész vezeték megengedett árama (I<sub>z</sub>):</b> 1. Olvasd ki a táblázati értéket (szerelési mód, terhelt erek). 2. Keresd ki k<sub>1</sub>-et (hőmérséklet) és k<sub>2</sub>-t (áramkörök száma). 3. I<sub>z</sub> = I<sub>t</sub>·k<sub>1</sub>·k<sub>2</sub> – szorzás; 30 °C felett az eredmény mindig kisebb a táblázatinál.",
+    "<b>B) Szükséges táblázati érték és keresztmetszet:</b> 1. I<sub>n</sub> a védelemből (vagy I<sub>n</sub> ≥ I<sub>B</sub> a szabványos sorból). 2. k<sub>1</sub>·k<sub>2</sub> szorzat. 3. I<sub>t</sub> ≥ I<sub>n</sub>/(k<sub>1</sub>·k<sub>2</sub>) – osztás. 4. A táblázat első, ennél nem kisebb értéke adja a keresztmetszetet. 5. Ellenőrzés: I<sub>t</sub>·k<sub>1</sub>·k<sub>2</sub> ≥ I<sub>n</sub>. Példa: 20 A, k<sub>1</sub> = 0,87, k<sub>2</sub> = 0,80 → 20/0,696 = 28,74 A → 32 A → 4 mm².",
+    "<b>C) Védelem választása:</b> 1. Írd fel: I<sub>B</sub> ≤ I<sub>n</sub> ≤ I<sub>z</sub>. 2. A szabványos sorból (6 – 10 – 13 – 16 – 20 – 25 – 32 A…) a két határ közé eső értéket választod; ha a legnagyobb lehetséges a kérdés, a legnagyobb ≤ I<sub>z</sub> értéket. 3. Kismegszakítónál kész; gG biztosítónál még I<sub>z</sub> ≥ 1,6·I<sub>n</sub>/1,45.",
+    "<b>D) I<sub>2</sub>-feltétel:</b> 1. I<sub>2</sub> = 1,45·I<sub>n</sub> (kismegszakító) vagy 1,6·I<sub>n</sub> (gG). 2. 1,45·I<sub>z</sub> kiszámítása. 3. Összehasonlítás: I<sub>2</sub> ≤ 1,45·I<sub>z</sub>? Visszafelé: I<sub>z,min</sub> = I<sub>2</sub>/1,45.",
+    "<b>E) Motoráramkör:</b> 1. I<sub>B</sub> = P<sub>n</sub>/(η·√3·U·cosφ) – a P<sub>n</sub> a tengelyen leadott teljesítmény, a hálózatból P<sub>n</sub>/η-t vesz fel. 2. Ellenőrzés: I<sub>B</sub> ≤ I<sub>n</sub>. 3. I<sub>t</sub> ≥ I<sub>n</sub>/(k<sub>1</sub>·k<sub>2</sub>) – a védelem áramával, nem a motoréval. 4. Táblázat, felkerekítés.",
+    "<b>F) Teljes méretezés (terhelhetőség + esés):</b> 1. A<sub>terh</sub> a B) recepttel. 2. A<sub>esés</sub> a feszültségesés-képletből I<sub>B</sub>-vel (1f: 2·I·l/(γ·ΔU<sub>meg</sub>), ΔU<sub>meg</sub> a 230 V-ból; 3f: √3·I·l/(γ·ΔU<sub>meg</sub>), a 400 V-ból), felkerekítve. 3. A = max(A<sub>terh</sub>; A<sub>esés</sub>). 4. Végül az önműködő lekapcsolás ellenőrzése. Példa: 3f ohmos, I<sub>B</sub> = 24 A, 25 A-es kismegszakító, B1, 3 terhelt ér, 40 °C (0,87), 2 kör egy csőben (0,80), l = 100 m, 3 %: I<sub>t</sub> ≥ 25/0,696 = 35,92 A → 6 mm² (36 A); esésre ΔU<sub>meg</sub> = 12 V, A ≥ 1,732·24·100/(56·12) = 6,19 → 10 mm²; döntés: <b>10 mm²</b> (ε = 1,86 %; 6 mm²-en 3,09 % lett volna).",
+    "<b>G) Felismerős kérdések:</b> szerelési mód a hűtésből (A1 &lt; B1 &lt; C &lt; E), terhelt erek (PE soha), szabványos sor (3, 8, 12, 20 mm² nincs)."
    ]
   }
  ],
@@ -91,7 +97,7 @@
   },
   {
    "k": "Megengedett vezetőhőmérséklet",
-   "v": "PVC 70 °C · XLPE 90 °C"
+   "v": "PVC 70 °C · XLPE/EPR 90 °C"
   },
   {
    "k": "Kismegszakító névleges áramai",
@@ -109,33 +115,71 @@
  "formulas": [
   {
    "f": "I<sub>z</sub> = I<sub>t</sub>·k<sub>1</sub>·k<sub>2</sub>",
-   "note": "kész vezeték megengedett árama"
+   "note": "kész vezeték megengedett tartós árama",
+   "derive": [
+    "A táblázat 30 °C-os levegőre és egyedül fektetett áramkörre adja azt az áramot (I<sub>t</sub>), amelynél a szigetelés éppen a megengedett hőmérsékletre melegszik (Alapok: F10 Melegedés és hőmérsékletfüggés).",
+    "Melegebb környezetben kisebb a hőmérséklet-tartalék, több áramkör pedig egymást fűti, így kevesebb hőt (P = I²·R) szabad termelni – kisebb áram engedhető (Alapok: F5 Munka, teljesítmény, energia, hő).",
+    "Minden tényező a megmaradó hányadot adja (pl. 0,87 = 87 %); két hatás egyszerre: a hányad hányada, vagyis szorzat (Alapok: M4 Százalék)."
+   ]
   },
   {
    "f": "I<sub>t</sub> ≥ I<sub>n</sub>/(k<sub>1</sub>·k<sub>2</sub>)",
-   "note": "keresztmetszet kereséséhez a táblázatban"
+   "note": "keresztmetszet kereséséhez a táblázatban",
+   "derive": [
+    "Feltétel: a korrigált terhelhetőség érje el a védelem áramát: I<sub>t</sub>·k<sub>1</sub>·k<sub>2</sub> ≥ I<sub>n</sub>.",
+    "Mindkét oldalt elosztjuk k<sub>1</sub>·k<sub>2</sub>-vel; pozitív számmal osztunk, a ≥ iránya marad (Alapok: M2 Képlet átrendezése).",
+    "1-nél kisebb számmal osztva nagyobb számot kapunk: rossz körülményekhez nagyobb táblázati érték, vastagabb vezeték kell (Alapok: M3 Tört, reciprok, arány).",
+    "A táblázatban a legkisebb, ennél nem kisebb értéket választjuk (Alapok: M6 Kerekítés és szabványos sorok)."
+   ]
+  },
+  {
+   "f": "k<sub>1</sub> = √((70 °C − θ)/(70 °C − 30 °C))",
+   "note": "PVC (70 °C) hőmérsékleti tényező – a táblázat értékei ebből adódnak",
+   "derive": [
+    "Állandósult állapotban a keletkező hő (I²·R) egyenlő a leadott hővel (Alapok: F5 Munka, teljesítmény, energia, hő).",
+    "A leadott hő a vezető (legfeljebb 70 °C) és a környezet (θ) hőmérséklet-különbségével arányos (Alapok: F10 Melegedés és hőmérsékletfüggés).",
+    "Tehát I² arányos (70 − θ)-val, vagyis I arányos √(70 − θ)-val (Alapok: M5 Négyzet, gyök, π és a kör területe).",
+    "A 30 °C-os táblázati állapothoz viszonyítva: k<sub>1</sub> = √((70 − θ)/40); pl. 40 °C: √(30/40) = 0,87 (Alapok: M3 Tört, reciprok, arány)."
+   ]
   },
   {
    "f": "I<sub>B</sub> ≤ I<sub>n</sub> ≤ I<sub>z</sub>",
-   "note": "védelem kiválasztása"
+   "note": "védelem kiválasztása",
+   "derive": [
+    "I<sub>n</sub> ≥ I<sub>B</sub>: a védelem nem oldhat normál üzemben.",
+    "I<sub>n</sub> ≤ I<sub>z</sub>: a védelemnek akkor kell közbelépnie, mielőtt a vezeték a megengedettnél jobban melegszik (Alapok: F10 Melegedés és hőmérsékletfüggés).",
+    "A két feltétel együtt: a védelem a terhelés és a vezeték közé esik; a szabványos sorból ilyen értéket választunk (Alapok: M6 Kerekítés és szabványos sorok)."
+   ]
   },
   {
    "f": "I<sub>2</sub> ≤ 1,45·I<sub>z</sub>",
-   "note": "gG-nél I<sub>z</sub> ≥ 1,6·I<sub>n</sub>/1,45"
+   "note": "gG-nél I<sub>z</sub> ≥ 1,6·I<sub>n</sub>/1,45",
+   "derive": [
+    "I<sub>2</sub> az az áram, amelynél a védelem a szabványban rögzített időn belül biztosan működik; ez I<sub>n</sub>-nél nagyobb.",
+    "A vezeték ritka, korlátozott ideig tartó túlterhelést 1,45·I<sub>z</sub>-ig károsodás nélkül elvisel – ezt rögzíti a szabvány (Alapok: F10 Melegedés és hőmérsékletfüggés).",
+    "Kismegszakító: I<sub>2</sub> = 1,45·I<sub>n</sub>; ha I<sub>n</sub> ≤ I<sub>z</sub>, mindkét oldalt 1,45-tel szorozva 1,45·I<sub>n</sub> ≤ 1,45·I<sub>z</sub> (Alapok: M2 Képlet átrendezése).",
+    "gG biztosító: 1,6·I<sub>n</sub> ≤ 1,45·I<sub>z</sub> → I<sub>z</sub> ≥ 1,6/1,45·I<sub>n</sub> = 1,10·I<sub>n</sub> (Alapok: M2 Képlet átrendezése, M3 Tört, reciprok, arány)."
+   ]
   },
   {
    "f": "I<sub>B</sub> = P<sub>n</sub>/(η·√3·U·cosφ)",
-   "note": "háromfázisú motor üzemi árama"
+   "note": "háromfázisú motor üzemi árama",
+   "derive": [
+    "Egy fázis hatásos teljesítménye P<sub>f</sub> = U<sub>f</sub>·I·cosφ: a feszültség és az áram hatásos részének szorzata (Alapok: F5 Munka, teljesítmény, energia, hő, F7 Fáziseltolás és cosφ).",
+    "Három egyforma fázis: P = 3·U<sub>f</sub>·I·cosφ; U<sub>f</sub> = U/√3 behelyettesítve 3/√3 = √3, így P = √3·U·I·cosφ (Alapok: F8 Háromfázisú rendszer, M5 Négyzet, gyök, π és a kör területe).",
+    "A motor P<sub>n</sub>-je a tengelyen leadott teljesítmény; a hálózatból ennél többet, P<sub>n</sub>/η-t vesz fel (Alapok: F5 Munka, teljesítmény, energia, hő).",
+    "√3·U·I·cosφ = P<sub>n</sub>/η-ből I-re rendezve: I<sub>B</sub> = P<sub>n</sub>/(η·√3·U·cosφ) (Alapok: M2 Képlet átrendezése)."
+   ]
   }
  ],
  "mistakes": [
-  "A korrekciós tényezővel osztani, amikor I<sub>z</sub>-t számolod (melegben nőne a terhelhetőség) – vagy szorozni, amikor a szükséges táblázati értéket keresed.",
+  "A korrekciós tényezővel osztani, amikor I<sub>z</sub>-t számolod (melegben nőne a terhelhetőség – képtelenség), vagy szorozni, amikor a szükséges táblázati értéket keresed.",
   "Elfelejteni a korrekciót, és a 30 °C-os, egyedül fektetett táblázati értéket használni.",
   "Rossz k<sub>2</sub>-t olvasni le (pl. 3 kör tényezőjét 6 körre), vagy a tényezőt még az erek számával is osztani.",
   "Olyan védelmet választani, amely nagyobb I<sub>z</sub>-nél (pl. 20 A 19,5 A-es vezetékre), vagy kisebb I<sub>B</sub>-nél (üzemszerűen leold).",
   "A vezetéket az üzemi áramra méretezni a védelem névleges árama helyett.",
   "Csak a terhelhetőséget nézni: hosszú vezetéknél a feszültségesés nagyobb keresztmetszetet követel, és a nagyobb dönt.",
-  "Lefelé vagy nem szabványos értékre (8, 12 mm²) kerekíteni, illetve a táblázati határt „majdnem elég” alapon elfogadni.",
+  "Lefelé vagy nem szabványos értékre (8, 12 mm²) kerekíteni, illetve a táblázati határt „majdnem elég” alapon elfogadni (21 A a 21,35 A-hez kevés).",
   "A PE-t terhelt érnek számolni, vagy 3 terhelt eres áramkörhöz a 2 eres oszlopot használni."
  ],
  "hooks": [

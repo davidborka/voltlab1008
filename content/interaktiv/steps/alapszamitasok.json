@@ -1,0 +1,574 @@
+{
+ "III-alap-001": {
+  "given": [
+   "l = 40 m (a vezető hossza)",
+   "A = 1,5 mm²",
+   "ρ = 0,0175 Ω·mm²/m (réz)"
+  ],
+  "steps": [
+   {
+    "do": "Mit keresünk? Egyetlen rézvezető ellenállását, vagyis hogy mennyire fékezi az áramot ez a 40 m-es szál.",
+    "why": "„Egy vezető” ellenállását kérdezik, nem oda-vissza áramkört, ezért a hossz l = 40 m, nincs 2-es szorzó (Alapok: F4 Soros és párhuzamos kapcsolás)."
+   },
+   {
+    "do": "A vezeték ellenállása: fajlagos ellenállás × hossz / keresztmetszet.",
+    "calc": "R = ρ·l/A",
+    "why": "A 40 m olyan, mint 40 db 1 m-es darab sorban (szorzás), az 1,5 mm² olyan, mint 1,5 db 1 mm²-es szál egymás mellett (osztás) (Alapok: F3 Ellenállás és Ohm-törvény)."
+   },
+   {
+    "do": "Behelyettesítünk.",
+    "calc": "R = 0,0175 Ω·mm²/m · 40 m / 1,5 mm² = 0,7 Ω / 1,5 = 0,4667 Ω",
+    "why": "A m és a mm² kiesik, Ω marad (Alapok: M1 Mértékegységek és előtagok)."
+   },
+   {
+    "do": "Három tizedesre kerekítünk.",
+    "calc": "R ≈ 0,467 Ω",
+    "why": "A feladat három tizedest kér; a 4. tizedes 7, ezért felfelé kerekítünk (Alapok: M6 Kerekítés és szabványos sorok)."
+   }
+  ],
+  "check": "1 m 1 mm² réz 0,0175 Ω; 40 m → 0,7 Ω; 1,5 mm²-en ennek 1,5-öd része ≈ 0,47 Ω – stimmel."
+ },
+ "III-alap-002": {
+  "given": [
+   "R = 52,9 Ω (állandó)",
+   "U = 230 V"
+  ],
+  "steps": [
+   {
+    "do": "Mit keresünk? Az áramot, vagyis hogy másodpercenként mennyi töltést hajt át a 230 V a fűtőellenálláson.",
+    "why": "A feszültség hajtja, az ellenállás fékezi az áramot (Alapok: F1 Töltés és áram, F2 Feszültség)."
+   },
+   {
+    "do": "Ohm-törvény áramra rendezve.",
+    "calc": "I = U/R",
+    "why": "U = I·R mindkét oldalát R-rel osztjuk (Alapok: M2 Képlet átrendezése, F3 Ellenállás és Ohm-törvény)."
+   },
+   {
+    "do": "Behelyettesítünk és két tizedesre kerekítünk.",
+    "calc": "I = 230 V / 52,9 Ω = 4,3478 A ≈ 4,35 A",
+    "why": "V/Ω = A (Alapok: M1 Mértékegységek és előtagok)."
+   }
+  ],
+  "check": "Visszaszámolva P = U·I = 230 V·4,3478 A = 1000 W: egy 1 kW-os fűtőbetét – életszerű."
+ },
+ "III-alap-003": {
+  "given": [
+   "l = 1,2 m (a vezeték hossza)",
+   "A = 1,5 mm²",
+   "ρ = 0,0175 Ω·mm²/m (réz)",
+   "3 ér: L, N, PE"
+  ],
+  "steps": [
+   {
+    "do": "Mit keresünk? Az áramkör ellenállását, vagyis azt az utat, amin az áram ténylegesen végigmegy.",
+    "why": "Az áram körben folyik: a fázison (L) oda, a nullán (N) vissza; a PE üzemszerűen nem vezet áramot (Alapok: F4 Soros és párhuzamos kapcsolás)."
+   },
+   {
+    "do": "Az áram útja tehát kétszer olyan hosszú, mint a vezeték.",
+    "calc": "l<sub>út</sub> = 2·1,2 m = 2,4 m",
+    "why": "Az L és az N ér sorban van az áram útjában, a hosszuk összeadódik (Alapok: F4 Soros és párhuzamos kapcsolás)."
+   },
+   {
+    "do": "Vezeték ellenállása: fajlagos ellenállás × hossz / keresztmetszet.",
+    "calc": "R = 0,0175 Ω·mm²/m · 2,4 m / 1,5 mm² = 0,028 Ω",
+    "why": "A mm² a számlálóban és a nevezőben kiesik, a m is, Ω marad (Alapok: M1 Mértékegységek és előtagok, F3 Ellenállás és Ohm-törvény)."
+   },
+   {
+    "do": "A helyes válasz a 0,028 Ω.",
+    "why": "0,014 Ω csak egy ér (2-es szorzó nélkül), 0,042 Ω a PE-t is beszámolná (3·l), 0,28 Ω tízszeres tizedesvessző-hiba."
+   }
+  ],
+  "check": "Nagyságrend: 1 m 1,5 mm² réz ≈ 0,012 Ω, 2,4 m ≈ 0,028 Ω – stimmel."
+ },
+ "III-alap-004": {
+  "given": [
+   "l = 2,0 m",
+   "A = 1,5 mm²",
+   "ρ = 0,0175 Ω·mm²/m",
+   "I = 1,5 A",
+   "U = 230 V, egyfázisú"
+  ],
+  "steps": [
+   {
+    "do": "Mit keresünk? A csatlakozó vezeték oda-vissza ellenállását, és hogy ezen mennyi feszültség „vész el”, mielőtt az áram a ventilátorhoz ér.",
+    "why": "Egyfázisú körben az áram L-en oda, N-en vissza folyik, a PE nem vezet (Alapok: F4 Soros és párhuzamos kapcsolás)."
+   },
+   {
+    "do": "Az áram útja kétszeres hosszú.",
+    "calc": "l<sub>út</sub> = 2·2,0 m = 4,0 m"
+   },
+   {
+    "do": "Az áramkör ellenállása.",
+    "calc": "R = 0,0175 Ω·mm²/m · 4,0 m / 1,5 mm² = 0,04667 Ω ≈ 0,047 Ω",
+    "why": "R = ρ·l/A; a mértékegységek kiesnek, Ω marad (Alapok: F3 Ellenállás és Ohm-törvény, M1 Mértékegységek és előtagok)."
+   },
+   {
+    "do": "A vezetéken eső feszültség Ohm-törvénnyel; a kerekítetlen R-rel számolunk tovább.",
+    "calc": "ΔU = I·R = 1,5 A · 0,04667 Ω = 0,070 V",
+    "why": "A vezeték maga is ellenállás, rajta U = I·R esik (Alapok: F3 Ellenállás és Ohm-törvény); részeredményt nem kerekítünk korán (Alapok: M6 Kerekítés és szabványos sorok)."
+   }
+  ],
+  "check": "0,070 V / 230 V ·100 = 0,03 % – rövid csatlakozó vezetéken ez életszerűen kicsi. 2-es szorzó nélkül pontosan a fele (0,035 V) jönne ki."
+ },
+ "III-alap-005": {
+  "given": [
+   "U = 24 V (egyenfeszültség)",
+   "R1 = 20 Ω (soros)",
+   "R2 = 30 Ω és R3 = 60 Ω (párhuzamosan, A és B között)"
+  ],
+  "steps": [
+   {
+    "do": "Mit keresünk? Az egész kapcsolás helyettesítő (eredő) ellenállását, a tápból folyó áramot, és hogy a párhuzamos csoportra (A–B) mennyi feszültség jut.",
+    "why": "Vegyes kapcsolást belülről kifelé vonunk össze: előbb a párhuzamos csoport, aztán a soros tag (Alapok: F4 Soros és párhuzamos kapcsolás)."
+   },
+   {
+    "do": "R2 és R3 párhuzamos eredője „szorzat per összeg”.",
+    "calc": "R<sub>23</sub> = 30·60/(30+60) = 1800/90 = 20 Ω",
+    "why": "Párhuzamosan az 1/R-ek adódnak össze; két ágnál ez R1·R2/(R1+R2) (Alapok: M3 Tört, reciprok, arány). 20 Ω kisebb a 30 Ω-nál – jó."
+   },
+   {
+    "do": "Ehhez sorosan jön R1.",
+    "calc": "R<sub>e</sub> = R1 + R<sub>23</sub> = 20 Ω + 20 Ω = 40 Ω",
+    "why": "Sorosan az ellenállások összeadódnak (Alapok: F4 Soros és párhuzamos kapcsolás)."
+   },
+   {
+    "do": "A főági áram Ohm-törvénnyel.",
+    "calc": "I = U/R<sub>e</sub> = 24 V / 40 Ω = 0,6 A",
+    "why": "Alapok: F3 Ellenállás és Ohm-törvény."
+   },
+   {
+    "do": "Az A–B közötti feszültség: a teljes áram átfolyik a párhuzamos csoporton.",
+    "calc": "U<sub>AB</sub> = I·R<sub>23</sub> = 0,6 A · 20 Ω = 12 V",
+    "why": "A főági áram az A pontban szétoszlik, B-ben újra egyesül, tehát a csoport egészén 0,6 A megy át (Alapok: F4 Soros és párhuzamos kapcsolás)."
+   }
+  ],
+  "check": "R1-en 0,6 A·20 Ω = 12 V esik; 12 V + 12 V = 24 V = U – stimmel."
+ },
+ "III-alap-006": {
+  "given": [
+   "R1 = 12 Ω",
+   "R2 = 18 Ω",
+   "R3 = 20 Ω",
+   "R4 = 24 Ω",
+   "közös földelővezető, kölcsönhatás nélkül"
+  ],
+  "steps": [
+   {
+    "do": "Mit keresünk? A négy földelő együttes ellenállását a föld felé. A közös vezető miatt mind a négy ugyanarra a pontra csatlakozik, tehát párhuzamosan vannak.",
+    "why": "Párhuzamos kapcsolás: azonos két pont között több út; minden földelő újabb utat ad az áramnak (Alapok: F4 Soros és párhuzamos kapcsolás)."
+   },
+   {
+    "do": "Kiszámítjuk az egyes ágak reciprokát (vezetését).",
+    "calc": "1/12 = 0,08333; 1/18 = 0,05556; 1/20 = 0,05; 1/24 = 0,04167 (1/Ω)",
+    "why": "Az 1/R azt mutatja, mennyire könnyen vezet egy ág; párhuzamosan ezek adódnak össze (Alapok: M3 Tört, reciprok, arány)."
+   },
+   {
+    "do": "Összeadjuk őket.",
+    "calc": "1/R<sub>e</sub> = 0,08333 + 0,05556 + 0,05 + 0,04167 = 0,23056 1/Ω"
+   },
+   {
+    "do": "Reciprokot veszünk, és két tizedesre kerekítünk.",
+    "calc": "R<sub>e</sub> = 1/0,23056 = 4,337 Ω ≈ 4,34 Ω",
+    "why": "Mi 1/R<sub>e</sub>-t kaptuk, nekünk R<sub>e</sub> kell (Alapok: M3 Tört, reciprok, arány, M6 Kerekítés és szabványos sorok)."
+   }
+  ],
+  "check": "4,34 Ω kisebb a legkisebb ágnál (12 Ω), ahogy párhuzamosnál kell. Az összeg (74 Ω) a soros eredő lenne – az biztosan rossz."
+ },
+ "III-alap-007": {
+  "given": [
+   "3 db R = 120 Ω, párhuzamosan",
+   "U = 230 V"
+  ],
+  "steps": [
+   {
+    "do": "Mit keresünk? A sütő teljesítményét, vagyis hogy másodpercenként mennyi hőt termel a három párhuzamos fűtőszál.",
+    "why": "Az ellenálláson a villamos teljesítmény hővé alakul (Alapok: F5 Munka, teljesítmény, energia, hő)."
+   },
+   {
+    "do": "Három egyforma ellenállás párhuzamos eredője.",
+    "calc": "R<sub>e</sub> = R/3 = 120 Ω / 3 = 40 Ω",
+    "why": "n egyforma párhuzamos ág eredője R/n, mert 1/R<sub>e</sub> = 3/R (Alapok: F4 Soros és párhuzamos kapcsolás, M3 Tört, reciprok, arány)."
+   },
+   {
+    "do": "A teljesítmény feszültségből és ellenállásból.",
+    "calc": "P = U²/R<sub>e</sub> = (230 V)² / 40 Ω = 52 900 / 40 = 1322,5 W",
+    "why": "P = U·I és I = U/R, ezért P = U²/R (Alapok: F5 Munka, teljesítmény, energia, hő, F3 Ellenállás és Ohm-törvény)."
+   },
+   {
+    "do": "A helyes válasz az 1322,5 W.",
+    "why": "146,9 W a soros (360 Ω), 293,9 W az 1 soros + 2 párhuzamos (180 Ω), 661,2 W a 2 soros ∥ 1 (80 Ω) kapcsolás értéke."
+   }
+  ],
+  "check": "Áram: 230/40 = 5,75 A, P = 230·5,75 = 1322,5 W – ugyanaz. Párhuzamos a legkisebb R, tehát a legnagyobb teljesítmény – logikus."
+ },
+ "III-alap-008": {
+  "given": [
+   "d = 1,38 mm (átmérő)",
+   "l = 50 m",
+   "ρ = 0,0175 Ω·mm²/m"
+  ],
+  "steps": [
+   {
+    "do": "Mit keresünk? Először a huzal keresztmetszetét (a vágási felület területét), aztán ebből az 50 m-es szál ellenállását.",
+    "why": "Egy szálról van szó, nincs 2-es szorzó (Alapok: F3 Ellenállás és Ohm-törvény)."
+   },
+   {
+    "do": "A kör területe az átmérőből.",
+    "calc": "A = d²·π/4 = 1,38² · 3,1416 / 4 = 1,9044 · 3,1416 / 4 = 1,4957 mm² ≈ 1,496 mm²",
+    "why": "A kör területe r²·π, és r = d/2, így r² = d²/4 (Alapok: M5 Négyzet, gyök, π és a kör területe); mm-ből mm² lesz (Alapok: M1 Mértékegységek és előtagok)."
+   },
+   {
+    "do": "A szál ellenállása a kerekítetlen területtel.",
+    "calc": "R = ρ·l/A = 0,0175 · 50 / 1,4957 = 0,875 / 1,4957 = 0,585 Ω",
+    "why": "R = ρ·l/A: hosszabb → nagyobb, vastagabb → kisebb ellenállás (Alapok: F3 Ellenállás és Ohm-törvény)."
+   }
+  ],
+  "check": "A ≈ 1,5 mm² (ez egy szokásos 1,5 mm²-es ér). 50 m 1,5 mm² réz: 0,0175·50/1,5 = 0,583 Ω – közel van, stimmel."
+ },
+ "III-alap-009": {
+  "given": [
+   "R<sub>20</sub> = 12,0 Ω",
+   "t = 70 °C",
+   "α = 0,0039 1/K"
+  ],
+  "steps": [
+   {
+    "do": "Mit keresünk? A réztekercs ellenállását melegen (70 °C-on). Melegen a fém ellenállása nő.",
+    "why": "Melegebb fémben az atomok jobban rezegnek és akadályozzák az elektronokat (Alapok: F10 Melegedés és hőmérsékletfüggés)."
+   },
+   {
+    "do": "A melegedés mértéke.",
+    "calc": "Δt = 70 °C − 20 °C = 50 K",
+    "why": "Hőmérséklet-különbség °C-ban és K-ben ugyanaz a szám (Alapok: M1 Mértékegységek és előtagok)."
+   },
+   {
+    "do": "Hányad résszel nő az ellenállás?",
+    "calc": "α·Δt = 0,0039 · 50 = 0,195 (azaz 19,5 %)",
+    "why": "α az 1 K-re eső relatív növekedés (Alapok: M4 Százalék)."
+   },
+   {
+    "do": "Az új ellenállás = régi + növekmény.",
+    "calc": "R<sub>70</sub> = 12,0 Ω · (1 + 0,195) = 12,0 · 1,195 = 14,34 Ω",
+    "why": "R<sub>t</sub> = R<sub>20</sub>·(1 + α·Δt) (Alapok: F10 Melegedés és hőmérsékletfüggés)."
+   }
+  ],
+  "check": "14,34 Ω nagyobb a 12,0 Ω-nál, ahogy pozitív hőfoktényezőjű fémnél kell; a növekmény 2,34 Ω = 12,0·0,195."
+ },
+ "III-alap-010": {
+  "given": [
+   "R<sub>20</sub> = 4,0 Ω (hidegen, 20 °C)",
+   "R<sub>t</sub> = 4,8 Ω (melegen)",
+   "α = 0,0039 1/K"
+  ],
+  "steps": [
+   {
+    "do": "Mit keresünk? A tekercs hőmérsékletét abból, hogy mennyivel nőtt az ellenállása.",
+    "why": "A réz ellenállása kelvinenként 0,39 %-kal nő, így az ellenállás-növekedésből visszaszámolható a melegedés (Alapok: F10 Melegedés és hőmérsékletfüggés)."
+   },
+   {
+    "do": "Hányszorosára nőtt az ellenállás, és ebből mennyi a növekmény?",
+    "calc": "R<sub>t</sub>/R<sub>20</sub> = 4,8/4,0 = 1,2 → növekmény 1,2 − 1 = 0,2 (20 %)",
+    "why": "R<sub>t</sub> = R<sub>20</sub>·(1 + α·Δt) mindkét oldalát R<sub>20</sub>-szal osztjuk, majd 1-et kivonunk (Alapok: M2 Képlet átrendezése)."
+   },
+   {
+    "do": "A melegedés: a növekményt elosztjuk az 1 K-re eső növekedéssel.",
+    "calc": "Δt = 0,2 / 0,0039 1/K = 51,28 K",
+    "why": "α·Δt = 0,2, mindkét oldalt α-val osztjuk (Alapok: M2 Képlet átrendezése)."
+   },
+   {
+    "do": "A tényleges hőmérséklet: a 20 °C-os kiinduláshoz hozzáadjuk a melegedést, és egy tizedesre kerekítünk.",
+    "calc": "t = 20 °C + 51,28 K = 71,28 °C ≈ 71,3 °C",
+    "why": "Δt csak a különbség; a °C és K különbsége azonos (Alapok: M1 Mértékegységek és előtagok)."
+   }
+  ],
+  "check": "Visszaszámolva: 4,0·(1 + 0,0039·51,28) = 4,0·1,2 = 4,8 Ω – stimmel."
+ },
+ "III-alap-011": {
+  "given": [
+   "I = 20 A",
+   "A = 2,5 mm²"
+  ],
+  "steps": [
+   {
+    "do": "Mit keresünk? Az áramsűrűséget: mennyi áram jut a vezető minden egyes négyzetmilliméterére.",
+    "why": "Minél több áram jut egy mm²-re, annál jobban melegszik a vezető (Alapok: F10 Melegedés és hőmérsékletfüggés)."
+   },
+   {
+    "do": "Mit jelent a 2,5 mm²? Úgy képzeljük, mintha 2,5 darab 1 mm²-es szál futna egymás mellett, és a 20 A ezek között egyenlően oszlana el.",
+    "why": "Párhuzamos, egyforma utakon az áram egyenlően oszlik meg (Alapok: F4 Soros és párhuzamos kapcsolás)."
+   },
+   {
+    "do": "Az áramot elosztjuk a keresztmetszettel.",
+    "calc": "J = I/A = 20 A / 2,5 mm² = 8,0 A/mm²",
+    "why": "Egyenlő elosztás: összes / részek száma (Alapok: M3 Tört, reciprok, arány); A/mm² az egység (Alapok: M1 Mértékegységek és előtagok)."
+   }
+  ],
+  "check": "Visszafelé: 8 A/mm² · 2,5 mm² = 20 A – stimmel."
+ },
+ "III-alap-012": {
+  "given": [
+   "I = 63 A",
+   "J<sub>meg</sub> = 4 A/mm²",
+   "szabványos sor: … 6 – 10 – 16 – 25 – 35 mm²"
+  ],
+  "steps": [
+   {
+    "do": "Mit keresünk? Azt a legkisebb szabványos keresztmetszetet, amelyen az áramsűrűség nem lépi túl a 4 A/mm²-t.",
+    "why": "A határértéket a feladat adja meg (egyszerűsített melegedési feltétel) (Alapok: F10 Melegedés és hőmérsékletfüggés)."
+   },
+   {
+    "do": "J = I/A átrendezve a szükséges keresztmetszetre.",
+    "calc": "A<sub>min</sub> = I/J = 63 A / 4 A/mm² = 15,75 mm²",
+    "why": "Mindkét oldalt A-val szorozzuk és J-vel osztjuk (Alapok: M2 Képlet átrendezése)."
+   },
+   {
+    "do": "Felfelé kerekítünk a szabványos sorra.",
+    "calc": "15,75 mm² → 16 mm²",
+    "why": "Kisebb vezeték túlmelegedne, és 15,75 mm²-es vezetéket nem gyártanak; mindig a következő nagyobb szabványos méret (Alapok: M6 Kerekítés és szabványos sorok)."
+   }
+  ],
+  "check": "16 mm²-en J = 63/16 = 3,94 A/mm² ≤ 4 – megfelel; 10 mm²-en 6,3 A/mm² lenne – nem felel meg."
+ },
+ "III-alap-013": {
+  "given": [
+   "R = 0,35 Ω (egy ér)",
+   "A = 2,5 mm²",
+   "ρ = 0,0175 Ω·mm²/m"
+  ],
+  "steps": [
+   {
+    "do": "Mit keresünk? A vezeték hosszát a mért ellenállásból. Egyetlen eret mértek, ezért az ér hossza = a dobon lévő vezeték hossza.",
+    "why": "Egy ér ellenállásánál nincs oda-vissza út, nincs 2-es szorzó (Alapok: F3 Ellenállás és Ohm-törvény)."
+   },
+   {
+    "do": "R = ρ·l/A-t átrendezzük l-re: mindkét oldalt A-val szorozzuk és ρ-val osztjuk.",
+    "calc": "l = R·A/ρ",
+    "why": "Alapok: M2 Képlet átrendezése."
+   },
+   {
+    "do": "Behelyettesítünk.",
+    "calc": "l = 0,35 Ω · 2,5 mm² / 0,0175 Ω·mm²/m = 0,875 / 0,0175 = 50 m",
+    "why": "Ω·mm² / (Ω·mm²/m) = m (Alapok: M1 Mértékegységek és előtagok)."
+   }
+  ],
+  "check": "Visszaszámolva: 0,0175·50/2,5 = 0,35 Ω – stimmel. A 25 m a hurokként (2·l) számolt rossz válasz."
+ },
+ "III-alap-014": {
+  "given": [
+   "ρ, γ, J, α, W mennyiségek",
+   "választható egységek: Ω·mm²/m, m/(Ω·mm²), A/mm², 1/K, kWh, kW, Ω·m/mm²"
+  ],
+  "steps": [
+   {
+    "do": "Mit keresünk? Minden mennyiséghez azt az egységet, ami a definíciójából kijön.",
+    "why": "Az egységet mindig a képletből kapjuk: a betett mennyiségek egységeit ugyanúgy szorozzuk/osztjuk (Alapok: M1 Mértékegységek és előtagok)."
+   },
+   {
+    "do": "Fajlagos ellenállás: R = ρ·l/A-ból ρ = R·A/l.",
+    "calc": "ρ: Ω·mm²/m → <b>Ω·mm²/m</b>",
+    "why": "Alapok: M2 Képlet átrendezése, F3 Ellenállás és Ohm-törvény."
+   },
+   {
+    "do": "Vezetőképesség: γ = 1/ρ, a tört megfordul.",
+    "calc": "γ: 1/(Ω·mm²/m) = <b>m/(Ω·mm²)</b>",
+    "why": "Reciprokképzésnél számláló és nevező helyet cserél (Alapok: M3 Tört, reciprok, arány)."
+   },
+   {
+    "do": "Áramsűrűség J = I/A, hőfoktényező: relatív változás 1 K-re.",
+    "calc": "J: <b>A/mm²</b>; α: <b>1/K</b>",
+    "why": "Alapok: F10 Melegedés és hőmérsékletfüggés."
+   },
+   {
+    "do": "Villamos munka W = P·t, kW·h.",
+    "calc": "W: <b>kWh</b> (a kW teljesítmény, az Ω·m/mm² rossz sorrend – kimaradnak)",
+    "why": "Az energia teljesítmény szorozva idővel (Alapok: F5 Munka, teljesítmény, energia, hő)."
+   }
+  ],
+  "check": "Próba: ρ·l/A egysége (Ω·mm²/m)·m/mm² = Ω – a párosítás következetes."
+ },
+ "III-alap-015": {
+  "given": [
+   "5 állítás soros és párhuzamos kapcsolásról"
+  ],
+  "steps": [
+   {
+    "do": "Mit keresünk? Melyik állítás felel meg annak, ahogy az áram és a feszültség soros, illetve párhuzamos kapcsolásban viselkedik.",
+    "why": "Soros: egy út, közös áram; párhuzamos: közös két pont, közös feszültség (Alapok: F4 Soros és párhuzamos kapcsolás)."
+   },
+   {
+    "do": "1. és 2. állítás: igaz.",
+    "why": "Soros körben nincs elágazás, az áram nem vész el, így mindenhol ugyanannyi; párhuzamosan minden ág ugyanarra a két pontra csatlakozik (Alapok: F4 Soros és párhuzamos kapcsolás)."
+   },
+   {
+    "do": "3. állítás: hamis; 4. állítás: igaz.",
+    "calc": "pl. 12 Ω ∥ 12 Ω = 6 Ω &lt; 12 Ω",
+    "why": "Minden új párhuzamos ág új áramutat nyit, az 1/R-ek összege nő, tehát az eredő csökken, és kisebb lesz a legkisebb ágnál (Alapok: M3 Tört, reciprok, arány)."
+   },
+   {
+    "do": "5. állítás: hamis.",
+    "calc": "pl. 1 A-nél 10 Ω-on 10 V, 40 Ω-on 40 V",
+    "why": "Közös áramnál U = I·R, tehát a nagyobb ellenálláson nagyobb feszültség esik (Alapok: F3 Ellenállás és Ohm-törvény)."
+   }
+  ],
+  "check": "Helyes sor: igaz, igaz, hamis, igaz, hamis."
+ },
+ "III-alap-016": {
+  "given": [
+   "ρ<sub>Al</sub> = 0,0286 Ω·mm²/m"
+  ],
+  "steps": [
+   {
+    "do": "Mit keresünk? A vezetőképességet: azt, hogy mennyire könnyen vezet az anyag – ez az ellenállás „fordítottja”.",
+    "why": "γ = 1/ρ (Alapok: M3 Tört, reciprok, arány)."
+   },
+   {
+    "do": "Reciprokot veszünk.",
+    "calc": "γ = 1/0,0286 = 34,97 m/(Ω·mm²) ≈ 35 m/(Ω·mm²)",
+    "why": "Az egység is megfordul: Ω·mm²/m → m/(Ω·mm²) (Alapok: M1 Mértékegységek és előtagok)."
+   },
+   {
+    "do": "A helyes válasz ≈ 35 m/(Ω·mm²).",
+    "why": "≈ 56 a réz γ-ja, 0,0286 maga a ρ (nem vettünk reciprokot), 28,6 csak tizedesvessző-eltolás, nem reciprok."
+   }
+  ],
+  "check": "Visszafelé 1/35 = 0,0286 – stimmel. Réznél 1/0,0175 = 57 lenne, tehát az alumínium rosszabb vezető – helyes."
+ },
+ "III-alap-017": {
+  "given": [
+   "U = 230 V",
+   "R1 = 100 Ω",
+   "R2 = 360 Ω (soros)",
+   "kimenet (1–2) terheletlen"
+  ],
+  "steps": [
+   {
+    "do": "Mit keresünk? Azt, hogy a 230 V-ból mennyi jut az R2-re. Mivel a kimenetre nincs semmi kötve, R1 és R2 tisztán sorosan van.",
+    "why": "Terheletlen kimeneten nem folyik áram, tehát nem nyit új utat (Alapok: F4 Soros és párhuzamos kapcsolás)."
+   },
+   {
+    "do": "Soros eredő.",
+    "calc": "R<sub>e</sub> = 100 Ω + 360 Ω = 460 Ω",
+    "why": "Alapok: F4 Soros és párhuzamos kapcsolás."
+   },
+   {
+    "do": "A közös áram.",
+    "calc": "I = U/R<sub>e</sub> = 230 V / 460 Ω = 0,5 A",
+    "why": "Alapok: F3 Ellenállás és Ohm-törvény."
+   },
+   {
+    "do": "Az R2-n eső feszültség; egy tizedesre kerekítve.",
+    "calc": "U<sub>2</sub> = I·R2 = 0,5 A · 360 Ω = 180,0 V",
+    "why": "Ugyanez képlettel: U·R2/(R1+R2) = 230·360/460 (Alapok: M3 Tört, reciprok, arány)."
+   }
+  ],
+  "check": "R1-en 0,5·100 = 50 V; 50 V + 180 V = 230 V – stimmel."
+ },
+ "III-alap-018": {
+  "given": [
+   "R = ρ·l/A",
+   "fémek hőfoktényezője pozitív"
+  ],
+  "steps": [
+   {
+    "do": "Mit keresünk? Mitől nő és mitől csökken egy vezető ellenállása.",
+    "why": "R = ρ·l/A (Alapok: F3 Ellenállás és Ohm-törvény)."
+   },
+   {
+    "do": "1. hely: a hossz a számlálóban van → egyenes arányosság: <b>hosszával</b>.",
+    "calc": "2·l → 2·R",
+    "why": "Hosszabb vezeték = több darab sorban (Alapok: M3 Tört, reciprok, arány, F4 Soros és párhuzamos kapcsolás)."
+   },
+   {
+    "do": "2. hely: a keresztmetszet a nevezőben van → fordított arányosság: <b>keresztmetszetével</b>.",
+    "calc": "2·A → R/2",
+    "why": "Vastagabb vezeték = több szál egymás mellett (Alapok: M3 Tört, reciprok, arány)."
+   },
+   {
+    "do": "3. hely: fémnél melegen az ellenállás <b>nő</b>.",
+    "why": "Pozitív hőfoktényező: R<sub>t</sub> = R<sub>20</sub>·(1 + α·Δt), α &gt; 0 (Alapok: F10 Melegedés és hőmérsékletfüggés)."
+   }
+  ],
+  "check": "Helyes kitöltés: hosszával – keresztmetszetével – nő. Az átmérő nem egyenesen arányos (A = d²·π/4 miatt a négyzetével fordítva)."
+ },
+ "III-alap-019": {
+  "given": [
+   "A<sub>Cu</sub> = 10 mm²",
+   "ρ<sub>Cu</sub> = 0,0175 Ω·mm²/m",
+   "ρ<sub>Al</sub> = 0,028 Ω·mm²/m",
+   "azonos hossz"
+  ],
+  "steps": [
+   {
+    "do": "Mit keresünk? Mekkora alumínium vezeték kell ahhoz, hogy az ellenállása ne legyen nagyobb a 10 mm²-es rézénél.",
+    "why": "Az alumínium rosszabb vezető (nagyobb ρ), ezt vastagabb keresztmetszettel kell pótolni (Alapok: F3 Ellenállás és Ohm-törvény)."
+   },
+   {
+    "do": "Azonos l és R mellett a két vezeték ρ/A hányadosa egyenlő.",
+    "calc": "ρ<sub>Cu</sub>/A<sub>Cu</sub> = ρ<sub>Al</sub>/A<sub>Al</sub> → A<sub>Al</sub> = A<sub>Cu</sub>·ρ<sub>Al</sub>/ρ<sub>Cu</sub>",
+    "why": "R = ρ·l/A mindkettőre, l kiesik; átrendezés (Alapok: M2 Képlet átrendezése)."
+   },
+   {
+    "do": "Behelyettesítünk.",
+    "calc": "A<sub>Al</sub> = 10 mm² · 0,028/0,0175 = 10 · 1,6 = 16 mm²",
+    "why": "Alapok: M3 Tört, reciprok, arány."
+   },
+   {
+    "do": "Szabványos értékre kerekítünk: a 16 mm² éppen szabványos, ez a legkisebb megfelelő.",
+    "why": "Ha nem lenne szabványos, felfelé kerekítenénk (Alapok: M6 Kerekítés és szabványos sorok)."
+   }
+  ],
+  "check": "Ellenállás 1 m-re: Cu 0,0175/10 = 0,00175 Ω, Al 0,028/16 = 0,00175 Ω – egyenlő."
+ },
+ "III-alap-020": {
+  "given": [
+   "l = 20 m, egyfázisú áramkör",
+   "A = 2,5 mm²",
+   "ρ = 0,0175 Ω·mm²/m",
+   "I = 16 A"
+  ],
+  "steps": [
+   {
+    "do": "Mit keresünk? Mennyi villamos teljesítmény alakul hővé magában a vezetékben (ez veszteség, nem jut el a fogyasztóhoz).",
+    "why": "Minden ellenálláson, így a vezetéken is hő keletkezik (Alapok: F5 Munka, teljesítmény, energia, hő)."
+   },
+   {
+    "do": "Az áramkör ellenállása: L oda + N vissza.",
+    "calc": "R = 0,0175 Ω·mm²/m · (2·20 m) / 2,5 mm² = 0,7 / 2,5 = 0,28 Ω",
+    "why": "Az áram mindkét éren végigmegy, a hosszuk sorosan összeadódik (Alapok: F4 Soros és párhuzamos kapcsolás, F3 Ellenállás és Ohm-törvény)."
+   },
+   {
+    "do": "A veszteség P = I²·R.",
+    "calc": "P<sub>v</sub> = (16 A)² · 0,28 Ω = 256 · 0,28 = 71,68 W ≈ 71,7 W",
+    "why": "P = U·I és a vezetéken U = I·R, tehát P = I²·R (Alapok: F5 Munka, teljesítmény, energia, hő); egy tizedesre kerekítve (Alapok: M6 Kerekítés és szabványos sorok)."
+   }
+  ],
+  "check": "Feszültségesés a vezetéken: 16·0,28 = 4,48 V; 4,48 V·16 A = 71,7 W – ugyanaz. 2-es szorzó nélkül pontosan a fele (35,8 W) jönne ki."
+ },
+ "III-alap-021": {
+  "given": [
+   "R = ρ·l/A·(1 + α·Δt)"
+  ],
+  "steps": [
+   {
+    "do": "Mit keresünk? Azokat a változtatásokat, amelyek kisebb ellenállást adnak. Nézzük meg a képlet minden betűjét.",
+    "why": "R = ρ·l/A, és melegen nő (Alapok: F3 Ellenállás és Ohm-törvény, F10 Melegedés és hőmérsékletfüggés)."
+   },
+   {
+    "do": "A nevezőben lévő A növelése csökkenti R-t; a számlálóban lévő l csökkentése is.",
+    "calc": "nagyobb keresztmetszet ✓, rövidebb nyomvonal ✓, hosszabb vezeték ✗",
+    "why": "Fordított, illetve egyenes arányosság (Alapok: M3 Tört, reciprok, arány)."
+   },
+   {
+    "do": "Kisebb ρ: a réz (0,0175) jobb, mint az alumínium (0,028).",
+    "calc": "Al → Cu ✓, Cu → Al ✗",
+    "why": "Alapok: F3 Ellenállás és Ohm-törvény."
+   },
+   {
+    "do": "Hőmérséklet: hidegebb vezető kisebb ellenállású; a nagyobb áram nem szerepel a képletben, csak melegít, ami növeli R-t.",
+    "calc": "hűtés ✓, nagyobb áram ✗",
+    "why": "Pozitív hőfoktényező (Alapok: F10 Melegedés és hőmérsékletfüggés)."
+   }
+  ],
+  "check": "Helyes: nagyobb keresztmetszet, rövidebb nyomvonal, réz alumínium helyett, hűtés – 4 jó, 3 rossz lehetőség."
+ }
+}

@@ -46,6 +46,12 @@ III. Számítási feladatok 20 %, IV. Villamos biztonsági ismeret 40 %, sikeres
   (≥ 80 %). Célzott vizsga: valódi vizsgaszerkezet, a gyengeségekre szabott feladatokkal.
 - Tananyag: 22 témamagyarázó a tanfolyami anyagokból (`content/interaktiv/explainers/`), hibás
   válasz után egy kattintással.
+- Matek és fizika alapok (`explainers/alapok.json`, M1–M6, F1–F11): minden képlet „Honnan jön?”
+  levezetése ide vezet vissza, a hivatkozások kattinthatók.
+- Minden számolós feladathoz lépésről lépésre levezetés (`content/interaktiv/steps/<téma>.json`,
+  szerzői útmutató: `content/interaktiv/MATH.md`).
+- NotebookLM-videók a matek-, fizika- és számítási témákhoz (`public/interaktiv/media/`,
+  hozzárendelés: `content/interaktiv/videos.json`).
 - Térközös ismétlés, hibanapló, haladás oldal (vizsgák vizsgarészenként, témák, típusok).
 
 A kérdésbank a `content/interaktiv/parts/*.json` fájlokban van (séma: `content/interaktiv/SCHEMA.md`).

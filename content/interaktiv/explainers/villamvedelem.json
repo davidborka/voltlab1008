@@ -117,11 +117,23 @@
   "formulas": [
     {
       "f": "s = k<sub>i</sub> · (k<sub>c</sub> / k<sub>m</sub>) · l",
-      "note": "l = a vizsgált pont és a legközelebbi potenciálkiegyenlítési pont közti hossz a levezető mentén; LPS III, k<sub>c</sub> = 0,5, l = 10 m: levegőben 0,2 m, téglában 0,4 m"
+      "note": "l = a vizsgált pont és a legközelebbi potenciálkiegyenlítési pont közti hossz a levezető mentén; LPS III, k<sub>c</sub> = 0,5, l = 10 m: levegőben 0,2 m, téglában 0,4 m",
+      "derive": [
+        "A villámáram mikroszekundumok alatt nő meg nagyon nagyra; egy vezetőn a gyorsan változó áram önindukciós feszültséget kelt, amely a vezető hosszával (l) arányos (Alapok: F9 Mágnesesség, indukció, transzformátor, motor).",
+        "A levezetőre csak a villámáram egy része jut, mert a párhuzamos levezetők megosztják: ezt fejezi ki k<sub>c</sub> (Alapok: F4 Soros és párhuzamos kapcsolás).",
+        "A k<sub>i</sub> a védelmi osztálytól függ (nagyobb osztály → nagyobb méretezési áram → nagyobb k<sub>i</sub>: I 0,08; II 0,06; III–IV 0,04).",
+        "Ekkora feszültséget a közegnek át kell hidalnia átütés nélkül; a gyengébb szigetelőközeg (k<sub>m</sub> kisebb) nagyobb távolságot kíván, ezért k<sub>m</sub>-mel osztunk (Alapok: M3 Tört, reciprok, arány).",
+        "Példa: 0,04 · (0,5 / 1) · 10 m = 0,2 m (Alapok: M1 Mértékegységek és előtagok)."
+      ]
     },
     {
       "f": "n = ⌈K / a⌉, legalább 2",
-      "note": "K = kerület, a = levezető-távolság"
+      "note": "K = kerület, a = levezető-távolság",
+      "derive": [
+        "A levezetők a kerület mentén, egymástól legfeljebb a jellemző távolságra (a) vannak; hány a-nyi szakasz fér a kerületre: K / a (Alapok: M3 Tört, reciprok, arány).",
+        "Ha nem egész, felfelé kerekítünk, különben valahol túl nagy lenne a távolság (Alapok: M6 Kerekítés és szabványos sorok); a ⌈ ⌉ jel ezt jelenti.",
+        "Legalább 2 levezető kell, hogy a villámáramnak legyen párhuzamos útja (Alapok: F4 Soros és párhuzamos kapcsolás)."
+      ]
     }
   ],
   "mistakes": [

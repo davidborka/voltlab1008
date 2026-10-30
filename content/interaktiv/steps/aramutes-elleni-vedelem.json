@@ -1,0 +1,79 @@
+{
+  "IV-av-015": {
+    "given": [
+      "fázisvezető: S = 70 mm² réz",
+      "védővezető azonos anyagú (réz)",
+      "táblázatos módszer (MSZ HD 60364-5-54): S ≤ 16 mm² → S<sub>PE</sub> = S; 16 < S ≤ 35 mm² → 16 mm²; S > 35 mm² → S/2"
+    ],
+    "steps": [
+      {
+        "do": "Mit keresünk? A védővezető legkisebb keresztmetszetét. A PE üzemszerűen nem visz áramot; testzárlatkor viszont a teljes hibaáramot el kell vezetnie, amíg a védelem le nem kapcsol – addig nem melegedhet túl, és nem szakadhat el.",
+        "why": "A hibaáram a fázison oda, a PE-n vissza folyik, tehát ugyanaz az áram folyik mindkettőben (Alapok: F11 Hibaáram útja és érintésvédelem fizikája); a melegedés az áramtól és az időtől függ (Alapok: F10 Melegedés és hőmérsékletfüggés)."
+      },
+      {
+        "do": "Miért lehet vékonyabb, mint a fázis? Mert csak a lekapcsolásig (tized másodpercekig) terhelt, a fázis viszont folyamatosan. Ezt fejezi ki a szabvány táblázata; kiválasztjuk a 70 mm²-re vonatkozó sort.",
+        "calc": "70 mm² > 35 mm² → S<sub>PE</sub> = S / 2",
+        "why": "Szabványi táblázat (MSZ HD 60364-5-54); a 16 mm² csak a 16–35 mm² közötti fázisvezetőkre érvényes."
+      },
+      {
+        "do": "Kiszámoljuk, és megnézzük, szabványos méret-e.",
+        "calc": "S<sub>PE</sub> = 70 mm² / 2 = 35 mm²",
+        "why": "A 35 mm² szabványos keresztmetszet; ha nem lenne az, a következő nagyobbra kerekítenénk felfelé (Alapok: M6 Kerekítés és szabványos sorok)."
+      }
+    ],
+    "check": "Ellenőrzés a határon: 35 mm²-es fázishoz 16 mm² PE tartozik, 70 mm²-eshez 35 mm² – a nagyobb fázishoz nagyobb PE, a sorrend stimmel."
+  },
+  "IV-av-030": {
+    "given": [
+      "TT-rendszer",
+      "áram-védőkapcsoló (RCD): I<sub>Δn</sub> = 30 mA = 0,03 A",
+      "megengedett tartós érintési feszültség: U<sub>L</sub> = 50 V"
+    ],
+    "steps": [
+      {
+        "do": "Mit keresünk? A testek földelőjének (+ PE) legnagyobb ellenállását. TT-ben testzárlatkor a hibaáram a testről a földelőn át a földbe, onnan a transzformátor üzemi földelőjén vissza folyik. Ez az áram az R<sub>A</sub>-n feszültséget ejt: ennyi feszültség alá kerül a test a távoli földhöz képest.",
+        "why": "Az érintési feszültség a hibaáram és a földelési ellenállás szorzata (Alapok: F3 Ellenállás és Ohm-törvény; F11 Hibaáram útja és érintésvédelem fizikája)."
+      },
+      {
+        "do": "A feltétel: amekkora hibaáramnál az RCD már biztosan kiold (I<sub>Δn</sub>), a test feszültsége még ne haladja meg az 50 V-ot.",
+        "calc": "R<sub>A</sub> · I<sub>Δn</sub> ≤ 50 V",
+        "why": "Az 50 V az a feszültség, amit felnőtt ember száraz környezetben tartósan veszély nélkül elvisel (MSZ HD 60364-4-41)."
+      },
+      {
+        "do": "Mielőtt behelyettesítünk, a mA-t amperre váltjuk, hogy V / A = Ω jöjjön ki.",
+        "calc": "30 mA = 30 / 1000 A = 0,03 A",
+        "why": "A milli = ezred (Alapok: M1 Mértékegységek és előtagok)."
+      },
+      {
+        "do": "Átrendezzük R<sub>A</sub>-ra, és egy tizedesre kerekítünk.",
+        "calc": "R<sub>A,max</sub> = 50 V / 0,03 A = 1666,67 Ω ≈ 1666,7 Ω",
+        "why": "Mindkét oldalt elosztjuk I<sub>Δn</sub>-nel (Alapok: M2 Képlet átrendezése)."
+      }
+    ],
+    "check": "Visszaellenőrzés: 1666,7 Ω · 0,03 A = 50 V. Ha a mA-t nem váltjuk át, 50/30 = 1,67 Ω jönne ki – ezerszeres hiba."
+  },
+  "IV-av-031": {
+    "given": [
+      "TT-rendszer",
+      "RCD: I<sub>Δn</sub> = 300 mA = 0,3 A",
+      "U<sub>L</sub> = 50 V"
+    ],
+    "steps": [
+      {
+        "do": "Mit keresünk? Ugyanazt, mint 30 mA-nél: a földelés legnagyobb ellenállását, amelynél az RCD kioldási áramán a test feszültsége még legfeljebb 50 V.",
+        "why": "R<sub>A</sub> · I<sub>Δn</sub> ≤ 50 V – az érintési feszültség = hibaáram × földelési ellenállás (Alapok: F3 Ellenállás és Ohm-törvény; F11 Hibaáram útja és érintésvédelem fizikája)."
+      },
+      {
+        "do": "Átváltjuk az áramot amperre.",
+        "calc": "300 mA = 0,3 A",
+        "why": "Alapok: M1 Mértékegységek és előtagok."
+      },
+      {
+        "do": "Átrendezzük, és egy tizedesre kerekítünk.",
+        "calc": "R<sub>A,max</sub> = 50 V / 0,3 A = 166,67 Ω ≈ 166,7 Ω",
+        "why": "Alapok: M2 Képlet átrendezése."
+      }
+    ],
+    "check": "Összevetés: tízszer nagyobb kioldóáram tizedakkora R<sub>A</sub>-t enged (1666,7 Ω → 166,7 Ω) – fordított arányosság (Alapok: M3 Tört, reciprok, arány). Visszaellenőrzés: 166,7 Ω · 0,3 A ≈ 50 V."
+  }
+}

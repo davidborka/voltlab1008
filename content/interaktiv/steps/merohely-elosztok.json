@@ -1,0 +1,30 @@
+{
+  "II-mero-009": {
+    "given": [
+      "n = 10 lakás",
+      "lakásonként 3×20 A, P = 13,8 kW",
+      "e = c + (1 − c)/n, c = 0,2"
+    ],
+    "steps": [
+      {
+        "do": "Mit keresünk? Mekkora teljesítményre méretezzük a közös fővezetéket. Nem kell 10 · 13,8 kW-ra, mert a 10 lakás nem ugyanabban a percben főz, mos és fűt egyszerre. Az egyidejűségi tényező (e) megmondja, a teljes összeg hányad része várható egyszerre.",
+        "why": "Az e egy 0 és 1 közötti arányszám, mint egy százalék tizedes alakban (Alapok: M4 Százalék)."
+      },
+      {
+        "do": "Honnan jön a 13,8 kW? Három fázis, fázisonként 230 V és 20 A.",
+        "calc": "P = 3 · 230 V · 20 A = 13 800 W = 13,8 kW",
+        "why": "Egy fázison P = U·I (Alapok: F5 Munka, teljesítmény, energia, hő); három fázis háromszor annyi (Alapok: F8); 1000 W = 1 kW (Alapok: M1)."
+      },
+      {
+        "do": "Mit jelent a képlet? c = 0,2 az a rész, ami minden lakásnál biztosan egyszerre jelentkezik; a maradék (1 − c) = 0,8 részből annál kevesebb esik egybe, minél több a lakás, ezért osztjuk n-nel.",
+        "calc": "e = 0,2 + (1 − 0,2)/10 = 0,2 + 0,8/10 = 0,2 + 0,08 = 0,28",
+        "why": "Előbb a zárójel, aztán az osztás, végül az összeadás. n = 1-nél e = 1 (egy lakás a saját csúcsát adja), sok lakásnál e → 0,2 (Alapok: M3 Tört, reciprok, arány)."
+      },
+      {
+        "do": "Eredő méretezési teljesítmény: a lakások összes teljesítményét megszorozzuk az egyidejűségi tényezővel.",
+        "calc": "P<sub>eredő</sub> = 10 · 13,8 kW · 0,28 = 138 kW · 0,28 = 38,64 kW"
+      }
+    ],
+    "check": "Ellenőrzés: 38,64 kW a 138 kW 28 %-a, és nagyobb egy lakás 13,8 kW-jánál – ésszerű. Áramban: 38 640 W / (3 · 230 V) = 56 A fázisonként a 10 · 20 = 200 A helyett."
+  }
+}

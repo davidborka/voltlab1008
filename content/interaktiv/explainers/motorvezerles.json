@@ -112,11 +112,23 @@
   "formulas": [
     {
       "f": "I<sub>Y</sub> = I<sub>Δ,indítás</sub> / 3 ;  M<sub>Y</sub> = M<sub>Δ</sub> / 3",
-      "note": "pl. I<sub>n</sub> = 12 A, I<sub>i</sub>/I<sub>n</sub> = 6: közvetlen 72 A, csillagban 24 A"
+      "note": "pl. I<sub>n</sub> = 12 A, I<sub>i</sub>/I<sub>n</sub> = 6: közvetlen 72 A, csillagban 24 A",
+      "derive": [
+        "Deltában minden tekercs a vonali feszültséget (400 V) kapja, csillagban csak a fázisfeszültséget: 400 V / √3 = 230 V (Alapok: F8 Háromfázisú rendszer).",
+        "Ugyanazon a tekercsen √3-szor kisebb feszültség √3-szor kisebb áramot hajt (Alapok: F3 Ellenállás és Ohm-törvény).",
+        "Deltában a vonali áram még √3-szorosa a tekercsáramnak, csillagban egyenlő vele; így a hálózati áram összesen √3 · √3 = 3-szor kisebb (Alapok: M5 Négyzet, gyök, π és a kör területe).",
+        "A nyomaték a feszültség négyzetével arányos: (1/√3)² = 1/3, ezért a nyomaték is harmadára esik (Alapok: F9 Mágnesesség, indukció, transzformátor, motor)."
+      ]
     },
     {
       "f": "I<sub>beáll</sub> = I<sub>n</sub> / √3",
-      "note": "hőkioldó a tekercsáramot érzékelve (hálózati kontaktor után, U1-V1-W1 ágban): 26 A / 1,732 = 15,0 A; ha vonali áramot érzékel, I<sub>n</sub>"
+      "note": "hőkioldó a tekercsáramot érzékelve (hálózati kontaktor után, U1-V1-W1 ágban): 26 A / 1,732 = 15,0 A; ha vonali áramot érzékel, I<sub>n</sub>",
+      "derive": [
+        "A hőkioldót arra az áramra állítjuk, ami a beépítési helyén névleges üzemben átfolyik rajta (Alapok: F5 Munka, teljesítmény, energia, hő – a melegedés az átfolyó áramtól függ).",
+        "Az adattábla I<sub>n</sub>-je a vonali áram; deltában egy vonali vezető áram két, 120°-kal eltolt tekercsáram különbsége, ami √3-szor nagyobb egy tekercsáramnál (Alapok: F8 Háromfázisú rendszer; F4 Soros és párhuzamos kapcsolás).",
+        "Átrendezve: I<sub>tekercs</sub> = I<sub>n</sub> / √3 (Alapok: M2 Képlet átrendezése).",
+        "Ha a hőkioldó a tekercsáramot látja (U1-V1-W1 ágban), erre állítjuk: 26 A / 1,732 = 15,0 A; ha a vonali áramot látja, I<sub>n</sub>-re."
+      ]
     }
   ],
   "mistakes": [

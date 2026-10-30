@@ -113,15 +113,31 @@
   "formulas": [
     {
       "f": "Z<sub>s</sub> · I<sub>a</sub> ≤ U<sub>0</sub> → Z<sub>s,max</sub> = U<sub>0</sub> / I<sub>a</sub>",
-      "note": "B: I<sub>a</sub> = 5·I<sub>n</sub>, C: I<sub>a</sub> = 10·I<sub>n</sub>; B16: 230/80 = 2,875 Ω"
+      "note": "B: I<sub>a</sub> = 5·I<sub>n</sub>, C: I<sub>a</sub> = 10·I<sub>n</sub>; B16: 230/80 = 2,875 Ω",
+      "derive": [
+        "Testzárlatkor az áram a fázison a testig, onnan a PE-n vissza a forrásig folyik; ennek a huroknak az impedanciája Z<sub>s</sub> (Alapok: F11 Hibaáram útja és érintésvédelem fizikája).",
+        "Ohm-törvény a hurokra: I<sub>z</sub> = U<sub>0</sub> / Z<sub>s</sub> (Alapok: F3 Ellenállás és Ohm-törvény).",
+        "A védelem csak akkor kapcsol 0,4 s-on belül, ha I<sub>z</sub> ≥ I<sub>a</sub>; Z<sub>s</sub>-sel szorozva: Z<sub>s</sub> · I<sub>a</sub> ≤ U<sub>0</sub> (Alapok: M2 Képlet átrendezése).",
+        "Z<sub>s</sub>-re rendezve: Z<sub>s,max</sub> = U<sub>0</sub> / I<sub>a</sub>; B16-nál I<sub>a</sub> = 5 · 16 A = 80 A → 230 V / 80 A = 2,875 Ω."
+      ]
     },
     {
       "f": "I<sub>z</sub> = U<sub>0</sub> / Z<sub>s</sub>",
-      "note": "várható testzárlati áram; 230 V / 1,15 Ω = 200 A"
+      "note": "várható testzárlati áram; 230 V / 1,15 Ω = 200 A",
+      "derive": [
+        "A mért Z<sub>s</sub> a teljes hibahurok impedanciája (Alapok: F11 Hibaáram útja és érintésvédelem fizikája).",
+        "A hurkot az U<sub>0</sub> = 230 V hajtja, ezért U = I·R átrendezve I<sub>z</sub> = U<sub>0</sub> / Z<sub>s</sub> (Alapok: F3 Ellenállás és Ohm-törvény; M2 Képlet átrendezése).",
+        "Az eredményt a védőeszköz I<sub>a</sub>-jával vetjük össze: ha I<sub>z</sub> ≥ I<sub>a</sub>, a lekapcsolás időben megtörténik."
+      ]
     },
     {
       "f": "R<sub>A</sub> ≤ 50 V / I<sub>Δn</sub>",
-      "note": "TT; az I<sub>Δn</sub> amperben (30 mA = 0,03 A)"
+      "note": "TT; az I<sub>Δn</sub> amperben (30 mA = 0,03 A)",
+      "derive": [
+        "TT-ben a hibaáram a test földelőjén (R<sub>A</sub>) át folyik a földbe; ezen az áram feszültséget ejt, ennyi lesz a test érintési feszültsége: U = R<sub>A</sub> · I (Alapok: F3 Ellenállás és Ohm-törvény; F11 Hibaáram útja és érintésvédelem fizikája).",
+        "Az RCD biztosan kiold I<sub>Δn</sub>-nél; addig a test feszültsége legfeljebb U<sub>L</sub> = 50 V lehet: R<sub>A</sub> · I<sub>Δn</sub> ≤ 50 V.",
+        "Átrendezve R<sub>A</sub> ≤ 50 V / I<sub>Δn</sub> (Alapok: M2 Képlet átrendezése); az I<sub>Δn</sub>-t amperben kell beírni: 30 mA = 0,03 A (Alapok: M1 Mértékegységek és előtagok)."
+      ]
     }
   ],
   "mistakes": [

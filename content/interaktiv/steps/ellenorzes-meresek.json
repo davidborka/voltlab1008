@@ -1,0 +1,75 @@
+{
+  "IV-em-015": {
+    "given": [
+      "TN-S rendszer, U<sub>0</sub> = 230 V (fázis–föld feszültség)",
+      "védelem: B16 kismegszakító, I<sub>n</sub> = 16 A",
+      "B karakterisztika: 0,4 s-on belüli biztos kioldás I<sub>a</sub> = 5·I<sub>n</sub> áramnál"
+    ],
+    "steps": [
+      {
+        "do": "Mit keresünk? A hibahurok legnagyobb megengedett impedanciáját. Testzárlatnál a fázis a fém testre ér; az áram útja: transzformátor → fázisvezető → hibahely → PE → PEN/föld → vissza a transzformátorba. Ennek a huroknak az „ellenállása” a Z<sub>s</sub>.",
+        "why": "A hibaáram is körben folyik, mint minden áram (Alapok: F4 Soros és párhuzamos kapcsolás; F11 Hibaáram útja és érintésvédelem fizikája)."
+      },
+      {
+        "do": "A hurkot a 230 V-os U<sub>0</sub> hajtja, a Z<sub>s</sub> korlátozza: I<sub>z</sub> = U<sub>0</sub>/Z<sub>s</sub>. A védelem csak akkor old ki 0,4 s-on belül, ha ez az áram legalább I<sub>a</sub>. Így adódik a feltétel: Z<sub>s</sub>·I<sub>a</sub> ≤ U<sub>0</sub>.",
+        "why": "Ohm-törvény a hibahurokra (Alapok: F3 Ellenállás és Ohm-törvény); I<sub>z</sub> ≥ I<sub>a</sub> mindkét oldalát Z<sub>s</sub>-sel szorozva (Alapok: M2 Képlet átrendezése)."
+      },
+      {
+        "do": "A szükséges kioldóáram: a B karakterisztika mágneses (gyors) kioldója biztosan az 5-szörös névleges áramnál működik.",
+        "calc": "I<sub>a</sub> = 5 · 16 A = 80 A",
+        "why": "A kismegszakító két kioldója közül a hőkioldó lassú (másodpercek–percek), 0,4 s-ot csak a mágneses kioldó tud; B: 3–5·I<sub>n</sub>, a biztos felső határ az 5 (MSZ EN 60898)."
+      },
+      {
+        "do": "Átrendezzük a feltételt Z<sub>s</sub>-re, és három tizedesre kerekítünk.",
+        "calc": "Z<sub>s,max</sub> = U<sub>0</sub> / I<sub>a</sub> = 230 V / 80 A = 2,875 Ω",
+        "why": "V / A = Ω (Alapok: F3; M2)."
+      }
+    ],
+    "check": "Visszaellenőrzés: 230 V / 2,875 Ω = 80 A = I<sub>a</sub>. Ha I<sub>n</sub>-nel osztanánk (230/16 = 14,4 Ω), a hibaáram csak 16 A lenne, és a kismegszakító időben nem kapcsolna le."
+  },
+  "IV-em-016": {
+    "given": [
+      "230 V-os TN-áramkör, U<sub>0</sub> = 230 V",
+      "C16 kismegszakító, I<sub>n</sub> = 16 A",
+      "C karakterisztika: I<sub>a</sub> = 10·I<sub>n</sub>"
+    ],
+    "steps": [
+      {
+        "do": "Mit keresünk? A legnagyobb hurokimpedanciát, amely mellett a testzárlati áram még eléri a C16 gyors kioldásához szükséges áramot.",
+        "why": "Feltétel: Z<sub>s</sub>·I<sub>a</sub> ≤ U<sub>0</sub>, mert a hibaáram I = U<sub>0</sub>/Z<sub>s</sub> legyen legalább I<sub>a</sub> (Alapok: F3 Ellenállás és Ohm-törvény; F11 Hibaáram útja és érintésvédelem fizikája)."
+      },
+      {
+        "do": "A C karakterisztika mágneses kioldója 5–10·I<sub>n</sub> között működik; a biztos kioldáshoz a felső határral számolunk.",
+        "calc": "I<sub>a</sub> = 10 · 16 A = 160 A"
+      },
+      {
+        "do": "Átrendezés Z<sub>s</sub>-re, két tizedesre kerekítve.",
+        "calc": "Z<sub>s,max</sub> = 230 V / 160 A = 1,4375 Ω ≈ 1,44 Ω",
+        "why": "Alapok: M2 Képlet átrendezése; M6 Kerekítés és szabványos sorok."
+      }
+    ],
+    "check": "Összevetés: kétszer akkora I<sub>a</sub> (160 A a B16 80 A-ja helyett) feleakkora Z<sub>s</sub>-t enged: 2,875 Ω / 2 = 1,4375 Ω – fordított arányosság (Alapok: M3)."
+  },
+  "IV-em-017": {
+    "given": [
+      "230 V-os TN-áramkör, U<sub>0</sub> = 230 V",
+      "mért földzárlati hurokimpedancia: Z<sub>s</sub> = 1,15 Ω"
+    ],
+    "steps": [
+      {
+        "do": "Mit keresünk? Mekkora áram folyna, ha a kör végén a fázis a fém testre zárlatos lenne. Ezt a hibahurkot (fázis → test → PE → vissza a forrásba) a 230 V hajtja, és a mért 1,15 Ω korlátozza.",
+        "why": "Alapok: F11 Hibaáram útja és érintésvédelem fizikája."
+      },
+      {
+        "do": "Ohm-törvény a hurokra: áram = feszültség / impedancia. Egészre kerekítünk.",
+        "calc": "I<sub>z</sub> = U<sub>0</sub> / Z<sub>s</sub> = 230 V / 1,15 Ω = 200 A",
+        "why": "U = I·R átrendezve I = U/R (Alapok: F3 Ellenállás és Ohm-törvény; M2 Képlet átrendezése)."
+      },
+      {
+        "do": "Mire jó az eredmény? Összevetjük a védelmek gyors kioldásához szükséges I<sub>a</sub> áramokkal: ha I<sub>z</sub> ≥ I<sub>a</sub>, a lekapcsolás 0,4 s-on belül megtörténik.",
+        "calc": "B16: 80 A ≤ 200 A ✓; C16: 160 A ≤ 200 A ✓; B32: 5·32 = 160 A ≤ 200 A ✓"
+      }
+    ],
+    "check": "Visszaellenőrzés: 200 A · 1,15 Ω = 230 V. Nagyságrend: 1 Ω körüli hurokimpedancia száz amper nagyságrendű zárlati áramot ad – reális egy lakás végáramkörén."
+  }
+}

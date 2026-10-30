@@ -1,0 +1,190 @@
+{
+  "I-rajz-005": {
+    "given": [
+      "alaprajz: előszoba és szoba",
+      "jelmagyarázat: kör (nagy) = világítótest, kis kör vonalkákkal = kapcsoló, félkör = dugaszolóaljzat, mellette „2” = kettős aljzat, kis négyzet = kötődoboz",
+      "a kettős dugaszolóaljzat egy szerelvénynek számít"
+    ],
+    "steps": [
+      {
+        "do": "Mit keresünk? Az anyagjegyzékhez darabszámot: hány lámpát, kapcsolót, aljzat-szerelvényt és kötődobozt kell megvenni. Először minden rajzjelet a jelmagyarázat alapján azonosítunk.",
+        "why": "Az alaprajz minden jele egy darab beépítendő tárgy; a jelmagyarázat mondja meg, melyik jel mit jelent."
+      },
+      {
+        "do": "Helyiségenként számolunk, hogy semmi ne maradjon ki. Előszoba: 1 lámpa, 1 egypólusú kapcsoló a bejáratnál, 1 egyes aljzat, 1 kötődoboz.",
+        "calc": "előszoba: 1 lámpa, 1 kapcsoló, 1 aljzat, 1 KD"
+      },
+      {
+        "do": "Szoba: 2 lámpa, 2 váltókapcsoló (ajtónál és erkélyajtónál), 2 kettős + 1 egyes aljzat, 2 kötődoboz.",
+        "calc": "szoba: 2 lámpa, 2 kapcsoló, 3 aljzat-szerelvény, 2 KD",
+        "why": "A „2” jelzésű aljzat egy szerelvény (egy kerettel, két aljzattal), ezért 1-nek számít, nem 2-nek – így kérte a feladat."
+      },
+      {
+        "do": "Összeadjuk a két helyiséget.",
+        "calc": "lámpa 1 + 2 = 3 db; kapcsoló 1 + 2 = 3 db; aljzat 1 + 3 = 4 db; kötődoboz 1 + 2 = 3 db"
+      }
+    ],
+    "check": "Ellenőrzés: az aljzatok száma darab aljzatban 1 + 2 + 2 + 1 = 6, szerelvényben 4 – a különbség pont a két kettős aljzat. Az anyagjegyzékbe a kapcsolók típusonként külön sorba kerülnek (1 egypólusú, 2 váltó)."
+  },
+  "I-rajz-006": {
+    "given": [
+      "alaprajz: konyha, fürdő, közlekedő (a szoba nem része a feladatnak)",
+      "jelmagyarázat: váltó-, kereszt-, egypólusú és kétpólusú kapcsoló, általános és fénycsöves lámpatest, egyes és kettős (2) aljzat"
+    ],
+    "steps": [
+      {
+        "do": "Mit keresünk? Négy anyagjegyzék-tétel darabszámát. Minden jelet a jelmagyarázattal azonosítunk, és helyiségenként haladunk.",
+        "why": "Egy rajzjel = egy beépítendő darab."
+      },
+      {
+        "do": "Közlekedő: a két lámpát három helyről kapcsolják. Három helyről kapcsolásnál a két szélső kapcsoló váltó, a középső kereszt.",
+        "calc": "váltókapcsoló: 2 db, keresztkapcsoló: 1 db, lámpa: 2 db",
+        "why": "A két váltó a két „végpont”, a keresztkapcsoló a két váltóvezetéket cseréli fel köztük; minden további hely még egy keresztkapcsolót jelentene (lásd a világítási kapcsolások témát)."
+      },
+      {
+        "do": "Konyha: 1 fénycsöves lámpatest (egypólusú kapcsolóval) és 3 db „2” jelű, azaz kettős aljzat. Fürdő: 1 általános lámpatest (a közlekedőből kétpólusú kapcsolóval) és 1 egyes aljzat.",
+        "calc": "lámpatest: 2 + 1 + 1 = 4 db; kettős aljzat: 3 db",
+        "why": "A feladat a fénycsövest is lámpatestnek számolja; a fürdő aljzata egyes, ezért nem kerül a kettősök közé."
+      }
+    ],
+    "check": "Ellenőrzés: mind a 4 lámpatestnek van kapcsolója (közlekedő 2 → váltó-kereszt-váltó, konyha → egypólusú, fürdő → kétpólusú), és a kettős aljzatok mind a konyhában vannak."
+  },
+  "I-rajz-007": {
+    "given": [
+      "betáplálás: 3 ér, 3,00 m vízszintesen",
+      "nyomvonal magassága: 2,30 m; kapcsoló 1,40 m-en; dugaszolóaljzat 0,40 m-en, a KD-tól 1,20 m-re vízszintesen",
+      "lámpáig: 2,50 m (fel + mennyezeten), 3 ér",
+      "kapcsoló: 2 ér; aljzat: 3 ér; ráhagyás: 0,20 m erenként, szakaszonként"
+    ],
+    "steps": [
+      {
+        "do": "Mit keresünk? a) Mennyi cső kell (a cső a nyomvonalat követi, ereinek számától függetlenül egy darab), b) mennyi vezeték kell (minden érhez külön vezeték fut a csőben), c) ebből mennyi a zöld-sárga (PE).",
+        "why": "A cső hossza = a nyomvonal hossza; a vezeték hossza = nyomvonal × az erek száma."
+      },
+      {
+        "do": "Kiszámoljuk a függőleges szakaszokat a magasságok különbségéből: a kapcsoló a 2,30 m-es nyomvonal alatt van, az aljzat is.",
+        "calc": "kapcsoló: 2,30 m − 1,40 m = 0,90 m; aljzat: 1,20 m + (2,30 m − 0,40 m) = 1,20 m + 1,90 m = 3,10 m",
+        "why": "Két magasság különbsége adja a köztük lévő függőleges távolságot; a vízszintes és a függőleges rész egymás után jön, ezért összeadjuk (Alapok: M1 Mértékegységek és előtagok – minden m-ben)."
+      },
+      {
+        "do": "a) Védőcső = a négy szakasz összege.",
+        "calc": "3,00 + 0,90 + 3,10 + 2,50 = 9,50 m"
+      },
+      {
+        "do": "b) Vezeték: minden szakasz hosszát megszorozzuk az erek számával, aztán hozzáadjuk a ráhagyást (11 érszakasz · 0,20 m).",
+        "calc": "3·3,00 + 2·0,90 + 3·3,10 + 3·2,50 = 9,0 + 1,8 + 9,3 + 7,5 = 27,6 m; ráhagyás (3 + 2 + 3 + 3) · 0,20 m = 2,2 m; összesen 29,8 m",
+        "why": "Három ér egy csőben háromszor annyi vezetéket jelent, mint a cső hossza. A kapcsolóhoz csak 2 ér megy (fázis le, kapcsolt fázis vissza), mert a kapcsoló csak a fázist bontja (Alapok: F4 Soros és párhuzamos kapcsolás)."
+      },
+      {
+        "do": "c) Zöld-sárga (PE) ér ott fut, ahol fémtestű vagy védőérintkezős fogyasztó van: betáplálás, aljzat, lámpa – a kapcsolóhoz nem. Szakaszonként 1 PE ér + 0,20 m ráhagyás.",
+        "calc": "3,00 + 3,10 + 2,50 + 3·0,20 = 8,60 + 0,60 = 9,2 m",
+        "why": "A PE nem vezet üzemi áramot, csak hiba esetén viszi el a hibaáramot a testről; a kapcsolónak nincs védőérintkezője, ezért oda nem kell (Alapok: F11 Hibaáram útja és érintésvédelem fizikája)."
+      }
+    ],
+    "check": "Ellenőrzés: 29,8 m / 9,5 m ≈ 3,1 – átlagosan kb. 3 ér egy csőben, ami a 3, 2, 3, 3 érszámnak megfelel. A PE 9,2 m kevesebb, mint a cső 9,5 m + ráhagyás, mert a kapcsoló 0,90 m-es szakaszán nincs."
+  },
+  "I-rajz-008": {
+    "given": [
+      "keresztkapcsolás: S1 váltó, S2 kereszt, S3 váltó, E1 lámpa",
+      "minden vezeték a KD-ban csatlakozik",
+      "PE csak a lámpához megy"
+    ],
+    "steps": [
+      {
+        "do": "Mit keresünk? Szakaszonként az erek számát. Az elv: a lámpa csak akkor világít, ha a fázistól a kapcsolókon át a lámpáig, onnan a nullán vissza egy zárt kör alakul ki. Minden kapcsolóérintkezőhöz annyi ér kell, ahány kapcsa van.",
+        "why": "Áram csak zárt körben folyik; a kapcsoló a kört nyitja vagy zárja (Alapok: F4 Soros és párhuzamos kapcsolás)."
+      },
+      {
+        "do": "a (KD – S1 váltó): a váltónak 3 kapcsa van: 1 közös és 2 váltó. A közösre lemegy a fázis, a két váltókapocsról két korrespondáló vezeték jön vissza.",
+        "calc": "a = 1 + 2 = 3 ér"
+      },
+      {
+        "do": "b (KD – S2 kereszt): a keresztkapcsolónak 4 kapcsa van: S1 két korrespondálója be, és két korrespondáló ki S3 felé.",
+        "calc": "b = 2 + 2 = 4 ér",
+        "why": "A keresztkapcsoló a két vezeték egyenes vagy keresztezett összekötése között vált, ehhez mind a 4 végre szükség van."
+      },
+      {
+        "do": "c (KD – S3 váltó): a két korrespondáló érkezik a váltókapcsokra, a közös kapocsról a kapcsolt fázis jön vissza.",
+        "calc": "c = 2 + 1 = 3 ér"
+      },
+      {
+        "do": "d (KD – E1 lámpa): a kapcsolt fázis, a nulla (az áram visszaútja) és a PE.",
+        "calc": "d = 1 + 1 + 1 = 3 ér",
+        "why": "A nullán folyik vissza az áram; a PE csak hibaáramot vezet, a kapcsolókhoz nem kell (Alapok: F11)."
+      }
+    ],
+    "check": "Ellenőrzés: a kapcsolókhoz menő erek száma = a kapcsaik száma (váltó 3, kereszt 4, váltó 3). A nulla egyik kapcsolóhoz sem megy le, mert egypólusú kapcsolás csak a fázist bontja."
+  },
+  "I-rajz-009": {
+    "given": [
+      "kétkörös csillár (két lámpacsoport), csillárkapcsoló",
+      "vezetékek a KD-ban csatlakoznak; PE csak a csillárhoz"
+    ],
+    "steps": [
+      {
+        "do": "Mit keresünk? A KD–kapcsoló és a KD–csillár szakasz érszámát. A csillárkapcsoló két egypólusú kapcsoló egy közös fázisbemenettel: egy fázis megy be, és két külön kapcsolt fázis jön ki.",
+        "why": "Két lámpacsoport külön kapcsolásához két külön kapcsolt vezeték kell, különben csak együtt tudnának világítani (Alapok: F4)."
+      },
+      {
+        "do": "KD – csillárkapcsoló: betáplált fázis le, két kapcsolt fázis vissza.",
+        "calc": "1 + 2 = 3 ér"
+      },
+      {
+        "do": "KD – csillár: két kapcsolt fázis (egy-egy csoportnak), a közös nulla (mindkét csoport árama ezen tér vissza) és a PE.",
+        "calc": "2 + 1 + 1 = 4 ér",
+        "why": "A két csoport visszaútja közös lehet, mert a nulla mindkettő áramát elviszi a forrás felé; a PE a fém csillártest hibavédelme (Alapok: F4, F11)."
+      }
+    ],
+    "check": "Ellenőrzés: egy egyszerű egypólusú kapcsolásnál a kapcsolóhoz 2, a lámpához 3 ér megy; a második lámpacsoport mindkét helyen +1 eret jelent: 3 és 4 – stimmel."
+  },
+  "I-rajz-012": {
+    "given": [
+      "1. rajz: méretarány 1:50, rajzi hossz 12,4 cm",
+      "2. rajz: méretarány 1:100, rajzi hossz 7,5 cm"
+    ],
+    "steps": [
+      {
+        "do": "Mit keresünk? A valóságos hosszat. Az 1:50 azt jelenti: a rajzon 1 cm a valóságban 50 cm, vagyis minden valós hossz 50-szer nagyobb a rajzinál.",
+        "why": "A méretarány egy arány: rajzi : valós = 1 : 50, egyenes arányosság (Alapok: M3 Tört, reciprok, arány)."
+      },
+      {
+        "do": "Első rajz: a rajzi hosszt megszorozzuk 50-nel, majd cm-ből m-be váltunk (100 cm = 1 m, ezért ÷100).",
+        "calc": "12,4 cm · 50 = 620 cm = 620/100 m = 6,2 m",
+        "why": "Alapok: M1 Mértékegységek és előtagok – a centi = század."
+      },
+      {
+        "do": "Második rajz: ugyanígy, csak 100-zal szorzunk.",
+        "calc": "7,5 cm · 100 = 750 cm = 7,5 m"
+      }
+    ],
+    "check": "Érdekesség és ellenőrzés: 1:100-nál a cm-ben mért rajzi szám pont a valós méter (7,5 cm → 7,5 m). 1:50-nél a valós méter a rajzi cm fele: 12,4/2 = 6,2 m – stimmel."
+  },
+  "I-rajz-013": {
+    "given": [
+      "nyomvonalszakaszok: 3,2 m; 4,5 m; 2,8 m; 1,9 m; 6,1 m",
+      "ráhagyás: 10 %",
+      "a védőcső 3 m-es szálakban kapható"
+    ],
+    "steps": [
+      {
+        "do": "Mit keresünk? a) a nyomvonal teljes hosszát, b) mennyi csövet rendeljünk ráhagyással (vágási veszteség, ívek), c) ez hány egész 3 m-es szál.",
+        "why": "A cső a nyomvonalat követi, ezért a nyomvonal hossza a csőigény alapja."
+      },
+      {
+        "do": "a) Összeadjuk a szakaszokat.",
+        "calc": "3,2 + 4,5 + 2,8 + 1,9 + 6,1 = 18,5 m"
+      },
+      {
+        "do": "b) 10 % ráhagyás: a hosszhoz hozzáadjuk a 10 %-át, vagyis 1 + 0,10 = 1,1-del szorzunk, majd felfelé egész méterre kerekítünk.",
+        "calc": "18,5 m · 1,1 = 20,35 m → 21 m",
+        "why": "10 % = 0,1 (Alapok: M4 Százalék). Anyagrendelésnél felfelé kerekítünk, mert a hiányzó anyag megállítja a munkát (Alapok: M6 Kerekítés és szabványos sorok)."
+      },
+      {
+        "do": "c) Hány 3 m-es szál adja ki a 21 m-t? Elosztjuk, és ha nem egész, felfelé kerekítünk.",
+        "calc": "21 m / 3 m = 7 szál",
+        "why": "Itt pont egész jött ki; ha 6,2 lenne, akkor is 7 szál kellene."
+      }
+    ],
+    "check": "Visszaellenőrzés: 7 · 3 m = 21 m ≥ 20,35 m – elég. 6 szál (18 m) még a ráhagyás nélküli 18,5 m-t sem fedné le."
+  }
+}

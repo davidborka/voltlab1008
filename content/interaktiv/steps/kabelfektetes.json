@@ -1,0 +1,59 @@
+{
+  "II-kab-008": {
+    "given": [
+      "extrudált szigetelésű és burkolatú kábelek, gyártói adat nincs → MSZ 13207 általános értékei",
+      "többerű kábel: r ≥ 12·d",
+      "egyerű kábel: r ≥ 15·d",
+      "a) többerű, d = 28 mm; b) egyerű, d = 40 mm"
+    ],
+    "steps": [
+      {
+        "do": "Mit keresünk? A legkisebb ív sugarát, amelyre a kábelt még hajlíthatjuk. Ha élesebben hajlítjuk, az ív külső oldalán a szigetelés és a burkolat megnyúlik, a belsőn összenyomódik és megtörhet.",
+        "why": "Minél vastagabb a kábel, annál nagyobb a külső és belső oldal hosszkülönbsége egy adott íven – ezért a sugarat az átmérő többszöröseként adják meg (egyenes arányosság, Alapok: M3 Tört, reciprok, arány)."
+      },
+      {
+        "do": "Honnan a 12 és a 15? Ezek az MSZ 13207 táblázati szorzói gyártói adat hiányában. Az egyerű kábelnél nagyobb, mert nincs mellette más ér, ami megtámasztaná, és a fém vezető kevésbé hajlékony.",
+        "why": "Szabványi érték: ha a gyártó ad meg értéket, az az irányadó."
+      },
+      {
+        "do": "a) Többerű kábel: a szorzó 12.",
+        "calc": "r = 12 · 28 mm = 336 mm"
+      },
+      {
+        "do": "b) Egyerű kábel: a szorzó 15.",
+        "calc": "r = 15 · 40 mm = 600 mm"
+      }
+    ],
+    "check": "Ellenőrzés: a sugár 336 mm, tehát az ív átmérője 672 mm – kb. 24-szerese a kábel átmérőjének. Tipikus hiba a sugár és az átmérő összekeverése (168 mm-es sugár már túl éles lenne)."
+  },
+  "II-kab-009": {
+    "given": [
+      "húzófej, az összes vezetőt megfogva",
+      "P = S·σ",
+      "réz: σ = 50 N/mm²; alumínium: σ = 25 N/mm²",
+      "a) 4×150 mm² Al; b) 4×95 mm² Cu"
+    ],
+    "steps": [
+      {
+        "do": "Mit keresünk? A legnagyobb erőt, amivel a kábelt húzhatjuk úgy, hogy a vezetők ne nyúljanak meg maradandóan. Az erőt a fém vezetők viselik, a szigetelés nem.",
+        "why": "σ (szigma) azt mondja meg, 1 mm² fém keresztmetszet mekkora erőt bír biztonságosan (N/mm²); a teljes erő a keresztmetszettel egyenesen arányos (Alapok: M3 Tört, reciprok, arány)."
+      },
+      {
+        "do": "a) A húzófej mind a 4 vezetőt fogja, ezért a teljes megfogott keresztmetszet a 4 ér összege.",
+        "calc": "S = 4 · 150 mm² = 600 mm²",
+        "why": "Az árnyékolás és a burkolat nem számít bele, csak a névleges vezető-keresztmetszet."
+      },
+      {
+        "do": "Alumíniumra σ = 25 N/mm².",
+        "calc": "P = 600 mm² · 25 N/mm² = 15 000 N",
+        "why": "A mm² a számlálóban és a nevezőben kiesik, N marad (Alapok: M1 Mértékegységek és előtagok)."
+      },
+      {
+        "do": "b) Réz: S = 4 · 95 mm², σ = 50 N/mm².",
+        "calc": "S = 380 mm²; P = 380 mm² · 50 N/mm² = 19 000 N",
+        "why": "A réz kétszer olyan erős, mint az alumínium, ezért kisebb keresztmetszet mellett is nagyobb erő engedhető meg."
+      }
+    ],
+    "check": "Nagyságrend: 15 000 N ≈ 1,5 tonna súlyereje (1 kg ≈ 10 N). Ha csak egy eret fognánk meg, a megengedett erő negyedére esne."
+  }
+}

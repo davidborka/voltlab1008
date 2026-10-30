@@ -115,11 +115,23 @@
   "formulas": [
     {
       "f": "U<sub>védett</sub> ≈ U<sub>p</sub> + l · 1 kV/m",
-      "note": "T (párhuzamos) bekötés, l = a bekötővezetékek együttes hossza"
+      "note": "T (párhuzamos) bekötés, l = a bekötővezetékek együttes hossza",
+      "derive": [
+        "T (párhuzamos) bekötésnél a védett pont és a föld között sorban van: a fázisoldali bekötővezeték, az SPD és a földoldali bekötővezeték, így a feszültségek összeadódnak (Alapok: F4 Soros és párhuzamos kapcsolás).",
+        "Az SPD-n a lökőáram alatt U<sub>p</sub> esik (a védelmi szintje).",
+        "A bekötővezetékeken a gyorsan növő lökőáram önindukciós feszültséget kelt, kb. 1 kV méterenként (Alapok: F9 Mágnesesség, indukció, transzformátor, motor).",
+        "Összegezve: U<sub>védett</sub> ≈ U<sub>p</sub> + l · 1 kV/m, ahol l a két bekötővezeték együttes hossza; m · kV/m = kV (Alapok: M1 Mértékegységek és előtagok)."
+      ]
     },
     {
       "f": "I<sub>pólus</sub> = 0,5 · I<sub>villám</sub> / n",
-      "note": "n = a betápláló vezetők száma; I<sub>villám</sub>: LPS I 200, II 150, III–IV 100 kA"
+      "note": "n = a betápláló vezetők száma; I<sub>villám</sub>: LPS I 200, II 150, III–IV 100 kA",
+      "derive": [
+        "A villámvédelmi osztály adja a méretezési villámáramot: LPS I 200 kA, II 150 kA, III–IV 100 kA (MSZ EN 62305-1).",
+        "Pesszimista becslés: a villámáram fele a földelőn, fele a betáplálás vezetőin folyik el: 0,5 · I<sub>villám</sub> (Alapok: M4 Százalék; F4 Soros és párhuzamos kapcsolás).",
+        "A betáplálás n vezetője azonos, párhuzamos út, ezért egyenlően osztoznak: ÷ n (Alapok: F4).",
+        "Példa: LPS II, TN-C (4 vezető): 0,5 · 150 kA / 4 = 18,75 kA pólusonként."
+      ]
     }
   ],
   "mistakes": [
