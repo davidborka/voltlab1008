@@ -1,0 +1,42 @@
+{
+  "III-telj-201": {
+    "given": ["U = 400 V (vonali)", "I = 25 A (vonali)", "cosφ = 0,8", "szimmetrikus háromfázisú terhelés"],
+    "steps": [
+      { "do": "Mit keresünk? A meddő teljesítményt: azt a részt, amely a mágneses tér felépítésére ide-oda leng a hálózat és a fogyasztó között, és nem végez hasznos munkát.",
+        "why": "Alapok: F7 Fáziseltolás és cosφ (P–Q–S háromszög)." },
+      { "do": "A képlethez sinφ kell. A P–Q–S derékszögű háromszögből sin²φ + cos²φ = 1:", "calc": "sinφ = √(1 − 0,8²) = √(1 − 0,64) = √0,36 = 0,6",
+        "why": "Pitagorasz-tétel a teljesítmény-háromszögre; gyökvonás (Alapok: M5 Négyzet, gyök, π és a kör területe)." },
+      { "do": "Háromfázisú meddő teljesítmény:", "calc": "Q = √3·U·I·sinφ = 1,732·400 V·25 A·0,6 ≈ 10 392 var",
+        "why": "A √3 a vonali mennyiségekkel számolt háromfázisú képletből jön (Alapok: F8 Háromfázisú rendszer)." },
+      { "do": "Átváltás kvar-ra és kerekítés két tizedesre:", "calc": "Q ≈ 10,39 kvar",
+        "why": "1 kvar = 1000 var (Alapok: M1 Mértékegységek és előtagok, M6 Kerekítés)." }
+    ],
+    "check": "S = √3·400·25 ≈ 17,32 kVA, P = S·0,8 ≈ 13,86 kW; √(13,86² + 10,39²) ≈ 17,32 kVA – a háromszög stimmel."
+  },
+  "III-telj-202": {
+    "given": ["n<sub>n</sub> = 2910 1/min (névleges fordulatszám)", "f = 50 Hz", "p ismeretlen"],
+    "steps": [
+      { "do": "Mit keresünk? A forgómező fordulatszámát és azt, hogy a forgórész hány százalékkal marad le tőle.",
+        "why": "Az aszinkronmotor forgórésze mindig kicsit lassabb a forgómezőnél, különben nem indukálódna benne áram (Alapok: F9 Mágnesesség, indukció, transzformátor, motor)." },
+      { "do": "50 Hz-en a lehetséges szinkron fordulatszámok:", "calc": "n<sub>0</sub> = 60·50/p → 3000 (p = 1), 1500 (p = 2), 1000 (p = 3), 750 (p = 4) 1/min",
+        "why": "A 60 a másodperc → perc átváltás (Alapok: M1, F9)." },
+      { "do": "A szinkron fordulatszám a névlegesnél kicsit nagyobb, legközelebbi érték:", "calc": "2910 &lt; 3000 → n<sub>0</sub> = 3000 1/min (p = 1)",
+        "why": "A motor nem lehet gyorsabb a forgómezőnél, és a szlip csak néhány százalék, ezért nem 1500 és nem más érték." },
+      { "do": "Szlip százalékban:", "calc": "s = (3000 − 2910)/3000·100 = 90/3000·100 = 3 %",
+        "why": "Alapok: M4 Százalék." }
+    ],
+    "check": "Tipikus névleges szlip 2–6 %, a 3 % reális; 1500-zal számolva negatív szlip jönne ki, ami motorüzemben lehetetlen."
+  },
+  "III-telj-203": {
+    "given": ["U = 230 V", "I = 6,5 A", "cosφ = 1 (ohmos)", "t = 3 h naponta"],
+    "steps": [
+      { "do": "Mit keresünk? A napi villamos energiát (amit a mérő számlál), kWh-ban.",
+        "why": "Energia = teljesítmény × idő (Alapok: F5 Munka, teljesítmény, energia, hő)." },
+      { "do": "Előbb a teljesítmény, ohmos fogyasztóra:", "calc": "P = U·I = 230 V · 6,5 A = 1495 W = 1,495 kW",
+        "why": "cosφ = 1, ezért a hatásos teljesítmény egyszerűen U·I; W → kW: osztás 1000-rel (Alapok: M1, F5)." },
+      { "do": "Az energia:", "calc": "W = P·t = 1,495 kW · 3 h = 4,485 kWh",
+        "why": "kW·h = kWh (Alapok: M1 Mértékegységek és előtagok)." }
+    ],
+    "check": "Nagyságrend: kb. 1,5 kW-os készülék 3 órán át ≈ 4,5 kWh – stimmel."
+  }
+}

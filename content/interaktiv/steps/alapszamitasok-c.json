@@ -1,0 +1,39 @@
+{
+  "III-alap-201": {
+    "given": ["Áramváltó: 300/5 A (névleges primer / szekunder áram)", "I<sub>2</sub> = 4 A (mért szekunder áram)", "10 VA, 0,5 osztály (a számításhoz nem kell)"],
+    "steps": [
+      { "do": "Mit keresünk? A primer vezetőben folyó valódi áramot. Az áramváltó a nagy áramot arányosan kicsire alakítja, hogy egy 5 A-es műszer mérhesse.",
+        "why": "Az áramváltó egy transzformátor, amelynél az áramok a menetszámokkal fordítva arányosak (Alapok: F9 Mágnesesség, indukció, transzformátor, motor)." },
+      { "do": "Az áttétel a névleges áramok hányadosa:", "calc": "a = 300 A / 5 A = 60",
+        "why": "Arány: hányszor nagyobb a primer áram a szekundernél (Alapok: M3 Tört, reciprok, arány)." },
+      { "do": "A primer áram a mért szekunder áram áttételszerese:", "calc": "I<sub>1</sub> = a·I<sub>2</sub> = 60·4 A = 240 A" }
+    ],
+    "check": "Arányossággal: a műszer a névleges 5 A 80 %-át mutatja (4/5), tehát a primer is a 300 A 80 %-a: 0,8·300 = 240 A – egyezik."
+  },
+  "III-alap-202": {
+    "given": ["l = 120 m (a kábel egyszeres hossza)", "A = 50 mm² (réz)", "ρ = 0,0175 Ω·mm²/m", "U<sub>0</sub> = 230 V (fázisfeszültség)", "A hálózat és a transzformátor impedanciáját elhanyagoljuk"],
+    "steps": [
+      { "do": "Mit keresünk? Mekkora áram folyna, ha az alelosztóban a fázis- és a nullavezető összeérne. Ehhez a zárlati hurok ellenállása kell.",
+        "why": "Zárlatkor az áramot csak a vezetékek ellenállása korlátozza, a fogyasztó kiesik a körből (Alapok: F3 Ellenállás és Ohm-törvény)." },
+      { "do": "Az áram a fázisvezetőn megy oda és a nullavezetőn jön vissza, ezért a hurok hossza kétszeres.", "calc": "l<sub>hurok</sub> = 2·120 m = 240 m",
+        "why": "Az áram körben folyik, soros vezetőszakaszok ellenállása összeadódik (Alapok: F4 Soros és párhuzamos kapcsolás)." },
+      { "do": "A hurok ellenállása:", "calc": "R = ρ·l<sub>hurok</sub>/A = 0,0175·240/50 = 0,084 Ω",
+        "why": "R = ρ·l/A; a mm² és a m kiesik, Ω marad (Alapok: M1, F3)." },
+      { "do": "A fázis–nulla hurkot a fázisfeszültség hajtja, Ohm-törvénnyel:", "calc": "I<sub>z</sub> = U<sub>0</sub>/R = 230 V / 0,084 Ω ≈ 2738 A",
+        "why": "Fázis és nulla között 230 V van, nem 400 V (Alapok: F8 Háromfázisú rendszer)." }
+    ],
+    "check": "Visszaszámolva: 2738 A · 0,084 Ω ≈ 230 V. A valóságban a transzformátor és a hálózat impedanciája is hozzáadódik, ezért a tényleges zárlati áram ennél kisebb – a 2,7 kA felső becslés."
+  },
+  "III-alap-203": {
+    "given": ["Z<sub>L-N</sub> = 0,46 Ω (fázis–nulla hurok)", "Z<sub>L-PE</sub> = 0,50 Ω (fázis–védővezető hurok)", "U<sub>0</sub> = 230 V", "TN-S rendszer"],
+    "steps": [
+      { "do": "Mit keresünk? Mekkora áram folyik, ha a fázis egy készülék fémházával (testével) zárlatba kerül.",
+        "why": "A test a PE-re van kötve, így a hibaáram a fázisvezetőn oda, a PE-n vissza folyik (Alapok: F11 Hibaáram útja és érintésvédelem fizikája)." },
+      { "do": "Tehát a két mért érték közül a fázis–PE hurok impedanciáját kell használni.", "calc": "Z<sub>s</sub> = Z<sub>L-PE</sub> = 0,50 Ω",
+        "why": "A fázis–nulla hurok egy másik áramút (rövidzárlat L és N között), a testzárlatban a nullavezető nem vesz részt." },
+      { "do": "Ohm-törvény a fázisfeszültséggel:", "calc": "I<sub>a</sub> = U<sub>0</sub>/Z<sub>s</sub> = 230 V / 0,50 Ω = 460 A",
+        "why": "Alapok: F3 Ellenállás és Ohm-törvény." }
+    ],
+    "check": "A fázis–nulla zárlati áram 230/0,46 = 500 A lenne; a testzárlati áram ennél kisebb, mert a PE-hurok impedanciája nagyobb – ésszerű."
+  }
+}

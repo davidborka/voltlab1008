@@ -1,0 +1,13 @@
+{
+  "III-fesz-201": {
+    "given": ["U<sub>n</sub> = 400 V (névleges vonali feszültség)", "U<sub>eleje</sub> = 400 V (mért, vonali)", "U<sub>vége</sub> = 389 V (mért, vonali)"],
+    "steps": [
+      { "do": "Mit keresünk? Hány százalékot „veszít” a feszültség a kábelen a névleges feszültséghez képest.",
+        "why": "A vezeték ellenállásán az áram miatt feszültség esik, ennyivel kevesebb jut a fogyasztóra (Alapok: F3 Ellenállás és Ohm-törvény)." },
+      { "do": "A feszültségesés voltban a két végen mért érték különbsége:", "calc": "ΔU = 400 V − 389 V = 11 V" },
+      { "do": "Százalékba váltjuk, a névleges vonali feszültséghez viszonyítva:", "calc": "ε = 11 V / 400 V · 100 = 2,75 %",
+        "why": "Rész/egész·100; mivel vonali feszültséget mértünk, a vonali névleges értékkel (400 V) osztunk (Alapok: M4 Százalék, F8 Háromfázisú rendszer)." }
+    ],
+    "check": "Visszafelé: 400 V 2,75 %-a = 11 V, 400 − 11 = 389 V – egyezik a mért végfeszültséggel."
+  }
+}

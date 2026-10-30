@@ -1,0 +1,224 @@
+[
+ {
+  "id": "IV-av-201",
+  "part": "IV",
+  "topic": "aramutes-elleni-vedelem",
+  "type": "single",
+  "difficulty": 2,
+  "points": 2,
+  "q": "Egy TN-S rendszerű, 230 V-os (U<sub>0</sub>) aljzatkört B16-os kismegszakító véd, a kör végén mért hurokimpedancia Z<sub>s</sub> = 3,4 Ω. A kismegszakító biztos gyors kioldásához 5·I<sub>n</sub> = 80 A kellene. Az áramkört egy 30 mA-es áram-védőkapcsoló is védi. Mit állapít meg a hibavédelemről?",
+  "options": [
+   "Megfelel, mert az önműködő lekapcsolást az áram-védőkapcsoló végzi: Z<sub>s</sub> ≤ U<sub>0</sub>/I<sub>Δn</sub> = 230/0,03 ≈ 7667 Ω, és 3,4 Ω ennél jóval kisebb.",
+   "Nem felel meg, mert Z<sub>s</sub> nagyobb, mint 230/80 ≈ 2,88 Ω; az áram-védőkapcsoló ezen nem változtat.",
+   "Megfelel, de csak akkor, ha Z<sub>s</sub>·0,03 ≤ 50 V, vagyis Z<sub>s</sub> ≤ 1667 Ω.",
+   "Nem dönthető el, mert TN-S rendszerben áram-védőkapcsoló nem végezhet önműködő lekapcsolást."
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "A kismegszakító valóban nem oldana le 0,4 s-on belül, de a lekapcsolást végezheti az áram-védőkapcsoló is; ekkor az ő kioldóárama a feltétel alapja.",
+   "Az R<sub>A</sub>·I<sub>Δn</sub> ≤ 50 V a TT rendszer feltétele (földelési ellenállás), TN-ben a hurokra Z<sub>s</sub>·I<sub>a</sub> ≤ U<sub>0</sub> érvényes.",
+   "TN-S rendszerben az áram-védőkapcsoló lekapcsoló eszközként alkalmazható (csak a TN-C, PEN-es szakaszon nem)."
+  ],
+  "explanation": "TN-rendszerben a hibavédelem feltétele Z<sub>s</sub>·I<sub>a</sub> ≤ U<sub>0</sub>, ahol I<sub>a</sub> a lekapcsoló eszközt előírt időn belül működtető áram. Kismegszakítónál I<sub>a</sub> = 5·16 = 80 A, így Z<sub>s,max</sub> ≈ 2,88 Ω – a 3,4 Ω ehhez sok. Ha a lekapcsolást áram-védőkapcsoló végzi, I<sub>a</sub> = I<sub>Δn</sub> = 0,03 A, és Z<sub>s,max</sub> ≈ 7667 Ω, ami bőven teljesül. Ezért szokás nagy hurokimpedanciájú (hosszú, régi) köröket áram-védőkapcsolóval rendbe tenni. A kismegszakító ettől még kell a túlterhelés és a zárlat ellen.",
+  "source": "MSZ HD 60364-4-41 411.4.4; MSZ HD 60364-6:2017 6.4.3.7; Biztonságtechnikai mérések (Ép_vil_mérés_Gy) 2.1.4: áram-védőkapcsoló esetén Ia = IΔn"
+ },
+ {
+  "id": "IV-av-202",
+  "part": "IV",
+  "topic": "aramutes-elleni-vedelem",
+  "type": "match",
+  "difficulty": 2,
+  "points": 3,
+  "q": "Testzárlat alakult ki egy földelt testű készülékben. Párosítsa a feszültségfogalmakat azzal, hogy mely pontok között értelmezzük őket!",
+  "pairs": [
+   [
+    "Hibafeszültség",
+    "A testzárlatos készülék teste és a távoli (referencia) föld között"
+   ],
+   [
+    "Érintési feszültség",
+    "Az ember által egyidejűleg megérintett két pont (pl. a test és egy földelt csap) között"
+   ],
+   [
+    "Lépésfeszültség",
+    "A talaj felszínén egy lépésnyi (kb. 1 m) távolságra lévő két pont között"
+   ]
+  ],
+  "distractors": [
+   "A fázisvezető és a nullavezető között üzemszerűen"
+  ],
+  "explanation": "A hibafeszültség a hibás test potenciálja a távoli földhöz képest – ez a legnagyobb, ami a testen megjelenhet. Az érintési feszültség ennek csak az a része, ami az emberre jut a két érintett pont között (ezért kisebb, ha a környezet is felemelkedik, pl. EPH miatt). A lépésfeszültség a földbe folyó áram körüli talajfelszínen két láb között lép fel. A fázis–nulla közötti feszültség az üzemi (fázis)feszültség, nem hibajellemző. A védőföldelés célja, hogy a hibafeszültség az U<sub>L</sub> = 50 V-os határ alatt maradjon.",
+  "source": "MSZ IEC 60050-195 fogalmai; Biztonságtechnikai mérések (Ép_vil_mérés_Gy), védőföldelés elve"
+ },
+ {
+  "id": "IV-av-203",
+  "part": "IV",
+  "topic": "aramutes-elleni-vedelem",
+  "type": "multi",
+  "difficulty": 1,
+  "points": 2,
+  "q": "Mely tényezők határozzák meg elsősorban, hogy egy áramütés mennyire súlyos? (Több helyes válasz van; a rossz jelölés pontlevonással jár.)",
+  "options": [
+   "A testen átfolyó áram erőssége",
+   "Az áram behatásának időtartama",
+   "Az áram útja a testben (pl. kéz–kéz, kéz–láb, a szíven át)",
+   "Az áram neme és frekvenciája (egyen- vagy 50 Hz-es váltakozó áram)",
+   "A vezeték szigetelésének színe",
+   "Az áramkört védő kismegszakító névleges árama"
+  ],
+  "answer": [
+   0,
+   1,
+   2,
+   3
+  ],
+  "wrongWhy": [
+   null,
+   null,
+   null,
+   null,
+   "A szín csak jelölés (pl. PE zöld-sárga), az élettani hatást nem befolyásolja.",
+   "A kismegszakító névleges árama (pl. 16 A) messze nagyobb a halálos áramnál (kb. 50 mA); az emberen átfolyó áramot nem korlátozza és nem is érzékeli."
+  ],
+  "explanation": "Az élettani hatást az emberen átfolyó áram okozza, ezért a döntő: mekkora (mA), meddig tart (a fibrilláció veszélye a hosszabb behatással nő), merre halad (a szíven át futó út a legveszélyesebb), és milyen áramnemű, frekvenciájú (az 50 Hz-es váltakozó áram veszélyesebb, mint ugyanakkora egyenáram). Az áram nagyságát a feszültség és a test ellenállása (bőr, nedvesség, érintkezési felület) szabja meg. A kismegszakító a vezetéket védi, az embert a 30 mA-es áram-védőkapcsoló.",
+  "source": "MSZ IEC 60479-1 (az áram hatása az emberre) alapelvei; villanyszerelo-jegyzet, áramütés hatásai"
+ },
+ {
+  "id": "IV-em-201",
+  "part": "IV",
+  "topic": "ellenorzes-meresek",
+  "type": "single",
+  "difficulty": 1,
+  "points": 1,
+  "q": "TN-rendszerű lakás egyfázisú dugaszolóaljzat-körének hibavédelmét ellenőrzi. Hol és mely vezetők között méri a földzárlati (hibahelyi) hurokimpedanciát?",
+  "options": [
+   "Az áramkör legtávolabbi aljzatánál, a fázisvezető és a védővezető (PE) között",
+   "A lakáselosztóban, a kismegszakító kimenetén, a fázis- és a nullavezető között",
+   "Az aljzatnál a nullavezető és a védővezető között",
+   "Bárhol mérhető, mert a hurokimpedancia az áramkör minden pontján ugyanakkora"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "Az elosztóban a hurok a legrövidebb, ott mérve túl kedvező az eredmény; ráadásul a fázis–nulla hurok nem a testzárlat útja.",
+   "N és PE között üzemszerűen nincs feszültség, a hibaáram hurkát a fázisvezető hajtja.",
+   "A hurokimpedancia a vezetékhosszal nő, ezért a legtávolabbi pont adja a legrosszabb (mértékadó) értéket."
+  ],
+  "explanation": "Testzárlatkor a hibaáram a fázisvezetőn a hibahelyig, onnan a védővezetőn vissza folyik, ezért a fázis–PE hurok impedanciáját mérjük. A kör legtávolabbi pontján a leghosszabb a hurok, ott a legnagyobb Z<sub>s</sub> és a legkisebb a hibaáram: ha ott a Z<sub>s</sub>·I<sub>a</sub> ≤ U<sub>0</sub> teljesül, közelebb is. A mérés előtt a védővezető folytonosságát már igazolni kell. A fázis–nulla hurkot a zárlati áram (megszakítóképesség) miatt mérik, nem a hibavédelem igazolására.",
+  "source": "MSZ HD 60364-6:2017 6.4.3.7.3; Biztonságtechnikai mérések (Ép_vil_mérés_Gy), nullázás méretezése"
+ },
+ {
+  "id": "IV-em-202",
+  "part": "IV",
+  "topic": "ellenorzes-meresek",
+  "type": "truefalse",
+  "difficulty": 2,
+  "points": 3,
+  "q": "Áramváltós (félközvetett) mérőhelyen dolgozik. Döntse el az áramváltóra vonatkozó állításokról, hogy igazak vagy hamisak!",
+  "statements": [
+   {
+    "text": "Az áramváltó primer tekercse sorosan, a mérendő áramot vivő vezetőbe kapcsolódik.",
+    "answer": true
+   },
+   {
+    "text": "Ha a primer körben áram folyik, a szekunder kört megszakítani (pl. a műszert lekötni) tilos; előtte a szekunder kapcsokat rövidre kell zárni.",
+    "answer": true
+   },
+   {
+    "text": "A szekunder kört a biztonság kedvéért olvadóbiztosítóval kell védeni, hogy túlterheléskor megszakadjon.",
+    "answer": false
+   }
+  ],
+  "explanation": "Az áramváltó primere a terhelés áramát viszi, ezért sorosan kötjük be. Üzem közben a szekunder kör szinte rövidzárban dolgozik; ha megszakad, a primer áram teljes egészében a vasmagot gerjeszti, a nyitott szekunder kapcsokon életveszélyes nagyságú feszültség lép fel, és a mag túlmelegszik. Ezért a műszer cseréje előtt a szekunder kapcsokat rövidre zárjuk. Biztosítót a szekunder körbe nem teszünk, mert annak kiolvadása épp a veszélyes szakadást okozná – a szabvány az áramváltók szekunder körét a túlterhelés-védelem elhagyásának tipikus példájaként említi.",
+  "source": "MSZ HD 60364-4-43 433.3 (áramváltók szekunder köre, a túlterhelés-védelem elhagyása; villanyszerelo-jegyzet); mérőváltók üzemeltetési szabályai"
+ },
+ {
+  "id": "IV-vv-201",
+  "part": "IV",
+  "topic": "villamvedelem",
+  "type": "multi",
+  "difficulty": 2,
+  "points": 2,
+  "q": "Egy iskola udvarán, a villámvédelmi levezetők lábánál gyerekek is tartózkodhatnak. Mely intézkedések csökkentik a villámcsapáskor a levezető közelében fellépő lépésfeszültség veszélyét? (Több helyes válasz van; a rossz jelölés pontlevonással jár.)",
+  "options": [
+   "Potenciálvezérlés: hálós vagy több, egymás körüli gyűrűből álló földelő a levezető környezetében",
+   "Jól szigetelő felületi réteg (pl. aszfalt vagy vastag kavicsréteg) a levezető körüli talajon",
+   "A földelő szétterjedési ellenállásának szándékos növelése",
+   "A levezetők számának csökkentése, hogy kevesebb helyen jusson áram a földbe",
+   "Kisebb keresztmetszetű levezető alkalmazása"
+  ],
+  "answer": [
+   0,
+   1
+  ],
+  "wrongWhy": [
+   null,
+   null,
+   "Nagyobb földelési ellenállásnál nagyobb a földelő potenciálja és meredekebb a talajfelszín potenciáleloszlása, a lépésfeszültség nő.",
+   "Kevesebb levezetőn levezetőnként nagyobb villámáram folyik a földbe, ez növeli a lépésfeszültséget.",
+   "A keresztmetszet a melegedést és a mechanikai szilárdságot befolyásolja, a talajfelszín potenciáleloszlását nem javítja."
+  ],
+  "explanation": "A lépésfeszültség a földbe lépő áram körül kialakuló potenciál-„tölcsér” meredekségéből adódik. A potenciálvezérlés (potenciálbefolyásolás) több, egymás körül elhelyezett vagy hálós földelővel ellaposítja ezt a tölcsért, így két láb között kisebb a különbség. A szigetelő felületi réteg (aszfalt, kavics) az emberen átfolyó áramot csökkenti a nagy átmeneti ellenállással. Kiegészítő intézkedés lehet a hozzáférés korlátozása és a figyelmeztető tábla is, de ezek a feszültséget nem csökkentik.",
+  "source": "MSZ EN 62305-3 8. szakasz (érintési és lépésfeszültség elleni intézkedések); Villbizjegyzet (10_4), potenciálbefolyásolás"
+ },
+ {
+  "id": "IV-mv-201",
+  "part": "IV",
+  "topic": "munkavedelem",
+  "type": "truefalse",
+  "difficulty": 2,
+  "points": 3,
+  "q": "Az áram útja és az egyéni védőeszközök. Döntse el, igazak vagy hamisak az állítások!",
+  "statements": [
+   {
+    "text": "Ha valaki egyik kezével a fázist, másik kezével a nullavezetőt érinti, a szigetelő szőnyeg (padló) nem véd, mert az áram útja kéz–kéz, a lábon át nem folyik áram.",
+    "answer": true
+   },
+   {
+    "text": "A villamos szigetelő kesztyű az érintés helyén növeli az ellenállást, ezért kéz–kéz és kéz–láb úton is csökkenti a testen átfolyó áramot.",
+    "answer": true
+   },
+   {
+    "text": "A szigetelő padló vagy szőnyeg a kéz–láb úton folyó áramot csökkenti, mert nagy ellenállást iktat a láb és a föld közé.",
+    "answer": true
+   },
+   {
+    "text": "Izzadt, nedves kézzel kisebb az áramütés veszélye, mert a víz elvezeti az áramot a test mellett.",
+    "answer": false
+   }
+  ],
+  "explanation": "Az emberen átfolyó áram I = U/R, ahol R az egész áramút ellenállása: a bőr átmeneti ellenállása, a test belső ellenállása és a padló/cipő ellenállása. A szigetelő padló csak akkor segít, ha az áram a lábon át a föld felé folyna (kéz–láb út); két kézzel érintett két aktív vezetőnél (kéz–kéz) kimarad a körből. A szigetelő kesztyű már a belépési pontnál szakítja meg az utat, ezért mindkét esetben hat. A nedves bőr ellenállása sokkal kisebb, ezért nedves kézzel nagyobb áram folyik – ez veszélyesebb.",
+  "source": "MSZ IEC 60479-1 (testimpedancia); MSZ 1585:2016 egyéni védőeszközök; Villbizjegyzet (10_4), a környezet elszigetelése"
+ },
+ {
+  "id": "IV-pv-201",
+  "part": "IV",
+  "topic": "fotovoltaik",
+  "type": "single",
+  "difficulty": 1,
+  "points": 1,
+  "q": "Nyári napon a napelem-modul cellái 25 °C-ról 60 °C-ra melegszenek (a besugárzás változatlan). Hogyan változnak a modul jellemzői?",
+  "options": [
+   "A feszültsége (U<sub>oc</sub>, U<sub>mpp</sub>) érezhetően csökken, az árama (I<sub>sc</sub>) csak kicsit nő, ezért a teljesítménye csökken.",
+   "A feszültsége és az árama is jelentősen nő, ezért a teljesítménye nő.",
+   "Az árama jelentősen csökken, a feszültsége változatlan marad.",
+   "A hőmérséklet a modul elektromos adatait nem befolyásolja, csak a besugárzás."
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "Melegben a feszültség csökken (kb. −0,3 %/°C), és ez a teljesítményt is lehúzza; nyáron a modul az STC-érték alatt termel.",
+   "Fordítva: az áram alig változik (sőt kicsit nő), a feszültség az, ami jelentősen csökken.",
+   "A feszültség erősen hőmérsékletfüggő; ezért kell hidegre ellenőrizni a string legnagyobb feszültségét."
+  ],
+  "explanation": "A kristályos szilíciumcella feszültségének hőmérsékleti együtthatója kb. −0,3 %/°C, az áramáé kb. +0,05 %/°C. 35 °C melegedésnél a feszültség kb. 10 %-kal csökken, az áram csak kb. 2 %-kal nő, így a teljesítmény (P = U·I) csökken. Ezért nyáron a modulok a névleges (STC, 25 °C) teljesítmény alatt termelnek, télen hidegben pedig a feszültség nő – az inverter bemeneti határát a legkisebb hőmérsékletre kell ellenőrizni.",
+  "source": "Napelem-modul adatlapok hőmérsékleti együtthatói (MSZ EN 60891 / IEC 61215 alapján); MEE-VET Műszaki alapok, fotovoltaikus rendszerek"
+ }
+]

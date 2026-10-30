@@ -1,0 +1,11 @@
+{
+  "I-kab-201": {
+    "given": ["R<sub>1</sub> = 400 MΩ a l<sub>1</sub> = 100 m-es darabon", "l<sub>2</sub> = 400 m, ugyanaz a kábeltípus, azonos hőmérséklet"],
+    "steps": [
+      { "do": "Mit keresünk? A szigetelés ellenállását a 400 m-es darabon: mekkora ellenállást „lát” a vezetőből a szigetelésen át a köpeny felé szivárgó kis áram.", "why": "A szigetelési ellenállás nem a vezető mentén, hanem keresztben, a szigetelésen át értendő (Alapok: F3 Ellenállás és Ohm-törvény)." },
+      { "do": "Képzeljük a kábelt 100 m-es szeletekre vágva: minden szelet egy-egy 400 MΩ-os szivárgási út, és ezek egymás mellett, párhuzamosan kapcsolódnak.", "calc": "szeletek száma = 400 m / 100 m = 4", "why": "Párhuzamos utaknál az áram több úton is mehet, ezért az eredő ellenállás kisebb lesz (Alapok: F4 Soros és párhuzamos kapcsolás)." },
+      { "do": "Négy egyforma, párhuzamos ellenállás eredője az egyik negyede.", "calc": "R<sub>2</sub> = 400 MΩ / 4 = 100 MΩ", "why": "Fordított arányosság: négyszeres hossz → negyedakkora szigetelési ellenállás (Alapok: M3 Tört, reciprok, arány)." }
+    ],
+    "check": "Visszaszámolás: 100 MΩ · 400 m = 40 000 MΩ·m = 400 MΩ · 100 m – a „MΩ·km” típusú szorzat állandó, tehát stimmel. A vezető ellenállása ezzel szemben a hosszal nőne – ezt nem szabad összekeverni."
+  }
+}

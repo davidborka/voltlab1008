@@ -1,0 +1,135 @@
+[
+  {
+    "id": "III-alap-201",
+    "part": "III",
+    "topic": "alapszamitasok",
+    "type": "single",
+    "difficulty": 1,
+    "points": 2,
+    "q": "Egy áramváltós mérésnél az áramváltó adattábláján: 300/5 A, 10 VA, 0,5 pontossági osztály. A szekunder körbe kötött ampermérő 4 A-t mutat. Mekkora áram folyik a primer vezetőben?",
+    "options": ["240 A", "60 A", "20 A", "1200 A"],
+    "answer": [0],
+    "wrongWhy": [
+      null,
+      "Ez csak az áttétel (300/5 = 60), a mért szekunder áramot még meg kell vele szorozni.",
+      "A 4 A-t a szekunder névleges áramával (5) szorozta; az áttétel 60, nem 5.",
+      "A 4 A-t a primer névleges áramával (300) szorozta, pedig az áttétel 300/5 = 60."
+    ],
+    "explanation": "Az áramváltó áttétele a névleges primer és szekunder áram hányadosa: a = 300 A / 5 A = 60. A primer áram a szekunder áram áttételszerese: I<sub>1</sub> = a·I<sub>2</sub> = 60·4 A = 240 A. A 10 VA (névleges terhelhetőség) és a pontossági osztály a mérőkör kiválasztásához kell, a számításhoz nem. Ellenőrzés: 240 A a 300 A-es névleges primer áram 80 %-a, a műszer is 4/5 = 80 %-on áll.",
+    "source": "Mérőváltók alapjai (áttétel = I1n/I2n); áramváltós (félközvetett) fogyasztásmérés, MSZ EN 61869-2"
+  },
+  {
+    "id": "III-alap-202",
+    "part": "III",
+    "topic": "alapszamitasok",
+    "type": "number",
+    "difficulty": 2,
+    "points": 3,
+    "q": "Egy telephely csatlakozási pontjáról 120 m hosszú, 50 mm²-es rézerű kábel táplál egy alelosztót (3×400/230 V). Becsülje meg az alelosztóban a fázis–nulla zárlati áramot úgy, hogy csak a kábel fázis- és nullavezetőjének ellenállását veszi figyelembe (a hálózat és a transzformátor impedanciáját elhanyagolja)! ρ<sub>Cu</sub> = 0,0175 Ω·mm²/m. A hurokellenállást három tizedesre, az áramot egészre kerekítse!",
+    "fields": [
+      { "label": "R<sub>hurok</sub>", "unit": "Ω", "answer": 0.084, "tol": 0.02 },
+      { "label": "I<sub>z</sub>", "unit": "A", "answer": 2738, "tol": 0.02 }
+    ],
+    "explanation": "Zárlatkor az áram a fázisvezetőn a hibahelyig, onnan a nullavezetőn vissza folyik, ezért a hurok hossza 2·120 = 240 m. R = ρ·2l/A = 0,0175·240/50 = 0,084 Ω. A hurkot a fázisfeszültség hajtja: I<sub>z</sub> = U<sub>0</sub>/R = 230/0,084 ≈ 2738 A. Tipikus hibák: csak egyszeres hosszal számolni (≈ 5476 A), vagy 400 V-tal osztani (fázis–fázis zárlatnál lenne az). Mivel a hálózat impedanciáját elhagytuk, a valódi zárlati áram ennél kisebb – ez felső becslés.",
+    "source": "MSZ HD 60364-4-41 (Zs·Ia ≤ U0 elve); Biztonságtechnikai mérések (Ép_vil_mérés_Gy), zárlati hurok összetevői"
+  },
+  {
+    "id": "III-alap-203",
+    "part": "III",
+    "topic": "alapszamitasok",
+    "type": "single",
+    "difficulty": 2,
+    "points": 2,
+    "q": "Egy TN-S rendszerű, 3×400/230 V-os elosztó egyik leágazásának végén két hurokimpedanciát mértek: fázis–nulla között Z<sub>L-N</sub> = 0,46 Ω, fázis–védővezető között Z<sub>L-PE</sub> = 0,50 Ω. Mekkora a várható testzárlati áram ezen a ponton?",
+    "options": ["460 A", "500 A", "800 A", "240 A"],
+    "answer": [0],
+    "wrongWhy": [
+      null,
+      "Ez a fázis–nulla zárlati áram (230/0,46). Testzárlatkor a hibaáram a PE-n folyik vissza, ezért Z<sub>L-PE</sub> számít.",
+      "400 V-tal számolt; a testzárlati hurkot a fázisfeszültség (U<sub>0</sub> = 230 V) hajtja.",
+      "A két impedanciát összeadta (0,96 Ω), pedig a két mérés két különböző hurok, nem soros elemek."
+    ],
+    "explanation": "Testzárlat a fázisvezető és a készülék (PE-re kötött) teste között jön létre, így a hibaáram a fázisvezetőn oda, a védővezetőn vissza folyik: a fázis–PE hurok számít. I<sub>a</sub> = U<sub>0</sub>/Z<sub>L-PE</sub> = 230 V / 0,50 Ω = 460 A. A fázis–nulla hurok (Z<sub>L-N</sub>) a rövidzárlati áramhoz kell (a kismegszakító zárlati megszakítóképességének ellenőrzéséhez), nem a hibavédelemhez.",
+    "source": "MSZ HD 60364-6:2017 6.4.3.7 (földzárlati hurokimpedancia); MSZ HD 60364-4-41 411.4.4"
+  },
+  {
+    "id": "III-fesz-201",
+    "part": "III",
+    "topic": "feszultsegeses",
+    "type": "single",
+    "difficulty": 1,
+    "points": 2,
+    "q": "Egy 3×400 V névleges feszültségű kábel elején 400 V, a terhelt végén 389 V vonali feszültséget mér. Hány százalék a kábel feszültségesése?",
+    "options": ["2,75 %", "11 %", "4,78 %", "97,25 %"],
+    "answer": [0],
+    "wrongWhy": [
+      null,
+      "A 11 V az esés voltban; százalékhoz még el kell osztani a névleges feszültséggel.",
+      "Vonali (400 V-os) feszültségeket mért, mégis a 230 V-os fázisfeszültséghez viszonyított.",
+      "Ez a végponti feszültség aránya (389/400), vagyis ami megmaradt, nem ami elveszett."
+    ],
+    "explanation": "A feszültségesés a két végen mért feszültség különbsége: ΔU = 400 − 389 = 11 V. Százalékban a névleges feszültséghez viszonyítjuk, azonos feszültségfajtával (vonalihoz vonalit): ε = 11/400·100 = 2,75 %. Ha fázisfeszültségeket mérnénk, a 230 V-hoz kellene viszonyítani. Ha a mért végfeszültséggel (389 V) osztanánk, 2,83 % jönne ki – a szabványos határértékek (pl. 3 %, 5 %) a névleges feszültségre vonatkoznak.",
+    "source": "MSZ HD 60364-5-52 G melléklet (feszültségesés a névleges feszültség %-ában); MSZ 447 feszültségesés-előírások"
+  },
+  {
+    "id": "III-telj-201",
+    "part": "III",
+    "topic": "teljesitmeny-energia",
+    "type": "number",
+    "difficulty": 2,
+    "points": 3,
+    "q": "Egy szimmetrikus háromfázisú (3×400 V) fogyasztó vonali árama 25 A, teljesítménytényezője cosφ = 0,8. Mekkora a fogyasztó meddő teljesítménye? Előbb számítsa ki sinφ értékét! A meddő teljesítményt kvar-ban, két tizedesre kerekítse!",
+    "fields": [
+      { "label": "sinφ", "unit": "", "answer": 0.6, "tolAbs": 0.005 },
+      { "label": "Q", "unit": "kvar", "answer": 10.39, "tol": 0.01 }
+    ],
+    "explanation": "A meddő teljesítmény képlete Q = √3·U·I·sinφ, de sinφ nincs megadva. A P–Q–S háromszögből sin²φ + cos²φ = 1, tehát sinφ = √(1 − 0,8²) = √0,36 = 0,6. Q = 1,732·400·25·0,6 ≈ 10 392 var ≈ 10,39 kvar. Tipikus hibák: cosφ-vel szorozni (az a hatásos teljesítmény, 13,86 kW), vagy kihagyni a √3-at (6 kvar). Ellenőrzés: S = √3·400·25 ≈ 17,32 kVA, és 13,86² + 10,39² ≈ 17,32².",
+    "source": "Elektrotechnika – váltakozó áramú teljesítmények (P–Q–S háromszög), MATH.md F7"
+  },
+  {
+    "id": "III-telj-202",
+    "part": "III",
+    "topic": "teljesitmeny-energia",
+    "type": "number",
+    "difficulty": 2,
+    "points": 2,
+    "q": "Egy háromfázisú aszinkronmotor adattábláján csak ennyi áll a fordulatszámról: n<sub>n</sub> = 2910 1/min, f = 50 Hz. A póluspárszám nincs megadva. Mekkora a forgómező szinkron fordulatszáma és a motor névleges szlipje (%)?",
+    "fields": [
+      { "label": "n<sub>0</sub>", "unit": "1/min", "answer": 3000, "tol": 0.001 },
+      { "label": "s", "unit": "%", "answer": 3, "tol": 0.01 }
+    ],
+    "explanation": "50 Hz-en a lehetséges szinkron fordulatszámok n<sub>0</sub> = 60·f/p alapján 3000 (p = 1), 1500 (p = 2), 1000 (p = 3), 750 (p = 4) 1/min. Az aszinkronmotor névleges fordulatszáma csak néhány százalékkal kisebb a szinkronnál, ezért a 2910-nél közvetlenül nagyobb érték a szinkron fordulatszám: n<sub>0</sub> = 3000 1/min (p = 1). s = (3000 − 2910)/3000·100 = 3 %. Hibás lenne 1500-at választani: a motor nem foroghat gyorsabban a forgómezőnél.",
+    "source": "Aszinkrongépek (Aszinkrongepek.pdf), n0 = 60·f/p és szlip"
+  },
+  {
+    "id": "III-telj-203",
+    "part": "III",
+    "topic": "teljesitmeny-energia",
+    "type": "number",
+    "difficulty": 1,
+    "points": 2,
+    "q": "Egy ohmos (cosφ = 1) fűtőpanel 230 V-on 6,5 A-t vesz fel, és naponta 3 órát üzemel. Mennyi villamos energiát fogyaszt naponta? Az eredményt kWh-ban, három tizedesre adja meg!",
+    "fields": [
+      { "label": "W", "unit": "kWh", "answer": 4.485, "tol": 0.01 }
+    ],
+    "explanation": "Itt nincs megadva a teljesítmény, előbb ki kell számolni: ohmos fogyasztóra P = U·I = 230 V · 6,5 A = 1495 W = 1,495 kW. Az energia W = P·t = 1,495 kW · 3 h = 4,485 kWh (egy lépésben: W = U·I·t). Tipikus hiba W-ot és kWh-t keverni: 1495·3 = 4485 Wh, ez osztva 1000-rel lesz kWh.",
+    "source": "Villamos munka és teljesítmény, W = U·I·t (Elektrotechnikai alapkapcsolások)"
+  },
+  {
+    "id": "III-terh-201",
+    "part": "III",
+    "topic": "terhelhetoseg",
+    "type": "truefalse",
+    "difficulty": 1,
+    "points": 3,
+    "q": "Döntse el a vezeték tartós terhelhetőségéről (megengedett tartós áramáról) szóló állításokról, hogy igazak vagy hamisak!",
+    "statements": [
+      { "text": "Ugyanaz a 2,5 mm²-es vezeték 230 V-os és 400 V-os áramkörben – azonos szerelési mód és környezet mellett – ugyanakkora áramot vezethet tartósan.", "answer": true },
+      { "text": "A terhelhetőséget azért korlátozzuk, mert az áram hője a szigetelést a megengedett hőmérséklet fölé melegítené.", "answer": true },
+      { "text": "Nagyobb környezeti hőmérsékleten a vezeték megengedett tartós árama csökken.", "answer": true },
+      { "text": "Nagyobb névleges feszültségű áramkörben ugyanaz a vezeték nagyobb áramot vezethet.", "answer": false }
+    ],
+    "explanation": "A terhelhetőség hőtani korlát: a vezetőben I²·R hő keletkezik, és ezt a szigetelés (PVC-nél 70 °C) csak egy határig bírja. Ezért függ a keresztmetszettől, a szigetelés anyagától, a szerelési módtól, a környezeti hőmérséklettől és a csoportosítástól, de nem függ az áramkör feszültségétől: az I²·R hő az áramtól függ. A feszültség a szigetelés feszültségállóságát (pl. 450/750 V) és a feszültségesést befolyásolja, a tartós áramot nem.",
+    "source": "MSZ HD 60364-5-52 (523. szakasz, terhelhetőség és korrekciós tényezők); VeI – Vezetékméretezés"
+  }
+]

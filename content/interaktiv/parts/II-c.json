@@ -1,0 +1,94 @@
+[
+  {
+    "id": "II-kab-201",
+    "part": "II",
+    "topic": "kabelfektetes",
+    "type": "match",
+    "difficulty": 2,
+    "points": 4,
+    "q": "Párosítsa a kábelek elhelyezésére szolgáló műtárgyakat, helyiségeket a meghatározásukkal (MSZ 13207)!",
+    "pairs": [
+      ["kábelalagút", "a terepszint alatt kialakított, vízszintes, járható, folyosószerű kábelhelyiség"],
+      ["kábelfolyosó", "a terepszint felett kialakított, vízszintes, járható, folyosószerű kábelhelyiség"],
+      ["kábelakna", "függőleges kábelvezetésre szolgáló kábelhelyiség, mélysége jóval nagyobb a keresztmetszeténél"],
+      ["kábelcsatorna", "vízszintes, hosszú szerkezet a kábelek elhelyezésére és védelmére, általában a padló- vagy terepszintbe süllyesztve"]
+    ],
+    "distractors": ["homokágyas kábelárok, amelybe a kábelt közvetlenül a földbe fektetik"],
+    "explanation": "Az alagút és a folyosó egyaránt járható, vízszintes kábelhelyiség – a különbség csak az, hogy a terepszint alatt (alagút) vagy felett (folyosó) van; járható szakaszon legalább 0,8 m szabad szélesség és 1,9 m szabad magasság kell. Az akna függőleges, a kábelcsatorna pedig nem feltétlenül járható, sokszor fedlapos, padlóba süllyesztett szerkezet. A homokágyas árok nem kábelhelyiség: ott a kábel közvetlenül a talajban fekszik.",
+    "source": "MSZ 13207:2000 1.22–1.27 (fogalmak), 5.2.2 (kábelalagút, kábelfolyosó méretei)"
+  },
+  {
+    "id": "II-mot-201",
+    "part": "II",
+    "topic": "motorvezerles",
+    "type": "single",
+    "difficulty": 2,
+    "points": 1,
+    "q": "Mágneskapcsolós motorindításnál a szerelő a két BE nyomógombot (záró érintkezők) egymással <b>sorba</b> kötötte, és ezt a soros ágat kötötte a 13-14 öntartó érintkezővel párhuzamosan. Hogyan működik így az indítás?",
+    "options": [
+      "A motor csak akkor indul, ha a két BE gombot egyszerre nyomják; elindulás után az öntartás tartja",
+      "A motor bármelyik BE gombbal külön is elindítható",
+      "A motor el sem indulhat, mert a két soros gomb zárlatot okoz",
+      "A motor csak addig jár, amíg mindkét BE gombot nyomva tartják"
+    ],
+    "answer": [0],
+    "wrongWhy": [
+      null,
+      "Ez a párhuzamosan kötött BE gombok működése (két helyről indítás).",
+      "Soros záró érintkezők nem okoznak zárlatot: a tekercs ágában vannak, csak mindkettő zárásakor kap a tekercs feszültséget.",
+      "Az öntartó 13-14 érintkező a gombokkal párhuzamos, ezért behúzás után a gombok elengedhetők."
+    ],
+    "explanation": "Soros záró érintkezőknél „és” kapcsolat van: a tekercs csak akkor kap feszültséget, ha az egyik ÉS a másik gomb is zár. Párhuzamosan kötve „vagy” kapcsolat lenne: bármelyik gomb indít. Ezért több helyről indításnál a BE gombokat párhuzamosan, a KI gombokat sorosan kötjük. Megjegyzés: a szabványos kétkezes biztonsági kezelőegység ennél többet követel (pl. közel egyidejű megnyomást, elengedéskor leállást), ez a kapcsolás nem helyettesíti.",
+    "source": "Háromfázisú vagy egyfázisú aszinkronmotor indítása 1–3.pdf.txt; Működtetők.pdf.txt (nyomógombos vezérlések)"
+  },
+  {
+    "id": "II-mot-202",
+    "part": "II",
+    "topic": "motorvezerles",
+    "type": "single",
+    "difficulty": 2,
+    "points": 1,
+    "q": "Melyik háromfázisú aszinkronmotornál köthető a <b>forgórész</b> áramkörébe külső indítóellenállás a kíméletes, nagy nyomatékú indításhoz?",
+    "options": [
+      "A csúszógyűrűs (tekercselt forgórészű) motornál",
+      "A kalickás (rövidrezárt forgórészű) motornál",
+      "Bármelyiknél, a kapocstábla U2-V2-W2 kapcsain keresztül",
+      "Egyiknél sem, aszinkronmotornál csak az állórész feszültsége csökkenthető"
+    ],
+    "answer": [0],
+    "wrongWhy": [
+      null,
+      "A kalickás forgórész rúdjait a végükön gyűrűk zárják rövidre, a forgórész kívülről nem hozzáférhető.",
+      "Az U2-V2-W2 az állórész tekercsvégei (csillag/delta kapcsoláshoz), nem a forgórészé.",
+      "A csúszógyűrűs motornál éppen a forgórész ellenállása változtatható."
+    ],
+    "explanation": "A háromfázisú aszinkronmotorok két fő fajtája a kalickás és a csúszógyűrűs. A kalickás egyszerű, olcsó, üzembiztos, de forgórésze rövidre zárt, ezért indítóárama csak az állórész oldalán (pl. csillag-delta, lágyindító, frekvenciaváltó) csökkenthető. A csúszógyűrűs motor forgórész-tekercsének kivezetései csúszógyűrűkön és keféken át egy indítóellenállásra köthetők: ez csökkenti az indítóáramot és növeli az indítónyomatékot, felpörgés után az ellenállást fokozatosan kiiktatják. Hátránya a bonyolultabb, drágább felépítés és a kefék karbantartása.",
+    "source": "Aszinkrongepek.pdf.txt (kalickás és csúszógyűrűs forgórész összehasonlítása); Délvil_tch/48._Villanyszerelo_JEGYZET.pdf.txt (csúszógyűrűs motor)"
+  },
+  {
+    "id": "II-mero-201",
+    "part": "II",
+    "topic": "merohely-elosztok",
+    "type": "multi",
+    "difficulty": 2,
+    "points": 2,
+    "q": "Mely feladatok, készülékek tartoznak az MSZ 447:2019 szerint a <b>csatlakozó főelosztóhoz</b>? (Rossz jelölés pontlevonással jár.)",
+    "options": [
+      "A csatlakozóvezeték fogadása",
+      "Az első túláramvédelmi készülék elhelyezése",
+      "Túlfeszültség-védelmi eszköz és tűzeseti főkapcsoló elhelyezése",
+      "A lakás dugaszolóaljzat-áramköreinek 30 mA-es áram-védőkapcsolói",
+      "A lakás világítási áramköreinek kismegszakítói"
+    ],
+    "answer": [0, 1, 2],
+    "wrongWhy": [
+      null,
+      null,
+      null,
+      "A csatlakozó főelosztó a méretlen hálózat része; áram-védőkapcsoló csak a mért felhasználói hálózatban alkalmazható.",
+      "Az áramköri kismegszakítók a mérő utáni fogyasztói (lakás-) elosztóba kerülnek."
+    ],
+    "explanation": "A csatlakozó főelosztó a méretlen felhasználói hálózat központi elosztóberendezése: itt végződik a csatlakozóvezeték, itt van az első túláramvédelmi készülék, a túlfeszültség-védelmi eszköz és a tűzeseti főkapcsoló, és innen indul a betápláló vagy leágazó fővezeték. TN rendszerben elsősorban itt választják szét a PEN-t PE-re és N-re. A lakás áramköreinek védelmei (kismegszakítók, ÁVK) a fogyasztásmérő utáni, mért részbe tartoznak.",
+    "source": "MSZ 447:2019 fogalmak (mee-vet-2019-msz447.pdf.txt: csatlakozó főelosztó, betápláló fővezeték)"
+  }
+]

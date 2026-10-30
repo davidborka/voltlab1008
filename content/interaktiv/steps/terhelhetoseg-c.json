@@ -1,0 +1,14 @@
+{
+  "III-terh-201": {
+    "given": ["Ugyanaz a vezeték (keresztmetszet, szigetelés, szerelési mód)", "Kérdés: mitől függ a megengedett tartós áram"],
+    "steps": [
+      { "do": "Mit keresünk? Mi szabja meg, mekkora áramot vezethet egy vezeték tartósan károsodás nélkül.",
+        "why": "A vezető ellenállásán az áram hőt termel: P<sub>v</sub> = I²·R (Alapok: F5 Munka, teljesítmény, energia, hő)." },
+      { "do": "A hő a szigetelést melegíti; a megengedett tartós áram az, amelynél a szigetelés éppen a határhőmérsékletén (PVC: 70 °C) marad.", "calc": "P<sub>v</sub> = I²·R → csak az áramtól és az ellenállástól függ",
+        "why": "Alapok: F10 Melegedés és hőmérsékletfüggés." },
+      { "do": "A feszültség nem szerepel a hőtermelésben, ezért 230 V-on és 400 V-on ugyanannyi a terhelhetőség; ha a környezet melegebb, kevesebb hő adható le, ezért kisebb áram engedhető meg (k1 &lt; 1).",
+        "why": "A korrekciós tényezők (hőmérséklet, csoportosítás) mind a hőleadást írják le (MSZ HD 60364-5-52)." }
+    ],
+    "check": "Igaz–igaz–igaz–hamis: a feszültség a szigetelés feszültségállóságát és a feszültségesést befolyásolja, a tartós áramot nem."
+  }
+}

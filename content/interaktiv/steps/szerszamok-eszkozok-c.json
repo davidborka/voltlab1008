@@ -1,0 +1,11 @@
+{
+  "I-szer-201": {
+    "given": ["méréshatár: U<sub>mh</sub> = 300 V", "skálaterjedelem: 150 osztás", "kitérés: α = 115 osztás"],
+    "steps": [
+      { "do": "Mit keresünk? A valódi feszültséget, amit a mutató jelez. A skálán csak osztások vannak, ezért ki kell számolni, hány volt egy osztás.", "why": "Teljes kitérés (150 osztás) a méréshatárnak felel meg, a kitérés egyenesen arányos a mért feszültséggel (Alapok: M3 Tört, reciprok, arány)." },
+      { "do": "Műszerállandó: egy osztás értéke = méréshatár / skálaterjedelem.", "calc": "C = 300 V / 150 osztás = 2 V/osztás" },
+      { "do": "Mért érték = kitérés · műszerállandó.", "calc": "U = 115 osztás · 2 V/osztás = 230 V", "why": "Az „osztás” mértékegység kiesik, V marad (Alapok: M1 Mértékegységek és előtagok)." }
+    ],
+    "check": "115 osztás a 150-ből kb. 77 %; 300 V 77 %-a ≈ 230 V – ez a hálózati fázisfeszültség, tehát hihető."
+  }
+}

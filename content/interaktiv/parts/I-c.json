@@ -1,0 +1,250 @@
+[
+  {
+    "id": "I-rajz-201",
+    "part": "I",
+    "topic": "rajzjelek-anyagjegyzek",
+    "type": "match",
+    "difficulty": 2,
+    "points": 5,
+    "q": "Párosítsa a villamos rajzfajtát azzal, amit elsősorban megmutat!",
+    "pairs": [
+      ["áttekintési rajz", "a berendezés fő részeit és működését egyszerűsítve, részletek nélkül"],
+      ["áramutas rajz", "az áramkörök működését részletesen, az áram útja szerint kiterítve"],
+      ["készülékhuzalozási rajz", "egy készülék összes belső és külső vezetékes összeköttetését, kapcsonként"],
+      ["bekötési rajz", "az összekapcsolt készülékek közötti csatlakozásokat (melyik vezeték melyik készülékbe megy)"],
+      ["elrendezési rajz", "a készülékek, szerelvények valóságos elhelyezkedését a berendezésben"]
+    ],
+    "distractors": ["az egyes anyagok mennyiségét tételenként, mértékegységgel"],
+    "explanation": "A rajzfajták a részletesség szerint épülnek egymásra: az áttekintési rajz csak a nagy egységeket és kapcsolatukat mutatja; az áramutas rajz a működést, kapcsolónként, tekercsenként; a huzalozási és bekötési rajz azt, hogy fizikailag melyik kapocsra melyik vezeték kerül; az elrendezési rajz azt, hol áll a készülék. Tipikus hiba az áramutas és a huzalozási rajz összekeverése: az áramutas rajzból értjük meg a működést, a huzalozásiból kötjük be a szekrényt. A mennyiségek az anyagjegyzékben szerepelnek, nem rajzon.",
+    "source": "Délvil_tch/48._Villanyszerelo_JEGYZET.pdf.txt (kapcsolási rajzok fajtái); villanyszerelés ÚJ gyak könyv/Villamosrajz.pdf.txt"
+  },
+  {
+    "id": "I-kesz-201",
+    "part": "I",
+    "topic": "keszulekek-szerelvenyek",
+    "type": "single",
+    "difficulty": 2,
+    "points": 1,
+    "q": "Egy anyagjegyzékben egyetlen lámpakörhöz ez szerepel: <b>2 db 106-os és 1 db 107-es</b> süllyesztett kapcsoló. Hány helyről kapcsolható a lámpa?",
+    "options": [
+      "3 helyről",
+      "2 helyről",
+      "1 helyről, két külön lámpacsoportra",
+      "4 helyről"
+    ],
+    "answer": [0],
+    "wrongWhy": [
+      null,
+      "Két helyhez elég a két 106-os váltókapcsoló; a 107-es keresztkapcsoló egy további kapcsolási helyet ad.",
+      "Ez a csillárkapcsoló (105-ös) feladata lenne.",
+      "Négy helyhez két keresztkapcsoló (2 db 107-es) kellene."
+    ],
+    "explanation": "A szerelvények típusszámának utolsó számjegye a kapcsolási funkciót jelöli: …1 egypólusú, …2 kétpólusú, …3 hárompólusú, …5 csillárkapcsoló (kétáramkörös), …6 váltókapcsoló, …7 keresztkapcsoló. A 106-os tehát váltó-, a 107-es keresztkapcsoló. Két váltó a lánc két végén, közöttük egy kereszt: ez a keresztkapcsolás, három kapcsolási hellyel. Ökölszabály: helyek száma = 2 + keresztkapcsolók száma.",
+    "source": "Délvil_tch/48._Villanyszerelo_JEGYZET.pdf.txt (világítási kapcsolók számozása, hétféle kapcsoló)"
+  },
+  {
+    "id": "I-kesz-202",
+    "part": "I",
+    "topic": "keszulekek-szerelvenyek",
+    "type": "single",
+    "difficulty": 1,
+    "points": 1,
+    "q": "Egy műhelycsarnok lámpáit mindhárom fázisra elosztva kötötték be. A teljes csoportot egy helyről, egyetlen kapcsolóval kell kapcsolni. Melyik szerelvény alkalmas erre?",
+    "options": [
+      "Hárompólusú (103-as) kapcsoló, 400 V-os kivitelben",
+      "Kétpólusú (102-es) kapcsoló",
+      "Csillárkapcsoló (105-ös)",
+      "Váltókapcsoló (106-os)"
+    ],
+    "answer": [0],
+    "wrongWhy": [
+      null,
+      "Két vezetőt bont (pl. fázist és nullát), a harmadik fázis lámpái égve maradnának.",
+      "Két lámpakört kapcsol külön-külön, nem három fázist egyszerre.",
+      "Egy lámpát két helyről kapcsol; itt egy hely kell, három fázissal."
+    ],
+    "explanation": "A hárompólusú kapcsoló egy mozdulattal mindhárom fázisvezetőt bontja, ezért 400 V-os (vonali feszültségű) kivitelű. Ilyen háromsarkú kapcsolást nagy teljesítményű, háromfázisra szétosztott világításnál (terem, csarnok) alkalmaznak. Nagyobb terhelésnél a kapcsoló helyett gyakran mágneskapcsolót vezérelnek nyomógombról.",
+    "source": "Délvil_tch/48._Villanyszerelo_JEGYZET.pdf.txt (egy-, két- és háromsarkú kapcsolás)"
+  },
+  {
+    "id": "I-kesz-203",
+    "part": "I",
+    "topic": "keszulekek-szerelvenyek",
+    "type": "truefalse",
+    "difficulty": 2,
+    "points": 4,
+    "q": "Döntse el, igazak vagy hamisak a mágneskapcsoló (kontaktor) segédérintkezőire vonatkozó állítások!",
+    "statements": [
+      { "text": "A segédérintkezők száma és fajtája típusonként eltér, és sok típusnál ráépíthető (rápattintható) segédérintkező-blokkal bővíthető.", "answer": true },
+      { "text": "Minden mágneskapcsolóban gyárilag van legalább egy záró és egy nyitó segédérintkező.", "answer": false },
+      { "text": "A segédérintkezők a vezérlőáramkörben dolgoznak (öntartás, reteszelés, jelzés); a motor áramát a főérintkezők kapcsolják.", "answer": true },
+      { "text": "Ha reteszeléshez nyitó segédérintkező kellene, de a kontaktoron csak 13-14 záró van, a záró érintkező is megfelel erre a célra.", "answer": false }
+    ],
+    "explanation": "A főérintkezők (jellemzően három záró) mellett a segédérintkezők kiépítése gyártó- és típusfüggő: van, amelyiken egy záró, van, amelyiken egy nyitó, és a legtöbb típus felpattintható blokkal bővíthető. Ezért nem igaz, hogy minden kontaktorban eleve van záró és nyitó is – a kiválasztásnál az adatlapot kell nézni. A reteszeléshez nyitó (21-22) érintkező kell, mert annak éppen behúzott állapotban kell bontania a másik kontaktor ágát; záró érintkező ezt nem tudja.",
+    "source": "Délvil_tch/48._Villanyszerelo_JEGYZET.pdf.txt 8.3 (a segédérintkezők száma gyártótól és típustól függ, bővíthető); Működtetők.pdf.txt"
+  },
+  {
+    "id": "I-kesz-204",
+    "part": "I",
+    "topic": "keszulekek-szerelvenyek",
+    "type": "single",
+    "difficulty": 1,
+    "points": 1,
+    "q": "Egy üzemi elosztószekrényben minden motorleágazás (védelem, kontaktor, esetleg frekvenciaváltó) egy-egy kihúzható fiókban van, a kábelezés a szekrény hátulján fut. Mi ennek a szekrénynek a szakmai neve?",
+    "options": [
+      "Motorvezérlő központ (MCC, „fiókos szekrény”)",
+      "Csatlakozó főelosztó",
+      "Fogyasztásmérő szekrény",
+      "19 colos rack-szekrény"
+    ],
+    "answer": [0],
+    "wrongWhy": [
+      null,
+      "A csatlakozó főelosztó a csatlakozóvezetéket fogadja és az első túláramvédelmet tartalmazza, nem motorleágazásokat.",
+      "Abban a fogyasztásmérő és a mérő előtti védelem van, zárópecsételhető kivitelben.",
+      "A rack-szekrény informatikai eszközöknek való, U egységekben mérve."
+    ],
+    "explanation": "Az MCC (Motor Control Center) az energiaelosztó szekrények egy fajtája: a motorleágazások egységes, csúsztatható fiókokban vannak, ipari csatlakozókkal a hátsó oldalon. Előnye, hogy hiba esetén a teljes fiókot cserélik, vezetékezési munka nélkül, akár a többi leágazás üzeme közben. Tipikus hely: vízmű, ipari üzem, sok motor egy helyen.",
+    "source": "villanyszerelo-jegyzet.pdf.txt (energiaelosztó szekrények, motorvezérlő központok – MCC)"
+  },
+  {
+    "id": "I-kesz-205",
+    "part": "I",
+    "topic": "keszulekek-szerelvenyek",
+    "type": "match",
+    "difficulty": 2,
+    "points": 5,
+    "q": "Az olvadóbetéten a két betűs jel (üzemi osztály) mutatja, mire készült a betét. Párosítsa a jelet a védett berendezéssel!",
+    "pairs": [
+      ["gG (régi jele gL)", "vezetékek és általános fogyasztók teljes tartományú (túlterhelés és zárlat elleni) védelme"],
+      ["aM", "motorok zárlatvédelme; a túlterhelést külön hőkioldó védi"],
+      ["gR / aR", "félvezetők (tirisztor, dióda, egyenirányító) gyors védelme"],
+      ["gTr", "transzformátorok védelme"],
+      ["gPV", "napelemes rendszer egyenáramú (DC) oldala"]
+    ],
+    "distractors": ["földzárlat és hibaáram érzékelése az áram-védőkapcsoló helyett"],
+    "explanation": "Az első betű a megszakítási tartomány: g = teljes tartományú (túlterhelésre és zárlatra is old), a = részleges tartományú (csak nagy, zárlati áramnál old). A második betű a védett tárgy: G általános, M motor, R félvezető (rectifier), Tr transzformátor, PV napelem. Ezért aM betét mellé mindig kell túlterhelés-védelem. Olvadóbiztosító semmilyen osztályban nem érzékel hibaáramot – az az ÁVK feladata.",
+    "source": "MSZ EN 60269-1 és -4, -6 (olvadóbiztosítók üzemi osztályai); villanyszerelo-jegyzet.pdf.txt (túláramvédelem)"
+  },
+  {
+    "id": "I-kesz-206",
+    "part": "I",
+    "topic": "keszulekek-szerelvenyek",
+    "type": "single",
+    "difficulty": 2,
+    "points": 1,
+    "q": "Egy alelosztó leágazását <b>25 A-es gG</b> olvadóbetét védi, előtte a főelosztóban szintén gG betét van. Az ökölszabály szerint legalább mekkora legyen az előtte lévő betét, hogy túláramnál csak a 25 A-es olvadjon ki?",
+    "options": ["25 A", "32 A", "35 A", "40 A"],
+    "answer": [3],
+    "wrongWhy": [
+      "Azonos betéteknél nem dönthető el, melyik olvad ki előbb; akár mindkettő kiolvadhat.",
+      "32/25 = 1,28 – kisebb a szükséges 1,6-os aránynál, a szelektivitás nem biztos.",
+      "35/25 = 1,4 – még mindig kisebb az 1,6-os aránynál.",
+      null
+    ],
+    "explanation": "gG olvadóbetétek között a szelektivitás akkor biztosított, ha a betáplálás felőli betét névleges árama legalább 1,6-szorosa a fogyasztó felőlinek (az MSZ EN 60269 szerinti 1:1,6 arány; régebbi jegyzetekben „legalább két fokozat különbség”). Itt 25 A · 1,6 = 40 A, ez a szabványos sorban (25, 32, 35, 40, 50, 63 A) éppen létezik. A szelektivitás célja, hogy hibánál csak a hibához legközelebbi védelem működjön, a többi leágazás üzemben maradjon.",
+    "source": "MSZ EN 60269-1 (gG betétek szelektivitási aránya); vizsga feladat sorok/34_522_04_1_15T (két egymás utáni olvadóbiztosító szelektivitása)"
+  },
+  {
+    "id": "I-kesz-207",
+    "part": "I",
+    "topic": "keszulekek-szerelvenyek",
+    "type": "group",
+    "difficulty": 2,
+    "points": 4,
+    "q": "Csoportosítsa a kapcsolókészülékeket aszerint, hogy legfeljebb milyen áramot képesek biztonságosan megszakítani!",
+    "groups": [
+      "Csak terheletlen (árammentes) állapotban bontható",
+      "Üzemi (terhelő) áramot megszakít, zárlati áramot nem",
+      "Zárlati áramot is megszakít"
+    ],
+    "items": [
+      { "text": "szakaszoló (leválasztó)", "group": 0 },
+      { "text": "terhelés-szakaszoló (pl. a lakáselosztó főkapcsolója)", "group": 1 },
+      { "text": "mágneskapcsoló (kontaktor)", "group": 1 },
+      { "text": "kismegszakító", "group": 2 },
+      { "text": "ipari (kompakt) megszakító", "group": 2 },
+      { "text": "motorvédő kapcsoló", "group": 2 }
+    ],
+    "explanation": "A kapcsolókészülékeket megszakítóképességük szerint csoportosítjuk. A szakaszoló csak látható vagy biztos bontási távolságot ad, terhelés alatt nem szabad nyitni, mert ív keletkezik. A terhelés-szakaszoló és a mágneskapcsoló az üzemi áramot ívoltással megszakítja, de a zárlati áramot nem – elé zárlatvédelem kell. A megszakítók (kismegszakító, kompakt megszakító, motorvédő kapcsoló) a beállított zárlati megszakítóképességükig a zárlatot is lekapcsolják. Tipikus hiba a mágneskapcsolót zárlatvédelemnek tekinteni.",
+    "source": "MSZ EN 60947-2, -3, -4-1 (megszakítók, szakaszolók, kontaktorok); villanyszerelo-jegyzet.pdf.txt (megszakítóképesség)"
+  },
+  {
+    "id": "I-kesz-208",
+    "part": "I",
+    "topic": "keszulekek-szerelvenyek",
+    "type": "multi",
+    "difficulty": 2,
+    "points": 2,
+    "q": "Egy IP65-ös műanyag elosztódobozt a ház déli falára, védőtető nélkül, közvetlen napsütésnek és esőnek kitett helyre szerelnek. Mit kell a kiválasztásnál az IP-kódon túl még ellenőrizni? (Rossz jelölés pontlevonással jár.)",
+    "options": [
+      "A burkolat és a tömítés UV-álló-e",
+      "Elviseli-e a beépített készülékekkel együtt a napsütés okozta felmelegedést",
+      "Elég-e az ütés elleni védettsége (IK-fokozata), ha mechanikai sérülés érheti",
+      "Semmit, mert az IP65 a kültéri alkalmasságot is magában foglalja",
+      "Hogy az IP-kód első számjegye megfelel-e a vízsugár elleni védelemnek"
+    ],
+    "answer": [0, 1, 2],
+    "wrongWhy": [
+      null,
+      null,
+      null,
+      "Az IP-kód csak a szilárd testek és a víz bejutása elleni védelmet írja le; UV-állóságról, hőterhelésről nem mond semmit.",
+      "Az első számjegy a szilárd testek (por) elleni védelem; a víz elleni védelmet a második számjegy adja."
+    ],
+    "explanation": "Kültéren az IP-besorolás önmagában kevés: a napfény UV-sugárzása a nem UV-álló műanyagot és tömítést rideggé teszi, megreped, és utána már az IP-védettség sem igaz. A közvetlen napsütés a szekrény belsejét jelentősen felmelegíti, ami a beépített készülékek (kismegszakító, tápegység) terhelhetőségét csökkenti. Ütésnek kitett helyen az IK-fokozatot is meg kell nézni. Ökölszabály: IP55 alatti dobozt csak védőtetővel tegyünk kültérre.",
+    "source": "villanyszerelo-jegyzet.pdf.txt 6.1.7 Kültéri tokozatok és szerelésük"
+  },
+  {
+    "id": "I-kesz-209",
+    "part": "I",
+    "topic": "keszulekek-szerelvenyek",
+    "type": "single",
+    "difficulty": 2,
+    "points": 1,
+    "q": "Áramváltós (félközvetlen) mérésnél ki kell cserélni a fogyasztásmérőt, miközben a primer vezetékeken áram folyik. Mi a teendő az áramváltó szekunder körével, mielőtt a mérő áramkapcsait bontják?",
+    "options": [
+      "Rövidre kell zárni (pl. a mérőváltó-sorkapocs rövidrezáró hídjával), és csak ezután szabad a mérő felé bontani",
+      "Nincs teendő, a szekunder kör kis feszültségű, a mérő egyszerűen lecsavarható",
+      "A szekunder körbe szerelt biztosítót kell kiemelni",
+      "Egy voltmérőt kell párhuzamosan a szekunder kapcsokra kötni a feszültség figyelésére"
+    ],
+    "answer": [0],
+    "wrongWhy": [
+      null,
+      "Terhelés nélkül (nyitott szekunderrel) az áramváltón veszélyesen nagy feszültség keletkezik, és a vasmag túlmelegszik.",
+      "Az áramváltó szekunder körébe éppen ezért nem tesznek túlterhelés-védelmet: a kör megszakadása maga a veszély.",
+      "A voltmérő nagy ellenállású, gyakorlatilag nyitott kört jelent – nem helyettesíti a rövidre zárást."
+    ],
+    "explanation": "Az áramváltó primer tekercse sorosan van a mérendő vezetékben, a szekunder áramot a primer áram szabja meg, nem a terhelés. Ha a szekunder kört üzem közben megszakítják, ez az áram nem tud folyni, a vasmag telítődik, a kapcsokon életveszélyes feszültség jelenik meg és a váltó tönkremehet. Ezért a mérő vagy műszer cseréje előtt a szekunder kört rövidre zárják, és a szekunder körbe túlterhelés-védelmet sem építenek be. Mérőváltók szekunder körein csak erre jogosult, kioktatott személy dolgozhat.",
+    "source": "villanyszerelo-jegyzet.pdf.txt és 10_4/Villbizjegyzet.pdf.txt (áramváltók szekunder köre: túlterhelés-védelem elhagyása); MSZ 1585:2016 6.3.10 (munka mérőváltók szekunder körein); vizsga feladat sorok/34_522_04_1_15T"
+  },
+  {
+    "id": "I-kab-201",
+    "part": "I",
+    "topic": "kabel-szerkezet",
+    "type": "number",
+    "difficulty": 2,
+    "points": 2,
+    "q": "Egy kábel 100 m-es darabján a vezető és a köpeny közötti szigetelési ellenállás <b>400 MΩ</b> volt. Közelítőleg mekkora szigetelési ellenállást mérne ugyanennek a kábeltípusnak egy <b>400 m-es</b> darabján, azonos hőmérsékleten?",
+    "fields": [
+      { "label": "szigetelési ellenállás 400 m-en", "unit": "MΩ", "answer": 100, "tol": 0.02 }
+    ],
+    "explanation": "A szigetelésen át a szivárgó áram a kábel teljes hosszán, sok párhuzamos úton folyik. Hosszabb kábelnél több ilyen út van egymás mellett, ezért a szigetelési ellenállás a hosszal fordítottan arányos: négyszeres hossz → negyedakkora ellenállás, 400 MΩ · 100/400 = 100 MΩ. Ezért adják meg a gyártók MΩ·km-ben. Tipikus hiba a vezető ellenállásával összekeverni, ami a hosszal nő. A szerelői ellenőrzés 1 MΩ-os határa áramkörre vonatkozik, nem méterre.",
+    "source": "Fizikai alapösszefüggés (párhuzamos szivárgási utak); MSZ HD 60364-6 (szigetelési ellenállás mérése)"
+  },
+  {
+    "id": "I-szer-201",
+    "part": "I",
+    "topic": "szerszamok-eszkozok",
+    "type": "number",
+    "difficulty": 1,
+    "points": 2,
+    "q": "Egy mutatós (analóg) voltmérő <b>300 V-os</b> méréshatáron van, a skála <b>150 osztásos</b>. A mutató a <b>115.</b> osztáson áll. Mekkora a mért feszültség?",
+    "fields": [
+      { "label": "mért feszültség", "unit": "V", "answer": 230, "tol": 0.01 }
+    ],
+    "explanation": "Először a műszerállandót számoljuk: egy osztás értéke = méréshatár / skálaterjedelem = 300 V / 150 osztás = 2 V/osztás. A mért érték = kitérés · műszerállandó = 115 · 2 V = 230 V. Tipikus hiba a skála számait közvetlenül leolvasni (115 V), vagy fordítva osztani. Méréshatár-váltáskor a műszerállandó is változik, ezért mindig újra számoljuk.",
+    "source": "Ép_vil_mérés_Gy/Villamos műszerek.pdf.txt (műszerállandó, méréshatár)"
+  }
+]
