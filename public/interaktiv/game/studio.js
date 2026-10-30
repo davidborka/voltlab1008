@@ -650,7 +650,7 @@ async function loadHost(url) {
     const mixer = new THREE.AnimationMixer(model), actions = {};
     for (const clip of gltf.animations) {
       const name = clip.name.toLowerCase();
-      for (const want of ['idle', 'talk', 'cheer', 'sad', 'think']) if (!actions[want] && (name === want || name.includes(want))) actions[want] = mixer.clipAction(clip);
+      for (const want of ['idle', 'talk', 'cheer', 'sad', 'think', 'wave', 'point', 'nervous', 'facepalm', 'dance']) if (!actions[want] && (name === want || name.includes(want))) actions[want] = mixer.clipAction(clip);
     }
     let filament = null;
     model.traverse(x => { if (!filament && /filament/i.test(x.name)) filament = x; });
@@ -742,7 +742,9 @@ const Studio = {
     if (!S) return;
     S.hostAction = action;
     const h = S.host; if (!h) return;
-    const next = h.actions[String(action).toLowerCase()];
+    // newer actions fall back to the closest basic one when the model doesn't have them
+    const FALL = { wave: 'cheer', point: 'talk', nervous: 'think', facepalm: 'sad', dance: 'cheer' };
+    const want = String(action).toLowerCase(), next = h.actions[want] || h.actions[FALL[want]];
     if (!next || next === h.cur) return;
     next.reset().setEffectiveWeight(1).play();
     if (h.cur) h.cur.crossFadeTo(next, 0.35, false);

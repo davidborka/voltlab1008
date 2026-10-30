@@ -42,6 +42,26 @@ const SFX = (() => {
     bad() { if (play('bad')) return; tone(110, { type: 'sawtooth', d: 0.9, vol: 0.22, slide: 70 }); tone(55, { type: 'square', at: 0.02, d: 0.25, vol: 0.25 }); noise({ d: 0.15, vol: 0.3, hp: 200, lp: 2000 }); },
     cert() { if (play('cert')) return; [392, 523, 659, 784, 1047].forEach((f, i) => tone(f, { type: 'triangle', at: i * 0.11, d: 0.9, vol: 0.2 })); noise({ at: 0.5, d: 0.8, vol: 0.12, hp: 4000 }); },
     win() { play('applause', 0.6); if (play('win')) return; [262, 330, 392, 523, 392, 523, 659, 1047].forEach((f, i) => tone(f, { type: 'triangle', at: i * 0.14, d: 1.1, vol: 0.2 })); for (let i = 0; i < 6; i++) noise({ at: 0.3 + i * 0.25, d: 0.4, vol: 0.12, hp: 3000 }); },
+    // rotary dial: each digit = n short clicks, then a pause
+    async dial(digits = '06 1 230 400') {
+      const c = ac(); let t = 0.1;
+      for (const d of digits.replace(/\s/g, '')) { const n = +d || 10; for (let k = 0; k < n; k++) { noise({ at: t, d: 0.012, vol: 0.35, hp: 1500, lp: 6000 }); tone(900, { type: 'square', at: t, d: 0.01, vol: 0.05 }); t += 0.065; } t += 0.28; }
+      return new Promise(r => setTimeout(r, t * 1000));
+    },
+    // Hungarian ring-back: 425 Hz, 1 s on / 4 s off; we play `n` short rings
+    ring(n = 2) { for (let i = 0; i < n; i++) { tone(425, { type: 'sine', at: i * 1.6, a: 0.02, d: 1.0, vol: 0.12 }); tone(450, { type: 'sine', at: i * 1.6, a: 0.02, d: 1.0, vol: 0.06 }); } return new Promise(r => setTimeout(r, n * 1600)); },
+    pickup() { noise({ d: 0.05, vol: 0.4, hp: 300, lp: 3000 }); tone(120, { type: 'square', d: 0.04, vol: 0.12 }); },
+    hangup() { noise({ d: 0.08, vol: 0.4, hp: 200, lp: 2500 }); [0.15, 0.45, 0.75].forEach(at => tone(425, { at, d: 0.2, vol: 0.08 })); },
+    hiss(on) {
+      const c = ac();
+      if (this._hiss) { this._hiss.stop(); this._hiss = null; }
+      if (!on) return;
+      const n = c.sampleRate * 2, b = c.createBuffer(1, n, c.sampleRate), x = b.getChannelData(0);
+      for (let i = 0; i < n; i++) x[i] = (Math.random() * 2 - 1) * (Math.random() < 0.002 ? 1 : 0.15);
+      const s = c.createBufferSource(), f = c.createBiquadFilter(), g = c.createGain();
+      s.buffer = b; s.loop = true; f.type = 'bandpass'; f.frequency.value = 1800; f.Q.value = 0.7; g.gain.value = 0.04;
+      s.connect(f).connect(g).connect(master); s.start(); this._hiss = s;
+    },
     // the "thinking" bed: mains hum with a slow pulse, louder under tension
     bed(on, tense = false) {
       const c = ac();
@@ -74,6 +94,9 @@ const Voice = (() => {
     time: ['Lejárt az idő! Az óra nem vár, ahogy a lépcsőházi automata sem.', 'Csend a vonalban... ez szakadást jelent. Lejárt az idő.'],
     half: ['Felezünk! Fáziskereső elő, és két rossz válasz kialudt!', 'Felezés! Két válasz ment a szelektív hulladékba.'],
     book: ['Szabványkönyv! Lapozzon csak, a szabvány nem harap. Csak néha.'],
+    phone: ['Felhívjuk Teslát! Remélem, nem zárlatos a vonal.', 'Tárcsázom a zsenit! Nikola, vegye fel, kérem!'],
+    tesla_hi: ['Halló? Tesla beszél. Áramról van szó? Akkor jó helyen jár, fiatalember.', 'Igen, itt Nikola. Épp egy hatalmas szikrával kísérletezem, de önre mindig van időm.', 'Halló! Váltakozó áramban beszélek, remélem, jól hall. Lássuk azt a kérdést!'],
+    tesla_bye: ['Sok sikert! És ne feledje: előbb feszültségmentesítünk, aztán dolgozunk!', 'Ennyi volt, búcsúzom. Az áram legyen önnel!'],
     swap: ['Csere! Ezt a kérdést visszaküldjük a raktárba.'],
     cert: ['Gratulálok, megvan a bizonyítvány! Ezt már senki nem veszi el, még a revizor sem.', 'Bizonyítvány a zsebben! Ha most hibázik, legfeljebb idáig esik vissza.'],
     stop: ['Okos döntés. Az okos villanyszerelő tudja, mikor kell lekapcsolni.'],
@@ -91,9 +114,21 @@ const Voice = (() => {
       this.stop();
       if (SFX.muted) return new Promise(r => setTimeout(r, Math.min(2500, 600 + list[i].length * 25)));
       const a = new Audio(`game/voice/${kind}_${i + 1}.mp3`); cur = a;
-      try { window.Studio3D?.host?.('talk'); } catch { /* no studio */ }
-      return new Promise(r => { a.onended = a.onerror = () => { try { window.Studio3D?.host?.('idle'); } catch { /* no studio */ } r(); }; a.play().catch(() => r()); });
+      // plain talking lines animate the mouth; reaction lines (ok/bad/lock/...) keep the gesture the game set
+      const talk = ['intro', 'easy', 'mid', 'hard', 'phone', 'half', 'swap', 'stop', 'over'].includes(kind);
+      if (talk) try { window.Studio3D?.host?.('talk'); } catch { /* no studio */ }
+      return new Promise(r => { a.onended = a.onerror = () => { if (talk) try { window.Studio3D?.host?.('idle'); } catch { /* no studio */ } r(); }; a.play().catch(() => r()); });
     },
     stop() { if (cur) { cur.pause(); cur = null; } },
+    // plays one file, no subtitle callback (Tesla's per-question answer); resolves at the end
+    file(src, fallbackMs = 4000) {
+      this.stop();
+      if (SFX.muted) return new Promise(r => setTimeout(r, fallbackMs));
+      const a = new Audio(src); cur = a;
+      return new Promise(r => { a.onended = a.onerror = () => r(); a.play().catch(() => r()); });
+    },
+    lines: LINES,
+    // the rank-up line for rank n (game/voice/rank_n.mp3)
+    rank(n, text) { onLine(text); return this.file(`game/voice/rank_${n}.mp3`, 2500); },
   };
 })();

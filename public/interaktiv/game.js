@@ -5,27 +5,27 @@
 // (game/studio.js, three.js) is optional: without WebGL the show still runs on the CSS stage.
 
 const RANKS = [
-  { name: 'Óvodás', sub: 'Mi az a konnektor?', d: 1 },
-  { name: 'Elemcserélő', sub: 'A távirányító hőse', d: 1 },
-  { name: 'Izzócserélő', sub: 'Már tudja, merre kell tekerni', d: 1 },
-  { name: 'Tanuló', sub: 'Első kesztyű, első szerszámláda', d: 1, cert: 'Tanulóigazolvány' },
-  { name: 'Szakmunkástanuló', sub: 'Fúr, falat vés, kérdez', d: 1 },
-  { name: 'Segédszerelő', sub: 'Tudja, mi az a WAGO', d: 2 },
-  { name: 'Villanyszerelő', sub: 'Bizonyítvánnyal a zsebében', d: 2 },
-  { name: 'Villanyszerelő mester', sub: 'Az elosztótábla ura', d: 2, cert: 'Mesterlevél' },
-  { name: 'Érintésvédelmi felülvizsgáló', sub: 'Minden hurkot megmér', d: 2 },
-  { name: 'Villamos tervező', sub: 'Már papíron is működik', d: 2 },
-  { name: 'Villamosmérnök', sub: 'Képletekben álmodik', d: 3 },
-  { name: 'Georg Simon Ohm', sub: 'U = I · R atyja', d: 3, cert: 'Ohm-érem' },
-  { name: 'Michael Faraday', sub: 'Az indukció felfedezője', d: 3 },
-  { name: 'James Clerk Maxwell', sub: 'Négy egyenlet, egy világ', d: 3 },
-  { name: 'Nikola Tesla', sub: 'A váltakozó áram zsenije', d: 3 },
-  { name: 'Albert Einstein', sub: 'Über-zseni fokozat', d: 3, cert: 'Einstein-díj' },
+  { name: "Óvodás", sub: "A konnektort csak messziről csodálja", d: 1, say: "Gratulálok, ön hivatalosan is óvodás! A konnektort továbbra is csak nézzük, nem piszkáljuk." },
+  { name: "Elemcserélő", sub: "A távirányító nagy hőse", d: 1, say: "Elemcserélő lett! A tévétávirányító mostantól önre néz fel." },
+  { name: "Izzócserélő", sub: "Már tudja, merre kell tekerni", d: 1, say: "Izzócserélő! Már tudja, merre kell tekerni. A létrát is tartja valaki? Remélem." },
+  { name: "Tanuló", sub: "Első kesztyű, első szerszámláda", d: 1, cert: 'Tanulóigazolvány', say: "Megvan a tanulóigazolvány! Kesztyű a kézen, szerszámláda a vállon, az élet szép." },
+  { name: "Kábelhúzó inas", sub: "Ő hozza a dobot és a kávét", d: 1, say: "Kábelhúzó inas! Ön hozza a kábeldobot, és ha jó napja van, a kávét is." },
+  { name: "WAGO-bajnok", sub: "Három érkötés, nulla szigszalag", d: 2, say: "WAGO-bajnok! Három ér, egy kattanás, és a szigszalag sértődötten néz a sarokból." },
+  { name: "Dobozvéső virtuóz", sub: "A falban él, a port lélegzi", d: 2, say: "Dobozvéső virtuóz! A szomszédok már tudják a nevét. Főleg reggel hétkor." },
+  { name: "Elosztótábla-suttogó", sub: "A kismegszakítók név szerint ismerik", d: 2, cert: 'Mesterlevél', say: "Mesterlevél a zsebben! Ön az elosztótábla-suttogó: a kismegszakítók név szerint köszönnek önnek." },
+  { name: "Hurokimpedancia-vadász", sub: "Nincs hurok, amit ne mérne meg", d: 2, say: "Hurokimpedancia-vadász! Nincs olyan hurok, ami elbújhatna ön elől." },
+  { name: "Szabványkönyv-faló", sub: "A szabványt esti meseként olvassa", d: 2, say: "Szabványkönyv-faló! Ön az, aki a szabványt esti meseként olvassa. És még élvezi is." },
+  { name: "Áramkör-bűvész", sub: "Papíron is működik, élőben is", d: 3, say: "Áramkör-bűvész! Önnél nemcsak papíron működik a terv, hanem élőben is. Ritka madár!" },
+  { name: "Georg Simon Ohm", sub: "Teljesen ellenállhatatlan", d: 3, cert: 'Ohm-érem', say: "Ohm-érem! Ön mostantól Georg Simon Ohm szintjén áll. Teljesen ellenállhatatlan!" },
+  { name: "Michael Faraday", sub: "Ketrecben is boldog", d: 3, say: "Faraday szint! Önt még egy Faraday-kalitkában sem zavarja semmi." },
+  { name: "James Clerk Maxwell", sub: "Négy egyenlet, nulla stressz", d: 3, say: "Maxwell szint! Négy egyenlet, nulla stressz. Mi jöhet még?" },
+  { name: "Nikola Tesla", sub: "Kétszázharminc voltos frizurával ébred", d: 3, say: "Tesla szint! Önnek reggelente magától feláll a haja. Váltakozó áramban, természetesen." },
+  { name: "Albert Einstein", sub: "Relatíve zseni, abszolút bajnok", d: 3, cert: 'Einstein-díj' },
 ];
 const GAME_SECS = 60;
 const HELPS = {
   half: { icon: '½', name: 'Felező', tip: 'A fáziskereső kiolt két rossz választ.' },
-  book: { icon: '📘', name: 'Szabványkönyv', tip: 'Belenézhetsz a kérdés témájának tananyagába (közben áll az óra).' },
+  phone: { icon: '📞', name: 'Felhívom Teslát', tip: 'Nikola Tesla megmondja a választ, és el is magyarázza, miért (közben áll az óra).' },
   swap: { icon: '🔁', name: 'Csere', tip: 'Ugyanilyen nehéz, másik kérdést kapsz.' },
 };
 let G = null, gameTick = null, Studio = null, studioReady = null;
@@ -44,17 +44,17 @@ function gameNewQuestion() {
   const [q] = weightedPick(fresh.length ? fresh : all, q => 1 / (1 + (S.stats[q.id]?.n || 0)), 1);
   G.used.add(q.id);
   const wrong = shuffle(range(q.options.length).filter(i => i !== q.answer[0])).slice(0, 3);
-  Object.assign(G, { q, opts: shuffle([q.answer[0], ...wrong]), hidden: [], picked: null, state: 'ask', t0: Date.now(), paused: 0 });
+  Object.assign(G, { q, opts: shuffle([q.answer[0], ...wrong]), hidden: [], picked: null, state: 'ask', t0: Date.now(), paused: 0, tesla: null });
 }
 const certLevel = lvl => { for (let i = lvl - 1; i >= 0; i--) if (RANKS[i].cert) return i + 1; return 0; }; // ranks kept after a fall
 
 function startGame() {
   SFX.unlock();
-  G = { level: 0, used: new Set(), helps: { half: true, book: true, swap: true }, line: '' };
+  G = { level: 0, used: new Set(), helps: { half: true, phone: true, swap: true }, line: '' };
   gameNewQuestion();
   G.state = 'intro';
   goView({ name: 'game' });
-  const go = () => { if (G?.state !== 'intro') return; st3('host', 'talk'); Voice.say('intro').then(() => { if (G?.state === 'intro') { G.state = 'ask'; G.t0 = Date.now(); render(); } }); };
+  const go = () => { if (G?.state !== 'intro') return; st3('host', 'wave'); Voice.say('intro').then(() => { if (G?.state === 'intro') { G.state = 'ask'; G.t0 = Date.now(); render(); } }); };
   playOpener().then(go);
 }
 // the motion-graphics opener (game/opener.mp4); skippable, and skipped silently if it can't play
@@ -79,7 +79,7 @@ function gameAnswer(i) {
   if (G.state !== 'ask') return;
   clearInterval(gameTick);
   G.picked = i; G.state = 'lock'; render();
-  SFX.lock(); SFX.bed(true, true); st3('lockIn'); st3('tension', true); st3('host', 'think');
+  SFX.lock(); SFX.bed(true, true); st3('lockIn'); st3('tension', true); st3('host', 'nervous');
   const suspense = i === null ? Voice.say('time') : Promise.all([Voice.say('lock'), new Promise(r => setTimeout(r, 1800))]);
   suspense.then(() => {
     const ok = i === G.q.answer[0];
@@ -87,18 +87,19 @@ function gameAnswer(i) {
     SFX.bed(false); st3('tension', false);
     G.state = ok ? 'right' : 'wrong'; render();
     if (!ok) {
-      SFX.bad(); st3('wrong'); st3('host', 'sad');
+      SFX.bad(); st3('wrong'); st3('host', 'facepalm');
       const back = certLevel(G.level);
       return Voice.say('bad').then(() => setTimeout(() => gameEnd(back, i === null ? 'Lejárt az idő.' : 'Rossz válasz.', 'lose'), 600));
     }
     SFX.ok(); st3('correct'); st3('host', 'cheer'); { const lv = G.level + 1; setTimeout(() => st3('setLevel', lv, RANKS.length), 1100); }
-    if (G.level + 1 === RANKS.length) { st3('win'); SFX.win(); return Voice.say('win').then(() => gameEnd(RANKS.length, 'Minden kérdésre jól válaszoltál!', 'win')); }
-    Voice.say(RANKS[G.level].cert ? 'cert' : 'ok').then(() => { if (RANKS[G.level].cert) SFX.cert(); });
+    if (G.level + 1 === RANKS.length) { st3('win'); st3('host', 'dance'); SFX.win(); return Voice.say('win').then(() => gameEnd(RANKS.length, 'Minden kérdésre jól válaszoltál!', 'win')); }
+    if (RANKS[G.level].cert) SFX.cert();
+    Voice.rank(G.level + 1, RANKS[G.level].say);
   });
 }
 function gameNext() {
   G.level++; gameNewQuestion(); render();
-  st3('ask'); st3('host', 'idle');
+  st3('ask'); st3('host', 'point'); setTimeout(() => G?.state === 'ask' && st3('host', 'idle'), 2200);
   const r = RANKS[G.level];
   if (G.level === 5 || G.level === 10 || Math.random() < 0.3) Voice.say(r.d === 1 ? 'easy' : r.d === 2 ? 'mid' : 'hard');
 }
@@ -113,6 +114,7 @@ function renderGame() {
     <header class="sh-top">
       <button class="sh-btn" id="gquit" title="Kilépés">✕</button>
       <div class="sh-helps">${Object.entries(HELPS).map(([k, x]) => `<button class="sh-help ${G.helps[k] ? '' : 'used'}" data-help="${k}" title="${x.tip}" ${G.helps[k] && G.state === 'ask' ? '' : 'disabled'}><b>${x.icon}</b><span>${x.name}</span></button>`).join('')}</div>
+      <button class="sh-btn" id="gnew" title="Új játék">🔄</button>
       <button class="sh-btn" id="gmute" title="Hang ki/be">${SFX.muted ? '🔇' : '🔊'}</button>
     </header>
     <aside class="sh-ladder">${RANKS.map((x, i) => `<div class="rung ${i < G.level || (i === G.level && G.state === 'right') ? 'on' : ''} ${i === G.level && G.state !== 'right' ? 'cur' : ''} ${x.cert ? 'cert' : ''}" style="--i:${i}"><span class="led"></span><span class="n">${i + 1}</span><span class="nm">${esc(x.name)}</span>${x.cert ? '<span class="badge">🎓</span>' : ''}</div>`).reverse().join('')}</aside>
@@ -122,6 +124,7 @@ function renderGame() {
         <span class="sh-timer ${G.state === 'ask' ? '' : 'idle'}"><svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="15.9" class="trk"/><circle cx="18" cy="18" r="15.9" class="arc" id="garc"/></svg><b id="gt">${GAME_SECS}</b></span></div>
       <div class="sh-q">${rich(q.q)}</div>
       ${q.svg ? '<div class="qsvg sh-svg"></div>' : ''}
+      ${G.tesla && G.state === 'ask' ? `<div class="sh-tesla">📞 <b>Tesla szerint:</b> ${rich(G.tesla)}</div>` : ''}
       <div class="sh-opts">${G.opts.map((oi, k) => {
         const hid = G.hidden.includes(oi);
         const cls = [hid ? 'out' : '', G.picked === oi ? 'pick' : '', shown && oi === q.answer[0] ? 'right' : '', G.state === 'wrong' && G.picked === oi ? 'wrong' : ''].join(' ');
@@ -139,11 +142,12 @@ function renderGame() {
   el.querySelectorAll('[data-help]').forEach(b => b.addEventListener('click', () => {
     const k = b.dataset.help; G.helps[k] = false; SFX.help();
     if (k === 'half') { G.hidden = shuffle(G.opts.filter(i => i !== q.answer[0])).slice(0, 2); Voice.say('half'); }
-    if (k === 'book') { Voice.say('book'); const p0 = Date.now(); openExplainer(q.topic); const o = [...document.querySelectorAll('.overlay')].at(-1); new MutationObserver((_, mo) => { if (!o.isConnected) { G.t0 += Date.now() - p0; mo.disconnect(); } }).observe(document.body, { childList: true }); }
+    if (k === 'phone') return callTesla(q);
     if (k === 'swap') { clearInterval(gameTick); gameNewQuestion(); Voice.say('swap'); }
     render();
   }));
   $('#gquit', el).addEventListener('click', () => confirmBox('Kilépsz? Az eddig elért rangod megmarad.', () => { Voice.stop(); gameEnd(G.state === 'right' ? G.level + 1 : G.level, 'Kiléptél.', 'stop'); }));
+  $('#gnew', el).addEventListener('click', () => confirmBox('Új játékot kezdesz? Az eddigi rangod elveszik.', () => { Voice.stop(); SFX.bed(false); clearInterval(gameTick); startGame(); }));
   $('#gmute', el).addEventListener('click', e => { e.currentTarget.textContent = SFX.toggle() ? '🔇' : '🔊'; });
   $('#gstop', el)?.addEventListener('click', () => { Voice.say('stop'); gameEnd(G.level + 1, 'Megálltál a ranggal.', 'stop'); });
   $('#gnext', el)?.addEventListener('click', gameNext);
@@ -154,6 +158,37 @@ function renderGame() {
   if (old) { stage.replaceWith(old); old.classList.remove('stage3d-keep'); el.classList.add('has3d'); }
   else loadStudio(stage).then(s => { if (s) { el.classList.add('has3d'); s.setLevel(G.level, RANKS.length); s.ask(); s.setHost?.('game/feri.glb'); } });
   if (G.state === 'ask') startGameClock();
+}
+// "Felhívom Teslát": dial, ring, Tesla picks up and explains the right answer (pre-recorded per question)
+let TESLA = null;
+async function callTesla(q) {
+  const p0 = Date.now();
+  TESLA ||= await fetch('game/tesla.json').then(r => r.json()).catch(() => ({}));
+  const o = h(`<div class="overlay phone"><div class="call"><div class="ph-who"><span class="ph-avatar">⚡</span><div><b>Nikola Tesla</b><small id="phs">Tárcsázás…</small></div></div>
+    <div class="ph-dial">📞</div><div class="ph-wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><p id="pht"></p><button class="btn small" id="phx" disabled>Letenni</button></div></div>`);
+  document.body.append(o);
+  const st = x => { $('#phs', o).textContent = x; }, txt = x => { $('#pht', o).textContent = x; };
+  st3('host', 'talk');
+  await Voice.say('phone');
+  st('Tárcsázás…'); o.classList.add('dialing'); await SFX.dial();
+  st('Kicseng…'); o.classList.replace('dialing', 'ringing'); await SFX.ring(2);
+  SFX.pickup(); SFX.hiss(true); o.classList.replace('ringing', 'talking'); st('Vonalban'); st3('host', 'think');
+  const hi = Math.floor(Math.random() * 3); txt(Voice.lines.tesla_hi[hi]);
+  await Voice.file(`game/voice/tesla_hi_${hi + 1}.mp3`, 2500);
+  // he says one or two sentences; the full derivation is written out on the card
+  const said = TESLA[q.id], gen = 1 + Math.floor(Math.random() * 2);
+  txt(said || (gen === 1 ? 'Hm, ez egy jó kérdés! A helyes választ és a levezetést felírtam a képernyőre, nézze csak!' : 'Ezt fejből tudom! Kiírtam önnek a választ, és azt is, hogy miért.'));
+  const card = h(`<div class="ph-note"><div class="ph-ans">✔ ${rich(q.options[q.answer[0]])}</div><div class="ph-exp">${rich(q.explanation)}</div>${q.work ? workBox(q.work, true) : ''}</div>`);
+  $('.call', o).insertBefore(card, $('#phx', o));
+  $('#phx', o).disabled = false;
+  let hung = false; $('#phx', o).onclick = () => { hung = true; Voice.stop(); };
+  await Voice.file(said ? `game/tesla/${q.id}.mp3` : `game/voice/tesla_gen_${gen}.mp3`, 3500);
+  if (!hung) { const b = Math.floor(Math.random() * 2); txt(Voice.lines.tesla_bye[b]); await Voice.file(`game/voice/tesla_bye_${b + 1}.mp3`, 2000); }
+  SFX.hiss(false); SFX.hangup(); st('Hívás vége');
+  // keep the card open until the player closes it; the clock stays stopped meanwhile
+  $('#phx', o).textContent = 'Vissza a kérdéshez'; $('#phx', o).classList.add('primary');
+  await new Promise(r => { $('#phx', o).onclick = r; });
+  o.remove(); G.t0 += Date.now() - p0; G.tesla = plain(q.options[q.answer[0]]); st3('host', 'idle'); render();
 }
 function startGameClock() {
   clearInterval(gameTick);
@@ -178,7 +213,7 @@ function startGameScreen() {
   const st = S.game || { plays: 0, best: 0, wins: 0 };
   const el = h(`<div class="start"><div class="card game-intro">
     <h1>⚡ Legyen Ön is villanyszerelő!</h1>
-    <p>Kvízjáték a kérdésbankból, Fázis Feri műsorvezetésével. ${RANKS.length} kérdés, egyre nehezebben: az <b>Óvodás</b> szinttől a <b>Villanyszerelő mesteren</b> át egészen <b>Albert Einstein</b>ig. Rossz válasznál visszaesel az utolsó bizonyítványodig: ${RANKS.filter(r => r.cert).map((r, i) => `${RANKS.indexOf(r) + 1}. ${esc(r.cert)}`).join(', ')}. Jó válasz után megállhatsz, és megtarthatod a rangot.</p>
+    <p>Kvízjáték a kérdésbankból, Fázis Feri műsorvezetésével. ${RANKS.length} kérdés, egyre nehezebben: az <b>Óvodás</b> szinttől az <b>Elosztótábla-suttogón</b> át egészen <b>Albert Einstein</b>ig. Rossz válasznál visszaesel az utolsó bizonyítványodig: ${RANKS.filter(r => r.cert).map((r, i) => `${RANKS.indexOf(r) + 1}. ${esc(r.cert)}`).join(', ')}. Jó válasz után megállhatsz, és megtarthatod a rangot.</p>
     <ul><li>Kérdésenként ${GAME_SECS} másodperc.</li>${Object.values(HELPS).map(x => `<li><b>${x.icon} ${x.name}</b> (egyszer): ${x.tip}</li>`).join('')}<li>A válaszaid a tanulási rendszerbe is beszámítanak; rossz válasz után megkapod a magyarázatot.</li><li>Hanggal a legjobb (🔊 a jobb felső sarokban kapcsolható).</li></ul>
     ${st.plays ? `<p class="small muted">Eddig ${st.plays} játék · legjobb rang: <b>${st.best ? esc(RANKS[st.best - 1].name) : '–'}</b>${st.wins ? ` · ${st.wins}× Einstein lettél` : ''}</p>` : ''}
     <div class="row">${back()}<button class="btn primary" id="gs">Játék indítása ▶</button></div></div></div>`);
