@@ -736,7 +736,7 @@ const Studio = {
     Object.assign(S.goal, { dim: 0, converge: 0, push: 0, warm: 1 });
     for (let i = 0; i < S.total; i += 2) emit(ledPos(i), S.reduced ? 6 : 25, { colors: [AMBER, GREEN, CYAN], speed: 5, life: 1.4 });
   },
-  // Mascot host: GLB with clips idle/talk/cheer/sad/think, faces +Z, origin at feet. Missing/broken file -> no host.
+  // Mascot host: GLB with clips idle/talk/cheer/sad/think/wave/point/nervous/facepalm/dance, faces +Z, origin at feet. Missing/broken file -> no host.
   setHost(url) { hostUrl = url || null; if (S) loadHost(hostUrl); },
   host(action) {
     if (!S) return;
