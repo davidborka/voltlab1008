@@ -1,6 +1,6 @@
 /** Alkalmazásváz: hash-alapú navigáció, téma, parancspaletta. */
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { BookOpen, ClipboardCheck, Command, Info, LayoutGrid, Moon, Search, Sun, Zap } from 'lucide-react';
+import { BookOpen, ClipboardCheck, Command, Info, LayoutGrid, ListChecks, Moon, Search, Sun, Zap } from 'lucide-react';
 import { Button, Modal, cx, useLocal } from '../components/ui';
 import { TASKS, TASK_ORDER } from '../data/tasks';
 import { Dashboard } from '../pages/Dashboard';
@@ -14,6 +14,7 @@ export type Route =
   | { name: 'task'; id: string; exam?: boolean }
   | { name: 'library' }
   | { name: 'inspection' }
+  | { name: 'interactive' }
   | { name: 'about' };
 
 function parseHash(): Route {
@@ -25,6 +26,7 @@ function parseHash(): Route {
   }
   if (h === 'keszulekek') return { name: 'library' };
   if (h === 'ellenorzes') return { name: 'inspection' };
+  if (h === 'interaktiv') return { name: 'interactive' };
   if (h === 'rolunk') return { name: 'about' };
   return { name: 'dashboard' };
 }
@@ -35,6 +37,7 @@ export function go(route: Route) {
     task: '',
     library: 'keszulekek',
     inspection: 'ellenorzes',
+    interactive: 'interaktiv',
     about: 'rolunk',
   };
   location.hash = route.name === 'task' ? `/feladat/${route.id}${route.exam ? '/vizsga' : ''}` : `/${map[route.name]}`;
@@ -83,6 +86,7 @@ export function App() {
 
   const nav = [
     { name: 'dashboard' as const, label: 'Feladatok', icon: LayoutGrid },
+    { name: 'interactive' as const, label: 'Interaktív vizsga', icon: ListChecks },
     { name: 'library' as const, label: 'Készülékek', icon: BookOpen },
     { name: 'inspection' as const, label: 'Ellenőrzés', icon: ClipboardCheck },
     { name: 'about' as const, label: 'Névjegy', icon: Info },
@@ -142,11 +146,24 @@ export function App() {
         {route.name === 'task' && <Workspace taskId={route.id} startExam={!!route.exam} onComplete={markDone} completed={done.includes(route.id)} />}
         {route.name === 'library' && <Library />}
         {route.name === 'inspection' && <Inspection />}
+        {route.name === 'interactive' && <InteractiveExam />}
         {route.name === 'about' && <About />}
       </main>
 
       <CommandPalette open={palette} onClose={() => setPalette(false)} />
     </div>
+  );
+}
+
+/* A központi interaktív vizsga gyakorlója önálló, build nélküli oldal (public/interaktiv/),
+   mert szándékosan a KRÉTA vizsgafelületet utánozza, nem a VOLT LAB témáját. */
+function InteractiveExam() {
+  return (
+    <iframe
+      src={`${import.meta.env.BASE_URL}interaktiv/index.html`}
+      title="Interaktív vizsga gyakorló"
+      className="h-full w-full flex-1 border-0 bg-white"
+    />
   );
 }
 
@@ -159,6 +176,7 @@ function CommandPalette({ open, onClose }: { open: boolean; onClose(): void }) {
         hint: TASKS[id].subtitle,
         run: () => go({ name: 'task', id }),
       })),
+      { label: 'Interaktív vizsga', hint: 'KRÉTA-szerű tesztvizsga, 570 kérdés', run: () => go({ name: 'interactive' }) },
       { label: 'Készülékkönyvtár', hint: 'szimbólumok és kapcsok', run: () => go({ name: 'library' }) },
       { label: 'Ellenőrzési lista', hint: 'mérés és dokumentálás', run: () => go({ name: 'inspection' }) },
       { label: 'Névjegy és biztonság', hint: 'forrás, felelősség', run: () => go({ name: 'about' }) },

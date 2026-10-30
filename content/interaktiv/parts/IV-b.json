@@ -1,0 +1,2872 @@
+[
+ {
+  "id": "IV-vv-001",
+  "part": "IV",
+  "topic": "villamvedelem",
+  "type": "single",
+  "difficulty": 1,
+  "points": 1,
+  "q": "Melyik szabványsorozat szerint kell ma Magyarországon az új építmények villámvédelmét tervezni és kivitelezni?",
+  "options": [
+   "MSZ 274",
+   "MSZ EN 62305",
+   "MSZ HD 60364-4-443",
+   "MSZ EN 61643-11"
+  ],
+  "answer": [
+   1
+  ],
+  "explanation": "Új létesítésnél csak az MSZ EN 62305 sorozat (\"norma szerinti villámvédelem\") alkalmazható; az OTSZ (54/2014. BM rendelet) is erre épít. A régi MSZ 274 2009-ig volt érvényes, régi jegyzetekben még sokszor ezt látod; meglévő épületeken a régi szerinti villámvédelem bizonyos feltételekkel megmaradhat. Az MSZ HD 60364-4-443 a túlfeszültség-védelem szükségességéről, az MSZ EN 61643-11 az SPD-k vizsgálatáról szól.",
+  "source": "villanyszerelo-jegyzet.pdf.txt 3.4 Villámvédelem; OTSZ 54/2014. BM",
+  "wrongWhy": [
+   "A régi, 2009-ig érvényes villámvédelmi szabvány, új tervhez már nem használható.",
+   null,
+   "Ez a kisfeszültségű berendezés túlfeszültség-védelmének szükségességéről szól, nem az LPS-ről.",
+   "Ez a túlfeszültség-védelmi készülékek (SPD) termékszabványa."
+  ]
+ },
+ {
+  "id": "IV-vv-002",
+  "part": "IV",
+  "topic": "villamvedelem",
+  "type": "match",
+  "difficulty": 2,
+  "points": 5,
+  "q": "Rajz alapján: párosítsa a családi ház külső villámvédelmi rendszerének számozott részeit a megnevezésükkel!",
+  "pairs": [
+   [
+    "1",
+    "Felfogórúd"
+   ],
+   [
+    "2",
+    "Tetőn vezetett felfogóvezeték (gerinc- és élvezető)"
+   ],
+   [
+    "3",
+    "Levezető"
+   ],
+   [
+    "4",
+    "Vizsgáló (bontható) összekötő"
+   ],
+   [
+    "5",
+    "Földelő (földbe fektetett vízszintes földelő)"
+   ]
+  ],
+  "explanation": "A külső LPS három fő része a felfogórendszer (1 rúd, 2 tetőn vezetett vezeték), a levezetőrendszer (3) és a földelőrendszer (5). A levezető és a földelő közé a talajszint felett bontható vizsgáló összekötőt (4) építenek, hogy a földelés a levezető leválasztásával külön mérhető legyen. Gyakori hiba a vizsgáló összekötőt a földelőhöz sorolni: ez a levezetőn, a föld felett van.",
+  "source": "villanyszerelo-jegyzet.pdf.txt 3.4 Villámvédelem; 2017 Villanyszerelő feladatsor (külső villámvédelem részei); Dr. Kovács Károly: Földelési megoldások az MSZ EN 62305 és az MSZ 447 alapján (DEHN, 2022)",
+  "distractors": [
+   "Potenciálkiegyenlítő sín (EPH)"
+  ],
+  "svg": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 420 320' font-family='sans-serif' font-size='14'><line x1='20' y1='250' x2='400' y2='250' stroke='black' stroke-width='2'/><path d='M30 250 l-8 8 M60 250 l-8 8 M90 250 l-8 8 M120 250 l-8 8 M150 250 l-8 8 M180 250 l-8 8 M210 250 l-8 8 M240 250 l-8 8 M270 250 l-8 8 M300 250 l-8 8 M360 250 l-8 8 M390 250 l-8 8' stroke='black'/><text x='24' y='242' font-size='12'>talajszint</text><rect x='110' y='150' width='200' height='100' fill='none' stroke='black' stroke-width='2'/><polyline points='95,160 210,80 325,160' fill='none' stroke='black' stroke-width='2'/><polyline points='104,150 210,74 316,150' fill='none' stroke='black' stroke-width='3' stroke-dasharray='7 4'/><line x1='210' y1='76' x2='210' y2='30' stroke='black' stroke-width='4'/><line x1='316' y1='150' x2='318' y2='205' stroke='black' stroke-width='3'/><rect x='311' y='205' width='14' height='12' fill='none' stroke='black' stroke-width='2'/><line x1='318' y1='217' x2='318' y2='275' stroke='black' stroke-width='3'/><line x1='318' y1='275' x2='398' y2='275' stroke='black' stroke-width='4'/><line x1='104' y1='150' x2='102' y2='205' stroke='black' stroke-width='3'/><rect x='95' y='205' width='14' height='12' fill='none' stroke='black' stroke-width='2'/><line x1='102' y1='217' x2='102' y2='275' stroke='black' stroke-width='3'/><line x1='102' y1='275' x2='24' y2='275' stroke='black' stroke-width='4'/><line x1='238' y1='42' x2='214' y2='48' stroke='black'/><text x='242' y='46'>1</text><line x1='282' y1='100' x2='262' y2='111' stroke='black'/><text x='286' y='100'>2</text><line x1='350' y1='178' x2='321' y2='180' stroke='black'/><text x='354' y='182'>3</text><line x1='350' y1='212' x2='327' y2='211' stroke='black'/><text x='354' y='216'>4</text><line x1='372' y1='298' x2='365' y2='278' stroke='black'/><text x='370' y='312'>5</text></svg>"
+ },
+ {
+  "id": "IV-vv-003",
+  "part": "IV",
+  "topic": "villamvedelem",
+  "type": "match",
+  "difficulty": 1,
+  "points": 4,
+  "q": "Párosítsa a külső villámvédelmi rendszer részeit a feladatukkal!",
+  "pairs": [
+   [
+    "Felfogórendszer",
+    "Becsapási pontot képez, felfogja a közvetlen villámcsapást"
+   ],
+   [
+    "Levezetőrendszer",
+    "A villámáramot a felfogótól biztonságosan a földelőig vezeti"
+   ],
+   [
+    "Földelőrendszer",
+    "A villámáramot a talajban szétoszlatja"
+   ],
+   [
+    "Vizsgáló összekötő",
+    "Bontásával a földelési ellenállás a levezetőtől függetlenül mérhető"
+   ]
+  ],
+  "explanation": "A 2017-es írásbeli vizsgán is ez volt a feladat: felfogó – felfogja a közvetlen csapást, levezető – a földelőhöz vezeti az áramot, földelő – szétoszlatja a talajban. A vizsgáló összekötő mérési hely. A potenciálkiegyenlítés a belső villámvédelem feladata, nem a külső LPS egy elemének a funkciója.",
+  "source": "2017 Villanyszerelő megoldás; villanyszerelo-jegyzet.pdf.txt 3.4 Villámvédelem",
+  "distractors": [
+   "A becsatlakozó vezetékeket egyenpotenciálra hozza"
+  ]
+ },
+ {
+  "id": "IV-vv-004",
+  "part": "IV",
+  "topic": "villamvedelem",
+  "type": "single",
+  "difficulty": 2,
+  "points": 1,
+  "q": "Rajz alapján: a felfogórendszert gördülőgömbös módszerrel tervezik. Mekkora az ábrán R-rel jelölt gömbsugár <b>LPS III</b> osztályú villámvédelemnél?",
+  "options": [
+   "20 m",
+   "30 m",
+   "45 m",
+   "60 m"
+  ],
+  "answer": [
+   2
+  ],
+  "explanation": "A gördülőgömb sugara az LPS osztálytól függ: I – 20 m, II – 30 m, III – 45 m, IV – 60 m. Minél szigorúbb az osztály, annál kisebb a gömb, így annál több helyen éri az épületet, és annál sűrűbb felfogó kell. Ahol a gömb az épületet érinti, oda felfogó kell; a gömb alatti tér védett. Emlékeztető: 20-30-45-60, a sor első két tagja tízesével, a harmadik 15-tel, a negyedik újra 15-tel nő.",
+  "source": "MSZ EN 62305-3:2011 2. táblázat",
+  "wrongWhy": [
+   "Ez LPS I-hez tartozik.",
+   "Ez LPS II-höz tartozik.",
+   null,
+   "Ez LPS IV-hez tartozik."
+  ],
+  "svg": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='-20 0 440 280' font-family='sans-serif' font-size='14'><line x1='-20' y1='250' x2='420' y2='250' stroke='black' stroke-width='2'/><rect x='150' y='150' width='120' height='100' fill='none' stroke='black' stroke-width='2'/><text x='170' y='205'>épület</text><circle cx='72.5' cy='170' r='80' fill='none' stroke='black' stroke-width='1.5' stroke-dasharray='6 4'/><line x1='72.5' y1='170' x2='72.5' y2='250' stroke='black'/><text x='78' y='220'>R</text><circle cx='72.5' cy='170' r='2.5' fill='black'/><circle cx='150' cy='150' r='3' fill='black'/><text x='30' y='82' font-size='12'>gördülőgömb</text><text x='290' y='140' font-size='12'>a gömb az épület sarkát</text><text x='290' y='156' font-size='12'>és a talajt érinti</text></svg>"
+ },
+ {
+  "id": "IV-vv-005",
+  "part": "IV",
+  "topic": "villamvedelem",
+  "type": "dropdown",
+  "difficulty": 2,
+  "points": 4,
+  "q": "Válassza ki az egyes villámvédelmi osztályokhoz (LPS) tartozó gördülőgömb-sugarat!",
+  "text": "LPS I: {0}. LPS II: {1}. LPS III: {2}. LPS IV: {3}.",
+  "blanks": [
+   {
+    "options": [
+     "20 m",
+     "30 m",
+     "45 m",
+     "60 m"
+    ],
+    "answer": 0
+   },
+   {
+    "options": [
+     "20 m",
+     "30 m",
+     "45 m",
+     "60 m"
+    ],
+    "answer": 1
+   },
+   {
+    "options": [
+     "20 m",
+     "30 m",
+     "45 m",
+     "60 m"
+    ],
+    "answer": 2
+   },
+   {
+    "options": [
+     "20 m",
+     "30 m",
+     "45 m",
+     "60 m"
+    ],
+    "answer": 3
+   }
+  ],
+  "explanation": "Az MSZ EN 62305-3 szerint a gördülőgömb sugara: I – 20 m, II – 30 m, III – 45 m, IV – 60 m. A legszigorúbb (I) osztályhoz tartozik a legkisebb gömb, mert az a kisebb, de még veszélyes villámáramok becsapási pontjait is lefedi, így több felfogó kell. A tipikus hiba a sorrend megfordítása: kisebb osztályszám = kisebb gömb = sűrűbb felfogó.",
+  "source": "MSZ EN 62305-3:2011 2. táblázat"
+ },
+ {
+  "id": "IV-vv-006",
+  "part": "IV",
+  "topic": "villamvedelem",
+  "type": "match",
+  "difficulty": 2,
+  "points": 4,
+  "q": "Párosítsa a villámvédelmi osztályokat a felfogóháló legnagyobb megengedett hálóméretével!",
+  "pairs": [
+   [
+    "LPS I",
+    "5 m × 5 m"
+   ],
+   [
+    "LPS II",
+    "10 m × 10 m"
+   ],
+   [
+    "LPS III",
+    "15 m × 15 m"
+   ],
+   [
+    "LPS IV",
+    "20 m × 20 m"
+   ]
+  ],
+  "explanation": "A hálós módszernél a felfogóháló szemmérete legfeljebb: I – 5×5 m, II – 10×10 m, III – 15×15 m, IV – 20×20 m. A hálót lapos és enyhe hajlású tetőkön használják; a széleken (attika, tetőél) mindig vezetőnek kell futnia. Ugyanezek a számok (10-10-15-20, kivéve I-nél az 5) jönnek elő a levezetők távolságánál is, ezért ne keverd: háló I-nél 5 m, levezető-távolság I-nél 10 m.",
+  "source": "MSZ EN 62305-3:2011 2. táblázat",
+  "distractors": [
+   "25 m × 25 m",
+   "2 m × 2 m"
+  ]
+ },
+ {
+  "id": "IV-vv-007",
+  "part": "IV",
+  "topic": "villamvedelem",
+  "type": "dropdown",
+  "difficulty": 2,
+  "points": 3,
+  "q": "Válassza ki a levezetők jellemző (legnagyobb ajánlott) egymás közötti távolságát az MSZ EN 62305-3 szerint!",
+  "text": "LPS I és LPS II esetén: {0}. LPS III esetén: {1}. LPS IV esetén: {2}.",
+  "blanks": [
+   {
+    "options": [
+     "5 m",
+     "10 m",
+     "15 m",
+     "20 m"
+    ],
+    "answer": 1
+   },
+   {
+    "options": [
+     "10 m",
+     "15 m",
+     "20 m",
+     "25 m"
+    ],
+    "answer": 1
+   },
+   {
+    "options": [
+     "10 m",
+     "15 m",
+     "20 m",
+     "30 m"
+    ],
+    "answer": 2
+   }
+  ],
+  "explanation": "A levezetők jellemző távolsága az építmény kerülete mentén: LPS I és II – 10 m, LPS III – 15 m, LPS IV – 20 m; a levezetőket egyenletesen, lehetőleg a sarkoknál kell elhelyezni, és legalább kettő kell. Gyakori hiba a hálómérettel összekeverni (LPS I-nél a háló 5 m, de a levezető-távolság 10 m).",
+  "source": "MSZ EN 62305-3:2011 4. táblázat (5.3.3)"
+ },
+ {
+  "id": "IV-vv-008",
+  "part": "IV",
+  "topic": "villamvedelem",
+  "type": "number",
+  "difficulty": 2,
+  "points": 2,
+  "q": "Egy 12 m × 18 m alapterületű, téglalap alaprajzú épületen külső villámvédelmet létesítenek. Hány levezető szükséges legalább, ha a levezetőket a kerület mentén a jellemző távolságban helyezik el? (A levezetők száma = kerület / levezető-távolság, felfelé kerekítve.)",
+  "fields": [
+   {
+    "label": "Levezetők száma LPS III esetén (15 m)",
+    "unit": "db",
+    "answer": 4,
+    "tolAbs": 0
+   },
+   {
+    "label": "Levezetők száma LPS I esetén (10 m)",
+    "unit": "db",
+    "answer": 6,
+    "tolAbs": 0
+   }
+  ],
+  "explanation": "Kerület: K = 2·(12 + 18) = 60 m. LPS III: 60 m / 15 m = 4 levezető. LPS I (és II): 60 m / 10 m = 6 levezető. Ha a hányados nem egész, mindig felfelé kerekítünk, és legalább 2 levezető kell akkor is, ha kisebb érték jönne ki. A levezetők lehetőleg az épület sarkaira kerüljenek.",
+  "source": "MSZ EN 62305-3:2011 5.3.3"
+ },
+ {
+  "id": "IV-vv-009",
+  "part": "IV",
+  "topic": "villamvedelem",
+  "type": "single",
+  "difficulty": 2,
+  "points": 1,
+  "q": "Rajz alapján: a lapostetőn az ábra szerinti felfogóhálót szerelték (szemméret 15 m × 15 m). Melyik a legszigorúbb villámvédelmi osztály, amelynek ez a háló még megfelel?",
+  "options": [
+   "LPS I",
+   "LPS II",
+   "LPS III",
+   "Egyik sem, a háló mérete csak 20 m × 20 m lehet"
+  ],
+  "answer": [
+   2
+  ],
+  "explanation": "A hálóméret legfeljebb: I – 5×5, II – 10×10, III – 15×15, IV – 20×20 m. A 15×15 m-es háló tehát LPS III-nak (és a kevésbé szigorú IV-nek) megfelel, LPS I és II-höz sűríteni kellene. Ne feledd: kisebb szám = szigorúbb osztály.",
+  "source": "MSZ EN 62305-3:2011 2. táblázat",
+  "wrongWhy": [
+   "LPS I-hez legfeljebb 5×5 m-es háló kell.",
+   "LPS II-höz legfeljebb 10×10 m-es háló kell.",
+   null,
+   "A 20×20 m csak a legenyhébb, LPS IV-hez tartozó felső határ, a sűrűbb háló mindig megfelel."
+  ],
+  "svg": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 380 320' font-family='sans-serif' font-size='13'><rect x='60' y='40' width='240' height='240' fill='none' stroke='black' stroke-width='3'/><line x1='180' y1='40' x2='180' y2='280' stroke='black' stroke-width='3'/><line x1='60' y1='160' x2='300' y2='160' stroke='black' stroke-width='3'/><line x1='60' y1='22' x2='180' y2='22' stroke='black'/><line x1='60' y1='16' x2='60' y2='28' stroke='black'/><line x1='180' y1='16' x2='180' y2='28' stroke='black'/><text x='103' y='16'>15 m</text><line x1='320' y1='40' x2='320' y2='280' stroke='black'/><line x1='314' y1='40' x2='326' y2='40' stroke='black'/><line x1='314' y1='280' x2='326' y2='280' stroke='black'/><text x='328' y='165'>30 m</text><text x='60' y='305'>lapostető felülnézetből, felfogóháló (vastag vonal)</text></svg>"
+ },
+ {
+  "id": "IV-vv-010",
+  "part": "IV",
+  "topic": "villamvedelem",
+  "type": "group",
+  "difficulty": 1,
+  "points": 6,
+  "q": "Csoportosítsa az elemeket aszerint, hogy a külső vagy a belső villámvédelemhez tartoznak!",
+  "groups": [
+   "Külső villámvédelem",
+   "Belső villámvédelem"
+  ],
+  "items": [
+   {
+    "text": "Felfogórúd",
+    "group": 0
+   },
+   {
+    "text": "Levezető",
+    "group": 0
+   },
+   {
+    "text": "Gyűrűföldelő",
+    "group": 0
+   },
+   {
+    "text": "Vizsgáló összekötő",
+    "group": 0
+   },
+   {
+    "text": "Villámvédelmi potenciálkiegyenlítés a fő földelősínen",
+    "group": 1
+   },
+   {
+    "text": "1. típusú SPD a betáplálásnál",
+    "group": 1
+   },
+   {
+    "text": "Az s biztonsági távolság betartása",
+    "group": 1
+   }
+  ],
+  "explanation": "A külső villámvédelem (felfogó, levezető, földelő, vizsgáló összekötő) felfogja és a földbe vezeti a villámáramot. A belső villámvédelem megakadályozza, hogy a villám-részáram az épületen belül veszélyes szikraátütést (másodlagos kisülést) okozzon: ezt villámvédelmi potenciálkiegyenlítéssel (közvetlenül vagy SPD-n át) és az s biztonsági távolság betartásával éri el. Ha van külső villámvédelem, belső villámvédelmet is mindig ki kell alakítani.",
+  "source": "MEE-VET Műszaki alapok, VII.5 Túlfeszültség-védelem / villámvédelmi potenciálkiegyenlítés; MSZ EN 62305-3:2011 6. fejezet"
+ },
+ {
+  "id": "IV-vv-011",
+  "part": "IV",
+  "topic": "villamvedelem",
+  "type": "truefalse",
+  "difficulty": 2,
+  "points": 5,
+  "q": "Döntse el az MSZ EN 62305-3 földelőrendszereire vonatkozó állításokról, hogy igazak vagy hamisak!",
+  "statements": [
+   {
+    "text": "Az A típusú földelés a levezetőkhöz egyenként csatlakozó, az épületen kívüli vízszintes vagy függőleges földelőkből áll.",
+    "answer": true
+   },
+   {
+    "text": "A B típusú földelés gyűrűföldelő (keretföldelő) vagy betonalap-földelő lehet.",
+    "answer": true
+   },
+   {
+    "text": "A típusú elrendezésnél a földelők száma nem lehet kettőnél kevesebb.",
+    "answer": true
+   },
+   {
+    "text": "A gyűrűföldelő hosszának legalább 80%-a a talajjal érintkezik.",
+    "answer": true
+   },
+   {
+    "text": "Az A típusú, levezetőnkénti földelők jobban biztosítják a levezetők közötti potenciálkiegyenlítést, mint a gyűrűföldelő.",
+    "answer": false
+   }
+  ],
+  "explanation": "A típus: levezetőnként egyedi sugaras (vízszintes) vagy mély (függőleges) földelő, legalább kettő. B típus: az épületet körülvevő gyűrű-/keretföldelő (legalább 80%-a a talajban) vagy betonalap-földelő. A B típus a levezetők közötti potenciálkiegyenlítést és a potenciálvezérlést is ellátja, az A típus ezt nem, ezért ott külön összekötő vezetőkkel kell gondoskodni róla. Az utolsó állítás tehát fordítva igaz.",
+  "source": "Dr. Kovács Károly: Földelési megoldások az MSZ EN 62305 és az MSZ 447 alapján (DEHN, 2022); MSZ EN 62305-3:2011 5.4"
+ },
+ {
+  "id": "IV-vv-012",
+  "part": "IV",
+  "topic": "villamvedelem",
+  "type": "single",
+  "difficulty": 1,
+  "points": 1,
+  "q": "Rajz alapján: a két felülnézeti vázlat közül melyik mutat <b>B típusú</b> földelőrendszert?",
+  "options": [
+   "Az I. ábra, mert minden levezetőnek saját földelője van",
+   "A II. ábra, mert az épületet körülvevő gyűrűföldelőhöz csatlakozik minden levezető",
+   "Mindkettő B típusú, mert mindkettőnél minden levezető földelve van",
+   "Egyik sem, B típusú csak a betonalap-földelő lehet"
+  ],
+  "answer": [
+   1
+  ],
+  "explanation": "A II. ábrán az épületet körbefutó gyűrű-(keret)földelő látható, minden levezető erre csatlakozik: ez B típus. Az I. ábra levezetőnkénti egyedi földelőket mutat, ez A típus. B típus a betonalap-földelő is, de nem csak az: a gyűrűföldelő is B típusú.",
+  "source": "Dr. Kovács Károly: Földelési megoldások az MSZ EN 62305 és az MSZ 447 alapján (DEHN, 2022)",
+  "wrongWhy": [
+   "Ez az A típus jellemzője.",
+   null,
+   "A típusbesorolás a földelők elrendezésétől függ, nem attól, hogy van-e földelés.",
+   "A gyűrűföldelő is B típusú, nem csak a betonalap-földelő."
+  ],
+  "svg": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 440 200' font-family='sans-serif' font-size='14'><text x='20' y='20'>I.</text><rect x='50' y='50' width='120' height='90' fill='none' stroke='black' stroke-width='2'/><line x1='50' y1='50' x2='25' y2='30' stroke='black' stroke-width='3'/><line x1='170' y1='50' x2='195' y2='30' stroke='black' stroke-width='3'/><line x1='50' y1='140' x2='25' y2='160' stroke='black' stroke-width='3'/><line x1='170' y1='140' x2='195' y2='160' stroke='black' stroke-width='3'/><circle cx='50' cy='50' r='4' fill='black'/><circle cx='170' cy='50' r='4' fill='black'/><circle cx='50' cy='140' r='4' fill='black'/><circle cx='170' cy='140' r='4' fill='black'/><text x='245' y='20'>II.</text><rect x='280' y='50' width='120' height='90' fill='none' stroke='black' stroke-width='2'/><rect x='265' y='35' width='150' height='120' fill='none' stroke='black' stroke-width='3'/><line x1='280' y1='50' x2='265' y2='35' stroke='black'/><line x1='400' y1='50' x2='415' y2='35' stroke='black'/><line x1='280' y1='140' x2='265' y2='155' stroke='black'/><line x1='400' y1='140' x2='415' y2='155' stroke='black'/><circle cx='280' cy='50' r='4' fill='black'/><circle cx='400' cy='50' r='4' fill='black'/><circle cx='280' cy='140' r='4' fill='black'/><circle cx='400' cy='140' r='4' fill='black'/><text x='20' y='190' font-size='12'>felülnézet; ● = levezető csatlakozása; vastag vonal = földelő</text></svg>"
+ },
+ {
+  "id": "IV-vv-013",
+  "part": "IV",
+  "topic": "villamvedelem",
+  "type": "single",
+  "difficulty": 2,
+  "points": 1,
+  "q": "Mit fejez ki a villámvédelmi szint (LPL) római száma?",
+  "options": [
+   "Az épület emeleteinek számát, amelyre a villámvédelem kiterjed",
+   "Azt, hogy a védelem milyen villámáram-tartományra (legkisebb és legnagyobb csúcsértékre) van méretezve; az LPL I a legszigorúbb",
+   "A szükséges levezetők számát",
+   "A földelési ellenállás legnagyobb megengedett értékét ohmban"
+  ],
+  "answer": [
+   1
+  ],
+  "explanation": "A kockázatelemzés eredménye az LPL (Lightning Protection Level), amely megadja, milyen villámparaméterekre méretezik a védelmet. LPL I: 3–200 kA, LPL II: 5–150 kA, LPL III: 10–100 kA, LPL IV: 16–100 kA. Ebből adódik az LPS osztály (I–IV) és vele a gördülőgömb, a háló és a levezető-távolság. Az I a leghatékonyabb, a IV a legkevésbé szigorú.",
+  "source": "villanyszerelo-jegyzet.pdf.txt 3.4 Villámvédelem 3.10 ábra; MSZ EN 62305-1",
+  "wrongWhy": [
+   "Az LPL nem épületmagasságot jelöl.",
+   null,
+   "A levezetők száma a kerületből és az osztályhoz tartozó távolságból jön ki, nem közvetlenül a római szám.",
+   "Az LPL nem ellenállásérték."
+  ]
+ },
+ {
+  "id": "IV-vv-014",
+  "part": "IV",
+  "topic": "villamvedelem",
+  "type": "match",
+  "difficulty": 3,
+  "points": 5,
+  "q": "Párosítsa a villámvédelmi szinteket (LPL) a méretezéshez figyelembe vett villámáram-értékekkel!",
+  "pairs": [
+   [
+    "LPL I – legnagyobb villámáram",
+    "200 kA"
+   ],
+   [
+    "LPL II – legnagyobb villámáram",
+    "150 kA"
+   ],
+   [
+    "LPL III és IV – legnagyobb villámáram",
+    "100 kA"
+   ],
+   [
+    "LPL I – legkisebb villámáram",
+    "3 kA"
+   ],
+   [
+    "LPL IV – legkisebb villámáram",
+    "16 kA"
+   ]
+  ],
+  "explanation": "Az MSZ EN 62305-1 szerint a legnagyobb csúcsértékek: I – 200 kA, II – 150 kA, III és IV – 100 kA; a legkisebb (a gördülőgömb sugarát meghatározó) csúcsértékek: I – 3 kA, II – 5 kA, III – 10 kA, IV – 16 kA. A legnagyobb érték a hő- és mechanikai méretezéshez, a legkisebb a felfogók elrendezéséhez kell: a kis áramú villám közelebb csaphat be, ezért kisebb a gömb.",
+  "source": "villanyszerelo-jegyzet.pdf.txt 3.4 Villámvédelem 3.10 ábra; MSZ EN 62305-1",
+  "distractors": [
+   "50 kA",
+   "10 kA"
+  ]
+ },
+ {
+  "id": "IV-vv-015",
+  "part": "IV",
+  "topic": "villamvedelem",
+  "type": "match",
+  "difficulty": 2,
+  "points": 4,
+  "q": "Rajz alapján: párosítsa a betűvel jelölt tereket a villámvédelmi zónákkal (LPZ)!",
+  "pairs": [
+   [
+    "A – szabad tér, nincs felfogó védelme alatt",
+    "LPZ 0A"
+   ],
+   [
+    "B – a felfogórúd védett terében, az épületen kívül",
+    "LPZ 0B"
+   ],
+   [
+    "C – az épület belseje",
+    "LPZ 1"
+   ],
+   [
+    "D – árnyékolt helyiség az épületen belül",
+    "LPZ 2"
+   ]
+  ],
+  "explanation": "LPZ 0A: közvetlen csapás és teljes elektromágneses tér éri. LPZ 0B: közvetlen csapástól védett (felfogó védett terében), de a villám elektromágneses tere teljes mértékben éri. LPZ 1: az épület belseje, ahol a lökőáramokat áramelosztás, potenciálkiegyenlítés és a határon elhelyezett SPD korlátozza. LPZ 2: további árnyékolással, újabb SPD-vel még jobban védett belső zóna. Minél nagyobb a szám, annál védettebb a zóna.",
+  "source": "villanyszerelo-jegyzet.pdf.txt 3.4 Villámvédelem 3.4.3; MSZ EN 62305-4",
+  "distractors": [
+   "LPZ 3",
+   "LPZ 1B"
+  ],
+  "svg": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 420 260' font-family='sans-serif' font-size='16'><line x1='10' y1='230' x2='410' y2='230' stroke='black' stroke-width='2'/><rect x='130' y='120' width='200' height='110' fill='none' stroke='black' stroke-width='2'/><line x1='230' y1='120' x2='230' y2='45' stroke='black' stroke-width='4'/><polyline points='140,120 230,45 320,120' fill='none' stroke='black' stroke-dasharray='5 4'/><rect x='240' y='160' width='80' height='60' fill='none' stroke='black' stroke-width='2' stroke-dasharray='2 2'/><text x='255' y='150' font-size='11'>árnyékolt helyiség</text><text x='55' y='70'>A</text><text x='186' y='112'>B</text><text x='165' y='185'>C</text><text x='274' y='197'>D</text><text x='236' y='40' font-size='11'>felfogórúd</text></svg>"
+ },
+ {
+  "id": "IV-vv-016",
+  "part": "IV",
+  "topic": "villamvedelem",
+  "type": "single",
+  "difficulty": 2,
+  "points": 1,
+  "q": "Melyik meghatározás illik az <b>LPZ 0B</b> villámvédelmi zónára?",
+  "options": [
+   "Közvetlen villámcsapás és a villám teljes elektromágneses tere is érheti",
+   "Közvetlen villámcsapás nem érheti, de a villám elektromágneses tere csillapítatlanul hat",
+   "Az épület belseje, ahol a lökőáramokat SPD-k korlátozzák",
+   "Árnyékolt helyiség, ahol a tér már erősen csillapított"
+  ],
+  "answer": [
+   1
+  ],
+  "explanation": "LPZ 0B a felfogórendszer védett terében lévő külső tér (pl. a tetőn a felfogórúd által védett gépészet): közvetlen csapás nem éri, de a villám elektromágneses tere teljes mértékben. Az első válasz az LPZ 0A, a harmadik az LPZ 1, a negyedik az LPZ 2 jellemzője. Az LPZ 0B–LPZ 1 határon 2. típusú SPD elegendő, az LPZ 0A–LPZ 1 határon viszont villámáram-levezető (1. típus) kell.",
+  "source": "villanyszerelo-jegyzet.pdf.txt 3.4 Villámvédelem 3.4.3; MEE-VET Műszaki alapok, VII.5 Túlfeszültség-védelem / villámvédelmi potenciálkiegyenlítés",
+  "wrongWhy": [
+   "Ez az LPZ 0A.",
+   null,
+   "Ez az LPZ 1.",
+   "Ez az LPZ 2 (vagy magasabb) zóna."
+  ]
+ },
+ {
+  "id": "IV-vv-017",
+  "part": "IV",
+  "topic": "villamvedelem",
+  "type": "number",
+  "difficulty": 3,
+  "points": 2,
+  "q": "Számítsa ki az <i>s</i> biztonsági távolságot a felfogó/levezető és egy tetőn átvezetett fém csővezeték között! Képlet: <i>s</i> = <i>k</i><sub>i</sub> · (<i>k</i><sub>c</sub> / <i>k</i><sub>m</sub>) · <i>l</i>. Adatok: LPS III, <i>k</i><sub>i</sub> = 0,04; <i>k</i><sub>c</sub> = 0,5; <i>l</i> = 10 m (a vizsgált pont és a legközelebbi potenciálkiegyenlítési pont közötti hossz a levezető mentén).",
+  "fields": [
+   {
+    "label": "s, ha a közeg levegő (k<sub>m</sub> = 1)",
+    "unit": "cm",
+    "answer": 20,
+    "tol": 0.02
+   },
+   {
+    "label": "s, ha a közeg tégla/beton (k<sub>m</sub> = 0,5)",
+    "unit": "cm",
+    "answer": 40,
+    "tol": 0.02
+   }
+  ],
+  "explanation": "Levegőben: s = 0,04 · (0,5 / 1) · 10 m = 0,2 m = 20 cm. Szilárd anyagban (k<sub>m</sub> = 0,5): s = 0,04 · (0,5 / 0,5) · 10 m = 0,4 m = 40 cm. A k<sub>i</sub> az LPS osztálytól függ (I: 0,08; II: 0,06; III–IV: 0,04), a k<sub>c</sub> a levezetők közötti áramosztástól (több levezető → kisebb), a k<sub>m</sub> a szigetelőközegtől. Ha az s nem tartható, a fémszerkezetet villámáram-bíró módon össze kell kötni az LPS-sel.",
+  "source": "MSZ EN 62305-3:2011 6.3"
+ },
+ {
+  "id": "IV-vv-018",
+  "part": "IV",
+  "topic": "villamvedelem",
+  "type": "multi",
+  "difficulty": 2,
+  "points": 5,
+  "q": "Az épületen külső villámvédelem van. Mely megoldások felelnek meg a villámvédelmi potenciálkiegyenlítés követelményeinek az épületbe belépő vezetékeknél?",
+  "options": [
+   "A fém vízvezetéket a belépési pont közelében közvetlenül a fő földelősínre kötik",
+   "A kábelek fém árnyékolását/páncélját a belépési pont közelében a fő földelősínre kötik",
+   "Az erősáramú betáplálás aktív vezetőit 1. típusú SPD-n keresztül kötik a fő földelősínre",
+   "Az erősáramú aktív vezetőket közvetlenül, SPD nélkül kötik a fő földelősínre",
+   "A potenciálkiegyenlítést a tetőn, a felfogó legmagasabb pontján alakítják ki"
+  ],
+  "answer": [
+   0,
+   1,
+   2
+  ],
+  "explanation": "Az épületbe belépő összes fémes vezetőt a belépési ponthoz (LPZ 0A–LPZ 1 határ) a lehető legközelebb be kell kötni a fő földelősínbe: a fém csöveket és árnyékolásokat közvetlenül, az üzemszerűen feszültség alatt álló vezetőket viszont csak közvetve, villámáram-bíró (1. típusú) SPD-n keresztül. Az aktív vezető közvetlen földelése zárlat. A potenciálkiegyenlítés helye a földfelszín közelében, a belépésnél van, nem a tetőn.",
+  "source": "MEE-VET Műszaki alapok, VII.5 Túlfeszültség-védelem / villámvédelmi potenciálkiegyenlítés",
+  "wrongWhy": [
+   null,
+   null,
+   null,
+   "Az aktív vezető közvetlen bekötése zárlatot okozna; csak SPD-n keresztül köthető be.",
+   "A villámvédelmi potenciálkiegyenlítés a belépési pontnál, talajszint közelében készül."
+  ]
+ },
+ {
+  "id": "IV-vv-019",
+  "part": "IV",
+  "topic": "villamvedelem",
+  "type": "single",
+  "difficulty": 2,
+  "points": 1,
+  "q": "Mi a célja a villámvédelemnél az <i>s</i> biztonsági távolság betartásának?",
+  "options": [
+   "Hogy a levezető ne melegedjen fel túlságosan",
+   "Hogy a villámáram vezette LPS-elemek és az épület más fémszerkezetei, vezetékei között ne jöjjön létre veszélyes szikraátütés (másodlagos kisülés)",
+   "Hogy a felfogórúd árnyéka ne essen a napelemekre",
+   "Hogy a földelési ellenállás 10 Ω alatt maradjon"
+  ],
+  "answer": [
+   1
+  ],
+  "explanation": "Villámáram levezetésekor a levezetőn nagy induktív feszültségesés lép fel; ha egy belső fémszerkezet (csővezeték, kábel, napelem-keret) túl közel van, a villám átugorhat rá, és tüzet vagy túlfeszültséget okoz. Ezt az s biztonsági távolság betartásával (elszigetelt LPS) vagy villámáram-bíró összekötéssel lehet megakadályozni. A melegedés és a földelési ellenállás más méretezési kérdés.",
+  "source": "MEE-VET Műszaki alapok, VII.5 Túlfeszültség-védelem / villámvédelmi potenciálkiegyenlítés; MSZ EN 62305-3:2011 6.3",
+  "wrongWhy": [
+   "A melegedést a keresztmetszet szabja meg, nem a távolság.",
+   null,
+   "Az árnyékolás termelési szempont, nem a biztonsági távolság célja.",
+   "A földelési ellenállás a földelőn múlik, nem a távolságon."
+  ]
+ },
+ {
+  "id": "IV-vv-020",
+  "part": "IV",
+  "topic": "villamvedelem",
+  "type": "truefalse",
+  "difficulty": 1,
+  "points": 5,
+  "q": "Döntse el az alábbi állításokról, hogy igazak vagy hamisak!",
+  "statements": [
+   {
+    "text": "A villámvédelem felfogója rúd, háló vagy kifeszített vezeték is lehet.",
+    "answer": true
+   },
+   {
+    "text": "Megfelelő vastagságú fém tetőhéjazat természetes felfogóként felhasználható.",
+    "answer": true
+   },
+   {
+    "text": "A vasbeton szerkezet villamosan összefüggő vasalása természetes levezetőként felhasználható.",
+    "answer": true
+   },
+   {
+    "text": "Elszigetelt (szigetelt) villámvédelemnél a felfogó és a levezető nem érintkezik az épület vezetőképes részeivel.",
+    "answer": true
+   },
+   {
+    "text": "A műanyag ereszcsatorna lefolyócsöve levezetőként felhasználható.",
+    "answer": false
+   }
+  ],
+  "explanation": "A felfogó lehet rúd (csúcs), háló vagy kifeszített vezeték. Természetes elem lehet a megfelelő vastagságú fém tetőfedés, az összefüggő vasbeton vasalás vagy acélváz. Elszigetelt villámvédelemnél az LPS-t az s biztonsági távolsággal elválasztják az épület fémes részeitől, csak talajszinten kötik össze. A műanyag nem vezet, levezetőnek nem jó.",
+  "source": "villanyszerelo-jegyzet.pdf.txt 3.4 Villámvédelem 3.4.2; 34 522 04 szóbeli tételsor 12. tétel kulcsszavai"
+ },
+ {
+  "id": "IV-vv-021",
+  "part": "IV",
+  "topic": "villamvedelem",
+  "type": "single",
+  "difficulty": 1,
+  "points": 1,
+  "q": "Legalább mekkora keresztmetszetű tömör <b>réz</b> vezető használható felfogóként vagy levezetőként az MSZ EN 62305-3 szerint?",
+  "options": [
+   "16 mm²",
+   "25 mm²",
+   "50 mm²",
+   "95 mm²"
+  ],
+  "answer": [
+   2
+  ],
+  "explanation": "Rézből a felfogó- és levezetővezető legkisebb keresztmetszete 50 mm² (pl. Ø8 mm-es tömör körvezető). A tűzihorganyzott acél körvezetőnél is 50 mm² (Ø8 mm) a minimum. A 16 és 25 mm² az EPH/földelővezetők világából ismerős, villámáramra a felfogó és a levezető ennél nagyobb. A régi vizsgatételek is 50 mm²-es rézvezetőt említenek.",
+  "source": "MSZ EN 62305-3:2011 6. táblázat; 6313-11 szóbeli tétel 11.",
+  "wrongWhy": [
+   "Ez EPH-vezetőnél gyakori érték, villámáram vezetésére kevés.",
+   "Kevés, felfogóra/levezetőre nem elég.",
+   null,
+   "Ennél kisebb is elég, a minimum 50 mm²."
+  ]
+ },
+ {
+  "id": "IV-vv-022",
+  "part": "IV",
+  "topic": "villamvedelem",
+  "type": "dropdown",
+  "difficulty": 3,
+  "points": 3,
+  "q": "Egészítse ki a tűzihorganyzott acél villámvédelmi vezetők szokásos minimális méreteire vonatkozó mondatokat!",
+  "text": "Felfogó és levezető tömör körvezetőként legalább {0} átmérőjű. Földelőként tömör acél körvezető legalább {1} átmérőjű. Földelő acélszalag jellemző mérete {2}.",
+  "blanks": [
+   {
+    "options": [
+     "Ø6 mm",
+     "Ø8 mm",
+     "Ø16 mm"
+    ],
+    "answer": 1
+   },
+   {
+    "options": [
+     "Ø8 mm",
+     "Ø10 mm",
+     "Ø25 mm"
+    ],
+    "answer": 1
+   },
+   {
+    "options": [
+     "20 × 2 mm",
+     "30 × 3,5 mm",
+     "100 × 10 mm"
+    ],
+    "answer": 1
+   }
+  ],
+  "explanation": "Felfogónál és levezetőnél a tűzihorganyzott acél körvezető Ø8 mm (≈50 mm²). A földben nagyobb a korrózió, ezért a földelő körvezető legalább Ø10 mm (≈78 mm²), a földelő acélszalag pedig jellemzően 30 × 3,5 mm (legalább 3 mm vastag). Tipikus hiba a felfogó Ø8-as méretét a földelőre is elfogadni.",
+  "source": "MSZ EN 62305-3:2011 6. és 7. táblázat; MEE-VET Műszaki alapok, VII.5 Túlfeszültség-védelem / villámvédelmi potenciálkiegyenlítés (II.5.11 ábra földelővezetői)"
+ },
+ {
+  "id": "IV-vv-023",
+  "part": "IV",
+  "topic": "villamvedelem",
+  "type": "order",
+  "difficulty": 1,
+  "points": 5,
+  "q": "Állítsa sorba, milyen úton halad a villámáram egy szigeteletlen külső villámvédelemben a becsapástól a talajig!",
+  "items": [
+   "Felfogó (rúd, háló vagy vezeték)",
+   "Levezető",
+   "Vizsgáló összekötő",
+   "Földbevezető (a földelő csatlakozó vezetője)",
+   "Földelő",
+   "Talaj"
+  ],
+  "explanation": "A villám a felfogóba csap, a levezető a homlokzaton vezeti le, a talajszint felett elhelyezett bontható vizsgáló összekötőn és a földbevezetőn át jut a földelőbe, amely szétoszlatja a talajban. A vizsgáló összekötő mindig a levezető és a földelő között van, hogy a földelés bontással külön mérhető legyen.",
+  "source": "villanyszerelo-jegyzet.pdf.txt 3.4 Villámvédelem; Dr. Kovács Károly: Földelési megoldások az MSZ EN 62305 és az MSZ 447 alapján (DEHN, 2022) (10. dia)"
+ },
+ {
+  "id": "IV-vv-024",
+  "part": "IV",
+  "topic": "villamvedelem",
+  "type": "single",
+  "difficulty": 1,
+  "points": 1,
+  "q": "Mi a villámvédelmi levezetőbe épített vizsgáló (bontható) összekötő fő feladata?",
+  "options": [
+   "Túlfeszültség esetén automatikusan leválasztja a levezetőt",
+   "Bontásával a földelő a levezetőtől elválasztható, így a földelési ellenállás mérhető",
+   "Megakadályozza, hogy a villámáram a földelőbe jusson",
+   "A levezető hőtágulását veszi fel"
+  ],
+  "answer": [
+   1
+  ],
+  "explanation": "A vizsgáló összekötő szerszámmal bontható kötés a levezető alsó végén, a talajszint felett. Felülvizsgálatkor ezt bontják, így a földelő önállóan mérhető, és a levezetők folytonossága is ellenőrizhető. Üzem közben zárt, nem kapcsoló- vagy védőkészülék.",
+  "source": "Dr. Kovács Károly: Földelési megoldások az MSZ EN 62305 és az MSZ 447 alapján (DEHN, 2022); 34 522 04 szóbeli tételsor 12. tétel ('mérési hely, vizsgáló csatlakozó')",
+  "wrongWhy": [
+   "Ez nem önműködő készülék, csak kézzel bontható kötés.",
+   null,
+   "Éppen a földelőhöz kell vezetnie az áramot.",
+   "Hőtágulásra dilatációs elem való, nem ez a funkciója."
+  ]
+ },
+ {
+  "id": "IV-vv-025",
+  "part": "IV",
+  "topic": "villamvedelem",
+  "type": "truefalse",
+  "difficulty": 2,
+  "points": 5,
+  "q": "Döntse el a villámvédelmi berendezések létesítésére és felülvizsgálatára vonatkozó állításokról, hogy igazak vagy hamisak!",
+  "statements": [
+   {
+    "text": "Villámvédelmi berendezést csak MMK-névjegyzékben szereplő, villámvédelmi tervezői vizsgával rendelkező villamos tervező tervezhet.",
+    "answer": true
+   },
+   {
+    "text": "A villámvédelem felülvizsgálatát bármely villanyszerelő elvégezheti szakképesítés nélkül.",
+    "answer": false
+   },
+   {
+    "text": "Az elkészült villámvédelmet használatbavétel előtt felül kell vizsgálni.",
+    "answer": true
+   },
+   {
+    "text": "Villámcsapás vagy az LPS-t érintő átalakítás után rendkívüli felülvizsgálat szükséges.",
+    "answer": true
+   },
+   {
+    "text": "A régi MSZ 274 szerint létesült villámvédelmet minden esetben azonnal le kell bontani.",
+    "answer": false
+   }
+  ],
+  "explanation": "Az OTSZ szerint villámvédelmet csak villámvédelmi tervezői vizsgával rendelkező villamos tervező tervezhet, felülvizsgálatot csak villámvédelmi felülvizsgálói képesítéssel lehet vezetni. Az új LPS-t átadás előtt felül kell vizsgálni, villámcsapás vagy jelentős átalakítás után pedig rendkívüli felülvizsgálat kell. A régi (MSZ 274 szerinti, \"nem norma szerinti\") villámvédelem meglévő épületen bizonyos feltételekkel megmaradhat, sőt bővíthető.",
+  "source": "10_4/14-es felülvizsgáló szakvizsga segédlet (OTSZ 10. §); villanyszerelo-jegyzet.pdf.txt 3.4 Villámvédelem; MSZ EN 62305-3:2011 E.7"
+ },
+ {
+  "id": "IV-vv-026",
+  "part": "IV",
+  "topic": "villamvedelem",
+  "type": "match",
+  "difficulty": 2,
+  "points": 4,
+  "q": "Párosítsa az MSZ EN 62305 szabványsorozat részeit a tartalmukkal!",
+  "pairs": [
+   [
+    "MSZ EN 62305-1",
+    "Általános elvek, villámparaméterek"
+   ],
+   [
+    "MSZ EN 62305-2",
+    "Kockázatkezelés (kockázatelemzés)"
+   ],
+   [
+    "MSZ EN 62305-3",
+    "Építmények fizikai károsodása és életveszély – a külső/belső LPS"
+   ],
+   [
+    "MSZ EN 62305-4",
+    "Építményekben lévő villamos és elektronikus rendszerek (LPZ, túlfeszültség-védelem)"
+   ]
+  ],
+  "explanation": "Az 1. rész az alapfogalmakat és villámparamétereket, a 2. a kockázatelemzést (ebből jön ki, kell-e és milyen szintű védelem), a 3. a felfogó-levezető-földelő rendszert és a villámvédelmi potenciálkiegyenlítést, a 4. a belső elektronikus rendszerek védelmét az LPZ-koncepcióval és a koordinált SPD-kkel tárgyalja. Az SPD-k termékvizsgálata nem a 62305-ben, hanem az MSZ EN 61643-11-ben van.",
+  "source": "MSZ EN 62305-1…4; MEE-VET Műszaki alapok, VII.5 Túlfeszültség-védelem / villámvédelmi potenciálkiegyenlítés",
+  "distractors": [
+   "Túlfeszültség-védelmi készülékek vizsgálati követelményei"
+  ]
+ },
+ {
+  "id": "IV-vv-027",
+  "part": "IV",
+  "topic": "villamvedelem",
+  "type": "multi",
+  "difficulty": 1,
+  "points": 6,
+  "q": "Melyek a villámáram közvetlen vagy másodlagos hatásai, amelyek ellen a villámvédelem véd?",
+  "options": [
+   "Hőhatás (olvadás, tűz)",
+   "Mechanikai hatás (rombolás, erőhatás)",
+   "Akusztikus nyomáshullám",
+   "Másodlagos kisülés, indukált túlfeszültség a belső hálózatokon",
+   "A hálózati frekvencia tartós megváltozása",
+   "A talaj fajlagos ellenállásának tartós csökkenése"
+  ],
+  "answer": [
+   0,
+   1,
+   2,
+   3
+  ],
+  "explanation": "A villámáram hőhatása tüzet és olvadást, mechanikai hatása rombolást, a hirtelen hevülés nyomáshullámot okoz, elektromágneses tere és a potenciálemelkedés pedig másodlagos kisülést és túlfeszültséget a belső rendszerekben. A villámcsapás impulzusszerű (mikroszekundumos) jelenség, a hálózati frekvenciát vagy a talaj tulajdonságait tartósan nem változtatja meg.",
+  "source": "34 522 04 szóbeli tételsor 12. tétel kulcsszavai; villanyszerelo-jegyzet.pdf.txt 3.4 Villámvédelem",
+  "wrongWhy": [
+   null,
+   null,
+   null,
+   null,
+   "A villám rövid impulzus, a hálózat frekvenciáját nem változtatja meg.",
+   "A talaj fajlagos ellenállását a talaj nedvessége és anyaga határozza meg, nem a villám."
+  ]
+ },
+ {
+  "id": "IV-vv-028",
+  "part": "IV",
+  "topic": "villamvedelem",
+  "type": "single",
+  "difficulty": 3,
+  "points": 1,
+  "q": "A típusú földelésnél LPS III osztály esetén legalább milyen hosszú legyen levezetőnként egy <b>függőleges</b> (mély)földelő?",
+  "options": [
+   "0,5 m",
+   "1 m",
+   "2,5 m",
+   "10 m"
+  ],
+  "answer": [
+   2
+  ],
+  "explanation": "Az A típusú földelőknél a legkisebb hossz vízszintes földelőnél l<sub>1</sub>, függőlegesnél 0,5·l<sub>1</sub>. LPS III és IV esetén l<sub>1</sub> = 5 m a talaj fajlagos ellenállásától függetlenül, így a függőleges földelő legalább 2,5 m. LPS I és II esetén nagy talajellenállásnál ennél hosszabb kell (pl. 1000 Ωm-nél LPS I: 10 m). A 0,5 m a fektetési mélység jellemző minimuma, nem a hossz.",
+  "source": "Dr. Kovács Károly: Földelési megoldások az MSZ EN 62305 és az MSZ 447 alapján (DEHN, 2022) (9. dia)",
+  "wrongWhy": [
+   "Ez a földelő fektetési mélységének minimuma, nem a hossz.",
+   "Kevés: a minimum 2,5 m.",
+   null,
+   "Ilyen hossz csak LPS I-nél, nagy talajellenállásnál kellhet."
+  ]
+ },
+ {
+  "id": "IV-vv-029",
+  "part": "IV",
+  "topic": "villamvedelem",
+  "type": "single",
+  "difficulty": 2,
+  "points": 1,
+  "q": "Milyen földelési ellenállást ajánl az MSZ EN 62305-3 a villámvédelmi földelőrendszerre (kisfrekvencián mérve), ha lehetséges?",
+  "options": [
+   "10 Ω-nál kisebbet",
+   "100 Ω-nál kisebbet",
+   "1 kΩ-nál kisebbet",
+   "Pontosan 0 Ω-ot"
+  ],
+  "answer": [
+   0
+  ],
+  "explanation": "A szabvány általában kis földelési ellenállást ajánl: ha lehet, 10 Ω alatt. Ha a 10 Ω teljesül, az A típusú földelők minimális hosszaitól el is lehet tekinteni. A villámvédelem szempontjából egyetlen, közös, minden célra (villámvédelem, erősáram, távközlés) használt földelőrendszer az előnyös.",
+  "source": "Dr. Kovács Károly: Földelési megoldások az MSZ EN 62305 és az MSZ 447 alapján (DEHN, 2022) (5–8. dia, MSZ EN 62305-3 5.4.1)",
+  "wrongWhy": [
+   null,
+   "Túl nagy, villámvédelemhez nem ajánlott.",
+   "Ennyi semmilyen földelésre nem elfogadható.",
+   "0 Ω gyakorlatilag nem érhető el, és nem is követelmény."
+  ]
+ },
+ {
+  "id": "IV-vv-030",
+  "part": "IV",
+  "topic": "villamvedelem",
+  "type": "group",
+  "difficulty": 2,
+  "points": 6,
+  "q": "Csoportosítsa az elemeket aszerint, hogy természetes (az épület meglévő szerkezete) vagy mesterséges (külön szerelt) villámvédelmi elemnek számítanak!",
+  "groups": [
+   "Természetes elem",
+   "Mesterséges (szerelt) elem"
+  ],
+  "items": [
+   {
+    "text": "Összefüggő vasbeton pillérvasalás",
+    "group": 0
+   },
+   {
+    "text": "Megfelelő vastagságú fém tetőhéjazat",
+    "group": 0
+   },
+   {
+    "text": "Acél tartószerkezet (acélváz)",
+    "group": 0
+   },
+   {
+    "text": "Tetőre szerelt felfogórúd",
+    "group": 1
+   },
+   {
+    "text": "Lapostetőre fektetett felfogóháló",
+    "group": 1
+   },
+   {
+    "text": "Homlokzaton vezetett Ø8 mm-es levezető",
+    "group": 1
+   },
+   {
+    "text": "Földbe vert rúdföldelő",
+    "group": 1
+   }
+  ],
+  "explanation": "Természetes elem az épület olyan meglévő, villamosan folytonos fémszerkezete, amely méreténél fogva alkalmas a villámáram vezetésére (fém tető, vasbeton vasalás, acélváz). A mesterséges elemeket kifejezetten villámvédelmi célból szerelik (felfogórúd, háló, levezető, földelő). A természetes elemek használata olcsóbb, de folytonosságukat igazolni kell.",
+  "source": "34 522 04 szóbeli tételsor 12. tétel ('természetes felfogó, mesterséges felfogó'); MSZ EN 62305-3:2011 5.2.5, 5.3.5"
+ },
+ {
+  "id": "IV-vv-031",
+  "part": "IV",
+  "topic": "villamvedelem",
+  "type": "group",
+  "difficulty": 2,
+  "points": 6,
+  "q": "Csoportosítsa a jellemzőket aszerint, hogy a felfogórendszer melyik tervezési módszerére igazak!",
+  "groups": [
+   "Gördülőgömbös módszer",
+   "Védőszöges módszer",
+   "Hálós módszer"
+  ],
+  "items": [
+   {
+    "text": "Az osztálytól függően 20–60 m sugarú képzeletbeli gömböt görgetnek az épület körül",
+    "group": 0
+   },
+   {
+    "text": "Bármilyen bonyolult épületformára alkalmazható",
+    "group": 0
+   },
+   {
+    "text": "A felfogórúd csúcsából kiinduló kúp alatti tér a védett tér",
+    "group": 1
+   },
+   {
+    "text": "A védett tér a felfogó magasságától függ, nagy magasságnál nem használható",
+    "group": 1
+   },
+   {
+    "text": "Elsősorban lapostetőkre, sík felületekre való",
+    "group": 2
+   },
+   {
+    "text": "A szemméret az osztálytól függően 5×5 m és 20×20 m között van",
+    "group": 2
+   }
+  ],
+  "explanation": "Az MSZ EN 62305-3 három módszert enged. A gördülőgömb (20/30/45/60 m) a legáltalánosabb, minden formára jó. A védőszög a rúd csúcsából induló kúppal dolgozik, a szög a felfogó magasságától és az osztálytól függ, és csak korlátozott magasságig használható. A háló (5/10/15/20 m-es szemek) sík tetőkre való. A szerelőnek a rajzról kell felismernie, melyiket alkalmazta a tervező.",
+  "source": "MSZ EN 62305-3:2011 5.2.2, 2. táblázat"
+ },
+ {
+  "id": "IV-vv-032",
+  "part": "IV",
+  "topic": "villamvedelem",
+  "type": "order",
+  "difficulty": 2,
+  "points": 4,
+  "q": "Állítsa sorba egy új épület norma szerinti villámvédelmének létesítési lépéseit!",
+  "items": [
+   "Kockázatelemzés az MSZ EN 62305-2 szerint (szükséges-e védelem, milyen LPL)",
+   "Villámvédelmi kiviteli terv elkészítése jogosult villamos tervezővel",
+   "Kivitelezés a terv szerint (a földelőt/betonalap-földelőt már az alapozással)",
+   "Használatbavétel előtti (átadási) villámvédelmi felülvizsgálat",
+   "Időszakos és rendkívüli (pl. villámcsapás utáni) felülvizsgálatok az üzemeltetés alatt"
+  ],
+  "explanation": "A norma szerinti villámvédelem kockázatelemzéssel indul: ez dönti el, kell-e LPS és milyen szintű. Erre épül a jogosult (MMK névjegyzékes, villámvédelmi tervezői vizsgás) tervező kiviteli terve. A kivitelezésnél a földelő készül először, hiszen a betonalap-földelő az alapozással együtt épül be. Átadás előtt felülvizsgálat kell, utána időszakos, illetve villámcsapás vagy átalakítás után rendkívüli felülvizsgálat.",
+  "source": "villanyszerelo-jegyzet.pdf.txt 3.4 Villámvédelem 3.4.1; 10_4/14-es felülvizsgáló szakvizsga segédlet (OTSZ 10. §); Dr. Kovács Károly: Földelési megoldások az MSZ EN 62305 és az MSZ 447 alapján (DEHN, 2022)"
+ },
+ {
+  "id": "IV-tv-001",
+  "part": "IV",
+  "topic": "tulfeszultseg-vedelem",
+  "type": "match",
+  "difficulty": 1,
+  "points": 3,
+  "q": "Párosítsa a túlfeszültség-védelmi készülékek (SPD) mai, MSZ EN 61643-11 szerinti típusjelét a régi, szakmai zsargonban még használt fokozatjelöléssel!",
+  "pairs": [
+   [
+    "1. típus (T1, IEC: I. osztály)",
+    "B fokozat – durvavédelem, villámáram-levezető"
+   ],
+   [
+    "2. típus (T2, IEC: II. osztály)",
+    "C fokozat – közepes védelem"
+   ],
+   [
+    "3. típus (T3, IEC: III. osztály)",
+    "D fokozat – finomvédelem, készülékvédelem"
+   ]
+  ],
+  "explanation": "A mai szabványos jelölés 1., 2. és 3. típus (T1/T2/T3; az IEC I., II., III. osztálynak nevezi). Ezek felelnek meg a régi B, C, D fokozatnak. Emlékeztető: a betűsor A nélkül indul, B = durva, C = közepes, D = finom. Az \"A fokozat\" a szabadvezetéki levezetőket jelölte, épületvillamosságban nem használjuk.",
+  "source": "MEE-VET Műszaki alapok, VII.5 Túlfeszültség-védelem (II.5.2 táblázat); Délvil_tch/48._Villanyszerelo_JEGYZET 5.9, 6.11.4",
+  "distractors": [
+   "A fokozat – szabadvezetéki levezető"
+  ]
+ },
+ {
+  "id": "IV-tv-002",
+  "part": "IV",
+  "topic": "tulfeszultseg-vedelem",
+  "type": "dropdown",
+  "difficulty": 2,
+  "points": 4,
+  "q": "Egészítse ki az SPD típusok vizsgálati hullámaira vonatkozó mondatokat!",
+  "text": "Az 1. típusú SPD-t {0} hullámalakú villámárammal vizsgálják, levezetőképességének jele {1}. A 2. típusú SPD-t {2} hullámalakú lökőárammal vizsgálják, névleges levezetőképességének jele {3}.",
+  "blanks": [
+   {
+    "options": [
+     "10/350 µs",
+     "8/20 µs",
+     "1,2/50 µs"
+    ],
+    "answer": 0
+   },
+   {
+    "options": [
+     "I<sub>imp</sub>",
+     "I<sub>n</sub>",
+     "U<sub>oc</sub>"
+    ],
+    "answer": 0
+   },
+   {
+    "options": [
+     "10/350 µs",
+     "8/20 µs",
+     "100/1000 µs"
+    ],
+    "answer": 1
+   },
+   {
+    "options": [
+     "I<sub>imp</sub>",
+     "I<sub>n</sub>",
+     "IΔn"
+    ],
+    "answer": 1
+   }
+  ],
+  "explanation": "Az 1. típust a közvetlen villámáramot modellező 10/350 µs-os hullámmal vizsgálják (I<sub>imp</sub> = villám-lökőáram), a 2. típust a jóval kisebb energiájú 8/20 µs-os hullámmal (I<sub>n</sub> névleges, I<sub>max</sub> legnagyobb levezetőképesség). A 3. típust kombinált hullámmal (1,2/50 µs feszültség, 8/20 µs áram, U<sub>oc</sub>) vizsgálják. Az első szám a felfutási idő, a második a félértékre csökkenés ideje; a 10/350 µs-os hullám sokkal hosszabb, ezért töltése és energiája sokszorosa a 8/20 µs-osénak.",
+  "source": "MEE-VET Műszaki alapok, VII.5 Túlfeszültség-védelem (II.5.13 ábra); MSZ EN 61643-11"
+ },
+ {
+  "id": "IV-tv-003",
+  "part": "IV",
+  "topic": "tulfeszultseg-vedelem",
+  "type": "dropdown",
+  "difficulty": 2,
+  "points": 3,
+  "q": "Rajz alapján: válassza ki, milyen típusú SPD-t kell beépíteni az A, B és C helyen a lépcsős (koordinált) túlfeszültség-védelemhez!",
+  "text": "Az A helyen (betáplálás, LPZ 0A–1 határ): {0}. A B helyen (alelosztó): {1}. A C helyen (érzékeny végkészülék előtt): {2}.",
+  "blanks": [
+   {
+    "options": [
+     "1. típusú (vagy 1+2 kombinált) SPD",
+     "2. típusú SPD",
+     "3. típusú SPD"
+    ],
+    "answer": 0
+   },
+   {
+    "options": [
+     "1. típusú SPD",
+     "2. típusú SPD",
+     "3. típusú SPD"
+    ],
+    "answer": 1
+   },
+   {
+    "options": [
+     "1. típusú SPD",
+     "2. típusú SPD",
+     "3. típusú SPD"
+    ],
+    "answer": 2
+   }
+  ],
+  "explanation": "Mivel az épületen külső villámvédelem van, a betáplálásnál (LPZ 0A–LPZ 1 határ) villámáram-bíró 1. típusú (a gyakorlatban 1+2 kombinált) SPD kell. Az alelosztóba (LPZ 1–2 határ) 2. típusú, a több méterre lévő érzékeny végkészülék elé 3. típusú finomvédelem kerül. A lépcsőzés lényege, hogy a nagy energiát a durva fokozat vezeti le, a maradékot a finomabbak korlátozzák.",
+  "source": "MEE-VET Műszaki alapok, VII.5 Túlfeszültség-védelem; villanyszerelo-jegyzet.pdf.txt 3.5 Túlfeszültség védelem 3.5.6",
+  "svg": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 560 170' font-family='sans-serif' font-size='13'><text x='4' y='58'>hálózat</text><line x1='10' y1='70' x2='70' y2='70' stroke='black' stroke-width='2'/><rect x='70' y='40' width='130' height='60' fill='none' stroke='black' stroke-width='2'/><text x='80' y='62'>mérőhely +</text><text x='80' y='80'>fogyasztói főelosztó</text><line x1='200' y1='70' x2='260' y2='70' stroke='black' stroke-width='2'/><text x='208' y='62'>25 m</text><rect x='260' y='40' width='120' height='60' fill='none' stroke='black' stroke-width='2'/><text x='272' y='62'>emeleti</text><text x='272' y='80'>alelosztó</text><line x1='380' y1='70' x2='440' y2='70' stroke='black' stroke-width='2'/><text x='390' y='62'>12 m</text><rect x='440' y='40' width='110' height='60' fill='none' stroke='black' stroke-width='2'/><text x='450' y='62'>számítógép</text><text x='450' y='80'>(aljzat)</text><text x='126' y='130' font-size='16'>A</text><text x='312' y='130' font-size='16'>B</text><text x='488' y='130' font-size='16'>C</text><text x='10' y='160' font-size='12'>Az épületen külső villámvédelem (LPS) van. A, B, C = SPD beépítési helyek</text></svg>"
+ },
+ {
+  "id": "IV-tv-004",
+  "part": "IV",
+  "topic": "tulfeszultseg-vedelem",
+  "type": "single",
+  "difficulty": 1,
+  "points": 1,
+  "q": "Melyik SPD típus való közvetlenül a védendő érzékeny készülék elé (pl. túlfeszültség-védett aljzatba, elosztósávba)?",
+  "options": [
+   "1. típus",
+   "2. típus",
+   "3. típus",
+   "Bármelyik, a típus nem számít"
+  ],
+  "answer": [
+   2
+  ],
+  "explanation": "A 3. típusú SPD a finomvédelem: kis energiájú túlfeszültséget korlátoz alacsony szintre, és a készülék közvetlen közelében kell lennie. Önmagában nem elég, csak a 2. (és szükség esetén 1.) típus mögött működik helyesen. Az 1. típus a betáplálásnál, a 2. a fő- vagy alelosztóban a helye.",
+  "source": "MEE-VET Műszaki alapok, VII.5 Túlfeszültség-védelem; Délvil_tch/48._Villanyszerelo_JEGYZET 5.9, 6.11.4 5.9.3",
+  "wrongWhy": [
+   "Az 1. típus villámáram-levezető, a betáplálásnál a helye.",
+   "A 2. típus az elosztókba való.",
+   null,
+   "A típusok energiában és védelmi szintben is különböznek, a beépítési hely kötött."
+  ]
+ },
+ {
+  "id": "IV-tv-005",
+  "part": "IV",
+  "topic": "tulfeszultseg-vedelem",
+  "type": "single",
+  "difficulty": 2,
+  "points": 1,
+  "q": "Miért kell a betáplálásnál 10/350 µs-os villámáramra méretezett (1. típusú) SPD, ha az épületen külső villámvédelem van?",
+  "options": [
+   "Mert a 10/350 µs-os hullám rövidebb, ezért gyorsabb SPD kell",
+   "Mert közvetlen villámcsapáskor a villámáram egy része a becsatlakozó vezetékeken folyik el, és ennek töltése, energiája sokszorosa a 8/20 µs-os lökőáramnak",
+   "Mert a 10/350 µs-os SPD a kapcsolási túlfeszültségek ellen is egyedül elegendő",
+   "Mert a 2. típusú SPD-t tilos a főelosztóba építeni"
+  ],
+  "answer": [
+   1
+  ],
+  "explanation": "Ha villám csap az LPS-be, a villámáram kb. fele a földelőn, másik fele az épületbe belépő vezetékeken (főleg az erősáramú betápláláson) át folyik a távoli föld felé. Ez közvetlen villám-részáram, amelyet a hosszú (350 µs) hullámhát miatt nagy töltés és energia jellemez; ezt csak villámáram-levezető (1. típus) bírja. A 2. típus is mehet a főelosztóba, de ebben az esetben nem elég önmagában.",
+  "source": "MEE-VET Műszaki alapok, VII.5 Túlfeszültség-védelem (II.5.1 táblázat, LPZ zónakoncepció)",
+  "wrongWhy": [
+   "Fordítva: a 10/350 µs-os hullám hosszabb és nagyobb energiájú.",
+   null,
+   "A finomabb fokozatok ettől még kellenek; egy fokozat nem elég mindenre.",
+   "A 2. típus is beépíthető a főelosztóba, csak itt az 1. típus is kötelező."
+  ]
+ },
+ {
+  "id": "IV-tv-006",
+  "part": "IV",
+  "topic": "tulfeszultseg-vedelem",
+  "type": "single",
+  "difficulty": 2,
+  "points": 1,
+  "q": "Mit jelent az SPD adattábláján az U<sub>p</sub> érték?",
+  "options": [
+   "A legnagyobb tartós üzemi feszültséget, amelyen az SPD még nem vezet",
+   "A védelmi feszültségszintet: azt a legnagyobb feszültséget, amely levezetés közben az SPD kapcsain megjelenik",
+   "A névleges hálózati feszültséget (230 V)",
+   "Az SPD előtt megengedett legnagyobb biztosító névleges áramát"
+  ],
+  "answer": [
+   1
+  ],
+  "explanation": "U<sub>p</sub> (védelmi szint) az a feszültség, amelyre az SPD működéskor a túlfeszültséget korlátozza; ennek kisebbnek kell lennie a védett berendezés lökőfeszültség-állóságánál. A legnagyobb tartós üzemi feszültség jele U<sub>c</sub>. Az előtét-biztosító megengedett értéke külön katalógusadat.",
+  "source": "MEE-VET Műszaki alapok, VII.5 Túlfeszültség-védelem; MSZ EN 61643-11",
+  "wrongWhy": [
+   "Ez az U<sub>c</sub>.",
+   null,
+   "A névleges feszültség nem SPD-jellemző.",
+   "Ez az előtét-biztosító adata, nem U<sub>p</sub>."
+  ]
+ },
+ {
+  "id": "IV-tv-007",
+  "part": "IV",
+  "topic": "tulfeszultseg-vedelem",
+  "type": "match",
+  "difficulty": 3,
+  "points": 4,
+  "q": "230/400 V-os berendezésben párosítsa a lökőfeszültség-állósági (túlfeszültségi) kategóriákat a szerkezetek előírt névleges lökőfeszültség-állóságával!",
+  "pairs": [
+   [
+    "IV. kategória – a berendezés kezdőpontján (pl. fogyasztásmérő)",
+    "6 kV"
+   ],
+   [
+    "III. kategória – rögzített berendezés (elosztók, kapcsolók, kábelek)",
+    "4 kV"
+   ],
+   [
+    "II. kategória – háztartási készülékek, hordozható szerszámok",
+    "2,5 kV"
+   ],
+   [
+    "I. kategória – érzékeny elektronikus szerkezetek",
+    "1,5 kV"
+   ]
+  ],
+  "explanation": "A nagyobb római szám nagyobb lökőfeszültség-állóságot jelent: IV – 6 kV, III – 4 kV, II – 2,5 kV, I – 1,5 kV (230/400 V-on). A túlfeszültség-védelmet úgy kell lépcsőzni, hogy minden szerkezetre csak annyi jusson, amennyit elvisel. Ezért kell a 2. típusú SPD U<sub>p</sub>-jének legfeljebb 2,5 kV-nak lennie.",
+  "source": "10_4/Villbizjegyzet 4.3.2.1 (4.-3. táblázat); MSZ HD 60364-4-443",
+  "distractors": [
+   "10 kV",
+   "0,8 kV"
+  ]
+ },
+ {
+  "id": "IV-tv-008",
+  "part": "IV",
+  "topic": "tulfeszultseg-vedelem",
+  "type": "single",
+  "difficulty": 2,
+  "points": 1,
+  "q": "Az MSZ HD 60364-5-534 szerint legfeljebb mekkora lehet egy 230/400 V-os épületvillamossági hálózatba épített 1. vagy 2. típusú SPD védelmi szintje (U<sub>p</sub>)?",
+  "options": [
+   "1,5 kV",
+   "2,5 kV",
+   "4 kV",
+   "6 kV"
+  ],
+  "answer": [
+   1
+  ],
+  "explanation": "A szabvány szerint az SPD-ket legalább a II. túlfeszültségi kategóriához kell választani, így U<sub>p</sub> ≤ 2,5 kV. Ez az 1. típusra is vonatkozik, ezért a régi, 4 kV védelmi szintű szikraközös villámáram-levezetők ma már nem építhetők be. A gyakorlatban ezt 1+2 kombinált levezetőkkel teljesítik.",
+  "source": "MEE-VET Műszaki alapok, VII.5 Túlfeszültség-védelem (II.5 túlfeszültség-védelem, 534.2.3.1)",
+  "wrongWhy": [
+   "Ez az I. kategória (érzékeny elektronika) állósága, ezt a 3. típus közelíti.",
+   null,
+   "4 kV-os U<sub>p</sub>-jű régi szikraközök a szabvány szerint már nem megengedettek.",
+   "6 kV a IV. kategória (mérő) állósága, ennyire korlátozni kevés."
+  ]
+ },
+ {
+  "id": "IV-tv-009",
+  "part": "IV",
+  "topic": "tulfeszultseg-vedelem",
+  "type": "single",
+  "difficulty": 2,
+  "points": 1,
+  "q": "Rajz alapján: melyik ábra mutatja a <b>„V” bekötést</b>, és mi az előnye?",
+  "options": [
+   "Az a), mert a vezető az SPD egyik kapcsára be-, a másikról kimegy, így a bekötővezeték hosszanti feszültségesése nem adódik hozzá a védett oldal feszültségéhez",
+   "A b), mert a leágazás hossza nem számít",
+   "Az a), mert így az SPD nem kap előtét-túláramvédelmet",
+   "A b), mert a V bekötésnél a teljes üzemi áram az SPD kapcsain folyik át, és ez előnyös"
+  ],
+  "answer": [
+   0
+  ],
+  "explanation": "Az a) ábrán a fázisvezető az SPD-n keresztülhalad (be-ki): ez a V bekötés. Előnye, hogy a védett oldalon közvetlenül az SPD kapcsain lévő U<sub>p</sub> jelenik meg, a bekötővezeték induktív feszültségesése nem adódik hozzá. Hátránya, hogy a teljes üzemi áram a kettős kapcson folyik át, ezért nagy (kb. 100 A feletti) áramnál párhuzamos (T) bekötés kell (b ábra), rövid vezetékekkel.",
+  "source": "MEE-VET Műszaki alapok, VII.5 Túlfeszültség-védelem (II.5.14–15 ábra); villanyszerelo-jegyzet.pdf.txt 3.5 Túlfeszültség védelem 3.5.7",
+  "wrongWhy": [
+   null,
+   "A b) a párhuzamos (T) bekötés, ahol a leágazás hossza nagyon is számít.",
+   "Előtét-túláramvédelem minden bekötésnél kell.",
+   "A b) nem V bekötés, és az üzemi áram átfolyása a V bekötés hátránya, nem előnye."
+  ],
+  "svg": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 520 200' font-family='sans-serif' font-size='13'><text x='10' y='20' font-size='15'>a)</text><path d='M10 40 H100 V60' fill='none' stroke='black' stroke-width='2'/><path d='M140 60 V40 H230' fill='none' stroke='black' stroke-width='2'/><rect x='90' y='60' width='60' height='50' fill='none' stroke='black' stroke-width='2'/><text x='108' y='90'>SPD</text><line x1='120' y1='110' x2='120' y2='140' stroke='black' stroke-width='2'/><line x1='10' y1='140' x2='230' y2='140' stroke='black' stroke-width='4'/><text x='10' y='34'>L (betáp)</text><text x='160' y='34'>védett oldal</text><text x='280' y='20' font-size='15'>b)</text><line x1='280' y1='40' x2='510' y2='40' stroke='black' stroke-width='2'/><circle cx='395' cy='40' r='3' fill='black'/><line x1='395' y1='40' x2='395' y2='70' stroke='black' stroke-width='2'/><rect x='365' y='70' width='60' height='40' fill='none' stroke='black' stroke-width='2'/><text x='383' y='95'>SPD</text><line x1='395' y1='110' x2='395' y2='140' stroke='black' stroke-width='2'/><line x1='280' y1='140' x2='510' y2='140' stroke='black' stroke-width='4'/><text x='280' y='34'>L (betáp)</text><text x='440' y='34'>védett oldal</text><text x='10' y='165'>vastag vonal: PE / potenciálkiegyenlítő sín</text></svg>"
+ },
+ {
+  "id": "IV-tv-010",
+  "part": "IV",
+  "topic": "tulfeszultseg-vedelem",
+  "type": "number",
+  "difficulty": 3,
+  "points": 2,
+  "q": "Egy 2. típusú SPD védelmi szintje U<sub>p</sub> = 1,3 kV. Párhuzamos (T) bekötésnél a bekötővezetékeken lökőáram levezetésekor közelítőleg 1 kV/m induktív feszültségesés lép fel, és ez hozzáadódik U<sub>p</sub>-hez. Mekkora feszültség jut a védett hálózatra?",
+  "fields": [
+   {
+    "label": "ha a fázis- és a földoldali bekötővezeték együtt 1,2 m",
+    "unit": "kV",
+    "answer": 2.5,
+    "tol": 0.02
+   },
+   {
+    "label": "ha a bekötővezetékek együttes hossza 0,3 m",
+    "unit": "kV",
+    "answer": 1.6,
+    "tol": 0.02
+   }
+  ],
+  "explanation": "U<sub>védett</sub> = U<sub>p</sub> + l · 1 kV/m. 1,2 m-nél: 1,3 kV + 1,2 m · 1 kV/m = 2,5 kV (a II. kategória határa, nincs tartalék). 0,3 m-nél: 1,3 kV + 0,3 kV = 1,6 kV. Ezért írja elő az MSZ HD 60364-5-534, hogy a bekötővezetékek együttes hossza lehetőleg 0,5 m alatt legyen, és semmiképp ne haladja meg az 1 m-t.",
+  "source": "MEE-VET Műszaki alapok, VII.5 Túlfeszültség-védelem (II.5.15–16 ábra)"
+ },
+ {
+  "id": "IV-tv-011",
+  "part": "IV",
+  "topic": "tulfeszultseg-vedelem",
+  "type": "truefalse",
+  "difficulty": 2,
+  "points": 5,
+  "q": "Döntse el az SPD-k szerelésére vonatkozó állításokról, hogy igazak vagy hamisak!",
+  "statements": [
+   {
+    "text": "A bekötővezetékek (fázisoldal + földoldal) együttes hossza lehetőleg 0,5 m alatt legyen, és ne haladja meg az 1 m-t.",
+    "answer": true
+   },
+   {
+    "text": "Az SPD elé méretezett túláramvédelmi eszközt (előtét-biztosítót vagy kismegszakítót) kell beépíteni.",
+    "answer": true
+   },
+   {
+    "text": "Az SPD földoldali kapcsát a legrövidebb úton kell a PE/EPH sínhez kötni, zöld-sárga vezetővel.",
+    "answer": true
+   },
+   {
+    "text": "A bekötővezetékekből nagy hurkot érdemes hagyni, hogy később könnyebb legyen a csere.",
+    "answer": false
+   },
+   {
+    "text": "Az SPD földelővezetője a szekrénytől távoli EPH-csomópontra is köthető, a hossz nem számít.",
+    "answer": false
+   }
+  ],
+  "explanation": "A bekötővezetékek induktív feszültségesése hozzáadódik a védelmi szinthez, ezért minden centiméter számít: lehetőleg < 0,5 m, legfeljebb 1 m, hurok nélkül. Az SPD elé túláramvédelem kell, mert meghibásodáskor (zárlat) azt le kell választani. Az SPD-t a lehető legrövidebb zöld-sárga vezetővel az ugyanabban a szekrényben lévő EPH/PE sínre kell kötni.",
+  "source": "MEE-VET Műszaki alapok, VII.5 Túlfeszültség-védelem; Délvil_tch/48._Villanyszerelo_JEGYZET 5.9, 6.11.4 6.11.4; 34 522 04 1 12T"
+ },
+ {
+  "id": "IV-tv-012",
+  "part": "IV",
+  "topic": "tulfeszultseg-vedelem",
+  "type": "single",
+  "difficulty": 2,
+  "points": 1,
+  "q": "Rajz alapján: TT-rendszerű betáplálásnál az ábrán „3+1” kapcsolású SPD látható. Mi az X-szel jelölt elem, és hova kapcsolódik?",
+  "options": [
+   "Varisztor a fázis és a PE között",
+   "Összegző (N–PE) szikraköz a nullavezető és a védővezető között",
+   "Áram-védőkapcsoló a nullavezetőben",
+   "Olvadóbiztosító a PE vezetőben"
+  ],
+  "answer": [
+   1
+  ],
+  "explanation": "A 3+1 kapcsolásban három varisztor (vagy szikraköz) az L1, L2, L3 és az N között, egy összegző szikraköz pedig az N és a PE között van. Az N–PE szikraköz szivárgóáram-mentes, galvanikusan elválasztja az N-t és a PE-t, és a három fázis összegzett lökőáramát is bírja. A PE-be soha nem teszünk biztosítót vagy kapcsolót.",
+  "source": "MSZ HD 60364-5-534 (3+1 kapcsolás); MEE-VET Műszaki alapok, VII.5 Túlfeszültség-védelem",
+  "wrongWhy": [
+   "A varisztorok L–N között vannak, az X N és PE között.",
+   null,
+   "Az ábrán nincs ÁVK; a jelölés két szembenéző háromszög, ez szikraköz.",
+   "A PE vezetőbe tilos biztosítót vagy kapcsolót tenni."
+  ],
+  "svg": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 440 240' font-family='sans-serif' font-size='13'><line x1='40' y1='30' x2='420' y2='30' stroke='black' stroke-width='2'/><text x='8' y='34'>L1</text><line x1='40' y1='50' x2='420' y2='50' stroke='black' stroke-width='2'/><text x='8' y='54'>L2</text><line x1='40' y1='70' x2='420' y2='70' stroke='black' stroke-width='2'/><text x='8' y='74'>L3</text><line x1='40' y1='90' x2='420' y2='90' stroke='black' stroke-width='2'/><text x='8' y='94'>N</text><line x1='40' y1='210' x2='420' y2='210' stroke='black' stroke-width='4'/><text x='8' y='214'>PE</text><circle cx='100' cy='30' r='3' fill='black'/><circle cx='160' cy='50' r='3' fill='black'/><circle cx='220' cy='70' r='3' fill='black'/><line x1='100' y1='30' x2='100' y2='120' stroke='black'/><line x1='160' y1='50' x2='160' y2='120' stroke='black'/><line x1='220' y1='70' x2='220' y2='120' stroke='black'/><rect x='90' y='120' width='20' height='36' fill='none' stroke='black' stroke-width='2'/><line x1='84' y1='160' x2='116' y2='116' stroke='black'/><rect x='150' y='120' width='20' height='36' fill='none' stroke='black' stroke-width='2'/><line x1='144' y1='160' x2='176' y2='116' stroke='black'/><rect x='210' y='120' width='20' height='36' fill='none' stroke='black' stroke-width='2'/><line x1='204' y1='160' x2='236' y2='116' stroke='black'/><path d='M100 156 V175 H280 V90' fill='none' stroke='black'/><path d='M160 156 V175 M220 156 V175' fill='none' stroke='black'/><circle cx='280' cy='90' r='3' fill='black'/><circle cx='350' cy='90' r='3' fill='black'/><line x1='350' y1='90' x2='350' y2='135' stroke='black'/><path d='M342 135 L350 145 L358 135 Z' fill='none' stroke='black'/><path d='M342 160 L350 150 L358 160 Z' fill='none' stroke='black'/><line x1='350' y1='160' x2='350' y2='210' stroke='black'/><circle cx='350' cy='210' r='3' fill='black'/><text x='366' y='152' font-size='15'>X</text><text x='120' y='196' font-size='12'>varisztorok</text></svg>"
+ },
+ {
+  "id": "IV-tv-013",
+  "part": "IV",
+  "topic": "tulfeszultseg-vedelem",
+  "type": "single",
+  "difficulty": 3,
+  "points": 1,
+  "q": "Miért nem kötnek TT-rendszerben a betáplálásnál (az ÁVK előtt) varisztort közvetlenül a fázisvezetők és a PE közé, hanem 3+1 kapcsolást alkalmaznak?",
+  "options": [
+   "Mert a varisztor TT-ben nem működik",
+   "Mert a fázis–PE közé kötött varisztor szivárgóárama vagy zárlatos meghibásodása a PE-t és a testeket veszélyes feszültségre emelhetné, a TT földelési ellenállása miatt pedig a túláramvédelem nem kapcsolna le biztosan",
+   "Mert a 3+1 kapcsolás olcsóbb",
+   "Mert TT-ben nincs nullavezető"
+  ],
+  "answer": [
+   1
+  ],
+  "explanation": "TT-ben a hibaáram a földön át záródik, a nagy földelési ellenállás miatt kicsi, így egy L–PE között zárlatossá vált varisztort az előtét-túláramvédelem nem feltétlenül kapcsolja le, a testek pedig veszélyes feszültségre kerülnek. A 3+1 kapcsolásban az L–N varisztor hibája L–N zárlat (nagy áram, a biztosító lekapcsol), az N–PE szikraköz pedig szivárgóáram-mentes. A TT-ben is van N, ezért lehetséges a 3+1.",
+  "source": "MSZ HD 60364-5-534 (TT-rendszer, 3+1 kapcsolás); MEE-VET Műszaki alapok, VII.5 Túlfeszültség-védelem",
+  "wrongWhy": [
+   "A varisztor működési elve hálózati rendszertől független.",
+   null,
+   "Az ok biztonsági, nem gazdasági.",
+   "TT-ben a nullavezető ki van építve."
+  ]
+ },
+ {
+  "id": "IV-tv-014",
+  "part": "IV",
+  "topic": "tulfeszultseg-vedelem",
+  "type": "match",
+  "difficulty": 2,
+  "points": 3,
+  "q": "Párosítsa a hálózati rendszereket a betáplálásnál jellemzően alkalmazott SPD-kapcsolással!",
+  "pairs": [
+   [
+    "TN-C (a PEN még nincs szétválasztva)",
+    "3 pólusú: L1, L2, L3 – PEN"
+   ],
+   [
+    "TN-S (a PEN szétválasztása után)",
+    "4 pólusú (L1, L2, L3, N – PE) vagy 3+1"
+   ],
+   [
+    "TT",
+    "3+1: L–N varisztorok + N–PE összegző szikraköz"
+   ]
+  ],
+  "explanation": "TN-C-ben nincs külön N és PE, ezért a három fázis és a PEN közé kell a védelem (3 pólus). TN-S-ben mind a négy aktív vezetőt védeni kell a PE felé (4+0), vagy 3+1 kapcsolással. TT-ben a 3+1 kapcsolás a kötelező megoldás az ÁVK előtt, a fázis–PE varisztor kockázata miatt.",
+  "source": "MSZ HD 60364-5-534; MEE-VET Műszaki alapok, VII.5 Túlfeszültség-védelem (II.5.12 ábra TN-C-S többlépcsős védelem)",
+  "distractors": [
+   "1 pólusú: csak L1 – PE"
+  ]
+ },
+ {
+  "id": "IV-tv-015",
+  "part": "IV",
+  "topic": "tulfeszultseg-vedelem",
+  "type": "group",
+  "difficulty": 1,
+  "points": 6,
+  "q": "Csoportosítsa a túlfeszültségek okait eredetük szerint!",
+  "groups": [
+   "Légköri (villám) eredetű",
+   "Belső (kapcsolási) eredetű",
+   "Elektrosztatikus eredetű"
+  ],
+  "items": [
+   {
+    "text": "Közvetlen villámcsapás az épület villámvédelmébe",
+    "group": 0
+   },
+   {
+    "text": "Közeli villámcsapás által indukált feszültség a vezetékekben",
+    "group": 0
+   },
+   {
+    "text": "Távoli villámcsapás a betápláló szabadvezetékbe",
+    "group": 0
+   },
+   {
+    "text": "Induktív terhelés (motor, mágneskapcsoló) lekapcsolása",
+    "group": 1
+   },
+   {
+    "text": "Olvadóbiztosító kiolvadása",
+    "group": 1
+   },
+   {
+    "text": "Kondenzátortelep kapcsolása",
+    "group": 1
+   },
+   {
+    "text": "Szigetelőanyagok súrlódása után kisülés (ESD)",
+    "group": 2
+   }
+  ],
+  "explanation": "A túlfeszültségek három csoportja: légköri (közvetlen, közeli vagy távoli villámcsapás), belső (kapcsolási: induktív vagy kapacitív áram megszakítása, biztosító kiolvadása, zárlat) és elektrosztatikus (feltöltődés, ESD). Az SPD a légköri és a kapcsolási tranziensek ellen véd, az ESD ellen csuklópánt, antisztatikus ruházat, földelés.",
+  "source": "villanyszerelo-jegyzet.pdf.txt 3.5 Túlfeszültség védelem 3.5.1–3.5.4; Délvil_tch/48._Villanyszerelo_JEGYZET 5.9, 6.11.4 5.1–5.4"
+ },
+ {
+  "id": "IV-tv-016",
+  "part": "IV",
+  "topic": "tulfeszultseg-vedelem",
+  "type": "match",
+  "difficulty": 3,
+  "points": 3,
+  "q": "Párosítsa a helyzeteket a szükséges túlfeszültség-védelemmel!",
+  "pairs": [
+   [
+    "Az épületen külső villámvédelem (LPS) van, vagy a betáplálást közvetlen villámcsapás érheti",
+    "1. típusú (1+2 kombinált) SPD a betáplálásnál"
+   ],
+   [
+    "Nincs LPS, csak távoli csapásból vagy kapcsolásból eredő túlfeszültség várható",
+    "2. típusú SPD a fő elosztóban"
+   ],
+   [
+    "Érzékeny készülék a 2. típusú SPD-től több mint 10 m vezetékhosszra",
+    "3. típusú SPD a készülék előtt"
+   ]
+  ],
+  "explanation": "Közvetlen vagy közeli villámcsapás veszélye (különösen meglévő LPS) esetén 1., 2. és 3. típusú védelem kell; ha csak légköri eredetű indukált és kapcsolási túlfeszültség várható, a 2. és 3. típus elegendő. A 3. típus csak a készülék közelében (néhány méteren belül) hatékony, távolabbi érzékeny fogyasztóhoz külön kell.",
+  "source": "MEE-VET Műszaki alapok, VII.5 Túlfeszültség-védelem (LPZ zónakoncepció, MSZ EN 62305-4, MSZ HD 60364-5-534)",
+  "distractors": [
+   "Semmilyen SPD nem szükséges"
+  ]
+ },
+ {
+  "id": "IV-tv-017",
+  "part": "IV",
+  "topic": "tulfeszultseg-vedelem",
+  "type": "truefalse",
+  "difficulty": 3,
+  "points": 5,
+  "q": "Döntse el az MSZ HD 60364-4-443 (légköri vagy kapcsolási eredetű túlfeszültségek elleni védelem) mai előírásairól szóló állításokról, hogy igazak vagy hamisak!",
+  "statements": [
+   {
+    "text": "Túlfeszültség-védelem kell, ha a túlfeszültség következménye emberi életet érintene (pl. kórház, biztonsági berendezés).",
+    "answer": true
+   },
+   {
+    "text": "Túlfeszültség-védelem kell, ha a következmény közszolgáltatás kiesése vagy kulturális örökség károsodása lenne.",
+    "answer": true
+   },
+   {
+    "text": "Kereskedelmi, ipari tevékenységnél és sok embert befogadó helyen is kötelező a védelem.",
+    "answer": true
+   },
+   {
+    "text": "Egyéb esetben kockázatértékelést kell végezni; ha ez elmarad, a védelmet ki kell építeni.",
+    "answer": true
+   },
+   {
+    "text": "A jelenlegi előírás szerint földkábeles betáplálású épületben soha nem kell SPD.",
+    "answer": false
+   }
+  ],
+  "explanation": "A 443-as fejezet mai (2016 óta érvényes) változata a következmények alapján írja elő a védelmet: emberi élet, közszolgáltatás és kulturális örökség, ipari-kereskedelmi tevékenység, sok ember egy helyen. Minden más esetben kockázatértékelés dönt, ennek hiányában a védelmet ki kell építeni. Régebbi jegyzetekben (MSZ 2364-443) még a betáplálás módja (szabadvezeték/földkábel) és az N<sub>g</sub> > 2,24 villámsűrűség volt a döntő szempont, ez már nem érvényes.",
+  "source": "MSZ HD 60364-4-443:2016 443.4; 10_4/Villbizjegyzet 4.3.2.2 (régi szabály)"
+ },
+ {
+  "id": "IV-tv-018",
+  "part": "IV",
+  "topic": "tulfeszultseg-vedelem",
+  "type": "single",
+  "difficulty": 2,
+  "points": 1,
+  "q": "Az elosztóban a 2. típusú SPD az áram-védőkapcsoló (ÁVK) <b>terhelés felőli</b> oldalára kerülne. Milyen ÁVK-t kell ebben az esetben alkalmazni?",
+  "options": [
+   "Bármilyen 30 mA-es pillanatműködésű ÁVK megfelel",
+   "Időkésleltetéses (S típusú), legalább 3 kA 8/20 µs lökőáram-állóságú ÁVK-t",
+   "B típusú ÁVK-t, mert az a lökőáramot is érzékeli",
+   "ÁVK helyett csak kismegszakító lehet"
+  ],
+  "answer": [
+   1
+  ],
+  "explanation": "Az MSZ HD 60364-5-534 szerint ÁVK utáni 1. vagy 2. típusú SPD csak akkor építhető be, ha az ÁVK időkésleltetéses (S) és legalább 3 kA 8/20 µs lökőáramot elvisel. Különben az SPD-n át a PE felé folyó lökőáramot az ÁVK hibaáramnak érzékeli, lekapcsol, vagy tönkre is mehet. Ezért jobb az SPD-t az ÁVK elé (betáplálási oldalra) tenni.",
+  "source": "MEE-VET Műszaki alapok, VII.5 Túlfeszültség-védelem; Délvil_tch/48._Villanyszerelo_JEGYZET 5.9, 6.11.4 6.10.2",
+  "wrongWhy": [
+   "A pillanatműködésű ÁVK a lökőáramtól lekapcsolhat vagy károsodhat.",
+   null,
+   "A B típus az egyenáramú hibaáramok érzékelésére való, a lökőáram-állóságot nem ez adja.",
+   "Az ÁVK a hibavédelemhez/kiegészítő védelemhez kell, nem hagyható el."
+  ]
+ },
+ {
+  "id": "IV-tv-019",
+  "part": "IV",
+  "topic": "tulfeszultseg-vedelem",
+  "type": "single",
+  "difficulty": 2,
+  "points": 1,
+  "q": "Milyen 1. típusú villámáram-levezető építhető be a <b>méretlen</b> fővezetékbe (a fogyasztásmérő elé) az MSZ 447 szerint?",
+  "options": [
+   "Bármilyen varisztoros 2. típusú SPD, plomba nélkül",
+   "Csak szikraköz alapú, szivárgóáram-mentes, zárópecsételhető tokozatú, az elosztói engedélyes által elfogadott kivitelű levezető",
+   "Csak 3. típusú dugaszolható SPD",
+   "A méretlen fővezetékbe SPD semmilyen esetben nem építhető"
+  ],
+  "answer": [
+   1
+  ],
+  "explanation": "A mérő előtti SPD-n átfolyó szivárgóáram mérés nélküli fogyasztás lenne, ezért ott csak szivárgóáram-mentes, szikraköz alapú levezető lehet, zárópecsételhető műanyag tokozatban, az elosztói engedélyes által elfogadott (típusvizsgált szekrényes) kivitelben. Előnye, hogy a villámáram a mérőt és az első túláramvédelmi készüléket megkerülve jut a földbe. A bekötővezeték legfeljebb 1 m, keresztmetszete legalább 16 mm².",
+  "source": "MEE-VET Műszaki alapok, VII.5 Túlfeszültség-védelem (Villámáram-levezető beépítése a fogyasztásmérő előtt, MSZ 447); Délvil_tch/48._Villanyszerelo_JEGYZET 5.9, 6.11.4 6.9.3",
+  "wrongWhy": [
+   "A varisztor szivárgóárama miatt nem mehet méretlen szakaszra, plomba is kell.",
+   null,
+   "A 3. típus finomvédelem, a betáplálásnál nem megfelelő.",
+   "Az MSZ 447 megengedi, ha az elosztó elfogadta a kialakítást."
+  ]
+ },
+ {
+  "id": "IV-tv-020",
+  "part": "IV",
+  "topic": "tulfeszultseg-vedelem",
+  "type": "order",
+  "difficulty": 2,
+  "points": 2,
+  "q": "Állítsa sorba a túlfeszültség-védelmi alkatrészeket a <b>legdurvább</b> (legnagyobb levezetőképességű, leglassabb) fokozattól a <b>legfinomabb</b> (leggyorsabb, legkisebb energiájú) felé!",
+  "items": [
+   "Szikraköz (villámáram-levezető)",
+   "Varisztor (fém-oxid, MOV)",
+   "Szuppresszordióda"
+  ],
+  "explanation": "A szikraköz nagy (akár 100 kA-es 10/350 µs-os) áramot is levezet, de lassabban szólal meg. A varisztor gyorsabb, de kisebb energiát bír: ez a közepes fokozat. A szuppresszordióda a leggyorsabb (ns), feszültséget néhány voltra is korlátoz, de csak kis energiát bír, ezért a többlépcsős védelem utolsó tagja. A fokozatok közé soros impedancia (vezetékhossz vagy illesztő induktivitás) kell, hogy a durvább fokozat is begyújtson.",
+  "source": "villanyszerelo-jegyzet.pdf.txt 3.5 Túlfeszültség védelem 3.5.5; Délvil_tch/48._Villanyszerelo_JEGYZET 5.9, 6.11.4 5.9"
+ },
+ {
+  "id": "IV-tv-021",
+  "part": "IV",
+  "topic": "tulfeszultseg-vedelem",
+  "type": "match",
+  "difficulty": 2,
+  "points": 4,
+  "q": "Párosítsa a túlfeszültség-védelmi alkatrészeket a jellemzőjükkel!",
+  "pairs": [
+   [
+    "Szikraköz",
+    "Átütésekor rövidre zár, nagy levezetőképesség, szivárgóáram-mentes"
+   ],
+   [
+    "Varisztor",
+    "Feszültségfüggő ellenállás, a határfeszültség felett ellenállása erősen lecsökken"
+   ],
+   [
+    "Szuppresszordióda",
+    "A leggyorsabb, kis energiájú finomvédelem, alacsony határfeszültség"
+   ],
+   [
+    "Nemesgáztöltésű levezető",
+    "Hermetikusan zárt gázkisülési térben ellenőrzött ív alakul ki"
+   ]
+  ],
+  "explanation": "Szikraköz: átüt, levezet, utána ki kell oltania az utánfolyó áramot; nincs szivárgóárama, ezért méretlen szakaszra és N–PE közé is ez kerül. Varisztor: nemlineáris ellenállás, közepes fokozat, öregszik. Szuppresszordióda: leggyorsabb, kis energia. Nemesgáztöltésű levezető: gázkisüléses szikraköz, gyakran távközlési vonalakon.",
+  "source": "villanyszerelo-jegyzet.pdf.txt 3.5 Túlfeszültség védelem 3.5.5",
+  "distractors": [
+   "Bimetall alapú, túlterheléskor old ki"
+  ]
+ },
+ {
+  "id": "IV-tv-022",
+  "part": "IV",
+  "topic": "tulfeszultseg-vedelem",
+  "type": "single",
+  "difficulty": 3,
+  "points": 1,
+  "q": "Mi történhet, ha egy szikraközös 1. típusú SPD mögé közvetlenül (szinte nulla vezetékhosszal, leválasztó induktivitás nélkül) varisztoros 2. típusú SPD-t kötnek, és a két készülék nem gyárilag koordinált?",
+  "options": [
+   "Semmi, a két SPD egymást erősíti",
+   "A gyorsabb varisztor szólal meg előbb, a szikraköz nem gyújt be, így a varisztorra jut a teljes villámáram és tönkremehet",
+   "A szikraköz a varisztort rövidre zárja, ezért a varisztor soha nem működik",
+   "Az ÁVK azonnal lekapcsol"
+  ],
+  "answer": [
+   1
+  ],
+  "explanation": "A varisztor alacsonyabb feszültségen és gyorsabban szólal meg, mint a szikraköz. Ha nincs köztük elég soros impedancia (vezetékhossz vagy leválasztó induktivitás), a feszültség nem nő meg annyira, hogy a szikraköz begyújtson, így a nagy energiájú villámáram a gyengébb varisztoron folyik át, és az szétrobbanhat. Megoldás: a gyártó által előírt vezetékhossz, leválasztó induktivitás, vagy energetikailag koordinált (1+2 kombinált) készülék.",
+  "source": "Délvil_tch/48._Villanyszerelo_JEGYZET 5.9, 6.11.4 5.9.2; MEE-VET Műszaki alapok, VII.5 Túlfeszültség-védelem",
+  "wrongWhy": [
+   "Koordináció nélkül a két fokozat nem segíti, hanem veszélyezteti egymást.",
+   null,
+   "Fordítva: a varisztor gyorsabb, ő szólal meg előbb.",
+   "Ez a koordináció kérdése, nem ÁVK-működés."
+  ]
+ },
+ {
+  "id": "IV-tv-023",
+  "part": "IV",
+  "topic": "tulfeszultseg-vedelem",
+  "type": "multi",
+  "difficulty": 2,
+  "points": 6,
+  "q": "Mely adatok tartoznak egy SPD kiválasztásához szükséges katalógusadatok közé?",
+  "options": [
+   "U<sub>c</sub> – legnagyobb tartós üzemi feszültség",
+   "U<sub>p</sub> – védelmi feszültségszint",
+   "I<sub>imp</sub> (1. típusnál) vagy I<sub>n</sub> (2. típusnál) – levezetőképesség",
+   "A legnagyobb megengedett előtét-túláramvédelem",
+   "IΔn – névleges kioldó-különbözeti áram",
+   "A kioldási jelleggörbe (B, C, D)"
+  ],
+  "answer": [
+   0,
+   1,
+   2,
+   3
+  ],
+  "explanation": "Az SPD-t a tartós üzemi feszültség (U<sub>c</sub>, nem szólalhat meg üzemszerűen), a védelmi szint (U<sub>p</sub>), a levezetőképesség (I<sub>imp</sub>, I<sub>n</sub>) és az előtét-túláramvédelem legnagyobb értéke alapján kell kiválasztani. Az IΔn az ÁVK adata, a B/C/D jelleggörbe a kismegszakítóé; egyik sem SPD-jellemző.",
+  "source": "MSZ EN 61643-11; MEE-VET Műszaki alapok, VII.5 Túlfeszültség-védelem",
+  "wrongWhy": [
+   null,
+   null,
+   null,
+   null,
+   "Ez az áram-védőkapcsoló adata.",
+   "Ez a kismegszakító jelleggörbéje."
+  ]
+ },
+ {
+  "id": "IV-tv-024",
+  "part": "IV",
+  "topic": "tulfeszultseg-vedelem",
+  "type": "truefalse",
+  "difficulty": 1,
+  "points": 4,
+  "q": "Döntse el az SPD-k működésére vonatkozó állításokról, hogy igazak vagy hamisak!",
+  "statements": [
+   {
+    "text": "Működéskor az SPD a túlfeszültséget rövid időre a PE/föld felé vezeti le.",
+    "answer": true
+   },
+   {
+    "text": "Az SPD a tartós, hálózati frekvenciájú túlfeszültségek (pl. nullaszakadás) ellen is megvéd.",
+    "answer": false
+   },
+   {
+    "text": "Sok SPD-n állapotjelző ablak mutatja, ha a betét tönkrement és cserélni kell.",
+    "answer": true
+   },
+   {
+    "text": "Egyetlen 3. típusú SPD a dugaszolóaljzatban elég az egész lakás védelmére.",
+    "answer": false
+   }
+  ],
+  "explanation": "Az SPD impulzusszerű (µs-os) túlfeszültségeket vezet le; a tartós túlfeszültség (pl. nullavezető-szakadás, 400 V a 230 V-os fogyasztón) ellen nem véd, sőt tönkreteheti az SPD-t. A cserélhető betét állapotjelzője (zöld/piros ablak) mutatja a meghibásodást. A 3. típus csak a közvetlen környezetét védi, előtte 2. típusú fokozat is kell.",
+  "source": "villanyszerelo-jegyzet.pdf.txt 3.5 Túlfeszültség védelem 3.5; MEE-VET Műszaki alapok, VII.5 Túlfeszültség-védelem"
+ },
+ {
+  "id": "IV-tv-025",
+  "part": "IV",
+  "topic": "tulfeszultseg-vedelem",
+  "type": "single",
+  "difficulty": 1,
+  "points": 1,
+  "q": "Milyen színjelölésű vezetővel kell a túlfeszültség-levezető földoldali kapcsát az EPH/PE sínhez csatlakoztatni?",
+  "options": [
+   "Kék",
+   "Fekete",
+   "Zöld-sárga",
+   "Barna"
+  ],
+  "answer": [
+   2
+  ],
+  "explanation": "Az SPD földoldali bekötése védő-/potenciálkiegyenlítő vezető, ezért zöld-sárga (z/s) jelölésű, és a lehető legrövidebb legyen. A kék a nullavezető, a fekete és a barna fázisvezető színe. A régi írásbeli vizsgákon (34 522 04) is előfordult: \"a túlfeszültség-levezetőket a ... a lehető legrövidebb z/s színű vezetékkel kell csatlakoztatni\".",
+  "source": "34 522 04 1 12T, 15T; Délvil_tch/48._Villanyszerelo_JEGYZET 5.9, 6.11.4 6.11.4",
+  "wrongWhy": [
+   "A kék a nullavezető színe.",
+   "A fekete fázisvezető szín.",
+   null,
+   "A barna fázisvezető szín."
+  ]
+ },
+ {
+  "id": "IV-tv-026",
+  "part": "IV",
+  "topic": "tulfeszultseg-vedelem",
+  "type": "dropdown",
+  "difficulty": 2,
+  "points": 3,
+  "q": "Egészítse ki a villámáram-levezető bekötésének szabályait!",
+  "text": "Az SPD bekötővezetékeinek együttes hossza lehetőleg legyen kisebb, mint {0}, de semmiképp ne haladja meg az {1} értéket. Az MSZ 447 szerint a mérő előtti villámáram-levezető csatlakozó vezetékének keresztmetszete legalább {2}.",
+  "blanks": [
+   {
+    "options": [
+     "0,5 m",
+     "2 m",
+     "5 m"
+    ],
+    "answer": 0
+   },
+   {
+    "options": [
+     "1 m",
+     "3 m",
+     "10 m"
+    ],
+    "answer": 0
+   },
+   {
+    "options": [
+     "2,5 mm²",
+     "6 mm²",
+     "16 mm²"
+    ],
+    "answer": 2
+   }
+  ],
+  "explanation": "Az MSZ HD 60364-5-534 a bekötővezetékek együttes hosszára 0,5 m-t javasol, és legfeljebb 1 m-t enged, mert a hosszanti (induktív) feszültségesés a védelmi szinthez adódik. Az MSZ 447 a fogyasztásmérő elé épített villámáram-levezetőnél a csatlakozópont–SPD és az SPD–fő földelősín távolságot legfeljebb 1 m-ben, a vezető keresztmetszetét legalább 16 mm²-ben határozza meg.",
+  "source": "MEE-VET Műszaki alapok, VII.5 Túlfeszültség-védelem (II.5.16 ábra; MSZ 447 feltételek); Délvil_tch/48._Villanyszerelo_JEGYZET 5.9, 6.11.4 6.11.4"
+ },
+ {
+  "id": "IV-tv-027",
+  "part": "IV",
+  "topic": "tulfeszultseg-vedelem",
+  "type": "single",
+  "difficulty": 2,
+  "points": 1,
+  "q": "Mire kell különösen figyelni a napelemes rendszer DC oldalára szánt túlfeszültség-levezető kiválasztásakor?",
+  "options": [
+   "Elég egy 230 V-os AC SPD, a DC és AC között nincs különbség",
+   "Kifejezetten PV/DC alkalmazásra készült SPD kell, amelynek U<sub>CPV</sub> értéke legalább akkora, mint a string legnagyobb (hideg időben mért) üresjárási feszültsége",
+   "A DC oldalra csak 3. típusú SPD szerelhető",
+   "A DC oldalon az SPD-t a modulok és a föld közé nem szabad bekötni"
+  ],
+  "answer": [
+   1
+  ],
+  "explanation": "Egyenáramnál nincs nullátmenet, ezért az ív kioltása nehezebb: csak PV-re minősített (MSZ EN 61643-31 szerinti) DC SPD használható. U<sub>CPV</sub> értékének a string hideg időben mért legnagyobb üresjárási feszültségét is meg kell haladnia. Ha az épületen LPS van és a biztonsági távolság nem tartható, DC oldalon is villámáram-bíró (1. típusú) SPD kell.",
+  "source": "villanyszerelo-jegyzet.pdf.txt 9.3.3; MSZ HD 60364-7-712",
+  "wrongWhy": [
+   "Az AC SPD DC-n nem tudja megbízhatóan kioltani az ívet.",
+   null,
+   "Jellemzően 2. típusú (LPS esetén 1. típusú) DC SPD kerül ide.",
+   "A DC SPD éppen a + és − pólus és a PE/föld közé kerül."
+  ]
+ },
+ {
+  "id": "IV-tv-028",
+  "part": "IV",
+  "topic": "tulfeszultseg-vedelem",
+  "type": "single",
+  "difficulty": 2,
+  "points": 1,
+  "q": "Az MEE-VET Műszaki alapok szerint jellemzően legfeljebb mekkora vezetékhosszt tud egy 3. típusú SPD hatékonyan védeni, vagyis milyen közel kell lennie a végkészülékhez?",
+  "options": [
+   "Kb. 5 m",
+   "Kb. 50 m",
+   "Kb. 100 m",
+   "A távolság nem számít"
+  ],
+  "answer": [
+   0
+  ],
+  "explanation": "A 3. típusú készülékek általában kb. 5 m vezetékhosszt tudnak védeni; ennél távolabbi végberendezéshez csak különleges esetben (pl. árnyékolt vezeték) elegendők. Ezért a 3. típusú SPD-t közvetlenül a védendő készülék elé teszik (aljzat, elosztósáv, készülékbe épített védelem). Hosszabb vezetéken a vezetékben indukálódó és a hullámterjedés miatti túlfeszültség újra megnő.",
+  "source": "MEE-VET Műszaki alapok, VII.5 Túlfeszültség-védelem (LPZ zónakoncepció)",
+  "wrongWhy": [
+   null,
+   "Túl nagy távolság, a vezetékben újra túlfeszültség indukálódik.",
+   "Ekkora távolságra a 3. típus nem hatékony.",
+   "A 3. típus hatékonysága éppen a távolságon múlik."
+  ]
+ },
+ {
+  "id": "IV-tv-029",
+  "part": "IV",
+  "topic": "tulfeszultseg-vedelem",
+  "type": "multi",
+  "difficulty": 3,
+  "points": 5,
+  "q": "Melyek igazak a kombinált (1+2, illetve 1+2+3 típusú) villámáram-levezetőkre?",
+  "options": [
+   "Egy készülékben teljesítik az 1. és a 2. típus vizsgálati követelményeit",
+   "Gyári koordinációjuk miatt közöttük és a 2. fokozat között nem kell külön leválasztó induktivitás",
+   "Az 1+2+3 típusú kombi levezető csak akkor látja el a finomvédelmet is, ha a védett készülék vezetékhosszban kb. 5 m-en belül van",
+   "Kombinált levezető előtt nem kell túláramvédelem",
+   "Kombinált levezetőt csak alelosztóba szabad szerelni"
+  ],
+  "answer": [
+   0,
+   1,
+   2
+  ],
+  "explanation": "A kombi levezetők az MSZ EN 61643-11 szerint az 1. és 2. (esetleg 3.) típus követelményeit egyszerre teljesítik, és alacsony (≤ 2,5 kV) védelmi szintet érnek el, ezért a betáplálásnál ma ezeket használják. Az 1+2+3-as kivitel csak a közeli (kb. 5 m-en belüli) készüléket védi finoman. Előtét-túláramvédelem minden SPD-nél kell, a kombi levezető helye pedig a betáplálás, a fő földelősín közelében.",
+  "source": "MEE-VET Műszaki alapok, VII.5 Túlfeszültség-védelem (II.5.4 ábra)",
+  "wrongWhy": [
+   null,
+   null,
+   null,
+   "Minden SPD-nél kell előtét-túláramvédelem a meghibásodás leválasztására.",
+   "A helye a betáplálási ponton, a főelosztóban vagy a mérő előtt van."
+  ]
+ },
+ {
+  "id": "IV-tv-030",
+  "part": "IV",
+  "topic": "tulfeszultseg-vedelem",
+  "type": "single",
+  "difficulty": 1,
+  "points": 1,
+  "q": "Miért kell a túlfeszültség-korlátozóval sorosan (elé) túláramvédelmi eszközt (biztosítót vagy kismegszakítót) beépíteni?",
+  "options": [
+   "Hogy az SPD-t kézzel ki lehessen kapcsolni villámláskor",
+   "Mert az SPD tönkremenetelekor rövidzárat okozhat; ekkor a túláramvédelem leválasztja, és a fogyasztók ellátása megmarad",
+   "Hogy az SPD gyorsabban szólaljon meg",
+   "Mert az SPD a túlterhelés ellen is véd"
+  ],
+  "answer": [
+   1
+  ],
+  "explanation": "Az SPD megszólaláskor rövid időre, meghibásodáskor tartósan zárlatot okozhat a védett ág és a PE/föld között. A sorosan beépített előtét-túláramvédelem ilyenkor leválasztja az SPD-t, és nem a fő biztosító old ki, így az ellátás folyamatos marad. Az előtét értékét az SPD gyártója adja meg.",
+  "source": "Délvil_tch/48._Villanyszerelo_JEGYZET 5.9, 6.11.4 6.11.4; villanyszerelo-jegyzet.pdf.txt 3.5 Túlfeszültség védelem 3.5.5",
+  "wrongWhy": [
+   "A kikapcsolhatóság csak mellékes, a fő ok a meghibásodás leválasztása.",
+   null,
+   "Az előtét nem gyorsítja az SPD-t.",
+   "Az SPD nem túlterhelés-védelem."
+  ]
+ },
+ {
+  "id": "IV-tv-031",
+  "part": "IV",
+  "topic": "tulfeszultseg-vedelem",
+  "type": "number",
+  "difficulty": 3,
+  "points": 2,
+  "q": "Egy LPS II osztályú villámvédelemmel ellátott épületbe TN-C rendszerű, 4 vezetős (L1, L2, L3, PEN) kábel lép be. Feltételezés (MSZ EN 62305, pesszimista becslés): a villámáram 50%-a a földelőn, 50%-a az erősáramú betápláláson folyik el, és ez egyenletesen oszlik meg a 4 vezető között. Mekkora villámáram (10/350 µs) jut egy pólusra?",
+  "fields": [
+   {
+    "label": "Az épületbe becsapó villámáram LPS II-nél",
+    "unit": "kA",
+    "answer": 150,
+    "tol": 0.01
+   },
+   {
+    "label": "Egy pólusra jutó villámáram",
+    "unit": "kA",
+    "answer": 18.75,
+    "tol": 0.02
+   }
+  ],
+  "explanation": "LPS II-nél a méretezési villámáram 150 kA. Ennek 50%-a, 75 kA folyik a betápláló vezetéken, 4 vezetőre osztva: 75 kA / 4 = 18,75 kA pólusonként. Ezért legalább ekkora pólusonkénti I<sub>imp</sub>-ű 1. típusú SPD kell. (LPS I: 200 kA → 25 kA; LPS III/IV: 100 kA → 12,5 kA pólusonként.)",
+  "source": "MEE-VET Műszaki alapok, VII.5 Túlfeszültség-védelem (II.5.1 táblázat)"
+ },
+ {
+  "id": "IV-pv-001",
+  "part": "IV",
+  "topic": "fotovoltaik",
+  "type": "order",
+  "difficulty": 1,
+  "points": 3,
+  "q": "Állítsa sorba a fotovoltaikus rendszer építőelemeit a legkisebbtől a legnagyobb egység felé!",
+  "items": [
+   "Napelemcella",
+   "Napelem-modul (panel)",
+   "String (sorba kötött modulok fűzére)",
+   "Napelemcsoport / napelemmező (párhuzamos stringek)"
+  ],
+  "explanation": "A cella a legkisebb fotovoltaikus egység (kb. 0,5–0,6 V). Sok cellát egy modulba kötnek; a sorba kötött modulok alkotják a stringet (fűzért); több párhuzamos string a napelemcsoport (array), több csoport a napelemmező. Sorba kötéskor a feszültség, párhuzamosan az áram adódik össze.",
+  "source": "villanyszerelo-jegyzet.pdf.txt 9. fejezet (Fotovoltaikus áramtermelés) 9.1.2"
+ },
+ {
+  "id": "IV-pv-002",
+  "part": "IV",
+  "topic": "fotovoltaik",
+  "type": "match",
+  "difficulty": 1,
+  "points": 5,
+  "q": "Párosítsa a napelem-modulok katalógusadatait a jelentésükkel!",
+  "pairs": [
+   [
+    "U<sub>oc</sub> (V<sub>OC</sub>)",
+    "Üresjárási feszültség (terhelés nélkül)"
+   ],
+   [
+    "I<sub>sc</sub>",
+    "Rövidzárási áram"
+   ],
+   [
+    "U<sub>mpp</sub>",
+    "A maximális teljesítményű munkapont feszültsége"
+   ],
+   [
+    "I<sub>mpp</sub>",
+    "A maximális teljesítményű munkapont árama"
+   ],
+   [
+    "P<sub>max</sub> [Wp]",
+    "Névleges (csúcs-) teljesítmény szabványos vizsgálati feltételek (STC) mellett"
+   ]
+  ],
+  "explanation": "Az adatlapon az angol rövidítések szerepelnek: open-circuit voltage (U<sub>oc</sub>), short-circuit current (I<sub>sc</sub>), maximum power point (MPP) feszültsége és árama, valamint a Wp-ben (wattpeak) megadott névleges teljesítmény. P<sub>max</sub> = U<sub>mpp</sub> · I<sub>mpp</sub>, ami mindig kisebb, mint U<sub>oc</sub> · I<sub>sc</sub>. Tipikus hiba az U<sub>oc</sub>-t üzemi feszültségnek gondolni.",
+  "source": "villanyszerelo-jegyzet.pdf.txt 9. fejezet (Fotovoltaikus áramtermelés) 9.1.6",
+  "distractors": [
+   "A modul hőmérsékleti együtthatója"
+  ]
+ },
+ {
+  "id": "IV-pv-003",
+  "part": "IV",
+  "topic": "fotovoltaik",
+  "type": "number",
+  "difficulty": 1,
+  "points": 2,
+  "q": "Egy stringbe 16 db azonos modult kötnek sorba. Egy modul adatai: U<sub>oc</sub> = 49,8 V, I<sub>sc</sub> = 13,9 A. Mekkora a string üresjárási feszültsége és rövidzárási árama?",
+  "fields": [
+   {
+    "label": "String üresjárási feszültsége",
+    "unit": "V",
+    "answer": 796.8,
+    "tol": 0.005
+   },
+   {
+    "label": "String rövidzárási árama",
+    "unit": "A",
+    "answer": 13.9,
+    "tol": 0.01
+   }
+  ],
+  "explanation": "Soros kapcsolásnál a feszültségek összeadódnak, az áram azonos marad: U<sub>string</sub> = 16 · 49,8 V = 796,8 V; I<sub>string</sub> = I<sub>modul</sub> = 13,9 A. Gyakori hiba az áramot is megszorozni a modulszámmal; az csak párhuzamos kapcsolásnál adódik össze.",
+  "source": "villanyszerelo-jegyzet.pdf.txt 9. fejezet (Fotovoltaikus áramtermelés) 9.1.2 (U<sub>string</sub> = U<sub>1</sub> + … + U<sub>n</sub>, I<sub>string</sub> = I<sub>modul</sub>)"
+ },
+ {
+  "id": "IV-pv-004",
+  "part": "IV",
+  "topic": "fotovoltaik",
+  "type": "number",
+  "difficulty": 2,
+  "points": 3,
+  "q": "Rajz alapján: két, egyenként 10 modulos stringet párhuzamosan kötnek egy inverter MPPT-bemenetére. Egy modul adatai: U<sub>mpp</sub> = 41,5 V, I<sub>mpp</sub> = 13,2 A. Számítsa ki a napelemcsoport munkaponti adatait! (A teljesítményt kW-ban, két tizedesre kerekítve adja meg.)",
+  "fields": [
+   {
+    "label": "U<sub>mpp</sub> (csoport)",
+    "unit": "V",
+    "answer": 415,
+    "tol": 0.005
+   },
+   {
+    "label": "I<sub>mpp</sub> (csoport)",
+    "unit": "A",
+    "answer": 26.4,
+    "tol": 0.01
+   },
+   {
+    "label": "P<sub>mpp</sub> (csoport)",
+    "unit": "kW",
+    "answer": 10.96,
+    "tol": 0.01
+   }
+  ],
+  "explanation": "Egy string: U = 10 · 41,5 V = 415 V, I = 13,2 A. Két párhuzamos string: a feszültség változatlan (415 V), az áramok összeadódnak: I = 2 · 13,2 A = 26,4 A. P = U · I = 415 V · 26,4 A = 10 956 W ≈ 10,96 kW (ellenőrzés: 20 modul · 41,5 V · 13,2 A = 10 956 W). Párhuzamos kapcsoláshoz azonos feszültségű stringek kellenek.",
+  "source": "villanyszerelo-jegyzet.pdf.txt 9. fejezet (Fotovoltaikus áramtermelés) 9.1.2",
+  "svg": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 460 170' font-family='sans-serif' font-size='13'><rect x='20' y='30' width='22' height='30' fill='none' stroke='black' stroke-width='1.5'/><line x1='42' y1='45' x2='50' y2='45' stroke='black'/><rect x='50' y='30' width='22' height='30' fill='none' stroke='black' stroke-width='1.5'/><line x1='72' y1='45' x2='80' y2='45' stroke='black'/><rect x='80' y='30' width='22' height='30' fill='none' stroke='black' stroke-width='1.5'/><line x1='102' y1='45' x2='110' y2='45' stroke='black'/><rect x='110' y='30' width='22' height='30' fill='none' stroke='black' stroke-width='1.5'/><line x1='132' y1='45' x2='140' y2='45' stroke='black'/><rect x='140' y='30' width='22' height='30' fill='none' stroke='black' stroke-width='1.5'/><line x1='162' y1='45' x2='170' y2='45' stroke='black'/><rect x='170' y='30' width='22' height='30' fill='none' stroke='black' stroke-width='1.5'/><line x1='192' y1='45' x2='200' y2='45' stroke='black'/><rect x='200' y='30' width='22' height='30' fill='none' stroke='black' stroke-width='1.5'/><line x1='222' y1='45' x2='230' y2='45' stroke='black'/><rect x='230' y='30' width='22' height='30' fill='none' stroke='black' stroke-width='1.5'/><line x1='252' y1='45' x2='260' y2='45' stroke='black'/><rect x='260' y='30' width='22' height='30' fill='none' stroke='black' stroke-width='1.5'/><line x1='282' y1='45' x2='290' y2='45' stroke='black'/><rect x='290' y='30' width='22' height='30' fill='none' stroke='black' stroke-width='1.5'/><rect x='20' y='100' width='22' height='30' fill='none' stroke='black' stroke-width='1.5'/><line x1='42' y1='115' x2='50' y2='115' stroke='black'/><rect x='50' y='100' width='22' height='30' fill='none' stroke='black' stroke-width='1.5'/><line x1='72' y1='115' x2='80' y2='115' stroke='black'/><rect x='80' y='100' width='22' height='30' fill='none' stroke='black' stroke-width='1.5'/><line x1='102' y1='115' x2='110' y2='115' stroke='black'/><rect x='110' y='100' width='22' height='30' fill='none' stroke='black' stroke-width='1.5'/><line x1='132' y1='115' x2='140' y2='115' stroke='black'/><rect x='140' y='100' width='22' height='30' fill='none' stroke='black' stroke-width='1.5'/><line x1='162' y1='115' x2='170' y2='115' stroke='black'/><rect x='170' y='100' width='22' height='30' fill='none' stroke='black' stroke-width='1.5'/><line x1='192' y1='115' x2='200' y2='115' stroke='black'/><rect x='200' y='100' width='22' height='30' fill='none' stroke='black' stroke-width='1.5'/><line x1='222' y1='115' x2='230' y2='115' stroke='black'/><rect x='230' y='100' width='22' height='30' fill='none' stroke='black' stroke-width='1.5'/><line x1='252' y1='115' x2='260' y2='115' stroke='black'/><rect x='260' y='100' width='22' height='30' fill='none' stroke='black' stroke-width='1.5'/><line x1='282' y1='115' x2='290' y2='115' stroke='black'/><rect x='290' y='100' width='22' height='30' fill='none' stroke='black' stroke-width='1.5'/><text x='20' y='22'>1. string (10 modul sorba)</text><text x='20' y='92'>2. string (10 modul sorba)</text><path d='M312 45 H360 V115 M312 115 H360' fill='none' stroke='black' stroke-width='2'/><path d='M20 45 H8 V150 H380 M20 115 H8' fill='none' stroke='black' stroke-width='2'/><circle cx='360' cy='80' r='3' fill='black'/><line x1='360' y1='80' x2='420' y2='80' stroke='black' stroke-width='2'/><line x1='380' y1='150' x2='420' y2='150' stroke='black' stroke-width='2'/><text x='424' y='84'>+</text><text x='424' y='154'>−</text><text x='330' y='165' font-size='11'>inverter MPPT bemenet</text></svg>"
+ },
+ {
+  "id": "IV-pv-005",
+  "part": "IV",
+  "topic": "fotovoltaik",
+  "type": "number",
+  "difficulty": 2,
+  "points": 2,
+  "q": "Egy családi ház tetőjére 24 db 455 Wp-os modult szerelnek. Magyarországi déli tájolásnál a fajlagos éves termelés 1150 kWh/kWp. Mekkora a rendszer névleges teljesítménye és várható éves termelése?",
+  "fields": [
+   {
+    "label": "Névleges teljesítmény",
+    "unit": "kWp",
+    "answer": 10.92,
+    "tol": 0.005
+   },
+   {
+    "label": "Várható éves termelés",
+    "unit": "kWh",
+    "answer": 12558,
+    "tol": 0.01
+   }
+  ],
+  "explanation": "P = 24 · 455 Wp = 10 920 Wp = 10,92 kWp. Éves termelés: E = 10,92 kWp · 1150 kWh/kWp = 12 558 kWh. A kWp a szabványos vizsgálati feltételek (STC: 1000 W/m², 25 °C) melletti csúcsteljesítmény; a valós termelés ennél kisebb teljesítményen, de sok órán át jön létre. A kWp nem azonos az inverter AC kVA-jával.",
+  "source": "villanyszerelo-jegyzet.pdf.txt 9. fejezet (Fotovoltaikus áramtermelés) 9.1.6"
+ },
+ {
+  "id": "IV-pv-006",
+  "part": "IV",
+  "topic": "fotovoltaik",
+  "type": "number",
+  "difficulty": 3,
+  "points": 2,
+  "q": "Egy modul üresjárási feszültsége STC-n (25 °C) U<sub>oc</sub> = 49,6 V, hőmérsékleti együtthatója −0,27 %/°C. A tervezéshez −15 °C-os legkisebb cellahőmérséklettel számolnak. Az inverter legnagyobb megengedett DC bemeneti feszültsége 1000 V. Számítsa ki a modul U<sub>oc</sub>-jét −15 °C-on (két tizedesre), és hogy legfeljebb hány modul köthető egy stringbe!",
+  "fields": [
+   {
+    "label": "U<sub>oc</sub> −15 °C-on",
+    "unit": "V",
+    "answer": 54.96,
+    "tol": 0.003
+   },
+   {
+    "label": "Legfeljebb ennyi modul egy stringben",
+    "unit": "db",
+    "answer": 18,
+    "tolAbs": 0
+   }
+  ],
+  "explanation": "ΔT = −15 °C − 25 °C = −40 °C. U<sub>oc</sub>(−15 °C) = 49,6 V · (1 + (−0,0027) · (−40)) = 49,6 V · 1,108 = 54,96 V. Modulszám: 1000 V / 54,96 V = 18,2, lefelé kerekítve 18 db (18 · 54,96 V = 989,2 V < 1000 V; 19 db már 1044 V lenne). Hidegben a feszültség nő, ezért a stringhosszt mindig a leghidegebb állapotra kell ellenőrizni; ha 25 °C-kal számolnánk, 20 modul jönne ki, ami télen tönkreteheti az invertert.",
+  "source": "villanyszerelo-jegyzet.pdf.txt 9. fejezet (Fotovoltaikus áramtermelés) 9.1.1, 9.1.6 (hőmérsékletfüggés, hőmérsékleti együttható)"
+ },
+ {
+  "id": "IV-pv-007",
+  "part": "IV",
+  "topic": "fotovoltaik",
+  "type": "single",
+  "difficulty": 1,
+  "points": 1,
+  "q": "Milyen feltételek mellett adják meg a napelem-modulok névleges (Wp) teljesítményét (STC)?",
+  "options": [
+   "500 W/m² besugárzás, 45 °C cellahőmérséklet",
+   "1000 W/m² besugárzás, 25 °C cellahőmérséklet, AM 1,5 spektrum",
+   "1000 W/m² besugárzás, 0 °C cellahőmérséklet, borult égbolt",
+   "Délben mért valós tetőtéri körülmények"
+  ],
+  "answer": [
+   1
+  ],
+  "explanation": "STC (Standard Test Conditions): 1000 W/m² besugárzás, 25 °C cellahőmérséklet, AM 1,5 légtömeg-spektrum. A NOCT/NMOT a valós üzemi cellahőmérséklethez közelebbi körülményeket jelent, ott kisebb a teljesítmény. A valós tetőn a modul jóval melegebb 25 °C-nál, ezért általában a névlegesnél kevesebbet ad.",
+  "source": "villanyszerelo-jegyzet.pdf.txt 9. fejezet (Fotovoltaikus áramtermelés) 9.1.6",
+  "wrongWhy": [
+   "Ez inkább a NOCT/NMOT-hoz hasonló üzemi feltétel, nem STC.",
+   null,
+   "Az STC 25 °C-os cellahőmérséklet, nem borult égbolt.",
+   "Az STC laborfeltétel, nem helyszíni mérés."
+  ]
+ },
+ {
+  "id": "IV-pv-008",
+  "part": "IV",
+  "topic": "fotovoltaik",
+  "type": "group",
+  "difficulty": 2,
+  "points": 6,
+  "q": "Csoportosítsa a jellemzőket aszerint, hogy hálózatra visszatápláló (on-grid), sziget (off-grid) vagy hibrid napelemes rendszerre jellemzők!",
+  "groups": [
+   "Hálózatra visszatápláló (on-grid)",
+   "Szigetüzemű (off-grid)",
+   "Hibrid (vegyes üzemű)"
+  ],
+  "items": [
+   {
+    "text": "A többletet kétirányú mérőn át a közcélú hálózatba táplálja, saját tárolója nincs",
+    "group": 0
+   },
+   {
+    "text": "Hálózatkimaradáskor az inverter leállítja a kitáplálást",
+    "group": 0
+   },
+   {
+    "text": "Csak akkumulátorban tárolja az energiát, nincs hálózati kapcsolata",
+    "group": 1
+   },
+   {
+    "text": "Tanyán, távközlési átjátszónál, hálózattól távoli helyen alkalmazzák",
+    "group": 1
+   },
+   {
+    "text": "Akkumulátoros tárolás mellett hálózati kapcsolata is van, áramszünetben tartalék ellátást adhat",
+    "group": 2
+   },
+   {
+    "text": "A töltésvezérlő elsőként a saját tárolót tölti, csak utána táplál a hálózatba",
+    "group": 2
+   }
+  ],
+  "explanation": "Az on-grid (HMKE) rendszer a hálózatot \"tárolóként\" használja: ami nem fogy el, azt kétirányú mérőn át kitáplálja, áramszünetkor pedig a szigetüzem elleni védelem leállítja. Az off-grid rendszer csak akkumulátorból lát el, hálózattól távoli helyen. A hibrid mindkettőt egyesíti: akkumulátorral és hálózattal is dolgozik, prioritásban a saját tárolót tölti.",
+  "source": "villanyszerelo-jegyzet.pdf.txt 9. fejezet (Fotovoltaikus áramtermelés) 9.1.3–9.1.5"
+ },
+ {
+  "id": "IV-pv-009",
+  "part": "IV",
+  "topic": "fotovoltaik",
+  "type": "multi",
+  "difficulty": 2,
+  "points": 6,
+  "q": "Melyek a hálózatra csatlakozó napelemes inverter feladatai?",
+  "options": [
+   "A DC feszültség hálózati frekvenciájú AC feszültséggé alakítása",
+   "Munkapontkövetés (MPPT) a legnagyobb teljesítmény érdekében",
+   "A hálózati feszültség és frekvencia figyelése, szinkronizálás",
+   "Nem kívánt szigetüzem elleni védelem: hálózatkimaradáskor leállítja a kitáplálást",
+   "Az árnyékolt cellák áthidalása a modulon belül",
+   "A kitáplált és vételezett energia elszámolása az áramszolgáltatóval"
+  ],
+  "answer": [
+   0,
+   1,
+   2,
+   3
+  ],
+  "explanation": "Az inverter DC/AC átalakító, MPPT-vel a jelleggörbe legnagyobb teljesítményű pontján tartja a napelemeket, figyeli a hálózat feszültségét és frekvenciáját (fázis-, frekvencia-, feszültségazonosság nélkül nem táplálhat be), és hálózatkimaradáskor lekapcsol (anti-islanding). Az árnyékolt cellákat a modul kötődobozában lévő by-pass diódák hidalják át, az elszámolás pedig a kétirányú fogyasztásmérő feladata.",
+  "source": "villanyszerelo-jegyzet.pdf.txt 9. fejezet (Fotovoltaikus áramtermelés) 9.1.2, 9.1.4, 9.3.3; 34 522 04 szóbeli tételsor (fotovoltaikus rendszer tétel kulcsszavai)",
+  "wrongWhy": [
+   null,
+   null,
+   null,
+   null,
+   "Ezt a modulba épített by-pass dióda végzi.",
+   "Ez a kétirányú (ad-vesz) mérő feladata."
+  ]
+ },
+ {
+  "id": "IV-pv-010",
+  "part": "IV",
+  "topic": "fotovoltaik",
+  "type": "single",
+  "difficulty": 1,
+  "points": 1,
+  "q": "Miért kötelező a hálózatra csatlakozó inverterekben a nem kívánt szigetüzem elleni védelem (anti-islanding)?",
+  "options": [
+   "Hogy az inverter éjszaka is termeljen",
+   "Hogy hálózatkimaradáskor az inverter ne tápláljon a lekapcsolt hálózatba, mert az veszélyeztetné a hálózaton dolgozókat",
+   "Hogy az akkumulátorok ne merüljenek le",
+   "Hogy a modulok ne melegedjenek túl"
+  ],
+  "answer": [
+   1
+  ],
+  "explanation": "Ha a közcélú hálózatot karbantartás vagy hiba miatt lekapcsolják, a szerelők feszültségmentesnek hiszik. Egy tovább termelő inverter feszültség alá helyezné a vezetéket, és áramütést okozhatna. Ezért az inverter a hálózati feszültség megszűnésekor leáll, és csak a hálózat visszatérése után, az előírt várakozási idő leteltével indul újra. Ezt működési próbán ellenőrizni kell.",
+  "source": "villanyszerelo-jegyzet.pdf.txt 9. fejezet (Fotovoltaikus áramtermelés) 9.3.3, 9.4.3; 34 522 04 szóbeli tételsor (fotovoltaikus rendszer tétel kulcsszavai)",
+  "wrongWhy": [
+   "Éjszaka nincs napsugárzás, ez nem a védelem célja.",
+   null,
+   "On-grid rendszerben jellemzően nincs akkumulátor.",
+   "A melegedéshez nincs köze."
+  ]
+ },
+ {
+  "id": "IV-pv-011",
+  "part": "IV",
+  "topic": "fotovoltaik",
+  "type": "single",
+  "difficulty": 1,
+  "points": 1,
+  "q": "Mekkora csatlakozási teljesítményig számít egy napelemes rendszer háztartási méretű kiserőműnek (HMKE)?",
+  "options": [
+   "5 kVA-ig",
+   "50 kVA-ig",
+   "500 kVA-ig",
+   "5 MVA-ig"
+  ],
+  "answer": [
+   1
+  ],
+  "explanation": "A villamos energiáról szóló törvény szerint HMKE a kisfeszültségű hálózatra csatlakozó, legfeljebb 50 kVA csatlakozási teljesítményű kiserőmű. Ennél nagyobb (50 kW–50 MW) rendszer kiserőmű (KE), külön engedélyezéssel. Az 5 kVA a családi házas rendszerek tipikus nagyságrendje, de nem a HMKE határa.",
+  "source": "villanyszerelo-jegyzet.pdf.txt 9. fejezet (Fotovoltaikus áramtermelés) 9.1.4",
+  "wrongWhy": [
+   "Ez csak tipikus lakossági méret, nem a határ.",
+   null,
+   "Ez már kiserőmű-tartomány.",
+   "Ez már kiserőmű-tartomány."
+  ]
+ },
+ {
+  "id": "IV-pv-012",
+  "part": "IV",
+  "topic": "fotovoltaik",
+  "type": "multi",
+  "difficulty": 1,
+  "points": 5,
+  "q": "Melyek igazak a HMKE mérésére és csatlakoztatására?",
+  "options": [
+   "A csatlakozási ponton kétirányú (ad-vesz) mérő külön méri a vételezett és a visszatáplált energiát",
+   "A mérőhely kialakítását az elosztói engedélyes (áramszolgáltató) műszaki előírása határozza meg",
+   "A HMKE a mért (fogyasztásmérő utáni) oldalra csatlakozik",
+   "Az inverter kijelzőjén látható termelés alapján számláznak",
+   "Egyirányú, mechanikus (tárcsás) mérő is megfelel"
+  ],
+  "answer": [
+   0,
+   1,
+   2
+  ],
+  "explanation": "A HMKE-vel rendelkező felhasználó vételezett és visszatáplált energiáját a csatlakozási ponton kétirányú elektronikus mérő méri, a mérőhely kialakítása az elosztó előírása szerint történik, a termelőegység pedig a mért oldalra csatlakozik. Az inverter kijelzője csak tájékoztató, elszámolásra nem hiteles; az egyirányú mérő a visszatáplálást nem tudja külön mérni.",
+  "source": "villanyszerelo-jegyzet.pdf.txt 9. fejezet (Fotovoltaikus áramtermelés) 9.1.4, 9.4.2; 34 522 04 szóbeli tételsor (fotovoltaikus rendszer tétel kulcsszavai)",
+  "wrongWhy": [
+   null,
+   null,
+   null,
+   "Az inverter adatai nem hiteles elszámolási mérések.",
+   "Az egyirányú mérő nem méri külön a visszatáplálást."
+  ]
+ },
+ {
+  "id": "IV-pv-013",
+  "part": "IV",
+  "topic": "fotovoltaik",
+  "type": "single",
+  "difficulty": 1,
+  "points": 1,
+  "q": "Melyik vezetéktípus a szabványos napelemes (szolár) DC kábel?",
+  "options": [
+   "NYM-J",
+   "H07RN-F",
+   "H1Z2Z2-K",
+   "NYY-J"
+  ],
+  "answer": [
+   2
+  ],
+  "explanation": "A H1Z2Z2-K (MSZ EN 50618) egyeres, kettős szigetelésű, halogénmentes, UV- és időjárásálló, 1,5 kV DC-re méretezett finomsodrott szolárkábel. Az NYM-J beltéri, nem UV-álló; a H07RN-F gumi tömlővezeték, nem PV-re minősített; az NYY-J földkábel, nem a modulok közötti DC kábelezésre való.",
+  "source": "villanyszerelo-jegyzet.pdf.txt 9. fejezet (Fotovoltaikus áramtermelés) 9.3.2; 34 522 04 szóbeli tételsor (fotovoltaikus rendszer tétel kulcsszavai) (speciális PV kábelezés)",
+  "wrongWhy": [
+   "Beltéri falon kívüli kábel, nem UV-álló.",
+   "Gumi tömlővezeték, nem PV DC-re minősített.",
+   null,
+   "Földkábel, nem szolárkábel."
+  ]
+ },
+ {
+  "id": "IV-pv-014",
+  "part": "IV",
+  "topic": "fotovoltaik",
+  "type": "truefalse",
+  "difficulty": 2,
+  "points": 5,
+  "q": "Döntse el a napelemes rendszer DC oldalára vonatkozó állításokról, hogy igazak vagy hamisak!",
+  "statements": [
+   {
+    "text": "A DC oldali ív nehezebben alszik ki, mint az AC, mert az egyenáramnak nincs nullátmenete.",
+    "answer": true
+   },
+   {
+    "text": "A modulok és a DC leválasztó közötti szakaszt napsütésben mindig feszültség alattinak kell tekinteni.",
+    "answer": true
+   },
+   {
+    "text": "Különböző gyártók MC4-kompatibilisnek mondott csatlakozói nyugodtan összedughatók.",
+    "answer": false
+   },
+   {
+    "text": "A DC csatlakozókat terhelés alatt is szabad bontani, ha az AC oldalt már lekapcsolták.",
+    "answer": false
+   },
+   {
+    "text": "A DC oldali string-biztosítónak napelemes (gPV) jelleggörbéjűnek kell lennie.",
+    "answer": true
+   }
+  ],
+  "explanation": "Egyenáramnál nincs nullátmenet, ezért a terhelés alatt bontott csatlakozóban tartós ív marad, amely tüzet okozhat. A modulok napsütésben folyamatosan feszültséget adnak, ezért a DC oldal a leválasztóig mindig feszültség alatt van. Csak azonos gyártó és típus csatlakozóit szabad összedugni (a \"kompatibilis\" vegyes párosítás a melegedéses tüzek gyakori oka), DC oldalon pedig gPV biztosítót kell használni. Bontani csak a DC szakaszoló nyitása után, árammentesen szabad.",
+  "source": "villanyszerelo-jegyzet.pdf.txt 9. fejezet (Fotovoltaikus áramtermelés) 9.3.2–9.3.3; 10_4/14-es felülvizsgáló szakvizsga segédlet 8.6.6 (napelemes rendszerek)"
+ },
+ {
+  "id": "IV-pv-015",
+  "part": "IV",
+  "topic": "fotovoltaik",
+  "type": "match",
+  "difficulty": 2,
+  "points": 5,
+  "q": "Rajz alapján: párosítsa a hálózatra visszatápláló napelemes rendszer egyvonalas vázlatának számozott elemeit a megnevezésükkel!",
+  "pairs": [
+   [
+    "2",
+    "DC szakaszoló (és DC oldali SPD)"
+   ],
+   [
+    "3",
+    "Inverter (DC/AC átalakító, MPPT)"
+   ],
+   [
+    "4",
+    "AC oldali leválasztó, kismegszakító és áramvédő-kapcsoló"
+   ],
+   [
+    "5",
+    "Kétirányú (ad-vesz) fogyasztásmérő"
+   ],
+   [
+    "6",
+    "Közcélú kisfeszültségű hálózat"
+   ]
+  ],
+  "explanation": "A modulokról (1) érkező DC áram a DC szakaszolón és a DC SPD-n (2) át jut az inverterbe (3), amely AC-t állít elő. Az AC oldalon leválasztó, túláramvédelem, szükség szerint ÁVK és AC SPD (4) következik, majd a ház fogyasztói és a kétirányú mérő (5), végül a közcélú hálózat (6). Az akkumulátor és a töltésvezérlő csak sziget- vagy hibrid rendszerben szerepel.",
+  "source": "villanyszerelo-jegyzet.pdf.txt 9. fejezet (Fotovoltaikus áramtermelés) 9.6 ábra, 9.3.3; 34 522 04 szóbeli tételsor (fotovoltaikus rendszer tétel kulcsszavai)",
+  "distractors": [
+   "Töltésvezérlő",
+   "Akkumulátortelep"
+  ],
+  "svg": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 150' font-family='sans-serif' font-size='14'><rect x='10' y='40' width='80' height='60' fill='none' stroke='black' stroke-width='2'/><path d='M30 40 V100 M50 40 V100 M70 40 V100 M10 70 H90' stroke='black'/><text x='44' y='120'>1</text><line x1='90' y1='70' x2='110' y2='70' stroke='black' stroke-width='2'/><rect x='110' y='40' width='80' height='60' fill='none' stroke='black' stroke-width='2'/><text x='144' y='76'>2</text><line x1='190' y1='70' x2='210' y2='70' stroke='black' stroke-width='2'/><rect x='210' y='40' width='80' height='60' fill='none' stroke='black' stroke-width='2'/><text x='244' y='76'>3</text><line x1='290' y1='70' x2='310' y2='70' stroke='black' stroke-width='2'/><rect x='310' y='40' width='80' height='60' fill='none' stroke='black' stroke-width='2'/><text x='344' y='76'>4</text><line x1='390' y1='70' x2='410' y2='70' stroke='black' stroke-width='2'/><rect x='410' y='40' width='80' height='60' fill='none' stroke='black' stroke-width='2'/><text x='444' y='76'>5</text><line x1='490' y1='70' x2='510' y2='70' stroke='black' stroke-width='2'/><rect x='510' y='40' width='80' height='60' fill='none' stroke='black' stroke-width='2'/><text x='544' y='76'>6</text><line x1='10' y1='20' x2='250' y2='20' stroke='black'/><text x='110' y='16'>DC oldal</text><line x1='250' y1='30' x2='590' y2='30' stroke='black'/><text x='400' y='26'>AC oldal</text><text x='10' y='140' font-size='12'>1 = napelem-modulok (string); a házi fogyasztók a 4 és 5 között ágaznak le</text></svg>"
+ },
+ {
+  "id": "IV-pv-016",
+  "part": "IV",
+  "topic": "fotovoltaik",
+  "type": "single",
+  "difficulty": 3,
+  "points": 1,
+  "q": "Milyen típusú áram-védőkapcsolót kell a napelemes inverter AC áramkörébe beépíteni, ha az inverter nem biztosít legalább egyszerű elválasztást a DC és AC oldal között (transzformátor nélküli), és a gyártó nem nyilatkozik arról, hogy az inverter nem táplálhat DC hibaáramot az AC oldalra?",
+  "options": [
+   "AC típusú",
+   "A típusú",
+   "B típusú",
+   "Nem kell ÁVK"
+  ],
+  "answer": [
+   2
+  ],
+  "explanation": "Transzformátor nélküli invertereknél a DC oldali szigetelési hiba sima egyenáramú hibaáramot okozhat, amelytől az AC és A típusú ÁVK elvakulhat (nem old ki). Ezért az MSZ HD 60364-7-712 szerint ilyenkor B típusú (egyenáramú hibaáramot is érzékelő) ÁVK kell, kivéve, ha az inverter gyártója kijelenti, hogy DC hibaáramot nem juttat az AC oldalra. Ilyen nyilatkozat esetén a gyártó által megadott típus (gyakran A típus) is elfogadható.",
+  "source": "MSZ HD 60364-7-712; villanyszerelo-jegyzet.pdf.txt 9. fejezet (Fotovoltaikus áramtermelés) 9.4.3 (ÁVK kiválasztása IEC TS 62548 szerint)",
+  "wrongWhy": [
+   "Az AC típus csak szinuszos hibaáramot érzékel, ma lakásban sem ajánlott.",
+   "Az A típus sima DC hibaáramnál elvakulhat; csak gyártói nyilatkozat esetén elég.",
+   null,
+   "Ha az áramkör ÁVK-t igényel, nem hagyható el."
+  ]
+ },
+ {
+  "id": "IV-pv-017",
+  "part": "IV",
+  "topic": "fotovoltaik",
+  "type": "single",
+  "difficulty": 2,
+  "points": 1,
+  "q": "Mi a napelem-modul kötődobozába épített by-pass dióda feladata?",
+  "options": [
+   "Megakadályozza, hogy éjszaka a hálózat visszatáplálja a modult",
+   "Részleges árnyékoláskor áthidalja az árnyékolt cellacsoportot, így az nem melegszik túl (hot spot), és a string árama tovább folyhat",
+   "A modult a villámáramtól védi",
+   "Az inverter MPPT-jét helyettesíti"
+  ],
+  "answer": [
+   1
+  ],
+  "explanation": "A sorba kötött cellák közül az árnyékolt cella fogyasztóvá válik: a többiek árama áthajtva rajta helyi túlmelegedést (hot spotot) okoz. A by-pass dióda ilyenkor kiiktatja az érintett cellacsoportot, így a modul többi része termel, a cella nem károsodik. Egy modulban jellemzően több (pl. 3) by-pass dióda van.",
+  "source": "villanyszerelo-jegyzet.pdf.txt 9. fejezet (Fotovoltaikus áramtermelés) 9.1.2 (9.4 ábra)",
+  "wrongWhy": [
+   "Ezt a visszáram-védelem/blokkoló dióda vagy az inverter oldja meg, nem a by-pass dióda.",
+   null,
+   "Villám ellen SPD és villámvédelem véd.",
+   "Az MPPT az inverter funkciója."
+  ]
+ },
+ {
+  "id": "IV-pv-018",
+  "part": "IV",
+  "topic": "fotovoltaik",
+  "type": "truefalse",
+  "difficulty": 2,
+  "points": 4,
+  "q": "Döntse el az árnyékolás hatásáról szóló állításokról, hogy igazak vagy hamisak!",
+  "statements": [
+   {
+    "text": "Sorba kötött modulokban egyetlen árnyékolt modul (by-pass dióda nélkül) az egész string áramát lecsökkenti.",
+    "answer": true
+   },
+   {
+    "text": "Árnyékolt cellában veszélyes helyi túlmelegedés (hot spot) alakulhat ki.",
+    "answer": true
+   },
+   {
+    "text": "Az árnyékolás csak az árnyékolt modul teljesítményét csökkenti, a string többi moduljáét soha.",
+    "answer": false
+   },
+   {
+    "text": "A tervezéskor a környező tereptárgyak napszaktól és évszaktól függő árnyékát is figyelembe kell venni.",
+    "answer": true
+   }
+  ],
+  "explanation": "A string árama a leggyengébb (legkevésbé megvilágított) modul áramához igazodik, ezért egy kémény vagy fa árnyéka az egész string termelését visszaveti; a by-pass dióda és a modulonkénti optimalizáló ezt mérsékli. Az árnyékolt cella fogyasztóként melegszik (hot spot). Tervezéskor a téli, alacsony napállásnál hosszabb árnyékokat is számításba kell venni.",
+  "source": "villanyszerelo-jegyzet.pdf.txt 9. fejezet (Fotovoltaikus áramtermelés) 9.1.2, 9.3.2"
+ },
+ {
+  "id": "IV-pv-019",
+  "part": "IV",
+  "topic": "fotovoltaik",
+  "type": "single",
+  "difficulty": 1,
+  "points": 1,
+  "q": "Magyarországon fix telepítésnél általában milyen tájolás és dőlésszög adja a legnagyobb éves termelést?",
+  "options": [
+   "Észak, 10°",
+   "Dél, kb. 30–40°",
+   "Kelet, 90° (függőleges)",
+   "Nyugat, 0° (vízszintes)"
+  ],
+  "answer": [
+   1
+  ],
+  "explanation": "Az északi féltekén a déli tájolás a legkedvezőbb (azimut 0° = dél), a hazai szélességen az éves optimum kb. 35° körüli dőlésszögnél van (a jegyzetek 30–45°-os tartományt adnak meg). Délkelet, délnyugat vagy kelet-nyugati kettős telepítés jó kompromisszum lehet; északi tető esetén inkább földre telepített tartószerkezet javasolt.",
+  "source": "villanyszerelo-jegyzet.pdf.txt 9. fejezet (Fotovoltaikus áramtermelés) 9.3.2",
+  "wrongWhy": [
+   "Az északi tájolás a legrosszabb az északi féltekén.",
+   null,
+   "A függőleges, keleti tájolás jelentősen kevesebbet termel.",
+   "A vízszintes sík és a nyugati tájolás sem az optimum."
+  ]
+ },
+ {
+  "id": "IV-pv-020",
+  "part": "IV",
+  "topic": "fotovoltaik",
+  "type": "dropdown",
+  "difficulty": 1,
+  "points": 3,
+  "q": "Egészítse ki a napelem-modulok elhelyezésére vonatkozó mondatokat!",
+  "text": "Az azimutszög nulla értéke a {0} iránynak felel meg. A napelem akkor ad legnagyobb teljesítményt, ha a sugárzás a felületére {1} esik. Ha nincs déli tetőfelület, jó kompromisszum a {2} telepítés.",
+  "blanks": [
+   {
+    "options": [
+     "déli",
+     "északi",
+     "keleti"
+    ],
+    "answer": 0
+   },
+   {
+    "options": [
+     "merőlegesen",
+     "laposan, 10°-os szögben",
+     "párhuzamosan"
+    ],
+    "answer": 0
+   },
+   {
+    "options": [
+     "kettős, kelet-nyugati",
+     "északi",
+     "árnyékos oldali"
+    ],
+    "answer": 0
+   }
+  ],
+  "explanation": "A napelemes tervezésben az azimut 0° a dél. A modul akkor termel a legtöbbet, ha a direkt sugárzás merőlegesen éri; napkövetés nélkül ezt optimális tájolással és dőlésszöggel közelítjük. Déli tető hiányában délkeleti, délnyugati, vagy kettős kelet-nyugati elrendezés jó kompromisszum.",
+  "source": "villanyszerelo-jegyzet.pdf.txt 9. fejezet (Fotovoltaikus áramtermelés) 9.3.2"
+ },
+ {
+  "id": "IV-pv-021",
+  "part": "IV",
+  "topic": "fotovoltaik",
+  "type": "multi",
+  "difficulty": 2,
+  "points": 5,
+  "q": "Melyek igazak a napelemes rendszerek tűzeseti lekapcsolására (OTSZ, Tűzvédelmi Műszaki Irányelv – TvMI 7.4) vonatkozóan?",
+  "options": [
+   "A napelemes rendszer lekapcsolását a tűzeseti lekapcsolás helyére kell vinni",
+   "Az inverterbe épített DC leválasztás akkor fogadható el, ha az épületbe lépő belső DC nyomvonal legfeljebb 5 m, és nem halad át egynél több szinten vagy tűzszakaszon",
+   "A kézi kapcsolókészülék kezelőszervének elhelyezési magassága 1–1,5 m",
+   "Az AC kismegszakító lekapcsolása a modulok és az inverter közötti DC kábelt is feszültségmentessé teszi",
+   "Tűz esetén elég a hálózati főkapcsolót lekapcsolni, a napelemek ezután nem adnak feszültséget"
+  ],
+  "answer": [
+   0,
+   1,
+   2
+  ],
+  "explanation": "A tűzoltók számára a DC oldalt is le kell tudni választani, mert a modulok fényben mindig feszültséget adnak. A TvMI szerint az inverterbe épített DC leválasztás csak rövid (≤ 5 m) belső DC nyomvonalnál fogadható el, különben a DC kábel épületbe lépésénél külön leválasztás (tűzeseti DC kapcsoló) kell. A lekapcsolást a tűzeseti lekapcsolás helyére kell vinni és jelölni. Az AC oldal vagy a hálózati főkapcsoló lekapcsolása a modulok DC feszültségét nem szünteti meg.",
+  "source": "villanyszerelo-jegyzet.pdf.txt 9. fejezet (Fotovoltaikus áramtermelés) 9.3.3 (TvMI 7.4 idézet); 10_4/14-es felülvizsgáló szakvizsga segédlet (tűzvédelmi témakörök)",
+  "wrongWhy": [
+   null,
+   null,
+   null,
+   "A modulok és a DC leválasztó közötti rész napsütésben feszültség alatt marad.",
+   "A napelemek fényben feszültséget termelnek, a hálózat lekapcsolásától függetlenül."
+  ]
+ },
+ {
+  "id": "IV-pv-022",
+  "part": "IV",
+  "topic": "fotovoltaik",
+  "type": "single",
+  "difficulty": 2,
+  "points": 1,
+  "q": "Egy napelemes rendszer AC oldali kismegszakítóját és a ház főkapcsolóját lekapcsolták. Napsütéses időben mely rész marad továbbra is feszültség alatt?",
+  "options": [
+   "Semmi, minden feszültségmentes",
+   "A napelem-modulok és a DC kábelezés a DC leválasztóig (és az inverter DC bemenete, ha a DC szakaszoló zárva van)",
+   "Csak a kétirányú mérő",
+   "Csak a ház dugaszolóaljzatai"
+  ],
+  "answer": [
+   1
+  ],
+  "explanation": "Az AC lekapcsolás után az inverter leáll, de a modulok fényben üresjárási feszültséget adnak, amely string esetén több száz volt DC is lehet. Ezért a modulok és a DC leválasztó közötti szakaszt mindig feszültség alattinak kell tekinteni. A DC szakaszoló nyitása után is feszültség alatt marad a modul felőli oldal.",
+  "source": "10_4/14-es felülvizsgáló szakvizsga segédlet 8.6.6 (napelemes rendszerek) (8.6.6.2 Megjegyzés 1); villanyszerelo-jegyzet.pdf.txt 9. fejezet (Fotovoltaikus áramtermelés) 9.3.3",
+  "wrongWhy": [
+   "A modulok fényben feszültséget termelnek.",
+   null,
+   "A mérő a hálózat felőli oldalon van, a lényeg a DC oldal.",
+   "Az aljzatok a lekapcsolás után feszültségmentesek."
+  ]
+ },
+ {
+  "id": "IV-pv-023",
+  "part": "IV",
+  "topic": "fotovoltaik",
+  "type": "truefalse",
+  "difficulty": 3,
+  "points": 5,
+  "q": "Az épületen külső villámvédelem van, a lapostetőre napelemeket szerelnek. Döntse el az állításokról, hogy igazak vagy hamisak!",
+  "statements": [
+   {
+    "text": "A modulokat a felfogórendszer védett terében kell elhelyezni (pl. külön felfogórudakkal).",
+    "answer": true
+   },
+   {
+    "text": "Ha a modulok, a tartószerkezet és a felfogórendszer között az s biztonsági távolság betartható, a tartószerkezetet nem kötik közvetlenül az LPS-hez.",
+    "answer": true
+   },
+   {
+    "text": "Ha az s biztonsági távolság nem tartható, a tartószerkezetet villámáram-bíró módon össze kell kötni az LPS-sel, és DC oldalon 1. típusú SPD kell.",
+    "answer": true
+   },
+   {
+    "text": "A tartószerkezetet szándékosan földeletlenül kell hagyni, hogy ne vonzza a villámot.",
+    "answer": false
+   },
+   {
+    "text": "A DC kábelezésnél nagy területet átfogó hurkokat kell kialakítani, hogy a villám indukáló hatása kiegyenlítődjön.",
+    "answer": false
+   }
+  ],
+  "explanation": "A modulok ne legyenek közvetlen becsapásnak kitéve: a felfogó (rúd) védett terébe kell őket helyezni, az s biztonsági távolság betartásával (elszigetelt kialakítás). Ha a távolság nem tartható, a tartószerkezetet villámáram-bíró módon kell az LPS-sel összekötni, és ekkor villám-részáram juthat a DC kábelekre, ezért 1. típusú DC SPD kell. A fémszerkezetet EPH-ba kell kötni, a DC kábelezésnél pedig a nagy hurkokat kerülni kell, mert azokban a villám nagy feszültséget indukál.",
+  "source": "villanyszerelo-jegyzet.pdf.txt 9. fejezet (Fotovoltaikus áramtermelés) 9.3.2–9.3.3; MSZ EN 62305-3; 34 522 04 szóbeli tételsor (fotovoltaikus rendszer tétel kulcsszavai)"
+ },
+ {
+  "id": "IV-pv-024",
+  "part": "IV",
+  "topic": "fotovoltaik",
+  "type": "multi",
+  "difficulty": 2,
+  "points": 6,
+  "q": "Melyek tartoznak a napelemes rendszer DC oldalán az MSZ EN 62446-1 szerint előírt ellenőrző mérések és vizsgálatok közé?",
+  "options": [
+   "Védővezető (EPH) folytonosság-vizsgálata",
+   "Polaritásvizsgálat",
+   "A string üresjárási feszültségének mérése",
+   "A string rövidzárási áramának mérése",
+   "Szigetelési ellenállás mérése",
+   "Hurokimpedancia-mérés a DC stringen",
+   "ÁVK kioldási idejének mérése a string kábelén"
+  ],
+  "answer": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ],
+  "explanation": "Az MSZ EN 62446-1 DC oldali vizsgálatai: védővezető-folytonosság, polaritás, string üresjárási feszültség és rövidzárási áram, működési próba (lakatfogós árammérés), szükség szerint U–I jelleggörbe, valamint szigetelési ellenállás. A hurokimpedancia és az ÁVK kioldási idő AC oldali (MSZ HD 60364-6) mérés, a DC stringre értelmezhetetlen.",
+  "source": "villanyszerelo-jegyzet.pdf.txt 9. fejezet (Fotovoltaikus áramtermelés) 9.4.4; 10_4/14-es felülvizsgáló szakvizsga segédlet 8.6.6 (napelemes rendszerek) (8.6.6.5)",
+  "wrongWhy": [
+   null,
+   null,
+   null,
+   null,
+   null,
+   "A hurokimpedancia AC hálózati mérés.",
+   "Az ÁVK az AC oldalon van, a stringen nem mérhető kioldási idő."
+  ]
+ },
+ {
+  "id": "IV-pv-025",
+  "part": "IV",
+  "topic": "fotovoltaik",
+  "type": "single",
+  "difficulty": 2,
+  "points": 1,
+  "q": "Milyen jelleggörbéjű olvadóbiztosító használható a napelemes rendszer DC oldalán string-biztosítóként?",
+  "options": [
+   "gG (általános célú AC)",
+   "aM (motorvédelmi)",
+   "gPV (napelemes, DC-re minősített)",
+   "B jelleggörbéjű AC kismegszakító"
+  ],
+  "answer": [
+   2
+  ],
+  "explanation": "A DC oldalon csak DC-re és PV-re minősített gPV biztosító (vagy DC kismegszakító) alkalmazható, mert egyenáramnál az ív oltása nehezebb, a hibaáram pedig csak kissé nagyobb a névleges áramnál. String-biztosító jellemzően akkor kell, ha több (általában 3 vagy több) string párhuzamos, és egy hibás stringbe a többiek visszaárama a modul megengedett visszáramát meghaladná. A felülvizsgáló is ellenőrzi, hogy a beépített túláramvédelem alkalmas-e DC-re.",
+  "source": "10_4/14-es felülvizsgáló szakvizsga segédlet 8.6.6 (napelemes rendszerek) (8.6.6.4.1 b) gPV)",
+  "wrongWhy": [
+   "AC általános célú biztosító, DC-n nem biztosan olt.",
+   "Motorvédelmi kísérő biztosító, nem PV-re való.",
+   null,
+   "AC kismegszakító DC-n nem alkalmazható."
+  ]
+ },
+ {
+  "id": "IV-pv-026",
+  "part": "IV",
+  "topic": "fotovoltaik",
+  "type": "truefalse",
+  "difficulty": 2,
+  "points": 4,
+  "q": "Döntse el a napelem-modulok hőmérsékletfüggéséről szóló állításokról, hogy igazak vagy hamisak!",
+  "statements": [
+   {
+    "text": "A kristályos modul üresjárási feszültsége hidegben nő.",
+    "answer": true
+   },
+   {
+    "text": "A string legnagyobb feszültségét a legkisebb várható hőmérsékletre kell ellenőrizni az inverter határértékéhez.",
+    "answer": true
+   },
+   {
+    "text": "Nyári melegben a modul teljesítménye a névleges (STC) érték fölé nő.",
+    "answer": false
+   },
+   {
+    "text": "A hőmérsékleti együtthatót az adatlap %/°C egységben adja meg.",
+    "answer": true
+   }
+  ],
+  "explanation": "A szilícium cella feszültsége negatív hőmérsékleti együtthatójú: melegben csökken, hidegben nő. Ezért nyári délben, forró modulnál a teljesítmény kisebb a névlegesnél, egy hideg, napos téli reggelen viszont a string U<sub>oc</sub>-je jóval az STC-érték fölé mehet. A modulszámot ezért a leghidegebb állapotra kell méretezni. Az együtthatót a teljesítményre, U<sub>oc</sub>-re és I<sub>sc</sub>-re %/°C-ban adják meg.",
+  "source": "villanyszerelo-jegyzet.pdf.txt 9. fejezet (Fotovoltaikus áramtermelés) 9.1.1, 9.1.6"
+ },
+ {
+  "id": "IV-pv-027",
+  "part": "IV",
+  "topic": "fotovoltaik",
+  "type": "number",
+  "difficulty": 2,
+  "points": 2,
+  "q": "Három azonos stringet párhuzamosan kötnek egy gyűjtődobozban. Minden string 12 modulból áll; egy modul adatai: U<sub>oc</sub> = 40,1 V, I<sub>sc</sub> = 11,2 A. Mekkora a napelemcsoport üresjárási feszültsége és rövidzárási árama?",
+  "fields": [
+   {
+    "label": "Csoport üresjárási feszültsége",
+    "unit": "V",
+    "answer": 481.2,
+    "tol": 0.005
+   },
+   {
+    "label": "Csoport rövidzárási árama",
+    "unit": "A",
+    "answer": 33.6,
+    "tol": 0.01
+   }
+  ],
+  "explanation": "Egy string: U<sub>oc</sub> = 12 · 40,1 V = 481,2 V. Párhuzamos kapcsolásnál a feszültség nem változik: 481,2 V. Az áramok összeadódnak: I<sub>sc</sub> = 3 · 11,2 A = 33,6 A. Három vagy több párhuzamos stringnél már a string-biztosítók szükségességét is vizsgálni kell, mert egy zárlatos stringbe a másik kettő árama visszafolyhat.",
+  "source": "villanyszerelo-jegyzet.pdf.txt 9. fejezet (Fotovoltaikus áramtermelés) 9.1.2"
+ },
+ {
+  "id": "IV-pv-028",
+  "part": "IV",
+  "topic": "fotovoltaik",
+  "type": "group",
+  "difficulty": 1,
+  "points": 6,
+  "q": "Csoportosítsa a napelemes rendszer elemeit aszerint, hogy az inverter DC vagy AC oldalán találhatók!",
+  "groups": [
+   "DC oldal (modulok – inverter)",
+   "AC oldal (inverter – hálózat)"
+  ],
+  "items": [
+   {
+    "text": "DC szakaszoló (tűzeseti DC leválasztó)",
+    "group": 0
+   },
+   {
+    "text": "gPV string-biztosító",
+    "group": 0
+   },
+   {
+    "text": "MC4 csatlakozó",
+    "group": 0
+   },
+   {
+    "text": "H1Z2Z2-K szolárkábel",
+    "group": 0
+   },
+   {
+    "text": "Áram-védőkapcsoló",
+    "group": 1
+   },
+   {
+    "text": "Kétirányú fogyasztásmérő",
+    "group": 1
+   },
+   {
+    "text": "AC kismegszakító",
+    "group": 1
+   },
+   {
+    "text": "AC oldali 2. típusú SPD",
+    "group": 1
+   }
+  ],
+  "explanation": "A modulok és az inverter között egyenáram folyik: itt van a szolárkábel, az MC4 csatlakozók, a string-biztosítók, a DC szakaszoló és a DC SPD. Az inverter után már 230/400 V-os váltakozó áram van: AC leválasztó és kismegszakító, ÁVK, AC SPD és a csatlakozási ponton a kétirányú mérő. A DC elemeknek külön DC-re minősítettnek kell lenniük.",
+  "source": "villanyszerelo-jegyzet.pdf.txt 9. fejezet (Fotovoltaikus áramtermelés) 9.3.3; 34 522 04 szóbeli tételsor (fotovoltaikus rendszer tétel kulcsszavai)"
+ },
+ {
+  "id": "IV-pv-029",
+  "part": "IV",
+  "topic": "fotovoltaik",
+  "type": "order",
+  "difficulty": 3,
+  "points": 4,
+  "q": "Állítsa sorba egy hálózatra kapcsolt napelemes inverter karbantartás előtti biztonságos leválasztásának lépéseit!",
+  "items": [
+   "Az AC oldali megszakító (leválasztó) kikapcsolása – az inverter leáll, megszűnik a DC terhelőáram",
+   "A DC szakaszoló kikapcsolása",
+   "Várakozás a gyártó által előírt ideig (az inverter kondenzátorainak kisülése)",
+   "Feszültségmentesség ellenőrzése az inverter kapcsain (AC és DC oldalon)",
+   "A DC csatlakozók (MC4) bontása – már árammentesen"
+  ],
+  "explanation": "Először az AC oldalt kapcsoljuk le: az inverter leáll, így a DC körben már nem folyik terhelőáram, és a DC szakaszoló árammentesen nyitható. Utána a DC szakaszolót nyitjuk, és megvárjuk a belső kondenzátorok kisülését. Csak ellenőrzött feszültségmentesség után bontunk; a modulok felőli DC oldal így is feszültség alatt marad, a csatlakozó bontása csak árammentesen engedett, terhelés alatt ívet húzna.",
+  "source": "villanyszerelo-jegyzet.pdf.txt 9. fejezet (Fotovoltaikus áramtermelés) 9.3.3 (DC leválasztás, ív); 10_4/14-es felülvizsgáló szakvizsga segédlet 8.6.6 (napelemes rendszerek); MSZ 1585:2016 feszültségmentesítés elvei"
+ },
+ {
+  "id": "IV-pv-030",
+  "part": "IV",
+  "topic": "fotovoltaik",
+  "type": "single",
+  "difficulty": 1,
+  "points": 1,
+  "q": "Miért kell a napelemes rendszer fém tartószerkezetét és a modulkereteket a védő-egyenpotenciálú összekötésbe (EPH) bekötni?",
+  "options": [
+   "Hogy a modulok jobban hűljenek",
+   "Hogy szigetelési hiba esetén ne léphessen fel veszélyes érintési feszültség, és csökkenjenek a túlfeszültség okozta potenciálkülönbségek",
+   "Hogy a modulok áramát a földön át vezessék vissza az inverterhez",
+   "Mert így nem kell DC szakaszoló"
+  ],
+  "answer": [
+   1
+  ],
+  "explanation": "A tartószerkezet nagy kiterjedésű fémszerkezet: az EPH-ba kötve hibavédelmet ad (DC kábel szigetelési hibája esetén se legyen veszélyes érintési feszültség), és a villám okozta potenciálkülönbségeket is csökkenti, ami a túlfeszültség-védelem alapja. Az EPH nem üzemi áramvezető, és nem helyettesíti a leválasztó eszközöket.",
+  "source": "villanyszerelo-jegyzet.pdf.txt 9. fejezet (Fotovoltaikus áramtermelés) 9.3.3; 34 522 04 szóbeli tételsor (fotovoltaikus rendszer tétel kulcsszavai) (nagykiterjedésű fémtest – EPH)",
+  "wrongWhy": [
+   "A hűtéshez nincs köze.",
+   null,
+   "Az EPH-n üzemszerűen nem folyhat áram.",
+   "A DC szakaszoló ettől függetlenül kötelező."
+  ]
+ },
+ {
+  "id": "IV-pv-031",
+  "part": "IV",
+  "topic": "fotovoltaik",
+  "type": "dropdown",
+  "difficulty": 2,
+  "points": 3,
+  "q": "Egészítse ki a HMKE csatlakoztatására vonatkozó mondatokat!",
+  "text": "A HMKE-t a felhasználói hálózat {0} oldalára csatlakoztatják. A csatlakozási dokumentációt csak {1} készítheti el. Az inverter típusának szerepelnie kell {2}.",
+  "blanks": [
+   {
+    "options": [
+     "mért (fogyasztásmérő utáni)",
+     "méretlen (fogyasztásmérő előtti)",
+     "közcélú KÖF"
+    ],
+    "answer": 0
+   },
+   {
+    "options": [
+     "villamos tervezői jogosultsággal rendelkező személy",
+     "bármely villanyszerelő",
+     "a tulajdonos"
+    ],
+    "answer": 0
+   },
+   {
+    "options": [
+     "az áramszolgáltató (elosztó) által engedélyezett gyártmányok listáján",
+     "az OTSZ mellékletében",
+     "a fogyasztásmérő adattábláján"
+    ],
+    "answer": 0
+   }
+  ],
+  "explanation": "A HMKE a mért fővezetéki oldalra (a mérő után) csatlakozik, és a csatlakozási ponton kétirányú mérő méri a forgalmat. A csatlakozási dokumentációt (egyvonalas rajz, védelmi beállítások stb.) csak villamos tervezői jogosultsággal rendelkező személy készítheti. Az invertert az elosztó által engedélyezett típuslistáról kell választani, különben vizsgálatot kell kezdeményezni.",
+  "source": "villanyszerelo-jegyzet.pdf.txt 9. fejezet (Fotovoltaikus áramtermelés) 9.4.1–9.4.2; 34 522 04 szóbeli tételsor (fotovoltaikus rendszer tétel kulcsszavai) ('a rendszert a mért fővezetéki oldalba kell becsatlakoztatni')"
+ },
+ {
+  "id": "IV-pv-032",
+  "part": "IV",
+  "topic": "fotovoltaik",
+  "type": "match",
+  "difficulty": 2,
+  "points": 5,
+  "q": "Rajz alapján: párosítsa a napelem-modul U–I jelleggörbéjén jelölt pontokat és értékeket a megnevezésükkel!",
+  "pairs": [
+   [
+    "P1",
+    "Rövidzárási áram (I<sub>sc</sub>)"
+   ],
+   [
+    "P3",
+    "Üresjárási feszültség (U<sub>oc</sub>)"
+   ],
+   [
+    "P2",
+    "Maximális teljesítményű munkapont (MPP)"
+   ],
+   [
+    "U2",
+    "Az MPP feszültsége (U<sub>mpp</sub>)"
+   ],
+   [
+    "I2",
+    "Az MPP árama (I<sub>mpp</sub>)"
+   ]
+  ],
+  "explanation": "A jelleggörbe az áramtengelyt U = 0-nál (rövidzár, I<sub>sc</sub>), a feszültségtengelyt I = 0-nál (üresjárás, U<sub>oc</sub>) metszi. A \"térdpontnál\" (P2) a legnagyobb az U·I szorzat: ez az MPP, vetületei U<sub>mpp</sub> és I<sub>mpp</sub>. Az inverter MPPT-je ezt a pontot keresi folyamatosan; U<sub>oc</sub>-nál és I<sub>sc</sub>-nél a leadott teljesítmény nulla.",
+  "source": "villanyszerelo-jegyzet.pdf.txt 9. fejezet (Fotovoltaikus áramtermelés) 9.1.2, 9.1.6 (9.5 ábra)",
+  "distractors": [
+   "Névleges hálózati feszültség (230 V)"
+  ],
+  "svg": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 380 300' font-family='sans-serif' font-size='13'><line x1='60' y1='260' x2='350' y2='260' stroke='black' stroke-width='2'/><line x1='60' y1='260' x2='60' y2='20' stroke='black' stroke-width='2'/><text x='340' y='280'>U</text><text x='40' y='28'>I</text><path d='M60 60 C 170 62, 230 68, 255 95 S 292 200, 300 260' fill='none' stroke='black' stroke-width='2.5'/><circle cx='60' cy='60' r='4' fill='black'/><text x='68' y='52'>P1</text><circle cx='260' cy='102' r='4' fill='black'/><text x='268' y='96'>P2</text><circle cx='300' cy='260' r='4' fill='black'/><text x='306' y='252'>P3</text><line x1='260' y1='102' x2='260' y2='260' stroke='black' stroke-dasharray='4 3'/><line x1='260' y1='102' x2='60' y2='102' stroke='black' stroke-dasharray='4 3'/><text x='250' y='278'>U2</text><text x='30' y='106'>I2</text><text x='130' y='24' font-size='12'>napelem-modul U–I jelleggörbéje (STC)</text></svg>"
+ }
+]

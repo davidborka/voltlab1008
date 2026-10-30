@@ -1,5 +1,5 @@
 /** Nyitóképernyő: a feladatok, mindegyik saját vektoros előnézettel. */
-import { ArrowRight, CheckCircle2, Dices, ShieldAlert } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Dices, ListChecks, ShieldAlert } from 'lucide-react';
 import { go } from '../app/App';
 import { Button, Tag, cx } from '../components/ui';
 import { CATEGORY_LABELS, TASKS, TASK_ORDER } from '../data/tasks';
@@ -30,6 +30,9 @@ export function Dashboard({ done, last }: { done: string[]; last: string | null 
               </Button>
             )}
             <Button onClick={() => go({ name: 'task', id: 'A' })}>Kezdés az A feladattal</Button>
+            <Button icon={ListChecks} onClick={() => go({ name: 'interactive' })}>
+              Interaktív (KRÉTA) tesztvizsga
+            </Button>
             <Button
               icon={Dices}
               onClick={() => {

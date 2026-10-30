@@ -1,0 +1,35 @@
+{
+  "parts": [
+    { "id": "I", "name": "Alkatrész és anyagismeret", "weight": 0.2 },
+    { "id": "II", "name": "Technológiai ismeret", "weight": 0.2 },
+    { "id": "III", "name": "Számítási feladatok", "weight": 0.2 },
+    { "id": "IV", "name": "Villamos biztonsági ismeret", "weight": 0.4 }
+  ],
+  "topics": [
+    { "id": "kabel-szerkezet", "part": "I", "name": "Kábel- és vezetékszerkezetek, típusjelek" },
+    { "id": "jelolesek-szinek", "part": "I", "name": "Érszínek, jelölések, keresztmetszetek" },
+    { "id": "keszulekek-szerelvenyek", "part": "I", "name": "Védőkészülékek, szerelvények, elosztók" },
+    { "id": "rajzjelek-anyagjegyzek", "part": "I", "name": "Rajzjelek, kiviteli dokumentáció, anyagjegyzék" },
+    { "id": "szerszamok-eszkozok", "part": "I", "name": "Kéziszerszámok, munkaeszközök, műszerek" },
+
+    { "id": "kabelfektetes", "part": "II", "name": "Kábelfektetési technológia" },
+    { "id": "motorvezerles", "part": "II", "name": "Motorindítás, forgásirányváltás, mágneskapcsolós vezérlések" },
+    { "id": "alapszereles", "part": "II", "name": "Alapszerelési technológiák, szerelési zónák, különleges helyiségek" },
+    { "id": "vilagitasi-kapcsolasok", "part": "II", "name": "Világítási kapcsolások, lámpatestek" },
+    { "id": "merohely-elosztok", "part": "II", "name": "Csatlakozó berendezés, mérőhely, lakáselosztó" },
+    { "id": "rekonstrukcio", "part": "II", "name": "Rekonstrukció, bontás, megszüntetés" },
+
+    { "id": "alapszamitasok", "part": "III", "name": "Ohm-törvény, ellenállás, fajlagos ellenállás" },
+    { "id": "teljesitmeny-energia", "part": "III", "name": "Teljesítmény, energia, költség, hatásfok" },
+    { "id": "feszultsegeses", "part": "III", "name": "Feszültségesés számítása" },
+    { "id": "terhelhetoseg", "part": "III", "name": "Terhelhetőség, korrekciós tényezők, keresztmetszet-választás" },
+
+    { "id": "feszultsegmentesites", "part": "IV", "name": "Feszültségmentesítés, MSZ 1585 üzemeltetés" },
+    { "id": "ellenorzes-meresek", "part": "IV", "name": "Szerelői / első ellenőrzés, biztonsági mérések" },
+    { "id": "aramutes-elleni-vedelem", "part": "IV", "name": "Áramütés elleni védelem, hálózati rendszerek, EPH" },
+    { "id": "munkavedelem", "part": "IV", "name": "Munka-, tűzvédelem, elsősegély" },
+    { "id": "villamvedelem", "part": "IV", "name": "Villámvédelem (LPS)" },
+    { "id": "tulfeszultseg-vedelem", "part": "IV", "name": "Túlfeszültség-védelem (SPD)" },
+    { "id": "fotovoltaik", "part": "IV", "name": "Fotovoltaikus (napelemes) rendszerek" }
+  ]
+}

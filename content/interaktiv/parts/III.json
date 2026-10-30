@@ -1,0 +1,2657 @@
+[
+ {
+  "id": "III-alap-001",
+  "part": "III",
+  "topic": "alapszamitasok",
+  "type": "number",
+  "difficulty": 1,
+  "points": 2,
+  "q": "Mekkora egy 40 m hosszú, 1,5 mm² keresztmetszetű rézvezető ellenállása? ρ<sub>Cu</sub> = 0,0175 Ω·mm²/m. Három tizedesre kerekítsen!",
+  "explanation": "R = ρ·l/A = 0,0175 Ω·mm²/m · 40 m / 1,5 mm² = 0,467 Ω. A mm² a számlálóban és a nevezőben kiesik, a m is, így Ω marad. Itt egyetlen vezető ellenállását kérdezik, ezért nincs 2-es szorzó (az oda-vissza vezetésnél kellene).",
+  "source": "IKK ágazati alapvizsga gyakorló feladatgyűjtemény (kkk/fva_megoldo.txt)",
+  "fields": [
+   {
+    "label": "R",
+    "unit": "Ω",
+    "answer": 0.467,
+    "tol": 0.02
+   }
+  ]
+ },
+ {
+  "id": "III-alap-002",
+  "part": "III",
+  "topic": "alapszamitasok",
+  "type": "number",
+  "difficulty": 1,
+  "points": 2,
+  "q": "Egy fűtőellenállás hideg és meleg állapotban is 52,9 Ω-osnak tekinthető. Mekkora áramot vesz fel 230 V-os hálózaton? Két tizedesre kerekítsen!",
+  "explanation": "Ohm-törvény: I = U/R = 230 V / 52,9 Ω = 4,35 A. A felvett teljesítmény ellenőrzésképpen P = U·I = 1 000 W, azaz ez egy 1 kW-os fűtőbetét.",
+  "source": "NSZFI Elektrotechnikai alapismeretek (10_4), villamos alapfogalmak",
+  "fields": [
+   {
+    "label": "I",
+    "unit": "A",
+    "answer": 4.35,
+    "tol": 0.02
+   }
+  ]
+ },
+ {
+  "id": "III-alap-003",
+  "part": "III",
+  "topic": "alapszamitasok",
+  "type": "single",
+  "difficulty": 1,
+  "points": 1,
+  "q": "Egy egyfázisú radiátor csatlakozó vezetéke 3×H07V-U 1,5 mm², hossza 1,2 m. Mekkora a vezeték áramköri (oda-vissza) ohmos ellenállása? ρ = 0,0175 Ω·mm²/m.",
+  "explanation": "Egyfázisú áramkörben az áram útja L oda + N vissza, ezért R = 2·l·ρ/A = 2·1,2 m·0,0175 Ω·mm²/m / 1,5 mm² = 0,028 Ω. A PE ér üzemszerűen áramot nem vezet, nem számít bele.",
+  "source": "Villanyszerelő írásbeli 2021 és 2022, feszültségesés- és fogyasztásszámítási feladatok (megoldókulcs)",
+  "options": [
+   "0,028 Ω",
+   "0,014 Ω",
+   "0,042 Ω",
+   "0,28 Ω"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "Ez csak egy ér ellenállása; az áram a fázisvezetőn oda, a nullavezetőn vissza folyik, ezért 2·l kell.",
+   "A védővezetőn üzemszerűen nem folyik áram, a 3 ér közül csak 2 vesz részt az áramkörben.",
+   "Tizedesvessző-hiba: a mm² és m mértékegység helyes kezelése mellett ez tízszeres érték."
+  ]
+ },
+ {
+  "id": "III-alap-004",
+  "part": "III",
+  "topic": "alapszamitasok",
+  "type": "number",
+  "difficulty": 2,
+  "points": 4,
+  "q": "Egy ventilátor egyfázisú (230 V) csatlakozó vezetéke 3×H07V-U 1,5 mm², a csatlakozási pont és a fogyasztó távolsága 2,0 m. A ventilátor áramfelvétele 1,5 A. ρ<sub>Cu</sub> = 0,0175 Ω·mm²/m. Határozza meg a vezeték ohmos ellenállását (oda-vissza) és a rajta eső feszültséget! Három tizedesre kerekítsen!",
+  "explanation": "R = 2·l·ρ/A = 2·2,0 m·0,0175 / 1,5 mm² = 0,047 Ω. ΔU = I·R = 1,5 A·0,0467 Ω = 0,070 V. Ez 0,030 % – rövid csatlakozó vezetéken a feszültségesés elhanyagolható, a vizsgán mégis a 2-es szorzó elhagyása a leggyakoribb hiba.",
+  "source": "Villanyszerelő írásbeli 2021 és 2022, feszültségesés- és fogyasztásszámítási feladatok (megoldókulcs)",
+  "fields": [
+   {
+    "label": "R",
+    "unit": "Ω",
+    "answer": 0.047,
+    "tol": 0.02
+   },
+   {
+    "label": "ΔU",
+    "unit": "V",
+    "answer": 0.07,
+    "tol": 0.02
+   }
+  ]
+ },
+ {
+  "id": "III-alap-005",
+  "part": "III",
+  "topic": "alapszamitasok",
+  "type": "number",
+  "difficulty": 2,
+  "points": 3,
+  "q": "A rajz szerinti vegyes kapcsolásra U = 24 V egyenfeszültséget kapcsolunk. Határozza meg az eredő ellenállást, a főágban folyó áramot és az A–B pontok közötti feszültséget!",
+  "explanation": "R2 és R3 párhuzamos: R23 = R2·R3/(R2+R3) = 30·60/90 = 20 Ω. Ehhez sorosan R1: Re = 20 + 20 = 40 Ω. I = U/Re = 24/40 = 0,6 A. U<sub>AB</sub> = I·R23 = 0,6·20 = 12 V (vagy U − I·R1 = 24 − 12 = 12 V). Tipikus hiba a párhuzamos ellenállások egyszerű összeadása.",
+  "source": "IKK ágazati alapvizsga gyakorló feladatgyűjtemény (kkk/fva_megoldo.txt)",
+  "fields": [
+   {
+    "label": "R<sub>e</sub>",
+    "unit": "Ω",
+    "answer": 40,
+    "tol": 0.02
+   },
+   {
+    "label": "I",
+    "unit": "A",
+    "answer": 0.6,
+    "tol": 0.02
+   },
+   {
+    "label": "U<sub>AB</sub>",
+    "unit": "V",
+    "answer": 12,
+    "tol": 0.02
+   }
+  ],
+  "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 440 190\" width=\"440\" font-family=\"sans-serif\" font-size=\"14\" stroke=\"black\" fill=\"none\" stroke-width=\"2\"><circle cx=\"30\" cy=\"60\" r=\"5\" fill=\"none\"/><text x=\"20\" y=\"65\" fill=\"black\" stroke=\"none\" font-size=\"14\" text-anchor=\"end\">+</text><line x1=\"35\" y1=\"60\" x2=\"90\" y2=\"60\"/><rect x=\"90.0\" y=\"51.0\" width=\"50\" height=\"18\"/><text x=\"115\" y=\"45.0\" fill=\"black\" stroke=\"none\" font-size=\"14\" text-anchor=\"middle\">R1</text><line x1=\"140\" y1=\"60\" x2=\"200\" y2=\"60\"/><circle cx=\"200\" cy=\"60\" r=\"3.5\" fill=\"black\"/><line x1=\"200\" y1=\"60\" x2=\"200\" y2=\"40\"/><line x1=\"200\" y1=\"40\" x2=\"250\" y2=\"40\"/><rect x=\"250.0\" y=\"31.0\" width=\"50\" height=\"18\"/><text x=\"275\" y=\"25.0\" fill=\"black\" stroke=\"none\" font-size=\"14\" text-anchor=\"middle\">R2</text><line x1=\"300\" y1=\"40\" x2=\"350\" y2=\"40\"/><line x1=\"200\" y1=\"60\" x2=\"200\" y2=\"110\"/><line x1=\"200\" y1=\"110\" x2=\"250\" y2=\"110\"/><rect x=\"250.0\" y=\"101.0\" width=\"50\" height=\"18\"/><text x=\"275\" y=\"95.0\" fill=\"black\" stroke=\"none\" font-size=\"14\" text-anchor=\"middle\">R3</text><line x1=\"300\" y1=\"110\" x2=\"350\" y2=\"110\"/><line x1=\"350\" y1=\"40\" x2=\"350\" y2=\"110\"/><circle cx=\"350\" cy=\"75\" r=\"3.5\" fill=\"black\"/><line x1=\"350\" y1=\"75\" x2=\"400\" y2=\"75\"/><line x1=\"400\" y1=\"75\" x2=\"400\" y2=\"170\"/><line x1=\"400\" y1=\"170\" x2=\"35\" y2=\"170\"/><circle cx=\"30\" cy=\"170\" r=\"5\" fill=\"none\"/><text x=\"20\" y=\"175\" fill=\"black\" stroke=\"none\" font-size=\"14\" text-anchor=\"end\">−</text><circle cx=\"200\" cy=\"60\" r=\"3.5\" fill=\"black\"/><text x=\"185\" y=\"55\" fill=\"black\" stroke=\"none\" font-size=\"14\" text-anchor=\"middle\">A</text><text x=\"365\" y=\"70\" fill=\"black\" stroke=\"none\" font-size=\"14\" text-anchor=\"start\">B</text><text x=\"210\" y=\"145\" fill=\"black\" stroke=\"none\" font-size=\"13\" text-anchor=\"middle\">U = 24 V; R1 = 20 Ω; R2 = 30 Ω; R3 = 60 Ω</text></svg>"
+ },
+ {
+  "id": "III-alap-006",
+  "part": "III",
+  "topic": "alapszamitasok",
+  "type": "number",
+  "difficulty": 1,
+  "points": 2,
+  "q": "A rajzon látható négy rúdföldelőt egy közös földelővezetővel kötötték össze. A földelők egymásra hatását hanyagolja el. Mekkora az eredő földelési ellenállás? Két tizedesre kerekítsen!",
+  "explanation": "Párhuzamos kapcsolás: 1/Re = 1/12 + 1/18 + 1/20 + 1/24 = 0,2306 1/Ω, ebből Re = 4,34 Ω. Ellenőrzés: párhuzamos kapcsolásnál az eredő mindig kisebb a legkisebb ágellenállásnál (12 Ω), tehát a 74 Ω-os összeg (soros eredő) biztosan rossz.",
+  "source": "IKK ágazati alapvizsga gyakorló feladatgyűjtemény (kkk/fva_megoldo.txt)",
+  "fields": [
+   {
+    "label": "R<sub>e</sub>",
+    "unit": "Ω",
+    "answer": 4.34,
+    "tol": 0.02
+   }
+  ],
+  "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 460 175\" width=\"460\" font-family=\"sans-serif\" font-size=\"14\" stroke=\"black\" fill=\"none\" stroke-width=\"2\"><line x1=\"40\" y1=\"40\" x2=\"420\" y2=\"40\"/><text x=\"230\" y=\"25\" fill=\"black\" stroke=\"none\" font-size=\"14\" text-anchor=\"middle\">földelővezető (közös gerinc)</text><circle cx=\"80\" cy=\"40\" r=\"3.5\" fill=\"black\"/><line x1=\"80\" y1=\"40\" x2=\"80\" y2=\"70\"/><rect x=\"71.0\" y=\"70.0\" width=\"18\" height=\"50\"/><text x=\"96\" y=\"100\" fill=\"black\" stroke=\"none\" font-size=\"14\" text-anchor=\"start\">R1 = 12 Ω</text><line x1=\"80\" y1=\"120\" x2=\"80\" y2=\"150\"/><line x1=\"65\" y1=\"150\" x2=\"95\" y2=\"150\"/><line x1=\"70\" y1=\"156\" x2=\"90\" y2=\"156\"/><line x1=\"75\" y1=\"162\" x2=\"85\" y2=\"162\"/><circle cx=\"180\" cy=\"40\" r=\"3.5\" fill=\"black\"/><line x1=\"180\" y1=\"40\" x2=\"180\" y2=\"70\"/><rect x=\"171.0\" y=\"70.0\" width=\"18\" height=\"50\"/><text x=\"196\" y=\"100\" fill=\"black\" stroke=\"none\" font-size=\"14\" text-anchor=\"start\">R2 = 18 Ω</text><line x1=\"180\" y1=\"120\" x2=\"180\" y2=\"150\"/><line x1=\"165\" y1=\"150\" x2=\"195\" y2=\"150\"/><line x1=\"170\" y1=\"156\" x2=\"190\" y2=\"156\"/><line x1=\"175\" y1=\"162\" x2=\"185\" y2=\"162\"/><circle cx=\"280\" cy=\"40\" r=\"3.5\" fill=\"black\"/><line x1=\"280\" y1=\"40\" x2=\"280\" y2=\"70\"/><rect x=\"271.0\" y=\"70.0\" width=\"18\" height=\"50\"/><text x=\"296\" y=\"100\" fill=\"black\" stroke=\"none\" font-size=\"14\" text-anchor=\"start\">R3 = 20 Ω</text><line x1=\"280\" y1=\"120\" x2=\"280\" y2=\"150\"/><line x1=\"265\" y1=\"150\" x2=\"295\" y2=\"150\"/><line x1=\"270\" y1=\"156\" x2=\"290\" y2=\"156\"/><line x1=\"275\" y1=\"162\" x2=\"285\" y2=\"162\"/><circle cx=\"380\" cy=\"40\" r=\"3.5\" fill=\"black\"/><line x1=\"380\" y1=\"40\" x2=\"380\" y2=\"70\"/><rect x=\"371.0\" y=\"70.0\" width=\"18\" height=\"50\"/><text x=\"396\" y=\"100\" fill=\"black\" stroke=\"none\" font-size=\"14\" text-anchor=\"start\">R4 = 24 Ω</text><line x1=\"380\" y1=\"120\" x2=\"380\" y2=\"150\"/><line x1=\"365\" y1=\"150\" x2=\"395\" y2=\"150\"/><line x1=\"370\" y1=\"156\" x2=\"390\" y2=\"156\"/><line x1=\"375\" y1=\"162\" x2=\"385\" y2=\"162\"/></svg>"
+ },
+ {
+  "id": "III-alap-007",
+  "part": "III",
+  "topic": "alapszamitasok",
+  "type": "single",
+  "difficulty": 2,
+  "points": 1,
+  "q": "Egy sütő fűtését három egyforma, egyenként 120 Ω-os fűtőellenállás adja, 230 V-ról táplálva. Mekkora a felvett teljesítmény, ha mindhárom ellenállás párhuzamosan van kapcsolva? (Az ellenállások hőfokfüggését hanyagolja el.)",
+  "explanation": "Három egyforma ellenállás párhuzamosan: Re = R/3 = 40 Ω. P = U²/Re = 230² / 40 = 1 322,5 W. A soros kapcsolás (360 Ω) adja a legkisebb, a párhuzamos a legnagyobb fokozatot – minél kisebb az eredő ellenállás, annál nagyobb a teljesítmény állandó feszültségen.",
+  "source": "Villanyszerelő írásbeli 2022, 5. feladat (fűtőellenállás-fokozatok); Óbudai Egyetem Elektro példatár; Elektrotechnikai összefoglaló (Délvil_tch)",
+  "options": [
+   "1 322,5 W",
+   "146,9 W",
+   "293,9 W",
+   "661,2 W"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "Ez a soros kapcsolás (Re = 360 Ω) teljesítménye, a legkisebb fokozat.",
+   "Ez az egy soros + két párhuzamos vegyes kapcsolás (Re = 180 Ω).",
+   "Ez a két soros ellenállás párhuzamosan a harmadikkal (Re = 80 Ω)."
+  ]
+ },
+ {
+  "id": "III-alap-008",
+  "part": "III",
+  "topic": "alapszamitasok",
+  "type": "number",
+  "difficulty": 2,
+  "points": 4,
+  "q": "Egy tömör rézhuzal átmérője d = 1,38 mm, hossza 50 m. Számítsa ki a keresztmetszetét (három tizedesre) és az ellenállását (három tizedesre)! ρ<sub>Cu</sub> = 0,0175 Ω·mm²/m.",
+  "explanation": "A = d²·π/4 = 1,38² · 3,1416 / 4 = 1,496 mm² (ez gyakorlatilag egy 1,5 mm²-es ér). R = ρ·l/A = 0,0175·50 / 1,496 = 0,585 Ω. Gyakori hiba d²·π-vel számolni a /4 nélkül (négyszeres terület), vagy a sugár helyett az átmérőt használni r²·π-ben.",
+  "source": "IKK ágazati alapvizsga gyakorló feladatgyűjtemény (kkk/fva_megoldo.txt)",
+  "fields": [
+   {
+    "label": "A",
+    "unit": "mm²",
+    "answer": 1.496,
+    "tol": 0.02
+   },
+   {
+    "label": "R",
+    "unit": "Ω",
+    "answer": 0.585,
+    "tol": 0.02
+   }
+  ]
+ },
+ {
+  "id": "III-alap-009",
+  "part": "III",
+  "topic": "alapszamitasok",
+  "type": "number",
+  "difficulty": 2,
+  "points": 2,
+  "q": "Egy réz tekercs ellenállása 20 °C-on 12,0 Ω. Mekkora az ellenállása 70 °C-on? α<sub>Cu</sub> = 0,0039 1/K. Két tizedesre kerekítsen!",
+  "explanation": "R<sub>t</sub> = R<sub>20</sub>·(1 + α·Δt), Δt = 70 − 20 = 50 K. R = 12,0·(1 + 0,0039·50) = 12,0·1,195 = 14,34 Ω. A réz pozitív hőfoktényezőjű: melegen nagyobb az ellenállása (ezért nagyobb a bekapcsolási áram egy hideg izzószálnál).",
+  "source": "NSZFI Elektrotechnikai alapismeretek (10_4), villamos alapfogalmak",
+  "fields": [
+   {
+    "label": "R<sub>70</sub>",
+    "unit": "Ω",
+    "answer": 14.34,
+    "tol": 0.02
+   }
+  ]
+ },
+ {
+  "id": "III-alap-010",
+  "part": "III",
+  "topic": "alapszamitasok",
+  "type": "number",
+  "difficulty": 3,
+  "points": 2,
+  "q": "Egy motor réz tekercsének ellenállása 20 °C-on 4,0 Ω, üzem után közvetlenül mérve 4,8 Ω. Hány °C a tekercs átlagos hőmérséklete? α<sub>Cu</sub> = 0,0039 1/K. Egy tizedesre kerekítsen!",
+  "explanation": "R<sub>t</sub> = R<sub>20</sub>·(1+α·Δt) → Δt = (R<sub>t</sub>/R<sub>20</sub> − 1)/α = (4,8/4,0 − 1)/0,0039 = 0,2/0,0039 = 51,3 K. t = 20 + 51,3 = 71,3 °C. Tipikus hiba a Δt-t a végeredménynek tekinteni (elfelejteni a 20 °C-os kiindulást).",
+  "source": "NSZFI Elektrotechnikai alapismeretek (10_4), villamos alapfogalmak",
+  "fields": [
+   {
+    "label": "t",
+    "unit": "°C",
+    "answer": 71.3,
+    "tol": 0.02
+   }
+  ]
+ },
+ {
+  "id": "III-alap-011",
+  "part": "III",
+  "topic": "alapszamitasok",
+  "type": "number",
+  "difficulty": 1,
+  "points": 2,
+  "q": "Egy 2,5 mm²-es rézvezetőn 20 A áram folyik. Mekkora az áramsűrűség?",
+  "explanation": "J = I/A = 20 A / 2,5 mm² = 8,0 A/mm². Az áramsűrűség a vezető melegedésének egyszerű mérőszáma; a tényleges megengedett áramot ma a MSZ HD 60364-5-52 terhelhetőségi táblázataiból vesszük.",
+  "source": "NSZFI Elektrotechnikai alapismeretek (10_4), villamos alapfogalmak",
+  "fields": [
+   {
+    "label": "J",
+    "unit": "A/mm²",
+    "answer": 8,
+    "tol": 0.02
+   }
+  ]
+ },
+ {
+  "id": "III-alap-012",
+  "part": "III",
+  "topic": "alapszamitasok",
+  "type": "single",
+  "difficulty": 2,
+  "points": 1,
+  "q": "Egy 63 A-es terhelést tápláló rézvezetőnél (egyszerűsített feladat) legfeljebb 4 A/mm² áramsűrűséget engedünk meg. Melyik a legkisebb megfelelő szabványos keresztmetszet?",
+  "explanation": "A<sub>min</sub> = I/J = 63/4 = 15,75 mm². A szabványos sor: 1,5 – 2,5 – 4 – 6 – 10 – 16 – 25 – 35 mm²…, a számított értéknél nagyobb vagy egyenlő legkisebb érték 16 mm².",
+  "source": "NSZFI Elektrotechnikai alapismeretek (10_4), villamos alapfogalmak",
+  "options": [
+   "16 mm²",
+   "10 mm²",
+   "25 mm²",
+   "15,75 mm²"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "10 mm²-en J = 6,3 A/mm² lenne, ez nagyobb a megengedettnél.",
+   "Megfelelne, de nem a legkisebb: a 16 mm² is elég.",
+   "Ez a számított minimum, de ilyen szabványos keresztmetszet nincs; mindig a következő nagyobb szabványos értéket választjuk."
+  ]
+ },
+ {
+  "id": "III-alap-013",
+  "part": "III",
+  "topic": "alapszamitasok",
+  "type": "single",
+  "difficulty": 2,
+  "points": 1,
+  "q": "Egy dobon lévő 2,5 mm²-es rézvezeték egyik erének ellenállását 0,35 Ω-nak mérték (20 °C). Hány méter vezeték van a dobon? ρ = 0,0175 Ω·mm²/m.",
+  "explanation": "R = ρ·l/A → l = R·A/ρ = 0,35 Ω·2,5 mm² / 0,0175 Ω·mm²/m = 50 m. Gyakorlati haszna: ellenállásméréssel becsülhető a maradék vezetékhossz.",
+  "source": "IKK ágazati alapvizsga gyakorló feladatgyűjtemény (kkk/fva_megoldo.txt)",
+  "options": [
+   "50 m",
+   "25 m",
+   "24,5 m",
+   "8,0 m"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "Oda-vissza hurokként (2·l) számolt, de itt egyetlen ér ellenállását mérték.",
+   "Rossz átrendezés: l = R·A/ρ, nem R·ρ/A.",
+   "A keresztmetszet a számlálóba kerül: l = R·A/ρ."
+  ]
+ },
+ {
+  "id": "III-alap-014",
+  "part": "III",
+  "topic": "alapszamitasok",
+  "type": "match",
+  "difficulty": 1,
+  "points": 5,
+  "q": "Párosítsa a villamos mennyiségeket a mértékegységükkel!",
+  "explanation": "ρ: egy 1 m hosszú, 1 mm² keresztmetszetű vezető ellenállása (Ω·mm²/m). γ = 1/ρ, ezért m/(Ω·mm²) – réznél kb. 56–57, alumíniumnál kb. 35. J = I/A (A/mm²). α: 1 K hőmérséklet-változásra eső relatív ellenállás-változás (1/K). A kWh energia (munka), nem teljesítmény – a kW a teljesítmény.",
+  "source": "NSZFI Elektrotechnikai alapismeretek (10_4), villamos alapfogalmak",
+  "pairs": [
+   [
+    "fajlagos ellenállás (ρ)",
+    "Ω·mm²/m"
+   ],
+   [
+    "fajlagos vezetőképesség (γ)",
+    "m/(Ω·mm²)"
+   ],
+   [
+    "áramsűrűség (J)",
+    "A/mm²"
+   ],
+   [
+    "hőfoktényező (α)",
+    "1/K"
+   ],
+   [
+    "villamos munka (W)",
+    "kWh"
+   ]
+  ],
+  "distractors": [
+   "kW",
+   "Ω·m/mm²"
+  ]
+ },
+ {
+  "id": "III-alap-015",
+  "part": "III",
+  "topic": "alapszamitasok",
+  "type": "truefalse",
+  "difficulty": 1,
+  "points": 5,
+  "q": "Döntse el az ellenállások kapcsolására vonatkozó állításokról, hogy igazak vagy hamisak!",
+  "explanation": "Soros kapcsolás: közös az áram, a feszültségek összeadódnak, és U = I·R miatt a nagyobb ellenálláson nagyobb feszültség esik. Párhuzamos kapcsolás: közös a feszültség, az áramok összeadódnak; minden újabb ág új áramutat nyit, ezért az eredő csökken, és kisebb lesz a legkisebb ágellenállásnál is.",
+  "source": "Villanyszerelő írásbeli 2021, 5. feladat; NSZFI Elektrotechnikai alapismeretek (10_4), villamos alapfogalmak",
+  "statements": [
+   {
+    "text": "Soros kapcsolásban minden ellenálláson ugyanakkora áram folyik.",
+    "answer": true
+   },
+   {
+    "text": "Párhuzamos kapcsolásban minden ágra ugyanakkora feszültség jut.",
+    "answer": true
+   },
+   {
+    "text": "Újabb ellenállás párhuzamos bekötésével az eredő ellenállás nő.",
+    "answer": false
+   },
+   {
+    "text": "Párhuzamos kapcsolás eredője mindig kisebb a legkisebb ágellenállásnál.",
+    "answer": true
+   },
+   {
+    "text": "Soros kapcsolásban a nagyobb ellenálláson kisebb feszültség esik.",
+    "answer": false
+   }
+  ]
+ },
+ {
+  "id": "III-alap-016",
+  "part": "III",
+  "topic": "alapszamitasok",
+  "type": "single",
+  "difficulty": 2,
+  "points": 1,
+  "q": "Az alumínium fajlagos ellenállását ρ = 0,0286 Ω·mm²/m értékkel adják meg. Mekkora a fajlagos vezetőképessége (γ)?",
+  "explanation": "γ = 1/ρ = 1/0,0286 = 35,0 m/(Ω·mm²) ≈ 35. Réznél 1/0,0175 = 57,1, a számításokban gyakran kerekített 56 m/(Ω·mm²) szerepel (ez ρ ≈ 0,0179-nek felel meg). Feszültségesés-képletekben a γ a nevezőben, a ρ a számlálóban áll.",
+  "source": "MEE-VET 2019, Rajnoha L.: Fogyasztásmérőhelyek és méretlen fővezetékek méretezése (MSZ 447:2019)",
+  "options": [
+   "≈ 35 m/(Ω·mm²)",
+   "≈ 56 m/(Ω·mm²)",
+   "0,0286 m/(Ω·mm²)",
+   "≈ 28,6 m/(Ω·mm²)"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "Ez a réz γ-ja (ρ ≈ 0,0178 Ω·mm²/m).",
+   "Ez maga a ρ, csak más mértékegységgel – a reciprokot kell venni.",
+   "A tizedesvessző eltolása nem reciprokképzés."
+  ]
+ },
+ {
+  "id": "III-alap-017",
+  "part": "III",
+  "topic": "alapszamitasok",
+  "type": "number",
+  "difficulty": 2,
+  "points": 2,
+  "q": "A rajz szerinti soros kapcsolást 230 V-ra kötjük. Mekkora feszültség mérhető az 1–2 kapcsok között (R2-n), ha a kimenet terheletlen? Egy tizedesre kerekítsen!",
+  "explanation": "Feszültségosztó: U2 = U·R2/(R1+R2) = 230·360/460 = 180,0 V. A soros áram I = 230/460 = 0,500 A, és U2 = I·R2 ugyanezt adja. Hiba R1-et tenni a számlálóba (az R1-en eső 50,0 V-ot kapnánk).",
+  "source": "NSZFI Elektrotechnikai alapismeretek (10_4), villamos alapfogalmak",
+  "fields": [
+   {
+    "label": "U<sub>2</sub>",
+    "unit": "V",
+    "answer": 180,
+    "tol": 0.02
+   }
+  ],
+  "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 240\" width=\"400\" font-family=\"sans-serif\" font-size=\"14\" stroke=\"black\" fill=\"none\" stroke-width=\"2\"><circle cx=\"40\" cy=\"40\" r=\"5\" fill=\"none\"/><text x=\"30\" y=\"45\" fill=\"black\" stroke=\"none\" font-size=\"14\" text-anchor=\"end\">L</text><line x1=\"45\" y1=\"40\" x2=\"120\" y2=\"40\"/><line x1=\"120\" y1=\"40\" x2=\"120\" y2=\"55\"/><rect x=\"111.0\" y=\"55.0\" width=\"18\" height=\"50\"/><text x=\"136\" y=\"85\" fill=\"black\" stroke=\"none\" font-size=\"14\" text-anchor=\"start\">R1 = 100 Ω</text><line x1=\"120\" y1=\"105\" x2=\"120\" y2=\"130\"/><circle cx=\"120\" cy=\"130\" r=\"3.5\" fill=\"black\"/><line x1=\"120\" y1=\"130\" x2=\"120\" y2=\"145\"/><rect x=\"111.0\" y=\"145.0\" width=\"18\" height=\"50\"/><text x=\"136\" y=\"175\" fill=\"black\" stroke=\"none\" font-size=\"14\" text-anchor=\"start\">R2 = 360 Ω</text><line x1=\"120\" y1=\"195\" x2=\"120\" y2=\"220\"/><line x1=\"45\" y1=\"220\" x2=\"120\" y2=\"220\"/><circle cx=\"40\" cy=\"220\" r=\"5\" fill=\"none\"/><text x=\"30\" y=\"225\" fill=\"black\" stroke=\"none\" font-size=\"14\" text-anchor=\"end\">N</text><line x1=\"120\" y1=\"130\" x2=\"260\" y2=\"130\"/><line x1=\"120\" y1=\"220\" x2=\"260\" y2=\"220\"/><circle cx=\"265\" cy=\"130\" r=\"5\" fill=\"none\"/><text x=\"275\" y=\"135\" fill=\"black\" stroke=\"none\" font-size=\"14\" text-anchor=\"start\">1</text><circle cx=\"265\" cy=\"220\" r=\"5\" fill=\"none\"/><text x=\"275\" y=\"225\" fill=\"black\" stroke=\"none\" font-size=\"14\" text-anchor=\"start\">2</text><text x=\"330\" y=\"180\" fill=\"black\" stroke=\"none\" font-size=\"14\" text-anchor=\"start\">U₂ = ?</text></svg>"
+ },
+ {
+  "id": "III-alap-018",
+  "part": "III",
+  "topic": "alapszamitasok",
+  "type": "dropdown",
+  "difficulty": 1,
+  "points": 3,
+  "q": "Egészítse ki a vezető ellenállására vonatkozó mondatot!",
+  "explanation": "R = ρ·l/A: kétszer hosszabb vezeték kétszer akkora ellenállású, kétszer nagyobb keresztmetszet fele akkora ellenállást ad. A fémek (réz, alumínium) hőfoktényezője pozitív, melegen az ellenállás nő; a szén és a félvezetők hőfoktényezője negatív.",
+  "source": "NSZFI Elektrotechnikai alapismeretek (10_4), villamos alapfogalmak",
+  "text": "A vezető ellenállása egyenesen arányos a vezető {0}, fordítottan arányos a {1}, fémes vezetőknél pedig a hőmérséklet növelésével {2}.",
+  "blanks": [
+   {
+    "options": [
+     "hosszával",
+     "keresztmetszetével",
+     "átmérőjével"
+    ],
+    "answer": 0
+   },
+   {
+    "options": [
+     "keresztmetszetével",
+     "hosszával",
+     "fajlagos ellenállásával"
+    ],
+    "answer": 0
+   },
+   {
+    "options": [
+     "nő",
+     "csökken",
+     "nem változik"
+    ],
+    "answer": 0
+   }
+  ]
+ },
+ {
+  "id": "III-alap-019",
+  "part": "III",
+  "topic": "alapszamitasok",
+  "type": "single",
+  "difficulty": 2,
+  "points": 1,
+  "q": "Egy 10 mm²-es rézvezetőt azonos hosszúságú alumíniumvezetőre cserélnénk úgy, hogy az ellenállás ne legyen nagyobb. Melyik a legkisebb megfelelő szabványos Al keresztmetszet? ρ<sub>Cu</sub> = 0,0175, ρ<sub>Al</sub> = 0,028 Ω·mm²/m.",
+  "explanation": "Azonos l és R esetén ρ<sub>Cu</sub>/A<sub>Cu</sub> = ρ<sub>Al</sub>/A<sub>Al</sub> → A<sub>Al</sub> = A<sub>Cu</sub>·ρ<sub>Al</sub>/ρ<sub>Cu</sub> = 10·0,028/0,0175 = 16 mm². Ökölszabály: alumíniumból kb. egy szabványos lépcsővel (1,6-szor) nagyobb keresztmetszet kell ugyanahhoz az ellenálláshoz.",
+  "source": "MEE-VET 2019, Rajnoha L.: Fogyasztásmérőhelyek és méretlen fővezetékek méretezése (MSZ 447:2019)",
+  "options": [
+   "16 mm²",
+   "10 mm²",
+   "6 mm²",
+   "25 mm²"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "Azonos keresztmetszetnél az Al vezető ellenállása 1,6-szoros lenne.",
+   "Fordított arányt alkalmaz: kisebb Al keresztmetszet még nagyobb ellenállást adna.",
+   "Megfelel, de nem a legkisebb."
+  ]
+ },
+ {
+  "id": "III-alap-020",
+  "part": "III",
+  "topic": "alapszamitasok",
+  "type": "number",
+  "difficulty": 2,
+  "points": 2,
+  "q": "Egy egyfázisú dugaszolóaljzat-áramkör 20 m hosszú, 2,5 mm²-es rézvezetékkel készült. Mekkora a vezetékben hővé alakuló teljesítmény 16 A terhelésnél? ρ = 0,0175 Ω·mm²/m. Egy tizedesre kerekítsen!",
+  "explanation": "Áramköri ellenállás (L oda + N vissza): R = 2·l·ρ/A = 2·20·0,0175/2,5 = 0,28 Ω. P<sub>v</sub> = I²·R = 16²·0,28 = 71,7 W. Az I² miatt kétszeres áram négyszeres veszteséget okoz; a 2-es szorzó elhagyása 35,8 W-ot adna.",
+  "source": "VeI – Vezetékek villamos méretezése, 7. fejezet (ocr/VeI-Vezetékméretezés1.txt)",
+  "fields": [
+   {
+    "label": "P<sub>v</sub>",
+    "unit": "W",
+    "answer": 71.7,
+    "tol": 0.02
+   }
+  ]
+ },
+ {
+  "id": "III-alap-021",
+  "part": "III",
+  "topic": "alapszamitasok",
+  "type": "multi",
+  "difficulty": 2,
+  "points": 3,
+  "q": "Mely változtatások csökkentik egy vezető ellenállását? (Több helyes válasz van; a rossz jelölés pontlevonással jár.)",
+  "explanation": "R = ρ·l/A·(1+α·Δt): csökken, ha A nő, l csökken, kisebb ρ-jú anyagot (rezet) választunk, vagy hidegebb a vezető (pozitív α). Az áram nagysága önmagában nem tényező, csak a melegedésen keresztül, és az is növeli az ellenállást.",
+  "source": "NSZFI Elektrotechnikai alapismeretek (10_4), villamos alapfogalmak",
+  "options": [
+   "nagyobb keresztmetszet választása",
+   "rövidebb nyomvonal",
+   "alumínium helyett réz vezető",
+   "a vezető hőmérsékletének csökkentése",
+   "hosszabb vezeték",
+   "réz helyett alumínium vezető",
+   "nagyobb terhelő áram"
+  ],
+  "answer": [
+   0,
+   1,
+   2,
+   3
+  ],
+  "wrongWhy": [
+   null,
+   null,
+   null,
+   null,
+   "R arányos a hosszal, ez növeli.",
+   "Az Al fajlagos ellenállása kb. 1,6-szorosa a rézének.",
+   "Az ellenállás anyagjellemző és geometria; a nagyobb áram a melegedés miatt még növeli is."
+  ]
+ },
+ {
+  "id": "III-telj-001",
+  "part": "III",
+  "topic": "teljesitmeny-energia",
+  "type": "number",
+  "difficulty": 1,
+  "points": 2,
+  "q": "Egy 2500 W-os, egyfázisú (230 V) hősugárzót tisztán ohmos fogyasztónak tekintünk. Mekkora az áramfelvétele? Két tizedesre kerekítsen!",
+  "explanation": "Ohmos fogyasztónál cosφ = 1, így I = P/U = 2500 W / 230 V = 10,87 A. Ellenőrzés: egy 16 A-es áramkörre legfeljebb kb. 3,6 kW ohmos terhelés köthető.",
+  "source": "Villanyszerelő komplex írásbeli 2017, 8. és 12. feladat (megoldókulcs)",
+  "fields": [
+   {
+    "label": "I",
+    "unit": "A",
+    "answer": 10.87,
+    "tol": 0.02
+   }
+  ]
+ },
+ {
+  "id": "III-telj-002",
+  "part": "III",
+  "topic": "teljesitmeny-energia",
+  "type": "number",
+  "difficulty": 1,
+  "points": 2,
+  "q": "Egy egyfázisú (230 V) szellőztető ventilátor felvett hatásos teljesítménye 450 W, teljesítménytényezője cosφ = 0,85. Mekkora az áramfelvétele? Két tizedesre kerekítsen!",
+  "explanation": "P = U·I·cosφ → I = P/(U·cosφ) = 450 / (230·0,85) = 2,30 A. A cosφ elhagyásával 1,96 A-t kapnánk – az induktív fogyasztó a meddő áram miatt több áramot vesz fel, mint ugyanakkora hatásos teljesítményű ohmos fogyasztó.",
+  "source": "Villanyszerelő komplex írásbeli 2017, 8. és 12. feladat (megoldókulcs)",
+  "fields": [
+   {
+    "label": "I",
+    "unit": "A",
+    "answer": 2.3,
+    "tol": 0.02
+   }
+  ]
+ },
+ {
+  "id": "III-telj-003",
+  "part": "III",
+  "topic": "teljesitmeny-energia",
+  "type": "single",
+  "difficulty": 2,
+  "points": 1,
+  "q": "Egy háromfázisú (3×400 V) motor hálózatból felvett hatásos teljesítménye 4 kW, cosφ = 0,82. Mekkora a vonali áram?",
+  "explanation": "I = P/(√3·U<sub>v</sub>·cosφ) = 4000 / (1,732·400·0,82) = 7,04 A. Egyenértékű alak: I = P/(3·U<sub>f</sub>·cosφ) = 4000/(3·230·0,82) ≈ 7,07 A (a kis eltérés a 400/√3 = 230,9 V kerekítéséből jön).",
+  "source": "Villanyszerelő írásbeli 2021, 4. feladat; VeI – Vezetékek villamos méretezése, 7. fejezet (ocr/VeI-Vezetékméretezés1.txt)",
+  "options": [
+   "7,04 A",
+   "12,20 A",
+   "5,77 A",
+   "12,24 A",
+   "4,07 A"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "Hiányzik a √3: háromfázisú fogyasztónál P = √3·U·I·cosφ.",
+   "Elmaradt a cosφ, ez csak egy ohmos fogyasztó árama lenne.",
+   "√3 mellett a vonali (400 V) feszültséget kell használni, nem a fázisfeszültséget.",
+   "3·U<sub>v</sub> helyett √3·U<sub>v</sub> vagy 3·U<sub>f</sub> a helyes szorzó."
+  ]
+ },
+ {
+  "id": "III-telj-004",
+  "part": "III",
+  "topic": "teljesitmeny-energia",
+  "type": "number",
+  "difficulty": 2,
+  "points": 4,
+  "q": "Egy háromfázisú aszinkronmotor adattábláján: P<sub>n</sub> = 7,5 kW, η = 88 %, cosφ = 0,84, U<sub>n</sub> = 3×400 V. Számítsa ki a hálózatból felvett hatásos teljesítményt (kW, három tizedes) és a névleges áramot (A, két tizedes)!",
+  "explanation": "Az adattáblán a P<sub>n</sub> a tengelyen leadott mechanikai teljesítmény. P<sub>1</sub> = P<sub>n</sub>/η = 7,5/0,88 = 8,523 kW. I = P<sub>1</sub>/(√3·U·cosφ) = 8 523 / (1,732·400·0,84) = 14,64 A. A hatásfok elhagyása 12,89 A-t adna – túl kicsit.",
+  "source": "VeI – Vezetékek villamos méretezése, 7. fejezet (ocr/VeI-Vezetékméretezés1.txt)",
+  "fields": [
+   {
+    "label": "P<sub>1</sub>",
+    "unit": "kW",
+    "answer": 8.523,
+    "tol": 0.02
+   },
+   {
+    "label": "I<sub>n</sub>",
+    "unit": "A",
+    "answer": 14.64,
+    "tol": 0.02
+   }
+  ]
+ },
+ {
+  "id": "III-telj-005",
+  "part": "III",
+  "topic": "teljesitmeny-energia",
+  "type": "single",
+  "difficulty": 3,
+  "points": 1,
+  "q": "Egy szivattyúmotor adatai: P<sub>n</sub> = 11 kW, η = 90 %, cosφ = 0,85, 3×400 V. Mekkora a motor névleges árama?",
+  "explanation": "P<sub>1</sub> = P<sub>n</sub>/η = 11/0,90 = 12,22 kW. I = P<sub>1</sub>/(√3·U·cosφ) = 12 222/(1,732·400·0,85) = 20,8 A. Ökölszabály 400 V-on: kb. 2 A/kW (11 kW → kb. 22 A), tehát a nagyságrend stimmel.",
+  "source": "VeI – Vezetékek villamos méretezése, 7. fejezet (ocr/VeI-Vezetékméretezés1.txt)",
+  "options": [
+   "20,8 A",
+   "18,7 A",
+   "16,8 A",
+   "35,9 A",
+   "17,6 A"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "A hatásfokkal nem számolt: a felvett teljesítmény nagyobb a leadottnál.",
+   "A hatásfokkal szorozni kell helyett osztani: P<sub>1</sub> = P<sub>n</sub>/η.",
+   "Hiányzik a √3.",
+   "Hiányzik a cosφ."
+  ]
+ },
+ {
+  "id": "III-telj-006",
+  "part": "III",
+  "topic": "teljesitmeny-energia",
+  "type": "number",
+  "difficulty": 1,
+  "points": 2,
+  "q": "Egy 1200 W teljesítményű elektromos radiátor naponta 450 percig üzemel. Mekkora a napi villamosenergia-fogyasztása kWh-ban?",
+  "explanation": "W = P·t. t = 450 perc = 7,5 óra, P = 1,2 kW. W = 1,2 kW·7,5 h = 9,0 kWh. A leggyakoribb hiba a percet nem váltani órába (vagy W-ot nem kW-ba).",
+  "source": "Villanyszerelő írásbeli 2021 és 2022, feszültségesés- és fogyasztásszámítási feladatok (megoldókulcs)",
+  "fields": [
+   {
+    "label": "W",
+    "unit": "kWh",
+    "answer": 9,
+    "tol": 0.02
+   }
+  ]
+ },
+ {
+  "id": "III-telj-007",
+  "part": "III",
+  "topic": "teljesitmeny-energia",
+  "type": "number",
+  "difficulty": 2,
+  "points": 3,
+  "q": "Egy iroda villamos fogyasztói:<br>fűtőtest: 2000 W · 1 db · 360 perc/nap<br>szellőztető ventilátor: 150 W · 2 db · 180 perc/nap<br>világítás: 800 W · 1 db · 420 perc/nap<br>egyéb fogyasztók: 1500 W · 1 db · 30 perc/nap<br>Mekkora az átlagos napi villamosenergia-fogyasztás kWh-ban? Két tizedesre kerekítsen!",
+  "explanation": "W = Σ P·db·t. fűtőtest: 12,00 kWh; szellőztető ventilátor: 0,90 kWh; világítás: 5,60 kWh; egyéb fogyasztók: 0,75 kWh. Összesen 19,25 kWh. A ventilátorból 2 db van: 2·150 W·3 h = 0,9 kWh – a darabszám kihagyása tipikus hiba.",
+  "source": "Villanyszerelő komplex írásbeli 2017, 8. és 12. feladat (megoldókulcs)",
+  "fields": [
+   {
+    "label": "W<sub>napi</sub>",
+    "unit": "kWh",
+    "answer": 19.25,
+    "tol": 0.02
+   }
+  ]
+ },
+ {
+  "id": "III-telj-008",
+  "part": "III",
+  "topic": "teljesitmeny-energia",
+  "type": "number",
+  "difficulty": 2,
+  "points": 4,
+  "q": "Egy ügyfélszolgálat világítása 800 W, naponta 7 órát üzemel, az év mind a 365 napján. Mekkora az éves világítási energia (kWh) és a költsége, ha 1 kWh ára 70 Ft?",
+  "explanation": "Napi energia: 0,8 kW·7 h = 5,6 kWh. Éves: 5,6 kWh·365 = 2 044 kWh. Költség: 2 044 kWh·70 Ft/kWh = 143 080 Ft.",
+  "source": "Villanyszerelő komplex írásbeli 2017, 8. és 12. feladat (megoldókulcs)",
+  "fields": [
+   {
+    "label": "W<sub>év</sub>",
+    "unit": "kWh",
+    "answer": 2044,
+    "tol": 0.02
+   },
+   {
+    "label": "költség",
+    "unit": "Ft",
+    "answer": 143080,
+    "tol": 0.02
+   }
+  ]
+ },
+ {
+  "id": "III-telj-009",
+  "part": "III",
+  "topic": "teljesitmeny-energia",
+  "type": "number",
+  "difficulty": 2,
+  "points": 2,
+  "q": "Egy 2 kW-os vízforraló 1,5 liter vizet 15 °C-ról 100 °C-ra 5 perc alatt melegít fel. A víz fajhője c = 4,19 kJ/(kg·K), 1 liter víz 1 kg. Mekkora a vízforraló hatásfoka százalékban? Egy tizedesre kerekítsen!",
+  "explanation": "Hasznos hő: Q = m·c·Δt = 1,5·4,19·85 = 534,2 kJ. Felvett villamos energia: W = P·t = 2000 W·300 s = 600 kJ. η = Q/W = 534,2/600 = 89,0 %. A percet másodpercre kell váltani, mert 1 W·s = 1 J.",
+  "source": "Óbudai Egyetem Elektro példatár; Elektrotechnikai összefoglaló (Délvil_tch)",
+  "fields": [
+   {
+    "label": "η",
+    "unit": "%",
+    "answer": 89,
+    "tol": 0.02
+   }
+  ]
+ },
+ {
+  "id": "III-telj-010",
+  "part": "III",
+  "topic": "teljesitmeny-energia",
+  "type": "number",
+  "difficulty": 3,
+  "points": 2,
+  "q": "Egy 80 literes villanybojler fűtőbetétje 2 kW, hatásfoka 95 %. Mennyi idő alatt melegíti fel a vizet 15 °C-ról 65 °C-ra? c = 4,19 kJ/(kg·K), 1 kWh = 3600 kJ. Két tizedesre kerekítsen (órában)!",
+  "explanation": "Q = m·c·Δt = 80·4,19·50 = 16 760 kJ = 16 760/3600 = 4,656 kWh. A hasznos teljesítmény P·η = 2·0,95 = 1,90 kW. t = Q/(P·η) = 4,656/1,90 = 2,45 h (≈ 147 perc). η-val osztani kell: a veszteség miatt tovább tart, mint 2,33 h.",
+  "source": "Óbudai Egyetem Elektro példatár; Elektrotechnikai összefoglaló (Délvil_tch)",
+  "fields": [
+   {
+    "label": "t",
+    "unit": "h",
+    "answer": 2.45,
+    "tol": 0.02
+   }
+  ]
+ },
+ {
+  "id": "III-telj-011",
+  "part": "III",
+  "topic": "teljesitmeny-energia",
+  "type": "number",
+  "difficulty": 2,
+  "points": 4,
+  "q": "Egy fogyasztó hatásos teljesítménye P = 10 kW, cosφ = 0,8. Mekkora a látszólagos teljesítmény (kVA) és a meddő teljesítmény (kvar)?",
+  "explanation": "S = P/cosφ = 10/0,8 = 12,5 kVA. Q = √(S² − P²) = √(12,5² − 10²) = 7,5 kvar (vagy Q = S·sinφ, sinφ = 0,6). A teljesítményháromszög: P a vízszintes, Q a függőleges befogó, S az átfogó.",
+  "source": "Óbudai Egyetem Elektro példatár; Elektrotechnikai összefoglaló (Délvil_tch)",
+  "fields": [
+   {
+    "label": "S",
+    "unit": "kVA",
+    "answer": 12.5,
+    "tol": 0.02
+   },
+   {
+    "label": "Q",
+    "unit": "kvar",
+    "answer": 7.5,
+    "tol": 0.02
+   }
+  ]
+ },
+ {
+  "id": "III-telj-012",
+  "part": "III",
+  "topic": "teljesitmeny-energia",
+  "type": "single",
+  "difficulty": 1,
+  "points": 1,
+  "q": "Egy fogyasztó hatásos teljesítménye 3,6 kW, látszólagos teljesítménye 4,5 kVA. Mekkora a teljesítménytényezője?",
+  "explanation": "cosφ = P/S = 3,6 kW / 4,5 kVA = 0,8. A meddő teljesítmény ebből Q = √(4,5² − 3,6²) = 2,7 kvar, sinφ = 0,6.",
+  "source": "Óbudai Egyetem Elektro példatár; Elektrotechnikai összefoglaló (Délvil_tch)",
+  "options": [
+   "0,8",
+   "1,25",
+   "0,6",
+   "0,9"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "S/P-t számolt; a cosφ sosem lehet 1-nél nagyobb.",
+   "Ez a sinφ (Q/S = 2,7/4,5).",
+   "Becslés, nem számított érték."
+  ]
+ },
+ {
+  "id": "III-telj-013",
+  "part": "III",
+  "topic": "teljesitmeny-energia",
+  "type": "number",
+  "difficulty": 2,
+  "points": 4,
+  "q": "Egy egyfázisú motor 230 V-on 6 A-t vesz fel, cosφ = 0,78. Mekkora a felvett hatásos és a látszólagos teljesítmény?",
+  "explanation": "S = U·I = 230·6 = 1380 VA. P = U·I·cosφ = 1380·0,78 = 1 076,4 W. A különbséget a meddő teljesítmény adja: Q = S·sinφ = 864 var.",
+  "source": "Óbudai Egyetem Elektro példatár; Elektrotechnikai összefoglaló (Délvil_tch)",
+  "fields": [
+   {
+    "label": "P",
+    "unit": "W",
+    "answer": 1076.4,
+    "tol": 0.02
+   },
+   {
+    "label": "S",
+    "unit": "VA",
+    "answer": 1380,
+    "tol": 0.02
+   }
+  ]
+ },
+ {
+  "id": "III-telj-014",
+  "part": "III",
+  "topic": "teljesitmeny-energia",
+  "type": "single",
+  "difficulty": 1,
+  "points": 1,
+  "q": "Egy 9 kW-os háromfázisú (3×400 V) átfolyós vízmelegítő ohmos fogyasztó, szimmetrikus terheléssel. Mekkora a vonali áram?",
+  "explanation": "I = P/(√3·U<sub>v</sub>·cosφ) = 9000/(1,732·400·1) = 12,99 A. Ugyanez fázisonként: 3 kW / 230 V = 13,04 A (a csekély eltérés a 230 V kerekítése).",
+  "source": "VeI – Vezetékek villamos méretezése, 7. fejezet (ocr/VeI-Vezetékméretezés1.txt)",
+  "options": [
+   "12,99 A",
+   "22,50 A",
+   "39,13 A",
+   "7,50 A"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "Hiányzik a √3.",
+   "Ez akkor lenne, ha a 9 kW-ot egyetlen fázis vinné (egyfázisú számolás).",
+   "3·U<sub>v</sub> helyett √3·U<sub>v</sub> (vagy 3·U<sub>f</sub>) kell."
+  ]
+ },
+ {
+  "id": "III-telj-015",
+  "part": "III",
+  "topic": "teljesitmeny-energia",
+  "type": "single",
+  "difficulty": 3,
+  "points": 2,
+  "q": "Három egyforma, egyenként 2 kW / 230 V névleges adatú fűtőelemet a rajz szerint (háromszög-kapcsolásban) kötöttek a 3×400/230 V-os hálózatra. Mekkora lesz az összes felvett teljesítmény (a hőfokfüggést elhanyagolva)?",
+  "explanation": "Egy elem ellenállása R = U²/P = 230²/2000 = 26,45 Ω. Háromszögben minden elemre a vonali feszültség (400 V) jut: P<sub>elem</sub> = 400²/26,45 = 6 049 W, összesen 18,1 kW – a névleges háromszorosa, az elemek túlmelegednek. 230 V-os elemeket 3×400/230 V-os hálózaton csillagba kell kötni (6 kW). A teljesítmény a feszültség négyzetével arányos.",
+  "source": "Óbudai Egyetem Elektro példatár; Elektrotechnikai összefoglaló (Délvil_tch)",
+  "options": [
+   "≈ 18,1 kW",
+   "6,0 kW",
+   "≈ 10,4 kW",
+   "2,0 kW"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "Ennyi csillagkapcsolásban lenne, ahol minden elemre 230 V jut.",
+   "√3-szoros helyett a teljesítmény a feszültség négyzetével arányos: (400/230)² ≈ 3-szoros.",
+   "Ez egyetlen elem névleges teljesítménye."
+  ],
+  "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 460 225\" width=\"460\" font-family=\"sans-serif\" font-size=\"14\" stroke=\"black\" fill=\"none\" stroke-width=\"2\"><text x=\"40\" y=\"30\" fill=\"black\" stroke=\"none\" font-size=\"14\" text-anchor=\"middle\">L1</text><text x=\"40\" y=\"110\" fill=\"black\" stroke=\"none\" font-size=\"14\" text-anchor=\"middle\">L2</text><text x=\"40\" y=\"190\" fill=\"black\" stroke=\"none\" font-size=\"14\" text-anchor=\"middle\">L3</text><line x1=\"55\" y1=\"25\" x2=\"120\" y2=\"25\"/><line x1=\"55\" y1=\"105\" x2=\"120\" y2=\"105\"/><line x1=\"55\" y1=\"185\" x2=\"120\" y2=\"185\"/><circle cx=\"120\" cy=\"25\" r=\"3.5\" fill=\"black\"/><circle cx=\"120\" cy=\"105\" r=\"3.5\" fill=\"black\"/><circle cx=\"120\" cy=\"185\" r=\"3.5\" fill=\"black\"/><line x1=\"120\" y1=\"25\" x2=\"300\" y2=\"25\"/><line x1=\"120\" y1=\"105\" x2=\"300\" y2=\"105\"/><line x1=\"120\" y1=\"185\" x2=\"300\" y2=\"185\"/><line x1=\"300\" y1=\"25\" x2=\"300\" y2=\"40\"/><rect x=\"291.0\" y=\"40.0\" width=\"18\" height=\"50\"/><text x=\"316\" y=\"70\" fill=\"black\" stroke=\"none\" font-size=\"14\" text-anchor=\"start\">R</text><line x1=\"300\" y1=\"90\" x2=\"300\" y2=\"105\"/><line x1=\"300\" y1=\"105\" x2=\"300\" y2=\"120\"/><rect x=\"291.0\" y=\"120.0\" width=\"18\" height=\"50\"/><text x=\"316\" y=\"150\" fill=\"black\" stroke=\"none\" font-size=\"14\" text-anchor=\"start\">R</text><line x1=\"300\" y1=\"170\" x2=\"300\" y2=\"185\"/><line x1=\"120\" y1=\"25\" x2=\"120\" y2=\"25\"/><line x1=\"380\" y1=\"25\" x2=\"380\" y2=\"80\"/><line x1=\"300\" y1=\"25\" x2=\"380\" y2=\"25\"/><rect x=\"371.0\" y=\"80.0\" width=\"18\" height=\"50\"/><text x=\"396\" y=\"110\" fill=\"black\" stroke=\"none\" font-size=\"14\" text-anchor=\"start\">R</text><line x1=\"380\" y1=\"130\" x2=\"380\" y2=\"185\"/><line x1=\"300\" y1=\"185\" x2=\"380\" y2=\"185\"/><text x=\"220\" y=\"215\" fill=\"black\" stroke=\"none\" font-size=\"13\" text-anchor=\"middle\">R: 2 kW / 230 V névleges fűtőelem</text></svg>"
+ },
+ {
+  "id": "III-telj-016",
+  "part": "III",
+  "topic": "teljesitmeny-energia",
+  "type": "number",
+  "difficulty": 1,
+  "points": 2,
+  "q": "Hány órát üzemelhet egy 2 kW-os hősugárzó 1000 Ft-ért, ha 1 kWh ára 70 Ft? Két tizedesre kerekítsen!",
+  "explanation": "A pénzért vásárolható energia: W = 1000 Ft / 70 Ft/kWh = 14,286 kWh. t = W/P = 14,286 kWh / 2 kW = 7,14 h (≈ 429 perc).",
+  "source": "Villanyszerelő komplex írásbeli 2017, 8. és 12. feladat (megoldókulcs)",
+  "fields": [
+   {
+    "label": "t",
+    "unit": "h",
+    "answer": 7.14,
+    "tol": 0.02
+   }
+  ]
+ },
+ {
+  "id": "III-telj-017",
+  "part": "III",
+  "topic": "teljesitmeny-energia",
+  "type": "number",
+  "difficulty": 2,
+  "points": 2,
+  "q": "Egy elektronikus fogyasztásmérő mérőállandója 1000 imp/kWh. Egyetlen bekapcsolt fogyasztó mellett 2 perc alatt 50 impulzust számolunk. Mekkora a fogyasztó teljesítménye kW-ban?",
+  "explanation": "Az elfogyasztott energia: W = 50 imp / 1000 imp/kWh = 0,050 kWh. Az idő 2 perc = 0,0333 h. P = W/t = 0,050/0,0333 = 1,50 kW. Ez a régi tárcsás mérőknél is így működött (fordulat/kWh).",
+  "source": "Óbudai Egyetem Elektro példatár; Elektrotechnikai összefoglaló (Délvil_tch)",
+  "fields": [
+   {
+    "label": "P",
+    "unit": "kW",
+    "answer": 1.5,
+    "tol": 0.02
+   }
+  ]
+ },
+ {
+  "id": "III-telj-018",
+  "part": "III",
+  "topic": "teljesitmeny-energia",
+  "type": "number",
+  "difficulty": 2,
+  "points": 2,
+  "q": "Az MSZ 447 szerint a lakások egyidejűségi tényezője e = c + (1 − c)/√n, ahol c = 0,2. Mekkora az egyidejűségi tényező 16 lakás esetén? Két tizedesre kerekítsen!",
+  "explanation": "e = 0,2 + 0,8/√16 = 0,2 + 0,8/4 = 0,40. Ez azt jelenti, hogy 16 lakás együttes csúcsterhelése csak a névleges teljesítmények összegének 40 %-a, mert a lakások csúcsai időben eltolódnak. n = 1 esetén e = 1.",
+  "source": "MSZ 447:2019 4.2 (MEE-VET 2019 MSZ 447 előadás); MSZ 447:1998 2.2",
+  "fields": [
+   {
+    "label": "e",
+    "unit": "–",
+    "answer": 0.4,
+    "tolAbs": 0.005
+   }
+  ]
+ },
+ {
+  "id": "III-telj-019",
+  "part": "III",
+  "topic": "teljesitmeny-energia",
+  "type": "number",
+  "difficulty": 3,
+  "points": 2,
+  "q": "Egy 6 lakásos társasház minden lakása háromfázisú (méretezési teljesítmény 13,8 kW), és mindegyikben van egy 1,8 kW-os, vezérelt (külön mért) forróvíztároló. Számítsa ki az eredő méretezési teljesítményt a P<sub>e</sub> = (n·P<sub>m</sub>)·e + Σ(P<sub>f</sub> + P<sub>v</sub>) összefüggéssel! Az egyidejűségi tényező e = 0,2 + 0,8/√n, két tizedesre kerekítve. Az eredményt két tizedesre adja meg!",
+  "explanation": "e = 0,2 + 0,8/√6 = 0,5266 ≈ 0,53. Háztartási rész: 6·13,8·0,53 = 43,88 kW. A vezérelt forróvíztárolókat egyidejűség nélkül (e = 1) kell hozzáadni: 6·1,8 = 10,8 kW. P<sub>e</sub> = 54,68 kW. Hiba lenne a tárolókat is e-vel szorozni.",
+  "source": "MEE-VET 2019, Rajnoha L.: Fogyasztásmérőhelyek és méretlen fővezetékek méretezése (MSZ 447:2019)",
+  "fields": [
+   {
+    "label": "P<sub>e</sub>",
+    "unit": "kW",
+    "answer": 54.68,
+    "tol": 0.02
+   }
+  ]
+ },
+ {
+  "id": "III-telj-020",
+  "part": "III",
+  "topic": "teljesitmeny-energia",
+  "type": "number",
+  "difficulty": 3,
+  "points": 4,
+  "q": "Egy 9 lakásos épület lakásai egyfázisúak (méretezési teljesítmény lakásonként 7,36 kW = 1×32 A), a közösségi fogyasztás 2,3 kW. Az egyidejűségi tényező e<sub>9</sub> = 0,47. A betápláló fővezeték háromfázisú, a lakásokat egyenletesen osztják el a fázisokra. Számítsa ki az eredő méretezési teljesítményt és a fázisonkénti méretezési áramot (cosφ = 1)!",
+  "explanation": "P<sub>e</sub> = (n·P<sub>m</sub>)·e + P<sub>k</sub> = (9·7,36)·0,47 + 2,3 = 31,13 + 2,3 = 33,43 kW. Szimmetrikus háromfázisú terhelésnél I = P<sub>e</sub>/(3·U<sub>f</sub>) = 33 433/(3·230) = 48,45 A. Ha valaki a háromfázisú fővezetéket egyfázisúként számolná (145 A), háromszoros áramot kapna.",
+  "source": "MEE-VET 2019, Rajnoha L.: Fogyasztásmérőhelyek és méretlen fővezetékek méretezése (MSZ 447:2019)",
+  "fields": [
+   {
+    "label": "P<sub>e</sub>",
+    "unit": "kW",
+    "answer": 33.43,
+    "tol": 0.02
+   },
+   {
+    "label": "I<sub>e</sub>",
+    "unit": "A",
+    "answer": 48.45,
+    "tol": 0.02
+   }
+  ]
+ },
+ {
+  "id": "III-telj-021",
+  "part": "III",
+  "topic": "teljesitmeny-energia",
+  "type": "single",
+  "difficulty": 1,
+  "points": 1,
+  "q": "Az MSZ 447:2019 szerint mekkora egy háromfázisú ellátású lakás méretezési teljesítménye (a vezetékméretezés alapja)?",
+  "explanation": "Az MSZ 447:2019 egy lakás méretezési teljesítményét háromfázisú ellátásnál 3×20 A-ben (3·230 V·20 A = 13,8 kW), egyfázisúnál 1×32 A-ben (230 V·32 A = 7,36 kW) adja meg; ez 30–50 éves távlati igényt fedez. A régi (1998-as) szabvány még 10 kW-ot (villanytűzhelyes) és 6,6 kW-ot (gáztűzhelyes) írt elő – régebbi jegyzetekben ezek szerepelnek.",
+  "source": "MEE-VET 2019, Rajnoha L.: Fogyasztásmérőhelyek és méretlen fővezetékek méretezése (MSZ 447:2019)",
+  "options": [
+   "13,8 kW (3×20 A)",
+   "7,36 kW (1×32 A)",
+   "10 kW",
+   "6,6 kW"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "Ez az egyfázisú ellátású lakás méretezési teljesítménye.",
+   "Ez a régi, MSZ 447:1998 szerinti villanytűzhelyes lakás értéke.",
+   "Ez a régi, MSZ 447:1998 szerinti gáztűzhelyes lakás értéke."
+  ]
+ },
+ {
+  "id": "III-telj-022",
+  "part": "III",
+  "topic": "teljesitmeny-energia",
+  "type": "match",
+  "difficulty": 1,
+  "points": 5,
+  "q": "Párosítsa az összefüggéseket azzal a mennyiséggel, amelyet kiszámítunk velük!",
+  "explanation": "Hatásos: P = U·I·cosφ (W); látszólagos: S = U·I (VA), háromfázisúan √3·U<sub>v</sub>·I; meddő: Q = S·sinφ (var); energia: W = P·t (kWh); hatásfok: η = P<sub>le</sub>/P<sub>fel</sub> < 1. A teljesítménytényező a P/S hányados.",
+  "source": "Óbudai Egyetem Elektro példatár; Elektrotechnikai összefoglaló (Délvil_tch)",
+  "pairs": [
+   [
+    "U·I·cosφ",
+    "egyfázisú hatásos teljesítmény"
+   ],
+   [
+    "√3·U<sub>v</sub>·I",
+    "háromfázisú látszólagos teljesítmény"
+   ],
+   [
+    "√3·U<sub>v</sub>·I·sinφ",
+    "háromfázisú meddő teljesítmény"
+   ],
+   [
+    "P·t",
+    "villamos energia (munka)"
+   ],
+   [
+    "P<sub>le</sub>/P<sub>fel</sub>",
+    "hatásfok"
+   ]
+  ],
+  "distractors": [
+   "teljesítménytényező",
+   "áramsűrűség"
+  ]
+ },
+ {
+  "id": "III-telj-023",
+  "part": "III",
+  "topic": "teljesitmeny-energia",
+  "type": "truefalse",
+  "difficulty": 2,
+  "points": 5,
+  "q": "Döntse el a teljesítményre és energiára vonatkozó állításokról, hogy igazak vagy hamisak!",
+  "explanation": "A motor P<sub>n</sub>-je leadott teljesítmény, a felvett P<sub>1</sub> = P<sub>n</sub>/η nagyobb. A kWh energia (1 kW 1 órán át). I = P/(U·cosφ): kisebb cosφ → nagyobb áram, nagyobb vezetékveszteség és feszültségesés. A meddő teljesítmény var, a látszólagos VA. A hatásfok mindig 1 alatti, mert mindig van veszteség.",
+  "source": "Óbudai Egyetem Elektro példatár; Elektrotechnikai összefoglaló (Délvil_tch)",
+  "statements": [
+   {
+    "text": "A motor adattábláján szereplő névleges teljesítmény a tengelyen leadott mechanikai teljesítmény.",
+    "answer": true
+   },
+   {
+    "text": "A kWh a teljesítmény mértékegysége.",
+    "answer": false
+   },
+   {
+    "text": "Azonos hatásos teljesítménynél kisebb cosφ nagyobb áramfelvételt jelent.",
+    "answer": true
+   },
+   {
+    "text": "A meddő teljesítmény mértékegysége a var.",
+    "answer": true
+   },
+   {
+    "text": "Egy jó motor hatásfoka meghaladhatja a 100 %-ot.",
+    "answer": false
+   }
+  ]
+ },
+ {
+  "id": "III-telj-024",
+  "part": "III",
+  "topic": "teljesitmeny-energia",
+  "type": "number",
+  "difficulty": 2,
+  "points": 4,
+  "q": "Egy motor a hálózatból 5,2 kW-ot vesz fel, a tengelyén 4,5 kW-ot ad le. Mekkora a hatásfoka (%, egy tizedes) és a vesztesége (W)?",
+  "explanation": "η = P<sub>le</sub>/P<sub>fel</sub> = 4,5/5,2 = 0,8654 = 86,5 %. P<sub>v</sub> = P<sub>fel</sub> − P<sub>le</sub> = 5,2 − 4,5 = 0,7 kW = 700 W. Ez a veszteség hővé alakul a motorban.",
+  "source": "Óbudai Egyetem Elektro példatár; Elektrotechnikai összefoglaló (Délvil_tch)",
+  "fields": [
+   {
+    "label": "η",
+    "unit": "%",
+    "answer": 86.5,
+    "tol": 0.02
+   },
+   {
+    "label": "P<sub>v</sub>",
+    "unit": "W",
+    "answer": 700,
+    "tol": 0.02
+   }
+  ]
+ },
+ {
+  "id": "III-telj-025",
+  "part": "III",
+  "topic": "teljesitmeny-energia",
+  "type": "dropdown",
+  "difficulty": 2,
+  "points": 4,
+  "q": "Egészítse ki a háromfázisú teljesítményre vonatkozó mondatokat!",
+  "explanation": "P = √3·U<sub>v</sub>·I·cosφ = 3·U<sub>f</sub>·I·cosφ, mert U<sub>v</sub> = √3·U<sub>f</sub> (400 = 1,732·230). Csillagkapcsolásban az egyes impedanciák a fázisfeszültségre (230 V), háromszögben a vonali feszültségre (400 V) kapcsolódnak.",
+  "source": "Óbudai Egyetem Elektro példatár; Elektrotechnikai összefoglaló (Délvil_tch)",
+  "text": "Szimmetrikus háromfázisú fogyasztó hatásos teljesítménye P = {0}·U·I·cosφ, ahol U a {1} feszültség (3×400/230 V-os hálózaton {2} V). Csillagkapcsolásban egy fázisimpedanciára {3} V jut.",
+  "blanks": [
+   {
+    "options": [
+     "√3",
+     "3",
+     "2",
+     "1"
+    ],
+    "answer": 0
+   },
+   {
+    "options": [
+     "vonali",
+     "fázis",
+     "csúcs"
+    ],
+    "answer": 0
+   },
+   {
+    "options": [
+     "400",
+     "230",
+     "565"
+    ],
+    "answer": 0
+   },
+   {
+    "options": [
+     "230",
+     "400",
+     "133"
+    ],
+    "answer": 0
+   }
+  ]
+ },
+ {
+  "id": "III-telj-026",
+  "part": "III",
+  "topic": "teljesitmeny-energia",
+  "type": "single",
+  "difficulty": 2,
+  "points": 1,
+  "q": "Egy készenléti üzemben (stand-by) folyamatosan 8 W-ot fogyasztó készülék 30 nap alatt mennyi költséget okoz, ha 1 kWh ára 70 Ft?",
+  "explanation": "W = P·t = 0,008 kW·24 h·30 = 5,76 kWh. Költség: 5,76 kWh·70 Ft = 403 Ft.",
+  "source": "Villanyszerelő komplex írásbeli 2017, 8. és 12. feladat (megoldókulcs)",
+  "options": [
+   "≈ 403 Ft",
+   "≈ 403 200 Ft",
+   "≈ 16,8 Ft",
+   "≈ 13,4 Ft"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "W-ot nem váltott kW-ra (ezerszeres hiba).",
+   "Napi 24 óra helyett napi 1 órával számolt.",
+   "Ez csak egy nap költsége."
+  ]
+ },
+ {
+  "id": "III-telj-027",
+  "part": "III",
+  "topic": "teljesitmeny-energia",
+  "type": "number",
+  "difficulty": 3,
+  "points": 2,
+  "q": "Egy 2000 W / 230 V névleges adatú fűtőkészüléket 207 V-os (−10 %) feszültségen üzemeltetünk. Mekkora a felvett teljesítmény, ha az ellenállás állandónak tekinthető? Egész W-ra kerekítsen!",
+  "explanation": "R = U<sub>n</sub>²/P<sub>n</sub> = 230²/2000 = 26,45 Ω. P = U²/R = 207²/26,45 = 1 620 W. Más úton: P = P<sub>n</sub>·(U/U<sub>n</sub>)² = 2000·0,9² = 1 620 W. 10 % feszültségcsökkenés kb. 19 % teljesítménycsökkenést okoz – nem 10 %-ot, mert P a feszültség négyzetével arányos.",
+  "source": "Óbudai Egyetem Elektro példatár; Elektrotechnikai összefoglaló (Délvil_tch)",
+  "fields": [
+   {
+    "label": "P",
+    "unit": "W",
+    "answer": 1620,
+    "tol": 0.02
+   }
+  ]
+ },
+ {
+  "id": "III-telj-028",
+  "part": "III",
+  "topic": "teljesitmeny-energia",
+  "type": "order",
+  "difficulty": 2,
+  "points": 4,
+  "q": "Rendezze sorba egy háromfázisú motor tápvezetékének méretezéséhez szükséges áram meghatározásának lépéseit!",
+  "explanation": "Először az adatok kellenek, majd a felvett teljesítmény (a névleges teljesítmény leadott érték, ezért osztunk η-val), utána az áram. Az üzemi áram ismeretében választható a túláramvédelem, és csak ezután a vezeték: I<sub>B</sub> ≤ I<sub>n</sub> ≤ I<sub>z</sub>.",
+  "source": "VeI – Vezetékek villamos méretezése, 7. fejezet (ocr/VeI-Vezetékméretezés1.txt); MSZ HD 60364-4-43 433.1 (régi MSZ 2364-430 5.2): IB ≤ In ≤ Iz, I2 ≤ 1,45·Iz",
+  "items": [
+   "Az adattábláról leolvassuk P<sub>n</sub>, η, cosφ és U<sub>n</sub> értékét.",
+   "Kiszámítjuk a felvett hatásos teljesítményt: P<sub>1</sub> = P<sub>n</sub>/η.",
+   "Kiszámítjuk az áramot: I = P<sub>1</sub>/(√3·U·cosφ).",
+   "A kapott I<sub>B</sub> üzemi áramhoz választjuk a védelem I<sub>n</sub> névleges áramát (I<sub>B</sub> ≤ I<sub>n</sub>).",
+   "A vezeték terhelhetőségét ellenőrizzük (I<sub>n</sub> ≤ I<sub>z</sub>)."
+  ]
+ },
+ {
+  "id": "III-fesz-001",
+  "part": "III",
+  "topic": "feszultsegeses",
+  "type": "number",
+  "difficulty": 1,
+  "points": 2,
+  "q": "Egy egyfázisú (230 V) áramkörön legfeljebb 3 % feszültségesés engedhető meg. Hány volt ez?",
+  "explanation": "ΔU<sub>meg</sub> = ε·U/100 = 3·230/100 = 6,9 V. Ez a teljes (oda-vissza) áramkörre vonatkozik; egy vezetőre ennek a fele, 3,45 V jut (egyes tankönyvek ezt „mértékadó feszültségesés”-nek hívják).",
+  "source": "VeI – Vezetékek villamos méretezése, 7. fejezet (ocr/VeI-Vezetékméretezés1.txt)",
+  "fields": [
+   {
+    "label": "ΔU<sub>meg</sub>",
+    "unit": "V",
+    "answer": 6.9,
+    "tol": 0.02
+   }
+  ]
+ },
+ {
+  "id": "III-fesz-002",
+  "part": "III",
+  "topic": "feszultsegeses",
+  "type": "number",
+  "difficulty": 1,
+  "points": 4,
+  "q": "Egy 3×400/230 V-os csatlakozóvezetéken a megengedett feszültségesés 1 %. Hány volt ez a vonali feszültségre, illetve a fázisfeszültségre vonatkoztatva?",
+  "explanation": "1 % a 400 V-os vonali feszültségre: 4,0 V; a 230 V-os fázisfeszültségre: 2,3 V. A √3·I·l·cosφ/(γ·A) képlet vonali feszültségesést ad, ezt a 400 V-hoz kell viszonyítani; a fázisonkénti I·l·cosφ/(γ·A) képlet eredményét a 230 V-hoz. Mindkettő ugyanazt a %-ot adja.",
+  "source": "MSZ 447:2019 4.2 (MEE-VET 2019 MSZ 447 előadás); MSZ 447:1998 2.2",
+  "fields": [
+   {
+    "label": "ΔU<sub>vonali</sub>",
+    "unit": "V",
+    "answer": 4,
+    "tol": 0.02
+   },
+   {
+    "label": "ΔU<sub>fázis</sub>",
+    "unit": "V",
+    "answer": 2.3,
+    "tol": 0.02
+   }
+  ]
+ },
+ {
+  "id": "III-fesz-003",
+  "part": "III",
+  "topic": "feszultsegeses",
+  "type": "number",
+  "difficulty": 1,
+  "points": 2,
+  "q": "Egy egyfázisú (230 V) körön a számított feszültségesés 5,52 V. Hány százalék ez?",
+  "explanation": "ε = ΔU/U·100 = 5,52/230·100 = 2,4 %. Tipikus hiba a V és a % összekeverése: az 5,52 V nem 5,52 %!",
+  "source": "VeI – Vezetékek villamos méretezése, 7. fejezet (ocr/VeI-Vezetékméretezés1.txt)",
+  "fields": [
+   {
+    "label": "ε",
+    "unit": "%",
+    "answer": 2.4,
+    "tol": 0.02
+   }
+  ]
+ },
+ {
+  "id": "III-fesz-004",
+  "part": "III",
+  "topic": "feszultsegeses",
+  "type": "number",
+  "difficulty": 2,
+  "points": 4,
+  "q": "Egy egyfázisú (230 V) dugaszolóaljzat-áramkör 25 m hosszú, 2,5 mm²-es rézvezetékkel készült, a terhelés 16 A (cosφ = 1). γ<sub>Cu</sub> = 56 m/(Ω·mm²). Mekkora a feszültségesés voltban és százalékban? Két tizedesre kerekítsen!",
+  "explanation": "Egyfázisú körben az áram oda-vissza folyik: ΔU = 2·l·I/(γ·A) = 2·25·16/(56·2,5) = 800/140 = 5,71 V. ε = 5,71/230·100 = 2,48 %. A 2-es szorzó nélkül a felét kapnánk.",
+  "source": "VeI – Vezetékek villamos méretezése, 7. fejezet (ocr/VeI-Vezetékméretezés1.txt)",
+  "fields": [
+   {
+    "label": "ΔU",
+    "unit": "V",
+    "answer": 5.71,
+    "tol": 0.02
+   },
+   {
+    "label": "ε",
+    "unit": "%",
+    "answer": 2.48,
+    "tol": 0.02
+   }
+  ],
+  "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 500 140\" width=\"500\" font-family=\"sans-serif\" font-size=\"14\" stroke=\"black\" fill=\"none\" stroke-width=\"2\"><rect x=\"15\" y=\"30\" width=\"70\" height=\"90\"/><text x=\"50\" y=\"70\" fill=\"black\" stroke=\"none\" font-size=\"12\" text-anchor=\"middle\">elosztó</text><text x=\"50\" y=\"88\" fill=\"black\" stroke=\"none\" font-size=\"12\" text-anchor=\"middle\">230 V</text><line x1=\"85\" y1=\"50\" x2=\"380\" y2=\"50\"/><line x1=\"85\" y1=\"100\" x2=\"380\" y2=\"100\"/><text x=\"100\" y=\"44\" fill=\"black\" stroke=\"none\" font-size=\"12\" text-anchor=\"start\">L</text><text x=\"100\" y=\"94\" fill=\"black\" stroke=\"none\" font-size=\"12\" text-anchor=\"start\">N</text><path d=\"M230 50 l-10 -6 v12 z\" fill=\"black\"/><path d=\"M220 100 l10 -6 v12 z\" fill=\"black\"/><text x=\"230\" y=\"80\" fill=\"black\" stroke=\"none\" font-size=\"13\" text-anchor=\"middle\">l = 25 m, Cu 2,5 mm²</text><rect x=\"371.0\" y=\"50.0\" width=\"18\" height=\"50\"/><text x=\"396\" y=\"80\" fill=\"black\" stroke=\"none\" font-size=\"14\" text-anchor=\"start\"></text><line x1=\"380\" y1=\"50\" x2=\"380\" y2=\"50\"/><text x=\"410\" y=\"80\" fill=\"black\" stroke=\"none\" font-size=\"13\" text-anchor=\"start\">I = 16 A</text></svg>"
+ },
+ {
+  "id": "III-fesz-005",
+  "part": "III",
+  "topic": "feszultsegeses",
+  "type": "single",
+  "difficulty": 2,
+  "points": 1,
+  "q": "Egy egyfázisú (230 V), ohmos fogyasztót ellátó, 30 m hosszú, 4 mm²-es rézvezetéken 20 A folyik. γ = 56 m/(Ω·mm²). Mekkora a feszültségesés?",
+  "explanation": "ΔU = 2·l·I/(γ·A) = 2·30·20/(56·4) = 5,36 V, ami 2,33 %. Egyfázisú körben a nullavezetőn is ugyanakkora áram folyik vissza, ezért a 2-es szorzó.",
+  "source": "VeI – Vezetékek villamos méretezése, 7. fejezet (ocr/VeI-Vezetékméretezés1.txt)",
+  "options": [
+   "5,36 V",
+   "2,68 V",
+   "2,33 V",
+   "4,64 V"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "Elmaradt a 2-es szorzó (csak a fázisvezető esése).",
+   "Ez a százalékos érték (2,33 %), nem volt.",
+   "√3-as szorzó csak szimmetrikus háromfázisú terhelésnél kell."
+  ]
+ },
+ {
+  "id": "III-fesz-006",
+  "part": "III",
+  "topic": "feszultsegeses",
+  "type": "number",
+  "difficulty": 2,
+  "points": 4,
+  "q": "A rajz szerinti szimmetrikus háromfázisú, ohmos fogyasztót (pl. fűtőkészüléket) rézvezeték táplál. γ = 56 m/(Ω·mm²). Számítsa ki a vonali feszültségesést (V, két tizedes) és százalékos értékét (%, két tizedes)!",
+  "explanation": "Szimmetrikus terhelésnél a nullavezetőn nem folyik áram: ΔU = √3·I·l·cosφ/(γ·A) = 1,732·25·40·1/(56·6) = 5,15 V (vonali). ε = 5,15/400·100 = 1,29 %. Ha valaki a vonali esést 230 V-hoz viszonyítaná, 2,24 %-ot kapna – hibásan.",
+  "source": "VeI – Vezetékek villamos méretezése, 7. fejezet (ocr/VeI-Vezetékméretezés1.txt)",
+  "fields": [
+   {
+    "label": "ΔU",
+    "unit": "V",
+    "answer": 5.15,
+    "tol": 0.02
+   },
+   {
+    "label": "ε",
+    "unit": "%",
+    "answer": 1.29,
+    "tol": 0.02
+   }
+  ],
+  "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 490 150\" width=\"490\" font-family=\"sans-serif\" font-size=\"14\" stroke=\"black\" fill=\"none\" stroke-width=\"2\"><text x=\"50\" y=\"40\" fill=\"black\" stroke=\"none\" font-size=\"14\" text-anchor=\"middle\">elosztó</text><rect x=\"20\" y=\"55\" width=\"60\" height=\"70\"/><text x=\"50\" y=\"95\" fill=\"black\" stroke=\"none\" font-size=\"12\" text-anchor=\"middle\">3×400 V</text><line x1=\"80\" y1=\"70\" x2=\"400\" y2=\"70\"/><line x1=\"80\" y1=\"90\" x2=\"400\" y2=\"90\"/><line x1=\"80\" y1=\"110\" x2=\"400\" y2=\"110\"/><text x=\"240\" y=\"60\" fill=\"black\" stroke=\"none\" font-size=\"14\" text-anchor=\"middle\">l = 40 m, Cu 6 mm²</text><text x=\"240\" y=\"140\" fill=\"black\" stroke=\"none\" font-size=\"14\" text-anchor=\"middle\">I = 25 A, cosφ = 1</text><rect x=\"400\" y=\"55\" width=\"70\" height=\"70\"/><text x=\"435\" y=\"95\" fill=\"black\" stroke=\"none\" font-size=\"12\" text-anchor=\"middle\">fogy.</text><text x=\"90\" y=\"66\" fill=\"black\" stroke=\"none\" font-size=\"11\" text-anchor=\"start\">L1</text><text x=\"90\" y=\"86\" fill=\"black\" stroke=\"none\" font-size=\"11\" text-anchor=\"start\">L2</text><text x=\"90\" y=\"106\" fill=\"black\" stroke=\"none\" font-size=\"11\" text-anchor=\"start\">L3</text></svg>"
+ },
+ {
+  "id": "III-fesz-007",
+  "part": "III",
+  "topic": "feszultsegeses",
+  "type": "single",
+  "difficulty": 3,
+  "points": 2,
+  "q": "Egy háromfázisú motort (P<sub>n</sub> = 7,5 kW, η = 88 %, cosφ = 0,84, 3×400 V) 60 m hosszú, 4 mm²-es rézkábel táplál. γ = 56 m/(Ω·mm²). Mekkora a százalékos feszültségesés névleges terhelésnél?",
+  "explanation": "I = P<sub>n</sub>/(η·√3·U·cosφ) = 7 500/(0,88·1,732·400·0,84) = 14,64 A. ΔU = √3·I·l·cosφ/(γ·A) = 1,732·14,64·60·0,84/(56·4) = 5,71 V. ε = 5,71/400·100 = 1,43 %. (Kábelnél a reaktancia elhanyagolható, ezért elég a hatásos összetevő.)",
+  "source": "VeI – Vezetékek villamos méretezése, 7. fejezet (ocr/VeI-Vezetékméretezés1.txt)",
+  "options": [
+   "1,43 %",
+   "0,82 %",
+   "1,65 %",
+   "1,70 %",
+   "1,26 %"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "Elmaradt a √3.",
+   "Háromfázisú szimmetrikus terhelésnél √3 kell, nem 2.",
+   "A hatásos (hosszirányú) esésnél a cosφ is szorzó.",
+   "A motor áramát a felvett teljesítményből (P<sub>n</sub>/η) kell számolni."
+  ]
+ },
+ {
+  "id": "III-fesz-008",
+  "part": "III",
+  "topic": "feszultsegeses",
+  "type": "number",
+  "difficulty": 2,
+  "points": 2,
+  "q": "Egy egyfázisú (230 V) motoros fogyasztó áramfelvétele 10 A, cosφ = 0,8. A tápláló rézvezeték 40 m hosszú, 2,5 mm². γ = 56 m/(Ω·mm²). Mekkora a feszültségesés (a vezeték reaktanciáját elhanyagolva)? Két tizedesre kerekítsen!",
+  "explanation": "ΔU = 2·l·I·cosφ/(γ·A) = 2·40·10·0,8/(56·2,5) = 640/140 = 4,57 V (1,99 %). Szigetelt vezetéknél a reaktancia elhanyagolható, ezért csak az áram hatásos összetevője (I·cosφ) okoz számottevő esést az ellenálláson.",
+  "source": "VeI – Vezetékek villamos méretezése, 7. fejezet (ocr/VeI-Vezetékméretezés1.txt)",
+  "fields": [
+   {
+    "label": "ΔU",
+    "unit": "V",
+    "answer": 4.57,
+    "tol": 0.02
+   }
+  ]
+ },
+ {
+  "id": "III-fesz-009",
+  "part": "III",
+  "topic": "feszultsegeses",
+  "type": "number",
+  "difficulty": 2,
+  "points": 2,
+  "q": "Egy 3,5 kW-os ohmos fogyasztót 35 m távolságból egyfázisú (230 V) rézvezetékkel táplálunk. A megengedett feszültségesés 3 %. γ = 56 m/(Ω·mm²). Mekkora a feszültségesés szempontjából szükséges legkisebb keresztmetszet (számított érték)? Két tizedesre kerekítsen!",
+  "explanation": "I = P/U = 3500/230 = 15,22 A. ΔU<sub>meg</sub> = 3 %·230 V = 6,9 V. A ≥ 2·l·I/(γ·ΔU<sub>meg</sub>) = 2·35·15,22/(56·6,9) = 2,76 mm². A szabványos keresztmetszet ennél nagyobb vagy egyenlő legkisebb érték: 4 mm².",
+  "source": "VeI – Vezetékek villamos méretezése, 7. fejezet (ocr/VeI-Vezetékméretezés1.txt)",
+  "fields": [
+   {
+    "label": "A<sub>min</sub>",
+    "unit": "mm²",
+    "answer": 2.76,
+    "tol": 0.02
+   }
+  ]
+ },
+ {
+  "id": "III-fesz-010",
+  "part": "III",
+  "topic": "feszultsegeses",
+  "type": "single",
+  "difficulty": 3,
+  "points": 2,
+  "q": "Egy fogyasztási hely méretlen csatlakozóvezetéke 110 m hosszú, réz, 3×400/230 V-os, a csatlakozási pont után egyidejűleg fellépő legnagyobb teljesítmény 12 kW, cosφ = 1, szimmetrikus. A csatlakozóvezetéken megengedett feszültségesés 1 %. γ = 56 m/(Ω·mm²). Feszültségesés szempontjából melyik a legkisebb megfelelő szabványos keresztmetszet? (Számoljon a ΔU = √3·I·l·cosφ/(γ·A) összefüggéssel!)",
+  "explanation": "I = P/(√3·400) = 12000/692,8 = 17,32 A. ΔU<sub>meg</sub> = 1 %·400 V = 4 V. A ≥ √3·l·I/(γ·ΔU) = 1,732·110·17,32/(56·4) = 14,73 mm² → 16 mm². Ellenőrzés 16 mm²-re: ΔU = 3,68 V = 0,92 % ≤ 1 %. Tipikus hibák: √3 helyett 2-vel számolva 25 mm² jönne ki; 230 V-ra vetítve a megengedett esés csak 2,3 V lenne.",
+  "source": "VeI – Vezetékek villamos méretezése, 7. fejezet (ocr/VeI-Vezetékméretezés1.txt); MSZ 447:2019 4.2 (MEE-VET 2019 MSZ 447 előadás); MSZ 447:1998 2.2",
+  "options": [
+   "16 mm²",
+   "10 mm²",
+   "25 mm²",
+   "6 mm²"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "10 mm²-en ε = 1,61 % lenne, több mint 1 %.",
+   "Megfelel, de nem a legkisebb.",
+   "6 mm²-en ε = 2,68 %."
+  ]
+ },
+ {
+  "id": "III-fesz-011",
+  "part": "III",
+  "topic": "feszultsegeses",
+  "type": "number",
+  "difficulty": 2,
+  "points": 2,
+  "q": "Egy egyfázisú (1×32 A) lakás mért fővezetéke a fogyasztásmérőtől a lakáselosztóig 18 m, réz, 10 mm². γ = 56 m/(Ω·mm²), cosφ = 1. Hány százalék a feszültségesés 32 A-es terhelésnél? Két tizedesre kerekítsen!",
+  "explanation": "ΔU = 2·l·I/(γ·A) = 2·18·32/(56·10) = 2,057 V. ε = 2,057/230·100 = 0,89 %. A mért fővezeték esése a lakás belső hálózatának esésével összeadódik, ezért érdemes 1 % alatt tartani.",
+  "source": "MEE-VET 2019, Rajnoha L.: Fogyasztásmérőhelyek és méretlen fővezetékek méretezése (MSZ 447:2019)",
+  "fields": [
+   {
+    "label": "ε",
+    "unit": "%",
+    "answer": 0.89,
+    "tol": 0.02
+   }
+  ]
+ },
+ {
+  "id": "III-fesz-012",
+  "part": "III",
+  "topic": "feszultsegeses",
+  "type": "single",
+  "difficulty": 2,
+  "points": 1,
+  "q": "Egy egyfázisú (230 V) alumínium csatlakozóvezeték 30 m hosszú, 16 mm², a terhelés 20 A, cosφ = 1. γ<sub>Al</sub> = 35 m/(Ω·mm²). Mekkora a feszültségesés?",
+  "explanation": "ΔU = 2·l·I/(γ<sub>Al</sub>·A) = 2·30·20/(35·16) = 1 200/560 = 2,14 V (0,93 %). Alumíniumnál ugyanakkora esés kb. 1,6-szor nagyobb keresztmetszetet igényel.",
+  "source": "MEE-VET 2019, Rajnoha L.: Fogyasztásmérőhelyek és méretlen fővezetékek méretezése (MSZ 447:2019)",
+  "options": [
+   "2,14 V",
+   "1,34 V",
+   "1,07 V",
+   "2,62 V"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "A réz γ-jával (56) számolt, az alumíniumé 35.",
+   "Elmaradt a 2-es szorzó.",
+   "A γ a nevezőbe kerül, nem a számlálóba."
+  ]
+ },
+ {
+  "id": "III-fesz-013",
+  "part": "III",
+  "topic": "feszultsegeses",
+  "type": "truefalse",
+  "difficulty": 2,
+  "points": 5,
+  "q": "Döntse el a feszültségesésre vonatkozó állításokról, hogy igazak vagy hamisak!",
+  "explanation": "ΔU = 2·I·l·cosφ/(γ·A) (egyfázisú) ill. √3·I·l·cosφ/(γ·A) (szimmetrikus háromfázisú): arányos l-lel és I-vel, fordítottan A-val. Szigetelt vezetéknél a reaktancia hanyagolható el, de az I·cosφ hatásos áramösszetevő igenis számít. Az alumínium γ-ja (35) kisebb a rézénél (56), ezért nagyobb keresztmetszet kell.",
+  "source": "VeI – Vezetékek villamos méretezése, 7. fejezet (ocr/VeI-Vezetékméretezés1.txt)",
+  "statements": [
+   {
+    "text": "A feszültségesés egyenesen arányos a vezeték hosszával és a terhelő árammal.",
+    "answer": true
+   },
+   {
+    "text": "A keresztmetszet kétszeresére növelése a feszültségesést felére csökkenti.",
+    "answer": true
+   },
+   {
+    "text": "Szimmetrikus háromfázisú terhelésnél a képletben 2 helyett √3 szerepel, mert a nullavezetőn nem folyik áram.",
+    "answer": true
+   },
+   {
+    "text": "A szigetelt vezetékek feszültségesésének számításakor a cosφ sohasem számít.",
+    "answer": false
+   },
+   {
+    "text": "Ugyanakkora feszültségeséshez alumíniumból kisebb keresztmetszet is elég, mint rézből.",
+    "answer": false
+   }
+  ]
+ },
+ {
+  "id": "III-fesz-014",
+  "part": "III",
+  "topic": "feszultsegeses",
+  "type": "match",
+  "difficulty": 2,
+  "points": 4,
+  "q": "Párosítsa a feszültségesés-képleteket azzal az esettel, amelyre érvényesek! (γ: vezetőképesség, A: keresztmetszet, l: nyomvonalhossz)",
+  "explanation": "Egyfázisú körben a fázis- és nullavezetőn is folyik az áram (2·l). Szimmetrikus háromfázisú terhelésnél a nullavezetőn nem folyik áram, a fázisonkénti esés I·l·cosφ/(γ·A), a vonali esés ennek √3-szorosa. Ohmos terhelésnél cosφ = 1, ezért a képletből elmarad.",
+  "source": "VeI – Vezetékek villamos méretezése, 7. fejezet (ocr/VeI-Vezetékméretezés1.txt)",
+  "pairs": [
+   [
+    "2·I·l/(γ·A)",
+    "egyfázisú vagy egyenáramú kör, ohmos terhelés"
+   ],
+   [
+    "2·I·l·cosφ/(γ·A)",
+    "egyfázisú kör, induktív terhelés"
+   ],
+   [
+    "√3·I·l·cosφ/(γ·A)",
+    "szimmetrikus háromfázisú terhelés, vonali esés"
+   ],
+   [
+    "I·l·cosφ/(γ·A)",
+    "egyetlen vezetőn (fázisonként) eső feszültség"
+   ]
+  ],
+  "distractors": [
+   "3·I·l·cosφ/(γ·A)",
+   "I²·l/(γ·A)"
+  ]
+ },
+ {
+  "id": "III-fesz-015",
+  "part": "III",
+  "topic": "feszultsegeses",
+  "type": "order",
+  "difficulty": 2,
+  "points": 4,
+  "q": "Rendezze sorba a feszültségesésre történő keresztmetszet-méretezés lépéseit!",
+  "explanation": "A képletbe áram és volt kell, ezért előbb ezeket számoljuk ki; a kapott A<sub>min</sub>-t felfelé kerekítjük a szabványos sorra (1,5; 2,5; 4; 6; 10; 16; 25 mm²…), végül a választott keresztmetszettel kiszámolt %-os eséssel igazoljuk a megfelelést. A terhelhetőséget és a védelmet külön is ellenőrizni kell.",
+  "source": "MEE-VET 2019, Rajnoha L.: Fogyasztásmérőhelyek és méretlen fővezetékek méretezése (MSZ 447:2019)",
+  "items": [
+   "A terhelő áram meghatározása (P, U, cosφ, η alapján).",
+   "A megengedett feszültségesés átszámítása %-ból voltba.",
+   "A szükséges keresztmetszet kiszámítása a megfelelő képletből.",
+   "A számítottnál nagyobb vagy egyenlő legkisebb szabványos keresztmetszet kiválasztása.",
+   "A tényleges feszültségesés visszaellenőrzése a választott keresztmetszettel."
+  ]
+ },
+ {
+  "id": "III-fesz-016",
+  "part": "III",
+  "topic": "feszultsegeses",
+  "type": "number",
+  "difficulty": 3,
+  "points": 2,
+  "q": "A rajz szerinti egyfázisú (230 V), egy oldalról táplált vezetékre két ohmos fogyasztó csatlakozik. A vezeték végig 4 mm²-es réz, γ = 56 m/(Ω·mm²). (A rajzon a szakaszhosszak láthatók: a táppont–1. fogyasztó szakasz és az 1.–2. fogyasztó szakasz.) Hány százalék a feszültségesés a táppont és a 2. fogyasztó között? Két tizedesre kerekítsen!",
+  "explanation": "Az első szakaszon I₁ + I₂ = 16 A folyik (15 m), a másodikon csak I₂ = 6 A (15 m). ΔU = 2/(γ·A)·Σ(I<sub>szakasz</sub>·l<sub>szakasz</sub>) = 2/(56·4)·(16·15 + 6·15) = 2·330/224 = 2,946 V. Ugyanez a nyomatékokkal: Σ I<sub>k</sub>·l<sub>k</sub> = 10·15 + 6·30 = 330 A·m (l<sub>k</sub> a táponttól mért távolság). ε = 2,946/230·100 = 1,28 %.",
+  "source": "VeI – Vezetékek villamos méretezése, 7. fejezet (ocr/VeI-Vezetékméretezés1.txt)",
+  "fields": [
+   {
+    "label": "ε",
+    "unit": "%",
+    "answer": 1.28,
+    "tol": 0.02
+   }
+  ],
+  "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 500 165\" width=\"500\" font-family=\"sans-serif\" font-size=\"14\" stroke=\"black\" fill=\"none\" stroke-width=\"2\"><rect x=\"20\" y=\"40\" width=\"50\" height=\"50\"/><text x=\"45\" y=\"70\" fill=\"black\" stroke=\"none\" font-size=\"13\" text-anchor=\"middle\">U₀</text><line x1=\"70\" y1=\"65\" x2=\"470\" y2=\"65\"/><circle cx=\"220\" cy=\"65\" r=\"3.5\" fill=\"black\"/><circle cx=\"470\" cy=\"65\" r=\"3.5\" fill=\"black\"/><line x1=\"220\" y1=\"65\" x2=\"220\" y2=\"110\"/><line x1=\"470\" y1=\"65\" x2=\"470\" y2=\"110\"/><path d=\"M220 110 l-8 -10 h16 z\" fill=\"black\"/><path d=\"M470 110 l-8 -10 h16 z\" fill=\"black\"/><text x=\"220\" y=\"130\" fill=\"black\" stroke=\"none\" font-size=\"14\" text-anchor=\"middle\">I₁ = 10 A</text><text x=\"470\" y=\"130\" fill=\"black\" stroke=\"none\" font-size=\"14\" text-anchor=\"end\">I₂ = 6 A</text><line x1=\"70\" y1=\"25\" x2=\"70\" y2=\"35\"/><line x1=\"220\" y1=\"25\" x2=\"220\" y2=\"35\"/><line x1=\"470\" y1=\"25\" x2=\"470\" y2=\"35\"/><line x1=\"70\" y1=\"30\" x2=\"220\" y2=\"30\"/><line x1=\"70\" y1=\"15\" x2=\"70\" y2=\"20\"/><text x=\"145\" y=\"24\" fill=\"black\" stroke=\"none\" font-size=\"12\" text-anchor=\"middle\">15 m</text><line x1=\"220\" y1=\"30\" x2=\"470\" y2=\"30\"/><text x=\"345\" y=\"24\" fill=\"black\" stroke=\"none\" font-size=\"12\" text-anchor=\"middle\">15 m</text><text x=\"270\" y=\"155\" fill=\"black\" stroke=\"none\" font-size=\"12\" text-anchor=\"middle\">egyfázisú, 230 V, Cu 4 mm², cosφ = 1</text></svg>"
+ },
+ {
+  "id": "III-fesz-017",
+  "part": "III",
+  "topic": "feszultsegeses",
+  "type": "single",
+  "difficulty": 3,
+  "points": 2,
+  "q": "A rajz szerinti egyfázisú (230 V), réz fővezetékre két ohmos fogyasztó csatlakozik. A vezeték keresztmetszete végig azonos. A megengedett feszültségesés a legtávolabbi fogyasztóig 2 %. γ = 56 m/(Ω·mm²). Melyik a legkisebb megfelelő szabványos keresztmetszet?",
+  "explanation": "Nyomatékösszeg (táponttól mért távolságokkal): Σ I·l = 12·20 + 8·35 = 520 A·m. ΔU<sub>meg</sub> = 2 %·230 = 4,6 V. A ≥ 2·Σ(I·l)/(γ·ΔU) = 2·520/(56·4,6) = 4,04 mm² → 6 mm². A 4,04 mm² alig nagyobb 4-nél, de lefelé kerekíteni tilos.",
+  "source": "VeI – Vezetékek villamos méretezése, 7. fejezet (ocr/VeI-Vezetékméretezés1.txt)",
+  "options": [
+   "6 mm²",
+   "4 mm²",
+   "2,5 mm²",
+   "10 mm²"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "4 mm²-en ε = 2,02 % – éppen túllépi a 2 %-ot.",
+   "2,5 mm²-en ε = 3,23 %.",
+   "Megfelel, de nem a legkisebb."
+  ],
+  "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 500 165\" width=\"500\" font-family=\"sans-serif\" font-size=\"14\" stroke=\"black\" fill=\"none\" stroke-width=\"2\"><rect x=\"20\" y=\"40\" width=\"50\" height=\"50\"/><text x=\"45\" y=\"70\" fill=\"black\" stroke=\"none\" font-size=\"13\" text-anchor=\"middle\">U₀</text><line x1=\"70\" y1=\"65\" x2=\"470\" y2=\"65\"/><circle cx=\"220\" cy=\"65\" r=\"3.5\" fill=\"black\"/><circle cx=\"470\" cy=\"65\" r=\"3.5\" fill=\"black\"/><line x1=\"220\" y1=\"65\" x2=\"220\" y2=\"110\"/><line x1=\"470\" y1=\"65\" x2=\"470\" y2=\"110\"/><path d=\"M220 110 l-8 -10 h16 z\" fill=\"black\"/><path d=\"M470 110 l-8 -10 h16 z\" fill=\"black\"/><text x=\"220\" y=\"130\" fill=\"black\" stroke=\"none\" font-size=\"14\" text-anchor=\"middle\">I₁ = 12 A</text><text x=\"470\" y=\"130\" fill=\"black\" stroke=\"none\" font-size=\"14\" text-anchor=\"end\">I₂ = 8 A</text><line x1=\"70\" y1=\"25\" x2=\"70\" y2=\"35\"/><line x1=\"220\" y1=\"25\" x2=\"220\" y2=\"35\"/><line x1=\"470\" y1=\"25\" x2=\"470\" y2=\"35\"/><line x1=\"70\" y1=\"30\" x2=\"220\" y2=\"30\"/><line x1=\"70\" y1=\"15\" x2=\"70\" y2=\"20\"/><text x=\"145\" y=\"24\" fill=\"black\" stroke=\"none\" font-size=\"12\" text-anchor=\"middle\">20 m</text><line x1=\"220\" y1=\"30\" x2=\"470\" y2=\"30\"/><text x=\"345\" y=\"24\" fill=\"black\" stroke=\"none\" font-size=\"12\" text-anchor=\"middle\">15 m</text><text x=\"270\" y=\"155\" fill=\"black\" stroke=\"none\" font-size=\"12\" text-anchor=\"middle\">egyfázisú, 230 V, Cu, cosφ = 1, ε ≤ 2 %</text></svg>"
+ },
+ {
+  "id": "III-fesz-018",
+  "part": "III",
+  "topic": "feszultsegeses",
+  "type": "single",
+  "difficulty": 2,
+  "points": 1,
+  "q": "Legfeljebb milyen hosszú lehet egy 16 A-rel terhelt, 2,5 mm²-es réz, egyfázisú (230 V) áramkör, ha a feszültségesés nem haladhatja meg a 3 %-ot? cosφ = 1, γ = 56 m/(Ω·mm²).",
+  "explanation": "ΔU<sub>meg</sub> = 3 %·230 = 6,9 V. ΔU = 2·l·I/(γ·A) → l = ΔU·γ·A/(2·I) = 6,9·56·2,5/(2·16) = 30,2 m. Hosszabb körnél nagyobb keresztmetszet kell (4 mm²-rel 48,3 m).",
+  "source": "VeI – Vezetékek villamos méretezése, 7. fejezet (ocr/VeI-Vezetékméretezés1.txt)",
+  "options": [
+   "≈ 30,2 m",
+   "≈ 60,4 m",
+   "≈ 13,1 m",
+   "≈ 34,9 m"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "Elmaradt a 2-es szorzó: az áram oda-vissza folyik, a hurok kétszer olyan hosszú.",
+   "A 3 %-ot voltként helyettesítette be 6,9 V helyett.",
+   "√3 csak szimmetrikus háromfázisú terhelésnél kell."
+  ]
+ },
+ {
+  "id": "III-fesz-019",
+  "part": "III",
+  "topic": "feszultsegeses",
+  "type": "number",
+  "difficulty": 3,
+  "points": 2,
+  "q": "Egy háromfázisú (3×400 V) gépet 6 mm²-es rézkábel táplál, az üzemi áram 32 A, cosφ = 0,85. A megengedett feszültségesés 4 %. Legfeljebb milyen hosszú lehet a kábel? γ = 56 m/(Ω·mm²). Egész méterre kerekítsen!",
+  "explanation": "ΔU<sub>meg</sub> = 4 %·400 V = 16 V (vonali). ΔU = √3·I·l·cosφ/(γ·A) → l = ΔU·γ·A/(√3·I·cosφ) = 16·56·6/(1,732·32·0,85) = 114 m. Ha a 16 V helyett 4 %·230 V = 9,2 V-tal számolnánk, ugyanazzal a képlettel túl rövid (66 m) eredményt kapnánk.",
+  "source": "VeI – Vezetékek villamos méretezése, 7. fejezet (ocr/VeI-Vezetékméretezés1.txt)",
+  "fields": [
+   {
+    "label": "l<sub>max</sub>",
+    "unit": "m",
+    "answer": 114,
+    "tol": 0.02
+   }
+  ]
+ },
+ {
+  "id": "III-fesz-020",
+  "part": "III",
+  "topic": "feszultsegeses",
+  "type": "single",
+  "difficulty": 1,
+  "points": 1,
+  "q": "Az MSZ 447 szerint – az elosztói engedélyessel kötött eltérő megállapodás hiányában – legfeljebb mekkora lehet a csatlakozóvezeték feszültségesése az eredő méretezési teljesítménnyel terhelve (a közcélú hálózat névleges feszültségére vonatkoztatva)?",
+  "explanation": "MSZ 447: a csatlakozóvezeték és a (méretlen) fővezetékek együttes feszültségesése legfeljebb 2 %, ebből legfeljebb 1 % a csatlakozóvezetéké és legfeljebb 1 % valamennyi fővezetéké együtt. Ezzel korlátozzák a méretlen hálózati veszteséget.",
+  "source": "MSZ 447:2019 4.2 (MEE-VET 2019 MSZ 447 előadás); MSZ 447:1998 2.2",
+  "options": [
+   "1 %",
+   "2 %",
+   "3 %",
+   "5 %"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "2 % a csatlakozóvezeték és a fővezetékek együttes határa.",
+   "A 3 % nem az MSZ 447 csatlakozóvezetékre vonatkozó értéke.",
+   "Az 5 % jóval nagyobb a megengedettnél."
+  ]
+ },
+ {
+  "id": "III-fesz-021",
+  "part": "III",
+  "topic": "feszultsegeses",
+  "type": "dropdown",
+  "difficulty": 2,
+  "points": 4,
+  "q": "A rajz egy fogyasztási hely ellátását mutatja (1: csatlakozóvezeték, 2: méretlen fővezeték, 3: mért fővezeték). Egészítse ki az MSZ 447 feszültségesési előírását!",
+  "explanation": "MSZ 447:2019 (és már az 1998-as kiadás is): a csatlakozóvezeték és a méretlen fővezetékek együttes esése az eredő méretezési teljesítménnyel terhelve legfeljebb 2 %, ebből 1 % a csatlakozóvezeték, 1 % a fővezetékek része. A mért (fogyasztásmérő utáni) fővezeték már a felhasználói berendezés része, arra a belső hálózattal együtt kell a feszültségesést tervezni.",
+  "source": "MSZ 447:2019 4.2 (MEE-VET 2019 MSZ 447 előadás); MSZ 447:1998 2.2",
+  "text": "Az 1. szakasz feszültségesése legfeljebb {0}, a méretlen fővezetékeké együttesen legfeljebb {1}, a kettő együtt legfeljebb {2} lehet. Az előírás az eredő {3} való terhelésre vonatkozik.",
+  "blanks": [
+   {
+    "options": [
+     "1 %",
+     "2 %",
+     "3 %",
+     "0,5 %"
+    ],
+    "answer": 0
+   },
+   {
+    "options": [
+     "1 %",
+     "2 %",
+     "3 %",
+     "0,5 %"
+    ],
+    "answer": 0
+   },
+   {
+    "options": [
+     "2 %",
+     "1 %",
+     "4 %",
+     "5 %"
+    ],
+    "answer": 0
+   },
+   {
+    "options": [
+     "méretezési teljesítménnyel",
+     "beépített teljesítménnyel",
+     "zárlati árammal"
+    ],
+    "answer": 0
+   }
+  ],
+  "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 600 160\" width=\"600\" font-family=\"sans-serif\" font-size=\"14\" stroke=\"black\" fill=\"none\" stroke-width=\"2\"><text x=\"50\" y=\"30\" fill=\"black\" stroke=\"none\" font-size=\"12\" text-anchor=\"middle\">közcélú</text><text x=\"50\" y=\"45\" fill=\"black\" stroke=\"none\" font-size=\"12\" text-anchor=\"middle\">hálózat</text><rect x=\"15\" y=\"55\" width=\"70\" height=\"40\"/><text x=\"50\" y=\"80\" fill=\"black\" stroke=\"none\" font-size=\"11\" text-anchor=\"middle\">leágazás</text><line x1=\"85\" y1=\"75\" x2=\"215\" y2=\"75\"/><text x=\"150\" y=\"65\" fill=\"black\" stroke=\"none\" font-size=\"15\" text-anchor=\"middle\">1</text><text x=\"150\" y=\"100\" fill=\"black\" stroke=\"none\" font-size=\"11\" text-anchor=\"middle\">csatlakozó-</text><text x=\"150\" y=\"113\" fill=\"black\" stroke=\"none\" font-size=\"11\" text-anchor=\"middle\">vezeték</text><circle cx=\"215\" cy=\"75\" r=\"3.5\" fill=\"black\"/><text x=\"215\" y=\"135\" fill=\"black\" stroke=\"none\" font-size=\"11\" text-anchor=\"middle\">csatlakozási</text><text x=\"215\" y=\"148\" fill=\"black\" stroke=\"none\" font-size=\"11\" text-anchor=\"middle\">pont</text><line x1=\"215\" y1=\"80\" x2=\"215\" y2=\"120\" stroke-dasharray=\"6 4\"/><line x1=\"215\" y1=\"75\" x2=\"345\" y2=\"75\"/><text x=\"280\" y=\"65\" fill=\"black\" stroke=\"none\" font-size=\"15\" text-anchor=\"middle\">2</text><text x=\"280\" y=\"100\" fill=\"black\" stroke=\"none\" font-size=\"11\" text-anchor=\"middle\">méretlen</text><text x=\"280\" y=\"113\" fill=\"black\" stroke=\"none\" font-size=\"11\" text-anchor=\"middle\">fővezeték</text><rect x=\"345\" y=\"55\" width=\"60\" height=\"40\"/><text x=\"375\" y=\"80\" fill=\"black\" stroke=\"none\" font-size=\"13\" text-anchor=\"middle\">kWh</text><line x1=\"405\" y1=\"75\" x2=\"520\" y2=\"75\"/><text x=\"462\" y=\"65\" fill=\"black\" stroke=\"none\" font-size=\"15\" text-anchor=\"middle\">3</text><text x=\"462\" y=\"100\" fill=\"black\" stroke=\"none\" font-size=\"11\" text-anchor=\"middle\">mért</text><text x=\"462\" y=\"113\" fill=\"black\" stroke=\"none\" font-size=\"11\" text-anchor=\"middle\">fővezeték</text><rect x=\"520\" y=\"55\" width=\"70\" height=\"40\"/><text x=\"555\" y=\"80\" fill=\"black\" stroke=\"none\" font-size=\"11\" text-anchor=\"middle\">elosztó</text></svg>"
+ },
+ {
+  "id": "III-fesz-022",
+  "part": "III",
+  "topic": "feszultsegeses",
+  "type": "number",
+  "difficulty": 2,
+  "points": 2,
+  "q": "Egy kerti dugaszolóaljzatot 45 m hosszú, 2,5 mm²-es rézvezeték táplál 230 V-ról. Mekkora feszültség jut a fogyasztóra 13 A-es ohmos terhelésnél? γ = 56 m/(Ω·mm²). Két tizedesre kerekítsen!",
+  "explanation": "ΔU = 2·l·I/(γ·A) = 2·45·13/(56·2,5) = 8,36 V (3,63 %). U<sub>fogy</sub> = 230 − 8,36 = 221,64 V. Ez meghaladja a 3 %-ot, ezért ilyen hosszú körhöz inkább 4 mm² ajánlott.",
+  "source": "VeI – Vezetékek villamos méretezése, 7. fejezet (ocr/VeI-Vezetékméretezés1.txt)",
+  "fields": [
+   {
+    "label": "U<sub>fogy</sub>",
+    "unit": "V",
+    "answer": 221.64,
+    "tolAbs": 0.1
+   }
+  ]
+ },
+ {
+  "id": "III-fesz-023",
+  "part": "III",
+  "topic": "feszultsegeses",
+  "type": "single",
+  "difficulty": 2,
+  "points": 1,
+  "q": "Egy világítási kör 20 m hosszú, 1,5 mm²-es rézvezetékkel készült, az áram 10 A (cosφ = 1, egyfázisú). ρ = 0,0175 Ω·mm²/m. Mekkora a feszültségesés?",
+  "explanation": "ΔU = 2·ρ·l·I/A = 2·0,0175·20·10/1,5 = 4,67 V, ami 2,03 % – a 3 %-os (6,9 V) határon belül van. ρ-val szorzunk, γ-val osztunk – a két alak egyenértékű (γ = 1/ρ).",
+  "source": "IKK ágazati alapvizsga gyakorló feladatgyűjtemény (kkk/fva_megoldo.txt)",
+  "options": [
+   "4,67 V",
+   "2,33 V",
+   "2,03 V",
+   "15,24 V"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "Elmaradt a 2-es szorzó.",
+   "Ez a %-os érték, nem volt.",
+   "A ρ a számlálóba kerül (ρ·l/A), nem a nevezőbe."
+  ]
+ },
+ {
+  "id": "III-fesz-024",
+  "part": "III",
+  "topic": "feszultsegeses",
+  "type": "number",
+  "difficulty": 2,
+  "points": 2,
+  "q": "Egy szimmetrikusan terhelt háromfázisú kábel 50 m hosszú, réz, 6 mm²-es erekkel; az áram fázisonként 20 A. ρ = 0,0175 Ω·mm²/m. Mekkora a kábelben keletkező teljes hőveszteség? Egy tizedesre kerekítsen!",
+  "explanation": "Egy ér ellenállása: R = ρ·l/A = 0,0175·50/6 = 0,1458 Ω. Szimmetrikus terhelésnél a nullavezetőn nincs áram, a három fázisvezetőn: P<sub>v</sub> = 3·I²·R = 3·20²·0,1458 = 175,0 W.",
+  "source": "VeI – Vezetékek villamos méretezése, 7. fejezet (ocr/VeI-Vezetékméretezés1.txt)",
+  "fields": [
+   {
+    "label": "P<sub>v</sub>",
+    "unit": "W",
+    "answer": 175,
+    "tol": 0.02
+   }
+  ]
+ },
+ {
+  "id": "III-fesz-025",
+  "part": "III",
+  "topic": "feszultsegeses",
+  "type": "single",
+  "difficulty": 3,
+  "points": 2,
+  "q": "Egy 3×32 A-es csatlakozású fogyasztási hely réz csatlakozóvezetéke 40 m hosszú, 10 mm²-es, a terhelés szimmetrikus, cosφ = 1. γ = 56 m/(Ω·mm²). Megfelel-e a vezeték az MSZ 447 szerinti 1 %-os határnak?",
+  "explanation": "ΔU = √3·I·l/(γ·A) = 1,732·32·40/(56·10) = 3,959 V (vonali). ε = 3,959/400·100 = 0,99 % < 1 % → megfelel, de tartalék nélkül. Fázisonként számolva ugyanez: 2,286 V / 230 V = 0,99 %.",
+  "source": "MSZ 447:2019 4.2 (MEE-VET 2019 MSZ 447 előadás); MSZ 447:1998 2.2; VeI – Vezetékek villamos méretezése, 7. fejezet (ocr/VeI-Vezetékméretezés1.txt)",
+  "options": [
+   "Igen, ε ≈ 0,99 %, éppen a határ alatt",
+   "Nem, ε ≈ 1,72 %",
+   "Nem, ε ≈ 1,14 %",
+   "Igen, ε ≈ 0,57 %, bőven a határ alatt"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "A vonali esést (√3-as képlet) a 400 V-hoz kell viszonyítani, nem a 230 V-hoz.",
+   "A 2-es szorzó egyfázisú körhöz tartozik, szimmetrikus háromfázisnál √3.",
+   "Az I·l/(γ·A) a fázisonkénti esés; azt a 230 V-hoz kell viszonyítani, nem a 400 V-hoz."
+  ]
+ },
+ {
+  "id": "III-fesz-026",
+  "part": "III",
+  "topic": "feszultsegeses",
+  "type": "multi",
+  "difficulty": 2,
+  "points": 3,
+  "q": "Mely intézkedések csökkentik egy adott fogyasztó tápvezetékén a feszültségesést? (Több helyes válasz van; a rossz jelölés pontlevonással jár.)",
+  "explanation": "ΔU ∝ I·l/(γ·A): csökken nagyobb A, kisebb l, nagyobb γ (réz), illetve kisebb áram esetén. Háromfázisú tápláláskor ugyanakkora teljesítménynél harmadakkora a vezetőnkénti áram, és nincs visszavezetési esés, így a %-os esés jóval kisebb.",
+  "source": "VeI – Vezetékek villamos méretezése, 7. fejezet (ocr/VeI-Vezetékméretezés1.txt)",
+  "options": [
+   "nagyobb keresztmetszetű vezető választása",
+   "rövidebb nyomvonal kialakítása",
+   "alumínium vezető helyett réz vezető",
+   "egyfázisú helyett háromfázisú táplálás (ha a fogyasztó engedi)",
+   "kisebb névleges áramú kismegszakító beépítése",
+   "hosszabb, de egyenesebb nyomvonal",
+   "a teljesítménytényező romlása"
+  ],
+  "answer": [
+   0,
+   1,
+   2,
+   3
+  ],
+  "wrongWhy": [
+   null,
+   null,
+   null,
+   null,
+   "A védelem cseréje az áramot és az esést nem változtatja meg.",
+   "A feszültségesés a hosszal nő.",
+   "Kisebb cosφ ugyanakkora hatásos teljesítménynél nagyobb áramot, nagyobb esést okoz."
+  ]
+ },
+ {
+  "id": "III-fesz-027",
+  "part": "III",
+  "topic": "feszultsegeses",
+  "type": "number",
+  "difficulty": 2,
+  "points": 2,
+  "q": "Az MSZ 447 szerinti méretezésnél (MEE-VET módszer) háromfázisú négyvezetékes csatlakozóvezetékre egy vezetőre jutó mértékadó feszültségesést é = 0,75·ε·U<sub>f</sub>/100 alakban számolnak, mert a nullavezető esését is figyelembe veszik. Mekkora é, ha ε = 1 % és U<sub>f</sub> = 230 V? Három tizedesre kerekítsen!",
+  "explanation": "é = 0,75·1·230/100 = 1,725 V. A teljes 2,3 V-os (1 %) fázisfeszültség-esésből 1,725 V jut a fázisvezetőre, a maradék tartalék az aszimmetrikus terhelés nullavezető-esésére. Egyfázisú kétvezetékes körnél é = ε·U<sub>f</sub>/(100·2) = 1,15 V, mert ott a fázis- és a nullavezető egyenlő arányban osztozik.",
+  "source": "MEE-VET 2019, Rajnoha L.: Fogyasztásmérőhelyek és méretlen fővezetékek méretezése (MSZ 447:2019)",
+  "fields": [
+   {
+    "label": "é",
+    "unit": "V",
+    "answer": 1.725,
+    "tolAbs": 0.002
+   }
+  ]
+ },
+ {
+  "id": "III-fesz-028",
+  "part": "III",
+  "topic": "feszultsegeses",
+  "type": "single",
+  "difficulty": 3,
+  "points": 2,
+  "q": "Egy családi ház alumínium szigetelt szabadvezetékes (NFA2X) csatlakozóvezetéke 25 m hosszú, a méretezési áram fázisonként 25,3 A, cosφ = 1. A fázisvezetőre jutó mértékadó feszültségesés é = 1,725 V. ρ<sub>Al</sub> = 0,0285 Ω·mm²/m. Számolja ki A ≥ ρ·I·l/é alapján a szükséges keresztmetszetet, és válassza ki a legkisebb megfelelő szabványos értéket!",
+  "explanation": "A ≥ ρ·I·l/é = 0,0285·25,3·25/1,725 = 10,45 mm² → a következő szabványos érték 16 mm² (NFA2X 4×16). Ellenőrzés: é = 0,0285·25,3·25/16 = 1,13 V → ε = 1,13/(0,75·230)·100 = 0,65 %. A 16 mm²-es NFA2X terhelhetősége (F mód) bőven elég a 25,3 A-hez.",
+  "source": "MEE-VET 2019, Rajnoha L.: Fogyasztásmérőhelyek és méretlen fővezetékek méretezése (MSZ 447:2019)",
+  "options": [
+   "16 mm²",
+   "10 mm²",
+   "6 mm²",
+   "25 mm²"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "A számított minimum 10,45 mm², ez nagyobb 10-nél.",
+   "Ennél jóval nagyobb kell.",
+   "Megfelel, de nem a legkisebb."
+  ]
+ },
+ {
+  "id": "III-fesz-029",
+  "part": "III",
+  "topic": "feszultsegeses",
+  "type": "number",
+  "difficulty": 3,
+  "points": 4,
+  "q": "Egy műhely 22 kW hatásos teljesítményű (cosφ = 0,9), szimmetrikus háromfázisú (3×400 V) terhelését 85 m-es rézkábel táplálja. A megengedett feszültségesés 3 %. γ = 56 m/(Ω·mm²). Számítsa ki az áramot (két tizedes) és a feszültségesés szerinti legkisebb keresztmetszetet (két tizedes)!",
+  "explanation": "I = P/(√3·U·cosφ) = 22000/(1,732·400·0,9) = 35,28 A. ΔU<sub>meg</sub> = 3 %·400 = 12 V. A ≥ √3·I·l·cosφ/(γ·ΔU) = 1,732·35,28·85·0,9/(56·12) = 6,96 mm² → szabványos 10 mm² (a terhelhetőséget ezután külön ellenőrizni kell!). Érdekesség: I·cosφ = P/(√3·U), ezért a cosφ itt kiesik.",
+  "source": "VeI – Vezetékek villamos méretezése, 7. fejezet (ocr/VeI-Vezetékméretezés1.txt)",
+  "fields": [
+   {
+    "label": "I",
+    "unit": "A",
+    "answer": 35.28,
+    "tol": 0.02
+   },
+   {
+    "label": "A<sub>min</sub>",
+    "unit": "mm²",
+    "answer": 6.96,
+    "tol": 0.02
+   }
+  ]
+ },
+ {
+  "id": "III-terh-001",
+  "part": "III",
+  "topic": "terhelhetoseg",
+  "type": "single",
+  "difficulty": 1,
+  "points": 1,
+  "q": "Egy 2,5 mm²-es, PVC szigetelésű rézvezeték táblázati terhelhetősége a szerelési módjában (30 °C-ra) 24 A. A vezeték egy kazánházban halad, ahol a környezeti hőmérséklet 40 °C (k<sub>1</sub> = 0,87). Mekkora a megengedett tartós áram (I<sub>z</sub>)?",
+  "explanation": "I<sub>z</sub> = I<sub>táblázat</sub>·k<sub>1</sub> = 24 A·0,87 = 20,88 A. Melegebb környezetben a vezető kevesebb hőt tud leadni, ezért kisebb áram engedhető meg; 30 °C alatt a tényező 1-nél nagyobb.",
+  "source": "MSZ HD 60364-5-52:2011 B.52 táblázatok és csökkentő tényezők (MEE-VET 2019 méretezési előadás)",
+  "options": [
+   "20,88 A",
+   "27,59 A",
+   "24 A",
+   "18,96 A"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "Osztott a tényezővel szorzás helyett – a terhelhetőség melegben csökken, nem nő.",
+   "Ez a 30 °C-os táblázati érték, a korrekció elmaradt.",
+   "Ez a 45 °C-hoz tartozó 0,79-es tényezővel adódna."
+  ]
+ },
+ {
+  "id": "III-terh-002",
+  "part": "III",
+  "topic": "terhelhetoseg",
+  "type": "number",
+  "difficulty": 2,
+  "points": 2,
+  "q": "Három háromfázisú áramkör 2,5 mm²-es rézvezetékei közös védőcsőben haladnak (k<sub>2</sub> = 0,70), a környezeti hőmérséklet 35 °C (k<sub>1</sub> = 0,94). A táblázati terhelhetőség (B1, 3 terhelt ér, 30 °C) 21 A. Mekkora egy áramkör megengedett tartós árama? Két tizedesre kerekítsen!",
+  "explanation": "A csökkentő tényezők szorzódnak: I<sub>z</sub> = I<sub>t</sub>·k<sub>1</sub>·k<sub>2</sub> = 21·0,94·0,70 = 13,82 A. Ez 16 A-es védelemhez már kevés (13,82 A < 16 A), legfeljebb 13 A-es kismegszakító választható – a csőbe zsúfolás és a meleg együtt jelentősen csökkenti a terhelhetőséget.",
+  "source": "MSZ HD 60364-5-52:2011 B.52 táblázatok és csökkentő tényezők (MEE-VET 2019 méretezési előadás)",
+  "fields": [
+   {
+    "label": "I<sub>z</sub>",
+    "unit": "A",
+    "answer": 13.82,
+    "tol": 0.02
+   }
+  ]
+ },
+ {
+  "id": "III-terh-003",
+  "part": "III",
+  "topic": "terhelhetoseg",
+  "type": "single",
+  "difficulty": 2,
+  "points": 1,
+  "q": "Egy egyfázisú áramkör üzemi árama 20 A, és ugyanakkora a védelem névleges árama is. Egy másik áramkörrel közös csőben halad (k<sub>2</sub> = 0,80), a környezeti hőmérséklet 40 °C (k<sub>1</sub> = 0,87). Táblázat (B1 szerelési mód (köpeny nélküli vezeték védőcsőben, falon), 2 terhelt ér, PVC, Cu, 30 °C): 1,5 mm²: 17,5 A · 2,5 mm²: 24 A · 4 mm²: 32 A · 6 mm²: 41 A · 10 mm²: 57 A. Melyik a legkisebb megfelelő keresztmetszet terhelhetőség szerint?",
+  "explanation": "A táblázatban keresendő érték: I<sub>t</sub> ≥ I<sub>n</sub>/(k<sub>1</sub>·k<sub>2</sub>) = 20/(0,87·0,80) = 28,74 A. Az első ennél nagyobb táblázati érték 32 A → 4 mm². Ellenőrzés: I<sub>z</sub> = 32·0,87·0,80 = 22,27 A ≥ 20 A.",
+  "source": "MSZ HD 60364-5-52:2011 B.52 táblázatok és csökkentő tényezők (MEE-VET 2019 méretezési előadás)",
+  "options": [
+   "4 mm²",
+   "2,5 mm²",
+   "6 mm²",
+   "1,5 mm²"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "A korrekció nélkül 24 A ≥ 20 A megfelelne, de korrigálva I<sub>z</sub> = 24·0,87·0,8 = 16,7 A < 20 A.",
+   "Megfelel, de nem a legkisebb.",
+   "Korrekció nélkül is kevés (17,5 A < 20 A)."
+  ]
+ },
+ {
+  "id": "III-terh-004",
+  "part": "III",
+  "topic": "terhelhetoseg",
+  "type": "single",
+  "difficulty": 2,
+  "points": 1,
+  "q": "Egy áramkör üzemi árama I<sub>B</sub> = 14 A, a vezeték megengedett tartós árama a korrekciókkal I<sub>z</sub> = 19,5 A. Melyik névleges áramú kismegszakító felel meg a túlterhelés elleni védelem feltételének?",
+  "explanation": "A feltétel I<sub>B</sub> ≤ I<sub>n</sub> ≤ I<sub>z</sub>, azaz 14 A ≤ I<sub>n</sub> ≤ 19,5 A. A szabványos sorból (6, 10, 13, 16, 20, 25 A…) csak a 16 A esik bele. Kismegszakítónál az I<sub>2</sub> ≤ 1,45·I<sub>z</sub> feltétel ezzel automatikusan teljesül (I<sub>2</sub> = 1,45·I<sub>n</sub>).",
+  "source": "MSZ HD 60364-4-43 433.1 (régi MSZ 2364-430 5.2): IB ≤ In ≤ Iz, I2 ≤ 1,45·Iz",
+  "options": [
+   "16 A",
+   "10 A",
+   "13 A",
+   "20 A",
+   "25 A"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "10 A < I<sub>B</sub>: üzemszerűen is leoldana.",
+   "13 A < 14 A = I<sub>B</sub>: nem teljesül az I<sub>B</sub> ≤ I<sub>n</sub>.",
+   "20 A > 19,5 A = I<sub>z</sub>: a vezetéket nem védi túlterhelés ellen.",
+   "Jóval nagyobb az I<sub>z</sub>-nél."
+  ]
+ },
+ {
+  "id": "III-terh-005",
+  "part": "III",
+  "topic": "terhelhetoseg",
+  "type": "truefalse",
+  "difficulty": 2,
+  "points": 5,
+  "q": "Döntse el a vezeték és a túlterhelés elleni védelem összehangolására vonatkozó állításokról, hogy igazak vagy hamisak!",
+  "explanation": "MSZ HD 60364-4-43 (régen MSZ 2364-430): I<sub>B</sub> ≤ I<sub>n</sub> ≤ I<sub>z</sub> és I<sub>2</sub> ≤ 1,45·I<sub>z</sub>. Az I<sub>n</sub> ≤ I<sub>z</sub> mindig kell, mert a túlterhelést a felhasználó okozhatja (pl. több készülék egy aljzaton). Kismegszakító egyezményes kioldóárama 1,45·I<sub>n</sub>, így I<sub>n</sub> ≤ I<sub>z</sub> esetén I<sub>2</sub> ≤ 1,45·I<sub>z</sub>. Melegebb környezetben k<sub>1</sub> < 1.",
+  "source": "MSZ HD 60364-4-43 433.1 (régi MSZ 2364-430 5.2): IB ≤ In ≤ Iz, I2 ≤ 1,45·Iz",
+  "statements": [
+   {
+    "text": "Teljesülnie kell az I<sub>B</sub> ≤ I<sub>n</sub> ≤ I<sub>z</sub> feltételnek.",
+    "answer": true
+   },
+   {
+    "text": "Teljesülnie kell az I<sub>2</sub> ≤ 1,45·I<sub>z</sub> feltételnek, ahol I<sub>2</sub> a védelem biztos működési (egyezményes kioldó) árama.",
+    "answer": true
+   },
+   {
+    "text": "Ha az üzemi áram kicsi, a védelem névleges árama nagyobb lehet a vezeték terhelhetőségénél.",
+    "answer": false
+   },
+   {
+    "text": "Kismegszakítónál I<sub>2</sub> = 1,45·I<sub>n</sub>, ezért ha I<sub>n</sub> ≤ I<sub>z</sub>, a második feltétel is teljesül.",
+    "answer": true
+   },
+   {
+    "text": "40 °C-os környezetben a vezeték terhelhetősége nagyobb a 30 °C-os táblázati értéknél.",
+    "answer": false
+   }
+  ]
+ },
+ {
+  "id": "III-terh-006",
+  "part": "III",
+  "topic": "terhelhetoseg",
+  "type": "number",
+  "difficulty": 3,
+  "points": 2,
+  "q": "Egy vezetéket 25 A-es gG olvadóbiztosító véd, amelynek egyezményes kiolvadási árama I<sub>2</sub> = 1,6·I<sub>n</sub>. Legalább mekkora legyen a vezeték megengedett tartós árama (I<sub>z</sub>), hogy az I<sub>2</sub> ≤ 1,45·I<sub>z</sub> feltétel teljesüljön? Két tizedesre kerekítsen!",
+  "explanation": "I<sub>2</sub> = 1,6·25 = 40 A. I<sub>z</sub> ≥ I<sub>2</sub>/1,45 = 40/1,45 = 27,59 A. Olvadóbiztosítónál tehát nem elég az I<sub>n</sub> ≤ I<sub>z</sub> (25 A); a vezetéknek kb. 10 %-kal többet kell bírnia (I<sub>n</sub> ≤ 0,9·I<sub>z</sub>). Kismegszakítónál (I<sub>2</sub> = 1,45·I<sub>n</sub>) elég az I<sub>z</sub> ≥ 25 A.",
+  "source": "MSZ HD 60364-4-43 433.1 (régi MSZ 2364-430 5.2): IB ≤ In ≤ Iz, I2 ≤ 1,45·Iz",
+  "fields": [
+   {
+    "label": "I<sub>z,min</sub>",
+    "unit": "A",
+    "answer": 27.59,
+    "tol": 0.02
+   }
+  ]
+ },
+ {
+  "id": "III-terh-007",
+  "part": "III",
+  "topic": "terhelhetoseg",
+  "type": "order",
+  "difficulty": 2,
+  "points": 5,
+  "q": "Rendezze sorba egy csatlakozó- vagy fővezeték keresztmetszet-választásának lépéseit!",
+  "explanation": "A méretezés a terhelésből indul (I<sub>B</sub>), ehhez választjuk a védelmet, majd a vezetéket úgy, hogy a korrigált terhelhetőség legalább I<sub>n</sub> legyen. Ezután a feszültségesés gyakran nagyobb keresztmetszetet követel (hosszú csatlakozóvezetéknél ez a döntő). Végül a hibavédelmi (kioldási) feltételt ellenőrizzük – az MSZ 447 is előírja a feszültségesésre, melegedésre és áramütés elleni védelemre való méretezést.",
+  "source": "MEE-VET 2019, Rajnoha L.: Fogyasztásmérőhelyek és méretlen fővezetékek méretezése (MSZ 447:2019); MSZ HD 60364-4-43 433.1 (régi MSZ 2364-430 5.2): IB ≤ In ≤ Iz, I2 ≤ 1,45·Iz",
+  "items": [
+   "A méretezési teljesítményből az üzemi (méretezési) áram I<sub>B</sub> meghatározása.",
+   "A túláramvédelem I<sub>n</sub> névleges áramának megválasztása (I<sub>n</sub> ≥ I<sub>B</sub>).",
+   "A szerelési mód és a korrekciós tényezők (k<sub>1</sub>, k<sub>2</sub>) meghatározása.",
+   "A táblázatból a legkisebb keresztmetszet kiválasztása, amelyre I<sub>z</sub> = I<sub>t</sub>·k<sub>1</sub>·k<sub>2</sub> ≥ I<sub>n</sub>.",
+   "A feszültségesés ellenőrzése; ha nem felel meg, egy fokozattal nagyobb keresztmetszet.",
+   "Az áramütés elleni védelem (önműködő lekapcsolás) feltételének ellenőrzése."
+  ]
+ },
+ {
+  "id": "III-terh-008",
+  "part": "III",
+  "topic": "terhelhetoseg",
+  "type": "single",
+  "difficulty": 3,
+  "points": 2,
+  "q": "A rajz szerinti háromfázisú (3×400/230 V) lakás fővezeték méretezési árama fázisonként 20 A (13,8 kW), cosφ = 1. A megengedett feszültségesés 1 % (számoljon ΔU = √3·I·l/(γ·A) képlettel, γ = 56 m/(Ω·mm²)). Táblázat (B1 szerelési mód (köpeny nélküli vezeték védőcsőben, falon), 3 terhelt ér, PVC, Cu, 30 °C): 1,5 mm²: 15,5 A · 2,5 mm²: 21 A · 4 mm²: 28 A · 6 mm²: 36 A · 10 mm²: 50 A · 16 mm²: 68 A. Hőmérsékleti tényező 35 °C-on: k<sub>1</sub> = 0,94. Melyik a legkisebb keresztmetszet, amely terhelhetőségre ÉS feszültségesésre is megfelel?",
+  "explanation": "Terhelhetőség: I<sub>t</sub> ≥ 20/0,94 = 21,28 A → 4 mm² (28 A). Feszültségesés: ΔU<sub>meg</sub> = 1 %·400 = 4 V; A ≥ √3·I·l/(γ·ΔU) = 1,732·20·28/(56·4) = 4,33 mm² → 6 mm². A kettő közül a nagyobb a mérvadó: 6 mm². Ellenőrzés: ε = 0,72 %.",
+  "source": "MEE-VET 2019, Rajnoha L.: Fogyasztásmérőhelyek és méretlen fővezetékek méretezése (MSZ 447:2019); MSZ HD 60364-5-52:2011 B.52 táblázatok és csökkentő tényezők (MEE-VET 2019 méretezési előadás)",
+  "options": [
+   "6 mm²",
+   "2,5 mm²",
+   "4 mm²",
+   "10 mm²"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "Korrekció nélkül 21 A ≥ 20 A, de I<sub>z</sub> = 21·0,94 = 19,74 A < 20 A.",
+   "Terhelhetőségre jó (28·0,94 = 26,3 A), de a feszültségesés 1,08 % > 1 %.",
+   "Megfelel, de nem a legkisebb."
+  ],
+  "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 500 110\" width=\"500\" font-family=\"sans-serif\" font-size=\"14\" stroke=\"black\" fill=\"none\" stroke-width=\"2\"><rect x=\"15\" y=\"40\" width=\"80\" height=\"50\"/><text x=\"55\" y=\"62\" fill=\"black\" stroke=\"none\" font-size=\"12\" text-anchor=\"middle\">mérőhely</text><text x=\"55\" y=\"78\" fill=\"black\" stroke=\"none\" font-size=\"12\" text-anchor=\"middle\">3×20 A</text><line x1=\"95\" y1=\"65\" x2=\"395\" y2=\"65\"/><text x=\"245\" y=\"55\" fill=\"black\" stroke=\"none\" font-size=\"14\" text-anchor=\"middle\">Cu, B1, l = 28 m</text><text x=\"245\" y=\"90\" fill=\"black\" stroke=\"none\" font-size=\"14\" text-anchor=\"middle\">3 terhelt ér, 35 °C, egyedül</text><rect x=\"395\" y=\"40\" width=\"90\" height=\"50\"/><text x=\"440\" y=\"62\" fill=\"black\" stroke=\"none\" font-size=\"12\" text-anchor=\"middle\">lakás-</text><text x=\"440\" y=\"78\" fill=\"black\" stroke=\"none\" font-size=\"12\" text-anchor=\"middle\">elosztó</text></svg>"
+ },
+ {
+  "id": "III-terh-009",
+  "part": "III",
+  "topic": "terhelhetoseg",
+  "type": "single",
+  "difficulty": 3,
+  "points": 2,
+  "q": "Egy egyfázisú (1×32 A, 7,36 kW) lakás mért fővezetéke 15 m hosszú, réz, B1 szerelési mód, 2 terhelt ér, 30 °C, egyedül halad. Táblázat: 1,5 mm²: 17,5 A · 2,5 mm²: 24 A · 4 mm²: 32 A · 6 mm²: 41 A · 10 mm²: 57 A · 16 mm²: 76 A. A megengedett feszültségesés erre a szakaszra 1 % (cosφ = 1, γ = 56 m/(Ω·mm²)). Melyik a legkisebb megfelelő keresztmetszet?",
+  "explanation": "Terhelhetőség: I<sub>t</sub> ≥ 32 A → 4 mm². Feszültségesés: ΔU<sub>meg</sub> = 1 %·230 = 2,3 V; A ≥ 2·I·l/(γ·ΔU) = 2·32·15/(56·2,3) = 7,45 mm² → 10 mm². Ellenőrzés: ε = 0,75 %. A rövid szakasz ellenére itt is a feszültségesés a döntő.",
+  "source": "MEE-VET 2019, Rajnoha L.: Fogyasztásmérőhelyek és méretlen fővezetékek méretezése (MSZ 447:2019); MSZ HD 60364-5-52:2011 B.52 táblázatok és csökkentő tényezők (MEE-VET 2019 méretezési előadás)",
+  "options": [
+   "10 mm²",
+   "4 mm²",
+   "6 mm²",
+   "16 mm²"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "Terhelhetőségre éppen megfelel (32 A), de a feszültségesés kb. 2,3 %.",
+   "A feszültségesés 6 mm²-en 1,24 % > 1 %.",
+   "Megfelel, de nem a legkisebb."
+  ]
+ },
+ {
+  "id": "III-terh-010",
+  "part": "III",
+  "topic": "terhelhetoseg",
+  "type": "number",
+  "difficulty": 2,
+  "points": 2,
+  "q": "Egy 25 A-es kismegszakítóval védett áramkör vezetékei 40 °C-os környezetben (k<sub>1</sub> = 0,87), három áramkörrel együtt kötegelve (k<sub>2</sub> = 0,70) haladnak. Legalább mekkora táblázati (30 °C-os, egyedül fektetett) terhelhetőségű keresztmetszetet kell választani? Két tizedesre kerekítsen!",
+  "explanation": "I<sub>z</sub> = I<sub>t</sub>·k<sub>1</sub>·k<sub>2</sub> ≥ I<sub>n</sub> → I<sub>t</sub> ≥ I<sub>n</sub>/(k<sub>1</sub>·k<sub>2</sub>) = 25/(0,87·0,70) = 25/0,609 = 41,05 A. Tipikus hiba szorozni a tényezőkkel osztás helyett (a hibás eredmény 15,22 A lenne).",
+  "source": "MSZ HD 60364-5-52:2011 B.52 táblázatok és csökkentő tényezők (MEE-VET 2019 méretezési előadás)",
+  "fields": [
+   {
+    "label": "I<sub>t,min</sub>",
+    "unit": "A",
+    "answer": 41.05,
+    "tol": 0.02
+   }
+  ]
+ },
+ {
+  "id": "III-terh-011",
+  "part": "III",
+  "topic": "terhelhetoseg",
+  "type": "single",
+  "difficulty": 1,
+  "points": 1,
+  "q": "Melyik MSZ HD 60364-5-52 szerinti szerelési módba tartozik a falon kívül, falra szerelt védőcsőbe húzott, köpeny nélküli (pl. H07V-U) vezeték?",
+  "explanation": "B1: köpeny nélküli vezeték védőcsőben vagy csatornában fal mentén (téglafalon); B2: ugyanez többerű kábellel/köpenyes vezetékkel. A1/A2: hőszigetelt falban, a legkisebb terhelhetőség. C: falra bilincselt kábel. E/F/G: levegőben. Minél jobb a hűtés, annál nagyobb a táblázati érték (A1 < B1 < C < E).",
+  "source": "MSZ HD 60364-5-52:2011 B.52 táblázatok és csökkentő tényezők (MEE-VET 2019 méretezési előadás)",
+  "options": [
+   "B1",
+   "A1",
+   "C",
+   "E"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "A1: védőcsőben, de hőszigetelt falban – rosszabb hűtés.",
+   "C: köpenyes vezeték vagy kábel közvetlenül a falon (cső nélkül).",
+   "E: többerű kábel szabad levegőben (pl. perforált tálcán)."
+  ]
+ },
+ {
+  "id": "III-terh-012",
+  "part": "III",
+  "topic": "terhelhetoseg",
+  "type": "match",
+  "difficulty": 2,
+  "points": 5,
+  "q": "Párosítsa a szerelési módok jelét a leírásukkal!",
+  "explanation": "A betű a hűtési körülményt jelzi: A – hőszigetelt falba zárva (legrosszabb), B – csőben/csatornában fal mentén, C – közvetlenül a falon, D – földben, E/F/G – levegőben (legjobb). Az 1/2 index a köpeny nélküli vezetéket (1) és a többerű kábelt (2) különbözteti meg.",
+  "source": "MSZ HD 60364-5-52:2011 B.52 táblázatok és csökkentő tényezők (MEE-VET 2019 méretezési előadás)",
+  "pairs": [
+   [
+    "A1",
+    "köpeny nélküli vezeték védőcsőben, hőszigetelt falban"
+   ],
+   [
+    "B1",
+    "köpeny nélküli vezeték védőcsőben, falon (téglafal mentén)"
+   ],
+   [
+    "B2",
+    "többerű kábel védőcsőben, falon"
+   ],
+   [
+    "C",
+    "egy- vagy többerű kábel közvetlenül a falon"
+   ],
+   [
+    "E",
+    "többerű kábel szabad levegőben, perforált tálcán"
+   ]
+  ],
+  "distractors": [
+   "kábel földben, védőcsőben"
+  ]
+ },
+ {
+  "id": "III-terh-013",
+  "part": "III",
+  "topic": "terhelhetoseg",
+  "type": "single",
+  "difficulty": 2,
+  "points": 1,
+  "q": "A rajz szerint egy elosztóból hat egyfázisú áramkör 2,5 mm²-es vezetékei egy közös gégecsőben futnak. Csoportosítási tényező: k<sub>2</sub> (csoportosítás, kötegelve/csőben): 1 áramkör: 1,00 · 2 áramkör: 0,80 · 3 áramkör: 0,70 · 4 áramkör: 0,65 · 5 áramkör: 0,60 · 6 áramkör: 0,57. Az egyedül fektetett, 2 terhelt eres táblázati érték 24 A, a környezet 30 °C. Mekkora az egyes áramkörök megengedett tartós árama?",
+  "explanation": "I<sub>z</sub> = 24·0,57 = 13,68 A. Ez kevesebb egy 16 A-es kismegszakítónál, tehát hat áramkört nem szabad 2,5 mm²-rel, 16 A-es védelemmel egy kötegben vezetni – szét kell választani őket vagy nagyobb keresztmetszet kell.",
+  "source": "MSZ HD 60364-5-52:2011 B.52 táblázatok és csökkentő tényezők (MEE-VET 2019 méretezési előadás)",
+  "options": [
+   "13,68 A",
+   "24 A",
+   "16,8 A",
+   "6,84 A"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "A csoportosítási tényező elmaradt.",
+   "Ez 3 áramkörre (0,70) vonatkozna; itt 6 áramkör van.",
+   "A tényezőt nem kell még az erek számával is osztani: 2 terhelt ér a táblázatban már benne van."
+  ],
+  "svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 470 220\" width=\"470\" font-family=\"sans-serif\" font-size=\"14\" stroke=\"black\" fill=\"none\" stroke-width=\"2\"><circle cx=\"110\" cy=\"110\" r=\"95\"/><circle cx=\"153.0\" cy=\"110.0\" r=\"11\"/><circle cx=\"177.0\" cy=\"110.0\" r=\"11\"/><text x=\"165.0\" y=\"94.0\" fill=\"black\" stroke=\"none\" font-size=\"12\" text-anchor=\"middle\">1</text><circle cx=\"125.5\" cy=\"157.6\" r=\"11\"/><circle cx=\"149.5\" cy=\"157.6\" r=\"11\"/><text x=\"137.5\" y=\"141.6313972081441\" fill=\"black\" stroke=\"none\" font-size=\"12\" text-anchor=\"middle\">2</text><circle cx=\"70.5\" cy=\"157.6\" r=\"11\"/><circle cx=\"94.5\" cy=\"157.6\" r=\"11\"/><text x=\"82.50000000000001\" y=\"141.63139720814414\" fill=\"black\" stroke=\"none\" font-size=\"12\" text-anchor=\"middle\">3</text><circle cx=\"43.0\" cy=\"110.0\" r=\"11\"/><circle cx=\"67.0\" cy=\"110.0\" r=\"11\"/><text x=\"55.0\" y=\"94.0\" fill=\"black\" stroke=\"none\" font-size=\"12\" text-anchor=\"middle\">4</text><circle cx=\"70.5\" cy=\"62.4\" r=\"11\"/><circle cx=\"94.5\" cy=\"62.4\" r=\"11\"/><text x=\"82.49999999999997\" y=\"46.36860279185589\" fill=\"black\" stroke=\"none\" font-size=\"12\" text-anchor=\"middle\">5</text><circle cx=\"125.5\" cy=\"62.4\" r=\"11\"/><circle cx=\"149.5\" cy=\"62.4\" r=\"11\"/><text x=\"137.5\" y=\"46.36860279185588\" fill=\"black\" stroke=\"none\" font-size=\"12\" text-anchor=\"middle\">6</text><text x=\"330\" y=\"90\" fill=\"black\" stroke=\"none\" font-size=\"13\" text-anchor=\"middle\">gégecső keresztmetszete</text><text x=\"330\" y=\"112\" fill=\"black\" stroke=\"none\" font-size=\"13\" text-anchor=\"middle\">6 áramkör, egyenként L + N</text><text x=\"330\" y=\"134\" fill=\"black\" stroke=\"none\" font-size=\"12\" text-anchor=\"middle\">(a PE erek nincsenek ábrázolva)</text></svg>"
+ },
+ {
+  "id": "III-terh-014",
+  "part": "III",
+  "topic": "terhelhetoseg",
+  "type": "single",
+  "difficulty": 2,
+  "points": 1,
+  "q": "Egy 4 mm²-es rézvezeték táblázati terhelhetősége 32 A. A környezet 45 °C (k<sub>1</sub> = 0,79), és egy másik áramkörrel közös csőben halad (k<sub>2</sub> = 0,80). Legfeljebb mekkora névleges áramú kismegszakító védheti?",
+  "explanation": "I<sub>z</sub> = 32·0,79·0,80 = 20,22 A. I<sub>n</sub> ≤ I<sub>z</sub>, a szabványos sorból a legnagyobb ilyen érték: 20 A.",
+  "source": "MSZ HD 60364-5-52:2011 B.52 táblázatok és csökkentő tényezők (MEE-VET 2019 méretezési előadás); MSZ HD 60364-4-43 433.1 (régi MSZ 2364-430 5.2): IB ≤ In ≤ Iz, I2 ≤ 1,45·Iz",
+  "options": [
+   "20 A",
+   "16 A",
+   "25 A",
+   "32 A"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "Megfelel, de nem a legnagyobb lehetséges érték.",
+   "25 A > I<sub>z</sub> = 20,22 A.",
+   "Ez a korrekció nélküli táblázati érték."
+  ]
+ },
+ {
+  "id": "III-terh-015",
+  "part": "III",
+  "topic": "terhelhetoseg",
+  "type": "truefalse",
+  "difficulty": 1,
+  "points": 5,
+  "q": "Döntse el a vezetékek terhelhetőségére vonatkozó állításokról, hogy igazak vagy hamisak!",
+  "explanation": "Több terhelt ér több hőt termel ugyanabban a burkolatban, ezért kisebb az áramonkénti terhelhetőség. A PE üzemszerűen nem vezet áramot, és szimmetrikus terhelésnél az N sem (kivéve jelentős felharmonikus áram esetén). A PVC 70 °C, az XLPE/EPR 90 °C vezetőhőmérsékletet bír (MSZ 2364-523 52-A táblázat). Hőszigetelésben a hűtés rosszabb.",
+  "source": "MSZ 2364-523:1998 523.5 és 52-A táblázat; MSZ HD 60364-5-52:2011 B.52 táblázatok és csökkentő tényezők (MEE-VET 2019 méretezési előadás)",
+  "statements": [
+   {
+    "text": "Három terhelt érre kisebb a táblázati terhelhetőség, mint kettőre.",
+    "answer": true
+   },
+   {
+    "text": "A védővezetőt (PE) is terhelt érnek kell tekinteni.",
+    "answer": false
+   },
+   {
+    "text": "Szimmetrikus háromfázisú áramkörben a nullavezetőt nem számítjuk a terhelt erek közé.",
+    "answer": true
+   },
+   {
+    "text": "A PVC szigetelés legnagyobb tartós üzemi hőmérséklete 70 °C, az XLPE-é 90 °C.",
+    "answer": true
+   },
+   {
+    "text": "Hőszigetelt falban (A1) a terhelhetőség nagyobb, mint a falra szerelt csőben (B1).",
+    "answer": false
+   }
+  ]
+ },
+ {
+  "id": "III-terh-016",
+  "part": "III",
+  "topic": "terhelhetoseg",
+  "type": "number",
+  "difficulty": 3,
+  "points": 4,
+  "q": "Egy háromfázisú motor adatai: P<sub>n</sub> = 5,5 kW, η = 87 %, cosφ = 0,83, 3×400 V. A motort 13 A-es motorvédő kismegszakító védi. A vezeték 40 °C-on (k<sub>1</sub> = 0,87), három áramkörrel együtt (k<sub>2</sub> = 0,70) halad. Számítsa ki a motor üzemi áramát és a szükséges legkisebb táblázati terhelhetőséget! Két tizedesre kerekítsen!",
+  "explanation": "I<sub>B</sub> = P<sub>n</sub>/(η·√3·U·cosφ) = 5 500/(0,87·1,732·400·0,83) = 10,99 A ≤ 13 A = I<sub>n</sub>, rendben. I<sub>t</sub> ≥ I<sub>n</sub>/(k<sub>1</sub>·k<sub>2</sub>) = 13/(0,87·0,70) = 21,35 A. A vezetéket a védelem névleges áramára méretezzük, nem az üzemi áramra.",
+  "source": "VeI – Vezetékek villamos méretezése, 7. fejezet (ocr/VeI-Vezetékméretezés1.txt); MSZ HD 60364-5-52:2011 B.52 táblázatok és csökkentő tényezők (MEE-VET 2019 méretezési előadás)",
+  "fields": [
+   {
+    "label": "I<sub>B</sub>",
+    "unit": "A",
+    "answer": 10.99,
+    "tol": 0.02
+   },
+   {
+    "label": "I<sub>t,min</sub>",
+    "unit": "A",
+    "answer": 21.35,
+    "tol": 0.02
+   }
+  ]
+ },
+ {
+  "id": "III-terh-017",
+  "part": "III",
+  "topic": "terhelhetoseg",
+  "type": "single",
+  "difficulty": 2,
+  "points": 1,
+  "q": "Egy motoráramkör vezetékének a korrekciók után szükséges táblázati terhelhetősége 21,35 A. Táblázat (B1 szerelési mód (köpeny nélküli vezeték védőcsőben, falon), 3 terhelt ér, PVC, Cu, 30 °C): 1,5 mm²: 15,5 A · 2,5 mm²: 21 A · 4 mm²: 28 A · 6 mm²: 36 A · 10 mm²: 50 A. Melyik a legkisebb megfelelő keresztmetszet?",
+  "explanation": "Olyan keresztmetszet kell, amelynek táblázati értéke legalább 21,35 A. 2,5 mm²: 21 A (kevés), 4 mm²: 28 A (megfelel). A határértéket lefelé kerekíteni nem szabad, még kis eltérésnél sem.",
+  "source": "MSZ HD 60364-5-52:2011 B.52 táblázatok és csökkentő tényezők (MEE-VET 2019 méretezési előadás)",
+  "options": [
+   "4 mm²",
+   "2,5 mm²",
+   "6 mm²",
+   "1,5 mm²"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "21 A < 21,35 A – nagyon közel van, de nem éri el.",
+   "Megfelel, de nem a legkisebb.",
+   "15,5 A, jóval kevés."
+  ]
+ },
+ {
+  "id": "III-terh-018",
+  "part": "III",
+  "topic": "terhelhetoseg",
+  "type": "dropdown",
+  "difficulty": 1,
+  "points": 3,
+  "q": "Egészítse ki a túlterhelés elleni védelem feltételének jelöléseit!",
+  "explanation": "I<sub>B</sub>: a terhelés által tartósan felvett áram; I<sub>n</sub>: a kismegszakító vagy biztosító névleges (beállított) árama; I<sub>z</sub>: a vezeték tartósan megengedett árama a szerelési mód és a korrekciós tényezők figyelembevételével. A védelem tehát a terhelés és a vezeték közé esik.",
+  "source": "MSZ HD 60364-4-43 433.1 (régi MSZ 2364-430 5.2): IB ≤ In ≤ Iz, I2 ≤ 1,45·Iz",
+  "text": "Az I<sub>B</sub> ≤ I<sub>n</sub> ≤ I<sub>z</sub> összefüggésben I<sub>B</sub> az áramkör {0}, I<sub>n</sub> a {1}, I<sub>z</sub> a {2}.",
+  "blanks": [
+   {
+    "options": [
+     "üzemi (méretezési) árama",
+     "zárlati árama",
+     "kioldási árama"
+    ],
+    "answer": 0
+   },
+   {
+    "options": [
+     "védelmi eszköz névleges árama",
+     "vezeték terhelhetősége",
+     "motor indítási árama"
+    ],
+    "answer": 0
+   },
+   {
+    "options": [
+     "vezeték megengedett tartós árama (korrekciókkal)",
+     "kismegszakító zárlati megszakítóképessége",
+     "fogyasztásmérő maximális árama"
+    ],
+    "answer": 0
+   }
+  ]
+ },
+ {
+  "id": "III-terh-019",
+  "part": "III",
+  "topic": "terhelhetoseg",
+  "type": "number",
+  "difficulty": 1,
+  "points": 4,
+  "q": "Egy 16 A-es kismegszakító egyezményes kioldóárama I<sub>2</sub> = 1,45·I<sub>n</sub>. Mekkora az I<sub>2</sub>, és mekkora az 1,45·I<sub>z</sub> érték, ha a vezeték I<sub>z</sub> = 17,5 A? (Egy-egy tizedes.)",
+  "explanation": "I<sub>2</sub> = 1,45·16 = 23,2 A; 1,45·I<sub>z</sub> = 1,45·17,5 = 25,38 A. Mivel 23,2 ≤ 25,4, az I<sub>2</sub> ≤ 1,45·I<sub>z</sub> feltétel teljesül – kismegszakítónál ez mindig így van, ha I<sub>n</sub> ≤ I<sub>z</sub>.",
+  "source": "MSZ HD 60364-4-43 433.1 (régi MSZ 2364-430 5.2): IB ≤ In ≤ Iz, I2 ≤ 1,45·Iz",
+  "fields": [
+   {
+    "label": "I<sub>2</sub>",
+    "unit": "A",
+    "answer": 23.2,
+    "tol": 0.02
+   },
+   {
+    "label": "1,45·I<sub>z</sub>",
+    "unit": "A",
+    "answer": 25.4,
+    "tol": 0.02
+   }
+  ]
+ },
+ {
+  "id": "III-terh-020",
+  "part": "III",
+  "topic": "terhelhetoseg",
+  "type": "single",
+  "difficulty": 1,
+  "points": 1,
+  "q": "A feszültségesés-számítás 7,45 mm² szükséges keresztmetszetet adott. Melyik szabványos keresztmetszetet kell választani?",
+  "explanation": "Szabványos sor: 1,5 – 2,5 – 4 – 6 – 10 – 16 – 25 – 35 – 50 – 70 – 95 mm². Mindig a számított értéknél nagyobb vagy egyenlő legkisebb értéket választjuk, itt 10 mm²-t.",
+  "source": "VeI – Vezetékek villamos méretezése, 7. fejezet (ocr/VeI-Vezetékméretezés1.txt)",
+  "options": [
+   "10 mm²",
+   "6 mm²",
+   "8 mm²",
+   "16 mm²"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "Lefelé kerekítés – a feszültségesés túllépné a határt.",
+   "Nincs 8 mm²-es szabványos keresztmetszet.",
+   "Megfelel, de nem a legkisebb."
+  ]
+ },
+ {
+  "id": "III-terh-021",
+  "part": "III",
+  "topic": "terhelhetoseg",
+  "type": "group",
+  "difficulty": 1,
+  "points": 4,
+  "q": "Csoportosítsa a keresztmetszeteket aszerint, hogy szerepelnek-e a szabványos rézvezető-sorban!",
+  "explanation": "A szabványos sor (MSZ EN 60228): 0,5 – 0,75 – 1 – 1,5 – 2,5 – 4 – 6 – 10 – 16 – 25 – 35 – 50 – 70 – 95 – 120 mm²… A 3, 8, 12 és 20 mm² nem létezik, a számított értéket a sor következő elemére kell felkerekíteni.",
+  "source": "VeI – Vezetékek villamos méretezése, 7. fejezet (ocr/VeI-Vezetékméretezés1.txt)",
+  "groups": [
+   "szabványos keresztmetszet",
+   "nem szabványos érték"
+  ],
+  "items": [
+   {
+    "text": "1,5 mm²",
+    "group": 0
+   },
+   {
+    "text": "2,5 mm²",
+    "group": 0
+   },
+   {
+    "text": "6 mm²",
+    "group": 0
+   },
+   {
+    "text": "16 mm²",
+    "group": 0
+   },
+   {
+    "text": "35 mm²",
+    "group": 0
+   },
+   {
+    "text": "3 mm²",
+    "group": 1
+   },
+   {
+    "text": "8 mm²",
+    "group": 1
+   },
+   {
+    "text": "12 mm²",
+    "group": 1
+   },
+   {
+    "text": "20 mm²",
+    "group": 1
+   }
+  ]
+ },
+ {
+  "id": "III-terh-022",
+  "part": "III",
+  "topic": "terhelhetoseg",
+  "type": "multi",
+  "difficulty": 2,
+  "points": 3,
+  "q": "Mely tényezők miatt kell a táblázati terhelhetőséget csökkentő tényezővel módosítani? (Több helyes válasz van; a rossz jelölés pontlevonással jár.)",
+  "explanation": "A terhelhetőség a vezető hőleadásától függ: környezeti hőmérséklet (k<sub>1</sub>), csoportosítás/halmozás (k<sub>2</sub>), földben a talaj hőellenállása, valamint a nullavezetőt terhelő felharmonikusok. A hossz és a megengedett feszültségesés a feszültségesésre való méretezés része, nem a melegedésé.",
+  "source": "MSZ HD 60364-5-52:2011 B.52 táblázatok és csökkentő tényezők (MEE-VET 2019 méretezési előadás)",
+  "options": [
+   "a 30 °C-nál magasabb környezeti hőmérséklet",
+   "több áramkör közös kötegben vagy csőben",
+   "jelentős felharmonikus áram a nullavezetőben",
+   "földben fektetett kábelnél a talaj hőellenállása",
+   "a vezeték hossza",
+   "a megengedett feszültségesés",
+   "a fogyasztó teljesítménytényezője"
+  ],
+  "answer": [
+   0,
+   1,
+   2,
+   3
+  ],
+  "wrongWhy": [
+   null,
+   null,
+   null,
+   null,
+   "A hossz a feszültségesést befolyásolja, a melegedést nem.",
+   "Ez külön méretezési feltétel, nem terhelhetőségi tényező.",
+   "A cosφ az áramot változtatja, nem a vezeték terhelhetőségét."
+  ]
+ },
+ {
+  "id": "III-terh-023",
+  "part": "III",
+  "topic": "terhelhetoseg",
+  "type": "single",
+  "difficulty": 1,
+  "points": 1,
+  "q": "Védőcsőbe húzott egyerű vezetékek esetén mekkora a csoportosítási csökkentő tényező, ha 3 áramkör halad egy csőben? (k<sub>2</sub> (csoportosítás, kötegelve/csőben): 1 áramkör: 1,00 · 2 áramkör: 0,80 · 3 áramkör: 0,70 · 4 áramkör: 0,65 · 5 áramkör: 0,60 · 6 áramkör: 0,57)",
+  "explanation": "A megadott táblázatból 3 áramkör → k<sub>2</sub> = 0,70. Tehát pl. egy 24 A-es táblázati érték 16,8 A-re csökken – ezért nem érdemes sok áramkört egy csőbe zsúfolni.",
+  "source": "MEE-VET 2019, Rajnoha L.: Fogyasztásmérőhelyek és méretlen fővezetékek méretezése (MSZ 447:2019)",
+  "options": [
+   "0,70",
+   "0,80",
+   "1,00",
+   "0,57"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "Ez 2 áramkörre vonatkozik.",
+   "Ez egyetlen áramkörre vonatkozik.",
+   "Ez 6 áramkörre vonatkozik."
+  ]
+ },
+ {
+  "id": "III-terh-024",
+  "part": "III",
+  "topic": "terhelhetoseg",
+  "type": "single",
+  "difficulty": 2,
+  "points": 1,
+  "q": "Egy társasház betápláló fővezetékének eredő méretezési árama 48,44 A fázisonként. A vezeték réz, A1 szerelési mód (védőcsőben hőszigetelt falban), 3 terhelt ér, 30 °C. Táblázat: 1,5 mm²: 13,5 A · 2,5 mm²: 18 A · 4 mm²: 24 A · 6 mm²: 31 A · 10 mm²: 42 A · 16 mm²: 56 A · 25 mm²: 73 A. Melyik keresztmetszet felel meg terhelhetőségre?",
+  "explanation": "A legkisebb, legalább 48,44 A táblázati értékű keresztmetszet: 16 mm² (56 A). A MEE-VET példában ezután ellenőrizték a 12 m-es fővezeték feszültségesését is (0,37 %), így a 4×16 + 16 mm²-es rézvezeték megfelelt.",
+  "source": "MEE-VET 2019, Rajnoha L.: Fogyasztásmérőhelyek és méretlen fővezetékek méretezése (MSZ 447:2019)",
+  "options": [
+   "16 mm²",
+   "10 mm²",
+   "25 mm²",
+   "6 mm²"
+  ],
+  "answer": [
+   0
+  ],
+  "wrongWhy": [
+   null,
+   "42 A < 48,44 A.",
+   "Megfelel, de nem a legkisebb.",
+   "31 A, jóval kevés."
+  ]
+ },
+ {
+  "id": "III-terh-025",
+  "part": "III",
+  "topic": "terhelhetoseg",
+  "type": "number",
+  "difficulty": 2,
+  "points": 2,
+  "q": "Egy 4 mm²-es rézerű, PVC szigetelésű, háromfázisú kábel közvetlenül a falra bilincselve halad (C mód, 3 terhelt ér). k<sub>1</sub> (környezeti hőmérséklet, PVC): 25 °C: 1,06 · 30 °C: 1,00 · 35 °C: 0,94 · 40 °C: 0,87 · 45 °C: 0,79 · 50 °C: 0,71. Táblázat (30 °C): 1,5 mm²: 17,5 A · 2,5 mm²: 24 A · 4 mm²: 32 A · 6 mm²: 41 A · 10 mm²: 57 A. Mekkora a megengedett tartós áram 45 °C-os környezetben? Két tizedesre kerekítsen!",
+  "explanation": "Táblázati érték 4 mm², C, 3 terhelt ér: 32 A. k<sub>1</sub>(45 °C) = 0,79. I<sub>z</sub> = 32·0,79 = 25,28 A → legfeljebb 25 A-es védelem választható.",
+  "source": "MSZ HD 60364-5-52:2011 B.52 táblázatok és csökkentő tényezők (MEE-VET 2019 méretezési előadás)",
+  "fields": [
+   {
+    "label": "I<sub>z</sub>",
+    "unit": "A",
+    "answer": 25.28,
+    "tol": 0.02
+   }
+  ]
+ },
+ {
+  "id": "III-terh-026",
+  "part": "III",
+  "topic": "terhelhetoseg",
+  "type": "number",
+  "difficulty": 3,
+  "points": 4,
+  "q": "Egy egyfázisú (230 V) konyhai áramkör üzemi árama 22 A, védelme 25 A-es kismegszakító. A vezeték 30 m, réz, egy másik áramkörrel közös csőben (k<sub>2</sub> = 0,80), 35 °C-on (k<sub>1</sub> = 0,94). Táblázat (B1 szerelési mód (köpeny nélküli vezeték védőcsőben, falon), 2 terhelt ér, PVC, Cu, 30 °C): 1,5 mm²: 17,5 A · 2,5 mm²: 24 A · 4 mm²: 32 A · 6 mm²: 41 A · 10 mm²: 57 A · 16 mm²: 76 A. Válassza ki a terhelhetőség szerint legkisebb keresztmetszetet, és számítsa ki rajta a feszültségesést az üzemi árammal (cosφ = 1, γ = 56 m/(Ω·mm²))! Adja meg a keresztmetszetet és a %-os esést (két tizedes)!",
+  "explanation": "I<sub>t</sub> ≥ I<sub>n</sub>/(k<sub>1</sub>·k<sub>2</sub>) = 25/(0,94·0,80) = 33,24 A → 6 mm² (41 A); a 4 mm² (32 A) kevés. ΔU = 2·I<sub>B</sub>·l/(γ·A) = 2·22·30/(56·6) = 3,93 V, ε = 1,71 % – a szokásos 3 %-on belül.",
+  "source": "MSZ HD 60364-5-52:2011 B.52 táblázatok és csökkentő tényezők (MEE-VET 2019 méretezési előadás); MSZ HD 60364-4-43 433.1 (régi MSZ 2364-430 5.2): IB ≤ In ≤ Iz, I2 ≤ 1,45·Iz",
+  "fields": [
+   {
+    "label": "A",
+    "unit": "mm²",
+    "answer": 6,
+    "tolAbs": 0.01
+   },
+   {
+    "label": "ε",
+    "unit": "%",
+    "answer": 1.71,
+    "tol": 0.02
+   }
+  ]
+ }
+]
