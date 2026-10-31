@@ -230,11 +230,18 @@ function weightedPick(pool, weightFn, n) {
 // ---------- exam composition ----------
 // Real structure: 100 points, parts 20/20/20/40, one sheet ordered by part.
 // targeted = same structure, but within each part the tasks come from your weak spots.
-function composeExam(targeted = false, keep = () => true) {
+// official = "Hivatalos szint": the real exam is easier than this bank (short one-fact questions, one-step
+// calcs, few matching tasks), so the pick is reweighted to its difficulty mix; without it = "Feketeöv".
+const OFFICIAL_MIX = { 1: 0.55, 2: 0.40, 3: 0.05 };
+const officialType = q => (q.type === 'match' || q.type === 'group' ? 0.4 : 1);
+function composeExam(targeted = false, keep = () => true, official = false) {
   const ids = [], tm = topicModel(), now = Date.now();
   for (const p of TOPICS.parts) {
     const budget = Math.round(EXAM_POINTS * p.weight);
     const pool = QUESTIONS.filter(q => q.part === p.id && keep(q));
+    const share = {};
+    for (const q of pool) share[q.difficulty] = (share[q.difficulty] || 0) + 1 / pool.length;
+    const mix = q => official ? (OFFICIAL_MIX[q.difficulty] || 0.05) / share[q.difficulty] * officialType(q) : 1;
     let pts = 0;
     if (targeted) {
       for (const q of weightedPick(pool, q => priority(q, tm, now) ** 2, pool.length)) {
@@ -244,7 +251,7 @@ function composeExam(targeted = false, keep = () => true) {
       continue;
     }
     // round-robin over topics for coverage, like the KKK's per-topic task list; prefer less-seen questions
-    const ordered = weightedPick(pool, q => 1 / (1 + (S.stats[q.id]?.n || 0)), pool.length);
+    const ordered = weightedPick(pool, q => mix(q) / (1 + (S.stats[q.id]?.n || 0)), pool.length);
     const byTopic = {};
     for (const q of ordered) (byTopic[q.topic] ||= []).push(q);
     const queues = shuffle(Object.values(byTopic));
@@ -660,7 +667,8 @@ function renderHome() {
           <div class="col"><button class="btn primary" data-base="practice">Gyakorlás (20)</button><button class="btn" data-base="exam">Alapvizsga</button></div></div>
         <div class="mode"><div><b>⚡ Legyen Ön is villanyszerelő!</b><p>Kvízjáték Fázis Ferivel: óvodástól Albert Einsteinig, felezéssel, hanggal.${S.game?.best && typeof RANKS !== 'undefined' ? ` Legjobb: ${esc(RANKS[S.game.best - 1].name)}` : ''}</p></div><button class="btn" data-view="game">Játék</button></div>
         <div class="mode"><div><b>🏙️ Hálózatépítők (online)</b><p>Társasjáték 2–5 főnek, mindenki a saját telefonján: kábelezzétek be a várost – a vizsgakérdések adják a nyersanyagot.</p></div><a class="btn" href="party.html" target="_top">Parti</a></div>
-        <div class="mode"><div><b>Teljes próbavizsga</b><p>Valós KRÉTA-szabályok: ${EXAM_MIN} perc, ${EXAM_POINTS} pont, I–IV. rész 20/20/20/40 %.</p></div><button class="btn primary" data-go="exam">Indítás</button></div>
+        <div class="mode"><div><b>🎓 Próbavizsga – hivatalos szint</b><p>A valódi vizsga nehézségén: főleg rövid, egytényes kérdések, egylépéses számolás. Valós KRÉTA-szabályok: ${EXAM_MIN} perc, ${EXAM_POINTS} pont, I–IV. rész 20/20/20/40 %.</p></div><button class="btn primary" data-go="official">Indítás</button></div>
+        <div class="mode"><div><b>🥋 Próbavizsga – Feketeöv</b><p>Ugyanez a szerkezet, de a teljes bank nehezebb keverékével – keményebb, mint az igazi. Aki ezt hozza, az a vizsgán nyugodt lehet.</p></div><button class="btn" data-go="exam">Indítás</button></div>
         <div class="mode"><div><b>Célzott vizsga</b><p>Ugyanaz a vizsgaszerkezet, de a feladatok a gyengeségeidre szabva.</p></div><button class="btn" data-go="targeted" ${seen ? '' : 'disabled'}>Indítás</button></div>
         <div class="mode"><div><b>Gyengeség-felszámolás</b><p>Témánként: tananyag → gyakorlás → ellenőrző vizsga (≥80 %).</p></div><button class="btn" data-view="elim">${activeElim ? `${activeElim} folyamatban` : 'Megnyitás'}</button></div>
         <div class="mode"><div><b>Gyakorlás magyarázattal</b><p>Azonnali megoldás és magyarázat minden feladat után.</p></div><button class="btn" data-go="practice">Indítás</button></div>
@@ -737,7 +745,7 @@ function chart(vals) {
 
 function renderStart(mode) {
   const tm = topicModel();
-  const titles = { exam: 'Teljes próbavizsga', targeted: 'Célzott vizsga', weak: 'Gyengeségeim mini-vizsga', practice: 'Gyakorlás magyarázattal' };
+  const titles = { official: '🎓 Próbavizsga – hivatalos szint', exam: '🥋 Próbavizsga – Feketeöv', targeted: 'Célzott vizsga', weak: 'Gyengeségeim mini-vizsga', practice: 'Gyakorlás magyarázattal' };
   const rules = `<ul>
       <li>${EXAM_MIN} perc, ${EXAM_POINTS} pont; I. Alkatrész és anyagismeret 20 %, II. Technológia 20 %, III. Számítás 20 %, IV. Villamos biztonság 40 %.</li>
       <li>Ha nem tudod a választ, ne jelölj semmit, lépj tovább a <b>Következő feladat</b> gombbal: az átlépett feladatokat a végén még egyszer megkapod.</li>
@@ -746,7 +754,8 @@ function renderStart(mode) {
       <li>Lejáró időnél a vizsga automatikusan befejeződik. Sikeres: ≥ 40 %. A célod: 70–80 %.</li></ul>`;
   const el = h(`<div class="start"><div class="card">
     <h1>${titles[mode]}</h1>
-    ${mode === 'exam' ? `<p>Ugyanúgy működik, mint a KRÉTA interaktív vizsga:</p>${rules}` : ''}
+    ${mode === 'official' ? `<p>A valódi vizsga nehézségén: a fórumok és a 2024-es vizsgák alapján ott főleg rövid, egy tényre vagy egy képletre kérdező feladatok vannak, egylépéses számolással. Ezért itt kb. 55 % könnyű, 40 % közepes, 5 % nehéz feladat jön, kevés párosítással. Ugyanúgy működik, mint a KRÉTA interaktív vizsga:</p>${rules}` : ''}
+    ${mode === 'exam' ? `<p><b>Feketeöv:</b> a teljes kérdésbankból, a valódi vizsgánál nehezebb keverékkel (sok közepes és nehéz, többlépéses feladat). Ha ez 70 % fölött megy, a vizsgán nem érhet meglepetés. Ugyanúgy működik, mint a KRÉTA interaktív vizsga:</p>${rules}` : ''}
     ${mode === 'targeted' ? `<p>Valódi vizsgaszerkezet és szabályok, de minden vizsgarészen belül a feladatok a leggyengébb témáidból, az elrontott és az esedékes kérdésekből jönnek. Így a vizsgát a gyengeségeidre tervezve gyakorolod.</p>${rules}` : ''}
     ${mode === 'weak' ? `<p>Rövid, időre menő feladatsor a leggyengébb témáidból és a korábban elrontott kérdésekből (KRÉTA-szabályok, visszajelzés a végén).</p>` : ''}
     ${mode === 'practice' ? `<p>Minden feladat után <b>Ellenőrzés</b>: azonnal látod a helyes megoldást, a magyarázatot, hogy miért rossz a választott lehetőség, és a téma tananyagát.</p>` : ''}
@@ -759,7 +768,8 @@ function renderStart(mode) {
   wireBack(el);
   $('#go', el).addEventListener('click', () => {
     const nm = $('#nm', el).value.trim(); if (nm && nm !== profile().name) renameProfile(nm);
-    if (mode === 'exam') return newSession('exam', composeExam(), EXAM_MIN, 'Teljes próbavizsga');
+    if (mode === 'official') return newSession('exam', composeExam(false, undefined, true), EXAM_MIN, 'Próbavizsga – hivatalos szint', { level: 'official' });
+    if (mode === 'exam') return newSession('exam', composeExam(), EXAM_MIN, 'Próbavizsga – Feketeöv 🥋', { level: 'black' });
     if (mode === 'targeted') return newSession('exam', composeExam(true), EXAM_MIN, 'Célzott vizsga');
     const n = +$('#cnt', el).value;
     const topics = [...el.querySelectorAll('.chk input:checked')].map(i => i.value);
